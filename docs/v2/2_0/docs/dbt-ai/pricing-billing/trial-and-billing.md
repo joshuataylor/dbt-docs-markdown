@@ -20,13 +20,14 @@ Every new account gets free dbt Wizard usage credits to start. What you get, and
 | Plan                                                                                                                       | What you get                                        | How it renews             | When it runs out                                                                     |
 | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------ |
 | Developer and Starter, or self-hosted dbt with a free dbt account                                                          | 30-day trial with $100 in usage credits per account | One-time                  | Add a credit card and set a monthly spend limit or contact your account team.        |
-| Enterprise, including [legacy Enterprise](../../platform/billing/plans-and-billing.md#legacy-plans) | $100/month in usage credits per account             | Resets each billing month | [Contact your account team](https://www.getdbt.com/contact) to add usage spend       |
-| Enterprise+                                                                                                                | $200/month in usage credits per account             | Resets each billing month | [Contact your account team](https://www.getdbt.com/contact) to add usage spend       |
+| Enterprise, including [legacy Enterprise](../../platform/billing/plans-and-billing.md#legacy-plans) | $100/month in usage credits per account             | Resets each billing month | [Contact your account team](https://www.getdbt.com/contact) to add committed spend   |
+| Enterprise+                                                                                                                | $200/month in usage credits per account             | Resets each billing month | [Contact your account team](https://www.getdbt.com/contact) to add committed spend   |
 | [Legacy Team](../../platform/billing/plans-and-billing.md#legacy-plans)                             | No access to dbt Wizard                             | —                         | Move to a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing) |
 
-* On Developer and Starter plans, the trial is opt-in, so it won't start automatically. It ends when you deplete the $100 in credits or after 30 days, whichever comes first, and unused credits don't carry over.
+* On Developer and Starter plans, the trial is opt-in, so it won't start automatically. It ends when you use up the $100 in credits or after 30 days, whichever comes first, and unused credits don't carry over.
 * Legacy Enterprise plans get the same dbt Wizard access and monthly usage credits as current Enterprise. Only legacy Team has no access.
 * Enterprise and Enterprise+ usage credits are granted automatically — there's no trial to start and no credit card required. Credits don't roll over or get prorated, and if you downgrade out of Enterprise or Enterprise+, any unused credits are removed at the plan change.
+* Enterprise and Enterprise+ accounts should add a committed spend amount to their contract to keep using dbt Wizard. You may lose access to dbt Wizard without this commit in place. If you've set an optional monthly dbt Wizard spend limit, that still applies and pauses usage once reached.
 
 Running dbt Wizard from the CLI against a self-hosted dbt project?
 
@@ -90,17 +91,27 @@ What you do next depends on your plan.
 
 There's no trial to start and no self-serve credit card flow. Your monthly usage credits — $100/month on Enterprise and $200/month on Enterprise+ — are granted automatically per account, not per user, and shared by everyone on the account. [Contact your account team](https://www.getdbt.com/contact) to set up or adjust committed spend.
 
+Enterprise and Enterprise+ accounts should add a committed spend amount to their contract to keep using dbt Wizard. You may lose access to dbt Wizard without this commit in place. If you've set an optional monthly dbt Wizard spend limit, that still applies and pauses usage once reached.
+
 ## Manage your spend limit
 
 Your spend limit caps how much dbt managed dbt Wizard usage your account can consume in a billing period, across both the dbt platform and local development.
 
 * You only pay for actual usage, up to the limit you choose. The limit is a cap, not a prepaid charge.
-* If you reach your limit, dbt Wizard usage pauses until you raise it or the next billing cycle starts.
+* If you reach your limit, dbt Wizard usage pauses until you raise it or the next billing cycle starts. This applies on every plan, including Enterprise-tiered plans that set the optional limit. Enterprise-tiered accounts that don't have a committed spend amount will be prompted to connect with their account rep about adding a spend amount.
 * Limits are set separately for dbt Wizard and [dbt State](../../deploy/dbt-state-about.md), but both draw from your account's overall usage-based spend.
 
 To view or update your limit, go to **Billing & Usage > Usage-based features > Wizard**. Enterprise-tiered plans can [contact their account team](https://www.getdbt.com/contact) to adjust their limit.
 
 ![The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.](/img/docs/dbt-platform/wizard-manage-spend.png?v=2 "The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.")The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.
+
+## View your usage and costs
+
+To see what you've spent, go to **Account settings > Billing & Usage > Usage-based features** and open the **Wizard** tab. From there you can check:
+
+* How much of your included monthly usage you've used, what's left, and when it resets.
+* Your current dbt Wizard spend limit, with an **Edit** button to change it.
+* **dbt Wizard usage by model**, which breaks down your usage (in UTC) so you can see which models are driving your costs.
 
 ## How usage is measured
 

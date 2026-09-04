@@ -97,3 +97,5 @@ The command name differs by version: dbt Core 2.0 uses `dbt state explain` (with
 ```bash
 dbt-state explain --verbose -s my_model_name
 ```
+
+If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.

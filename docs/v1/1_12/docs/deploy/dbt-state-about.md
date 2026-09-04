@@ -223,6 +223,8 @@ The command name differs by version: dbt Core 2.0 uses `dbt state explain` (with
 dbt-state explain --verbose -s my_model_name
 ```
 
+If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](./dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
+
 What happens if dbt State servers fail?
 
 If dbt State servers are unavailable, dbt gracefully falls back to normal dbt behavior.
