@@ -97,6 +97,7 @@ To learn more about the dbt Administrative API, click [here](https://docs.getdbt
 
 * `cancel_job_run`: Cancels a running job.
 * `get_job_details`: Gets job configuration including triggers, schedule, and dbt commands.
+* `get_job_run_artifacts`: Downloads a specific artifact from a job run; large artifacts return a guidance message to retry with a jq\_filter; supports jq filtering for targeted extraction.
 * `get_job_run_details`: Gets run details including status, timing, steps, and artifacts.
 * `get_job_run_error`: Gets error and/or warning details for a job run; option to include or show warnings only.
 * `list_job_run_artifacts`: Lists available artifacts from a job run.
