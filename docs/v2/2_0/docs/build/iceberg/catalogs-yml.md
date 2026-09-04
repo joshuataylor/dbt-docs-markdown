@@ -37,7 +37,7 @@ dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in
 
 ### New spec (recommended) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-*Available in dbt Core v1.12+ (including dbt Core v2 and Fusion). See GitHub discussion [dbt-core#12723](https://github.com/dbt-labs/dbt-core/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
+*Available in dbt Core v1.12+ (including dbt Core 2.0 and Fusion). See GitHub discussion [dbt-core#12723](https://github.com/dbt-labs/dbt-core/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
 
 To use the new spec, first set this behavior flag:
 

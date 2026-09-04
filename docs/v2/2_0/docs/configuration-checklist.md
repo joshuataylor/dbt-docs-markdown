@@ -20,7 +20,7 @@ The dbt platform supports [global connections](./platform/connect-data-platform/
 * [ ] Verify that dbt developers have proper roles and access in your data warehouse(s).
 * [ ] Be sure the data warehouse has real data you can reference. This can be production or development data. We have a sandbox e-commerce project called [The Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) that you can use if you prefer. The Jaffle Shop includes mock data and ready-to-run models!
 * [ ] Whether starting a brand new project or importing an existing dbt Core project, you'll want to make sure you have the [proper structure configured](./build/projects.md).
-  * [ ] If you are migrating from Core, there are some important things you'll need to know, so check out our [migration guide](../guides/dbt-migration-2.md?step=1).
+  * [ ] If you are migrating from dbt Core, there are some important things you'll need to know, so check out our [migration guide](../guides/dbt-migration-2.md?step=1).
 * [ ] Your users will need to [configure their credentials](./platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to connect to the development environment in the dbt Studio IDE.
   * [ ] Ensure that all users who need access to work in the IDE have a [developer license](./platform/manage-access/seats-and-users.md) assigned in your account.
 * [ ] dbt models are primarily written as [SELECT statements](./build/sql-models.md), so an early step for measuring success is having a developer run a simple select statement in the IDE and validating the results.

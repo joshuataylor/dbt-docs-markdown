@@ -55,11 +55,11 @@ Learn more about [dbt features](../docs/platform/about-platform/dbt-platform-fea
 
 ## What you'll learn
 
-Today thousands of companies, with data teams ranging in size from 2 to 2,000, rely on dbt to accelerate data work, increase collaboration, and win the trust of the business. Understanding what you'll need to do in order to move between dbt and your current Core deployment will help you strategize and plan for your move.
+Today thousands of companies, with data teams ranging in size from 2 to 2,000, rely on dbt to accelerate data work, increase collaboration, and win the trust of the business. Understanding what you'll need to do in order to move between dbt and your current dbt Core deployment will help you strategize and plan for your move.
 
 The guide outlines the following steps:
 
-* [Considerations](./dbt-migration-2.md?step=3): Learn about the most important things you need to think about when moving from Core to Cloud.
+* [Considerations](./dbt-migration-2.md?step=3): Learn about the most important things you need to think about when moving from dbt Core to Cloud.
 * [Plan your move](./dbt-migration-2.md?step=4): Considerations you need to make, such as user roles and permissions, onboarding order, current workflows, and more.
 * [Move to dbt](./dbt-migration-2.md?step=5): Review the steps to move your dbt Core project to dbt, including setting up your account, data platform, and Git repository.
 * [Test and validate](./dbt-migration-2.md?step=6): Discover how to ensure model accuracy and performance post-move.

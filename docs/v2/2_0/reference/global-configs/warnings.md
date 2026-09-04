@@ -221,7 +221,7 @@ When you see a warning code in your logs, use the following table to find the ma
 | *no code*                  | `RunResultWarning`                       | A model or test run completed with `warn` status                                                  |
 | *no code*                  | `RunResultWarningMessage`                | The message accompanying a `warn`-status run result                                               |
 
-### Unsupported Core event names
+### Unsupported dbt Core event names
 
 Only the legacy names in [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases) are valid string aliases in Fusion. There are many other dbt Core warning event names; if you put one of those in `warn_error_options`, Fusion will throw a warning at startup.
 

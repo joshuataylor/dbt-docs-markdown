@@ -12,13 +12,13 @@ Configure environments to tell dbt or dbt Core how to build and execute your pro
 
 [![](/img/icons/dbt-bit.svg)](./dbt-platform-environments.md)
 
-#### [Environments in dbt](./dbt-platform-environments.md)
+#### [Environments in dbt platform](./dbt-platform-environments.md)
 
 [Seamlessly configure development and deployment environments in dbt to control how your project runs in both the Studio IDE, dbt platform CLI, and dbt jobs.](./dbt-platform-environments.md)
 
 [![](/img/icons/command-line.svg)](./local/dbt-environments.md)
 
-#### [Environments in dbt Core](./local/dbt-environments.md)
+#### [Environments in self-hosted dbt](./local/dbt-environments.md)
 
 [Setup and maintain separate deployment and development environments through the use of targets within a profile file](./local/dbt-environments.md)
 

@@ -79,15 +79,15 @@ Develop with a self-hosted installation using the dbt Fusion engine or dbt Core 
 
 [![](/img/icons/dbt-bit.svg)](../guides/dbt.md?step=2)
 
-#### [dbt Fusion engine from a manual install](../guides/dbt.md?step=2)
+#### [Self-hosted dbt v2 from a manual install](../guides/dbt.md?step=2)
 
-[Learn how to install dbt Fusion and set up a project.](../guides/dbt.md?step=2)
+[Learn how to install self-hosted v2 and set up a project.](../guides/dbt.md?step=2)
 
 [![](/img/icons/dbt-bit.svg)](../guides/manual-install.md)
 
-#### [dbt Core from a manual install](../guides/manual-install.md)
+#### [Self-hosted dbt v1 from a manual install](../guides/manual-install.md)
 
-[Learn how to install dbt Core and set up a project.](../guides/manual-install.md)
+[Learn how to install self-hosted v1 and set up a project.](../guides/manual-install.md)
 
 [![](/img/icons/duckdb-seeklogo.svg)](../guides/duckdb.md?step=1)
 

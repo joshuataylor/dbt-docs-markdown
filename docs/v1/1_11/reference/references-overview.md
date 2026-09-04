@@ -14,7 +14,7 @@ Learn how to add more configurations to your dbt project or adapter, use propert
 
 #### [Platform-specific configurations](./resource-configs.md)
 
-[Learn how to optimize performance with data platform-specific configurations in dbt and dbt Core.](./resource-configs.md)
+[Learn how to optimize performance with data platform-specific configurations in dbt.](./resource-configs.md)
 
 [![](/img/icons/computer.svg)](./configs-and-properties.md)
 

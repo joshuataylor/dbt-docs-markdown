@@ -8,7 +8,7 @@ Typically, you'd use dbt Core v1.x if you're managing older projects and aren't 
 
 ### What's v2?
 
-v2 introduces a shared Rust runtime available through two free distributions: dbt Core 2.0, the Apache 2.0 open-source distribution, and Fusion, which builds on Core 2.0 with more capabilities out of the box. Over time, new capabilities will land in v2 only, so most people will eventually want to upgrade when possible.
+v2 introduces a shared Rust runtime available through two free distributions: dbt Core 2.0, the Apache 2.0 open-source distribution, and Fusion, which builds on dbt Core 2.0 with more capabilities out of the box. Over time, new capabilities will land in v2 only, so most people will eventually want to upgrade when possible.
 
 When you're ready to upgrade to v2, check out the [Upgrade to v2](./dbt-versions/dbt-upgrade/upgrading-to-v2.md) for guidance.
 

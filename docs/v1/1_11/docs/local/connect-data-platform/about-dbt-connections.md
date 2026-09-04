@@ -6,7 +6,7 @@ dbt connects to your data platform to run SQL transformations against your data.
 
 (Applies to dbt v1.99 and earlier)
 
-## Supported Core data platforms
+## Supported dbt Core data platforms
 
 dbt Core connects to data platforms through adapters. Popular platforms include:
 

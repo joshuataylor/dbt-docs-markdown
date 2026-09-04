@@ -17,7 +17,7 @@ Use the following metric configured with the syntax before v1.9 as an example:
       window: 7 days
 ```
 
-If you run `dbt parse` with that syntax on Core v1.9 or [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
+If you run `dbt parse` with that syntax on dbt Core v1.9 or [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
 
 ```bash
 15:36:22  [WARNING]: Cumulative fields `type_params.window` and

@@ -36,7 +36,7 @@ The list of commands available in dbt.
 
 ## [environment](../reference/commands/dbt-environment.md)
 
-[The provides the dbt environment command for environment and connection details. If you're using or , use dbt debug to inspect profile, target, and connection \&mdash; or use dbtf debug if you have both Core/ and platform CLIs and want to inspect .](../reference/commands/dbt-environment.md)
+[The provides the dbt environment command for environment and connection details. If you're using or , use dbt debug to inspect profile, target, and connection \&mdash; or use dbtf debug if you have both / and platform CLIs and want to inspect .](../reference/commands/dbt-environment.md)
 
 ## [init](../reference/commands/init.md)
 

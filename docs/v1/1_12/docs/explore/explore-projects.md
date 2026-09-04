@@ -87,7 +87,7 @@ Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However,
 
 | Feature                                                                                    | Starter | Enterprise | Enterprise+ |
 | ------------------------------------------------------------------------------------------ | ------- | ---------- | ----------- |
-| Core lineage & resource browsing                                                           | ✅      | ✅         | ✅          |
+| dbt Core lineage & resource browsing                                                       | ✅      | ✅         | ✅          |
 | [Global navigation](./global-navigation.md)             | ✅      | ✅         | ✅          |
 | [Data health signals](./data-health-signals.md)         | ✅      | ✅         | ✅          |
 | [Model performance](./model-performance.md)             | ❌      | ✅         | ✅          |

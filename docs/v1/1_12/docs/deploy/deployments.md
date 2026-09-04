@@ -114,7 +114,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 #### [Hybrid projects](./hybrid-projects.md)
 
-[Use Hybrid projects to upload dbt Core artifacts into the dbt platform for central visibility, cross-project referencing, and easier collaboration.](./hybrid-projects.md)
+[Use Hybrid projects to upload dbt artifacts into the dbt platform for central visibility, cross-project referencing, and easier collaboration.](./hybrid-projects.md)
 
 ## Related docs
 

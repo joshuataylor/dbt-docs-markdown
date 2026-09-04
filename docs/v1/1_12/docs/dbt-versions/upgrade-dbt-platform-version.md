@@ -189,7 +189,7 @@ Each job in dbt can be configured to inherit parameters from the environment it 
 
 ![Settings of a dbt job](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/job-settings.png?v=2 "Settings of a dbt job")Settings of a dbt job
 
-The example job seen in the screenshot above belongs to the environment "Prod". It inherits the dbt version of its environment as shown by the **Inherited from ENVIRONMENT\_NAME (DBT\_VERSION)** selection. You may also manually override the dbt version of a specific job to be any of the current Core releases supported by Cloud by selecting another option from the dropdown.
+The example job seen in the screenshot above belongs to the environment "Prod". It inherits the dbt version of its environment as shown by the **Inherited from ENVIRONMENT\_NAME (DBT\_VERSION)** selection. You may also manually override the dbt version of a specific job to be any of the current dbt Core releases supported by Cloud by selecting another option from the dropdown.
 
 ## Supported versions
 
@@ -204,7 +204,7 @@ We provide different support levels for different versions, which may include ne
 * **[End of Life](../dbt-versions.md#end-of-life-versions)**: Minor versions that have reached EOL no longer receive new patch releases.
 * **Deprecated**: dbt Core versions that are no longer maintained by dbt Labs, nor supported in the dbt platform.
 
-We'll continue to update the following release table so that users know when we plan to stop supporting different versions of Core in dbt.
+We'll continue to update the following release table so that users know when we plan to stop supporting different versions of dbt Core in dbt.
 
 ### Latest releases
 

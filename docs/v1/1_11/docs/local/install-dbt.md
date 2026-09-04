@@ -151,7 +151,7 @@ dbt Core images are distributed via [GitHub Packages](https://github.com/dbt-lab
 ### Prerequisites
 
 * [Docker](https://docs.docker.com/) installed
-* Familiarity with [adapters](../supported-data-platforms.md) and [Core versioning](../dbt-versions.md)
+* Familiarity with [adapters](../supported-data-platforms.md) and [dbt Core versioning](../dbt-versions.md)
 
 ### Pull an image
 

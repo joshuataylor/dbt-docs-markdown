@@ -1,6 +1,6 @@
 # About debug macro
 
-Requires Core CLI
+Requires dbt Core CLI
 
 The `debug()` macro is only available when using the self-hosted dbt Core CLI in a development environment. It's *not available* in dbt platform.
 

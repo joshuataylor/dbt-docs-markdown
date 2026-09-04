@@ -10,7 +10,7 @@ Hybrid projects is available in public preview to [dbt Enterprise accounts](http
 
 dbt Core users can seamlessly upload [artifacts](../../reference/artifacts/dbt-artifacts.md) like [run results.json](../../reference/artifacts/run-results-json.md), [manifest.json](../../reference/artifacts/manifest-json.md), [catalog.json](../../reference/artifacts/catalog-json.md), [sources.json](../../reference/artifacts/sources-json.md), and so on — into dbt after executing a run in the dbt Core command line interface (CLI), which helps:
 
-* Collaborate with dbt + dbt Core users by enabling them to visualize and perform [cross-project references](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in Core projects.
+* Collaborate with dbt + dbt Core users by enabling them to visualize and perform [cross-project references](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in dbt Core projects.
 * (Coming soon) New users interested in the [Canvas](../platform/canvas.md) can build off of dbt models already created by a central data team in dbt Core rather than having to start from scratch.
 * dbt Core and dbt users can navigate to [Catalog](../explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](../platform/manage-access/seats-and-users.md).
 

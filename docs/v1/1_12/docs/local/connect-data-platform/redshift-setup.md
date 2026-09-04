@@ -98,7 +98,7 @@ company-name:
       connect_timeout: None
 ```
 
-### IAM User via AWS Profile (Core)
+### IAM User via AWS Profile (\<Constant name="core" />)
 
 The following table lists the authentication parameters to use IAM authentication.
 

@@ -55,7 +55,21 @@ This table outlines which month of the **Latest** release track in dbt and which
 | [allow\_jinja\_file\_extensions](./behavior-flags/allow_jinja_file_extensions.md)                                                                            | 2026.5                | -                        | 1.12.0          | -                  | -                 |
 | [latest\_version\_pointer\_enabled\_by\_default](./behavior-flags/latest_version_pointer_enabled_by_default.md)                                              | 2026.5                | -                        | 1.12.0          | -                  | -                 |
 
-### Introduced in Fusion and Core v2
+### Flags reaching maturity
+
+Several behavior change flags on the dbt platform `Latest` release track are planned to reach maturity on September 1, 2026, switching their default values from `false` to `true`. The September 1 date applies only to the dbt platform release tracks. The flags have reached maturity in dbt Core v1.12. For intro dates, refer to the dbt Core behavior changes table.
+
+| Flag                                                                                                                                                                                          | Impact                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [skip\_nodes\_if\_on\_run\_start\_fails](./behavior-flags/skip_nodes_if_on_run_start_fails.md)                                                 | Can stop build                                                         |
+| [require\_nested\_cumulative\_type\_params](./behavior-flags/require_nested_cumulative_type_params.md)                                         | Can stop build (parse error)                                           |
+| [require\_all\_warnings\_handled\_by\_warn\_error](./behavior-flags/require_all_warnings_handled_by_warn_error.md)                             | Can stop build (when `--warn-error` is set)                            |
+| [require\_batched\_execution\_for\_custom\_microbatch\_strategy](./behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) | Behavior change for custom microbatch macros                           |
+| [state\_modified\_compare\_more\_unrendered\_values](./behavior-flags/state_modified_compare_more_unrendered_values.md)                        | Selection-set change with potential CI impact                          |
+| [require\_yaml\_configuration\_for\_mf\_time\_spines](./behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                       | Suppresses a deprecation warning (no functional change)                |
+| [validate\_macro\_args](./behavior-flags/validate_macro_args.md)                                                                               | New warning for mismatched macro arguments; errors with `--warn-error` |
+
+### Introduced in Fusion and dbt Core 2.0
 
 The following flags are specific to Fusion and have no equivalent in dbt Core. They are configured the same way — in the `flags:` block of `dbt_project.yml`.
 

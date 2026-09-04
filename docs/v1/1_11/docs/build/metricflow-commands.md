@@ -198,7 +198,7 @@ The following command performs validations against the defined semantic model co
   dbt sl validate
   ```
 
-* For open-source users (Core or Fusion source available):
+* For open-source users (dbt Core or Fusion source available):
 
   ```bash
   mf validate-configs
@@ -325,9 +325,9 @@ Use the example to query multiple metrics by dimension and return the `order_tot
 **Query**
 
 ```bash
-dbt sl query --metrics order_total,users_active --group-by metric_time # For dbt platform users (Core or Fusion engine) 
+dbt sl query --metrics order_total,users_active --group-by metric_time # For dbt platform users (dbt Core or Fusion engine) 
 
-mf query --metrics order_total,users_active --group-by metric_time # For open-source users (Core or Fusion source available)
+mf query --metrics order_total,users_active --group-by metric_time # For open-source users (dbt Core or Fusion source available)
 ```
 
 **Result**
@@ -351,9 +351,9 @@ You can include multiple dimensions in a query. For example, you can group by th
 **Query**
 
 ```bash
-dbt sl query --metrics order_total --group-by order_id__is_food_order # For dbt platform users (Core or Fusion engine) 
+dbt sl query --metrics order_total --group-by order_id__is_food_order # For dbt platform users (dbt Core or Fusion engine) 
 
-mf query --metrics order_total --group-by order_id__is_food_order # For open-source users (Core or Fusion source available)
+mf query --metrics order_total --group-by order_id__is_food_order # For open-source users (dbt Core or Fusion source available)
 ```
 
 **Result**
@@ -381,10 +381,10 @@ Note that when you query a dimension, you need to specify the primary entity for
 **Query**
 
 ```bash
-# For dbt platform users (Core or Fusion engine) 
+# For dbt platform users (dbt Core or Fusion engine) 
 dbt sl query --metrics order_total --group-by order_id__is_food_order --limit 10 --order-by -metric_time 
 
-# For open-source users (Core or Fusion source available)
+# For open-source users (dbt Core or Fusion source available)
 
 mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --order-by -metric_time 
 ```
@@ -411,10 +411,10 @@ You can further filter the data set by adding a `where` clause to your query. Th
 **Query**
 
 ```bash
-# For dbt platform users (Core or Fusion engine) 
+# For dbt platform users (dbt Core or Fusion engine) 
 dbt sl query --metrics order_total --group-by order_id__is_food_order --where "{{ Dimension('order_id__is_food_order') }} = True" --where "{{ TimeDimension('metric_time', 'week') }} >= '2024-02-01'"
 
-# For open-source users (Core or Fusion source available)
+# For open-source users (dbt Core or Fusion source available)
 
 mf query --metrics order_total --group-by order_id__is_food_order --where "{{ Dimension('order_id__is_food_order') }} = True" --where "{{ TimeDimension('metric_time', 'week') }} >= '2024-02-01'"
 ```
@@ -451,7 +451,7 @@ Note that when you query a dimension, you need to specify the primary entity for
 **Query**
 
 ```bash
-# For open-source users (Core or Fusion source available)
+# For open-source users (dbt Core or Fusion source available)
 
 mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' 
 ```
@@ -477,9 +477,9 @@ You can use this for frequently used queries. Replace `<name>` with the name of 
 **Query**
 
 ```bash
-dbt sl query --saved-query <name> # For dbt platform users (Core or Fusion engine) 
+dbt sl query --saved-query <name> # For dbt platform users (dbt Core or Fusion engine) 
 
-mf query --saved-query <name> # For open-source users (Core or Fusion source available)
+mf query --saved-query <name> # For open-source users (dbt Core or Fusion source available)
 ```
 
 For example, if you use dbt and have a saved query named `new_customer_orders`, you would run `dbt sl query --saved-query new_customer_orders`.
@@ -499,10 +499,10 @@ Add `--compile` (or `--explain` for dbt Core users) to your query to view the SQ
 **Query**
 
 ```bash
-# For dbt platform users (Core or Fusion engine) 
+# For dbt platform users (dbt Core or Fusion engine) 
 dbt sl query --metrics order_total --group-by metric_time,is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' --compile
 
-# For open-source users (Core or Fusion source available)
+# For open-source users (dbt Core or Fusion source available)
 
 mf query --metrics order_total --group-by metric_time,is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' --explain
 ```
