@@ -10,14 +10,14 @@ Upgrade your environments to a [supported dbt version](../../dbt-versions.md) or
 
 ## Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-oss/blob/1.7.latest/CHANGELOG.md)
+* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.7.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
-* [Release schedule](https://github.com/dbt-labs/dbt-oss/issues/8260)
+* [Release schedule](https://github.com/dbt-labs/dbt-core/issues/8260)
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-oss/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
 Snowflake column size change
 

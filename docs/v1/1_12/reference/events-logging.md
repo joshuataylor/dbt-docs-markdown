@@ -26,9 +26,9 @@ logs/dbt.log
 
 (Applies to dbt v1.99 and earlier)
 
-*For more details about how the eventing system has been implemented in dbt-core, see the [`events` module README](https://github.com/dbt-labs/dbt-oss/blob/HEAD/core/dbt/events/README.md).*
+*For more details about how the eventing system has been implemented in dbt-core, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md).*
 
-The structure of each event in `dbt-core` is backed by a schema defined using [protocol buffers](https://developers.google.com/protocol-buffers). All schemas are defined in the [`types.proto`](https://github.com/dbt-labs/dbt-oss/blob/3bf148c443e6b1da394b62e88a08f1d7f1d8ccaa/core/dbt/events/core_types.proto) file within the `dbt-core` codebase.
+The structure of each event in `dbt-core` is backed by a schema defined using [protocol buffers](https://developers.google.com/protocol-buffers). All schemas are defined in the [`types.proto`](https://github.com/dbt-labs/dbt-core/blob/3bf148c443e6b1da394b62e88a08f1d7f1d8ccaa/core/dbt/events/core_types.proto) file within the `dbt-core` codebase.
 
 Every event has the same two top-level keys:
 
@@ -39,7 +39,7 @@ Every event has the same two top-level keys:
 
 | Field                                                                                     | Description                                                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `category`                                                                                | Placeholder for future use (see [dbt-labs/dbt-oss#5958](https://github.com/dbt-labs/dbt-oss/issues/5958))                                                                                     |
+| `category`                                                                                | Placeholder for future use (see [dbt-labs/dbt-core#5958](https://github.com/dbt-labs/dbt-core/issues/5958))                                                                                   |
 | `code`                                                                                    | Unique shorthand identifier for this event type, e.g. `A123`                                                                                                                                  |
 | `extra`                                                                                   | Dictionary of custom environment metadata, based on environment variables prefixed with `DBT_ENV_CUSTOM_ENV_`                                                                                 |
 | [`invocation_id`](./dbt-jinja-functions/invocation_id.md) | A unique identifier for this invocation of dbt                                                                                                                                                |
@@ -55,18 +55,18 @@ Every event has the same two top-level keys:
 
 Many events are fired while compiling or running a specific DAG node (model, seed, test, etc). When it's available, the `node_info` object will include:
 
-| Field              | Description                                                                                                                                                                                                                                                |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `materialized`     | view, table, incremental, etc.                                                                                                                                                                                                                             |
-| `meta`             | User-configured [`meta` dictionary](./resource-configs/meta.md) for this node                                                                                                                                              |
-| `node_finished_at` | Timestamp when node processing completed                                                                                                                                                                                                                   |
-| `node_name`        | Name of this model/seed/test/etc                                                                                                                                                                                                                           |
-| `node_path`        | File path to where this resource is defined                                                                                                                                                                                                                |
-| `node_relation`    | Nested object containing this node's database representation: `database`, `schema`, `alias`, and full `relation_name` with quoting & inclusion policies applied                                                                                            |
-| `node_started_at`  | Timestamp when node processing started                                                                                                                                                                                                                     |
-| `node_status`      | Current status of the node, either `RunningStatus` (while running) or `NodeStatus` (finished) as defined in [the result contract](https://github.com/dbt-labs/dbt-oss/blob/eba90863ed4043957330ea44ca267db1a2d81fcd/core/dbt/contracts/results.py#L75-L88) |
-| `resource_type`    | `model`, `test`, `seed`, `snapshot`, etc.                                                                                                                                                                                                                  |
-| `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](./artifacts/manifest-json.md)                                                                          |
+| Field              | Description                                                                                                                                                                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `materialized`     | view, table, incremental, etc.                                                                                                                                                                                                                              |
+| `meta`             | User-configured [`meta` dictionary](./resource-configs/meta.md) for this node                                                                                                                                               |
+| `node_finished_at` | Timestamp when node processing completed                                                                                                                                                                                                                    |
+| `node_name`        | Name of this model/seed/test/etc                                                                                                                                                                                                                            |
+| `node_path`        | File path to where this resource is defined                                                                                                                                                                                                                 |
+| `node_relation`    | Nested object containing this node's database representation: `database`, `schema`, `alias`, and full `relation_name` with quoting & inclusion policies applied                                                                                             |
+| `node_started_at`  | Timestamp when node processing started                                                                                                                                                                                                                      |
+| `node_status`      | Current status of the node, either `RunningStatus` (while running) or `NodeStatus` (finished) as defined in [the result contract](https://github.com/dbt-labs/dbt-core/blob/eba90863ed4043957330ea44ca267db1a2d81fcd/core/dbt/contracts/results.py#L75-L88) |
+| `resource_type`    | `model`, `test`, `seed`, `snapshot`, etc.                                                                                                                                                                                                                   |
+| `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](./artifacts/manifest-json.md)                                                                           |
 
 ### Example
 

@@ -4,13 +4,13 @@ Available in v1
 
 ### Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-oss/blob/1.2.latest/CHANGELOG.md)
+* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.2.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-There are no breaking changes for code in dbt projects and packages. We are committed to providing backwards compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-oss/issues/new).
+There are no breaking changes for code in dbt projects and packages. We are committed to providing backwards compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
 ### For consumers of dbt artifacts (metadata)
 
@@ -23,7 +23,7 @@ For users of [state-based selection](../../../../reference/node-selection/syntax
 
 ## For maintainers of adapter plugins
 
-See GitHub discussion [dbt-labs/dbt-oss#5468](https://github.com/dbt-labs/dbt-oss/discussions/5468) for detailed information
+See GitHub discussion [dbt-labs/dbt-core#5468](https://github.com/dbt-labs/dbt-core/discussions/5468) for detailed information
 
 ## New and changed functionality
 

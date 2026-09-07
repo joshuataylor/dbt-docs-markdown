@@ -6,7 +6,7 @@ The following table lists *every* BigQuery built-in function and its typecheckin
 
 Refreshed weekly
 
-This table is updated weekly from the [BigQuery SQL function reference](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/functions-all) and cross-referenced with Fusion's support list. If you spot a discrepancy, we'd love for you to contribute and [open an issue](https://github.com/dbt-labs/dbt-oss/issues) in the dbt Core repository!
+This table is updated weekly from the [BigQuery SQL function reference](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/functions-all) and cross-referenced with Fusion's support list. If you spot a discrepancy, we'd love for you to contribute and [open an issue](https://github.com/dbt-labs/dbt-core/issues) in the dbt Core repository!
 
 | Function                                                                                                                                                     | Category | Fusion typechecking |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ------------------- |

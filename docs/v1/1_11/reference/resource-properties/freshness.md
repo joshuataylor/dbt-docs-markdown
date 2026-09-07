@@ -300,4 +300,4 @@ where {{ filter }}
 {% endif %}
 ```
 
-*[Source code](https://github.com/dbt-labs/dbt-oss/blob/HEAD/core/dbt/include/global_project/macros/adapters/common.sql#L262)*
+*[Source code](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/include/global_project/macros/adapters/common.sql#L262)*

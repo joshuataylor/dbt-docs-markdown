@@ -11,7 +11,7 @@ Details
 
 Code source
 
-Refer to [GitHub](https://github.com/dbt-labs/dbt-oss/blob/HEAD/core/dbt/context/base.py#L549-L566) or the following code as a source:
+Refer to [GitHub](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/context/base.py#L549-L566) or the following code as a source:
 
 ```python
     def log(msg: str, info: bool = False) -> str: 

@@ -29,7 +29,7 @@ You can also use `metadata_warehouse` on the dbt platform by adding it as an [ex
 
 note
 
-This configuration currently applies only to dbt State metadata queries. It might be used more broadly in the future. See [dbt-core#12122](https://github.com/dbt-labs/dbt-oss/issues/12122) for the feature request.
+This configuration currently applies only to dbt State metadata queries. It might be used more broadly in the future. See [dbt-core#12122](https://github.com/dbt-labs/dbt-core/issues/12122) for the feature request.
 
 ## Default
 

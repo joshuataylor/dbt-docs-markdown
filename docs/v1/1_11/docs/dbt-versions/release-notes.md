@@ -11,7 +11,7 @@ dbt release notes for recent and historical changes. Release notes fall into one
 
 Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments. ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-rss-b51b74f14de7e2bfe6beadbc9a78968f.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-atom-bf07c87791839c24a720fc04df230f95.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-rss-ebea384ace46694f733ee6e094e4feff.json).
 
-For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-oss/blob/main/CHANGELOG-fusion.md).
+For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
 ## September 2026
 

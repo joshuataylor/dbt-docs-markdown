@@ -137,7 +137,7 @@ As a package maintainer, this functionality enables users of my package to exten
 
 tip
 
-Certain functions like [`ref`](./ref.md), [`source`](./source.md), and [`config`](./config.md) can't be overridden with a package using the dispatch config. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-oss/issues/4491#issuecomment-994709916) for more context.
+Certain functions like [`ref`](./ref.md), [`source`](./source.md), and [`config`](./config.md) can't be overridden with a package using the dispatch config. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-core/issues/4491#issuecomment-994709916) for more context.
 
 I maintain an internal utility package at my organization, named `my_org_dbt_helpers`. I use this package to reimplement built-in dbt macros on behalf of all my dbt-using colleagues, who work across a number of dbt projects.
 

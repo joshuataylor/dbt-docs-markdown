@@ -14,7 +14,7 @@ When you're ready to upgrade to v2, check out the [Upgrade to v2](./dbt-versions
 
 ## Licensing details
 
-[dbt Core](https://github.com/dbt-labs/dbt-oss) is released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). Fusion is proprietary to dbt Labs, made available under the [dbt Product Licensing Agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement).
+[dbt Core](https://github.com/dbt-labs/dbt-core) is released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). Fusion is proprietary to dbt Labs, made available under the [dbt Product Licensing Agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement).
 
 For the full breakdown of what's permitted under each license — source visibility, contributions, modifications, self-hosting, and redistribution — see the [dbt Licensing FAQ](https://www.getdbt.com/licenses-faq).
 

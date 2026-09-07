@@ -20,7 +20,7 @@ From dbt v1.5 and higher, use the following macro to override the `ref` method a
 
 It includes logic to extract user-provided arguments, including `version`, and call the `builtins.ref()` function with either a single `modelname` argument or both `packagename` and `modelname` arguments, based on the number of positional arguments in `varargs`.
 
-Note that the `ref`, `source`, and `config` functions can't be overridden with a package. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-oss/issues/4491#issuecomment-994709916) for more context.
+Note that the `ref`, `source`, and `config` functions can't be overridden with a package. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-core/issues/4491#issuecomment-994709916) for more context.
 
 ```text
 {% macro ref() %}
