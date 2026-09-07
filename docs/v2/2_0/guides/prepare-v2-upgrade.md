@@ -85,7 +85,7 @@ The **Enable restricted Fusion upgrade permissions** toggle is only available to
 1. In the same **Account** settings screen, select the checkbox next to **Enable restricted Fusion upgrade permissions**.
 2. Click **Save**.
 
-When enabled, only users assigned the [`Fusion admin`](../docs/platform/manage-access/enterprise-permissions.md#fusion-admin) permission set (scoped to specific projects) can execute the upgrade. For instructions on assigning this permission, refer to [Assign upgrade access](./upgrade-to-dbt.md?step=3#assign-upgrade-access-optional) in Part 2 of this guide.
+When enabled, only users assigned the [`Fusion admin`](../docs/platform/manage-access/enterprise-permissions.md#fusion-admin) permission set (scoped to specific projects) can execute the upgrade. For instructions on assigning this permission, refer to [Assign upgrade access](./upgrade-to-v2.md?step=3#assign-upgrade-access-optional) in Part 2 of this guide.
 
 ### The Fusion readiness panel
 
@@ -124,7 +124,7 @@ Test the **Latest** release track for your individual account without changing t
 5. Launch the Studio IDE or dbt platform CLI and test your normal development workflows.
 6. Verify the override is active by running any dbt command and checking the **System Logs**. The first line should show `Running with dbt=` and your selected version. If the version number is `v1.11` or higher, you're on the right path to Fusion readiness.
 
-If everything works as expected, proceed to the next step to start upgrading your environments. If you encounter deprecation warnings, don't fear! We'll address those [later in this guide](./prepare-dbt-upgrade.md?step=4). If you encounter errors, revert to your previous version and refer to the [version upgrade guides](../docs/dbt-versions/dbt-upgrade.md) to resolve any differences between your current version and the latest available dbt Core version.
+If everything works as expected, proceed to the next step to start upgrading your environments. If you encounter deprecation warnings, don't fear! We'll address those [later in this guide](./prepare-v2-upgrade.md?step=4). If you encounter errors, revert to your previous version and refer to the [version upgrade guides](../docs/dbt-versions/dbt-upgrade.md) to resolve any differences between your current version and the latest available dbt Core version.
 
 ### Step 2: Upgrade your development environment
 
@@ -453,7 +453,7 @@ For jobs that are eligible for Fusion in the readiness experience, **Run once on
 
 ### Review your jobs
 
-The readiness panel shows how many jobs are ineligible for Fusion or have an unknown eligibility status. If you don't see eligibility messaging, ask an account admin to enable **Fusion readiness & upgrade features** in [Account settings](../docs/platform/account-settings.md). For setup steps, refer to [Enable Fusion readiness features](./prepare-dbt-upgrade.md?step=3).
+The readiness panel shows how many jobs are ineligible for Fusion or have an unknown eligibility status. If you don't see eligibility messaging, ask an account admin to enable **Fusion readiness & upgrade features** in [Account settings](../docs/platform/account-settings.md). For setup steps, refer to [Enable Fusion readiness features](./prepare-v2-upgrade.md?step=3).
 
 note
 
@@ -540,4 +540,4 @@ Congratulations! You have validated Fusion eligibility for your jobs.
 
 With limitations identified and addressed, you've completed all the preparation steps. Your project is now ready to upgrade to Fusion!
 
-Check out [Part 2: Making the move](./upgrade-to-dbt.md)
+Check out [Part 2: Making the move](./upgrade-to-v2.md)

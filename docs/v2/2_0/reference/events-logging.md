@@ -38,4 +38,4 @@ For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](./gl
 
 The dbt Fusion engine doesn't share dbt Core's Python event interface.
 
-We are currently [developing](https://github.com/dbt-labs/dbt-core/issues/13102) a Python API with Rust bindings for programmatic invocations.
+We are currently [developing](https://github.com/dbt-labs/dbt-oss/issues/13102) a Python API with Rust bindings for programmatic invocations.

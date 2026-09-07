@@ -85,7 +85,7 @@ If your job needs to build models on every scheduled run regardless of code chan
 
 ### Final note
 
-State comparison is complex. We hope to reach eventual consistency between all configuration options, as well as providing users with the control they need to reliably return all modified resources, and only the ones they expect. If you're interested in learning more, read [open issues tagged "state"](https://github.com/dbt-labs/dbt-core/issues?q=is%3Aopen+is%3Aissue+label%3Astate) in the dbt repository.
+State comparison is complex. We hope to reach eventual consistency between all configuration options, as well as providing users with the control they need to reliably return all modified resources, and only the ones they expect. If you're interested in learning more, read [open issues tagged "state"](https://github.com/dbt-labs/dbt-oss/issues?q=is%3Aopen+is%3Aissue+label%3Astate) in the dbt repository.
 
 ## Related docs
 

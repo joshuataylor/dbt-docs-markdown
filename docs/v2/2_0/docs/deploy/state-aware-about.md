@@ -20,8 +20,6 @@ The dbt Fusion engine is currently available for installation in:
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
-
 State-aware orchestration saves you compute costs and reduces runtime because when a job runs, it checks for new records and only builds the models that will change.
 
 ![Fusion powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "Fusion powered state-aware orchestration")Fusion powered state-aware orchestration

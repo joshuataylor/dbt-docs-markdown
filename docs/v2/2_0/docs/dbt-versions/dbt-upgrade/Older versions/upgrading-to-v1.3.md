@@ -10,13 +10,13 @@ Upgrade your environments to a [supported dbt version](../../../dbt-versions.md)
 
 ### Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.3.latest/CHANGELOG.md)
+* [Changelog](https://github.com/dbt-labs/dbt-oss/blob/1.3.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-oss/issues/new).
 
 There are three changes in dbt Core v1.3 that may require action from some users:
 
@@ -46,7 +46,7 @@ For users of [state-based selection](../../../../reference/node-selection/syntax
 
 ### For maintainers of adapter plugins
 
-GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-labs/dbt-core/discussions/6011)
+GitHub discussion with details: [dbt-labs/dbt-oss#6011](https://github.com/dbt-labs/dbt-oss/discussions/6011)
 
 ## New and changed documentation
 

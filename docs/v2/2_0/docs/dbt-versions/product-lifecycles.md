@@ -1,6 +1,6 @@
 # Product lifecycles
 
-dbt Labs manages the lifecycle of features across the dbt platform, dbt Core, and the dbt Fusion engine. Each feature is assigned a lifecycle status that describes its stability, support level, and availability. Use the tabs below to find the lifecycle stages for the product you're using.
+dbt Labs manages the lifecycle of features across the cloud-hosted dbt platform and self-hosted dbt v1 and v2. Each feature is assigned a lifecycle status that describes its stability, support level, and availability. Use the tabs below to find the lifecycle stages for the product you're using.
 
 Service level objective (SLO) support varies between products and lifecycles.
 
@@ -28,13 +28,13 @@ No longer being actively developed or enhanced. Features continue to function as
 
 No longer available on the platform in any capacity.
 
-## dbt Core v1.x and v2
+## dbt v1 and v2
 
-dbt Core releases follow semantic versioning. Read more in [About dbt versions](../dbt-versions.md). dbt Core v1.x and v2 releases both adhere to the following lifecycle path:
+Self-hosted dbt releases follow semantic versioning. Read more in [About dbt versions](../dbt-versions.md). Both v1 and v2 releases adhere to the following lifecycle path:
 
 **Undocumented**
 
-dbt Core is an open source product, and the codebase may have visibility into internal, non-contracted, or intentionally undocumented functionality. Not considered part of the release's product surface area.
+Open source dbt codebases may have visibility into internal, non-contracted, or intentionally undocumented functionality. Not considered part of the release's product surface area.
 
 **Unreleased**
 
@@ -59,19 +59,3 @@ Ready for use in production.
 **Deprecated**
 
 No longer actively developed or enhanced. Continues to function as-is until its removal date.
-
-## dbt Fusion engine
-
-The dbt Fusion engine and [VS Code extension](../about-dbt-extension.md) are in various stages of development depending on deployment type. See the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates, and our [Path to GA](https://docs.getdbt.com/blog/dbt-fusion-engine-path-to-ga) blog post for what's required to reach GA.
-
-**Beta**
-
-Available to select customers only. Still in development, incomplete, and not fully stable. Breaking changes may occur, documentation may be limited, and SLOs may not apply. Download the [Beta Terms and Conditions](https://docs.getdbt.com/assets/files/beta-tc-740ff696113c89c38a96bb70b968775e.pdf) for details.
-
-**Preview**
-
-Stable and functionally ready for production deployments using supported features that don't depend on deprecated functionality.
-
-**Generally available (GA)**
-
-Learn what's required for the dbt Fusion engine to reach GA in our [Path to GA](https://docs.getdbt.com/blog/dbt-fusion-engine-path-to-ga) blog post.

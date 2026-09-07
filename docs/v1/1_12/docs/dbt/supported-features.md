@@ -14,8 +14,6 @@ The dbt Fusion engine is currently available for installation in:
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
-
 When you install dbt, you get v2 by default. There's no separate feature set to choose between — v2 is just dbt, running faster, with more capability built in.
 
 ## Requirements

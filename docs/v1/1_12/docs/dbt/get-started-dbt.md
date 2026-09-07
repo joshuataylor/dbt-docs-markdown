@@ -24,17 +24,17 @@ Get dbt's performance plus autocomplete, inline errors, and lineage in your edit
 
 Upgrade your existing projects to v2 and learn about the tools available to you once you're there.
 
-[![](/img/icons/dbt-bit.svg)](../../guides/prepare-dbt-upgrade.md)
+[![](/img/icons/dbt-bit.svg)](../../guides/prepare-v2-upgrade.md)
 
-#### [Preparing to upgrade from v1 to v2](../../guides/prepare-dbt-upgrade.md)
+#### [Preparing to upgrade from v1 to v2](../../guides/prepare-v2-upgrade.md)
 
-[Step-by-step guide to prepare your dbt platform projects for upgrading to v2.](../../guides/prepare-dbt-upgrade.md)
+[Step-by-step guide to prepare your dbt platform projects for upgrading to v2.](../../guides/prepare-v2-upgrade.md)
 
-[![](/img/icons/dbt-bit.svg)](../../guides/upgrade-to-dbt.md)
+[![](/img/icons/dbt-bit.svg)](../../guides/upgrade-to-v2.md)
 
-#### [Upgrade to v2](../../guides/upgrade-to-dbt.md)
+#### [Upgrade to v2](../../guides/upgrade-to-v2.md)
 
-[Learn how to upgrade your eligible projects on the dbt platform to v2.](../../guides/upgrade-to-dbt.md)
+[Learn how to upgrade your eligible projects on the dbt platform to v2.](../../guides/upgrade-to-v2.md)
 
 [![](/img/icons/dbt-bit.svg)](../../guides/dbt-platform-local-workflow.md)
 

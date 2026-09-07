@@ -198,7 +198,7 @@ For data practitioners working with a self-hosted installation, this means AI as
 
  What's the difference between the dbt platform CLI and dbt Core?
 
-The dbt platform CLI and [dbt Core](https://github.com/dbt-labs/dbt-core), an open-source project, are both command line tools that enable you to run dbt commands.
+The dbt platform CLI and [dbt Core](https://github.com/dbt-labs/dbt-oss), an open-source project, are both command line tools that enable you to run dbt commands.
 
 The key distinction is that the dbt platform CLI is tailored for the dbt platform's infrastructure and integrates with all its [features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features).
 

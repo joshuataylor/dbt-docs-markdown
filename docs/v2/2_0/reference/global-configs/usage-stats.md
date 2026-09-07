@@ -15,7 +15,7 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 
 ## dbt Fusion engine telemetry
 
-Fusion has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt-core/blob/main/crates/vortex-events/src/event_functions.rs).
+Fusion has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt-oss/blob/main/crates/vortex-events/src/event_functions.rs).
 
 Telemetry requires outbound HTTPS access to `https://p.vx.dbt.com`. If the endpoint is unreachable, Fusion logs errors on each invocation. For the complete list of outbound endpoints, refer to [dbt v2 networking requirements](../../docs/local/dbt-networking-requirements.md).
 

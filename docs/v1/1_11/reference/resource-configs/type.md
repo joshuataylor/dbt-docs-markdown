@@ -13,7 +13,7 @@ functions:
       type: scalar | aggregate 
 ```
 
-In the future, we're considering adding support for `table` type. Refer to [this issue](https://github.com/dbt-labs/dbt-core/issues/11917) to track the progress and provide any feedback.
+In the future, we're considering adding support for `table` type. Refer to [this issue](https://github.com/dbt-labs/dbt-oss/issues/11917) to track the progress and provide any feedback.
 
 ## Definition
 

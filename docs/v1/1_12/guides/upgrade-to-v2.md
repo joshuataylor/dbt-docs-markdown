@@ -21,7 +21,7 @@ Once you complete the Fusion migration, your team will benefit from:
 
 Before upgrading your development environment, confirm:
 
-* Your project is on the **Latest** release track (completed in [Part 1: Preparing to upgrade](./prepare-dbt-upgrade.md))
+* Your project is on the **Latest** release track (completed in [Part 1: Preparing to upgrade](./prepare-v2-upgrade.md))
 
 * Your project must be using a supported adapter and auth method.
 
@@ -55,7 +55,7 @@ Before upgrading your development environment, confirm:
 
 * Fusion has been enabled for your account
 
-* You have appropriate permissions to modify environments (see [Assign upgrade access](https://docs.getdbt.com/guides/upgrade-to-dbt?step=3#assign-upgrade-access-optional) if restricted)
+* You have appropriate permissions to modify environments (see [Assign upgrade access](https://docs.getdbt.com/guides/upgrade-to-v2?step=3#assign-upgrade-access-optional) if restricted)
 
 ## Upgrade your development environment
 
@@ -376,7 +376,7 @@ If the job succeeds, your production upgrade is successful!
 
 Enable the Fusion readiness panel
 
-The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](./prepare-dbt-upgrade.md?step=2) for setup steps.
+The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](./prepare-v2-upgrade.md?step=2) for setup steps.
 
 If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
@@ -467,7 +467,6 @@ For your next steps:
 * **Monitor savings**: Use [Cost Insights](../docs/explore/cost-insights.md) to track models built vs. reused.
 * **Train your team**: Share Fusion features and best practices with your team.
 * **Explore new features**: Check out column-level lineage, live CTE previews, and other Fusion-powered capabilities.
-* **Stay informed**: Follow the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for updates on new features.
 
 Share your success
 

@@ -2,28 +2,23 @@
 
 Local development
 
-The dbt extension — available for [VS Code and Cursor](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt\&ssr=false#overview), and [Windsurf](https://open-vsx.org/extension/dbtLabsInc/dbt) — uses the dbt Fusion engine to make dbt development smoother and more efficient.
-
-The dbt VS Code extension is compatible with the dbt Fusion engine. It isn't compatible with dbt Core.
+The dbt extension — available for [VS Code and Cursor](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt\&ssr=false#overview), and [Windsurf](https://open-vsx.org/extension/dbtLabsInc/dbt) — makes dbt development smoother and more efficient. dbt v1 and v2 both support the extension — refer to [Version compatibility](./about-dbt-extension.md#version-compatibility) for which features need which setup.
 
 note
 
-This is the only official dbt Labs VS Code extension. Other extensions *can* work alongside the dbt VS Code extension, but they aren't tested or supported by dbt Labs. Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
+This is the only official dbt Labs VS Code extension. Other extensions *can* work alongside the dbt VS Code extension, but they aren't tested or supported by dbt Labs.
 
 ## Prerequisites
 
-Before installing, review the [limitations](./dbt/supported-features.md#limitations) page because some features don't support Fusion yet.
-
 To use the extension, you need the following:
 
-| Prerequisite                             | Details                                                                                                                                                                                                                                                  |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **dbt Fusion engine**                    | The dbt VS Code extension requires the dbt Fusion engine binary. The extension prompts you to install it, or you can [install it manually](#install-the-dbt-fusion-engine-from-the-command-line-if-you-havent-already).                                  |
-| **Project files**                        | You need a `profiles.yml` file. You may also need a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file for some dbt platform features or credential-based workflows. You don't need a dbt platform project to use the extension. |
-| **Editor**                               | [VS Code](https://code.visualstudio.com/), [Cursor](https://www.cursor.com/en), or [Windsurf](https://windsurf.com/editor).                                                                                                                              |
-| **Operating system**                     | macOS, Windows, or Linux.                                                                                                                                                                                                                                |
-| **Local configuration** (optional)       | [Configure the extension](./configure-dbt-extension.md) to mirror your dbt environment locally and set any environment variables required by your project.                                                                    |
-| **Project migration support** (optional) | Use the **Migrate dbt Core to Fusion** agent skill or [run dbt-autofix](../guides/prepare-dbt-upgrade.md?step=5#what-the-autofix-tool-handles) to help resolve errors and deprecations before using Fusion.                         |
+| Prerequisite                             | Details                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Project files**                        | You need a `profiles.yml` file. You may also need a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file for some dbt platform features or credential-based workflows. You don't need a dbt platform project to use the extension.                                                                                                       |
+| **Editor**                               | [VS Code](https://code.visualstudio.com/), [Cursor](https://www.cursor.com/en), or [Windsurf](https://windsurf.com/editor).                                                                                                                                                                                                                                    |
+| **Operating system**                     | macOS, Windows, or Linux.                                                                                                                                                                                                                                                                                                                                      |
+| **Local configuration** (optional)       | [Configure the extension](./configure-dbt-extension.md) to mirror your dbt environment locally and set any environment variables required by your project.                                                                                                                                                                          |
+| **Project migration support** (optional) | The extension has [dbt-autofix](https://github.com/dbt-labs/dbt-autofix) built in, so you can fix deprecations from the **Problems** pane or in a single pull request. You can also use the **Migrate dbt v1 to dbt v2** agent skill or [run dbt-autofix](../guides/prepare-v2-upgrade.md?step=5#what-the-autofix-tool-handles) yourself. |
 
 ## Install the extension
 
@@ -43,26 +38,26 @@ To use the extension, you need the following:
 
    ![The dbt Language Server will be installed automatically](/img/docs/extension/extension-lsp-download.png?v=2 "The dbt Language Server will be installed automatically")The dbt Language Server will be installed automatically
 
-6. If the dbt Fusion engine isn't installed, the extension prompts you to download and install it. Follow the notification steps, or [install it manually from the command line](#install-the-dbt-fusion-engine-from-the-command-line-if-you-havent-already).
+6. If dbt isn't installed, the extension prompts you to download and install it. Follow the notification steps, or [install it manually from the command line](#install-dbt-v2-from-the-command-line-if-you-havent-already).
 
-   ![Follow the prompt to install the dbt Fusion engine](/img/docs/extension/install-dbt-fusion-engine.png?v=2 "Follow the prompt to install the dbt Fusion engine")Follow the prompt to install the dbt Fusion engine
+   ![Follow the prompt to install v2](/img/docs/extension/install-dbt-fusion-engine.png?v=2 "Follow the prompt to install v2")Follow the prompt to install v2
 
-7. Run the VS Code extension [upgrade tool](./upgrade-to-dbt-extension.md) to check whether your project is ready for Fusion and fix any errors or deprecations.
+7. Run the VS Code extension [upgrade tool](./upgrade-to-dbt-extension.md) to check whether your project is ready for dbt v2 and fix any errors or deprecations.
 
 8. Optional: [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.
 
-The language server ships with the dbt Fusion engine
+The language server ships with dbt v2
 
-The dbt language server is part of the dbt Fusion engine binary rather than a separate download — the extension runs it through Fusion. If you install Fusion manually (for example, in an air-gapped environment) instead of letting the extension manage it, use the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md) to pick a binary that matches your extension version.
+The dbt language server is part of the dbt v2 binary rather than a separate download — the extension runs it through dbt v2. If you install v2 manually (for example, in an air-gapped environment) instead of letting the extension manage it, use the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md) to pick a binary that matches your extension version.
 
 You're ready to use the dbt extension. Next, you can:
 
 * Follow the [getting started](#getting-started) workflow to finish setup.
-* [Upgrade your project to Fusion](./upgrade-to-dbt-extension.md) if you're migrating from dbt Core.
+* [Upgrade your project to dbt v2](./upgrade-to-dbt-extension.md) if you're migrating from dbt v1.
 * [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 * Review the [limitations and unsupported features](./dbt/supported-features.md#limitations).
 
- Install the dbt Fusion engine from the command line, if you haven't already.
+ Install dbt v2 from the command line, if you haven't already.
 
 Choose your preferred installation method:
 
@@ -165,17 +160,17 @@ After installation, follow the [getting started](#getting-started) workflow. You
 
 ## Getting started
 
-After the dbt Fusion engine and dbt VS Code extension are installed, the dbt logo appears in the sidebar. Click it to open the **Get started** panel.
+After v2 and the dbt VS Code extension are installed, the dbt logo appears in the sidebar. Click it to open the **Get started** panel.
 
-The **Get started** panel is a persistent setup companion available in VS Code and Cursor. It monitors your environment and shows the most important next action. As new Fusion releases ship or your project changes, the panel resurfaces relevant steps automatically. For more details refer to [Upgrade to Fusion](./upgrade-to-dbt-extension.md).
+The **Get started** panel is a persistent setup companion available in VS Code and Cursor. It monitors your environment and shows the most important next action. As new dbt v2 releases ship or your project changes, the panel resurfaces relevant steps automatically. For more details refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
 
 ![The Get started panel in VS Code showing the setup steps, with the active step highlighted.](/img/docs/extension/vsce-get-started.png?v=2 "The Get started panel in VS Code showing the setup steps, with the active step highlighted.")The Get started panel in VS Code showing the setup steps, with the active step highlighted.
 
 The panel guides you through:
 
-1. **Install or update dbt Fusion engine**: Detects whether the dbt Fusion engine binary is missing or outdated and installs or updates it with a single click.
+1. **Install or update dbt v2**: Detects whether the dbt v2 binary is missing or outdated and installs or updates it with a single click.
 2. **Open project**: Checks for a `dbt_project.yml` file in your workspace to confirm a valid dbt project is open before proceeding.
-3. **Check Fusion compatibility**: Guides you through upgrading your project to Fusion. You can choose between an agentic migration or manual CLI onboarding — refer to [Upgrade to Fusion](./upgrade-to-dbt-extension.md).
+3. **Check dbt v2 compatibility**: Guides you through upgrading your project to dbt v2. You can choose between an agentic migration or manual CLI onboarding — refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
 4. **Register**: Confirms you've registered your email to use the extension beyond the 14-day trial period — refer to [Sign in or register](./sign-in-dbt-extension.md).
 
 When all setup steps are complete, the panel shows a green **Extension setup complete** button.
@@ -186,6 +181,6 @@ When all setup steps are complete, the panel shows a green **Extension setup com
 
 Once you've installed the dbt VS Code extension, go to the next pages to get started:
 
-1. Review the [Upgrade to Fusion](./upgrade-to-dbt-extension.md) page to ensure your dbt project is using Fusion.
+1. Review the [Upgrade to dbt v2](./upgrade-to-dbt-extension.md) page to upgrade your dbt project to the next-gen engine today!
 2. [Sign in or register](./sign-in-dbt-extension.md) for a free dbt platform account to keep using advanced features after the 14-day trial.
 3. Review the [limitations and unsupported features](./dbt/supported-features.md#limitations).

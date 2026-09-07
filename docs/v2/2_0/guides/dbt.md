@@ -16,8 +16,6 @@ The dbt Fusion engine is currently available for installation in:
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
-
 The dbt Fusion engine is a powerful new approach to classic dbt ideas! Completely rebuilt from the ground up in Rust, Fusion lets you compile and run your dbt projects faster than ever — often in seconds.
 
 This quickstart guide will get you from zero to running your first dbt project with Fusion + VS Code. By the end, you’ll have:

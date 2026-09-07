@@ -184,7 +184,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 ![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
-For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../dbt/dbt-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-dbt-upgrade.md).
+For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../dbt/dbt-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-v2-upgrade.md).
 
 ### Writing effective prompts
 

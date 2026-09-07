@@ -18,7 +18,7 @@ In DAG order, for selected resources or an entire project.
 
 * Don't want a test to cause skipping? Adjust its [severity or thresholds](../resource-configs/severity.md) to `warn` instead of `error`
 * In the case of a test with multiple parents, where one parent depends on the other (e.g. a `relationships` test between `model_a` + `model_b`), that test will block-and-skip children of the most-downstream parent only (`model_b`).
-* If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt-core/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
+* If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt-oss/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
 
 (Applies to dbt v1.12 and later)
 

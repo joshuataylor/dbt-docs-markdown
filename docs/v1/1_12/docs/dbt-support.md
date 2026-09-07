@@ -109,7 +109,7 @@ Leave feedback or submit a feature request for dbt or dbt Core.
 
 #### Share feedback or feature request for dbt Core
 
-* [Create a GitHub issue here](https://github.com/dbt-labs/dbt-core/issues).
+* [Create a GitHub issue here](https://github.com/dbt-labs/dbt-oss/issues).
 
 ## External help
 

@@ -1,8 +1,6 @@
 # About dbt LSP
 
-Available in v2
-
-The dbt Fusion engine offers benefits beyond the speed and power of the framework. The dbt VS Code extension, Studio IDE, and Insights all contain a powerful set of features backed by our Language Server Protocol (LSP) that enable fast, efficient development workflows. The following features are supported across these tools:
+dbt v2 offers benefits beyond the speed and power of the framework. The dbt VS Code extension, Studio IDE, and Insights all contain a powerful set of features backed by our Language Server Protocol (LSP) that enable fast, efficient development workflows. The following features are supported across these tools:
 
 |                              | VS Code extension | Studio IDE | Insights |
 | ---------------------------- | ----------------- | ---------- | -------- |
@@ -26,6 +24,8 @@ The dbt Fusion engine offers benefits beyond the speed and power of the framewor
 | View table lineage           | ✅                | N/A        | ❌       |
 | Warning detection            | ✅                | ✅         | ❌       |
 
+dbt v1 and v2 both support the dbt VS Code extension. Features that depend on built-in SQL parsing, such as column-level lineage, column go-to definition and find references, and `SELECT *` expansion, require [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2).
+
 ## Lazy compilation
 
 The dbt language server uses on-demand compilation, also called lazy compilation. Lazy compilation starts automatically when you open a model file, you don't need to run `dbt compile` to trigger it. It compiles only the nodes it needs to answer questions about the file you are working in, instead of blocking on a full project compile first. That improves performance because you get editor features for your active file much sooner.
@@ -48,4 +48,4 @@ dbt and the language server run independently. Running a command like `dbt run` 
 
 ## Versioning
 
-The Fusion CLI and the language server ship in a single dbt Fusion engine binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which Fusion versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md).
+The dbt v2 CLI and the language server ship in a single binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which dbt versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md).

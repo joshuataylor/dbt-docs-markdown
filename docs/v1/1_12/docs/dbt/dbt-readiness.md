@@ -4,7 +4,7 @@ The dbt Fusion engine is here and is now generally available for dbt platform pr
 
 Enable the Fusion readiness panel
 
-The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](../../guides/prepare-dbt-upgrade.md?step=2) for setup steps.
+The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](../../guides/prepare-v2-upgrade.md?step=2) for setup steps.
 
 If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](../dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
@@ -14,8 +14,8 @@ Use the following checklist to prepare your projects for the dbt Fusion engine
 
 For walkthroughs of both the preparation and upgrade processes, check out our detailed guides:
 
-* [ ] [Upgrade to Fusion Pt. 1: Preparing to upgrade](../../guides/prepare-dbt-upgrade.md?step=1)
-* [ ] [Upgrade to Fusion Pt. 2: Making the move](../../guides/upgrade-to-dbt.md?step=1)
+* [ ] [Upgrade to Fusion Pt. 1: Preparing to upgrade](../../guides/prepare-v2-upgrade.md?step=1)
+* [ ] [Upgrade to Fusion Pt. 2: Making the move](../../guides/upgrade-to-v2.md?step=1)
 
 ### Upgrade to the latest dbt version (recommended)
 
@@ -75,7 +75,7 @@ We determine Fusion eligibility using data from your job runs.
 * [ ] Resolve any job failures — all jobs must run successfully for eligibility checks to work.
 * [ ] Delete any jobs that are no longer in use to ensure accurate eligibility reporting.
 * [ ] Make sure you've promoted the changes for deprecation resolution and package upgrades to your git branches that map to your deployment environments.
-* [ ] For eligible jobs, use **Debug on Fusion** to debug in Studio IDE or run once on Fusion. Refer to [Update your jobs](../../guides/prepare-dbt-upgrade.md?step=7).
+* [ ] For eligible jobs, use **Debug on Fusion** to debug in Studio IDE or run once on Fusion. Refer to [Update your jobs](../../guides/prepare-v2-upgrade.md?step=7).
 
 ### Stay informed about Fusion progress
 
@@ -83,5 +83,4 @@ The dbt Fusion engine is generally available for dbt platform projects on Snowfl
 
 * [ ] Check out the [Fusion homepage](https://www.getdbt.com/product/fusion) for available resources, including supported adapters, prerequisites, installation instructions, limitations, and deprecations.
 * [ ] Read the [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to learn about the new features and functionality that impact your dbt projects.
-* [ ] Monitor progress and get insight into the development process by reading the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements).
 * [ ] Learn how [dbt State](../deploy/dbt-state-about.md) can reduce warehouse costs by 30%+ by rebuilding models only when data or code changes.

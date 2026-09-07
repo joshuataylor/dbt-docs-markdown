@@ -18,10 +18,10 @@ Introduction
 
 Introduction
 
-## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-dbt-upgrade.md)
+## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-v2-upgrade.md)
 
 Introduction
 
-## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-dbt.md)
+## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-v2.md)
 
 Introduction

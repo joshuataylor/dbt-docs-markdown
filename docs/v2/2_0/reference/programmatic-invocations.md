@@ -29,7 +29,7 @@ for r in res.result:
     print(f"{r.unique_id}: {r.status}")
 ```
 
-For implementation details, refer to the [`dbt-python` crate](https://github.com/dbt-labs/dbt-core/tree/main/crates/dbt-python) in the dbt Core repository.
+For implementation details, refer to the [`dbt-python` crate](https://github.com/dbt-labs/dbt-oss/tree/main/crates/dbt-python) in the dbt Core repository.
 
 ## Supported arguments
 

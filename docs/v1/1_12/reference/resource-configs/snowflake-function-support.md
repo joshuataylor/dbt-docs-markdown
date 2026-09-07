@@ -6,7 +6,7 @@ The following table lists *every* Snowflake built-in function and its typechecki
 
 Refreshed weekly
 
-This table is updated weekly from the [Snowflake SQL function reference](https://docs.snowflake.com/en/sql-reference/functions-all) and cross-referenced with Fusion's support list. If you spot a discrepancy, we'd love for you to contribute and [open an issue](https://github.com/dbt-labs/dbt-core/issues) in the dbt Core repository!
+This table is updated weekly from the [Snowflake SQL function reference](https://docs.snowflake.com/en/sql-reference/functions-all) and cross-referenced with Fusion's support list. If you spot a discrepancy, we'd love for you to contribute and [open an issue](https://github.com/dbt-labs/dbt-oss/issues) in the dbt Core repository!
 
 | Function                                                                                                                                                                                                                      | Category                                                                                                                                                                                                        | Fusion typechecking |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |

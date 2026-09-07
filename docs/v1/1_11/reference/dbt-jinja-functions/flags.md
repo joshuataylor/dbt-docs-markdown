@@ -14,7 +14,7 @@ drop table ...
 {% endif %}
 ```
 
-The list of available flags is defined in the [`flags` module](https://github.com/dbt-labs/dbt-core/blob/HEAD/crates/dbt-jinja-utils/src/flags.rs) within `dbt-core`.
+The list of available flags is defined in the [`flags` module](https://github.com/dbt-labs/dbt-oss/blob/HEAD/crates/dbt-jinja-utils/src/flags.rs) within `dbt-core`.
 
 Recommended use cases include:
 

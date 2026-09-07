@@ -10,8 +10,6 @@ The dbt Fusion engine is currently available for installation in:
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
-
 Static analysis helps the dbt Fusion engine validate your SQL before it runs. This guide shows how to configure it so you get stronger checks while you develop, and faster, less blocking runs in deployment.
 
 This guide explains why using `strict` in development and `baseline` (the default, lighter static analysis mode) in deployment is a valid and recommended pattern, and how to configure it in your Fusion project. For more information about modes and features, refer to [About static analysis](../docs/build/about-static-analysis.md).

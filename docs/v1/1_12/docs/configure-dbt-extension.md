@@ -2,22 +2,21 @@
 
 Local development
 
-Whether you currently use dbt platform or self-host with Fusion, or you're a dbt Core user upgrading to Fusion, follow the instructions on this page to:
+Whether you currently use dbt platform or self-host dbt, follow the instructions on this page to:
 
 * [Prepare your local setup](#prepare-your-local-setup)
 * [Set environment variables locally](#set-environment-variables-locally)
 * [Configure the dbt extension](#configure-the-dbt-extension)
 
-If you're new to dbt or getting started with a new project, you can skip this page and check out our [Quickstart for the dbt Fusion engine](../guides/dbt.md?step=1) to get started with the dbt extension.
+If you're new to dbt or getting started with a new project, you can skip this page and check out our [Quickstart for dbt v2](../guides/dbt.md?step=1) to get started with the dbt extension.
 
-The steps differ slightly depending on whether you use dbt platform or self host with Fusion.
+The steps differ slightly depending on whether you use dbt platform or self host dbt.
 
-* dbt platform — You'll mirror your dbt platform environment locally to unlock Fusion-powered features like Mesh, deferral, and so on. If your project has environment variables, you'll also set them locally to leverage the VS Code extension's features.
-* Self-hosted — When you self-host with Fusion or are upgrading from dbt Core to Fusion, you'll most likely already have a local setup and environment variables. Use this page to confirm that your existing local setup and environment variables work seamlessly with the dbt Fusion engine and VS Code extension.
+* dbt platform — You'll mirror your dbt platform environment locally to unlock powerful features like Mesh, deferral, and so on. If your project has environment variables, you'll also set them locally to leverage the VS Code extension's features.
+* Self-hosted — When you self-host dbt, you'll most likely already have a local setup and environment variables. Use this page to confirm that your existing local setup and environment variables work seamlessly with the VS Code extension.
 
 ## Prerequisites
 
-* dbt Fusion engine installed
 * Downloaded and installed the dbt VS Code extension
 * Basic understanding of [Git workflows](./platform/git/version-control-basics.md) and [dbt project structure](../best-practices/how-we-structure/1-guide-overview.md)
 * [Developer or analyst license](https://www.getdbt.com/pricing)\* if you're using dbt platform. Note, the [Analyst license type](./platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
@@ -53,7 +52,7 @@ In this section, we'll walk you through the steps to prepare your local setup fo
 
 Environment variables are used for authentication and configuration.
 
-This section is most relevant for [dbt VS Code extension](./about-dbt-extension.md) and dbt platform users who have environment variables configured as part of their workspace setup. If you're using Fusion locally, you can also install the VS Code extension and use its features and actions — you just may not need to configure these variables unless your setup specifically requires them.
+This section is most relevant for [dbt VS Code extension](./about-dbt-extension.md) and dbt platform users who have environment variables configured as part of their workspace setup. If you're using dbt locally, you can also install the VS Code extension and use its features and actions — you just may not need to configure these variables unless your setup specifically requires them.
 
 The following table shows the different options and when to use them:
 
@@ -252,17 +251,17 @@ After installing the dbt extension and configuring your local setup, you may wan
 
 ![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")dbt extension settings within the VS Code settings.
 
-The following settings are the most relevant when you install or manage the dbt Fusion engine binary yourself. Most users never need to set these because the extension downloads and manages Fusion automatically.
+The following settings are the most relevant when you install or manage dbt yourself. Most users never need to set these because the extension can download and manage v2 automatically.
 
-| Setting                       | Description                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `dbt.fusionPath`              | Path to the dbt Fusion engine binary. The extension invokes the language server through this binary (`dbt-fusion lsp`). Set this when you install Fusion manually — for example, in an [air-gapped environment](./dbt-versions/dbt-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs) — instead of letting the extension download it. |
-| `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                                 |
-| `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                                   |
+| Setting                       | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dbt.fusionPath`              | Path to the dbt v2 binary. The extension invokes the language server through this binary (`dbt-fusion lsp`). Set this when you install v2 manually — for example, in an [air-gapped environment](./dbt-versions/dbt-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs) — instead of letting the extension download it. |
+| `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                  |
+| `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                    |
 
 Upgrading from a separate language server binary
 
-Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one Fusion binary. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md) for details.
+Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one binary in dbt v2. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md) for details.
 
 ## File associations and other extensions
 

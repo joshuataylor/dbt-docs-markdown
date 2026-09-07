@@ -46,7 +46,7 @@ There are a couple of different ways to sign in or register for a dbt platform a
 
 (Applies to dbt v1.99 and earlier)
 
-`dbt login` is available with v2 and later. To install the dbt VS Code extension, [upgrade your project to Fusion](./upgrade-to-dbt-extension.md).
+`dbt login` is available with v2 and later.
 
 Use this path if you prefer the terminal or want a single auth flow that works across the CLI and the dbt VS Code extension. Running `dbt login` opens the same browser flow that the extension uses when you select **dbt: Register dbt extension** from the command palette, so completing it once authenticates both.
 
