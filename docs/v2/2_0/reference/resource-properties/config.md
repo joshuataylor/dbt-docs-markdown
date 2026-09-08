@@ -73,14 +73,18 @@ Did you know\...
 
 Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
+(Applies to dbt v2.0 and later)
+
 models/\<filename>.yml
 
 ```yml
 unit_tests:
   - name: <test-name>
     config:
+      compute: local | remote
       enabled: true | false
       meta: {dictionary}
+      static_analysis: strict | baseline | off
       tags: <string>
 ```
 

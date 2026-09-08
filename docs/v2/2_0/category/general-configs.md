@@ -18,6 +18,10 @@ The list of general configs available in dbt.
 
 [Aliasing a resource lets you give it a custom name in the database instead of using the filename.](../reference/resource-configs/alias.md)
 
+## [compute](../reference/resource-configs/compute.md)
+
+[Use the compute config to run unit tests locally with DuckDB instead of against your data platform.](../reference/resource-configs/compute.md)
+
 ## [database](../reference/resource-configs/database.md)
 
 [Override the default database when dbt creates resources in your data platform.](../reference/resource-configs/database.md)
@@ -68,7 +72,7 @@ The list of general configs available in dbt.
 
 ## [static\_analysis](../reference/resource-configs/static-analysis.md)
 
-[Use the static\_analysis config to control how the Fusion engine performs static SQL analysis for models, tests, seeds, and snapshots.](../reference/resource-configs/static-analysis.md)
+[Use the static\_analysis config to control how the Fusion engine performs static SQL analysis for models, tests, unit tests, seeds, and snapshots.](../reference/resource-configs/static-analysis.md)
 
 ## [tags](../reference/resource-configs/tags.md)
 
