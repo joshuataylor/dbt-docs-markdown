@@ -15,6 +15,14 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## September 2026
 
+* **Enhancement:** The [Analyst Read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now available to all accounts without requiring a feature flag. You can assign it to groups so read-only users can view Catalog and project configuration such as connections, environments, and Semantic Layer settings.
+
+* **Enhancement:** When you connect to Snowflake through the Semantic Layer, authentication failures and permission errors now return distinct messages prefixed with `[WAREHOUSE_AUTHENTICATION_FAILED]` or `[WAREHOUSE_PERMISSION_DENIED]`, so you can tell credential issues apart from missing grants.
+
+* **Fix:** Saving a job with an invalid day-of-month value such as `*,L` now shows a validation error and prevents the broken schedule from being saved. Use either `*` or `L` in the day-of-month field, not both.
+
+* **Behavior change:** When you assign a project-scoped permission set to a group or service token, you must now specify either all projects or a specific project. Requests that leave project scope unset return a `400` error. Account-level permission sets such as Billing Admin and Notification Manager are not affected. Existing legacy assignments continue to work until you change them.
+
 * **Preview:** Explore mode is now available in the dbt Wizard [home tab](../platform/wizard-home.md#ask-questions-in-explore-mode) and [Studio IDE](../dbt-ai/wizard-ide.md#ask-questions-in-explore-mode). Explore mode lets users ask questions of governed production data in plain language, with the SQL or metric definition behind every answer. Read-only users can now be [invited](../platform/wizard-read-only-users.md) to ask questions about your data without a developer license in the Wizard home tab.
 
 * **New:** Jobs with [dbt State](../deploy/dbt-state-about.md) enabled now include an **Explain** tab on the run details page. This tab shows why dbt State rebuilt, reused, or cloned each resource in the run, so you can audit State behavior and debug unexpected decisions directly on the dbt platform. Refer to [Monitor dbt State activity](../deploy/dbt-state-interface.md#explain-tab) for more information.

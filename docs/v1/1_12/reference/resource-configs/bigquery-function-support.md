@@ -143,8 +143,11 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [INITCAP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#initcap)                                                       | Built-in | ✓                   |
 | [INSTR](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#instr)                                                           | Built-in | ✓                   |
 | [INT64](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#int64_for_json)                                                    | Built-in | ✓                   |
+| [IS\_ACYCLIC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-functions#is_acyclic)                                             | Built-in | —                   |
 | [IS\_INF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#is_inf)                                                  | Built-in | ✓                   |
 | [IS\_NAN](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#is_nan)                                                  | Built-in | ✓                   |
+| [IS\_SIMPLE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-functions#is_simple)                                               | Built-in | —                   |
+| [IS\_TRAIL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-functions#is_trail)                                                 | Built-in | —                   |
 | [JSON\_ARRAY](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_array)                                                  | Built-in | ✓                   |
 | [JSON\_ARRAY\_APPEND](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_array_append)                                   | Built-in | ✓                   |
 | [JSON\_ARRAY\_INSERT](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_array_insert)                                   | Built-in | ✓                   |
