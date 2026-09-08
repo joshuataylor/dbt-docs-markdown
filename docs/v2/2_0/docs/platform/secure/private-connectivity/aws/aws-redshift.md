@@ -58,7 +58,7 @@ dbt platform supports all three Redshift types through self-serve:
 
    Select **Redshift Managed** for both provisioned Redshift clusters and Redshift Serverless.
 
-   1. In **Step 1: Choose your deployment type**, select **Provisioned** or **Serverless**.
+   1. In **Step 1: Choose your deployment type**, select **Provisioned** or **Serverless**. If you choose **Serverless** and have multiple workgroups, make sure you grant access under **Granted accounts** for each workgroup during the AWS-side setup. Refer to [Per-workgroup authorization required](#per-workgroup-authorization).
    2. In **Step 2: Enter your cluster details**, enter your **Cluster identifier** and **Resource owner AWS account ID**.
    3. In **Step 3: Select your AWS region**, choose the AWS region where your Redshift cluster or workgroup is hosted.
    4. Click **Submit request**.
@@ -107,7 +107,7 @@ If **Private endpoints** isn't available in your account settings, configure Red
 
    * **Redshift Serverless**
 
-     * On the Redshift Serverless **Workgroup configuration** page.
+     * On the Redshift Serverless **Workgroup configuration** page. If you have multiple workgroups, make sure you grant access under **Granted accounts** for each workgroup during the AWS-side setup. Refer to [Per-workgroup authorization required](#per-workgroup-authorization).
 
 2. In the **Granted accounts** section, click **Grant access**.
 
@@ -150,6 +150,15 @@ If **Private endpoints** isn't available in your account settings, configure Red
      - Redshift workgroup AWS Region (for example, us-east-1, eu-west-2):
      - dbt multi-tenant environment (US, EMEA, AU, JP):
      ```
+
+### Per-workgroup authorization required
+
+For Redshift Serverless, **Granted accounts** is scoped to a single workgroup. If your environment has multiple workgroups, you must grant access separately for each workgroup you want to connect to dbt.
+
+* Authorizing one workgroup (for example, *sales*) doesn't extend to any other workgroup (for example, *finance* or *product*).
+* Repeat steps 1 to 4 in. [Configuring Redshift-managed](#configuring-redshift-managed-privatelink) section for each workgroup individually.
+
+This applies whether you set up the endpoint through [self-serve](#self-serve-private-endpoints) or support-led.
 
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
