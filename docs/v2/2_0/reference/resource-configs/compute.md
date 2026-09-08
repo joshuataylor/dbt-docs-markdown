@@ -1,6 +1,8 @@
-Compute controls whether a unit test runs against your data platform or locally with DuckDB.
-
 # compute [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Available in v2
+
+Compute controls whether a unit test runs against your data platform or locally with DuckDB.
 
 Available in v2
 
