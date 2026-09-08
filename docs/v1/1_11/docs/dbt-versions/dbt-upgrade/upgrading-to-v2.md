@@ -25,6 +25,10 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 * [Upgrade guide](./upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
+## Resources
+
+* [dbt Fusion engine changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md)
+
 ## Install dbt
 
 Upgrading to v2 is an install step. Install dbt using `pip` to get Fusion for v2:
