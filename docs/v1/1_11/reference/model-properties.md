@@ -8,7 +8,7 @@ Availability
 
 The latest YAML spec is supported in the following environments:
 
-* **dbt platform (Latest release track)**
+* **dbt platform (v1 Latest release track)**
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 

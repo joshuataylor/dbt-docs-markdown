@@ -19,9 +19,9 @@ For walkthroughs of both the preparation and upgrade processes, check out our de
 
 ### Upgrade to the latest dbt version (recommended)
 
-The **Latest** [release track](../dbt-versions/dbt-release-tracks.md) has all of the most recent features to help you prepare for Fusion.
+The **v1 Latest** [release track](../dbt-versions/dbt-release-tracks.md) has all of the most recent features to help you prepare for Fusion.
 
-* [ ] Make sure all your projects are on the **Latest** release track across all deployment environments and jobs. This is not a strict requirement for upgrading, but it will ensure the simplest, most predictable experience by allowing you to pre-validate that your project doesn't rely on deprecated behaviors.
+* [ ] Make sure all your projects are on the **v1 Latest** release track across all deployment environments and jobs. This is not a strict requirement for upgrading, but it will ensure the simplest, most predictable experience by allowing you to pre-validate that your project doesn't rely on deprecated behaviors.
 
 ### Resolve all deprecation warnings
 
@@ -29,7 +29,7 @@ You must resolve deprecations while your projects are on a dbt Core release trac
 
 Start a new branch to begin resolving deprecation warnings using one of the following methods:
 
-* [ ] **Run autofix in the dbt platform:** You can address deprecation warnings using the [autofix tool in the Studio IDE](../platform/studio-ide/autofix-deprecations.md). You can run the autofix tool on the **Compatible** or **Latest** release track.
+* [ ] **Run autofix in the dbt platform:** You can address deprecation warnings using the [autofix tool in the Studio IDE](../platform/studio-ide/autofix-deprecations.md). You can run the autofix tool on the **v1 Compatible** or **v1 Latest** release track.
 * [ ] **Run autofix locally:** Use the [VS Code extension](../about-dbt-extension.md). The extension has a built-in ["Getting Started" workflow](../install-dbt-extension.md#getting-started) that will debug your dbt project in the VS Code or Cursor IDE and execute the autofix tool. This has the added benefit of installing Fusion to your computer so you can begin testing locally before implementing in your dbt platform account.
 * [ ] **Run autofix locally (without the extension):** Visit the autofix [GitHub repo](https://github.com/dbt-labs/dbt-autofix) to run the tool locally if you're not using VS Code or Cursor. This will only run the tool, it will not install Fusion.
 * [ ] **Remove behavior change flag overrides:** Fusion forcibly enables all behavior change flags. Remove any `flags:` overrides in your `dbt_project.yml` that opt out of these behaviors and validate that your project works correctly with them enabled.
@@ -71,7 +71,7 @@ We determine Fusion eligibility using data from your job runs.
 
 * [ ] Ensure you have at least one job running in each of your projects in the dbt platform.
   * [ ] Ensure each job has run within the last 7 days. Jobs that haven't run recently are considered inactive and are ineligible for Fusion. If you see a "no active jobs" ineligibility reason in the Fusion readiness UI, run the job manually or adjust its schedule.
-* [ ] Ensure all jobs are running on the [**Latest** release track](../dbt-versions/dbt-release-tracks.md#which-release-tracks-are-available) for the smoothest upgrade experience.
+* [ ] Ensure all jobs are running on the [**v1 Latest** release track](../dbt-versions/dbt-release-tracks.md#which-release-tracks-are-available) for the smoothest upgrade experience.
 * [ ] Resolve any job failures — all jobs must run successfully for eligibility checks to work.
 * [ ] Delete any jobs that are no longer in use to ensure accurate eligibility reporting.
 * [ ] Make sure you've promoted the changes for deprecation resolution and package upgrades to your git branches that map to your deployment environments.

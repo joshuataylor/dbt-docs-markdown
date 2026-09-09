@@ -208,7 +208,7 @@ This view visualizes the dependencies and relationships in your project. For Tab
 
 [Orchestrate exposures](./orchestrate-exposures.md) using the dbt [Cloud job scheduler](../deploy/job-scheduler.md) to proactively refresh the underlying data sources (extracts) that power your Tableau Workbooks.
 
-This beta capability requires deployment jobs on [Latest](../dbt-versions/dbt-release-tracks.md) with dbt Core and *isn't* available on [Fusion Stable](../dbt-versions/dbt-release-tracks.md) (the dbt Fusion engine preview). For setup details, refer to [Orchestrate exposures](./orchestrate-exposures.md).
+This beta capability requires deployment jobs on [**v1 Latest**](../dbt-versions/dbt-release-tracks.md) with dbt Core and *isn't* available on [**v2 Stable**](../dbt-versions/dbt-release-tracks.md) (the dbt Fusion engine preview). For setup details, refer to [Orchestrate exposures](./orchestrate-exposures.md).
 
 * Orchestrating exposures with a `dbt build` job ensures that downstream exposures, like Tableau extracts, are updated regularly and automatically.
 * You can control the frequency of these refreshes by configuring environment variables.

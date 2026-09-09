@@ -4,7 +4,7 @@ note
 
 Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [database](./database.md) config as an alternative to define a custom database while still respecting the `generate_database_name` macro.
 
-Try it now in the [dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Try it now in the [dbt **v1 Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 

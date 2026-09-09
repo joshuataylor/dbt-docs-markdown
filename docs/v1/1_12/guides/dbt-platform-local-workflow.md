@@ -129,15 +129,15 @@ Consider a script that fetches variables from your secrets manager (for example,
 
 ## 3. Managing Fusion versions
 
-The **Latest** release track on dbt platform updates continuously as Fusion ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
+The **v2 Stable** release track on dbt platform updates continuously as Fusion ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
 
 ### Versions on the dbt platform
 
-On dbt platform, Fusion follows a versionless release track model. The default release track is **Fusion Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [Fusion releases](../docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks).
+On dbt platform, Fusion follows a versionless release track model. The default release track is **v2 Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [Fusion releases](../docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks).
 
 ### Versions installed locally
 
-By default, the Fusion [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **Fusion Stable** release track on dbt platform:
+By default, the Fusion [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **v2 Stable** release track on dbt platform:
 
 ```shell
 # macOS / Linux
@@ -176,17 +176,17 @@ Then open your project in VS Code and select **Reopen in Container** when prompt
 
 Coming soon
 
-We're introducing additional Fusion release tracks on dbt platform beyond **Fusion Stable**. When they're available, we'll update this guide with steps to pin your dev container to a specific track.
+We're introducing additional Fusion release tracks on dbt platform beyond **v2 Stable**. When they're available, we'll update this guide with steps to pin your dev container to a specific track.
 
 ### Without dev containers: update at the start of each session
 
-If dev containers aren't an option for your team, run `dbt system update` at the start of each development session instead. That installs the latest stable release, the same version as the **Latest** track on dbt platform, so your local binary stays current:
+If dev containers aren't an option for your team, run `dbt system update` at the start of each development session instead. That installs the latest stable release, the same version as the **v2 Stable** track on dbt platform, so your local binary stays current:
 
 ```shell
 dbt system update && dbt debug
 ```
 
-Pinning to a specific version number does not work long term here: the **Latest** track on dbt platform keeps advancing, and a pinned self-hosted installation falls behind. Aim to stay on **Latest** instead of locking to one release.
+Pinning to a specific version number does not work long term here: the **v2 Stable** track on dbt platform keeps advancing, and a pinned self-hosted installation falls behind. Aim to stay on **v2 Stable** instead of locking to one release.
 
 To make this easy to remember, add a `dev` target to your project's `Makefile`:
 

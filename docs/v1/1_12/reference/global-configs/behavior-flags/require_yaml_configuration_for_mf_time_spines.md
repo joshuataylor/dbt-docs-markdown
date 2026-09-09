@@ -4,11 +4,11 @@ Removed in dbt Core 2.0
 
 This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **Latest** | dbt Core |
-| --------------------------------------------------- | -------------- | -------- |
-| Introduced                                          | 2024.10        | 1.9.0    |
-| Matured (default → `true`)                          | 2026.09        | 1.12.0   |
-| Removed                                             | —              | v2.0     |
+| require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **v1 Latest** | dbt Core |
+| --------------------------------------------------- | ----------------- | -------- |
+| Introduced                                          | 2024.10           | 1.9.0    |
+| Matured (default → `true`)                          | 2026.09           | 1.12.0   |
+| Removed                                             | —                 | v2.0     |
 
 In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 

@@ -1,10 +1,10 @@
 # Null-safe equality (equals macro)
 
-| enable\_truthy\_nulls\_equals\_macro | dbt **Latest** | dbt Core |
-| ------------------------------------ | -------------- | -------- |
-| Introduced                           | 2025.02        | 1.9.0    |
-| Matured (default → `true`)           | —              | —        |
-| Removed                              | —              | —        |
+| enable\_truthy\_nulls\_equals\_macro | dbt **v1 Latest** | dbt Core |
+| ------------------------------------ | ----------------- | -------- |
+| Introduced                           | 2025.02           | 1.9.0    |
+| Matured (default → `true`)           | —                 | —        |
+| Removed                              | —                 | —        |
 
 The `enable_truthy_nulls_equals_macro` flag is `false` by default. Setting it to `true` in your `dbt_project.yml` enables null-safe equality in the dbt [equals](../../dbt-jinja-functions/cross-database-macros.md#equals) macro, which is used in incremental and snapshot materializations.
 

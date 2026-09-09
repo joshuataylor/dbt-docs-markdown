@@ -95,7 +95,7 @@ With the readiness experience enabled, you can monitor your project's eligibilit
 
 Common ineligibility reasons include:
 
-* Environment(s) not on the **Latest** \[release track]\(/docs/dbt-versions/dbt-release-tracks#which-release-tracks-are-available]
+* Environment(s) not on the **v1 Latest** [release track](../docs/dbt-versions/dbt-release-tracks.md#which-release-tracks-are-available)
 * Not using a [supported data platform](../docs/dbt/supported-features.md?version=2.0#requirements)
 * Project doesn't have at least one successful job run
 * Jobs that haven't run in the last 7 days or have recent failures
@@ -104,20 +104,20 @@ As you complete the steps in this guide, check the readiness panel to see your e
 
 ## Upgrade to the latest dbt Core version
 
-Before upgrading to Fusion, you need to move your environments to the **Latest** [dbt Core release track](../docs/dbt-versions/dbt-release-tracks.md). The **Latest** track includes all the features and tooling to help you prepare for Fusion. It ensures the smoothest upgrade experience by validating that your project doesn't rely on deprecated behaviors.
+Before upgrading to Fusion, you need to move your environments to the **v1 Latest** [dbt Core release track](../docs/dbt-versions/dbt-release-tracks.md). The **v1 Latest** track includes all the features and tooling to help you prepare for Fusion. It ensures the smoothest upgrade experience by validating that your project doesn't rely on deprecated behaviors.
 
 Test before you deploy
 
-Always test version upgrades in development first. Use the [Override dbt version](#step-1-test-in-development-using-override) feature to safely try the **Latest** release track without affecting your team or production runs.
+Always test version upgrades in development first. Use the [Override dbt version](#step-1-test-in-development-using-override) feature to safely try the **v1 Latest** release track without affecting your team or production runs.
 
 ### Step 1: Test in development (using override)
 
-Test the **Latest** release track for your individual account without changing the environment for your entire team:
+Test the **v1 Latest** release track for your individual account without changing the environment for your entire team:
 
 1. Click your account name in the left sidebar and select **Account settings**.
 2. Select **Credentials** from the sidebar and choose your project.
 3. In the side panel, click **Edit** and scroll to **User development settings**.
-4. Select **Latest** from the **dbt version** dropdown and click **Save**.
+4. Select **v1 Latest** from the **dbt version** dropdown and click **Save**.
 
 ![Override dbt version in your account settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Override dbt version in your account settings")Override dbt version in your account settings
 
@@ -132,10 +132,10 @@ After successfully testing your individual development environment with the over
 
 1. Navigate to **Environments** in your project settings.
 2. Select your **Development** environment and click **Edit**.
-3. Click the **dbt version** dropdown and select **Latest**.
+3. Click the **dbt version** dropdown and select **v1 Latest**.
 4. Click **Save** to apply the changes.
 
-![Upgrade development environment to Latest dbt Core release track](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/select-development.png?v=2 "Upgrade development environment to Latest dbt Core release track")Upgrade development environment to Latest dbt Core release track
+![Upgrade development environment to v1 Latest dbt Core release track](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/select-development.png?v=2 "Upgrade development environment to v1 Latest dbt Core release track")Upgrade development environment to v1 Latest dbt Core release track
 
 Remove your override
 
@@ -146,7 +146,7 @@ Once your development environment is upgraded, you can remove your personal over
 If your organization has staging or pre-production environments, upgrade these before production:
 
 1. Navigate to **Environments** and select your staging/pre-production environment.
-2. Click **Edit** and select **Latest** from the **dbt version** dropdown.
+2. Click **Edit** and select **v1 Latest** from the **dbt version** dropdown.
 3. Click **Save**.
 4. Run your jobs in this environment for a few days to validate everything works correctly.
 
@@ -157,13 +157,13 @@ This provides a final validation layer before upgrading production environments.
 After validating in staging (or development if you don't have staging), upgrade your production environment:
 
 1. Navigate to **Environments** and select your **Production** environment.
-2. Click **Edit** and select **Latest** from the **dbt version** dropdown.
+2. Click **Edit** and select **v1 Latest** from the **dbt version** dropdown.
 3. Click **Save** to apply the changes.
 4. Monitor your first few production runs to ensure everything executes successfully.
 
 ### Step 5: Update jobs
 
-While environments control the dbt version for most scenarios, some older job configurations may have version overrides. Review your jobs and [update any that specify a dbt version](../docs/dbt-versions/upgrade-dbt-platform-version.md#jobs) to ensure they use the environment's Latest release track.
+While environments control the dbt version for most scenarios, some older job configurations may have version overrides. Review your jobs and [update any that specify a dbt version](../docs/dbt-versions/upgrade-dbt-platform-version.md#jobs) to ensure they use the environment's v1 Latest release track.
 
 ## Resolve all deprecation warnings
 

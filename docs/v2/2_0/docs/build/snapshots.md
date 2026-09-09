@@ -384,7 +384,7 @@ The resulting table will look like this:
 
 Snapshot tables will be created as a clone of your source dataset, plus some additional meta-fields.
 
-In dbt Core v1.9+ (or available sooner in [the **Latest** release track in dbt](../dbt-versions/dbt-release-tracks.md)):
+In dbt Core v1.9+ (or available sooner in [the **v1 Latest** release track in dbt](../dbt-versions/dbt-release-tracks.md)):
 
 * These column names can be customized to your team or organizational conventions using the [`snapshot_meta_column_names`](../../reference/resource-configs/snapshot_meta_column_names.md) config.
 * Use the [`dbt_valid_to_current` config](../../reference/resource-configs/dbt_valid_to_current.md) to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date such as `9999-12-31`). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` for current records in the snapshot table.

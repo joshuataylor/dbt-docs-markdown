@@ -10,7 +10,7 @@ Refer to [Function properties](../../reference/function-properties.md) or [Funct
 
 ## Prerequisites
 
-* Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](../dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
+* Make sure you're using dbt platform's **v2 Stable** or **v1 Latest** [release track](../dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
 
 * Use one of the following adapters:
 

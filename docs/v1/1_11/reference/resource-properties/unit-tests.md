@@ -2,7 +2,7 @@
 
 Did you know\...
 
-Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 Unit tests validate your SQL modeling logic on a small set of static inputs before you materialize your full model in production. They support a test-driven development approach, improving both the efficiency of developers and reliability of code.
 

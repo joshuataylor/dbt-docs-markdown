@@ -45,14 +45,14 @@ For users familiar with development on dbt Core, each environment is roughly ana
 
 Both development and deployment environments have a section called **General Settings**, which has some basic settings that all environments will define:
 
-| Setting                     | Example Value | Definition                                                                                                                                                                        | Accepted Values              |
-| --------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Environment name            | Production    | The environment name                                                                                                                                                              | Any string!                  |
-| Environment type            | Deployment    | The type of environment                                                                                                                                                           | Deployment, Development      |
-| Set deployment type         | PROD          | Designates the deployment environment type.                                                                                                                                       | Production, Staging, General |
-| dbt version                 | Latest        | dbt automatically upgrades the dbt version running in this environment, based on the [release track](./dbt-versions/dbt-release-tracks.md) you select. | Latest, Compatible, Extended |
-| Only run on a custom branch | ☑️            | Determines whether to use a branch other than the repository’s default                                                                                                            | See below                    |
-| Custom branch               | dev           | Custom Branch name                                                                                                                                                                | See below                    |
+| Setting                     | Example Value | Definition                                                                                                                                                                        | Accepted Values                                                                                   |
+| --------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Environment name            | Production    | The environment name                                                                                                                                                              | Any string!                                                                                       |
+| Environment type            | Deployment    | The type of environment                                                                                                                                                           | Deployment, Development                                                                           |
+| Set deployment type         | PROD          | Designates the deployment environment type.                                                                                                                                       | Production, Staging, General                                                                      |
+| dbt version                 | **v1 Latest** | dbt automatically upgrades the dbt version running in this environment, based on the [release track](./dbt-versions/dbt-release-tracks.md) you select. | **v2 Stable**, **v2 Nightly**, **v2 Extended**, **v1 Latest**, **v1 Compatible**, **v1 Extended** |
+| Only run on a custom branch | ☑️            | Determines whether to use a branch other than the repository’s default                                                                                                            | See below                                                                                         |
+| Custom branch               | dev           | Custom Branch name                                                                                                                                                                | See below                                                                                         |
 
 About dbt version
 
@@ -148,7 +148,7 @@ To change an environment's settings (such as its name, credentials, or dbt versi
 1. Navigate to **Orchestration** > **Environments**.
 2. Click the **environment name** you want to change.
 3. Click **Settings** and then **Edit**.
-4. Update the fields you want to change. For example, you can edit the environment name, dbt version (for eligible account tiers and supported adapters, **Fusion Stable** is the default for new deployment environments).
+4. Update the fields you want to change. For example, you can edit the environment name, dbt version (for eligible account tiers and supported adapters, **v2 Stable** is the default for new deployment environments).
 5. Click **Save** to apply your changes.
 
 For details on available settings, see [Common environment settings](./dbt-platform-environments.md#common-environment-settings) in the environment info above.

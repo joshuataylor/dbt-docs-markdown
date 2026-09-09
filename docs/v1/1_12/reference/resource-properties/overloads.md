@@ -2,7 +2,7 @@
 
 Did you know\...
 
-Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 

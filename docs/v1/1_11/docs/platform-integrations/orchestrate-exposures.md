@@ -8,7 +8,7 @@ Use [dbt platform job scheduler](../deploy/job-scheduler.md) to proactively refr
 
 Available in private beta
 
-Orchestrating exposures is currently available in private beta to dbt Enterprise accounts. Your deployment environments and scheduled jobs must use [Latest](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine (not [Fusion Stable engine](../dbt-versions/dbt-release-tracks.md)). To join the beta, contact your account representative.
+Orchestrating exposures is currently available in private beta to dbt Enterprise accounts. Your deployment environments and scheduled jobs must use [**v1 Latest**](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine (not [**v2 Stable** release track](../dbt-versions/dbt-release-tracks.md)). To join the beta, contact your account representative.
 
 Orchestrating exposures integrates with [downstream exposures](./downstream-exposures-tableau.md) and uses your `dbt build` job to ensure that Tableau extracts are updated regularly.
 

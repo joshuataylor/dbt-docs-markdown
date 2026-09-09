@@ -8,9 +8,9 @@ Use [dbt platform job scheduler](../deploy/job-scheduler.md) to proactively refr
 
 Fusion not supported for this beta
 
-Orchestrating downstream exposures *isn’t* available when your deployments use [Fusion Stable](../dbt-versions/dbt-release-tracks.md). Supported jobs must use [Latest](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine.
+Orchestrating downstream exposures *isn’t* available when your deployments use [**v2 Stable**](../dbt-versions/dbt-release-tracks.md). Supported jobs must use [**v1 Latest**](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine.
 
-On the [Fusion Stable](../dbt-versions/dbt-release-tracks.md) release track (the dbt Fusion engine preview), orchestrating downstream exposures isn’t supported yet. Setting `DBT_ACTIVE_EXPOSURES` and `DBT_ACTIVE_EXPOSURES_BUILD_AFTER` won’t enable orchestration behavior (like Tableau extract refreshes) or the related job log entries.
+On the [**v2 Stable**](../dbt-versions/dbt-release-tracks.md) release track (the dbt Fusion engine preview), orchestrating downstream exposures isn’t supported yet. Setting `DBT_ACTIVE_EXPOSURES` and `DBT_ACTIVE_EXPOSURES_BUILD_AFTER` won’t enable orchestration behavior (like Tableau extract refreshes) or the related job log entries.
 
 The private beta is for dbt Enterprise accounts. Contact your account representative for access.
 

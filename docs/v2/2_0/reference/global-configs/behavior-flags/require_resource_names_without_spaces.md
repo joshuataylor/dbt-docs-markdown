@@ -4,11 +4,11 @@ Removed in dbt Core 2.0
 
 This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_resource\_names\_without\_spaces | dbt **Latest** | dbt Core |
-| ----------------------------------------- | -------------- | -------- |
-| Introduced                                | 2024.05        | 1.8.0    |
-| Matured (default → `true`)                | 2025.05        | 1.10.0   |
-| Removed                                   | —              | v2.0     |
+| require\_resource\_names\_without\_spaces | dbt **v1 Latest** | dbt Core |
+| ----------------------------------------- | ----------------- | -------- |
+| Introduced                                | 2024.05           | 1.8.0    |
+| Matured (default → `true`)                | 2025.05           | 1.10.0   |
+| Removed                                   | —                 | v2.0     |
 
 dbt raises an error if it detects a space in a resource name. Resource names should contain letters, numbers, and underscores only.
 

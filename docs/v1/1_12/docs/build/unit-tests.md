@@ -2,7 +2,7 @@
 
 Did you know\...
 
-Available from dbt v1.8 or with the [dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "v1 Latest" release track](../dbt-versions/dbt-release-tracks.md).
 
 Historically, dbt's test coverage was confined to [“data” tests](./data-tests.md), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed *after* building a model.
 

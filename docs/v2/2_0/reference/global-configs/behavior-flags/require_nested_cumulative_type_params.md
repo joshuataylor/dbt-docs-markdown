@@ -1,12 +1,12 @@
 # Cumulative metrics
 
-| require\_nested\_cumulative\_type\_params | dbt **Latest** | dbt Core |
-| ----------------------------------------- | -------------- | -------- |
-| Introduced                                | 2024.11        | 1.9.0    |
-| Matured (default → `true`)                | 2026.09        | 1.12.0   |
-| Removed                                   | —              | —        |
+| require\_nested\_cumulative\_type\_params | dbt **v1 Latest** | dbt Core |
+| ----------------------------------------- | ----------------- | -------- |
+| Introduced                                | 2024.11           | 1.9.0    |
+| Matured (default → `true`)                | 2026.09           | 1.12.0   |
+| Removed                                   | —                 | —        |
 
-[Cumulative-type metrics](../../../docs/build/cumulative.md#parameters) are nested under the `cumulative_type_params` field in [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), dbt Core v1.9 and newer. Starting in dbt Core v1.12, this flag defaults to `true`, which causes dbt to raise an error instead of a warning when cumulative metrics use the un-nested syntax.
+[Cumulative-type metrics](../../../docs/build/cumulative.md#parameters) are nested under the `cumulative_type_params` field in [the dbt **v1 Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), dbt Core v1.9 and newer. Starting in dbt Core v1.12, this flag defaults to `true`, which causes dbt to raise an error instead of a warning when cumulative metrics use the un-nested syntax.
 
 Use the following metric configured with the syntax before v1.9 as an example:
 
@@ -17,7 +17,7 @@ Use the following metric configured with the syntax before v1.9 as an example:
       window: 7 days
 ```
 
-If you run `dbt parse` with that syntax on dbt Core v1.9 or [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
+If you run `dbt parse` with that syntax on dbt Core v1.9 or [the dbt **v1 Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
 
 ```bash
 15:36:22  [WARNING]: Cumulative fields `type_params.window` and

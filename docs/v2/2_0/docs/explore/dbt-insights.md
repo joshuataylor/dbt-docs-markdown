@@ -20,7 +20,7 @@ Insights in dbt integrates with [Catalog](./explore-projects.md), [Studio IDE](.
 
 * Configured [user credentials](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
 
-* Your production and development [environments](../dbt-platform-environments.md) are on dbt’s ‘Latest’ [release track](../dbt-versions/dbt-release-tracks.md) or a supported dbt version.
+* Your production and development [environments](../dbt-platform-environments.md) are on dbt’s **v1 Latest** [release track](../dbt-versions/dbt-release-tracks.md) or a supported dbt version.
 
 * Use a supported data platform: Snowflake, BigQuery, Databricks, Redshift, or Postgres.
   * Single sign-on (SSO) for development user accounts is supported. Deployment environments will be queried leveraging the user's user credentials configured in **Account settings**.
@@ -30,7 +30,7 @@ Insights in dbt integrates with [Catalog](./explore-projects.md), [Studio IDE](.
   * [Configure](../use-dbt-semantic-layer/setup-sl.md) the Semantic Layer for your dbt project.
   * Have a successful job run in the environment where you configured the Semantic Layer.
 
-* (Optional) To enable [Language Server Protocol (LSP) features](./navigate-dbt-insights.md#lsp-features-in-dbt-insights) in Insights and run your compilations on the dbt Fusion engine, set your development environment to use the **Fusion Stable** dbt version.
+* (Optional) To enable [Language Server Protocol (LSP) features](./navigate-dbt-insights.md#lsp-features-in-dbt-insights) in Insights and run your compilations on the dbt Fusion engine, set your development environment to use the **v2 Stable** dbt version.
 
 ## Key benefits
 

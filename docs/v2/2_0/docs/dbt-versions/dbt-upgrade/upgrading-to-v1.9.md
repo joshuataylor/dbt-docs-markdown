@@ -12,7 +12,7 @@ Available in v1
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.9! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.9 final release.
+Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **v1 Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.9! If you have selected the **v1 Compatible** release track, you will have access in the next monthly **v1 Compatible** release after the dbt Core v1.9 final release.
 
 ## New and changed features and functionality
 
@@ -117,8 +117,8 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
   * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
-  * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
+  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
+  * **dbt Fusion engine**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 

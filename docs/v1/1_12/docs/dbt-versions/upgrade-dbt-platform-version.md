@@ -14,7 +14,7 @@ Navigate to the settings page of an environment, then click **Edit**. Click the 
 
 Starting in 2024, your project gets upgraded automatically on a cadence that you choose:
 
-The **Latest** track ensures you have up-to-date dbt functionality, and early access to new features of the dbt framework. The **Compatible** and **Extended** tracks are designed for customers who need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
+The **v1 Latest** track ensures you have up-to-date dbt functionality, and early access to new features of the dbt framework. The **v1 Compatible** and **v1 Extended** tracks are designed for customers who need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
 
 As a best practice, dbt Labs recommends that you test the upgrade in development first; use the [Override dbt version](#override-dbt-version) setting to test *your* project on the latest dbt version before upgrading your deployment environments and the default development environment for all your colleagues.
 
@@ -37,7 +37,7 @@ Configure your project to use a different dbt version than what's configured in 
 3. In the side panel, click **Edit** and scroll to the **User development settings** section.
 4. Choose a version from the **dbt version** dropdown and click **Save**.
 
-An example of overriding the configured version to [**Latest** release track](./dbt-release-tracks.md) for the selected project:
+An example of overriding the configured version to [**v1 Latest** release track](./dbt-release-tracks.md) for the selected project:
 
 ![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")Example of overriding the dbt version on your user account
 
@@ -47,9 +47,9 @@ An example of overriding the configured version to [**Latest** release track](./
 
 dbt Labs has introduced the new [dbt Fusion engine](../introduction.md), a ground-up rebuild of dbt. This is currently generally available for Snowflake projects and in preview for other supported adapters on the dbt platform. Eligible customers can update environments to Fusion using the same workflows as v1.x, but remember:
 
-* If you don't see the `Fusion Stable` release track as an option, you should check with your dbt Labs account team about eligibility.
+* If you don't see the **v2 Stable** release track as an option, you should check with your dbt Labs account team about eligibility.
 
-* To increase the compatibility of your project, update all jobs and environments to the **Latest** release track and read more about the changes in our [upgrade guide](./dbt-upgrade/upgrading-to-v2.md).
+* To increase the compatibility of your project, update all jobs and environments to the **v1 Latest** release track and read more about the changes in our [upgrade guide](./dbt-upgrade/upgrading-to-v2.md).
 
 * Make sure you're using a [supported adapter](../platform/connect-data-platform/about-connections.md?version=2.0) and authentication method:
 
@@ -81,7 +81,7 @@ dbt Labs has introduced the new [dbt Fusion engine](../introduction.md), a groun
 
   *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-* Once you upgrade your development environment(s) to `Fusion Stable`, every user will have to restart the IDE.
+* Once you upgrade your development environment(s) to `v2 Stable`, every user will have to restart the IDE.
 
   ![Upgrade to the Fusion engine in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Upgrade to the Fusion engine in your environment settings.")Upgrade to the Fusion engine in your environment settings.
 
@@ -95,7 +95,7 @@ When you're ready to upgrade your project(s) to dbt Fusion engine, there are som
 
 To take advantage of the upgrade assistant and other upgrade tools, you'll need to meet the following prerequisites:
 
-* Your dbt project must be updated to use the **Latest** release track.
+* Your dbt project must be updated to use the **v1 Latest** release track.
 * You must have a `developer` license.
 * You must have the proper [permissions set](../platform/manage-access/enterprise-permissions.md) to execute individual upgrade tasks. Migrating to Fusion is a multi-step process and some of these steps may be repeated across projects by different users:
 
@@ -104,7 +104,7 @@ To take advantage of the upgrade assistant and other upgrade tools, you'll need 
 | Enable Fusion access (triggers migration flows) | Fusion readiness: `write`<br />Projects: `write` | Admin, Account Admin, and anyone assigned the v2 Migration admin set, provided their base role also has `write` access to projects |
 | View Fusion readiness and job eligibility       | Fusion readiness: `read`                         | Developer, Admin, Member, Account Admin, v2 Migration admin                                                                        |
 | **Run once on Fusion** job action               | Runs: `write`                                    | Job Admin, Job Runner, Admin, Member, Project Creator, Account Admin                                                               |
-| Enable Fusion-latest for an environment         | Environments: `write`                            | Job Admin, Admin, Member, Project Creator, Account Admin                                                                           |
+| Enable **v2 Stable** for an environment         | Environments: `write`                            | Job Admin, Admin, Member, Project Creator, Account Admin                                                                           |
 
 #### Assign access to upgrade
 
@@ -226,7 +226,7 @@ We'll continue to update the following release table so that users know when we 
 
 All functionality in dbt Core since the v1.7 release is available in [dbt release tracks](./dbt-release-tracks.md), which provide automated upgrades at a cadence appropriate for your team.
 
-1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **Latest** release track.
+1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **v1 Latest** release track.
 
 For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-release-tracks.md) or a supported version. On January 31, 2027, dbt Labs will deprecate dbt Core versions v1.3 through v1.7, removing them from availability in dbt platform.
 

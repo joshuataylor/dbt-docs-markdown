@@ -76,7 +76,7 @@ The dbt Core engine uses semantic versioning for the 1.x release series. To inst
 
 All functionality in dbt Core since the v1.7 release is available in [dbt release tracks](./dbt-versions/dbt-release-tracks.md), which provide automated upgrades at a cadence appropriate for your team.
 
-1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **Latest** release track.
+1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **v1 Latest** release track.
 
 For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-versions/dbt-release-tracks.md) or a supported version. On January 31, 2027, dbt Labs will deprecate dbt Core versions v1.3 through v1.7, removing them from availability in dbt platform.
 

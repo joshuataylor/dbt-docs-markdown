@@ -1,10 +1,10 @@
-# dbt platform compatible track - changelog
+# dbt platform v1 Compatible track - changelog
 
 dbt platform | Free
 
-Select the **Compatible** and **Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
+Select the **v1 Compatible** and **v1 Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
 
-Each monthly **Compatible** release includes functionality matching up-to-date open source versions of dbt Core and adapters at the time of release.
+Each monthly **v1 Compatible** release includes functionality matching up-to-date open source versions of dbt Core and adapters at the time of release.
 
 For more information, see [release tracks](./dbt-release-tracks.md).
 

@@ -71,7 +71,7 @@ snapshots:
 
 Did you know\...
 
-Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 (Applies to dbt v1.12 and earlier)
 

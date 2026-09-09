@@ -4,7 +4,7 @@
 
 When materializing a model as `table`, you may include several optional configs that are specific to the dbt-databricks plugin, in addition to the standard [model configs](../model-configs.md).
 
-dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md). All other table configurations were also supported in 1.8.
+dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [dbt **v1 Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md). All other table configurations were also supported in 1.8.
 
 | Option                        | Description                                                                                                                                                                                                                                                                                                                                      | Required?                               | Model support    | Example                     |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | ---------------- | --------------------------- |
@@ -43,7 +43,7 @@ In dbt-databricks v1.10, there are several new model configurations options gate
 
 *Available in versions 1.9 or higher*
 
-In dbt-databricks v1.9 (try it now in [the dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md)), you can use these four options for `submission_method`:
+In dbt-databricks v1.9 (try it now in [the dbt **v1 Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md)), you can use these four options for `submission_method`:
 
 * `all_purpose_cluster`: Executes the python model either directly using the [command api](https://docs.databricks.com/api/workspace/commandexecution) or by uploading a notebook and creating a one-off job run
 

@@ -21,7 +21,7 @@ Once you complete the Fusion migration, your team will benefit from:
 
 Before upgrading your development environment, confirm:
 
-* Your project is on the **Latest** release track (completed in [Part 1: Preparing to upgrade](./prepare-v2-upgrade.md))
+* Your project is on the **v1 Latest** release track (completed in [Part 1: Preparing to upgrade](./prepare-v2-upgrade.md))
 
 * Your project must be using a supported adapter and auth method.
 
@@ -59,7 +59,7 @@ Before upgrading your development environment, confirm:
 
 ## Upgrade your development environment
 
-With your project prepared and tested on the **Latest** release track, you're ready to upgrade your development environment to Fusion. The dbt platform provides a guided upgrade assistant that walks you through the process and helps validate your project is Fusion ready.
+With your project prepared and tested on the **v1 Latest** release track, you're ready to upgrade your development environment to Fusion. The dbt platform provides a guided upgrade assistant that walks you through the process and helps validate your project is Fusion ready.
 
 Start with development
 
@@ -207,7 +207,7 @@ Your development environment is now on Fusion, but your production environment a
 * Identify and resolve any project-specific issues.
 * Train team members on any workflow changes.
 
-When you're ready to upgrade production, you'll update your deployment environments and jobs to use the `Fusion Stable` release track. We'll cover that in the next section.
+When you're ready to upgrade production, you'll update your deployment environments and jobs to use the `v2 Stable` release track. We'll cover that in the next section.
 
 ## Upgrade staging and intermediate environments
 
@@ -246,10 +246,10 @@ Change your staging environment to use the Fusion release track:
 
 1. In the environment settings, scroll to the **dbt version** section.
 2. Click the **dbt version** dropdown menu.
-3. Select **Fusion Stable** from the list.
+3. Select **v2 Stable** from the list.
 4. Scroll to the top and click **Save**.
 
-![Select Fusion Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select Fusion Stable from the dbt version dropdown")Select Fusion Stable from the dbt version dropdown
+![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable from the dbt version dropdown")Select v2 Stable from the dbt version dropdown
 
 Your staging environment is now configured to use Fusion! Any jobs associated with this environment will use Fusion on their next run.
 
@@ -291,7 +291,7 @@ If you encounter problems in staging:
 * Test the same models in your development environment to isolate the problem.
 * Contact [dbt Support](../docs/dbt-support.md) or your account team for assistance.
 
-You can revert the staging environment to **Latest** release track while investigating.
+You can revert the staging environment to **v1 Latest** release track while investigating.
 
 ### How long should I test in staging?
 
@@ -315,7 +315,7 @@ Upgrading production is a critical operation. While Fusion is production ready a
 
 * Plan the upgrade during a low-traffic window to minimize impact.
 * Notify stakeholders about the maintenance window.
-* Have a rollback plan ready (reverting to **Latest** release track).
+* Have a rollback plan ready (reverting to **v1 Latest** release track).
 * Monitor closely for the first few job runs after upgrading.
 
 ### Step 1: Plan your maintenance window
@@ -339,17 +339,17 @@ Access your production environment configuration:
 
 ![Access production environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Access production environment settings")Access production environment settings
 
-### Step 3: Upgrade to Fusion Stable
+### Step 3: Upgrade to v2 Stable
 
 Update your production environment to use Fusion:
 
 1. In the environment settings, scroll to the **dbt version** section.
 2. Click the **dbt version** dropdown menu.
-3. Select **Fusion Stable** from the list.
+3. Select **v2 Stable** from the list.
 4. Review your settings one final time to ensure everything is correct.
 5. Scroll to the top and click **Save**.
 
-![Select Fusion Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select Fusion Stable for production")Select Fusion Stable for production
+![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable for production")Select v2 Stable for production
 
 Your production environment is now running on Fusion!
 
@@ -423,13 +423,13 @@ If you encounter critical issues in production, you can revert your dbt version:
 
 1. Navigate to **Orchestration** → **Environments** → **Production**.
 2. Click **Edit**.
-3. Change **dbt version** from **Fusion Stable** back to **Latest**.
+3. Change **dbt version** from **v2 Stable** back to **v1 Latest**.
 4. Click **Save**.
 5. Jobs will use dbt Core on their next run.
 
 Rollback impact
 
-Rolling back to **Latest** will disable Fusion-specific features. Only rollback if you're experiencing production-critical issues.
+Rolling back to **v1 Latest** will disable Fusion-specific features. Only rollback if you're experiencing production-critical issues.
 
 ## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 

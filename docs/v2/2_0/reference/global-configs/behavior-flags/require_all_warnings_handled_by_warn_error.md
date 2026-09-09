@@ -1,10 +1,10 @@
 # Warn-error handler for all warnings
 
-| require\_all\_warnings\_handled\_by\_warn\_error | dbt **Latest** | dbt Core |
-| ------------------------------------------------ | -------------- | -------- |
-| Introduced                                       | 2025.06        | 1.10.0   |
-| Matured (default → `true`)                       | 2026.09        | 1.12.0   |
-| Removed                                          | —              | —        |
+| require\_all\_warnings\_handled\_by\_warn\_error | dbt **v1 Latest** | dbt Core |
+| ------------------------------------------------ | ----------------- | -------- |
+| Introduced                                       | 2025.06           | 1.10.0   |
+| Matured (default → `true`)                       | 2026.09           | 1.12.0   |
+| Removed                                          | —                 | —        |
 
 Starting in dbt Core v1.12, the `require_all_warnings_handled_by_warn_error` flag defaults to `true`.
 

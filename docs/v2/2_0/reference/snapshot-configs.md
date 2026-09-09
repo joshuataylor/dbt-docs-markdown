@@ -68,7 +68,7 @@ snapshots:
 
 info
 
-Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ### Snapshot configuration migration
 
@@ -174,7 +174,7 @@ snapshots:
 
 info
 
-Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ## Configuring snapshots
 

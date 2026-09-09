@@ -1,10 +1,10 @@
 # Macro argument validation
 
-| validate\_macro\_args      | dbt **Latest** | dbt Core |
-| -------------------------- | -------------- | -------- |
-| Introduced                 | 2025.03        | 1.10.0   |
-| Matured (default → `true`) | 2026.09        | 1.12.0   |
-| Removed                    | —              | —        |
+| validate\_macro\_args      | dbt **v1 Latest** | dbt Core |
+| -------------------------- | ----------------- | -------- |
+| Introduced                 | 2025.03           | 1.10.0   |
+| Matured (default → `true`) | 2026.09           | 1.12.0   |
+| Removed                    | —                 | —        |
 
 dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
 

@@ -1,10 +1,10 @@
 # Project-level configuration for analyses
 
-| require\_corrected\_analysis\_fqns | dbt **Latest** | dbt Core |
-| ---------------------------------- | -------------- | -------- |
-| Introduced                         | 2026.3         | 1.12.0   |
-| Matured (default → `true`)         | —              | —        |
-| Removed                            | —              | —        |
+| require\_corrected\_analysis\_fqns | dbt **v1 Latest** | dbt Core |
+| ---------------------------------- | ----------------- | -------- |
+| Introduced                         | 2026.3            | 1.12.0   |
+| Matured (default → `true`)         | —                 | —        |
+| Removed                            | —                 | —        |
 
 Previously, project-level configuration for [analyses](../../../docs/build/analyses.md) in `dbt_project.yml` was silently ignored. Fully qualified names (FQNs) for analyses also contained an extra `analyses` path segment that was inconsistent with other resource types.
 

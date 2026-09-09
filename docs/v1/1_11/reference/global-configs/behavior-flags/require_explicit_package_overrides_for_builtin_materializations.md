@@ -4,11 +4,11 @@ Removed in dbt Core 2.0
 
 This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_explicit\_package\_overrides\_for\_builtin\_materializations | dbt **Latest** | dbt Core       |
-| --------------------------------------------------------------------- | -------------- | -------------- |
-| Introduced                                                            | 2024.04        | 1.6.14, 1.7.14 |
-| Matured (default → `true`)                                            | 2024.06        | 1.8.0          |
-| Removed                                                               | —              | v2.0           |
+| require\_explicit\_package\_overrides\_for\_builtin\_materializations | dbt **v1 Latest** | dbt Core       |
+| --------------------------------------------------------------------- | ----------------- | -------------- |
+| Introduced                                                            | 2024.04           | 1.6.14, 1.7.14 |
+| Matured (default → `true`)                                            | 2024.06           | 1.8.0          |
+| Removed                                                               | —                 | v2.0           |
 
 Installed packages can no longer override built-in materializations without your explicit opt-in. A materialization defined in a package that matches the name of a built-in materialization is no longer included in the search and resolution order. Unlike macros, materializations don't use the `search_order` defined in the project `dispatch` config.
 

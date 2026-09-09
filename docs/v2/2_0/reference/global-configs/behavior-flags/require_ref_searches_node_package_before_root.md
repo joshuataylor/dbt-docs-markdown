@@ -1,14 +1,14 @@
 # Package ref search order
 
-| require\_ref\_searches\_node\_package\_before\_root | dbt **Latest** | dbt Core |
-| --------------------------------------------------- | -------------- | -------- |
-| Introduced                                          | 2025.12        | 1.11.0   |
-| Matured (default → `true`)                          | —              | —        |
-| Removed                                             | —              | —        |
+| require\_ref\_searches\_node\_package\_before\_root | dbt **v1 Latest** | dbt Core |
+| --------------------------------------------------- | ----------------- | -------- |
+| Introduced                                          | 2025.12           | 1.11.0   |
+| Matured (default → `true`)                          | —                 | —        |
+| Removed                                             | —                 | —        |
 
 The `require_ref_searches_node_package_before_root` flag controls the search order when dbt resolves `ref()` calls defined within a package.
 
-The flag is set to `false` by default in **Latest** and dbt Core v1.11. When dbt resolves a `ref()` in a package model, it searches for the referenced model in the root project *first*, then in the package where the model is defined.
+The flag is set to `false` by default in **v1 Latest** and dbt Core v1.11. When dbt resolves a `ref()` in a package model, it searches for the referenced model in the root project *first*, then in the package where the model is defined.
 
 For example, the following model in the package `my_package` is imported by the project `my_project`:
 

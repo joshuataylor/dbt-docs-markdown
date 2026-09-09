@@ -867,7 +867,7 @@ Catalog displays your model's description, column documentation, data tests, and
 
 ### View in Studio IDE
 
-You can view docs directly from the IDE if you're on `Latest` or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
+You can view docs directly from the IDE if you're on **v1 Latest** or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
 
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.

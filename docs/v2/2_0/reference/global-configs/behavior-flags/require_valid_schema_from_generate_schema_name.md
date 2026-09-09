@@ -1,10 +1,10 @@
 # Valid schema from generate\_schema\_name
 
-| require\_valid\_schema\_from\_generate\_schema\_name | dbt **Latest** | dbt Core |
-| ---------------------------------------------------- | -------------- | -------- |
-| Introduced                                           | 2026.1         | 1.12.0a1 |
-| Matured (default → `true`)                           | —              | —        |
-| Removed                                              | —              | —        |
+| require\_valid\_schema\_from\_generate\_schema\_name | dbt **v1 Latest** | dbt Core |
+| ---------------------------------------------------- | ----------------- | -------- |
+| Introduced                                           | 2026.1            | 1.12.0a1 |
+| Matured (default → `true`)                           | —                 | —        |
+| Removed                                              | —                 | —        |
 
 The `generate_schema_name` macro determines the schema where dbt creates models and other resources. Returning a `null` value from this macro can result in invalid schema names and lead to unpredictable behavior during dbt runs.
 
