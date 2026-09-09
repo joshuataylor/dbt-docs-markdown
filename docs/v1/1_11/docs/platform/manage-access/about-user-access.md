@@ -171,7 +171,7 @@ Key things to know before enabling:
 
 To turn on granular permissions:
 
-1. Go to **Account settings**.
+1. Go to **Account settings** → **Groups & Licenses**.
 2. Click **Enable granular permissions**.
 3. Select the checkbox acknowledging that this setting can't be reversed once enabled.
 4. Click **Enable** to confirm, or **Cancel** to go back without making changes.
