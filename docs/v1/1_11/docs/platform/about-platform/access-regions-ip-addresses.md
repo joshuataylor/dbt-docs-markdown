@@ -2,16 +2,18 @@
 
 dbt platform
 
-dbt is [hosted](./architecture.md) in multiple regions across the following service providers:
+Except as indicated below, dbt is [hosted](./architecture.md) in multiple regions across the following service providers:
 
 * [Amazon Web Services](#AWS)
 * [Google Cloud Platform](#GCP)
 * [Microsoft Azure](#Azure)
 
-Your dbt account will always connect to your data platform or git provider from the below IP addresses. Be sure to allow traffic from these IPs in your firewall, and include them in any database grants.
+Your dbt account will connect to your data platform or git provider from the below IP addresses. Be sure to allow traffic from these IPs in your firewall, and include them in any database grants.
 
 * [dbt Enterprise-tier](https://www.getdbt.com/pricing/) plans can choose to have their account hosted in any of the regions listed in the following table.
 * Organizations **must** choose a single region per dbt account. To run dbt in multiple regions, we recommend using multiple dbt accounts.
+
+[dbt State](../../deploy/dbt-state-about.md) is currently only available in a Google Cloud Platform US region. For more information, refer to [How is data stored in dbt State?](../../../faqs/State/data-storage.md)
 
 ## Amazon Web Services (AWS)
 

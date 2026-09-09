@@ -88,15 +88,13 @@ By default, any user who can see the upgrade assistant can use it. To restrict u
 2. Select the checkbox next to **Enable restricted Fusion upgrade permissions**.
 3. Click **Save**.
 
-When this is enabled, only users with the **Fusion admin** [permission set](../docs/platform/manage-access/enterprise-permissions.md#fusion-admin) can execute upgrades. To assign this permission:
+When this is enabled, only users with the **v2 Migration admin** [permission set](../docs/platform/manage-access/enterprise-permissions.md#v2-migration-admin) can execute upgrades. To assign this permission:
 
 1. Navigate to **Account settings** → **Groups** and choose the group to grant access.
 2. Click **Edit** and scroll to **Access and permissions**.
-3. Click **Add permission** and select **Fusion admin** from the dropdown.
+3. Click **Add permission** and select **v2 Migration admin** from the dropdown.
 4. Select the project(s) users should access.
 5. Click **Save**.
-
-![Assign Fusion admin permissions to groups](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/assign-fusion-admin.png?v=2 "Assign Fusion admin permissions to groups")Assign Fusion admin permissions to groups
 
 For more details on access control, see [Assign access to upgrade](../docs/dbt-versions/upgrade-dbt-platform-version.md#assign-access-to-upgrade).
 
