@@ -122,6 +122,7 @@ Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-co
 
 * [dbt Wizard home tab](./wizard-home.md)
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
+* [How dbt Wizard works](../dbt-ai/wizard-how-it-works.md#in-the-dbt-platform) — architecture and data flow in the dbt platform
 * [Manage AI features in dbt platform](./manage-dbt-ai.md) — admin setup for AI access and providers
 * [Configure BYOK in dbt platform](./wizard-byok-platform.md)
 * [Models and pricing](../dbt-ai/pricing-billing/overview.md)
