@@ -1,4 +1,4 @@
-# Connect Teradata [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Teradata
 
 dbt platform
 

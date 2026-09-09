@@ -8,20 +8,20 @@ The dbt platform can connect with a variety of data platform providers.
 
 For projects still on v1, dbt supports the following data platforms:
 
-| Connection                                                                                                                                                                                                                               | Available on v1 |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| [AlloyDB](./connect-postgresql-alloydb.md)                                                                                                                                     | ✅              |
-| [Amazon Athena](./connect-amazon-athena.md)                                                                                                                                    | ✅              |
-| [Amazon Redshift](./connect-redshift.md)                                                                                                                                       | ✅              |
-| [Apache Spark](./connect-apache-spark.md)                                                                                                                                      | ✅              |
-| [Azure Synapse Analytics](./connect-azure-synapse-analytics.md)                                                                                                                | ✅              |
-| [Databricks](./connect-databricks.md)                                                                                                                                          | ✅              |
-| [Google BigQuery](./connect-bigquery.md)                                                                                                                                       | ✅              |
-| [Microsoft Fabric](./connect-microsoft-fabric.md)                                                                                                                              | ✅              |
-| [PostgreSQL](./connect-postgresql-alloydb.md)                                                                                                                                  | ✅              |
-| [Snowflake](./connect-snowflake.md)                                                                                                                                            | ✅              |
-| [Starburst or Trino](./connect-starburst-trino.md)                                                                                                                             | ✅              |
-| [Teradata](./connect-teradata.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅              |
+| Connection                                                                                                                | Available on v1 |
+| ------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| [AlloyDB](./connect-postgresql-alloydb.md)                      | ✅              |
+| [Amazon Athena](./connect-amazon-athena.md)                     | ✅              |
+| [Amazon Redshift](./connect-redshift.md)                        | ✅              |
+| [Apache Spark](./connect-apache-spark.md)                       | ✅              |
+| [Azure Synapse Analytics](./connect-azure-synapse-analytics.md) | ✅              |
+| [Databricks](./connect-databricks.md)                           | ✅              |
+| [Google BigQuery](./connect-bigquery.md)                        | ✅              |
+| [Microsoft Fabric](./connect-microsoft-fabric.md)               | ✅              |
+| [PostgreSQL](./connect-postgresql-alloydb.md)                   | ✅              |
+| [Snowflake](./connect-snowflake.md)                             | ✅              |
+| [Starburst or Trino](./connect-starburst-trino.md)              | ✅              |
+| [Teradata](./connect-teradata.md)                               | ✅              |
 
 ## Connect your data platform in dbt
 
