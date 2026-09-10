@@ -15,6 +15,8 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## September 2026
 
+* **New:** The Snowflake adapter now supports the `interactive_table` materialization in beta on dbt v2 (dbt-snowflake v1.13+), covering both static and dynamic (auto-refreshing) interactive tables. For more information, see [Interactive tables](../../reference/resource-configs/snowflake-configs.md).
+
 * **Enhancement:** The [Analyst Read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now available to all accounts without requiring a feature flag. You can assign it to groups so read-only users can view Catalog and project configuration such as connections, environments, and Semantic Layer settings.
 
 * **Enhancement:** When you connect to Snowflake through the Semantic Layer, authentication failures and permission errors now return distinct messages prefixed with `[WAREHOUSE_AUTHENTICATION_FAILED]` or `[WAREHOUSE_PERMISSION_DENIED]`, so you can tell credential issues apart from missing grants.

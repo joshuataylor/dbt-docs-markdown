@@ -175,6 +175,8 @@ info
 
 `dbt-snowflake` *does not* support materialized views, it uses Dynamic Tables instead. For details, refer to [Snowflake specific configurations](../../reference/resource-configs/snowflake-configs.md#dynamic-tables).
 
+Beginning in v1.13, `dbt-snowflake` supports interactive tables, which are optimized for low-latency, interactive queries and can refresh automatically like dynamic tables. For details, refer to [Interactive tables](../../reference/resource-configs/snowflake-configs.md#interactive-tables).
+
 ## Python materializations
 
 Python models support two materializations:
