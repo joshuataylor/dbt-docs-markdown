@@ -384,7 +384,7 @@ dbt's support for interactive tables is in beta
 Interactive tables are generally available in Snowflake, but dbt's support for the `interactive_table` materialization is in beta in both the v1 and v2 engines. Behavior and configuration options may change.
 
 * **dbt platform**
-* \**dbt v2*
+* **dbt v2**
 * **dbt v1** (Coming soon in `dbt-snowflake` v1.13 or later)
 
 Setting [`target_lag`](#target-lag-interactive-tables) makes the table a *dynamic* interactive table that Snowflake refreshes automatically. Without it, the table is *static* and only rebuilds when you run dbt. Several configurations below behave differently depending on which form you're using.
