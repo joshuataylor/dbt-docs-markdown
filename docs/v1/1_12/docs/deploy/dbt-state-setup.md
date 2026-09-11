@@ -171,6 +171,10 @@ In this example, models in the `prod` target rebuild only when upstream data is 
 
 For more details, refer to the [`lag_tolerance` config reference](../../reference/resource-configs/lag-tolerance.md).
 
+tip
+
+To help you tune `lag_tolerance` values, the **dbt State** page on the dbt platform provides [lag tolerance recommendations](./dbt-state-interface.md#lag-tolerance-recommendations) based on your models' 30-day build history, so you can see which models would benefit from a higher tolerance.
+
 ## Inviting team members
 
 The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them. To invite colleagues:
@@ -195,3 +199,4 @@ To see which decision dbt State made for each node after a run and why, you can 
 * [Configure deferral](./dbt-state-deferral.md)
 * [Non-interactive environment setup](./dbt-state-cicd.md)
 * [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Monitor dbt State activity](./dbt-state-interface.md)

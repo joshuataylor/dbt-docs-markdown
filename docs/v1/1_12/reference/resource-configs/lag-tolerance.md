@@ -95,6 +95,10 @@ group by 1
 
 When `fct_orders` transitions from a full load to an incremental run, its compiled SQL changes. `agg_orders_daily` rebuilds on that run despite its 3-hour `lag_tolerance`.
 
+tip
+
+To help you tune `lag_tolerance` values, the **dbt State** page on the dbt platform provides [lag tolerance recommendations](../../docs/deploy/dbt-state-interface.md#lag-tolerance-recommendations) based on your models' 30-day build history, so you can see which models would benefit from a higher tolerance.
+
 ## Default
 
 `45m`. When `lag_tolerance` is not set, dbt State applies a default tolerance of 45 minutes.
@@ -150,3 +154,4 @@ models:
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)
+* [Monitor dbt State activity](../../docs/deploy/dbt-state-interface.md)

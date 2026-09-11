@@ -255,6 +255,7 @@ my_project:
 ## Related docs
 
 * [Set up dbt State](./dbt-state-setup.md)
+* [Monitor dbt State activity](./dbt-state-interface.md)
 * [Non-interactive environment setup](./dbt-state-cicd.md)
 * [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
 * [Migrate from state-aware orchestration](./dbt-state-migration.md)
