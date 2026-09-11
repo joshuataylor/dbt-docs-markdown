@@ -16,7 +16,7 @@ The [`microbatch` incremental strategy](./incremental-microbatch.md) is intended
 
 ### Supported incremental strategies by adapter
 
-This table shows the support of each incremental strategy across adapters available on Fusion or dbt's [**v1 Latest** release track](../dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on **v1 Latest** and the feature hasn't been released to the **v1 Compatible** track.
+This table shows the support of each incremental strategy across adapters available on dbt v2 or dbt's [**v1 Latest** release track](../dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on **v1 Latest** and the feature hasn't been released to the **v1 Compatible** track.
 
 If you're interested in incremental strategies for additional adapters, check out the [adapter's individual configuration page](../../reference/resource-configs.md) for more details.
 

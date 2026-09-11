@@ -2,7 +2,7 @@
 
 Indirect selection determines which tests to run when you select models or other resources. It applies to tests that are related to your selected resources through relationships in your DAG — for example, tests on upstream or downstream models, or tests that reference multiple models.
 
-Use the `--indirect-selection` flag with `dbt test` or `dbt build` to configure this behavior. You can set this as a CLI flag or an environment variable. In dbt dbt Core, you can also configure user configurations in [YAML selectors](../node-selection/yaml-selectors.md) or in the `flags:` block of `dbt_project.yml`, which sets project-level flags.
+Use the `--indirect-selection` flag with `dbt test` or `dbt build` to configure this behavior. You can set this as a CLI flag or an environment variable. In dbt v1, you can also configure user configurations in [YAML selectors](../node-selection/yaml-selectors.md) or in the `flags:` block of `dbt_project.yml`, which sets project-level flags.
 
 Indirect selection happens by default
 

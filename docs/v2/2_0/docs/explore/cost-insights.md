@@ -6,11 +6,11 @@ Cost Insights shows estimated costs and compute time for your dbt projects and m
 
 State-aware orchestration is now dbt State
 
-[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
 
-[dbt State](../deploy/dbt-state-about.md) and [state-aware orchestration](../deploy/state-aware-about.md) make your dbt workflows more efficient by reusing models and tests instead of running full rebuilds. When either is enabled, Cost Insights helps you demonstrate the resulting cost reductions and efficiency gains. These cost and cost reduction estimates are based on a retroactive analysis of runs after you enable Fusion and dbt State or state-aware orchestration. They reflect actual historical usage, *not* forecasts of future costs or cost reductions.
+[dbt State](../deploy/dbt-state-about.md) and [state-aware orchestration](../deploy/state-aware-about.md) make your dbt workflows more efficient by reusing models and tests instead of running full rebuilds. When either is enabled, Cost Insights helps you demonstrate the resulting cost reductions and efficiency gains. These cost and cost reduction estimates are based on a retroactive analysis of runs after you enable dbt State or state-aware orchestration. They reflect actual historical usage, *not* forecasts of future costs or cost reductions.
 
 With Cost Insights, you can see:
 
@@ -314,7 +314,7 @@ On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](../deploy/dbt-sta
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
-* **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.
+* **Works everywhere** — dbt State works with dbt v1, dbt v2, and dbt platform, as well as external orchestrators, across both development and deployment environments.
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 

@@ -1,19 +1,19 @@
 (Applies to dbt v2.0 and later)
 
-# Connect Redshift to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Redshift to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 You can configure the Redshift adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
-The Redshift adapter for Fusion supports the following [authentication methods](#supported-authentication-types):
+The Redshift adapter for dbt v2 supports the following [authentication methods](#supported-authentication-types):
 
 * Password
 * IAM profile
 
 ## Warehouse permissions
 
-The Redshift database user that dbt Fusion engine uses must be able to run dbt workloads and read catalog metadata used for introspection.
+The Redshift database user that dbt v2 uses must be able to run dbt workloads and read catalog metadata used for introspection.
 
 ### Required Redshift objects
 
@@ -44,7 +44,7 @@ The following permissions are required for fundamental dbt features:
 
 ### Metadata operations
 
-Fusion queries these Redshift system relations:
+dbt v2 queries these Redshift system relations:
 
 | System relation    | Purpose                                                | Permission required       |
 | ------------------ | ------------------------------------------------------ | ------------------------- |
@@ -65,7 +65,7 @@ Conditional permissions for schema management
 
 For example SQL grants in Redshift, refer to [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md).
 
-## Configure Fusion
+## Configure dbt v2
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -108,7 +108,7 @@ default:
 
 ### IAM profile
 
-Specify the IAM profile to use to connect your Fusion sessions. You will need to provide the following information:
+Specify the IAM profile to use to connect your v2 sessions. You will need to provide the following information:
 
 * **IAM Profile:** The profile name
 * **Cluster ID:** The unique identifier for your AWS cluster

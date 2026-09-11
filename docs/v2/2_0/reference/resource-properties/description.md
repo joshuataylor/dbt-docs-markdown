@@ -177,7 +177,7 @@ A user-defined description used to document:
 * macros, and macro arguments
 * data tests, and data test columns
 * unit tests for models
-* groups (dbt Core v1.10+)
+* groups (dbt v1.10+)
 
 These descriptions are used in the documentation website rendered by dbt (refer to [the documentation guide](../../docs/build/documentation.md) or [Catalog](../../docs/explore/explore-projects.md)).
 
@@ -318,9 +318,9 @@ models:
 
 ### Include an image from your repo in your descriptions
 
-This section applies to dbt Core users only. Including an image from your repository ensures your images are version-controlled.
+This section applies to dbt v1 users only. Including an image from your repository ensures your images are version-controlled.
 
-Both dbt and dbt Core users can [include an image from the web](#include-an-image-from-the-web-in-your-descriptions), which offers dynamic content, reduced repository size, accessibility, and ease of collaboration.
+Both dbt and dbt v1 users can [include an image from the web](#include-an-image-from-the-web-in-your-descriptions), which offers dynamic content, reduced repository size, accessibility, and ease of collaboration.
 
 To include an image in your model's `description` field:
 
@@ -357,7 +357,7 @@ If mixing images and text, also consider using a docs block.
 
 ### Include an image from the web in your descriptions
 
-This section applies to dbt and dbt Core users. Including an image from the web offers dynamic content, reduced repository size, accessibility, and ease of collaboration.
+This section applies to dbt and dbt v1 users. Including an image from the web offers dynamic content, reduced repository size, accessibility, and ease of collaboration.
 
 To include images from the web, specify the image URL in your model's `description` field:
 
@@ -368,7 +368,7 @@ version: 2
 
 models:
   - name: customers
-    description: "![dbt Logo](https://raw.githubusercontent.com/dbt-labs/dbt-core/refs/heads/1.latest/docs/images/dbt-core.svg)"
+    description: "![dbt Logo](https://raw.githubusercontent.com/dbt-labs/dbt/refs/heads/1.latest/docs/images/dbt-core.svg)"
 
     columns:
       - name: customer_id

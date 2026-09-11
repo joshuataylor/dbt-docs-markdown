@@ -95,7 +95,7 @@ models:
 
 * MetricFlow will use the `standard_granularity_column` as the join key when joining the time spine table to another source table.
 
-* [The `custom_granularities` field](#custom-calendar), (available in dbt Latest and dbt Core v1.9 and higher) lets you specify non-standard time periods like `fiscal_year` or `retail_month` that your organization may use.
+* [The `custom_granularities` field](#custom-calendar), (available in dbt Latest and dbt v1.9 and higher) lets you specify non-standard time periods like `fiscal_year` or `retail_month` that your organization may use.
   * The `column_name` field must reference a column that exists in the same model.
 
 For an example project, refer to our [Jaffle shop](https://github.com/dbt-labs/jaffle-sl-template/blob/main/models/marts/_models.yml) example.

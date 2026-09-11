@@ -13,9 +13,9 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 
 (Applies to dbt v1.99 and earlier)
 
-## dbt Core telemetry
+## dbt v1 telemetry
 
-dbt Core has telemetry enabled by default. For full transparency, you can see all the event definitions in [`tracking.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tracking.py).
+dbt v1 has telemetry enabled by default. For full transparency, you can see all the event definitions in [`tracking.py`](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/tracking.py).
 
 You can opt out of event tracking at any time by adding the following configuration to your `dbt_project.yml` file:
 

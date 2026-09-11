@@ -1,4 +1,4 @@
-# Connect Databricks Fusion compatible
+# Connect Databricks dbt v2 compatible
 
 dbt platform
 
@@ -6,7 +6,7 @@ The dbt-databricks adapter is maintained by the Databricks team. The Databricks 
 
 ## About the dbt-databricks adapter
 
-dbt-databricks is compatible with the following versions of dbt Core in dbt with varying degrees of functionality.
+dbt-databricks is compatible with the following versions of dbt v1 in dbt with varying degrees of functionality.
 
 | Feature        | dbt Versions                           |
 | -------------- | -------------------------------------- |
@@ -24,9 +24,9 @@ To learn how to optimize performance with data platform-specific configurations 
 
 To grant users or roles database permissions (access rights and privileges), refer to the [example permissions](../../../reference/database-permissions/databricks-permissions.md) page.
 
-## Warehouse permissions for Fusion
+## Warehouse permissions for dbt v2
 
-The Databricks user or service principal that dbt Fusion engine uses must have privileges on the catalog and schemas where models run, plus access required for metadata queries. Requirements depend on whether you use Unity Catalog or the legacy Hive Metastore.
+The Databricks user or service principal that dbt v2 uses must have privileges on the catalog and schemas where models run, plus access required for metadata queries. Requirements depend on whether you use Unity Catalog or the legacy Hive Metastore.
 
 ### Required Databricks objects
 

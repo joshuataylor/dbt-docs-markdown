@@ -9,18 +9,18 @@ After setting up your MCP server, you connect it to Cursor. Log in to Cursor and
 Choose your setup based on your workflow:
 
 * OAuth for dbt platform connections
-* CLI only if using dbt Core or the dbt Fusion engine locally.
+* CLI only if using dbt v1 or dbt v2 locally.
 * Configure environment variables if you're using them in your dbt platform account.
 
 ### OAuth or CLI
 
 Click one of the following application links with Cursor open to automatically configure your MCP server:
 
-#### CLI only (dbt Core and Fusion)
+#### CLI only (dbt v1 and dbt v2)
 
-Self-hosted configuration for users who only want to use dbt commands with dbt Core or dbt Fusion engine (no dbt platform features).
+Self-hosted configuration for users who only want to use dbt commands with dbt v1 or dbt v2 (no dbt platform features).
 
-[Add dbt Core or Fusion to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX1BST0pFQ1RfRElSIjoiL3BhdGgvdG8veW91ci9kYnQvcHJvamVjdCIsIkRCVF9QQVRIIjoiL3BhdGgvdG8veW91ci9kYnQvZXhlY3V0YWJsZSJ9LCJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJkYnQtbWNwIl19)
+[Add dbt v1 or dbt v2 to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX1BST0pFQ1RfRElSIjoiL3BhdGgvdG8veW91ci9kYnQvcHJvamVjdCIsIkRCVF9QQVRIIjoiL3BhdGgvdG8veW91ci9kYnQvZXhlY3V0YWJsZSJ9LCJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJkYnQtbWNwIl19)
 
 After clicking:
 

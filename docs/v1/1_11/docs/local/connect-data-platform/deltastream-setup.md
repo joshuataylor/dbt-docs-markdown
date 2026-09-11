@@ -1,4 +1,4 @@
-# Connect DeltaStream to dbt Core
+# Connect DeltaStream to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [deltastreaminc/dbt-deltastream](https://github.com/deltastreaminc/dbt-deltastream) [![](https://img.shields.io/github/stars/deltastreaminc/dbt-deltastream?style=for-the-badge)](https://github.com/deltastreaminc/dbt-deltastream)
 * **PyPI package**: `dbt-deltastream` [![](https://badge.fury.io/py/dbt-deltastream.svg)](https://badge.fury.io/py/dbt-deltastream)
 * **Slack channel**:
-* **Supported dbt Core version**: v1.10.0 and newer
+* **Supported dbt version**: v1.10.0 and newer
 * **dbt support**: Not supported
 * **Minimum data platform version**: ?
 

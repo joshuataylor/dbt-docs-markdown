@@ -26,7 +26,7 @@ Reference documentation for each dbt behavior change flag.
 
 ## [require batched execution for custom microbatch strategy](../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)
 
 ## [require corrected analysis fqns](../reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md)
 
@@ -34,7 +34,7 @@ Reference documentation for each dbt behavior change flag.
 
 ## [require explicit package overrides for builtin materializations](../reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md)
 
 ## [require generic test arguments property](../reference/global-configs/behavior-flags/require_generic_test_arguments_property.md)
 
@@ -54,7 +54,7 @@ Reference documentation for each dbt behavior change flag.
 
 ## [require resource names without spaces](../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)
 
 ## [require source and semantic model names without spaces](../reference/global-configs/behavior-flags/require_source_and_semantic_model_names_without_spaces.md)
 
@@ -74,19 +74,19 @@ Reference documentation for each dbt behavior change flag.
 
 ## [require yaml configuration for mf time spines](../reference/global-configs/behavior-flags/require_yaml_configuration_for_mf_time_spines.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_yaml_configuration_for_mf_time_spines.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/require_yaml_configuration_for_mf_time_spines.md)
 
 ## [skip nodes if on run start fails](../reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md)
 
 ## [source freshness run project hooks](../reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)
 
 ## [state modified compare more unrendered values](../reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md)
 
-[This flag was removed in and in . The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md)
+[This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your dbt\_project.yml.](../reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md)
 
 ## [validate macro args](../reference/global-configs/behavior-flags/validate_macro_args.md)
 

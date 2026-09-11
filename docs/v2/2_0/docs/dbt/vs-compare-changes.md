@@ -25,8 +25,8 @@ Compare changes in development is available for models only. Support for seeds, 
 
 To use the dbt VS Code extension compare changes feature, you need:
 
-* A Fusion [supported data platform](./supported-features.md?version=2.0#requirements) (BigQuery, Databricks, Redshift, or Snowflake)
-* The [dbt VS Code extension](../install-dbt-extension.md) installed with a self-hosted installation of the [dbt Fusion engine](./get-started-dbt.md)
+* A dbt v2 [supported data platform](./supported-features.md?version=2.0#requirements) (BigQuery, Databricks, Redshift, or Snowflake)
+* The [dbt VS Code extension](../install-dbt-extension.md) installed with a self-hosted installation of the [dbt v2](./get-started-dbt.md)
 * A baseline state to compare your changes against — refer to [How it works](#how-it-works) to choose between [automatic deferral](../platform/about-defer.md) or [`manifest.json`](../../reference/artifacts/manifest-json.md?version=2.0) manual setup.
 
 **Sign-in and authentication**
@@ -42,7 +42,7 @@ Compare changes in development works by comparing two materialized models in you
 
 The path you choose determines whether you need a dbt platform account:
 
-* **dbt platform deferral (recommended):** Requires a dbt platform account and at least one successful job run in the environment you're deferring to (usually staging or production). Fusion auto-downloads the deferred manifest and uses it as your baseline state.
+* **dbt platform deferral (recommended):** Requires a dbt platform account and at least one successful job run in the environment you're deferring to (usually staging or production). dbt v2 auto-downloads the deferred manifest and uses it as your baseline state.
 * **Manual `state` directory:** Point the extension at a local `manifest.json` (for example, copied from another environment). No dbt platform account is required; no job run is required.
 
 ## Use compare changes
@@ -79,7 +79,7 @@ The **Compare** tab displays the changes to the data's primary keys, rows, and c
 
  Are queries run on behalf of the developer?
 
-Yes. All comparison queries in development run using your development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
+Yes. All comparison queries in development run using your development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. dbt v2 uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
 
  Is this using my warehouse credits?
 

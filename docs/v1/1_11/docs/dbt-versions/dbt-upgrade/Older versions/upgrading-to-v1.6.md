@@ -2,41 +2,41 @@
 
 Available in v1
 
-dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
 
-dbt Core versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
 
 Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
 
-dbt Core v1.6 has three significant areas of focus:
+dbt v1.6 has three significant areas of focus:
 
-1. Next milestone of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725): improvements to contracts, groups/access, versions; and building blocks for cross-project `ref`
-2. Semantic layer re-launch: dbt Core and [MetricFlow](../../../build/about-metricflow.md) integration
+1. Next milestone of [multi-project deployments](https://github.com/dbt-labs/dbt/discussions/6725): improvements to contracts, groups/access, versions; and building blocks for cross-project `ref`
+2. Semantic layer re-launch: dbt v1 and [MetricFlow](../../../build/about-metricflow.md) integration
 3. Mechanisms to support mature deployment at scale (`dbt clone` and `dbt retry`)
 
 ## Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.6.latest/CHANGELOG.md)
-* [dbt Core installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.6.latest/CHANGELOG.md)
+* [dbt v1 installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
-* [Release schedule](https://github.com/dbt-labs/dbt-core/issues/7481)
+* [Release schedule](https://github.com/dbt-labs/dbt/issues/7481)
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 ### Behavior changes
 
 Action required if your project defines `metrics`
 
-The [spec for metrics](https://github.com/dbt-labs/dbt-core/discussions/7456) has changed and now uses [MetricFlow](../../../build/about-metricflow.md).
+The [spec for metrics](https://github.com/dbt-labs/dbt/discussions/7456) has changed and now uses [MetricFlow](../../../build/about-metricflow.md).
 
 If your dbt project defines metrics, you must migrate to dbt v1.6 because the YAML spec has moved from dbt\_metrics to MetricFlow. Any tests you have won't compile on v1.5 or older.
 
-* dbt Core v1.6 does not support Python 3.7, which reached End Of Life on June 23. Support Python versions are 3.8, 3.9, 3.10, and 3.11.
+* dbt v1.6 does not support Python 3.7, which reached End Of Life on June 23. Support Python versions are 3.8, 3.9, 3.10, and 3.11.
 * As part of the [dbt Semantic layer](../../../use-dbt-semantic-layer/dbt-sl.md) re-launch, the spec for `metrics` has changed significantly.
 * The manifest schema version is now v10.
-* dbt Labs is ending support for Homebrew installation of dbt Core and adapters. See [the discussion](https://github.com/dbt-labs/dbt-core/discussions/8277) for more details.
+* dbt Labs is ending support for Homebrew installation of dbt v1 and adapters. See [the discussion](https://github.com/dbt-labs/dbt/discussions/8277) for more details.
 
 ### For consumers of dbt artifacts (metadata)
 
@@ -50,13 +50,13 @@ The [manifest](../../../../reference/artifacts/manifest-json.md) schema version 
 
 ### For maintainers of adapter plugins
 
-For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt Core#7958](https://github.com/dbt-labs/dbt-core/discussions/7958).
+For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt-core#7958](https://github.com/dbt-labs/dbt/discussions/7958).
 
 ## New and changed documentation
 
 ### MetricFlow
 
-* [**Build your metrics**](../../../build/build-metrics-intro.md) with MetricFlow, a key component of the Semantic Layer. You can define your metrics and build semantic models with MetricFlow, available on the command line (CLI) for dbt Core v1.6 beta or higher.
+* [**Build your metrics**](../../../build/build-metrics-intro.md) with MetricFlow, a key component of the Semantic Layer. You can define your metrics and build semantic models with MetricFlow, available on the command line (CLI) for dbt v1.6 beta or higher.
 
 ### Materialized views
 

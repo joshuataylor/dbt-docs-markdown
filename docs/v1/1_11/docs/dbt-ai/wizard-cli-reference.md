@@ -486,4 +486,4 @@ Here are some examples and commands that you might use. Replace the example prom
 * [Slash command reference](./wizard-slash-commands.md) for interactive TUI slash commands
 * [Headless mode](./wizard-headless.md)
 * [Configuration reference](./wizard-config.md)
-* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands
+* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt commands

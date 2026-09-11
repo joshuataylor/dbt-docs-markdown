@@ -19,7 +19,7 @@ When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-s
 
 * **Log in with your dbt platform account**
 
-  * In the dbt Fusion engine, the CLI prompts you before writing to `user_settings.yml`.
+  * In dbt v2, the CLI prompts you before writing to `user_settings.yml`.
 
   - Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
 

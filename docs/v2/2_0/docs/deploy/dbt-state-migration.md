@@ -4,7 +4,7 @@ Login required | Usage-based
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
-* **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.
+* **Works everywhere** — dbt State works with dbt v1, dbt v2, and dbt platform, as well as external orchestrators, across both development and deployment environments.
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
@@ -23,9 +23,9 @@ To migrate to dbt State, move your configs from `freshness.build_after` to the n
 | `freshness.build_after.updates_on`                             | [`state.require_fresh_data_from`](../../reference/resource-configs/require-fresh-data-from.md) | Same `any` and `all` options with the same behavior:<br />- `any` (default): rebuilds when *any* direct parent has fresh data<br />- `all`: rebuilds only when *all* direct parents have fresh data |
 | `freshness.build_after.count` + `freshness.build_after.period` | [`state.lag_tolerance`](../../reference/resource-configs/lag-tolerance.md)                     | Combined into a single field with shorthand values (for example, `1800s`, `30m`, `12h`, `1d`, `2w`) or Jinja expressions                                                                            |
 
-Backward compatibility in Fusion
+Backward compatibility in dbt v2
 
-In the dbt Fusion engine, you can enable dbt State without updating your project configs first.
+In dbt v2, you can enable dbt State without updating your project configs first.
 
 * If `lag_tolerance` and `require_fresh_data_from` are not set, dbt State falls back to your existing `build_after` configs until `build_after` is deprecated.
 * If neither `build_after` nor the `state` configs exist, dbt State uses its [default configs](../../reference/resource-configs/dbt-state-configs.md): `lag_tolerance: 45m` and `require_fresh_data_from: any`.

@@ -1,4 +1,4 @@
-# Connect Doris to dbt Core
+# Connect Doris to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [selectdb/dbt-doris](https://github.com/selectdb/dbt-doris) [![](https://img.shields.io/github/stars/selectdb/dbt-doris?style=for-the-badge)](https://github.com/selectdb/dbt-doris)
 * **PyPI package**: `dbt-doris` [![](https://badge.fury.io/py/dbt-doris.svg)](https://badge.fury.io/py/dbt-doris)
 * **Slack channel**: [#db-doris](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.3.0 and newer
+* **Supported dbt version**: v1.3.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**:
 

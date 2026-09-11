@@ -1,4 +1,4 @@
-# Connect Extrica to dbt Core
+# Connect Extrica to dbt v1
 
 Local development
 
@@ -8,7 +8,7 @@ Local development
 * **Authors**: Gaurav Mittal, Viney Kumar, Mohammed Feroz, and Mrinal Mayank
 * **GitHub repo**: [extricatrianz/dbt-extrica](https://github.com/extricatrianz/dbt-extrica)
 * **PyPI package**: `dbt-extrica` [![](https://badge.fury.io/py/dbt-extrica.svg)](https://badge.fury.io/py/dbt-extrica)
-* **Supported dbt Core version**: v1.7.2 and newer
+* **Supported dbt v1 version**: v1.7.2 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

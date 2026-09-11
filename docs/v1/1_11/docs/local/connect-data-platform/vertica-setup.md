@@ -1,4 +1,4 @@
-# Connect Vertica to dbt Core
+# Connect Vertica to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ If you're interested in contributing, check out the source code for each reposit
 * **GitHub repo**: [vertica/dbt-vertica](https://github.com/vertica/dbt-vertica) [![](https://img.shields.io/github/stars/vertica/dbt-vertica?style=for-the-badge)](https://github.com/vertica/dbt-vertica)
 * **PyPI package**: `dbt-vertica` [![](https://badge.fury.io/py/dbt-vertica.svg)](https://badge.fury.io/py/dbt-vertica)
 * **Slack channel**: [n/a](https://www.getdbt.com/community/)
-* **Supported dbt Core version**: v1.8.5 and newer
+* **Supported dbt version**: v1.8.5 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Vertica 24.3.0
 

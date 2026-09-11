@@ -16,7 +16,7 @@ Proceed with caution in production environments
 
 Using the `--warn-error` flag or `--warn-error-options '{"error": "all"}'` will treat *all* current and future warnings as errors.
 
-This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
+This means that if a new warning is introduced in a future version of dbt, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
 ## Use `--warn-error-options` for targeted warnings
 
@@ -28,18 +28,18 @@ In some cases, you may want to convert *all* warnings to errors. However, when y
 
 Warnings that should be treated as errors can be specified through the `error` parameter. Warning names can be found in:
 
-* [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
+* [The types.py file in `dbt-labs/dbt`](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
 (Applies to dbt v1.12 and later)
 
-Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
+Starting in v1.12, dbt v1 ignores [dbt v2-specific names](https://github.com/dbt-labs/dbt/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt v1 and dbt v2. Genuine typos still raise an error.
 
 (Applies to dbt v2.0 and later)
 
-In the dbt Fusion engine, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`).
+In dbt v2, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`).
 
-Runtime messages show both, but `warn_error_options` only accepts the *name*. Use the event name, Fusion-native name, or a supported group (`all`, `*`). Numeric codes aren't accepted and will cause an error.
+Runtime messages show both, but `warn_error_options` only accepts the *name*. Use the event name, v2-native name, or a supported group (`all`, `*`). Numeric codes aren't accepted and will cause an error.
 
 To find the name for a code you see in your logs, check out [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases).
 
@@ -65,7 +65,7 @@ You can choose to:
 * Promote specific warnings to errors using `error` and optionally exclude others from being treated as errors with `--warn-error-options` flag. `warn` tells dbt to continue treating the warnings as warnings.
 * Ignore warnings using `silence` with `--warn-error-options` flag.
 
-In the following example, we're silencing the [`NoNodesForSelectionCriteria` warning](https://github.com/dbt-labs/dbt-core/blob/main/core/dbt/events/types.py#L1227) in the `dbt_project.yml` file by adding it to the `silence` parameter:
+In the following example, we're silencing the [`NoNodesForSelectionCriteria` warning](https://github.com/dbt-labs/dbt/blob/main/core/dbt/events/types.py#L1227) in the `dbt_project.yml` file by adding it to the `silence` parameter:
 
 dbt\_project.yml
 
@@ -156,23 +156,23 @@ caution
 
 Note, using `warn_error_options: error: "all"` will treat all current and future warnings as errors.
 
-This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
+This means that if a new warning is introduced in a future version of dbt, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
 (Applies to dbt v2.0 and later)
 
-## Fusion behavior and warning codes
+## dbt v2 behavior and warning codes
 
-The dbt Fusion engine fully supports `warn_error_options`. This section describes important differences from dbt Core behavior.
+dbt v2 fully supports `warn_error_options`. This section describes important differences from dbt v1 behavior.
 
 Existing dbt-core event names fall into three categories:
 
-* **Supported** Mapped to similar Fusion warning and behave approximately the same.
+* **Supported** Mapped to similar dbt v2 warning and behave approximately the same.
 * **Won't be supported:** Those that we deliberately decided to not ever support.
 * **Not supported yet:** Parsed, but do nothing yet.
 
-### Warning codes in Fusion
+### Warning codes in dbt v2
 
-In Fusion, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). Warning messages at runtime show both, but `warn_error_options` only accepts the *name*, never the code:
+In dbt v2, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). Warning messages at runtime show both, but `warn_error_options` only accepts the *name*, never the code:
 
 ```yaml
 flags:
@@ -183,15 +183,15 @@ flags:
       - FreshnessConfigProblem   # by name
 ```
 
-Any value that isn't a supported legacy event name, Fusion-native name, or supported group (`all`, `*`) causes Fusion to exit with an error at startup, including numeric codes. For example, `{error: [1092]}` fails, but `{error: [NoNodesForSelectionCriteria]}` works.
+Any value that isn't a supported legacy event name, v2-native name, or supported group (`all`, `*`) causes dbt v2 to exit with an error at startup, including numeric codes. For example, `{error: [1092]}` fails, but `{error: [NoNodesForSelectionCriteria]}` works.
 
-Not every valid name appears in the tables on this page. Fusion also emits its own warnings (for example, `SemanticModelDeprecated`, code `dbt1157`) that aren't listed here. Use the name shown in the runtime message.
+Not every valid name appears in the tables on this page. dbt v2 also emits its own warnings (for example, `SemanticModelDeprecated`, code `dbt1157`) that aren't listed here. Use the name shown in the runtime message.
 
 ### Supported legacy dbt-core event name aliases
 
 When you see a warning code in your logs, use the following table to find the matching event name to put in `warn_error_options`. The code column is only for looking up warnings you see at runtime — you can't use the code itself in your config:
 
-| Fusion code (runtime only) | dbt-core event name (use this in config) | Description                                                                                       |
+| dbt v2 code (runtime only) | dbt-core event name (use this in config) | Description                                                                                       |
 | -------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | 1601                       | `NoNodesSelected`                        | No nodes selected                                                                                 |
 | 1601                       | `NothingToDo`                            | No nodes selected (alias)                                                                         |
@@ -221,45 +221,45 @@ When you see a warning code in your logs, use the following table to find the ma
 | *no code*                  | `RunResultWarning`                       | A model or test run completed with `warn` status                                                  |
 | *no code*                  | `RunResultWarningMessage`                | The message accompanying a `warn`-status run result                                               |
 
-### Unsupported dbt Core event names
+### Unsupported dbt v1 event names
 
-Only the legacy names in [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases) are valid string aliases in Fusion. There are many other dbt Core warning event names; if you put one of those in `warn_error_options`, Fusion will throw a warning at startup.
+Only the legacy names in [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases) are valid string aliases in dbt v2. There are many other dbt v1 warning event names; if you put one of those in `warn_error_options`, dbt v2 will throw a warning at startup.
 
-The table below is not a complete list of unsupported names. It only includes dbt Core event names that Fusion recognizes by name so it can emit a startup warning explaining why the entry has no effect and prompting you to remove it: the underlying dbt Core behavior was removed, replaced, or made unconditional in Fusion. Many other unsupported dbt Core names are not listed here; they still warn during startup validation when used in `warn_error_options`.
+The table below is not a complete list of unsupported names. It only includes dbt v1 event names that dbt v2 recognizes by name so it can emit a startup warning explaining why the entry has no effect and prompting you to remove it: the underlying dbt v1 behavior was removed, replaced, or made unconditional in dbt v2. Many other unsupported dbt v1 names are not listed here; they still warn during startup validation when used in `warn_error_options`.
 
 | dbt-core event name                              | Message                                                                                                                               |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `MicrobatchMacroOutsideOfBatchesDeprecation`     | Fusion only supports the newer behavior-change flag, where this case is a hard error.                                                 |
-| `SeedExceedsLimitSamePath`                       | This warning comes from partial parsing in dbt Core, which Fusion does not support.                                                   |
-| `SeedIncreased`                                  | This warning comes from partial parsing in dbt Core, which Fusion does not support.                                                   |
-| `GenerateSchemaNameNullValueDeprecation`         | Fusion only supports the newer behavior-change flag, where this case is a hard error.                                                 |
-| `GenericSemanticLayerDeprecation`                | Fusion already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
-| `MFCumulativeTypeParamsDeprecation`              | Fusion already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
-| `MFTimespineWithoutYamlConfigurationDeprecation` | Fusion already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
-| `MetricAttributesRenamed`                        | Fusion already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
-| `TimeDimensionsRequireGranularityDeprecation`    | Fusion already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
-| `SourceFreshnessProjectHooksNotRun`              | Fusion already uses the newer source freshness behavior, so this legacy warning does not apply.                                       |
-| `SemanticValidationFailure`                      | Fusion does not support semantic models, so this warning does not apply.                                                              |
-| `ValidationWarning`                              | Fusion already validates allowed YAML keys strictly, so this warning would be redundant.                                              |
-| `PackageMaterializationOverrideDeprecation`      | Fusion already enforces the latest behavior, which prevents packages from overriding built-in materializations.                       |
-| `TestsConfigDeprecation`                         | Fusion does not surface this warning by default, which matches current dbt Core behavior.                                             |
-| `ProjectFlagsMovedDeprecation`                   | Fusion already errors on this configuration, which matches newer dbt Core behavior.                                                   |
-| `ConfigSourcePathDeprecation`                    | This is now fully deprecated in Fusion.                                                                                               |
-| `ConfigLogPathDeprecation`                       | This is now fully deprecated in Fusion.                                                                                               |
-| `ConfigTargetPathDeprecation`                    | This is now fully deprecated in Fusion.                                                                                               |
-| `ConfigDataPathDeprecation`                      | This is now fully deprecated in Fusion.                                                                                               |
-| `EnvironmentVariableNamespaceDeprecation`        | Fusion reserves the `DBT_ENGINE_` prefix and rejects unknown environment variables that use it.                                       |
-| `UnusedTables`                                   | Fusion does not allow source overrides, so packages must disable a source explicitly instead.                                         |
-| `WrongResourceSchemaFile`                        | Fusion reports this case under `NoNodeForYamlKey` instead.                                                                            |
-| `PackageNodeDependsOnRootProjectNode`            | Fusion only supports the newer behavior-change flag `require_ref_searches_node_package_before_root`, where this case is a hard error. |
+| `MicrobatchMacroOutsideOfBatchesDeprecation`     | dbt v2 only supports the newer behavior-change flag, where this case is a hard error.                                                 |
+| `SeedExceedsLimitSamePath`                       | This warning comes from partial parsing in dbt v1, which dbt v2 does not support.                                                     |
+| `SeedIncreased`                                  | This warning comes from partial parsing in dbt v1, which dbt v2 does not support.                                                     |
+| `GenerateSchemaNameNullValueDeprecation`         | dbt v2 only supports the newer behavior-change flag, where this case is a hard error.                                                 |
+| `GenericSemanticLayerDeprecation`                | dbt v2 already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
+| `MFCumulativeTypeParamsDeprecation`              | dbt v2 already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
+| `MFTimespineWithoutYamlConfigurationDeprecation` | dbt v2 already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
+| `MetricAttributesRenamed`                        | dbt v2 already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
+| `TimeDimensionsRequireGranularityDeprecation`    | dbt v2 already implements the new semantic layer spec, so this legacy warning no longer applies.                                      |
+| `SourceFreshnessProjectHooksNotRun`              | dbt v2 already uses the newer source freshness behavior, so this legacy warning does not apply.                                       |
+| `SemanticValidationFailure`                      | dbt v2 does not support semantic models, so this warning does not apply.                                                              |
+| `ValidationWarning`                              | dbt v2 already validates allowed YAML keys strictly, so this warning would be redundant.                                              |
+| `PackageMaterializationOverrideDeprecation`      | dbt v2 already enforces the latest behavior, which prevents packages from overriding built-in materializations.                       |
+| `TestsConfigDeprecation`                         | dbt v2 does not surface this warning by default, which matches current dbt v1 behavior.                                               |
+| `ProjectFlagsMovedDeprecation`                   | dbt v2 already errors on this configuration, which matches newer dbt v1 behavior.                                                     |
+| `ConfigSourcePathDeprecation`                    | This is now fully deprecated in dbt v2.                                                                                               |
+| `ConfigLogPathDeprecation`                       | This is now fully deprecated in dbt v2.                                                                                               |
+| `ConfigTargetPathDeprecation`                    | This is now fully deprecated in dbt v2.                                                                                               |
+| `ConfigDataPathDeprecation`                      | This is now fully deprecated in dbt v2.                                                                                               |
+| `EnvironmentVariableNamespaceDeprecation`        | dbt v2 reserves the `DBT_ENGINE_` prefix and rejects unknown environment variables that use it.                                       |
+| `UnusedTables`                                   | dbt v2 does not allow source overrides, so packages must disable a source explicitly instead.                                         |
+| `WrongResourceSchemaFile`                        | dbt v2 reports this case under `NoNodeForYamlKey` instead.                                                                            |
+| `PackageNodeDependsOnRootProjectNode`            | dbt v2 only supports the newer behavior-change flag `require_ref_searches_node_package_before_root`, where this case is a hard error. |
 
-### Warnings that are hard errors in Fusion
+### Warnings that are hard errors in dbt v2
 
-Some dbt Core warning names correspond to behaviors that Fusion enforces unconditionally as parse errors. If you reference these names in `warn_error_options`, Fusion emits a startup warning explaining that the entry has no effect. You can carry over your `warn_error_options` config from dbt Core without breaking, but these configs do nothing (They will throw a warning as `unsupported` and should be removed from the config):
+Some dbt v1 warning names correspond to behaviors that dbt v2 enforces unconditionally as parse errors. If you reference these names in `warn_error_options`, dbt v2 emits a startup warning explaining that the entry has no effect. You can carry over your `warn_error_options` config from dbt v1 without breaking, but these configs do nothing (They will throw a warning as `unsupported` and should be removed from the config):
 
-| dbt-Core event name                         | Fusion behavior                                                            | Fusion error code           |
+| dbt-Core event name                         | dbt v2 behavior                                                            | dbt v2 error code           |
 | ------------------------------------------- | -------------------------------------------------------------------------- | --------------------------- |
-| `DuplicateYAMLKeysDeprecation`              | Fusion's YAML parser rejects duplicate keys as hard parse errors           | `DuplicateConfigKey` (1059) |
+| `DuplicateYAMLKeysDeprecation`              | dbt v2's YAML parser rejects duplicate keys as hard parse errors           | `DuplicateConfigKey` (1059) |
 | `CustomKeyInConfigDeprecation`              | Unknown config keys are rejected via strict schema validation              | `UnusedConfigKey` (1060)    |
 | `CustomTopLevelKeyDeprecation`              | Unknown top-level schema keys are hard parse errors                        | `UnusedConfigKey` (1060)    |
 | `ResourceNamesWithSpacesDeprecation`        | Resource names with spaces are rejected during name validation             | `SchemaError`               |
@@ -273,17 +273,17 @@ If your project emits static analysis warnings and you use `--warn-error` (which
 
 ### Deprecated `include` and `exclude` keys
 
-The legacy `include` and `exclude` fields for `warn_error_options` were deprecated in dbt Core v1.8 but are still supported in Fusion. If you use them, Fusion emits a `WEOIncludeExcludeDeprecation` warning (code 1086) and ignores the deprecated keys. Migrate to `error`, `warn`, and `silence` instead:
+The legacy `include` and `exclude` fields for `warn_error_options` were deprecated in dbt v1.8 but are still supported in dbt v2. If you use them, dbt v2 emits a `WEOIncludeExcludeDeprecation` warning (code 1086) and ignores the deprecated keys. Migrate to `error`, `warn`, and `silence` instead:
 
 ```yaml
-# Before (Core ≤1.7)
+# Before (dbt ≤1.7)
 flags:
   warn_error_options:
     include: all
     exclude:
       - NoNodesForSelectionCriteria
 
-# After (Core ≥1.8 and Fusion)
+# After (dbt ≥1.8 and v2)
 flags:
   warn_error_options:
     error: all

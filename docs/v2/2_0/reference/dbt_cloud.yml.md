@@ -175,7 +175,7 @@ projects:
 
 ## The dbt-cloud block in dbt\_project.yml
 
-The `dbt-cloud` block is a companion config that lives in your project's `dbt_project.yml` file (not in `dbt_cloud.yml`). It tells the dbt platform CLI, the Studio IDE, and Fusion which dbt platform project your local project corresponds to.
+The `dbt-cloud` block is a companion config that lives in your project's `dbt_project.yml` file (not in `dbt_cloud.yml`). It tells the dbt platform CLI, the Studio IDE, and dbt v2 which dbt platform project your local project corresponds to.
 
 dbt\_project.yml
 
@@ -192,8 +192,8 @@ dbt-cloud:
 | Field          | Required | Description                                                                                                                                                                             |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `project-id`   | Yes      | The dbt platform project ID this local project maps to. Find it in the URL when viewing your project (for example, `https://YOUR_ACCESS_URL/develop/26228/projects/123456` → `123456`). |
-| `defer-env-id` | No       | The environment ID to defer to for build artifacts. Used for Fusion [auto-deferral](../docs/platform/about-defer.md) and dbt platform CLI deferral overrides.      |
-| `account_id`   | No       | Fusion only. The dbt platform account ID this local project belongs to. Note the underscore — unlike the other fields in this block, this one isn't hyphenated.                         |
+| `defer-env-id` | No       | The environment ID to defer to for build artifacts. Used for dbt v2 [auto-deferral](../docs/platform/about-defer.md) and dbt platform CLI deferral overrides.      |
+| `account_id`   | No       | dbt v2 only. The dbt platform account ID this local project belongs to. Note the underscore — unlike the other fields in this block, this one isn't hyphenated.                         |
 
 ## Related docs
 

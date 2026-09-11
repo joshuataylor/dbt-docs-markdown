@@ -2,27 +2,27 @@
 
 Available in v1
 
-dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
 
-dbt Core versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
 
 Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
 
-dbt Core v1.5 is a feature release, with two significant additions:
+dbt v1.5 is a feature release, with two significant additions:
 
-1. [**Model governance**](../../../mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)
+1. [**Model governance**](../../../mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt/discussions/6725)
 2. A Python entry point for [**programmatic invocations**](../../../../reference/programmatic-invocations.md), at parity with the CLI
 
 ## Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.5.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
-* [Release schedule](https://github.com/dbt-labs/dbt-core/issues/6715)
+* [Release schedule](https://github.com/dbt-labs/dbt/issues/6715)
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 ### Behavior changes
 
@@ -32,7 +32,7 @@ This release includes significant new features, and rework to `dbt-core`'s CLI a
 
 ***Wherever possible, we will provide backward compatibility and deprecation warnings for at least one minor version before actually removing the old functionality.*** In those cases, we still reserve the right to fully remove backwards compatibility for deprecated functionality in a future v1.x minor version of `dbt-core`.
 
-Setting `log-path` and `target-path` in `dbt_project.yml` has been deprecated for consistency with other invocation-specific runtime configs ([dbt-core#6882](https://github.com/dbt-labs/dbt-core/issues/6882)). We recommend setting via env var or CLI flag instead.
+Setting `log-path` and `target-path` in `dbt_project.yml` has been deprecated for consistency with other invocation-specific runtime configs ([dbt-labs/dbt#6882](https://github.com/dbt-labs/dbt/issues/6882)). We recommend setting via env var or CLI flag instead.
 
 The `dbt list` command will now include `INFO` level logs by default. Previously, the `list` command (and *only* the `list` command) had `WARN`-level stdout logging, to support piping its results to [`jq`](https://jqlang.github.io/jq/manual/), a file, or another process. To achieve that goal, you can use either of the following parameters:
 
@@ -46,7 +46,7 @@ The following env vars have been renamed, for consistency with the convention fo
 * `DBT_NO_PRINT` → `DBT_PRINT`
 * `DBT_ARTIFACT_STATE_PATH` → `DBT_STATE`
 
-As described in [dbt-core#7169](https://github.com/dbt-labs/dbt-core/pull/7169), command-line parameters that could be silent before will no longer be silent. See [dbt-labs/dbt-core#7158](https://github.com/dbt-labs/dbt-core/issues/7158) and [dbt-labs/dbt-core#6800](https://github.com/dbt-labs/dbt-core/issues/6800) for more examples of the behavior we are fixing.
+As described in [dbt-labs/dbt#7169](https://github.com/dbt-labs/dbt/pull/7169), command-line parameters that could be silent before will no longer be silent. See [dbt-labs/dbt#7158](https://github.com/dbt-labs/dbt/issues/7158) and [dbt-labs/dbt#6800](https://github.com/dbt-labs/dbt/issues/6800) for more examples of the behavior we are fixing.
 
 An empty `tests:` key in a yaml file will now raise a validation error, instead of being silently skipped. You can resolve this by removing the empty `tests:` key, or by setting it to an empty list explicitly:
 
@@ -103,13 +103,13 @@ List of affected options
 
 Additionally, some options that could be previously specified *before* a subcommand can now only be specified *after*. Any option *not* in the above list must appear *after* the subcommand from v1.5 and later. For example, `--profiles-dir`.
 
-The built-in [collect\_freshness](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/core/dbt/include/global_project/macros/adapters/freshness.sql) macro now returns the entire `response` object, instead of just the `table` result. If you're using a custom override for `collect_freshness`, make sure you're also returning the `response` object; otherwise, some of your dbt commands will never finish. For example:
+The built-in [collect\_freshness](https://github.com/dbt-labs/dbt/blob/1.5.latest/core/dbt/include/global_project/macros/adapters/freshness.sql) macro now returns the entire `response` object, instead of just the `table` result. If you're using a custom override for `collect_freshness`, make sure you're also returning the `response` object; otherwise, some of your dbt commands will never finish. For example:
 
 ```sql
 {{ return(load_result('collect_freshness')) }}
 ```
 
-Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/core/dbt/include/global_project/macros/get_custom_name/get_custom_alias.sql) now includes logic to handle versioned models. If your project has reimplemented the `generate_alias_name` macro with custom logic, and you want to start using [model versions](../../../mesh/govern/model-versions.md), you will need to update the logic in your macro. Note that, while this is **not** a prerequisite for upgrading to v1.5—only for using the new feature—we recommend that you do this during your upgrade, whether you're planning to use model versions tomorrow or far in the future.
+Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/dbt/blob/1.5.latest/core/dbt/include/global_project/macros/get_custom_name/get_custom_alias.sql) now includes logic to handle versioned models. If your project has reimplemented the `generate_alias_name` macro with custom logic, and you want to start using [model versions](../../../mesh/govern/model-versions.md), you will need to update the logic in your macro. Note that, while this is **not** a prerequisite for upgrading to v1.5—only for using the new feature—we recommend that you do this during your upgrade, whether you're planning to use model versions tomorrow or far in the future.
 
 Likewise, if your project has reimplemented the `ref` macro with custom logic, you will need to update the logic in your macro as described [here](../../../../reference/dbt-jinja-functions/builtins.md).
 
@@ -125,7 +125,7 @@ The [manifest](../../../../reference/artifacts/manifest-json.md) schema version 
 
 ### For maintainers of adapter plugins
 
-For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt-core#7213](https://github.com/dbt-labs/dbt-core/discussions/7213).
+For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt#7213](https://github.com/dbt-labs/dbt/discussions/7213).
 
 ## New and changed documentation
 

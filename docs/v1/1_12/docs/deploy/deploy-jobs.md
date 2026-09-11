@@ -9,7 +9,7 @@ You can use deploy jobs to build production data assets. Deploy jobs make it eas
 * Environment name
 * Sources and documentation info, if applicable
 * Job run details, including run timing, [model timing data](./run-visibility.md#model-timing-tab), and [artifacts](./artifacts.md)
-* Detailed run steps with logs and their run step statuses. For Fusion runs, you can also download OpenTelemetry logs from individual steps. Refer to [Downloading logs](./run-visibility.md#access-logs).
+* Detailed run steps with logs and their run step statuses. For dbt v2 runs, you can also download OpenTelemetry logs from individual steps. Refer to [Downloading logs](./run-visibility.md#access-logs).
 
 You can create a deploy job and configure it to run on [scheduled days and times](#schedule-days), enter a [custom cron schedule](#cron-schedule), or [trigger the job after another job completes](#trigger-on-job-completion).
 
@@ -42,7 +42,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
 3. Options in the **Execution settings** section:
 
    * [**Commands**](./job-commands.md#built-in-commands) — By default, it includes the `dbt build` command. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when the job runs. During a job run, [built-in commands](./job-commands.md#built-in-commands) are "chained" together and if one run step fails, the entire job fails with an "Error" status.
-   * [**Generate docs on run**](./job-commands.md#checkbox-commands) (not applicable to Fusion jobs) — Enable this option if you want to [generate project docs](../explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
+   * [**Generate docs on run**](./job-commands.md#checkbox-commands) (not applicable to dbt v2 jobs) — Enable this option if you want to [generate project docs](../explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
    * [**Run source freshness**](./job-commands.md#checkbox-commands) — Enable this option to invoke the `dbt source freshness` command before running the deploy job. If the step fails, the job can succeed if subsequent steps pass. Refer to [Source freshness](./source-freshness.md) for more details.
    * [**Enable dbt State**](./dbt-state-about.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — dbt State reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
 

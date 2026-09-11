@@ -122,7 +122,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **New**: The dbt Semantic Layer supports custom calendar configurations in MetricFlow, available in [Preview](./product-lifecycles.md). Custom calendar configurations allow you to query data using non-standard time periods like `fiscal_year` or `retail_month`. Refer to [custom calendar](../build/metricflow-time-spine.md#custom-calendar) to learn how to define these custom granularities in your MetricFlow timespine YAML configuration.
 
-- **New**: In the **Latest** release track in dbt, [Snapshots](../build/snapshots.md) have been updated to use YAML configuration files instead of SQL snapshot blocks. This new feature simplifies snapshot management and improves performance, and will soon be released in dbt Core 1.9.
+- **New**: In the **Latest** release track in dbt, [Snapshots](../build/snapshots.md) have been updated to use YAML configuration files instead of SQL snapshot blocks. This new feature simplifies snapshot management and improves performance, and will soon be released in dbt v1 version 1.9.
 
   * Who does this affect? Users of the **Latest** release track in dbt can define snapshots using the new YAML specification. Users upgrading to **Latest** who have existing snapshot definitions can keep their existing configurations, or they can choose to migrate their snapshot definitions to YAML.
   * Users on older versions: No action is needed; existing snapshots will continue to work as before. However, we recommend upgrading to the **Latest** release track to take advantage of the new snapshot features.
@@ -135,7 +135,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **New**: In the **Latest** release track in dbt Cloud, the `snapshot_meta_column_names` config allows for customizing the snapshot metadata columns. This feature allows an organization to align these automatically-generated column names with their conventions, and will be included in the upcoming dbt Core 1.9 release.
 
-- **Enhancement**: the **Latest** release track in dbt Cloud infers a model's `primary_key` based on configured data tests and/or constraints within `manifest.json`. The inferred `primary_key` is visible in dbt Explorer and utilized by the dbt Cloud [compare changes](../deploy/run-visibility.md#compare-tab) feature. This will also be released in dbt Core 1.9. Read about the [order dbt infers columns can be used as primary key of a model](https://github.com/dbt-labs/dbt-core/blob/7940ad5c7858ff11ef100260a372f2f06a86e71f/core/dbt/contracts/graph/nodes.py#L534-L541).
+- **Enhancement**: the **Latest** release track in dbt Cloud infers a model's `primary_key` based on configured data tests and/or constraints within `manifest.json`. The inferred `primary_key` is visible in dbt Explorer and utilized by the dbt Cloud [compare changes](../deploy/run-visibility.md#compare-tab) feature. This will also be released in dbt Core 1.9. Read about the [order dbt infers columns can be used as primary key of a model](https://github.com/dbt-labs/dbt/blob/7940ad5c7858ff11ef100260a372f2f06a86e71f/core/dbt/contracts/graph/nodes.py#L534-L541).
 
 - **New:** dbt Explorer now includes trust signal icons, which is currently available as a [Preview](./product-lifecycles.md). Trust signals offer a quick, at-a-glance view of data health when browsing your dbt models in dbt Explorer. These icons indicate whether a model is **Healthy**, **Caution**, **Degraded**, or **Unknown**. For accurate health data, ensure the resource is up-to-date and has had a recent job run. Refer to [Data health signals](../explore/data-health-signals.md) for more information.
 
@@ -188,7 +188,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 * **Fix**: Addressed a bug where unicode query filters (such as Chinese characters) were not working correctly in the Semantic Layer Tableau integration.
 * **Fix**: Resolved a bug with parsing certain private keys for BigQuery when running an export.
 * **Fix**: Addressed a bug that caused a "closed connection" error to be returned when querying or running an Export.
-* **Fix**: Resolved an issue in dbt Core where, during partial parsing, all generated metrics in a file were incorrectly deleted instead of just those related to the changed semantic model. Now, only the metrics associated with the modified model are affected.
+* **Fix**: Resolved an issue in dbt v1 where, during partial parsing, all generated metrics in a file were incorrectly deleted instead of just those related to the changed semantic model. Now, only the metrics associated with the modified model are affected.
 
 ## June 2024
 

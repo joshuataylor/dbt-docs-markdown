@@ -14,7 +14,7 @@ To run dbt commands like `dbt seed`, `dbt run`, and `dbt test`, you also need db
 
 ### Related content
 
-* [Install dbt Core](../docs/local/install-dbt.md)
+* [Install dbt v1](../docs/local/install-dbt.md)
 * [About dbt projects](../docs/build/projects.md)
 * [Example dbt projects](../faqs/Project/example-projects.md)
 
@@ -174,7 +174,7 @@ To run the project, you need a database and adapter configured in `profiles.yml`
 * [Quickstart for dbt and BigQuery](./bigquery.md)
 * [Quickstart for dbt and Databricks](./databricks.md)
 * [Quickstart for dbt and Redshift](./redshift.md)
-* [Quickstart for dbt Core using DuckDB](./duckdb.md): Clone [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) and follow the guide.
+* [Quickstart for dbt v1 using DuckDB](./duckdb.md): Clone [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) and follow the guide.
 
 You can also browse [all guides](https://docs.getdbt.com/guides) or other [example dbt projects](../faqs/Project/example-projects.md).
 

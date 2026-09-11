@@ -24,17 +24,17 @@ The `profile` field in [`dbt_project.yml`](../../reference/dbt_project.yml.md) r
 
 Only one `profiles.yml` file is required and it can manage multiple projects and connections.
 
-### dbt Fusion
+### dbt v2
 
-Fusion searches for the parent directory of `profiles.yml` in the following order and uses the first location it finds:
+dbt v2 searches for the parent directory of `profiles.yml` in the following order and uses the first location it finds:
 
 1. `--profiles-dir` flag — Override for CI/CD or testing.
 2. Project root directory — Project-specific credentials.
 3. `~/.dbt/` directory (Recommended location) — Shared across all projects.
 
-### dbt Core
+### dbt v1
 
-dbt Core searches for the parent directory of `profiles.yml` in the following order and uses the first location it finds:
+dbt v1 searches for the parent directory of `profiles.yml` in the following order and uses the first location it finds:
 
 (Applies to dbt v1.11 and later)
 
@@ -44,9 +44,9 @@ dbt Core searches for the parent directory of `profiles.yml` in the following or
 4. Current working directory
 5. `~/.dbt/` directory (Recommended location)
 
-**Note:** dbt Core prefers `DBT_ENGINE_PROFILES_DIR` for the profiles directory, which aligns with the `DBT_ENGINE_*` env var naming in v1.11. Use `DBT_ENGINE_PROFILES_DIR` going forward; `DBT_PROFILES_DIR` remains supported for compatibility.
+**Note:** dbt v1 prefers `DBT_ENGINE_PROFILES_DIR` for the profiles directory, which aligns with the `DBT_ENGINE_*` env var naming in v1.11. Use `DBT_ENGINE_PROFILES_DIR` going forward; `DBT_PROFILES_DIR` remains supported for compatibility.
 
-Note: dbt Core supports using the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable or a `profiles.yml` file in the current working directory. These options aren't currently supported in Fusion.
+Note: dbt v1 supports using the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable or a `profiles.yml` file in the current working directory. These options aren't currently supported in dbt v2.
 
 `~/.dbt/profiles.yml` is the recommended location for the following reasons:
 
@@ -68,7 +68,7 @@ The easiest way to create and configure a `profiles.yml` file is to execute `dbt
 
 If your project has an existing `profiles.yml` file, running `dbt init` will prompt you to amend or overwrite it. If you select the existing adapter for configuration, dbt will automatically populate the existing values.
 
-You can also manually create the file and add it to the proper location. To configure an adapter manually, copy and paste the fields from the adapter setup instructions for [dbt Core](./connect-data-platform/about-dbt-connections.md) or [Fusion](./profiles.yml.md) along with the appropriate values for each.
+You can also manually create the file and add it to the proper location. To configure an adapter manually, copy and paste the fields from the adapter setup instructions for [dbt v1](./connect-data-platform/about-dbt-connections.md) or [dbt v2](./profiles.yml.md) along with the appropriate values for each.
 
 ### Example configuration
 
@@ -145,7 +145,7 @@ my_profile:
       threads: 4
 ```
 
-When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. dbt, the dbt VS Code extension, and dbt Core v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](../../reference/dbt-jinja-functions/env_var.md#using-the-env-file).
+When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. dbt, the dbt VS Code extension, and dbt v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](../../reference/dbt-jinja-functions/env_var.md#using-the-env-file).
 
 To keep credentials out of version control, add `.env` to your `.gitignore` file — new projects on v1.12 and higher created with `dbt init` include this by default.
 

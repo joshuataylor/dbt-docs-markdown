@@ -6,23 +6,23 @@ Every time a job runs, state-aware orchestration automatically determines which 
 
 State-aware orchestration is now dbt State
 
-[dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](./dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
 State-aware orchestration saves you compute costs and reduces runtime because when a job runs, it checks for new records and only builds the models that will change.
 
-![Fusion powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "Fusion powered state-aware orchestration")Fusion powered state-aware orchestration
+![dbt v2 powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "dbt v2 powered state-aware orchestration")dbt v2 powered state-aware orchestration
 
 We built dbt's state-aware orchestration on these four core principles:
 
@@ -77,7 +77,7 @@ This behavior ensures consistency between the dbt state and the actual warehouse
 
 Private beta feature
 
-State-aware orchestration features in the dbt platform are only available in Fusion. Contact your account manager to enable Fusion in your account.
+State-aware orchestration features in the dbt platform are only available in dbt v2. Contact your account manager to enable dbt v2 in your account.
 
 Data quality can get degraded in two ways:
 
@@ -86,7 +86,7 @@ Data quality can get degraded in two ways:
 
 Running dbt’s out-of-the-box [data tests](../build/data-tests.md) (`unique`, `not_null`, `accepted_values`, `relationships`) on every build helps catch data errors before they impact business decisions. Catching these errors often requires having multiple tests on every model and running tests even when not necessary. If nothing relevant has changed, repeated test executions don’t improve coverage and only increase cost.
 
-With Fusion, dbt gains an understanding of the SQL code based on the logical plan for the compiled code. dbt then can determine when a test must run again, or when a prior upstream test result can be reused.
+With dbt v2, dbt gains an understanding of the SQL code based on the logical plan for the compiled code. dbt then can determine when a test must run again, or when a prior upstream test result can be reused.
 
 Efficient testing in state-aware orchestration reduces warehouse costs by avoiding redundant data tests and combining multiple tests into one run. This feature includes two optimizations:
 
@@ -111,7 +111,7 @@ To enable Efficient testing:
 
 1. From the main menu, go to **Orchestration** > **Jobs**.
 2. Select your deploy job. Go to your job settings and click **Edit**.
-3. Under **Enable Fusion cost optimization features**, expand **More options**.
+3. Under **Enable dbt v2 cost optimization features**, expand **More options**.
 4. Select **Efficient testing**. This feature is disabled by default.
 5. Click **Save**.
 
@@ -179,7 +179,7 @@ On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](./dbt-state-about
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
-* **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.
+* **Works everywhere** — dbt State works with dbt v1, dbt v2, and dbt platform, as well as external orchestrators, across both development and deployment environments.
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
@@ -189,11 +189,11 @@ While dbt State is in preview, there is no required migration timeline — dbt L
 
 To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
-# How is state-aware orchestration different from using selectors in dbt Core?
+# How is state-aware orchestration different from using selectors in dbt?
 
 dbt platform | Enterprise, Enterprise+
 
-In dbt Core, running with the selectors `state:modified+` and `source_status:fresher+` builds models that either:
+In dbt v1, running with the selectors `state:modified+` and `source_status:fresher+` builds models that either:
 
 * Have changed since the prior run (`state:modified+`)
 * Have upstream sources that are fresher than in the prior run (`source_status:fresher+`)
@@ -204,7 +204,7 @@ Instead of relying only on these selectors and prior-run artifacts, state-aware 
 * Upstream data changes at runtime and model-level freshness settings
 * Shared state across jobs
 
-While dbt Core uses selectors like `state:modified+` and `source_status:fresher+` to decide what to build *only for a single run in a single job*, state-aware orchestration with Fusion maintains a *shared, real-time model state across every job in the environment* and uses that state to determine whether a model’s code or upstream data have actually changed before rebuilding. This ensures dbt only rebuilds models when something has changed, no matter which job runs them.
+While dbt v1 uses selectors like `state:modified+` and `source_status:fresher+` to decide what to build *only for a single run in a single job*, state-aware orchestration with dbt v2 maintains a *shared, real-time model state across every job in the environment* and uses that state to determine whether a model’s code or upstream data have actually changed before rebuilding. This ensures dbt only rebuilds models when something has changed, no matter which job runs them.
 
 ## Related docs
 

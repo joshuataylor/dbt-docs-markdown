@@ -8,7 +8,7 @@
 * [Data tests](../../docs/build/data-tests.md)
 * [Analyses](../../docs/build/analyses.md)
 * [Functions](../../docs/build/udfs.md)
-* [Snapshots](../../docs/build/snapshots.md) (available in dbt Core v1.12)
+* [Snapshots](../../docs/build/snapshots.md) (available in dbt v1.12)
 
 You can find these compiled SQL files in the `target/` directory of your dbt project.
 

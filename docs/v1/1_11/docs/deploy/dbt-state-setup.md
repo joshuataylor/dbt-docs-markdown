@@ -2,19 +2,19 @@
 
 Login required | Usage-based
 
-This page walks you through setting up dbt State across dbt Core, dbt platform, and Fusion.
+This page walks you through setting up dbt State across dbt v1, dbt platform, and dbt v2.
 
 ## Prerequisites
 
 Before you set up dbt State, make sure you have:
 
-* **A supported dbt version**: dbt State is natively available in dbt platform and the dbt Fusion engine. It's also available as a plugin for dbt Core v1.7–1.12.
+* **A supported dbt version**: dbt State is natively available in dbt platform and dbt v2. It's also available as a plugin for dbt v1.7–1.12.
 * **A supported data platform**: Snowflake, Databricks, BigQuery, or Redshift. More warehouses are on the roadmap.
 * **A dbt platform account**: Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) for sign-up details, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](../platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
 
 ## Setting up dbt State
 
-Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt:
+Set up dbt State either in the dbt platform or self-hosted dbt by using the following steps depending on how you're using dbt:
 
 * Already logged in to dbt platform and managing your account? Use **dbt Account settings**.
 * Signing up or logging in through the [dbt platform sign-up page](http://us1.dbt.com/register?_dbtsrc=dbt-state)? Use **dbt platform sign-up**.
@@ -116,7 +116,7 @@ flags:
 
 ### dbt v1.7-1.12
 
-dbt State is available as a plugin for dbt Core v1.7+. If you are running on dbt Core v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](../dbt-versions.md#latest-releases).
+dbt State is available as a plugin for dbt v1.7+. If you are running on dbt v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](../dbt-versions.md#latest-releases).
 
 To install the plugin:
 
@@ -151,7 +151,7 @@ To install the plugin:
 
 dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
-The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt Core versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
+The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt v1 versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
 
 To see how dbt State optimizes your runs, refer to [dbt State usage examples](./dbt-state-examples.md).
 
@@ -175,7 +175,7 @@ For more details, refer to the [`lag_tolerance` config reference](../../referenc
 
 The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them. To invite colleagues:
 
-* From the dbt Core 2.0 CLI: Have your colleagues run [`dbt login`](../../reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
+* From the v2 CLI: Have your colleagues run [`dbt login`](../../reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
 * From dbt platform: Go to **Account settings** > **Users** and click **Invite users**. For more information, refer to [Invite new users](../platform/manage-access/invite-users.md#invite-new-users).
 
 ## Debugging dbt State

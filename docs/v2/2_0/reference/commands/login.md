@@ -53,7 +53,7 @@ Refer to [VS Code extension features](../../docs/dbt-extension-features.md#featu
   3. Click **Continue**.
   4. Verify your e-mail address.
 
-In the dbt Fusion engine, after platform authentication, the CLI checks your configuration and responds accordingly:
+In dbt v2, after platform authentication, the CLI checks your configuration and responds accordingly:
 
 | dbt State enabled in dbt platform? | dbt State enabled locally? | Behavior                                                                                                                                                                        |
 | ---------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -223,7 +223,7 @@ Status: unauthenticated
 
 ### dbt license info
 
-dbt uses local licenses to cache your logged-in state and give you access to advanced features. Run `dbt license info` as an additional check to verify the status of the license used by Fusion. This is useful when an advanced feature isn't working and `dbt login status` tells you you're authenticated:
+dbt uses local licenses to cache your logged-in state and give you access to advanced features. Run `dbt license info` as an additional check to verify the status of the license used by dbt v2. This is useful when an advanced feature isn't working and `dbt login status` tells you you're authenticated:
 
 ```shell
 dbt license info

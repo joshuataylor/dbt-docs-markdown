@@ -44,15 +44,15 @@ Introduction
 
 Introduction
 
-## [Quickstart for dbt Core from a manual install](../guides/manual-install.md)
+## [Quickstart for dbt v1 from a manual install](../guides/manual-install.md)
 
-Connecting your warehouse to dbt Core using the CLI.
+Connecting your warehouse to dbt v1 using the CLI.
 
-## [Quickstart for dbt Core using DuckDB](../guides/duckdb.md)
+## [Quickstart for dbt v1 using DuckDB](../guides/duckdb.md)
 
-Learn to use dbt Core using DuckDB.
+Learn to use dbt v1 using DuckDB.
 
-## [Quickstart for the dbt Fusion engine](../guides/dbt.md)
+## [Quickstart for dbt v2](../guides/dbt.md)
 
 Introduction
 

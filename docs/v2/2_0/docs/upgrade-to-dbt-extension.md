@@ -1,22 +1,22 @@
-# Upgrade to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Upgrade to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
-After [installing the dbt VS Code extension](./install-dbt-extension.md), use the **Get started** panel to upgrade your project to the dbt Fusion engine if you haven't already done so.
+After [installing the dbt VS Code extension](./install-dbt-extension.md), use the **Get started** panel to upgrade your project to dbt v2 if you haven't already done so.
 
 note
 
-If you are already running the dbt Fusion engine, you must be on version `2.0.0-beta.66` or higher to use the upgrade tool.
+If you are already running dbt v2, you must be on version `2.0.0-beta.66` or higher to use the upgrade tool.
 
-The dbt extension provides two ways to upgrade your project to Fusion from the **Get started** panel:
+The dbt extension provides two ways to upgrade your project to dbt v2 from the **Get started** panel:
 
-* [**Agentic migration**:](#agentic-migration) Runs the dbt Core-to-Fusion migration with or AI agents. Select this option in the **Check Fusion compatibility** step. Requires or AI agents.
+* [**Agentic migration**:](#agentic-migration) Runs the dbt v1-to-dbt v2 migration with or AI agents. Select this option in the **Check dbt v2 compatibility** step. Requires or AI agents.
 * [**Manual CLI onboarding**:](#manual-cli-onboarding) Walks you through the upgrade in your terminal. Use this if you prefer the CLI or don't use or AI agents.
 
 ## Agentic migration
 
-1. Select **Start with an agent** from the **Check Fusion compatibility** step.
-2. The extension installs the **Migrate dbt Core to Fusion** agent skill to your editor's skill folder, then opens your AI chat with a migration prompt.
+1. Select **Start with an agent** from the **Check dbt v2 compatibility** step.
+2. The extension installs the **Migrate dbt v1 to dbt v2** agent skill to your editor's skill folder, then opens your AI chat with a migration prompt.
 3. Click **Install & open chat** to continue. The chat opens with the migration prompt already loaded, so you can run it directly from the editor. No CLI commands are required.
 
 ## Manual CLI onboarding
@@ -29,13 +29,13 @@ You can start manual onboarding in either of the following ways:
 
 ### From the Get started panel
 
-* From the **Get started** panel, select **Start manually in CLI** in the **Check Fusion compatibility** step.
+* From the **Get started** panel, select **Start manually in CLI** in the **Check dbt v2 compatibility** step.
 * Follow the prompts in the upgrade assistant to complete the upgrade.
-* Run `dbtf compile` to verify your project is ready for Fusion.
+* Run `dbtf compile` to verify your project is ready for dbt v2.
 
-![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")The message received when you have completed upgrading your project to the dbt Fusion engine.
+![The message received when you have completed upgrading your project to v2.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
 
-Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
+Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 
 Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 
@@ -63,14 +63,14 @@ If a `profiles.yml` file exists, the tool validates that your project is configu
 
  Ready to run dbt parse?
 
-The tool parses your dbt project to check compatibility with Fusion.
+The tool parses your dbt project to check compatibility with dbt v2.
 
 * If parsing fails, the tool can run [dbt-autofix](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation) to help resolve errors.
 * If you skip dbt-autofix, you can run it later or manually fix errors. The upgrade tool can't continue until parsing errors are resolved.
 
  Ready to run dbt compile with static analysis off?
 
-After parsing succeeds, the tool compiles your project without static analysis. This mimics dbt Core behavior by rendering Jinja into SQL while temporarily disabling Fusion's advanced SQL comprehension.
+After parsing succeeds, the tool compiles your project without static analysis. This mimics dbt v1 behavior by rendering Jinja into SQL while temporarily disabling dbt v2's advanced SQL comprehension.
 
 AI Agents
 
@@ -78,17 +78,17 @@ There are cases where dbt-autofix may not resolve all errors and requires manual
 
  Ready to run dbt compile?
 
-The tool compiles your project with full Fusion static analysis. This checks that your SQL code is valid in the context of your warehouse's tables and columns.
+The tool compiles your project with full dbt v2 static analysis. This checks that your SQL code is valid in the context of your warehouse's tables and columns.
 
-![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")The message received when you have completed upgrading your project to the dbt Fusion engine.
+![The message received when you have completed upgrading your project to v2.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
 
-Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
+Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 
 Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 
 ## Next steps
 
-Once you've upgraded your project to Fusion, you can:
+Once you've upgraded your project to dbt v2, you can:
 
 * [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 * [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.

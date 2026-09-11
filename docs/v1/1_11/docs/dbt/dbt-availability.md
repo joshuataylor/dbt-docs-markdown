@@ -6,7 +6,7 @@ You can get started with many dbt features right away, and even more are availab
 
 Feature availability
 
-Feature availability may change as the dbt v2 moves toward general availability.
+Feature availability may change as dbt v2 moves toward general availability.
 
 You can get started right away with many dbt features, free forever! You can also try advanced features by running [`dbt login`](../../reference/commands/login.md?version=2.0) to create a free dbt platform account for the best experience:
 
@@ -18,7 +18,7 @@ Creating an account also unlocks additional free-tier access to dbt services.
 
 | Feature                                               | Free forever (for real!) | Requires login<br />to any dbt platform account, free or paid |
 | ----------------------------------------------------- | ------------------------ | ------------------------------------------------------------- |
-| dbt Core v1.x workflows, except dbt docs v1           | ✅                       | ✅                                                            |
+| dbt v1 workflows, except dbt docs v1                  | ✅                       | ✅                                                            |
 | Syntax error detection (Jinja, YAML, SQL)             | ✅                       | ✅                                                            |
 | dbt lint                                              | ✅                       | ✅                                                            |
 | dbt docs v2 (lite)                                    | ✅                       | ✅                                                            |
@@ -36,4 +36,4 @@ To learn more about VS Code-specific capabilities, refer to [dbt VS Code extensi
 
 * [Install dbt](../local/install-dbt.md) locally
 * Install the [dbt VS Code extension](../about-dbt-extension.md)
-* Upgrade environments in the [dbt platform](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* Upgrade environments in the [dbt platform](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)

@@ -4,9 +4,9 @@
 
 (Applies to dbt v2.0 and later)
 
-Fusion and partial parsing
+dbt v2 and partial parsing
 
-Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
+dbt v2 job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt v1 command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your dbt v2 job commands. For more information, refer to [Deprecated flags](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to dbt v2.
 
 The `PARTIAL_PARSE` flag can turn partial parsing on or off in your project. See [the docs on parsing](../parsing.md#partial-parsing) for more details.
 
@@ -40,13 +40,13 @@ config:
 
 (Applies to dbt v1.12 and later)
 
-dbt Core flag
+dbt v1 flag
 
-The v2 parser flag is only applies to dbt Core v1.12 or higher. If you're already on v2, the flag has no impact.
+The v2 parser flag only applies to dbt v1.12 and higher 1.x versions. If you're already on v2, the flag has no impact.
 
 The `use_v2_parser` flag delegates parsing to the v2 parser. This is an opt-in flag.
 
-The v2 parser is the Rust-based parser from the dbt Fusion engine. It's significantly faster than the v1 Python parser, especially on larger projects, where it can be 5–10× quicker. Enabling it can speed up your development workflow and cut down on job startup times. Because it delegates to the parser used in v2.0, it's also a low-risk way to test compatibility with v2 from within dbt Core v1.12.
+The v2 parser is the Rust-based parser from dbt v2. It's significantly faster than the v1 Python parser, especially on larger projects, where it can be 5–10× quicker. Enabling it can speed up your development workflow and cut down on job startup times. Because it delegates to the parser used in v2.0, it's also a low-risk way to test compatibility with v2 from within dbt v1.12.
 
 You can enable the v2 parser in three ways:
 

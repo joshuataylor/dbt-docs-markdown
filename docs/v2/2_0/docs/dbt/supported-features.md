@@ -55,11 +55,11 @@ To use v2 in your project you must:
 
   *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-* Be able to run your project on the latest version of dbt Core v1.x with no deprecation warnings or errors.
+* Be able to run your project on the latest version of v1 with no deprecation warnings or errors.
 
 * Migrate your Semantic Layer configurations to the [latest YAML spec](../build/latest-metrics-spec.md).
 
-## Parity with dbt Core v1.x
+## Parity with dbt v1
 
 dbt v2 supports nearly all of v1.x's capabilities today. Refer to [Limitations](#limitations) below for the small number of gaps that remain.
 
@@ -77,21 +77,25 @@ dbt platform [features](../platform/about-platform/dbt-platform-features.md) (li
 
 ## Limitations
 
-If your project uses any of the following, you can still use dbt v2, but full migration may not be possible yet:
+If your project uses any of the following, you can still use v2, but full migration may not be possible yet:
 
 * Models that rely on materialization features v2 doesn't fully support, or that need configurations it's still missing
-* Tooling that depends on v1.x's exact log output — v2's logging system is still unstable and incomplete
+
+* Tooling that depends on v1.x's exact log output
+
 * Workflows built around dbt platform features v2 doesn't yet support, like model-level notifications
+
 * Using the dbt VS Code extension in Cursor's Agent mode — lineage visualization only renders in Editor mode, so switch there if you need the full lineage tab
 
-| Feature                                                                                                               | This will affect you if...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | GitHub issue                                                      |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Programmatic invocations](../../reference/programmatic-invocations.md)                             | You use dbt Core’s Python API for triggering invocations and registering callbacks on events/logs. Note that Fusion’s logging system is a work in progress.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [dbt-fusion#10](https://github.com/dbt-labs/dbt-fusion/issues/10) |
-| [Linting using SQLFluff](../deploy/continuous-integration.md#to-configure-sqlfluff-linting) | You use SQLFluff for linting in CI or local development. SQLFluff is not natively compatible with the dbt Fusion engine but we provide a [SQLFluff compatible high performance alternative](../../reference/commands/lint.md?version=2.0) with Fusion. Support varies by where you run it:<br /><br />**dbt platform CI jobs**: CI jobs on a Fusion version invoke [`dbt lint`](../../reference/commands/lint.md?version=2.0) instead of SQLFluff, so results can differ. Refer to [Rule parity with SQLFluff](../../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).<br />**Studio IDE**: SQLFluff linting works, but uses the dbt Core engine templater rather than Fusion.<br />**Local development**: You can run SQLFluff locally using the standalone dbt Core engine templater as a workaround. A native Fusion linter is available with [`dbt lint` command](../../reference/commands/lint.md?version=2.0) | [dbt-fusion#11](https://github.com/dbt-labs/dbt-fusion/issues/11) |
+* [Linting using SQLFluff](../deploy/continuous-integration.md#to-configure-sqlfluff-linting) — You use SQLFluff for linting in CI or local development. SQLFluff is not natively compatible with dbt v2 but we provide a [SQLFluff compatible high performance alternative](../../reference/commands/lint.md?version=2.0) with dbt v2. Support varies by where you run it:
+
+  * **dbt platform CI jobs**: CI jobs on a dbt v2 version invoke [`dbt lint`](../../reference/commands/lint.md?version=2.0) instead of SQLFluff, so results can differ. Refer to [Rule parity with SQLFluff](../../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
+  * **Studio IDE**: SQLFluff linting works, but uses the dbt v1 engine templater rather than dbt v2.
+  * **Local development**: You can run SQLFluff locally using the standalone dbt v1 engine templater as a workaround. A native dbt v2 linter is available with [`dbt lint` command](../../reference/commands/lint.md?version=2.0)
 
 ## Package support
 
-To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the dbt v2-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
 * Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with dbt v2. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
@@ -122,7 +126,7 @@ This means that even if you see a v2 warning for a package that `dbt-autofix` id
 
 The message discrepancy is temporary while we implement and roll out `dbt-autofix`'s enhanced compatibility detection to v2 warnings.
 
-Here's an example of a dbt v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
+Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
@@ -133,6 +137,6 @@ dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current v
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](./supported-features.md)
 * [Install dbt](../local/install-dbt.md)
-* [Quickstart for Fusion](../../guides/dbt.md?step=1)
+* [Quickstart for dbt v2](../../guides/dbt.md?step=1)
 * [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

@@ -1,6 +1,6 @@
 # Valid schema from generate\_schema\_name
 
-| require\_valid\_schema\_from\_generate\_schema\_name | dbt **v1 Latest** | dbt Core |
+| require\_valid\_schema\_from\_generate\_schema\_name | dbt **v1 Latest** | dbt v1   |
 | ---------------------------------------------------- | ----------------- | -------- |
 | Introduced                                           | 2026.1            | 1.12.0a1 |
 | Matured (default → `true`)                           | —                 | —        |

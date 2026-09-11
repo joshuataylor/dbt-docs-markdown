@@ -8,11 +8,11 @@ You can run dbt locally from your terminal with the dbt CLI, or from your code e
 
 Ready for the current version?
 
-v2 is the current generation of dbt and the recommended choice for most users — it's faster, adds richer developer tooling, and is free to use with Fusion. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
+v2 is the current generation of dbt and the recommended choice for most users — it's faster, adds richer developer tooling, and is free to use with dbt v2. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 
-## Install dbt Core v1.x
+## Install dbt v1
 
-dbt Core v1.x is the Python-based distribution and remains maintained. For full installation instructions, refer to [Install dbt](./install-dbt.md?version=1.0).
+dbt v1 is the Python-based distribution and remains maintained. For full installation instructions, refer to [Install dbt](./install-dbt.md?version=1.0).
 
 ## dbt VS Code extension
 
@@ -43,8 +43,7 @@ The dbt MCP server connects your local dbt project to AI assistants using the [M
 
 dbt framework has two distributions which can both be installed locally for free, powered by a single engine:
 
-* dbt Core is completely open-source and the code behind Fusion. Its code and binary are subject to the Apache 2.0 license.
-  * Includes dbt Core v1.x and dbt Core 2.0
-* dbt Fusion extends dbt Core with additional advanced capabilities — some are free to use, and other premium features (under proprietary code) are unlocked with a free login or payment method.
+* The Apache 2.0 licensed open-source distribution. Both v1 and v2 are available as open source installations.
+* dbt v2 extends the dbt OSS offering with additional advanced capabilities — all free to use!
 
 Refer to [licensing](../dbt-licensing.md) for more info.

@@ -6,7 +6,7 @@ The `dbt build` command will:
 * test [tests](../../docs/build/data-tests.md)
 * snapshot [snapshots](../../docs/build/snapshots.md)
 * seed [seeds](../../docs/build/seeds.md)
-* build [user-defined functions](../../docs/build/udfs.md) (available from dbt Core v1.11 and in the dbt Fusion engine)
+* build [user-defined functions](../../docs/build/udfs.md) (available from dbt v1.11 and up)
 
 In DAG order, for selected resources or an entire project.
 
@@ -18,7 +18,7 @@ In DAG order, for selected resources or an entire project.
 
 * Don't want a test to cause skipping? Adjust its [severity or thresholds](../resource-configs/severity.md) to `warn` instead of `error`
 * In the case of a test with multiple parents, where one parent depends on the other (e.g. a `relationships` test between `model_a` + `model_b`), that test will block-and-skip children of the most-downstream parent only (`model_b`).
-* If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt-core/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
+* If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
 
 (Applies to dbt v1.12 and later)
 
@@ -103,7 +103,7 @@ Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
 
 ## Functions
 
-*Available from dbt Core v1.11 and in the dbt Fusion engine*
+*Available from dbt v1.11 and up*
 
 The `build` command builds [user-defined functions](../../docs/build/udfs.md) as part of the DAG execution. To build or rebuild only `functions` in your project, run `dbt build --select "resource_type:function"`. For example:
 

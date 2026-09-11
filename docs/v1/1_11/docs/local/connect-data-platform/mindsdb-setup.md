@@ -1,4 +1,4 @@
-# Connect MindsDB to dbt Core
+# Connect MindsDB to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ The dbt-mindsdb package allows dbt to connect to [MindsDB](https://github.com/mi
 * **GitHub repo**: [mindsdb/dbt-mindsdb](https://github.com/mindsdb/dbt-mindsdb) [![](https://img.shields.io/github/stars/mindsdb/dbt-mindsdb?style=for-the-badge)](https://github.com/mindsdb/dbt-mindsdb)
 * **PyPI package**: `dbt-mindsdb` [![](https://badge.fury.io/py/dbt-mindsdb.svg)](https://badge.fury.io/py/dbt-mindsdb)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.0.1 and newer
+* **Supported dbt version**: v1.0.1 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: ?
 

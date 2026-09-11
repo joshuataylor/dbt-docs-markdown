@@ -21,7 +21,7 @@ A SQL model is a `select` statement. Models are defined in `.sql` files (typical
 * The model name is inherited from the filename and must match the *filename* of a model — including case sensitivity. Any mismatched casing can prevent dbt from applying configurations correctly and may affect metadata in [Catalog](../explore/explore-projects.md).
 * We strongly recommend using underscores for model names, not dots. For example, use `models/my_model.sql` instead of `models/my.model.sql`.
 * Models can be nested in subdirectories within the `models` directory.
-* Starting in dbt Core v1.12, you can use Jinja-style suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` files (for example, `my_model.sql.j2`) by enabling the [`allow_jinja_file_extensions`](../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) flag.
+* Starting in dbt v1.12, you can use Jinja-style suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` files (for example, `my_model.sql.j2`) by enabling the [`allow_jinja_file_extensions`](../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) flag.
 
 Refer to [How we style our dbt models](../../best-practices/how-we-style/1-how-we-style-our-dbt-models.md) for details on how we recommend you name your models.
 
@@ -104,7 +104,7 @@ To check out the SQL that dbt is running, you can look in:
 * dbt:
   * Within the run output, click on a model name, and then select "Details"
 
-* dbt Core:
+* dbt v1:
 
   * The `target/compiled/` directory for compiled `select` statements
   * The `target/run/` directory for compiled `create` statements

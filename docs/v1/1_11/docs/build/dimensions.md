@@ -132,7 +132,7 @@ Time has additional parameters specified under the `type_params` section. When y
 # dbt users
 dbt sl query --metrics users_created,users_deleted --group-by metric_time__year --order-by metric_time__year
 
-# dbt Core users
+# dbt v1 users
 mf query --metrics users_created,users_deleted --group-by metric_time__year --order-by metric_time__year
 ```
 
@@ -447,6 +447,6 @@ The following command or code represents how to return the count of transactions
 # dbt platform users
 dbt sl query --metrics transactions --group-by metric_time__month,sales_person__tier --order-by metric_time__month,sales_person__tier
 
-# dbt Core users
+# dbt v1 users
 mf query --metrics transactions --group-by metric_time__month,sales_person__tier --order-by metric_time__month,sales_person__tier
 ```

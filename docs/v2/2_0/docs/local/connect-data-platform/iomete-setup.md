@@ -1,4 +1,4 @@
-# Connect iomete to dbt Core
+# Connect iomete to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [iomete/dbt-iomete](https://github.com/iomete/dbt-iomete) [![](https://img.shields.io/github/stars/iomete/dbt-iomete?style=for-the-badge)](https://github.com/iomete/dbt-iomete)
 * **PyPI package**: `dbt-iomete` [![](https://badge.fury.io/py/dbt-iomete.svg)](https://badge.fury.io/py/dbt-iomete)
 * **Slack channel**: [##db-iomete](https://getdbt.slack.com/archives/C03JFG22EP9)
-* **Supported dbt Core version**: v0.18.0 and newer
+* **Supported dbt version**: v0.18.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 
@@ -57,7 +57,7 @@ iomete:
 
 ## Supported Functionality
 
-Most dbt Core functionality is supported.
+Most dbt v1 functionality is supported.
 
 Iceberg specific improvements.
 

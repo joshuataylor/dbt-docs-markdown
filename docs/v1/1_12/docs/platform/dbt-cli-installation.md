@@ -6,7 +6,7 @@ The dbt platform natively supports developing using a command line interface (CL
 
 CLI compatibility
 
-The dbt platform CLI is a dbt platform tool available to users on any [plan](https://www.getdbt.com/pricing). It is intended for use only with the dbt platform and may conflict with self-hosted installations of the dbt Core or dbt Fusion engine CLIs. Refer to the [FAQs](#faqs) for more information.
+The dbt platform CLI is a dbt platform tool available to users on any [plan](https://www.getdbt.com/pricing). It is intended for use only with the dbt platform and may conflict with self-hosted installations of the dbt v1 or dbt v2 CLIs. Refer to the [FAQs](#faqs) for more information.
 
 dbt commands run against the platform's infrastructure and benefit from:
 
@@ -21,14 +21,14 @@ dbt commands run against the platform's infrastructure and benefit from:
 
 The dbt platform CLI is available in all [deployment regions](./about-platform/access-regions-ip-addresses.md) and for both multi-tenant and single-tenant accounts.
 
-* If you installed the dbt Core CLI in a virtual environment, deactivate that environment or create an alias for the platform CLI before you run platform CLI commands.
+* If you installed the dbt v1 CLI in a virtual environment, deactivate that environment or create an alias for the platform CLI before you run platform CLI commands.
 * If you installed dbt locally, create an alias for the platform CLI before you run platform CLI commands.
 
 Refer to the [FAQs](#faqs) for more information about managing multiple dbt platform CLI tools and creating an alias.
 
-Using the dbt platform CLI for hybrid development with Fusion?
+Using the dbt platform CLI for hybrid development with dbt v2?
 
-See the [Hybrid development with dbt platform and Fusion](../../guides/dbt-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
+See the [Hybrid development with dbt platform and dbt v2](../../guides/dbt-platform-local-workflow.md) guide to keep credentials, environment variables, and dbt v2 versions in sync across your local CLI and the dbt platform.
 
 ## Install dbt platform CLI
 
@@ -38,7 +38,7 @@ You can install the dbt platform CLI via the command line by using one of the fo
 
 Before you begin, make sure you have [Homebrew installed](http://brew.sh/) in your code editor or command line terminal. Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
-1. Verify that you don't already have dbt Core installed by running the following command:
+1. Verify that you don't already have dbt installed by running the following command:
 
 ```bash
 which dbt
@@ -46,9 +46,9 @@ which dbt
 
 If the output is `dbt not found`, then that confirms you don't have it installed.
 
-Run `pip uninstall dbt` to uninstall dbt Core
+Run `pip uninstall dbt` to uninstall dbt v1
 
-If you've installed dbt Core globally in some other way, uninstall it first before proceeding:
+If you've installed dbt v1 globally in some other way, uninstall it first before proceeding:
 
 ```bash
 pip uninstall dbt
@@ -196,22 +196,22 @@ For data practitioners working with a self-hosted installation, this means AI as
 
 ## FAQs
 
- What's the difference between the dbt platform CLI and dbt Core?
+ What's the difference between the dbt platform CLI and dbt?
 
-The dbt platform CLI and [dbt Core](https://github.com/dbt-labs/dbt-core), an open-source project, are both command line tools that enable you to run dbt commands.
+The dbt platform CLI and [dbt](https://github.com/dbt-labs/dbt), an open-source project, are both command line tools that enable you to run dbt commands.
 
 The key distinction is that the dbt platform CLI is tailored for the dbt platform's infrastructure and integrates with all its [features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features).
 
- How do I run both the dbt platform CLI and dbt Core?
+ How do I run both the dbt platform CLI and dbt?
 
-For compatibility, both the dbt platform CLI and dbt Core are invoked by running `dbt`. This can create path conflicts if your operating system selects one over the other based on your $PATH environment variable (settings).
+For compatibility, both the dbt platform CLI and dbt are invoked by running `dbt`. This can create path conflicts if your operating system selects one over the other based on your $PATH environment variable (settings).
 
-If you have dbt Core installed locally, either:
+If you have dbt installed locally, either:
 
-1. Install natively, ensuring you either deactivate the virtual environment containing dbt Core or create an alias for the dbt platform CLI.
-2. (Advanced users) Install natively, but modify the $PATH environment variable to correctly point to the dbt platform CLI binary to use both dbt platform CLI and dbt Core together.
+1. Install natively, ensuring you either deactivate the virtual environment containing dbt v1 or create an alias for the dbt platform CLI.
+2. (Advanced users) Install natively, but modify the $PATH environment variable to correctly point to the dbt platform CLI binary to use both dbt platform CLI and dbt together.
 
-You can always uninstall the dbt platform CLI to return to using dbt Core.
+You can always uninstall the dbt platform CLI to return to using dbt.
 
  How to create an alias?
 
@@ -228,9 +228,9 @@ To create an alias for the dbt platform CLI:
 4. Test and use the alias to run commands:
 
    * To run the dbt platform CLI, use the `dbt-cli` command: `dbt-cli command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
-   * To run dbt Core, use the `dbt` command: `dbt command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
+   * To run dbt, use the `dbt` command: `dbt command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
 
-You can then use the `dbt-cli` command to invoke the dbt platform CLI while you keep dbt Core installed natively.
+You can then use the `dbt-cli` command to invoke the dbt platform CLI while you keep dbt installed natively.
 
  Why am I receiving a \`Stuck session\` error when trying to run a new command?
 

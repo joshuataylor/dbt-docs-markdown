@@ -192,7 +192,7 @@ By default, `dbt deps` "pins" each package. See ["Pinning packages"](#pinning-pa
 
 ### Internally hosted tarball URL
 
-Some organizations have security requirements to pull resources only from internal services. To address the need to install packages from hosted environments such as Artifactory or cloud storage buckets, dbt Core enables you to install packages from internally-hosted tarball URLs.
+Some organizations have security requirements to pull resources only from internal services. To address the need to install packages from hosted environments such as Artifactory or cloud storage buckets, dbt enables you to install packages from internally-hosted tarball URLs.
 
 ```yaml
 packages:
@@ -209,7 +209,7 @@ Where `name: 'dbt_utils'` specifies the subfolder of `dbt_packages` that's creat
 Native private packages let you install packages from [supported](#prerequisites) private Git repos using the `private` key, without having to configure a [token](#git-token-method) or write out a full Git URL. This simplifies setup and reduces credential management.
 
 * dbt platform: Uses your existing Git [integration](../platform/git/configure-git.md) for authentication.
-* Locally using Fusion or dbt Core v1.12+: Uses your system's SSH configuration. Requires the [`provider` key](#using-the-provider-key).
+* Locally using dbt v2 or dbt v1.12+: Uses your system's SSH configuration. Requires the [`provider` key](#using-the-provider-key).
 
 #### Prerequisites
 
@@ -221,7 +221,7 @@ Native private packages let you install packages from [supported](#prerequisites
   * **[GitLab](../platform/git/connect-gitlab.md)**
     * Every GitLab repo with private packages must also be a dbt platform project.
 
-* **Locally using Fusion or dbt Core v1.12+**: You must have an SSH key configured on your machine for the relevant Git provider and include the [`provider` key](#using-the-provider-key) in your package configuration.
+* **Locally using dbt v2 or dbt v1.12+**: You must have an SSH key configured on your machine for the relevant Git provider and include the [`provider` key](#using-the-provider-key) in your package configuration.
 
 #### Configuration
 
@@ -267,7 +267,7 @@ There are some considerations and limitations when using native private packages
 
    * As a workaround, reduce the number of Azure DevOps projects connected to your account, then rerun `dbt deps`. The number of projects you can connect depends on your Azure DevOps organization structure and repo count.
 
-   This limitation doesn't affect local development with dbt Core or Fusion when cloning private packages over SSH.
+   This limitation doesn't affect local development with dbt v1 or dbt v2 when cloning private packages over SSH.
 
    We're currently working to address this, and if you're running into issues, please contact your dbt Labs account team.
 
@@ -284,9 +284,9 @@ packages:
 
 Add the `provider` key when:
 
-* You are using multiple Git integrations or using the dbt Fusion engine.
-* You are using Fusion locally (with the [Fusion CLI](../local/install-dbt.md?version=2) or the [VS Code extension](../local/install-dbt.md?version=2)) (required).
-* You are using dbt Core v1.12 or later for SSH-based cloning (required).
+* You are using multiple Git integrations or using dbt v2.
+* You are using dbt v2 locally (with the [dbt v2 CLI](../local/install-dbt.md?version=2) or the [VS Code extension](../local/install-dbt.md?version=2)) (required).
+* You are using dbt v1.12 or later for SSH-based cloning (required).
 
 ```yaml
 packages:
@@ -294,7 +294,7 @@ packages:
     provider: "github" # Supported values: "github", "gitlab", "ado"
 ```
 
-dbt Core and Fusion use the `provider` value to construct the correct SSH URL for cloning, based on the provider:
+dbt v1 and dbt v2 use the `provider` value to construct the correct SSH URL for cloning, based on the provider:
 
 | Provider | SSH URL format                              |
 | -------- | ------------------------------------------- |
@@ -302,7 +302,7 @@ dbt Core and Fusion use the `provider` value to construct the correct SSH URL fo
 | `gitlab` | `git@gitlab.com:org/repo.git`               |
 | `ado`    | `git@ssh.dev.azure.com:v3/org/project/repo` |
 
-dbt Core and Fusion rely on your system's SSH configuration to authenticate and clone the private repository. If `git clone` works on your system for the private package repo, the private package install should work too.
+dbt v1 and dbt v2 rely on your system's SSH configuration to authenticate and clone the private repository. If `git clone` works on your system for the private package repo, the private package install should work too.
 
 ### SSH key method (CLI only)
 
@@ -327,7 +327,7 @@ If you're using the dbt platform, the SSH key method will not work, but you can 
 
 note
 
-[Native private packages](#native-private-packages) is the recommended approach for GitHub, GitLab, and Azure DevOps. The git token method is still functional in dbt Core, Fusion, and the dbt platform, but requires provisioning a personal access token. It remains the supported path for dbt Core users who need HTTPS-based cloning.
+[Native private packages](#native-private-packages) is the recommended approach for GitHub, GitLab, and Azure DevOps. The git token method is still functional in dbt v1, dbt v2, and the dbt platform, but requires provisioning a personal access token. It remains the supported path for dbt v1 users who need HTTPS-based cloning.
 
 This method allows the user to clone via HTTPS by passing in a git token via an environment variable. Be careful of the expiration date of any token you use, as an expired token could cause a scheduled run to fail. Additionally, user tokens can create a challenge if the user ever loses access to a specific repo.
 
@@ -432,9 +432,9 @@ There are a few specific use cases where we recommend using a "local" package:
 
 To see the library of published dbt packages, check out the [dbt package hub](https://hub.getdbt.com)!
 
-## Fusion package compatibility
+## dbt v2 package compatibility
 
-To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the dbt v2-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
 * Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with dbt v2. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
@@ -465,7 +465,7 @@ This means that even if you see a v2 warning for a package that `dbt-autofix` id
 
 The message discrepancy is temporary while we implement and roll out `dbt-autofix`'s enhanced compatibility detection to v2 warnings.
 
-Here's an example of a dbt v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
+Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
@@ -489,7 +489,7 @@ When you remove a package from your `packages.yml` file, it isn't automatically 
 Running [`dbt deps`](../../reference/commands/deps.md) "pins" each package by creating or updating the `package-lock.yml` file in the *project\_root* where `packages.yml` is recorded.
 
 * The `package-lock.yml` file contains a record of all packages installed.
-* If subsequent `dbt deps` runs contain no changes to `dependencies.yml` or `packages.yml`, dbt-core installs from `package-lock.yml`.
+* If subsequent `dbt deps` runs contain no changes to `dependencies.yml` or `packages.yml`, dbt installs from `package-lock.yml`.
 
 For example, if you use a branch name, the `package-lock.yml` file pins to the head commit. If you use a version range, it pins to the latest release. In either case, subsequent commits or versions will **not** be installed. To get new commits or versions, run `dbt deps --upgrade` or add `package-lock.yml` to your .gitignore file.
 

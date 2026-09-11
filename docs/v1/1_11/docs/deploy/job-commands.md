@@ -31,13 +31,13 @@ Every job invocation automatically includes the [`dbt deps`](../../reference/com
 
 For every job, you have the option to select the [Generate docs on run](../explore/build-and-view-your-docs.md) or [Run source freshness](./source-freshness.md) checkboxes, enabling you to run the commands automatically.
 
-**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command (dbt Core v1.x only), *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. For jobs running on the dbt Fusion engine, manually configuring `dbt docs generate` using the checkbox will no longer be required in the future. Read [Set up a documentation job](../explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
+**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command (dbt v1 only), *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. For jobs running on dbt v2, manually configuring `dbt docs generate` using the checkbox will no longer be required in the future. Read [Set up a documentation job](../explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
 
 **Run source freshness** checkbox — dbt executes the `dbt source freshness` command as the first run step in your job. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. Read [Source freshness](./source-freshness.md) for more information.
 
 ### Command list
 
-You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt Core" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt Core or dbt CLI, and not in Studio IDE.
+You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt v1" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt v1 or dbt CLI, and not in Studio IDE.
 
 Using selectors
 
@@ -81,11 +81,11 @@ In the following example image, the first four run steps are successful. However
 
 Job command failures can mean different things for different commands. Some common reasons why a job command may fail:
 
-* **Failure at `dbt run`** — [`dbt run`](../../reference/commands/run.md) executes compiled SQL model files against the current target database. It will fail if there is an error in any of the built models. By default, if a model fails, its downstream models are also skipped. In dbt Core v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run despite the failure.
+* **Failure at `dbt run`** — [`dbt run`](../../reference/commands/run.md) executes compiled SQL model files against the current target database. It will fail if there is an error in any of the built models. By default, if a model fails, its downstream models are also skipped. In dbt v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run despite the failure.
 
 * **Failure at `dbt test`** — [`dbt test`](../../reference/commands/test.md) runs tests defined on models, sources, snapshots, and seeds. A test can pass, fail, or warn depending on its [severity](../../reference/resource-configs/severity.md). Unless you set [warnings as errors](../../reference/global-configs/warnings.md), only an error fails the command. Tests on upstream resources prevent downstream resources from running and a failed test will skip them.
 
-* **Failure at `dbt build`** — [`dbt build`](../../reference/commands/build.md) runs models, tests, snapshots, and seeds. This command executes resources in the DAG-specified order. If any upstream resource fails, all downstream resources are skipped, and the command exits with an error code of `1`. In dbt Core v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run when that model fails.
+* **Failure at `dbt build`** — [`dbt build`](../../reference/commands/build.md) runs models, tests, snapshots, and seeds. This command executes resources in the DAG-specified order. If any upstream resource fails, all downstream resources are skipped, and the command exits with an error code of `1`. In dbt v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run when that model fails.
 
 * **Selector failures**
 

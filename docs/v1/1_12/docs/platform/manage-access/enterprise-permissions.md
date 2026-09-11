@@ -153,16 +153,16 @@ Notable features:
 * Users manage their credentials to data warehouses and Git.
 * Can access Catalog.
 
- v2 Migration admin
+ v2 Migration Admin
 
-This permission set enables users to interact with Fusion upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](../../../guides/upgrade-to-v2.md?step=1) a project to Fusion.
+This permission set enables users to interact with dbt v2 upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](../../../guides/upgrade-to-v2.md?step=1) a project to dbt v2.
 
-By default, all users can access the Fusion upgrade experience. When the upgrade permissions setting is enabled, only users with the **v2 Migration admin** or **Account admin** permission set can perform upgrades. If the setting is disabled (no check mark), upgrades are not restricted.
+By default, all users can access the dbt v2 upgrade experience. When the upgrade permissions setting is enabled, only users with the **v2 Migration Admin** or **Account admin** permission set can perform upgrades. If the setting is disabled (no check mark), upgrades are not restricted.
 
-* **v2 Migration admin** — Assign to user accounts only. Cannot be assigned to service tokens.
+* **v2 Migration Admin** — Assign to user accounts only. Cannot be assigned to service tokens.
 * **Account admin** — Assign to user accounts or service tokens. Allows both users and service tokens to perform upgrades.
 
-For more information, refer to [Upgrade to dbt Fusion](../../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine).
+For more information, refer to [Upgrade to dbt v2](../../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2).
 
  Git admin
 
@@ -421,7 +421,7 @@ Key:
 
 #### Project access for project permissions
 
-| Project-level permission    | Admin | Analyst | Analyst read\*\*\* | Cost Insights Admin | Cost Insights Viewer | Database admin | Developer | v2 Migration admin | Git Admin | Job admin | Job creator | Job runner | Job viewer | Metadata (Discovery API only) | Semantic Layer | Stakeholder/Read-Only | Team admin |
+| Project-level permission    | Admin | Analyst | Analyst read\*\*\* | Cost Insights Admin | Cost Insights Viewer | Database admin | Developer | v2 Migration Admin | Git Admin | Job admin | Job creator | Job runner | Job viewer | Metadata (Discovery API only) | Semantic Layer | Stakeholder/Read-Only | Team admin |
 | --------------------------- | ----- | ------- | ------------------ | ------------------- | -------------------- | -------------- | --------- | ------------------ | --------- | --------- | ----------- | ---------- | ---------- | ----------------------------- | -------------- | --------------------- | ---------- |
 | Environment credentials     | W     | R       | R                  | -                   | -                    | W              | R         | -                  | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
 | Custom env. variables       | W     | W\*\*   | R                  | -                   | -                    | W              | W\*\*     | -                  | W         | W         | R           | -          | R          | -                             | -              | R                     | W          |
@@ -429,7 +429,7 @@ Key:
 | Data platform configs       | W     | W       | R                  | -                   | -                    | W              | W         | -                  | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
 | Develop (IDE or CLI)        | W     | W       | -                  | -                   | -                    | -              | W         | -                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
 | Environments                | W     | R       | R                  | -                   | -                    | R              | R         | -                  | R         | W         | R           | -          | R          | -                             | -              | R                     | R          |
-| Fusion upgrade              | -     | -       | -                  | -                   | -                    | -              | -         | W                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| dbt v2 upgrade              | -     | -       | -                  | -                   | -                    | -              | -         | W                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
 | Jobs                        | W     | R\*     | -                  | R                   | R                    | R\*            | R\*       | -                  | R\*       | W         | W           | R          | R          | -                             | -              | R                     | R\*        |
 | Metadata GraphQL API access | R     | R       | R                  | R                   | R                    | R              | R         | -                  | R         | R         | R           | -          | R          | R                             | -              | R                     | R          |
 | Permissions                 | W     | -       | -                  | -                   | -                    | R              | R         | -                  | R         | -         | -           | -          | -          | -                             | -              | -                     | R          |

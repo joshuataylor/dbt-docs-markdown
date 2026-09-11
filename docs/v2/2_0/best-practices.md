@@ -47,7 +47,7 @@ Learn how dbt Labs approaches building projects through our current viewpoints o
 
 ## [Optimize static analysis](./best-practices/optimize-static-analysis-for-development-and-deployment.md)
 
-[Configure Fusion static analysis with strict in development and baseline in deployment for stronger local checks and faster jobs.](./best-practices/optimize-static-analysis-for-development-and-deployment.md)
+[Configure dbt v2 static analysis with strict in development and baseline in deployment for stronger local checks and faster jobs.](./best-practices/optimize-static-analysis-for-development-and-deployment.md)
 
 ## [Writing custom generic data tests](./best-practices/writing-custom-generic-tests.md)
 

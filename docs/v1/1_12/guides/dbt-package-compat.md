@@ -1,6 +1,6 @@
-# Fusion package upgrade guide
+# dbt v2 package upgrade guide
 
-Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
+Learn how to upgrade your packages to be compatible with dbt v2.
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -10,24 +10,24 @@ Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
 Thank you for being part of the [dbt's package hub community](https://hub.getdbt.com/) and maintaining [packages](../docs/build/packages.md)! Your work makes dbt’s ecosystem possible and helps thousands of teams reuse trusted models and macros to build faster, more reliable analytics.
 
-This guide helps you upgrade your dbt packages to be [Fusion](../docs/introduction.md)-compatible. A Fusion-compatible package:
+This guide helps you upgrade your dbt packages to be [dbt v2](../docs/introduction.md)-compatible. A dbt v2-compatible package:
 
-* Supports [dbt Fusion engine](../docs/introduction.md) version `2.0.0`
+* Supports [dbt v2](../docs/introduction.md) version `2.0.0`
 * Uses the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md) to signal compatibility in the dbt package hub
-* Aligns with the latest JSON schema introduced in dbt Core v1.10.0
+* Aligns with the latest JSON schema introduced in dbt v1.10.0
 
 In this guide, we'll go over:
 
-* Updating your package to be compatible with Fusion
-* Testing your package with Fusion
+* Updating your package to be compatible with dbt v2
+* Testing your package with dbt v2
 * Updating the `require-dbt-version` config to include `2.0.0`
-* Updating your README to note that the package is compatible with Fusion
+* Updating your README to note that the package is compatible with dbt v2
 
 ### Who is this for?
 
-This guide is for any dbt package maintainer, like [`dbt-utils`](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/), that's looking to upgrade their package to be compatible with Fusion. Updating your package ensures users have the latest version of your package, your package stays trusted on dbt package hub, and users benefit from the latest features and bug fixes.
+This guide is for any dbt package maintainer, like [`dbt-utils`](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/), that's looking to upgrade their package to be compatible with dbt v2. Updating your package ensures users have the latest version of your package, your package stays trusted on dbt package hub, and users benefit from the latest features and bug fixes.
 
-A user stores their package in a `packages.yml` or `dependencies.yml` file. If a package excludes `2.0.0`, Fusion warns today and errors in a future release, matching dbt Core behavior.
+A user stores their package in a `packages.yml` or `dependencies.yml` file. If a package excludes `2.0.0`, dbt v2 warns today and errors in a future release, matching dbt v1 behavior.
 
 This guide assumes you're using the command line and Git to make changes in your package repository. If you're interested in creating a new package from scratch, we recommend using the [dbt package guide](./building-packages.md) to get started.
 
@@ -38,16 +38,16 @@ Before you begin, make sure you meet the following:
 * dbt package maintainer — You maintain a package on [dbt's package hub](https://hub.getdbt.com/) or are interested in [creating one](./building-packages.md?step=1).
 * `dbt-autofix` installed — [Install `dbt-autofix`](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation) to automatically update the package's YAML files to align with the latest dbt updates and best practices. We recommend [using/installing uv/uvx](https://docs.astral.sh/uv/getting-started/installation/) to run the tool.
   * Run the command `uvx dbt-autofix` for the latest version of the tool. For more installation options, see the [official `dbt-autofix` doc](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation).
-* Repository access — You’ll need permission to create a branch and release updates/a new version of your package. You’ll need to tag a new version of your package once it’s Fusion-compatible.
-* A Fusion installation or test environment — You can use Fusion locally (using the `dbtf` binary) or in your CI pipeline to validate compatibility.
+* Repository access — You’ll need permission to create a branch and release updates/a new version of your package. You’ll need to tag a new version of your package once it’s dbt v2-compatible.
+* A dbt v2 installation or test environment — You can use dbt v2 locally (using the `dbtf` binary) or in your CI pipeline to validate compatibility.
 * CLI and Git usage — You’re comfortable using the command line and Git to update the repository.
 
 ## Upgrade the package
 
-This section covers how to upgrade your package to be compatible with Fusion by:
+This section covers how to upgrade your package to be compatible with dbt v2 by:
 
 * [Using `dbt-autofix` to automatically update your YAML files](./dbt-package-compat.md?step=)
-* [Testing your package with Fusion](./dbt-package-compat.md?step=5)
+* [Testing your package with dbt v2](./dbt-package-compat.md?step=5)
 * [Updating your `require-dbt-version` config](./dbt-package-compat.md?step=6)
 * [Publishing a new release of your package](./dbt-package-compat.md?step=7)
 
@@ -69,32 +69,32 @@ If you're ready to get started, let's begin!
    dbt-autofix deprecations
    ```
 
-## Test package with Fusion
+## Test package with dbt v2
 
-Now that you've run `dbt-autofix`, let's test your package with Fusion to ensure it's compatible before [updating](https://docs.getdbt.com/guides/dbt-package-compat?step=6) your `require-dbt-version` config. Refer to the [Fusion limitations documentation](../docs/dbt/supported-features.md#limitations) for more information on what to look out for. You can test your package two ways:
+Now that you've run `dbt-autofix`, let's test your package with dbt v2 to ensure it's compatible before [updating](https://docs.getdbt.com/guides/dbt-package-compat?step=6) your `require-dbt-version` config. Refer to the [dbt v2 limitations documentation](../docs/dbt/supported-features.md#limitations) for more information on what to look out for. You can test your package two ways:
 
-* [Running your integration tests with Fusion](#running-your-integration-tests-with-fusion) — Use if your package has [integration tests](https://docs.getdbt.com/guides/building-packages?step=4) using an `integration_tests/` folder.
+* [Running your integration tests with dbt v2](#running-your-integration-tests-with-fusion) — Use if your package has [integration tests](https://docs.getdbt.com/guides/building-packages?step=4) using an `integration_tests/` folder.
 * [Manually validating your package](#manually-validating-your-package) — Use if your package doesn't have [integration tests](https://docs.getdbt.com/guides/building-packages?step=4). Consider creating one to help validate your package.
 
-#### Running your integration tests with Fusion
+#### Running your integration tests with dbt v2
 
 If your package includes an `integration_tests/` folder ([like `dbt-utils`](https://github.com/dbt-labs/dbt-utils/tree/main/integration_tests)), follow these steps:
 
 1. Navigate to the folder (`cd integration_tests`) to run your tests. If you don't have an `integration_tests/` folder, you can either [create one](https://docs.getdbt.com/guides/building-packages?step=4) or navigate to the folder that contains your tests.
-2. Then, run your tests with Fusion by running the following `dbtf build` command (or whatever Fusion executable is available in your environment).
-3. If there are no errors, your package likely supports Fusion and you're ready to [update your `require-dbt-version`](https://docs.getdbt.com//guides/dbt-package-compat?step=5#update-your-require-dbt-version). If there are errors, you'll need to fix them first before updating your `require-dbt-version`.
+2. Then, run your tests with dbt v2 by running the following `dbtf build` command (or whatever dbt v2 executable is available in your environment).
+3. If there are no errors, your package likely supports dbt v2 and you're ready to [update your `require-dbt-version`](https://docs.getdbt.com//guides/dbt-package-compat?step=5#update-your-require-dbt-version). If there are errors, you'll need to fix them first before updating your `require-dbt-version`.
 
 #### Manually validating your package
 
 If your package doesn't have integration tests, follow these steps:
 
-1. Create a small, Fusion-compatible dbt project that installs your package and has a `packages.yml` or `dependencies.yml` file.
-2. Run it with Fusion using the `dbtf run` command.
+1. Create a small, dbt v2-compatible dbt project that installs your package and has a `packages.yml` or `dependencies.yml` file.
+2. Run it with dbt v2 using the `dbtf run` command.
 3. Confirm that models build successfully and that there are no warnings. If there are errors/warnings, you'll need to fix them first. If you still have issues, reach out to the [#package-ecosystem channel](https://getdbt.slack.com/archives/CU4MRJ7QB) on Slack for help.
 
 ## Update `require-dbt-version`
 
-Only update the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md) after testing and confirming that your package works with Fusion.
+Only update the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md) after testing and confirming that your package works with dbt v2.
 
 1. Update the `require-dbt-version` in your `dbt_project.yml` to include `2.0.0`. We recommend using a range to ensure stability across releases:
 
@@ -102,35 +102,35 @@ Only update the [`require-dbt-version` config](../reference/project-configs/requ
    require-dbt-version: [">=1.10.0,<3.0.0"] 
    ```
 
-   This signals that your package supports both dbt Core and Fusion. dbt Labs uses this release metadata to mark your package with a Fusion-compatible badge in the [dbt package hub](https://hub.getdbt.com/). Packages without this metadata don't display the Fusion-compatible badge.
+   This signals that your package supports both dbt v1 and dbt v2. dbt Labs uses this release metadata to mark your package with a dbt v2-compatible badge in the [dbt package hub](https://hub.getdbt.com/). Packages without this metadata don't display the dbt v2-compatible badge.
 
 2. Commit and push your changes to your repository.
 
 ## Publish a new release
 
 1. After committing and pushing your changes, publish a new release of your package by merging your branch into main (or whatever branch you're using for your package).
-2. Update your `README` to note that the package is Fusion-compatible.
+2. Update your `README` to note that the package is dbt v2-compatible.
 3. (Optional) Announce it in [#package-ecosystem on dbt Slack](https://getdbt.slack.com/archives/CU4MRJ7QB) if you’d like.
 
-CI Fusion testing
+CI dbt v2 testing
 
-When possible, add a step to your CI pipeline that runs `dbtf build` or equivalent to ensure ongoing Fusion compatibility.
+When possible, add a step to your CI pipeline that runs `dbtf build` or equivalent to ensure ongoing dbt v2 compatibility.
 
-Your package is now Fusion-compatible and the dbt package hub reflects these changes. To summarize, you've now:
+Your package is now dbt v2-compatible and the dbt package hub reflects these changes. To summarize, you've now:
 
-* Created a fusion compatible branch
+* Created a v2 compatible branch
 * Run `dbt-autofix` deprecations
 * Reviewed, committed, and tested changes
 * Updated `require-dbt-version: [">=1.10.0,<3.0.0"]` to include `2.0.0`
 * Published a new release
 * Announced the update (optional)
-* Celebrate your new Fusion-compatible badge 🎉
+* Celebrate your new dbt v2-compatible badge 🎉
 
 ## Final thoughts
 
-Now that you've upgraded your package to be Fusion-compatible, users can use your package with Fusion! 🎉
+Now that you've upgraded your package to be dbt v2-compatible, users can use your package with dbt v2! 🎉
 
-By upgrading now, you’re ensuring a smoother experience for users, paving the way for the next generation of dbt projects, and helping dbt Fusion reach full stability.
+By upgrading now, you’re ensuring a smoother experience for users, paving the way for the next generation of dbt projects, and helping dbt v2 reach full stability.
 
 If you have questions or run into issues:
 
@@ -141,24 +141,24 @@ Lastly, thank you for your help in making the dbt ecosystem stronger — one pac
 
 ## Frequently asked questions
 
-The following are some frequently asked questions about upgrading your package to be Fusion-compatible.
+The following are some frequently asked questions about upgrading your package to be dbt v2-compatible.
 
  Why do we need to update our package?
 
-Fusion and dbt Core v1.10+ use the same new authoring layer. Ensuring your package supports `2.0.0` in your `require-dbt-version` config ensures your package is compatible with both.
+dbt v2 and dbt v1.10+ use the same new authoring layer. Ensuring your package supports `2.0.0` in your `require-dbt-version` config ensures your package is compatible with both.
 
-Updating your package ensures users have the latest version of your package, your package stays trusted on dbt package hub, and users benefit from the latest features and bug fixes. Fusion-compatible packages display a badge in the dbt package hub.
+Updating your package ensures users have the latest version of your package, your package stays trusted on dbt package hub, and users benefit from the latest features and bug fixes. dbt v2-compatible packages display a badge in the dbt package hub.
 
-If a package excludes `2.0.0`, Fusion will warn today and error in a future release, matching dbt dbt Core behavior.
+If a package excludes `2.0.0`, dbt v2 will warn today and error in a future release, matching dbt v1 behavior.
 
- How do I test Fusion in CI?
+ How do I test v2 in CI?
 
-Add a separate job that installs Fusion (`dbtf`) and runs `dbtf build`. See this [PR](https://github.com/godatadriven/dbt-date/pull/31) for a working example.
+Add a separate job that installs dbt v2 (`dbtf`) and runs `dbtf build`. See this [PR](https://github.com/godatadriven/dbt-date/pull/31) for a working example.
 
-You want to do this to ensure any changes to your package remain compatible with Fusion.
+You want to do this to ensure any changes to your package remain compatible with dbt v2.
 
- How will users know my package is Fusion-compatible?
+ How will users know my package is v2-compatible?
 
-Users can identify your package as Fusion-compatible by checking for 2.0.0 or higher in the `require-dbt-version` range config.
+Users can identify your package as dbt v2-compatible by checking for 2.0.0 or higher in the `require-dbt-version` range config.
 
-Fusion-compatible packages also display a badge in the dbt package hub. This is automatically determined based on your package’s metadata and version requirements.
+dbt v2-compatible packages also display a badge in the dbt package hub. This is automatically determined based on your package’s metadata and version requirements.

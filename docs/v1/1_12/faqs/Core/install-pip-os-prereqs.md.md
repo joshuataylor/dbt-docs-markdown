@@ -1,10 +1,10 @@
 # Does my operating system have prerequisites?
 
-Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](../../docs/local/install-dbt.md).
+Your operating system may require pre-installation setup before installing dbt v1 with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt v1](../../docs/local/install-dbt.md).
 
 ### CentOS
 
-CentOS requires Python and some other dependencies to successfully install and run dbt Core.
+CentOS requires Python and some other dependencies to successfully install and run dbt v1.
 
 To install Python and other dependencies:
 
@@ -16,7 +16,7 @@ sudo yum install redhat-rpm-config gcc libffi-devel \
 
 ### MacOS
 
-The MacOS requires Python 3.8 or higher to successfully install and run dbt Core.
+The MacOS requires Python 3.8 or higher to successfully install and run dbt v1.
 
 To check the Python version:
 
@@ -31,7 +31,7 @@ If your machine runs on an Apple M1 architecture, we recommend that you install 
 
 ### Ubuntu/Debian
 
-Ubuntu requires Python and other dependencies to successfully install and run dbt Core.
+Ubuntu requires Python and other dependencies to successfully install and run dbt v1.
 
 To install Python and other dependencies:
 
@@ -45,7 +45,7 @@ pip install cryptography~=3.4
 
 ### Windows
 
-Windows requires Python and git to successfully install and run dbt Core.
+Windows requires Python and git to successfully install and run dbt v1.
 
 Install [Git for Windows](https://git-scm.com/downloads) and [Python version 3.9 or higher for Windows](https://www.python.org/downloads/windows/).
 

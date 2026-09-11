@@ -254,7 +254,7 @@ Advanced capabilities are available to all users for 14 days. After the 14-day t
 
 Authentication is handled by [`dbt login`](../reference/commands/login.md?version=2.0), so your login state is shared across the CLI, dbt VS Code extension, and .
 
-You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
+You can use compare changes, powered by dbt v2, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 
 For more details on how to use this feature, refer to [Compare changes in local development](./dbt/vs-compare-changes.md).
 

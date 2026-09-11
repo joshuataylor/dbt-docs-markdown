@@ -1,6 +1,6 @@
 # Checking version compatibility
 
-For the first several years of dbt Core's development, breaking changes were more common. For this reason, we encouraged setting [dbt version requirements](../project-configs/require-dbt-version.md) — especially if they use features that are newer or which may break in future versions of dbt Core. By default, if you run a project with an incompatible dbt version, dbt will raise an error.
+For the first several years of dbt v1's development, breaking changes were more common. For this reason, we encouraged setting [dbt version requirements](../project-configs/require-dbt-version.md) — especially if they use features that are newer or which may break in future versions of dbt v1. By default, if you run a project with an incompatible dbt version, dbt will raise an error.
 
 You can use the `VERSION_CHECK` config to disable this check and suppress the error message:
 
@@ -14,7 +14,7 @@ dbt release tracks
 
 Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
 
-dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt and new versions of dbt Core. We also recommend these best practices:
+dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt. We also recommend these best practices:
 
  Installing dbt packages
 

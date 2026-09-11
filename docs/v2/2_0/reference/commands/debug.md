@@ -18,9 +18,9 @@ By default, `dbt debug` validates:
 
 ## Flags
 
-Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in dbt platform CLI, but only `--connection` is supported in the Studio IDE.
+Most of the `dbt debug` flags apply to the self-hosted dbt CLI. Some flags also work in dbt platform CLI, but only `--connection` is supported in the Studio IDE.
 
-* dbt Core CLI: Supports all flags.
+* dbt CLI: Supports all flags.
 * Studio IDE: Only supports dbt `debug` and `dbt debug --connection`.
 * dbt platform CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](./dbt-environment.md?version=2.0) command to interact with your dbt environment.
 
@@ -200,7 +200,7 @@ Options:
  --connection          
                 Test the connection to the target database
                 independent of dependency checks.
-                Available in Studio IDE and dbt Core CLI
+                Available in Studio IDE and dbt CLI
 
  --config-dir          
                 Print a system-specific command to access

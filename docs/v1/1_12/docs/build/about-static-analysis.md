@@ -4,19 +4,19 @@
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-The dbt Fusion engine [fully comprehends your project's SQL](https://docs.getdbt.com/blog/the-levels-of-sql-comprehension), enabling advanced capabilities like dialect-aware validation and precise column-level lineage.
+dbt v2 [fully comprehends your project's SQL](https://docs.getdbt.com/blog/the-levels-of-sql-comprehension), enabling advanced capabilities like dialect-aware validation and precise column-level lineage.
 
-It can do this because its compilation step is more comprehensive than that of the dbt Core v1.x engine. When dbt Core v1.x referred to *compilation*, it only meant *rendering* — converting Jinja-templated strings into a SQL query to send to a database.
+It can do this because its compilation step is more comprehensive than that of the dbt v1.x engine. When dbt v1.x referred to *compilation*, it only meant *rendering* — converting Jinja-templated strings into a SQL query to send to a database.
 
-dbt Fusion engine can also render Jinja, but then it completes a second phase: *static analysis*, producing and validating a logical plan for every rendered query in the project. This step is the cornerstone of Fusion's new capabilities.
+dbt v2 can also render Jinja, but then it completes a second phase: *static analysis*, producing and validating a logical plan for every rendered query in the project. This step is the cornerstone of dbt v2's new capabilities.
 
 ## Principles of static analysis
 
@@ -26,18 +26,18 @@ The most rigorous static analysis means you can trust that if the analysis succe
 
 Less strict static analysis also surfaces helpful information to developers as they work. There's no free lunch—what you gain in responsiveness you lose in correctness guarantees.
 
-The dbt Fusion engine uses the [`static_analysis`](../../reference/resource-configs/static-analysis.md) config to help you control how it performs static analysis for your models.
+dbt v2 uses the [`static_analysis`](../../reference/resource-configs/static-analysis.md) config to help you control how it performs static analysis for your models.
 
-The dbt Fusion engine is unique in that it can statically analyze not just a single model in isolation, but every query from one end of your DAG to the other. Even your database can only validate the query in front of it! Concepts like [information flow theory](https://roundup.getdbt.com/i/156064124/beyond-cll-information-flow-theory-and-metadata-propagation) — although not incorporated into the dbt platform [yet](https://www.getdbt.com/blog/where-we-re-headed-with-the-dbt-fusion-engine) — rely on stable inputs and the ability to trace columns DAG-wide.
+dbt v2 is unique in that it can statically analyze not just a single model in isolation, but every query from one end of your DAG to the other. Even your database can only validate the query in front of it! Concepts like [information flow theory](https://roundup.getdbt.com/i/156064124/beyond-cll-information-flow-theory-and-metadata-propagation) — although not incorporated into the dbt platform [yet](https://www.getdbt.com/blog/where-we-re-headed-with-the-dbt-fusion-engine) — rely on stable inputs and the ability to trace columns DAG-wide.
 
-### Baseline mode: A smooth transition from dbt Core
+### Baseline mode: A smooth transition from dbt v1
 
-The dbt Fusion engine defaults to `static_analysis: baseline` mode, inspired by similar type-checking and linting tools like [TypeScript's migration approach](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html), [basedpyright's baseline feature](https://docs.basedpyright.com/latest/benefits-over-pyright/baseline/), and [Pydantic's strict/lax modes](https://docs.pydantic.dev/latest/why/#strict-lax).
+dbt v2 defaults to `static_analysis: baseline` mode, inspired by similar type-checking and linting tools like [TypeScript's migration approach](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html), [basedpyright's baseline feature](https://docs.basedpyright.com/latest/benefits-over-pyright/baseline/), and [Pydantic's strict/lax modes](https://docs.pydantic.dev/latest/why/#strict-lax).
 
-The philosophy behind the above-mentioned tools and Fusion's baseline mode is:
+The philosophy behind the above-mentioned tools and dbt v2's baseline mode is:
 
-* **Smooth transition**: Provide a familiar first-time experience for users coming from dbt Core.
-* **Incremental opt-in**: Offer a clear pathway to adopt more Fusion features over time.
+* **Smooth transition**: Provide a familiar first-time experience for users coming from dbt v1.
+* **Incremental opt-in**: Offer a clear pathway to adopt more dbt v2 features over time.
 * **Pragmatic validation**: Catch most SQL errors without requiring a complete project overhaul.
 
 Use this style of gradual typing to start with lightweight validation, then incrementally adopt strict guarantees as your project is ready.
@@ -81,7 +81,7 @@ VS Code extension features by static analysis configuration:
 
 Supported Snowflake functions
 
-To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../reference/resource-configs/snowflake-function-support.md)
+To check out which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](../../reference/resource-configs/snowflake-function-support.md)
 
 CodeLens visibility
 
@@ -93,9 +93,9 @@ Ultimately, we want everyone developing in strict mode for maximum guarantees. W
 
 In `baseline` mode, all static analysis findings are warnings, not errors — your project can continue running even when the compiler flags invalid or problematic SQL. This section is a good example of why that design exists.
 
-Previously, with `strict` mode, the system assumed local schemas of your compiled models would be available. In `baseline` mode, we can no longer assume the full local schema is available and complete, so `baseline` uses the remote database as the source of truth — similar to dbt Core.
+Previously, with `strict` mode, the system assumed local schemas of your compiled models would be available. In `baseline` mode, we can no longer assume the full local schema is available and complete, so `baseline` uses the remote database as the source of truth — similar to dbt v1.
 
-The practical result is that the Fusion compiler may sometimes flag incorrect queries that result from introspective queries that come back empty. If you encounter this, you can:
+The practical result is that the dbt v2 compiler may sometimes flag incorrect queries that result from introspective queries that come back empty. If you encounter this, you can:
 
 1. Ignore the warning
 2. Build the model locally
@@ -125,7 +125,7 @@ select * from (
 )
 ```
 
-This is invalid SQL. In `baseline` mode, Fusion displays a warning so your project can continue running while still alerting you to the issue:
+This is invalid SQL. In `baseline` mode, dbt v2 displays a warning so your project can continue running while still alerting you to the issue:
 
 ```bash
 dbt0101: no viable alternative at input '(
@@ -136,27 +136,27 @@ dbt0101: no viable alternative at input '(
 
 #### Migration scenarios
 
-Migrating to Fusion can involve more than moving YAML around. Some scenarios that can make migration more involved include:
+Migrating to dbt v2 can involve more than moving YAML around. Some scenarios that can make migration more involved include:
 
 1. **Limited access to sources**: You don't have access to all the sources and models of a large dbt project.
 2. **Intricate Jinja workflows**: Your project uses post-hooks and introspection extensively.
-3. **Package compatibility**: Your project depends on packages that aren't yet Fusion-compatible.
-4. **Unsupported SQL features**: Your models or sources use advanced data types (`STRUCT`, `ARRAY`, `GEOGRAPHY`) or built-in functions (`AI.PREDICT`, `JSON_FLATTEN`, `st_pointfromgeohash`) not yet supported by the dbt Fusion engine.
+3. **Package compatibility**: Your project depends on packages that aren't yet dbt v2-compatible.
+4. **Unsupported SQL features**: Your models or sources use advanced data types (`STRUCT`, `ARRAY`, `GEOGRAPHY`) or built-in functions (`AI.PREDICT`, `JSON_FLATTEN`, `st_pointfromgeohash`) not yet supported by dbt v2.
 
-Setting `static_analysis` to `baseline` mode lets you start using Fusion immediately while you address these scenarios incrementally. As you resolve compatibility issues, you can opt specific models or your entire project into `strict` mode for maximum validation guarantees.
+Setting `static_analysis` to `baseline` mode lets you start using dbt v2 immediately while you address these scenarios incrementally. As you resolve compatibility issues, you can opt specific models or your entire project into `strict` mode for maximum validation guarantees.
 
 ## Recapping the differences between engines
 
-dbt Core v1.x and [dbt Core 2.0](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) (currently in beta):
+dbt v1:
 
 * Renders and runs models one at a time.
 * Never runs static analysis.
 
-The dbt Fusion engine (baseline mode — default):
+dbt v2 (baseline mode — default):
 
 * Statically analyzes all models, catching most SQL errors while providing a familiar migration experience.
 
-The dbt Fusion engine (strict mode):
+dbt v2 (strict mode):
 
 * Renders and statically analyzes all models before execution begins.
 * Guarantees nothing runs until the entire project is proven valid.
@@ -172,7 +172,7 @@ Some models are also downgraded automatically, regardless of what you configure.
 
 The [`static_analysis`](../../reference/resource-configs/static-analysis.md) config options are:
 
-* `baseline` (default): Statically analyze SQL. This is the recommended starting point for users transitioning from dbt Core, providing a smooth migration experience while still catching most SQL errors.
+* `baseline` (default): Statically analyze SQL. This is the recommended starting point for users transitioning from dbt v1, providing a smooth migration experience while still catching most SQL errors.
 * `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
 * `off`: Skip SQL analysis on this model and its descendants.
 
@@ -186,7 +186,7 @@ The best place to configure `static_analysis` is as a config on an individual mo
 
 ### Incrementally adopting strict mode
 
-Once you're comfortable with Fusion in baseline mode, you can incrementally opt models or directories into `strict` mode:
+Once you're comfortable with dbt v2 in baseline mode, you can incrementally opt models or directories into `strict` mode:
 
 dbt\_project.yml
 
@@ -232,7 +232,7 @@ Refer to [CLI options](../../reference/global-configs/command-line-options.md) a
 
 ### Custom materializations
 
-If a model uses a [custom materialization](../../guides/create-new-materializations.md), dbt v2 turns static analysis `off` for that model and for every model downstream of it. It does this automatically, without an error or a warning, no matter what you set `static_analysis` to.
+If a model uses a [custom materialization](../../guides/create-new-materializations.md), v2 turns static analysis `off` for that model and for every model downstream of it. It does this automatically, without an error or a warning, no matter what you set `static_analysis` to.
 
 Because custom materialization is code you wrote, and it can change the finished table in ways v2 can't predict (for example, adding, renaming, or retyping columns). Rather than check your SQL against a schema that might be wrong, dbt skips analysis. It's the same reason dbt skips [introspective queries](#introspection-handling-in-baseline-mode), whose results also aren't known until the model runs.
 
@@ -260,7 +260,7 @@ We're reevaluating this automatic downgrade. The intent is for `baseline` analys
 
 The mode you configure for a model isn't always the mode in effect. This is because a model's effective mode depends on its parents, and on [custom materializations](#custom-materializations). You can see when a model has static analysis off in the [dbt VS Code extension](../about-dbt-extension.md) and the Studio IDE both of which show a CodeLens above your models, indicating which models have static analysis disabled and why.
 
-Keep in mind that `dbt ls --output json --output-keys config.static_analysis` reports the mode you *configured* for each model, not the mode dbt v2 resolves after applying the cascading rules and automatic downgrades.
+Keep in mind that `dbt ls --output json --output-keys config.static_analysis` reports the mode you *configured* for each model, not the mode v2 resolves after applying the cascading rules and automatic downgrades.
 
 ### Example configurations
 
@@ -350,7 +350,7 @@ For more information, including CLI examples and an optional environment variabl
 
 ### When should I turn static analysis `off`?
 
-With baseline mode enabled by default, static analysis is less likely to block your runs. You should only disable it if the dbt Fusion engine cannot parse SQL that is valid for your database of choice.
+With baseline mode enabled by default, static analysis is less likely to block your runs. You should only disable it if dbt v2 cannot parse SQL that is valid for your database of choice.
 
 This is a very rare occurrence. If you encounter this situation, please [open an issue](https://github.com/dbt-labs/dbt-fusion/issues) with an example of the failing SQL so we can update our parsers.
 
@@ -359,6 +359,6 @@ This is a very rare occurrence. If you encounter this situation, please [open an
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](../dbt/supported-features.md)
 * [Install dbt](../local/install-dbt.md)
-* [Quickstart for Fusion](../../guides/dbt.md?step=1)
+* [Quickstart for dbt v2](../../guides/dbt.md?step=1)
 * [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

@@ -28,6 +28,6 @@ Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A
 
 Compiled SQL for snapshots
 
-Starting dbt Core v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](./compile.md) or `dbt compile --select orders_snapshot`.
+Starting dbt v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](./compile.md) or `dbt compile --select orders_snapshot`.
 
 Open the compiled SQL in `target/compiled/` to inspect or debug the generated queries. Each snapshot is compiled into its own SQL file, even if multiple snapshots are defined in the same source file.

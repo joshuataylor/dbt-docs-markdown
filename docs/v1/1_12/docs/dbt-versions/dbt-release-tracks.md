@@ -4,19 +4,19 @@ dbt platform
 
 Since May 2024, new capabilities in the dbt framework are delivered continuously to dbt. Your projects and environments are upgraded automatically on a cadence that you choose, depending on your dbt plan.
 
-Previously, customers would pin to a minor version of dbt Core, and receive only patch updates during that specific version's active support period. Release tracks ensure that your project stays up-to-date with the modern capabilities of dbt and recent versions of dbt Core.
+Previously, customers would pin to a minor version of dbt v1, and receive only patch updates during that specific version's active support period. Release tracks ensure that your project stays up-to-date with the modern capabilities of dbt and recent versions of dbt v1.
 
 This will require you to make one final update to your current jobs and environments. When that's done, you'll never have to think about managing, coordinating, or upgrading dbt versions again.
 
-By moving your environments and jobs to release tracks you can get all the functionality in dbt as soon as it's ready. On the **v1 Latest** release track, this includes access to features *before* they're available in final releases of dbt Core OSS.
+By moving your environments and jobs to release tracks you can get all the functionality in dbt as soon as it's ready. On the **v1 Latest** release track, this includes access to features *before* they're available in final releases of dbt v1 OSS.
 
 ## Which release tracks are available?
 
-### Fusion release tracks
+### dbt v2 release tracks
 
-The dbt platform has four Fusion release tracks available to give you control over stability vs. velocity.
+The dbt platform has four dbt v2 release tracks available to give you control over stability vs. velocity.
 
-*`v2 Stable` is the default for all new Fusion-powered projects.*
+*`v2 Stable` is the default for all new dbt v2-powered projects.*
 
 | Release track           | Cadence | Description                                                                                                              | [Plan availability](https://www.getdbt.com/pricing) | API value         |
 | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ----------------- |
@@ -25,14 +25,14 @@ The dbt platform has four Fusion release tracks available to give you control ov
 | **v2 Extended**         | Monthly | The previous month's final v2 Stable release. Designed for those who want maximum stability and additional testing time. | Enterprise, Enterprise+                             | `fusion-extended` |
 | **v2 Fallback**         | Monthly | The previous month's v2 Extended release. Emergency rollback option for account admins.                                  | Enterprise+                                         | `fusion-fallback` |
 
-### dbt Core release tracks
+### dbt v1 release tracks
 
-| Release track     | Description                                                                                                                                                                                                                                                                                                        | Plan availability                | API value    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- | ------------ |
-| **v1 Latest**     | Provides a continuous release of the latest functionality in the dbt platform .<br /><br />Includes early access to new features of the dbt framework before they're available in dbt Core.                                                                                                                        | All plans                        | `latest`     |
-| **v1 Compatible** | Provides a monthly release aligned with the most recent open source versions of dbt Core and adapters, plus functionality exclusively available in the dbt platform.<br /><br />See [v1 Compatible track changelog](./compatible-track-changelog.md) for more information. | Starter, Enterprise, Enterprise+ | `compatible` |
-| **v1 Extended**   | The previous month's **v1 Compatible** release.                                                                                                                                                                                                                                                                    | Enterprise, Enterprise+          | `extended`   |
-| **v1 Fallback**   | The previous month's **v1 Extended** release.                                                                                                                                                                                                                                                                      | Enterprise+                      | `fallback`   |
+| Release track     | Description                                                                                                                                                                                                                                                                                                      | Plan availability                | API value    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------ |
+| **v1 Latest**     | Provides a continuous release of the latest functionality in the dbt platform .<br /><br />Includes early access to new features of the dbt framework before they're available in dbt v1.                                                                                                                        | All plans                        | `latest`     |
+| **v1 Compatible** | Provides a monthly release aligned with the most recent open source versions of dbt v1 and adapters, plus functionality exclusively available in the dbt platform.<br /><br />See [v1 Compatible track changelog](./compatible-track-changelog.md) for more information. | Starter, Enterprise, Enterprise+ | `compatible` |
+| **v1 Extended**   | The previous month's **v1 Compatible** release.                                                                                                                                                                                                                                                                  | Enterprise, Enterprise+          | `extended`   |
+| **v1 Fallback**   | The previous month's **v1 Extended** release.                                                                                                                                                                                                                                                                    | Enterprise+                      | `fallback`   |
 
 To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest) to use a release track, set `dbt_version` to the release track name:
 
@@ -46,9 +46,9 @@ To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or 
 
 ## Which release track should I choose?
 
-### Fusion release tracks
+### Choosing a dbt v2 release track
 
-Choose **v2 Stable** (the default for new projects) for a weekly release cadence that balances stability and feature access. This is the recommended starting point for most customers migrating to dbt Fusion engine.
+Choose **v2 Stable** (the default for new projects) for a weekly release cadence that balances stability and feature access. This is the recommended starting point for most customers migrating to dbt v2.
 
 Choose **v2 Nightly** if you want the latest features and are comfortable with a daily release cadence. This track ideal for teams prioritizing the most recent features.
 
@@ -58,21 +58,21 @@ Choose **v2 Fallback** as an emergency measure only. This is a temporary rollbac
 
 Account admins can set the org-wide default release track for new projects via a toggle in **Account Settings**. Individual project owners can then override that default per environment.
 
-### dbt v1 release tracks
+### Choosing a dbt v1 release track
 
 Choose the **v1 Latest** release track to continuously receive new features, fixes, performance improvements — latest & greatest dbt. This is the default for all customers on dbt.
 
-Choose the **v1 Compatible** and **v1 Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
+Choose the **v1 Compatible** and **v1 Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt v1.
 
 ### Using the v2 Fallback release track
 
-The **v2 Fallback** release track provides an emergency rollback option for account admins if you suspect a regression in the "v2 Extended" track. This is available only for dbt Fusion engine in Enterprise+ accounts.
+The **v2 Fallback** release track provides an emergency rollback option for account admins if you suspect a regression in the "v2 Extended" track. This is available only for dbt v2 in Enterprise+ accounts.
 
 1. Go to **Account settings**
 2. Click the **Revert to Fallback** release track button in the dbt platform interface. This is not accessible through environment settings.
 3. Fill in the details in the **Revert to Fallback** pop-up to confirm and share information with dbt Support.
 
-Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to help resolve the issue. This track is meant only as a temporary safety option to unblock you and not for ongoing use. Return to "v2 Extended" or "v2 Stable" (Fusion) / "v1 Compatible" (dbt Core) once the issue is resolved.
+Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to help resolve the issue. This track is meant only as a temporary safety option to unblock you and not for ongoing use. Return to "v2 Extended" or "v2 Stable" (dbt v2) / "v1 Compatible" (dbt v1) once the issue is resolved.
 
 ![v2 Fallback release track button in dbt platform](/img/docs/dbt-versions/rollback.png?v=2 "v2 Fallback release track button in dbt platform")v2 Fallback release track button in dbt platform
 
@@ -80,7 +80,7 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 
 ### Common architectures
 
-#### Fusion release tracks
+#### dbt v2 track architectures
 
 **Default** — All plans
 
@@ -89,7 +89,7 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 
 **Velocity-focused** — All plans
 
-* Prioritize immediate access to the latest Fusion features and fixes
+* Prioritize immediate access to the latest v2 features and fixes
 * Configure all environments to use the **v2 Nightly** release track
 
 **Cautious** — Enterprise, Enterprise+
@@ -98,7 +98,7 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 * Configure production environments to use **v2 Extended** (one month behind v2 Stable)
 * Configure development environments to use **v2 Stable** so developers get access to upcoming changes before they reach production
 
-#### dbt v1 release tracks
+#### dbt v1 track architectures
 
 **Default** — Majority of customers on all plans
 
@@ -107,16 +107,16 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 
 **Hybrid** — Starter, Enterprise, Enterprise+
 
-* Prioritize ongoing compatibility between dbt and dbt Core for development & deployment using both products in the same dbt projects
+* Prioritize ongoing compatibility between dbt and dbt v1 for development & deployment using both products in the same dbt projects
 * Configure all environments to use the **v1 Compatible** release track
-* Understand that new features will not be available until they are first released in dbt Core OSS (several months after the **v1 Latest** release track)
+* Understand that new features will not be available until they are first released in dbt v1 OSS (several months after the **v1 Latest** release track)
 
 **Cautious** — Enterprise, Enterprise+, Business Critical
 
 * Prioritize "bake in" time for new features & fixes
 * Configure development & test environments to use the **v1 Compatible** release track
 * Configure pre-production & production environments to use the **v1 Extended** release track
-* Understand that new features will not be available until *a month after* they are first released in dbt Core OSS and the v1 Compatible track. Developers (on **v1 Compatible**) will get access to new features before they can leverage those capabilities in production (on **v1 Extended**), and must be mindful of the additional delay.
+* Understand that new features will not be available until *a month after* they are first released in dbt v1 OSS and the v1 Compatible track. Developers (on **v1 Compatible**) will get access to new features before they can leverage those capabilities in production (on **v1 Extended**), and must be mindful of the additional delay.
 
 **Virtual Private dbt or Single Tenant**
 
@@ -126,7 +126,7 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 
 ### How to upgrade
 
-If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt Core, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt platform CLI and do your development work as usual. Everything should work as you expect.
+If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt v1, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt platform CLI and do your development work as usual. Everything should work as you expect.
 
 If you do see something unexpected or surprising, revert back to the previous version and record the differences you observed. [Contact dbt support](../dbt-support.md#dbt-cloud-support) with your findings for a more detailed investigation.
 
@@ -138,27 +138,27 @@ If your organization has multiple dbt projects, we recommend starting your upgra
 
 To learn more about how dbt Labs deploys stable dbt upgrades in a safe manner to dbt, we recommend that you read our blog post: [How we're making sure you can confidently switch to the "Latest" release track in dbt](https://docs.getdbt.com/blog/latest-dbt-stability).
 
-If you're running dbt version 1.6 or older, please know that your version of dbt Core has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
+If you're running dbt version 1.6 or older, please know that your version of dbt v1 has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
 
-dbt Labs has extended the critical support period of dbt Core v1.7 for dbt Enterprise-tier customers to March 2025. At that point, we will be encouraging all customers to select a Release Track for ongoing updates in dbt.
+dbt Labs has extended the critical support period of dbt v1.7 for dbt Enterprise-tier customers to March 2025. At that point, we will be encouraging all customers to select a Release Track for ongoing updates in dbt.
 
  I'm using an older version of dbt in the dbt platform. What should I do? What happens if I do nothing?
 
-If you're running dbt version v1.6 or older, please know that your version of dbt Core has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
+If you're running dbt version v1.6 or older, please know that your version of dbt v1 has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
 
-dbt Labs has extended the "Critical Support" period of dbt Core v1.7 for dbt Enterprise-tier customers while we work through the migration with those customers to Release Tracks. In the meantime, this means that v1.7 will continue to be accessible in dbt for Enterprise customers, jobs and environments on v1.7 for those customers will not be automatically migrated to "Latest," and dbt Labs will continue to fix critical bugs and security issues.
+dbt Labs has extended the "Critical Support" period of dbt v1.7 for dbt Enterprise-tier customers while we work through the migration with those customers to Release Tracks. In the meantime, this means that v1.7 will continue to be accessible in dbt for Enterprise customers, jobs and environments on v1.7 for those customers will not be automatically migrated to "Latest," and dbt Labs will continue to fix critical bugs and security issues.
 
-Starting in October 2024, dbt accounts on the Developer and Starter (formerly Teams) plans have been migrated to release tracks from older dbt Core versions. If your account was migrated to the **v1 Latest** release track and you notice new failures in scheduled jobs, please [contact dbt support](../dbt-support.md#dbt-cloud-support) to report the problem or request an extension.
+Starting in October 2024, dbt accounts on the Developer and Starter (formerly Teams) plans have been migrated to release tracks from older dbt v1 versions. If your account was migrated to the **v1 Latest** release track and you notice new failures in scheduled jobs, please [contact dbt support](../dbt-support.md#dbt-cloud-support) to report the problem or request an extension.
 
- What are other known issues when upgrading from older dbt Core versions?
+ What are other known issues when upgrading from older v1 versions?
 
-If you are upgrading from a very old unsupported version of dbt Core, you may run into one of these edge cases after the upgrade to a newer version:
+If you are upgrading from a very old unsupported version of dbt v1, you may run into one of these edge cases after the upgrade to a newer version:
 
 * \[v1.1] Customers on BigQuery should be aware that dbt sets a default [per-model timeout](../local/connect-data-platform/bigquery-setup.md#job_execution_timeout_seconds) of 5 minutes. You may override this config in your connection details. Older versions of dbt (including v1.0) did not appropriately respect this timeout configuration.
 * \[v1.3] Customers with non-dbt `.py` files defined within their project directories, such as `models/`. Since v1.3, dbt expects these files be valid [Python models](../build/python-models.md). The customer needs to move these files out of their `models/` directory, or ignore them via `.dbtignore`
 * \[v1.5] Customers who have `--m` in their job definitions, instead of `-m` or `--models`. This autocompletion (`--m[odels]` for `--models`) has never been officially documented or supported. It was an implicit behavior of argparse (CLI library used in dbt-core v1.0-1.4) that is not supported by `click` (the CLI library used in dbt-core since v1.5+).
 * \[v1.5] Empty invalid `tests` config start raising a validation error]\(/docs/dbt-versions/dbt-upgrade/Older%20versions/upgrading-to-v1.5). Replace empty `tests` config with `tests: []` or remove it altogether.
-* \[v1.6] Performance optimization to `load_result` means you cannot call it on the same query result multiple times. Instead, save it to a local variable once, and reuse that variable (context: [dbt-core#7371](https://github.com/dbt-labs/dbt-core/pull/7371)
+* \[v1.6] Performance optimization to `load_result` means you cannot call it on the same query result multiple times. Instead, save it to a local variable once, and reuse that variable (context: [dbt-labs/dbt#7371](https://github.com/dbt-labs/dbt/pull/7371)
 
 You should [contact dbt support](../dbt-support.md#dbt-cloud-support) to request an extension, during which you will need to make those updates.
 
@@ -179,17 +179,5 @@ If you upgrade to the **v1 Latest** release track, and immediately see something
 If you’re already on the **v1 Latest** release track, and you observe a breaking change (like something worked yesterday, but today it isn't working, or works in a surprising/different way), please [contact support](../dbt-support.md#dbt-cloud-support) immediately. Depending on your contracted support agreement, the dbt Labs team will respond within our SLA time and we would seek to roll back the change and/or roll out a fix (just as we would for any other part of dbt). This is the same whether or not the root cause of the breaking change is in the project code or in the code of a package.
 
 If the package you’ve installed relies on *undocumented* functionality of dbt, it doesn't have the same guarantees as functionality that we’ve documented and tested. However, we will still do our best to avoid breaking them.
-
- I see that dbt Core version 1.8 was released in April 2024. Will a version 1.8 become available in the dbt platform?
-
-No. Going forward, customers will access new functionality and ongoing support in dbt by receiving automatic updates. We believe this is the best way for us to offer a reliable, stable, and secure runtime for dbt, and for you as dbt users to be able to consistently take advantage of new features.
-
-In 2023 (and earlier), customers were expected to manage their own upgrades by selecting dbt Core versions, up to and including dbt Core v1.7, which was released in October 2023. (Way back in 2021, dbt customers would pick specific *patch releases* of dbt Core, such as upgrading from `v0.21.0` to `v0.21.1`. We’ve come a long way since then!)
-
-In 2024, we've changed the way that new dbt functionality is made available for dbt customers. Behavior or breaking changes are gated behind opt-in flags. Users don't need to spend valuable time managing their own upgrades. Currently, it is possible to receive continuous (daily) updates. We are adding other release cadence options for managed customers of dbt by the end of the year.
-
-Opting into a release cadence with automated upgrades is required for accessing any new functionality that we've released in 2024, and going forward.
-
-We continue to release new minor versions of dbt Core (OSS). We most recently released dbt Core v1.9 on December 9, 2024. These releases always include a subset of the functionality that's already available to the dbt platform customers, and always after the functionality has been available in the dbt platform.
 
 If you have comments or concerns, we’re happy to help. If you’re an existing dbt customer, you may reach out to your account team or [contact support](../dbt-support.md#dbt-cloud-support).

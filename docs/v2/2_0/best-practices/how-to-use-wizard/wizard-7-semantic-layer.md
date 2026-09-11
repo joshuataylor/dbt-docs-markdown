@@ -48,12 +48,12 @@ Ask dbt Wizard to sample data only when names, types, and SQL don't establish th
 
 The correct YAML structure depends on the dbt version in your project. Review the generated file for the version-specific patterns in the following table.
 
-| Project version                                                                                                                                                                                                                                                    | Expected structure                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dbt Core 1.12 and later](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.12.md?version=2.0#new-semantic-layer-yaml-spec), and the [dbt Fusion engine](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2.0) | Configure `semantic_model` on a model, annotate entities and dimensions on columns, and define metrics on the model. Don't use a top-level `semantic_models:` block for new definitions. |
-| [dbt Core 1.6 through 1.11](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.11.md?version=2.0)                                                                                                                                               | Define semantic models in a top-level `semantic_models:` block and define metrics with `type_params` that reference measures.                                                            |
+| Project version                                                                                                                                                                                                                                    | Expected structure                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [dbt 1.12 and later](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.12.md?version=2.0#new-semantic-layer-yaml-spec), and the [dbt v2](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2.0) | Configure `semantic_model` on a model, annotate entities and dimensions on columns, and define metrics on the model. Don't use a top-level `semantic_models:` block for new definitions. |
+| [dbt 1.6 through 1.11](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.11.md?version=2.0)                                                                                                                                    | Define semantic models in a top-level `semantic_models:` block and define metrics with `type_params` that reference measures.                                                            |
 
-For dbt Core 1.12 and later and the dbt Fusion engine, a generated definition can resemble the following example:
+For dbt 1.12 and later and dbt v2, a generated definition can resemble the following example:
 
 ```yaml
 models:
@@ -90,7 +90,7 @@ models:
         expr: order_id
 ```
 
-For dbt Core 1.6 through 1.11, expect the top-level semantic model pattern:
+For dbt 1.6 through 1.11, expect the top-level semantic model pattern:
 
 ```yaml
 semantic_models:

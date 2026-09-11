@@ -1,4 +1,4 @@
-# Connect RisingWave to dbt Core
+# Connect RisingWave to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 * **GitHub repo**: [risingwavelabs/dbt-risingwave](https://github.com/risingwavelabs/dbt-risingwave) [![](https://img.shields.io/github/stars/risingwavelabs/dbt-risingwave?style=for-the-badge)](https://github.com/risingwavelabs/dbt-risingwave)
 * **PyPI package**: `dbt-risingwave` [![](https://badge.fury.io/py/dbt-risingwave.svg)](https://badge.fury.io/py/dbt-risingwave)
 * **Slack channel**: [N/A](https://www.risingwave.com/slack)
-* **Supported dbt Core version**: v1.6.1 and newer
+* **Supported dbt version**: v1.6.1 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**:
 

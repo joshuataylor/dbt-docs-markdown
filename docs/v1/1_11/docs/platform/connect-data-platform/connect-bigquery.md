@@ -1,8 +1,8 @@
-# Connect BigQuery Fusion compatible
+# Connect BigQuery dbt v2 compatible
 
 dbt platform
 
-To see which BigQuery functions are supported in Fusion in `strict` mode, refer to [BigQuery function support](../../../reference/resource-configs/bigquery-function-support.md).
+To see which BigQuery functions are supported in dbt v2 in `strict` mode, refer to [BigQuery function support](../../../reference/resource-configs/bigquery-function-support.md).
 
 ## Required permissions
 
@@ -11,7 +11,7 @@ dbt user accounts need the following permissions to read from and create tables 
 * BigQuery Data Editor
 * BigQuery User
 
-For BigQuery with dbt Fusion engine, users also need:
+For BigQuery with dbt v2, users also need:
 
 * BigQuery Read Session User (for Storage Read API access)
 
@@ -27,9 +27,9 @@ For BigQuery DataFrames, users need these additional permissions:
 * Code Creator
 * colabEnterpriseUser
 
-## Warehouse permissions for Fusion
+## Warehouse permissions for dbt v2
 
-The Google Cloud identity (service account or user) that dbt Fusion engine uses must have IAM permissions to run jobs, read and write table data, and read metadata Fusion uses for introspection and source freshness.
+The Google Cloud identity (service account or user) that dbt v2 uses must have IAM permissions to run jobs, read and write table data, and read metadata dbt v2 uses for introspection and source freshness.
 
 ### Required Google Cloud objects
 
@@ -78,7 +78,7 @@ The following roles represent the typical starting point for dbt access:
 | `roles/bigquery.user`       | Run jobs, create datasets         | Job execution           |
 | `roles/bigquery.jobUser`    | Run jobs only                     | Minimal query execution |
 
-For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](./connect-bigquery.md#required-permissions).
+For Storage Read API access with dbt v2, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](./connect-bigquery.md#required-permissions).
 
 ### Metadata operations
 
@@ -94,7 +94,7 @@ The following are required for fundamental dbt features:
 
 ### INFORMATION\_SCHEMA and metadata views
 
-Fusion queries these BigQuery system views:
+dbt v2 queries these BigQuery system views:
 
 | View                            | Purpose                  | Scope             |
 | ------------------------------- | ------------------------ | ----------------- |
@@ -259,7 +259,7 @@ Job retry deadline seconds is the maximum amount of time BigQuery will spend ret
 
 Job creation timeout seconds is the maximum time BigQuery will wait to start the job. If the job doesn’t start within that time, it times out.
 
-From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
+From dbt v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
 #### Run dbt python models on Google Cloud Platform
 

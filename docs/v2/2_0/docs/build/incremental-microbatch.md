@@ -4,11 +4,11 @@ Use microbatch incremental models to process large time-series datasets efficien
 
 info
 
-Available for [dbt **v1 Latest**](../dbt-versions/dbt-release-tracks.md) and dbt Core v1.9 or higher.
+Available for [dbt **v1 Latest**](../dbt-versions/dbt-release-tracks.md) and dbt v1.9 or higher.
 
 If you use a custom microbatch macro, set a [distinct behavior flag](../../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the [microbatch strategy](#how-microbatch-compares-to-other-incremental-strategies).
 
-Read and participate in the discussion: [dbt Core#10672](https://github.com/dbt-labs/dbt-core/discussions/10672). Refer to [Supported incremental strategies by adapter](./incremental-strategy.md#supported-incremental-strategies-by-adapter) for a list of supported adapters.
+Read and participate in the discussion: [Core#10672](https://github.com/dbt-labs/dbt/discussions/10672). Refer to [Supported incremental strategies by adapter](./incremental-strategy.md#supported-incremental-strategies-by-adapter) for a list of supported adapters.
 
 ## What is "microbatch" in dbt?
 

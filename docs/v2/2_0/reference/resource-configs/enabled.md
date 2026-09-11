@@ -286,9 +286,9 @@ models:
 
 ### Disable Semantic Layer resources from a package
 
-Some packages may define Semantic Layer resources (semantic models, metrics, saved queries) using an older specification that isn’t compatible with the dbt Fusion engine.
+Some packages may define Semantic Layer resources (semantic models, metrics, saved queries) using an older specification that isn’t compatible with dbt v2.
 
-To use these packages with Fusion while keeping your own semantic layer definitions, disable the package’s semantic layer resources in the relevant YAML file.
+To use these packages with dbt v2 while keeping your own semantic layer definitions, disable the package’s semantic layer resources in the relevant YAML file.
 
 dbt\_project.yml
 

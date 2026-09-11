@@ -1,18 +1,18 @@
 # MetricFlow time spine YAML
 
-Removed in dbt Core 2.0
+Removed in v2
 
-This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **v1 Latest** | dbt Core |
-| --------------------------------------------------- | ----------------- | -------- |
-| Introduced                                          | 2024.10           | 1.9.0    |
-| Matured (default → `true`)                          | 2026.09           | 1.12.0   |
-| Removed                                             | —                 | v2.0     |
+| require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **v1 Latest** | dbt v1 |
+| --------------------------------------------------- | ----------------- | ------ |
+| Introduced                                          | 2024.10           | 1.9.0  |
+| Matured (default → `true`)                          | 2026.09           | 1.12.0 |
+| Removed                                             | —                 | v2.0   |
 
-In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
+In previous versions (dbt 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
-Starting in dbt Core v1.12, this flag defaults to `true`, suppressing the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
+Starting in dbt v1.12, this flag defaults to `true`, suppressing the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
 
 The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for more details.
 

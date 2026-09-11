@@ -1,10 +1,10 @@
-# Connect Microsoft Fabric Lakehouse to dbt Core
+# Connect Microsoft Fabric Lakehouse to dbt v1
 
 Local development
 
-`profiles.yml` file is for dbt Core and dbt fusion only
+`profiles.yml` file is for dbt v1 and dbt v2 only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 Below is a guide for use with [Fabric Data Engineering](https://learn.microsoft.com/en-us/fabric/data-engineering/data-engineering-overview), a new product within Microsoft Fabric. This adapter currently supports connecting to a lakehouse endpoint.
 
@@ -15,7 +15,7 @@ To learn how to set up dbt using Fabric Warehouse, refer to [Microsoft Fabric Da
 * **GitHub repo**: [microsoft/dbt-fabricspark](https://github.com/microsoft/dbt-fabricspark) [![](https://img.shields.io/github/stars/microsoft/dbt-fabricspark?style=for-the-badge)](https://github.com/microsoft/dbt-fabricspark)
 * **PyPI package**: `dbt-fabricspark` [![](https://badge.fury.io/py/dbt-fabricspark.svg)](https://badge.fury.io/py/dbt-fabricspark)
 * **Slack channel**: [db-fabric-synapse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**: v1.7 and newer
+* **Supported dbt version**: v1.7 and newer
 * **dbt support**: Not supported
 * **Minimum data platform version**: n/a
 
@@ -33,11 +33,11 @@ For further info, refer to the GitHub repository: [microsoft/dbt-fabricspark](ht
 
 ## Supported authentication types
 
-The Fabric Lakehouse adapter (`dbt-fabricspark`) connects to Fabric Spark through the Livy API. Choose the authentication method that matches where you run dbt Core.
+The Fabric Lakehouse adapter (`dbt-fabricspark`) connects to Fabric Spark through the Livy API. Choose the authentication method that matches where you run dbt v1.
 
 ### Azure CLI
 
-Use Azure CLI for self-hosted dbt installations. This lets dbt Core use credentials from an active `az login` session. To use this method, set `authentication: CLI` in your `profiles.yml` file and run `az login`.
+Use Azure CLI for self-hosted dbt installations. This lets dbt v1 use credentials from an active `az login` session. To use this method, set `authentication: CLI` in your `profiles.yml` file and run `az login`.
 
 When you authenticate, Azure CLI may open a browser window or prompt you to complete sign-in on the [Microsoft device login](https://microsoft.com/devicelogin) page and enter a one-time code to complete sign-in. Once authentication is successful, dbt automatically reuses the active Azure CLI session for subsequent commands.
 
@@ -127,7 +127,7 @@ default:
 
 ### Custom TokenCredential
 
-Use `token_credential` when you need dbt Core to load a custom [`azure.core.credentials.TokenCredential`](https://learn.microsoft.com/en-us/python/api/azure-core/azure.core.credentials.tokencredential) implementation, such as a workload identity federation or token broker flow. To use this method, set `authentication: token_credential` and provide the dotted path to your credential class.
+Use `token_credential` when you need dbt v1 to load a custom [`azure.core.credentials.TokenCredential`](https://learn.microsoft.com/en-us/python/api/azure-core/azure.core.credentials.tokencredential) implementation, such as a workload identity federation or token broker flow. To use this method, set `authentication: token_credential` and provide the dotted path to your credential class.
 
 #### Example custom TokenCredential configuration
 
@@ -230,7 +230,7 @@ Spark can be customized using [Application Properties](https://spark.apache.org/
 
 ### Supported functionality
 
-Most dbt Core functionality is supported, Please refer to [Delta Lake interoporability](https://learn.microsoft.com/en-us/fabric/fundamentals/delta-lake-interoperability).
+Most dbt v1 functionality is supported, Please refer to [Delta Lake interoporability](https://learn.microsoft.com/en-us/fabric/fundamentals/delta-lake-interoperability).
 
 Delta-only features:
 

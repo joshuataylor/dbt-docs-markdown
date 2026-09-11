@@ -1,6 +1,6 @@
 (Applies to dbt v2.0 and later)
 
-# Connect Snowflake to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Snowflake to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
@@ -8,9 +8,9 @@ Snowflake enforcing strong authentication
 
 Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
 
-You can configure the Snowflake adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type. To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
+You can configure the Snowflake adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type. To check out which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
-The Snowflake adapter for Fusion supports the following [authentication methods](#supported-authentication-types):
+The Snowflake adapter for dbt v2 supports the following [authentication methods](#supported-authentication-types):
 
 * Password
 * Key pair
@@ -23,7 +23,7 @@ note
 
 ## Warehouse permissions
 
-The Snowflake user or service account that dbt Fusion engine connects as must be able to run dbt workloads (queries, metadata, and typical materializations). Grant privileges through a Snowflake role assigned to that user.
+The Snowflake user or service account that dbt v2 connects as must be able to run dbt workloads (queries, metadata, and typical materializations). Grant privileges through a Snowflake role assigned to that user.
 
 ### Required Snowflake objects
 
@@ -32,7 +32,7 @@ Before connecting, these objects must exist:
 | Object        | Purpose                                            |
 | ------------- | -------------------------------------------------- |
 | **Account**   | Your Snowflake account identifier                  |
-| **User**      | Service account or user for Fusion                 |
+| **User**      | Service account or user for dbt v2                 |
 | **Role**      | Role assigned to the user with required privileges |
 | **Warehouse** | Virtual warehouse for compute                      |
 | **Database**  | Target database or databases for dbt models        |
@@ -71,10 +71,10 @@ The following are required permissions for dbt metadata operations:
 
 The following are conditional permissions for schema and database management:
 
-| Permission        | Object   | When required                       |
-| ----------------- | -------- | ----------------------------------- |
-| `CREATE SCHEMA`   | Database | Fusion should auto-create schemas   |
-| `CREATE DATABASE` | Account  | Fusion should auto-create databases |
+| Permission        | Object   | When required                    |
+| ----------------- | -------- | -------------------------------- |
+| `CREATE SCHEMA`   | Database | dbt should auto-create schemas   |
+| `CREATE DATABASE` | Account  | dbt should auto-create databases |
 
 ### Advanced features
 
@@ -100,7 +100,7 @@ The information required for configuring the Snowflake adapter can be found conv
 
 ![Sample config file in Snowflake.](/img/fusion/connect-adapters/snowflake-account-details.png?v=2 "Sample config file in Snowflake.")Sample config file in Snowflake.
 
-## Configure Fusion
+## Configure dbt v2
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -168,7 +168,7 @@ Key pair authentication gives you the option to:
 * Define the path to the key.
 * Provide the plain-text PEM format key inline.
 
-We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with Fusion. Fusion doesn't support legacy 3DES encryption or headerless key formats. Using older key formats may cause authentication failures.
+We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with dbt v2. dbt v2 doesn't support legacy 3DES encryption or headerless key formats. Using older key formats may cause authentication failures.
 
 If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8` error, then your private key is in the wrong format. You have two options:
 

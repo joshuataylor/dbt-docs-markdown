@@ -64,7 +64,7 @@ dbt Labs strongly recommends only running unit tests in development or CI enviro
 
 Use the [resource type](../../reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the (Applies to dbt v1.11 and later) `DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
 
-To run only unit tests on demand, use the `test_type` selector — this works across all engines (dbt Core and Fusion):
+To run only unit tests on demand, use the `test_type` selector — this works across all engines (dbt v1 and dbt v2):
 
 ```bash
 dbt test --select "test_type:unit"
@@ -350,7 +350,7 @@ unit_tests:
         - {event_id: 3, event_time: 2020-01-03}
 ```
 
-There is currently no way to unit test whether the dbt framework inserted/merged the records into your existing model correctly, but [we're investigating support for this in the future](https://github.com/dbt-labs/dbt-core/issues/8664).
+There is currently no way to unit test whether the dbt framework inserted/merged the records into your existing model correctly, but [we're investigating support for this in the future](https://github.com/dbt-labs/dbt/issues/8664).
 
 ## Unit testing a model that depends on ephemeral model(s)
 

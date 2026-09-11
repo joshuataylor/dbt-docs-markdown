@@ -1,4 +1,4 @@
-# Connect Dremio to dbt Core
+# Connect Dremio to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [dremio/dbt-dremio](https://github.com/dremio/dbt-dremio) [![](https://img.shields.io/github/stars/dremio/dbt-dremio?style=for-the-badge)](https://github.com/dremio/dbt-dremio)
 * **PyPI package**: `dbt-dremio` [![](https://badge.fury.io/py/dbt-dremio.svg)](https://badge.fury.io/py/dbt-dremio)
 * **Slack channel**: [db-dremio](https://docs.getdbt.com/\[https://www.getdbt.com/community]\(https://getdbt.slack.com/archives/C049G61TKBK\))
-* **Supported dbt Core version**: v1.8.0 and newer
+* **Supported dbt version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Dremio 22.0
 

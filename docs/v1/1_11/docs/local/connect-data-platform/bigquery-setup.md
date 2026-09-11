@@ -1,17 +1,17 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect BigQuery to dbt Core
+# Connect BigQuery to dbt v1
 
 Local development
 
-[Fusion compatible](./bigquery-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./bigquery-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 * **Maintained by**: dbt Labs
 * **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-bigquery` [![](https://badge.fury.io/py/dbt-bigquery.svg)](https://badge.fury.io/py/dbt-bigquery)
 * **Slack channel**: [#db-bigquery](https://getdbt.slack.com/archives/C99SNSRTK)
-* **Supported dbt Core version**: v0.10.0 and newer
+* **Supported dbt version**: v0.10.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
@@ -40,7 +40,7 @@ dbt user accounts need the following permissions to read from and create tables 
 * BigQuery Data Editor
 * BigQuery User
 
-For BigQuery with dbt Fusion engine, users also need:
+For BigQuery with dbt v2, users also need:
 
 * BigQuery Read Session User (for Storage Read API access)
 
@@ -69,7 +69,7 @@ For self-hosted dbt installations, we recommend using the OAuth method. If you'r
 
 Workload Identity Federation
 
-WIF authentication (`external-oauth-wif`) is available in [Fusion](./bigquery-setup.md?version=2.0#supported-authentication-types). It's not supported in dbt Core v1.12 and earlier.
+WIF authentication (`external-oauth-wif`) is available in [dbt v2](./bigquery-setup.md?version=2.0#supported-authentication-types). It's not supported in dbt v1.12 and earlier.
 
 BigQuery targets should be set up using the following configuration in your `profiles.yml` file. There are a number of [optional configurations](#optional-configurations) you may specify as well.
 
@@ -258,7 +258,7 @@ Note
 
 The `job_execution_timeout_seconds` represents the number of seconds to wait for the [underlying HTTP transport](https://cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJob#google_cloud_bigquery_job_QueryJob_result). It *doesn't* represent the maximum allowable time for a BigQuery job itself. Normally, BigQuery keeps running the job even if this timeout is reached; however, `dbt-bigquery` will send a request to BigQuery to cancel it.
 
-From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
+From dbt v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
 #### job\_creation\_timeout\_seconds
 
@@ -266,7 +266,7 @@ It is also possible for a query job to fail to submit in the first place. You ca
 
 In the job creation step, dbt is simply submitting a query job to BigQuery's `Jobs.Insert` API, and receiving a query job ID in return. It should take a few seconds at most. In some rare situations, it could take longer.
 
-From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
+From dbt v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
 #### job\_retries
 

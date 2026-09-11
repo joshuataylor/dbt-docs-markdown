@@ -46,7 +46,7 @@ Instead, for mature models at larger organizations, powering queries inside & ou
 
 During that migration window, anywhere that model is being used downstream, it can continue to be referenced at a specific version.
 
-dbt Core 1.6 introduced first-class support for **deprecating models** by specifying a [`deprecation_date`](../../../reference/resource-properties/deprecation_date.md). Taken together, model versions and deprecation offer a pathway for model producers to *sunset* old models, and consumers the time to *migrate* across breaking changes. It's a way of managing change across an organization: develop a new version, bump the latest, slate the old version for deprecation, update downstream references, and then remove the old version.
+dbt 1.6 introduced first-class support for **deprecating models** by specifying a [`deprecation_date`](../../../reference/resource-properties/deprecation_date.md). Taken together, model versions and deprecation offer a pathway for model producers to *sunset* old models, and consumers the time to *migrate* across breaking changes. It's a way of managing change across an organization: develop a new version, bump the latest, slate the old version for deprecation, update downstream references, and then remove the old version.
 
 There is a real trade-off that exists here—the cost to frequently migrate downstream code, and the cost (and clutter) of materializing multiple versions of a model in the data warehouse. Model versions do not make that problem go away, but by setting a deprecation date, and communicating a clear window for consumers to gracefully migrate off old versions, they put a known boundary on the cost of that migration.
 
@@ -341,7 +341,7 @@ The pointer view uses the model's base name by default (for example, `dim_custom
 
 #### Naming collisions
 
-To prevent naming collisions, dbt raises a `dbt1005` error if the latest version's alias is the same as the pointer view name. In Fusion, where `latest_version_pointer` is enabled by default, this error can surface on models that have an explicit `alias` matching the model's base name, even if you never configured the pointer yourself.
+To prevent naming collisions, dbt raises a `dbt1005` error if the latest version's alias is the same as the pointer view name. In dbt v2, where `latest_version_pointer` is enabled by default, this error can surface on models that have an explicit `alias` matching the model's base name, even if you never configured the pointer yourself.
 
 For example, the following configuration would raise `dbt1005` because both `dim_customers_v2` and the pointer view would resolve to `dim_customers`:
 

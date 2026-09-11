@@ -10,9 +10,9 @@ Reference guide for Big Query configurations in dbt.
 
 Introduction
 
-## [Supported BigQuery functions in dbt Fusion](../reference/resource-configs/bigquery-function-support.md)
+## [Supported BigQuery functions in dbt v2](../reference/resource-configs/bigquery-function-support.md)
 
-Check which BigQuery built-in SQL functions dbt Fusion can typecheck during static analysis.
+Check which BigQuery built-in SQL functions dbt v2 can typecheck during static analysis.
 
 ## [Using BigQuery DataFrames with dbt Python models](../guides/dbt-python-bigframes.md)
 

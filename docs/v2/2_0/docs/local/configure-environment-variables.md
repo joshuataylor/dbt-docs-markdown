@@ -2,7 +2,7 @@
 
 Local development
 
-Fusion automatically loads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal). This helps you manage credentials and settings without hardcoding them in your `profiles.yml` or exposing them in your shell history.
+dbt v2 automatically loads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal). This helps you manage credentials and settings without hardcoding them in your `profiles.yml` or exposing them in your shell history.
 
 ## Using a `.env` file
 
@@ -27,7 +27,7 @@ Fusion automatically loads environment variables from a `.env` file in your curr
          schema: "{{ env_var('DBT_MY_SCHEMA') }}"
    ```
 
-3. Run dbt commands normally. Fusion will automatically load the variables from the `.env` file. For example, running `dbtf debug` will show your connection using the values from `.env`:
+3. Run dbt commands normally. dbt v2 will automatically load the variables from the `.env` file. For example, running `dbtf debug` will show your connection using the values from `.env`:
 
    ```shell
    dbtf debug
@@ -46,7 +46,7 @@ We recommend placing your `.env` file in the project root and running dbt comman
 
 ### Precedence order
 
-When the same environment variable is defined in multiple places, Fusion uses the following precedence order (highest to lowest):
+When the same environment variable is defined in multiple places, dbt v2 uses the following precedence order (highest to lowest):
 
 1. Shell environment — Variables set directly in your shell (for example, `export DBT_MY_VAR=value`)
 2. `.env` file — Variables defined in the `.env` file in your current working directory

@@ -31,29 +31,29 @@
 
 #### Overview
 
-dbt Core (including v1, v2 / Fusion, and adapters), as well as the sites powering the Package Hub and Developer Hub, are all vibrant community projects. Unlike dbt Packages, contributing code to these projects typically requires some working knowledge of programming languages outside of SQL and Jinja, but the supportive community around these repositories can help you advance those skills. Even without contributing code, there are many ways to be part of communal development in these projects, detailed below. You can find a curated list of the most active OSS/SA projects that dbt Labs supports [here](../resources/oss-sa-projects.md).
+dbt (including v1, v2, and adapters), as well as the sites powering the Package Hub and Developer Hub, are all vibrant community projects. Unlike dbt Packages, contributing code to these projects typically requires some working knowledge of programming languages outside of SQL and Jinja, but the supportive community around these repositories can help you advance those skills. Even without contributing code, there are many ways to be part of communal development in these projects, detailed below. You can find a curated list of the most active OSS/SA projects that dbt Labs supports [here](../resources/oss-sa-projects.md).
 
 #### Contribution opportunities
 
-There are three primary ways to contribute to the dbt projects. We’ll use dbt Core as an example, as the "front door" to the dbt ecosystem and a great place to start for newcomers:
+There are three primary ways to contribute to the dbt projects. We’ll use dbt v1 as an example, as the "front door" to the dbt ecosystem and a great place to start for newcomers:
 
-* [Open an issue](https://github.com/dbt-labs/dbt-core/issues/new/choose) to suggest an improvement or give feedback.
-* Comment on or engage with existing [issues](https://github.com/dbt-labs/dbt-core/issues) or [discussions](https://github.com/dbt-labs/dbt-core/discussions). For example, upvote issues that would help your organization, comment to add nuance to a feature request, or share how a feature would impact your use of dbt.
-* Create a pull request that resolves an open Issue. This involves writing the code and tests that add the feature/resolve the bug described in an Issue, and then going through the code review process asynchronously with a dbt Labs engineer. Note that signed commits are required when contributing to dbt Core. For steps on how to sign commits, see [Signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+* [Open an issue](https://github.com/dbt-labs/dbt/issues/new/choose) to suggest an improvement or give feedback.
+* Comment on or engage with existing [issues](https://github.com/dbt-labs/dbt/issues) or [discussions](https://github.com/dbt-labs/dbt/discussions). For example, upvote issues that would help your organization, comment to add nuance to a feature request, or share how a feature would impact your use of dbt.
+* Create a pull request that resolves an open Issue. This involves writing the code and tests that add the feature/resolve the bug described in an Issue, and then going through the code review process asynchronously with a dbt Labs engineer. Note that signed commits are required when contributing to dbt v1. For steps on how to sign commits, see [Signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 
 #### Sample contributions
 
-* Check out [this issue](https://github.com/dbt-labs/dbt-core/issues/3612) about improving error messages and [the PR that the community contributed to fix it](https://github.com/dbt-labs/dbt-core/pull/3703).
+* Check out [this issue](https://github.com/dbt-labs/dbt/issues/3612) about improving error messages and [the PR that the community contributed to fix it](https://github.com/dbt-labs/dbt/pull/3703).
 * From the above issue [another issue was generated](https://github.com/dbt-labs/dbt-bigquery/issues/202) to change not just the error message, but improve the behavior. This is the virtuous cycle of community-driven development! Bit by bit we, the community, craft the tool to better fit our needs.
 
 #### Get started
 
-* Read the dbt Core [contribution guide](https://github.com/dbt-labs/dbt-core/blob/main/CONTRIBUTING.md) and the [Contributor Expectations](../resources/contributor-expectations.md).
-* If contributing to `dbt-core`, find an issue labeled “[good first issue](https://github.com/dbt-labs/dbt-core/issues?q=is%3Aopen+is%3Aissue+label%3A%22type%3Agood-first-issue%22)”, or look for similar labels on other repositories. If in doubt, also feel free to ask the maintainers for a good first issue, they’ll be excited to welcome you!
+* Read the dbt v1 [contribution guide](https://github.com/dbt-labs/dbt/blob/main/CONTRIBUTING.md) and the [Contributor Expectations](../resources/contributor-expectations.md).
+* If contributing to `dbt-labs/dbt`, find an issue labeled “[good first issue](https://github.com/dbt-labs/dbt/issues?q=is%3Aopen+is%3Aissue+label%3A%22type%3Agood-first-issue%22)”, or look for similar labels on other repositories. If in doubt, also feel free to ask the maintainers for a good first issue, they’ll be excited to welcome you!
 
 #### Need help?
 
 The following channels in the dbt Community Slack are a great place to ask questions:
 
-* \#dbt-core-development
+* \#dbt-development
 * \#adapter-ecosystem

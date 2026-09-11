@@ -1,6 +1,6 @@
 # Programmatic invocations
 
-Programmatic invocations let you call dbt commands from Python scripts and applications, instead of running them in a shell. This is useful when you want to embed dbt runs into a larger application or workflow, while still using the same command surface area as the dbt Core CLI.
+Programmatic invocations let you call dbt commands from Python scripts and applications, instead of running them in a shell. This is useful when you want to embed dbt runs into a larger application or workflow, while still using the same command surface area as the dbt CLI.
 
 Common use cases include:
 
@@ -8,7 +8,7 @@ Common use cases include:
 * Integrating dbt runs into orchestration workflows
 * Building internal tools that need to run dbt commands and inspect results
 
-Refer to the [dbt Core package on PyPI](https://pypi.org/project/dbt-core/) to install the official Python package for dbt Core if you haven't done so already.
+Refer to the [dbt v1 package on PyPI](https://pypi.org/project/dbt-core/) to install the official Python package for dbt v1 if you haven't done so already.
 
 (Applies to dbt v1.99 and earlier)
 
@@ -29,11 +29,11 @@ for r in res.result:
     print(f"{r.node.name}: {r.status}")
 ```
 
-For implementation details, refer to the source definitions of `dbtRunner` and `dbtRunnerResult` in the [dbt Core repository](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/cli/main.py).
+For implementation details, refer to the source definitions of `dbtRunner` and `dbtRunnerResult` in the [dbt v1 repository](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/cli/main.py).
 
 ## Supported arguments
 
-`dbtRunner.invoke` accepts the same arguments as the dbt Core CLI. The first positional argument is the command (for example, `run`, `build`, `test`), followed by any flags and options you would normally pass on the command line.
+`dbtRunner.invoke` accepts the same arguments as the dbt CLI. The first positional argument is the command (for example, `run`, `build`, `test`), followed by any flags and options you would normally pass on the command line.
 
 For example, `dbt.invoke(["run", "--select", "tag:my_tag"])` is equivalent to running `dbt run --select tag:my_tag`. There is no separate, dbtRunner‑specific list of arguments; the authoritative source for available options is the CLI help reference (`dbt --help`, `dbt run --help`, and so on) and the [dbt command reference](./dbt-commands.md) documentation.
 
@@ -73,7 +73,7 @@ There is a one-to-one correspondence between [CLI exit codes](./exit-codes.md) a
 
 ## Commitments and caveats
 
-We're making an ongoing commitment to providing a Python entry point at functional parity with dbt Core's CLI. We reserve the right to change the underlying implementation used to achieve that goal. We expect that the current implementation will unlock real use cases in the short- and medium-term while we work on a set of stable, long-term interfaces that will ultimately replace it.
+We're making an ongoing commitment to providing a Python entry point at functional parity with dbt v1's CLI. We reserve the right to change the underlying implementation used to achieve that goal. We expect that the current implementation will unlock real use cases in the short- and medium-term while we work on a set of stable, long-term interfaces that will ultimately replace it.
 
 In particular, the objects returned by each command in `dbtRunnerResult.result` are not fully contracted, and therefore liable to change. Some of the returned objects are partially documented, because they overlap in part with the contents of [dbt artifacts](./artifacts/dbt-artifacts.md). As Python objects, they contain many more fields and methods than what's available in the serialized JSON artifacts. These additional fields and methods should be considered **internal and liable to change in future versions of dbt-core.**
 

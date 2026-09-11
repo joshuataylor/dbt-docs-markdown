@@ -1,4 +1,4 @@
-# Build a data lakehouse with dbt Core and Dremio Cloud
+# Build a data lakehouse with dbt v1 and Dremio Cloud
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -6,13 +6,13 @@
 
 ## Introduction
 
-This guide will demonstrate how to build a data lakehouse with dbt Core 1.5 or newer and Dremio Cloud. You can simplify and optimize your data infrastructure with dbt's robust transformation framework and Dremio’s open and easy data lakehouse. The integrated solution empowers companies to establish a strong data and analytics foundation, fostering self-service analytics and enhancing business insights while simplifying operations by eliminating the necessity to write complex Extract, Transform, and Load (ETL) pipelines.
+This guide will demonstrate how to build a data lakehouse with dbt 1.5 or newer and Dremio Cloud. You can simplify and optimize your data infrastructure with dbt's robust transformation framework and Dremio’s open and easy data lakehouse. The integrated solution empowers companies to establish a strong data and analytics foundation, fostering self-service analytics and enhancing business insights while simplifying operations by eliminating the necessity to write complex Extract, Transform, and Load (ETL) pipelines.
 
 ### Prerequisites
 
 * You must have a [Dremio Cloud](https://docs.dremio.com/cloud/) account.
 * You must have Python 3 installed.
-* You must have dbt Core v1.5 or newer [installed](//docs/local/install-dbt).
+* You must have dbt v1.5 or newer [installed](//docs/local/install-dbt).
 * You must have the Dremio adapter 1.5.0 or newer [installed and configured](../docs/local/connect-data-platform/dremio-setup.md) for Dremio Cloud.
 * You must have basic working knowledge of Git and the command line interface (CLI).
 
@@ -43,7 +43,7 @@ Plugins:
 
 ## Getting started
 
-1. Clone the Dremio dbt Core sample project from the [GitHub repo](https://github.com/dremio-brock/DremioDBTSample/tree/master/dremioSamples).
+1. Clone the Dremio dbt v1 sample project from the [GitHub repo](https://github.com/dremio-brock/DremioDBTSample/tree/master/dremioSamples).
 
 2. In your integrated development environment (Studio IDE), open the relation.py file in the Dremio adapter directory: `$HOME/Library/Python/3.9/lib/python/site-packages/dbt/adapters/dremio/relation.py`
 

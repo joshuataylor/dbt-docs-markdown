@@ -43,22 +43,15 @@
 
 * [Databricks6](./tags/databricks.md)
 * [dbt2](./tags/dbt.md)
-* [dbt Core22](./tags/dbt-core.md)
-* [dbt Fusion6](./tags/dbt-fusion.md)
-* [dbt Fusion engine6](./tags/dbt-fusion-engine.md)
 * [dbt Insights2](./tags/dbt-insights.md)
 * [dbt MCP2](./tags/dbt-mcp.md)
 * [dbt platform27](./tags/dbt-platform.md)
 * [dbt State20](./tags/dbt-state.md)
+* [dbt v16](./tags/dbt-v-1.md)
+* [dbt v213](./tags/dbt-v-2.md)
 * [dbt Wizard2](./tags/dbt-wizard.md)
 * [Dremio1](./tags/dremio.md)
 * [DuckDB2](./tags/duck-db.md)
-
-***
-
-## F
-
-* [Fusion1](./tags/fusion.md)
 
 ***
 

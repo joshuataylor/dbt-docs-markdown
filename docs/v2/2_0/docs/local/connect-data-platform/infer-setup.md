@@ -1,4 +1,4 @@
-# Connect Infer to dbt Core
+# Connect Infer to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 * **GitHub repo**: [inferlabs/dbt-infer](https://github.com/inferlabs/dbt-infer) [![](https://img.shields.io/github/stars/inferlabs/dbt-infer?style=for-the-badge)](https://github.com/inferlabs/dbt-infer)
 * **PyPI package**: `dbt-infer` [![](https://badge.fury.io/py/dbt-infer.svg)](https://badge.fury.io/py/dbt-infer)
 * **Slack channel**:
-* **Supported dbt Core version**: v1.2.0 and newer
+* **Supported dbt version**: v1.2.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

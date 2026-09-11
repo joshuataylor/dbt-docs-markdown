@@ -1,4 +1,4 @@
-# Connect MaxCompute to dbt Core
+# Connect MaxCompute to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [aliyun/dbt-maxcompute](https://github.com/aliyun/dbt-maxcompute) [![](https://img.shields.io/github/stars/aliyun/dbt-maxcompute?style=for-the-badge)](https://github.com/aliyun/dbt-maxcompute)
 * **PyPI package**: `dbt-maxcompute` [![](https://badge.fury.io/py/dbt-maxcompute.svg)](https://badge.fury.io/py/dbt-maxcompute)
 * **Slack channel**:
-* **Supported dbt Core version**: v1.8.0 and newer
+* **Supported dbt version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**:
 

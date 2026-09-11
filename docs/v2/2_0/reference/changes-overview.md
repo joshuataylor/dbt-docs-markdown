@@ -20,20 +20,20 @@ Use this page to understand the different types of changes, what to do, and wher
 
 #### [Deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags)
 
-[Command-line flags passed to dbt commands that are being removed in Fusion. **Impact:** Some ignored (with warnings); **--models** flag will error in Fusion. **Action:** Update job definitions and scripts to remove or replace these flags.](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags)
+[Command-line flags passed to dbt commands that are being removed in dbt v2. **Impact:** Some ignored (with warnings); **--models** flag will error in dbt v2. **Action:** Update job definitions and scripts to remove or replace these flags.](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags)
 
-## Preparing for Fusion
+## Preparing for dbt v2
 
-If you're upgrading to Fusion, you should:
+If you're upgrading to dbt v2, you should:
 
-* [ ] Resolve all [deprecations](./deprecations.md) to avoid causing errors in Fusion.
-* [ ] Review [behavior change flags](./global-configs/behavior-changes.md) to understand how Fusion will behave (new behavior is always enabled).
-* [ ] Update [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) to avoid errors in Fusion.
+* [ ] Resolve all [deprecations](./deprecations.md) to avoid causing errors in dbt v2.
+* [ ] Review [behavior change flags](./global-configs/behavior-changes.md) to understand how dbt v2 will behave (new behavior is always enabled).
+* [ ] Update [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) to avoid errors in dbt v2.
 
 ## Related docs
 
 * [Full deprecations list](./deprecations.md)
 * [Behavior change flags](./global-configs/behavior-changes.md)
-* [Upgrading to Fusion](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)
-* [Fusion readiness checklist](../docs/dbt/dbt-readiness.md)
+* [Upgrading to dbt v2](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 readiness checklist](../docs/dbt/dbt-readiness.md)
 * [Events and logging](./events-logging.md)

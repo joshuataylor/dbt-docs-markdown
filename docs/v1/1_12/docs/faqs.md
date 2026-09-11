@@ -9,9 +9,9 @@ Our Frequently Asked Questions (FAQs) section is a space where you can find an a
 
 [13 items](../category/accounts.md)
 
-## [dbt Core](../category/dbt-core.md)
+## [dbt v1](../category/dbt-v1.md)
 
-[3 items](../category/dbt-core.md)
+[3 items](../category/dbt-v1.md)
 
 ## [Cost optimizations](../category/cost-optimizations.md)
 

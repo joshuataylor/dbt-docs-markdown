@@ -22,7 +22,7 @@ Learn about errors and the art of debugging them.
 
 Implement a CI environment for safe project validation.
 
-## [Hybrid development with dbt platform and Fusion](../guides/dbt-platform-local-workflow.md)
+## [Hybrid development with dbt platform and dbt v2](../guides/dbt-platform-local-workflow.md)
 
 Introduction
 
@@ -32,19 +32,19 @@ Learn how to migrate from dbt-spark to dbt-databricks.
 
 ## [Migrate off legacy dbt versions](../guides/migrate-off-legacy-dbt-versions.md)
 
-A quickstart for moving environments and jobs off legacy dbt versions to a dbt Core release track.
+A quickstart for moving environments and jobs off legacy dbt versions to a dbt v1 release track.
 
-## [Move from dbt Core to the dbt platform: Get started](../guides/dbt-migration-1.md)
+## [Move to the dbt platform: Get started](../guides/dbt-migration-1.md)
 
-Learn how to move from dbt Core to the dbt platform and what you need to get started.
+Learn how to move to the dbt platform and what you need to get started.
 
-## [Move from dbt Core to the dbt platform: Optimization tips](../guides/dbt-migration-3.md)
+## [Move to the dbt platform: Optimization tips](../guides/dbt-migration-3.md)
 
 Use this guide to learn how to optimize your dbt experience and get answers to common questions.
 
-## [Move from dbt Core to the dbt platform: What you need to know](../guides/dbt-migration-2.md)
+## [Move to the dbt platform: What you need to know](../guides/dbt-migration-2.md)
 
-Use this guide to understand the considerations and methods you need to move from dbt Core to the dbt platform.
+Use this guide to understand the considerations and methods you need to move to the dbt platform.
 
 ## [Optimize and troubleshoot dbt models on Databricks](../guides/optimize-dbt-models-on-databricks.md)
 
@@ -82,7 +82,7 @@ Introduction
 
 Introduction
 
-## [Quickstart for the dbt Fusion engine](../guides/dbt.md)
+## [Quickstart for dbt v2](../guides/dbt.md)
 
 Introduction
 
@@ -98,11 +98,11 @@ Introduction
 
 Learn more about setting up your dbt project with Databricks.
 
-## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-v2-upgrade.md)
+## [Upgrade to dbt v2 part 1: Preparing to upgrade](../guides/prepare-v2-upgrade.md)
 
 Introduction
 
-## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-v2.md)
+## [Upgrade to dbt v2 part 2: Making the move](../guides/upgrade-to-v2.md)
 
 Introduction
 

@@ -20,7 +20,7 @@ Learning how to debug is a skill, and one that will make you great at your role!
    * The `target/run` directory contains the SQL dbt executes to build your models.
    * The `logs/dbt.log` file contains all the queries that dbt runs, and additional logging. Recent errors will be at the bottom of the file.
    * **dbt users**: Use the above, or the `Details` tab in the command output.
-   * **dbt Core users**: Note that your code editor *may* be hiding these files from the tree view [VSCode help](https://stackoverflow.com/questions/42891463/how-can-i-show-ignored-files-in-visual-studio-code)).
+   * **dbt v1 users**: Note that your code editor *may* be hiding these files from the tree view [VSCode help](https://stackoverflow.com/questions/42891463/how-can-i-show-ignored-files-in-visual-studio-code)).
 
 5. If you are really stuck, try [asking for help](../community/resources/getting-help.md). Before doing so, take the time to write your question well so that others can diagnose the problem quickly.
 
@@ -168,7 +168,7 @@ hello: world # this is not allowed
 
 ## Compilation Errors
 
-*Note: if you're using the Studio IDE to work on your dbt project, this error often shows as a red bar in your command prompt as you work on your dbt project. For dbt Core users, these won't get picked up until you run `dbt run` or `dbt compile`.*
+*Note: if you're using the Studio IDE to work on your dbt project, this error often shows as a red bar in your command prompt as you work on your dbt project. For dbt v1 users, these won't get picked up until you run `dbt run` or `dbt compile`.*
 
 ### Invalid `ref` function
 
@@ -212,7 +212,7 @@ To fix this:
 
 To prevent this:
 
-* *(dbt Core only)* Use snippets to auto-complete pieces of Jinja ([atom-dbt package](https://github.com/dbt-labs/atom-dbt))
+* *(dbt v1 only)* Use snippets to auto-complete pieces of Jinja ([atom-dbt package](https://github.com/dbt-labs/atom-dbt))
 
 ### Invalid YAML
 
@@ -264,7 +264,7 @@ To fix this:
 
 To prevent this:
 
-* (dbt Core users) Turn on indentation guides in your code editor to help you inspect your files
+* (dbt v1 users) Turn on indentation guides in your code editor to help you inspect your files
 * Use a YAML validator ([example](http://www.yamllint.com/)) to debug any issues
 
 ### Incorrect YAML spec
@@ -322,12 +322,12 @@ Database Error in model customers (models/customers.sql)
 1. Open the offending file:
 
    * **dbt:** Open the model (in this case `models/customers.sql` as per the error message)
-   * **dbt Core:** Open the model as above. Also open the compiled SQL (in this case `target/run/jaffle_shop/models/customers.sql` as per the error message) — it can be useful to show these side-by-side in your code editor.
+   * **dbt v1:** Open the model as above. Also open the compiled SQL (in this case `target/run/jaffle_shop/models/customers.sql` as per the error message) — it can be useful to show these side-by-side in your code editor.
 
 2. Try to re-execute the SQL to isolate the error:
 
    * **dbt:** Use the `Preview` button from the model file
-   * **dbt Core:** Copy and paste the compiled query into a query runner (e.g. the Snowflake UI, or a desktop app like DataGrip / TablePlus) and execute it
+   * **dbt v1:** Copy and paste the compiled query into a query runner (e.g. the Snowflake UI, or a desktop app like DataGrip / TablePlus) and execute it
 
 3. Fix the mistake.
 
@@ -343,7 +343,7 @@ In some cases, these errors might occur as a result of queries that dbt runs "be
 In these cases, you should check out the logs — this contains *all* the queries dbt has run.
 
 * **dbt**: Use the `Details` in the command output to see logs, or check the `logs/dbt.log` file
-* **dbt Core**: Open the `logs/dbt.log` file.
+* **dbt v1**: Open the `logs/dbt.log` file.
 
 Isolating errors in the logs
 
@@ -368,7 +368,7 @@ We've all been there. dbt uses the last-saved version of a file when you execute
 
 ### Editing compiled files
 
-*(More likely for dbt Core users)*
+*(More likely for dbt v1 users)*
 
 If you just opened a SQL file in the `target/` directory to help debug an issue, it's not uncommon to accidentally edit that file! To avoid this, try changing your code editor settings to grey out any files in the `target/` directory — the visual cue will help avoid the issue.
 

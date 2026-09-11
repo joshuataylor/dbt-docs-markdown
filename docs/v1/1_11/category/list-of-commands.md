@@ -36,7 +36,7 @@ The list of commands available in dbt.
 
 ## [init](../reference/commands/init.md)
 
-[dbt init helps get you started using !](../reference/commands/init.md)
+[dbt init helps get you started using dbt!](../reference/commands/init.md)
 
 ## [ls (list)](../reference/commands/list.md)
 
@@ -88,7 +88,7 @@ The list of commands available in dbt.
 
 ## [version](../reference/commands/version.md)
 
-[The --version command-line flag returns information about the currently installed version of , the , or the . This flag is not supported when invoking dbt in other runtimes (for example, the IDE or scheduled runs).](../reference/commands/version.md)
+[The --version command-line flag returns information about the currently installed version of , the , or . This flag is not supported when invoking dbt in other runtimes (for example, the IDE or scheduled runs).](../reference/commands/version.md)
 
 [Previous](../reference/dbt-commands.md)
 

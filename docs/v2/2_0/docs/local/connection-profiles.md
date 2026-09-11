@@ -182,19 +182,19 @@ For more information, check out [using threads](../running-a-dbt-project/using-t
 
 ## Advanced: Customizing a profile directory
 
-### dbt Fusion
+### dbt v2
 
-Fusion determines the parent directory for `profiles.yml` using the following precedence:
+dbt v2 determines the parent directory for `profiles.yml` using the following precedence:
 
 1. `--profiles-dir` option
 2. Project root directory
 3. `~/.dbt/` directory
 
-Note that Fusion doesn't currently support the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable or setting the `profiles.yml` in the current working directory.
+Note that dbt v2 doesn't currently support the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable or setting the `profiles.yml` in the current working directory.
 
-### dbt Core
+### dbt v1
 
-dbt Core determines the parent directory for `profiles.yml` using the following precedence:
+dbt v1 determines the parent directory for `profiles.yml` using the following precedence:
 
 1. `--profiles-dir` option
 2. (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable
@@ -226,9 +226,9 @@ $ dbt run --profiles-dir path/to/directory
 
 If using this method, the `--profiles-dir` option needs to be provided every time you run a dbt command.
 
-### 2. Use the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable to change the default location (dbt Core only)
+### 2. Use the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable to change the default location (dbt v1 only)
 
-Setting this environment variable tells dbt Core to look for your `profiles.yml` file in the specified directory instead of the default location. You can specify this by running:
+Setting this environment variable tells dbt v1 to look for your `profiles.yml` file in the specified directory instead of the default location. You can specify this by running:
 
 (Applies to dbt v1.11 and later)
 
@@ -236,7 +236,7 @@ Setting this environment variable tells dbt Core to look for your `profiles.yml`
 $ export DBT_ENGINE_PROFILES_DIR=path/to/directory
 ```
 
-Note: This environment variable isn't supported in Fusion.
+Note: This environment variable isn't supported in dbt v2.
 
 ## Advanced: Using environment variables
 

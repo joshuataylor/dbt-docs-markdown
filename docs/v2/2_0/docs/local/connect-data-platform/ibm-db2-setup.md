@@ -1,4 +1,4 @@
-# Connect IBM Db2 to dbt Core
+# Connect IBM Db2 to dbt v1
 
 The `ibm-dbt-db2` adapter allows you to use dbt to transform and manage data on IBM Db2, leveraging its robust SQL capabilities across LUW (Linux, Unix, Windows), z/OS, and iSeries platforms. Before proceeding, ensure you have the following:
 
@@ -6,7 +6,7 @@ The `ibm-dbt-db2` adapter allows you to use dbt to transform and manage data on 
 * Authentication credentials: Username and password.
 * Python 3.10, 3.11, or 3.12 (Python 3.9 not supported due to dbt-core 1.11+ requirements).
 
-Note: This adapter is not compatible with dbt Core 2.0.
+Note: This adapter is not compatible with dbt v2.
 
 Refer to [Configuring ibm-dbt-db2](https://github.com/IBM/db2-dbt) to learn more about obtaining and organizing these details.
 
@@ -15,7 +15,7 @@ Refer to [Configuring ibm-dbt-db2](https://github.com/IBM/db2-dbt) to learn more
 * **GitHub repo**: [IBM/db2-dbt](https://github.com/IBM/db2-dbt) [![](https://img.shields.io/github/stars/IBM/db2-dbt?style=for-the-badge)](https://github.com/IBM/db2-dbt)
 * **PyPI package**: `ibm-dbt-db2` [![](https://badge.fury.io/py/ibm-dbt-db2.svg)](https://badge.fury.io/py/ibm-dbt-db2)
 * **Slack channel**:
-* **Supported dbt Core version**: v1.11.0 and newer
+* **Supported dbt version**: v1.11.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: IBM Db2 LUW 9.7+, z/OS 11+, iSeries
 
@@ -197,6 +197,6 @@ Db2 uppercases unquoted identifiers by default. The adapter handles this automat
 ## Notes
 
 * The `ibm-dbt-db2` adapter is built on the `ibm_db` Python driver (version 3.2.8) which is automatically installed with the adapter.
-* **Python Version Requirements**: Requires Python 3.10, 3.11, or 3.12. Python 3.9 is not supported due to dbt Core v1.11+ dependency requirements. Python 3.13+ has not been tested yet.
+* **Python Version Requirements**: Requires Python 3.10, 3.11, or 3.12. Python 3.9 is not supported due to dbt v1.11+ dependency requirements. Python 3.13+ has not been tested yet.
 * **Constraints**: CHECK, UNIQUE, PRIMARY KEY, and FOREIGN KEY constraints are defined but not enforced by Db2 in the dbt context. Only NOT NULL constraints are enforced.
 * **LISTAGG Limitation**: Db2's LISTAGG function does not support limiting the number of aggregated values.

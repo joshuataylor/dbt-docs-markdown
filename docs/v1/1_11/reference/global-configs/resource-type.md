@@ -11,7 +11,7 @@ Use the `test_type` selector to filter test types with `dbt test` — it works a
 * `dbt test --select test_type:unit` — runs only unit tests
 * `dbt test --select test_type:data` — runs only data tests
 
-If you're using dbt Core v1.9+, you can also use `--resource-type`:
+If you're using dbt v1.9+, you can also use `--resource-type`:
 
 * `dbt test --resource-type unit_test` — runs only unit tests
 * `dbt test --resource-type test` — runs only data tests
@@ -111,8 +111,8 @@ To run only data tests (excluding unit tests) when using `dbt test`, use the `te
 Usage
 
 ```text
-dbt test --select test_type:data -- dbt Core and dbt Fusion engines
-dbt test --resource-type test -- dbt Core only
+dbt test --select test_type:data -- dbt v1 and dbt v2
+dbt test --resource-type test -- dbt v1 only
 ```
 
  Exclude resource types
@@ -146,6 +146,6 @@ To exclude unit tests when using `dbt test`, use the `test_type` selector to run
 Usage
 
 ```text
-dbt test --select test_type:data -- dbt Core and dbt Fusion engines
-dbt test --exclude-resource-type unit_test -- dbt Core only
+dbt test --select test_type:data -- dbt v1 and dbt v2
+dbt test --exclude-resource-type unit_test -- dbt v1 only
 ```

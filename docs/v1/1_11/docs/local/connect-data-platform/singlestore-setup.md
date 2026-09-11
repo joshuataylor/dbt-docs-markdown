@@ -1,4 +1,4 @@
-# Connect SingleStore to dbt Core
+# Connect SingleStore to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 * **GitHub repo**: [memsql/dbt-singlestore](https://github.com/memsql/dbt-singlestore) [![](https://img.shields.io/github/stars/memsql/dbt-singlestore?style=for-the-badge)](https://github.com/memsql/dbt-singlestore)
 * **PyPI package**: `dbt-singlestore` [![](https://badge.fury.io/py/dbt-singlestore.svg)](https://badge.fury.io/py/dbt-singlestore)
 * **Slack channel**: [db-singlestore](https://getdbt.slack.com/archives/C02V2QHFF7U)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not supported
 * **Minimum data platform version**: v7.5
 

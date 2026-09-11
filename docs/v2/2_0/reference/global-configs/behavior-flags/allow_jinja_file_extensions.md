@@ -1,10 +1,10 @@
 # Jinja file extensions
 
-| allow\_jinja\_file\_extensions | dbt **v1 Latest** | dbt Core |
-| ------------------------------ | ----------------- | -------- |
-| Introduced                     | 2026.5            | 1.12.0   |
-| Matured (default → `true`)     | —                 | —        |
-| Removed                        | —                 | —        |
+| allow\_jinja\_file\_extensions | dbt **v1 Latest** | dbt v1 |
+| ------------------------------ | ----------------- | ------ |
+| Introduced                     | 2026.5            | 1.12.0 |
+| Matured (default → `true`)     | —                 | —      |
+| Removed                        | —                 | —      |
 
 The `allow_jinja_file_extensions` flag is set to `false` by default.
 

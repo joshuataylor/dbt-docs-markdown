@@ -1,10 +1,10 @@
 # Package overrides for built-in materializations
 
-Removed in dbt Core 2.0
+Removed in v2
 
-This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_explicit\_package\_overrides\_for\_builtin\_materializations | dbt **v1 Latest** | dbt Core       |
+| require\_explicit\_package\_overrides\_for\_builtin\_materializations | dbt **v1 Latest** | dbt v1         |
 | --------------------------------------------------------------------- | ----------------- | -------------- |
 | Introduced                                                            | 2024.04           | 1.6.14, 1.7.14 |
 | Matured (default → `true`)                                            | 2024.06           | 1.8.0          |

@@ -2,7 +2,7 @@
 
 The `target` variable contains information about your connection to the warehouse.
 
-* **dbt Core:** These values are based on the target defined in your [profiles.yml](../../docs/local/profiles.yml.md) file. Please note that for certain adapters, additional configuration steps may be required. Refer to the [set up page](../../docs/local/connect-data-platform/about-dbt-connections.md) for your data platform.
+* **dbt v1:** These values are based on the target defined in your [profiles.yml](../../docs/local/profiles.yml.md) file. Please note that for certain adapters, additional configuration steps may be required. Refer to the [set up page](../../docs/local/connect-data-platform/about-dbt-connections.md) for your data platform.
 
 * **dbt** To learn more about setting up your adapter in dbt, refer to [About data platform connections](../../docs/platform/connect-data-platform/about-connections.md).
 

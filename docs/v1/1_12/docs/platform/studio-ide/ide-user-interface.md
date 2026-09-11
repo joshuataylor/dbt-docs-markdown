@@ -20,7 +20,7 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
    * **Note:** This linking feature is only available for GitHub or GitLab repositories on multi-tenant dbt accounts.
 
-2. **Documentation site button:** Clicking the Documentation site book icon, located next to the Git repository link, leads to the dbt Documentation site. The site is powered by the latest dbt artifacts generated in the IDE using the `dbt docs generate` command (dbt Core v1.x only) from the Command bar.
+2. **Documentation site button:** Clicking the Documentation site book icon, located next to the Git repository link, leads to the dbt Documentation site. The site is powered by the latest dbt artifacts generated in the IDE using the `dbt docs generate` command (dbt v1 only) from the Command bar.
 
 3. [**Version Control**](#editing-features): The Studio IDE's powerful Version Control section contains all git-related elements, including the Git actions button and the **Changes** section.
 
@@ -55,7 +55,7 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
 Refer to [Using defer in dbt](../about-defer.md#defer-in-the-dbt-ide) for more info.
 
-7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](../../about-dbt-lsp.md) status if you're on Fusion or the engine server status if you're on dbt Core. It includes shortcuts to environment settings and user credentials.
+7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](../../about-dbt-lsp.md) status if you're on dbt v2 or the engine server status if you're on dbt v1. It includes shortcuts to environment settings and user credentials.
 
    ![View the connection statuses for your account.](/img/docs/dbt-platform/platform-ide/server-status.png?v=2 "View the connection statuses for your account.")View the connection statuses for your account.
 
@@ -73,7 +73,7 @@ Refer to [Using defer in dbt](../about-defer.md#defer-in-the-dbt-ide) for more i
      * **Restart Studio:** You will lose any unsaved information.
      * **Reinstall dependencies:** Overwrites project dependencies with a fresh installation.
      * **Clean dbt project:** Runs the [`dbt clean` command](../../../reference/commands/clean.md) for your project.
-     * **Autofix deprecation warnings:** Runs the dbt [autofix tool](./autofix-deprecations.md). Helps prepare for Fusion upgrade.
+     * **Autofix deprecation warnings:** Runs the dbt [autofix tool](./autofix-deprecations.md). Helps prepare for dbt v2 upgrade.
 
      ![IDE menu with additional information and actions.](/img/docs/dbt-platform/platform-ide/ide-menu.png?v=2 "IDE menu with additional information and actions.")IDE menu with additional information and actions.
 
@@ -190,7 +190,7 @@ Starting from dbt v1.6 or higher, when you save changes to a model, you can comp
 
 6. **Commands tab** — View the most recently run [dbt commands](../../../reference/dbt-commands.md) from your current IDE session, their results, and relevant system logs.
 
-7. **Problems tab** — You must be running the dbt Fusion engine to utilize the problems tab. Gain insights into problems with your dbt project that may prevent it from running properly in Fusion as you edit and before you execute runs.
+7. **Problems tab** — You must be running dbt v2 to utilize the problems tab. Gain insights into problems with your dbt project that may prevent it from running properly in dbt v2 as you edit and before you execute runs.
 
 ![Preview results show up in the Results console tab](/img/docs/dbt-platform/platform-ide/ide-problems-tab.png?v=2 "Preview results show up in the Results console tab")Preview results show up in the Results console tab
 

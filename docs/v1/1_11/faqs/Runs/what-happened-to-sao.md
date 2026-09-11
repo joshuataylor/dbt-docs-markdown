@@ -4,7 +4,7 @@ On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](../../docs/deploy
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
-* **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.
+* **Works everywhere** — dbt State works with dbt v1, dbt v2, and dbt platform, as well as external orchestrators, across both development and deployment environments.
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 

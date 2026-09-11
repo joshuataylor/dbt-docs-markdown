@@ -19,7 +19,7 @@ Refer to [Trial and billing](./pricing-billing/trial-and-billing.md) for what ea
 * Access to a [supported AI provider](#supported-ai-providers). Use a dbt managed provider or configure [BYOK](./wizard-byok.md) with your own provider credentials.
 * A dbt project with a built `target/` directory (run `dbt parse`, `dbt compile`, or `dbt build`)
 
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
+dbt Wizard is data warehouse agnostic and works with both the [dbt v2](../introduction.md) and [dbt v1](../local/install-dbt.md) — no specific engine is required.
 
 ## Supported AI providers
 

@@ -98,7 +98,7 @@ SCIM (System for Cross-Domain Identity Management) automates user identities and
 
 ## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-Hybrid projects refer to a setup where both dbt Core and dbt are utilized within the same organization, often working on the same codebase or data platform. This approach enables different teams or contributors to work in the environment that aligns best with their preferences or workflows, while still benefiting from shared assets and centralized metadata.
+Hybrid projects refer to a setup where both dbt v1 and dbt are utilized within the same organization, often working on the same codebase or data platform. This approach enables different teams or contributors to work in the environment that aligns best with their preferences or workflows, while still benefiting from shared assets and centralized metadata.
 
 ## Enterprise security [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 

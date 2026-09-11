@@ -1,4 +1,4 @@
-# Connect AlloyDB to dbt Core
+# Connect AlloyDB to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-postgres` [![](https://badge.fury.io/py/dbt-postgres.svg)](https://badge.fury.io/py/dbt-postgres)
 * **Slack channel**: [#db-postgres](https://getdbt.slack.com/archives/C0172G2E273)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: ?
 

@@ -1,10 +1,10 @@
 # Unique project resource names
 
-| require\_unique\_project\_resource\_names | dbt **v1 Latest** | dbt Core |
-| ----------------------------------------- | ----------------- | -------- |
-| Introduced                                | 2025.12           | 1.11.0   |
-| Matured (default → `true`)                | —                 | —        |
-| Removed                                   | —                 | —        |
+| require\_unique\_project\_resource\_names | dbt **v1 Latest** | dbt v1 |
+| ----------------------------------------- | ----------------- | ------ |
+| Introduced                                | 2025.12           | 1.11.0 |
+| Matured (default → `true`)                | —                 | —      |
+| Removed                                   | —                 | —      |
 
 The `require_unique_project_resource_names` flag enforces uniqueness of resource names within the same package. dbt resources such as models, seeds, snapshots, analyses, tests, and functions share a common namespace. When two resources in the same package have the same name, dbt must decide which one a `ref()` or `source()` refers to. Previously, this check was not always enforced, which meant duplicate names could result in dbt referencing the wrong resource.
 

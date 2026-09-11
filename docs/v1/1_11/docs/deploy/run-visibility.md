@@ -37,7 +37,7 @@ For in-progress steps, dbt platform only displays the tail of the log output —
 
 (Applies to dbt v1.99 and earlier)
 
-When a job on the dbt Core engine finishes, selecting a step opens the **System logs**. At the top, a summary shows how many errors, warnings, deprecations, skips, and successes appear in that step’s output.
+When a job on dbt v1 finishes, selecting a step opens the **System logs**. At the top, a summary shows how many errors, warnings, deprecations, skips, and successes appear in that step’s output.
 
 ![System logs summary](/img/docs/dbt-platform/deployment/system-logs.png?v=2 "System logs summary")System logs summary
 
@@ -53,7 +53,7 @@ To verify the actual count, use the up and down buttons on each status to naviga
 
 * Note that when viewing debug logs, the log output is truncated. To view and export all debug logs for an individual step, click **Download** > **Download all debug logs**.
 
-* You can download OpenTelemetry (OTel) logs for Fusion job command steps as a Parquet file. The file contains structured step-level log data that you can query or inspect outside dbt.
+* You can download OpenTelemetry (OTel) logs for dbt v2 job command steps as a Parquet file. The file contains structured step-level log data that you can query or inspect outside dbt.
 
 To download it, go to the **Run summary** tab in the job, select a step and click **Download** > **Download OTel log** to export a Parquet file
 

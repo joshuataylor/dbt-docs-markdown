@@ -971,7 +971,7 @@ By now, we are pretty good at creating new files in the correct directories so w
 
    That wraps up the intermediate models we need to create our core models!
 
-### dbt Core models
+### dbt models
 
 1. Create a file `fct_results.sql`. This is what I like to refer to as the “mega table” — a really large denormalized table with all our context added in at row level for human readability. Importantly, we have a table `circuits` that is linked through the table `races`. When we joined `races` to `results` in `int_results.sql` we allowed our tables to make the connection from `circuits` to `results` in `fct_results.sql`. We are only taking information about pit stops at the result level so our join would not cause a [fanout](https://community.looker.com/technical-tips-tricks-1021/what-is-a-fanout-23327).
 
@@ -1239,7 +1239,7 @@ Let’s take a step back before starting machine learning to both review and go 
 
 * dbt model(dbt, session). For starters, each Python model lives in a .py file in your models/ folder. It defines a function named `model()`, which takes two parameters:
 
-  * dbt — A class compiled by dbt Core, unique to each model, enables you to run your Python code in the context of your dbt project and DAG.
+  * dbt — A class compiled by dbt, unique to each model, enables you to run your Python code in the context of your dbt project and DAG.
   * session — A class representing your data platform’s connection to the Python backend. The session is needed to read in tables as DataFrames and to write DataFrames back to tables. In PySpark, by convention, the SparkSession is named spark, and available globally. For consistency across platforms, we always pass it into the model function as an explicit argument called session.
 
 * The `model()` function must return a single DataFrame. On Snowpark (Snowflake), this can be a Snowpark or pandas DataFrame.

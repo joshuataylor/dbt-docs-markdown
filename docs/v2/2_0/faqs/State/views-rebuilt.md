@@ -90,7 +90,7 @@ After a run, use (Applies to dbt v2.0 and later) [`dbt state explain`](../../ref
 
 note
 
-The command name differs by version: dbt Core 2.0 uses `dbt state explain` (with a space), while dbt Core v1.x uses `dbt-state explain` (with a hyphen).
+The command name differs by version: dbt v2 uses `dbt state explain` (with a space), while dbt v1 uses `dbt-state explain` (with a hyphen).
 
 (Applies to dbt v2.0 and later)
 

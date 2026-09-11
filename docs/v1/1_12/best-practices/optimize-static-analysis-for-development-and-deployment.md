@@ -2,24 +2,24 @@
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Static analysis helps the dbt Fusion engine validate your SQL before it runs. This guide shows how to configure it so you get stronger checks while you develop, and faster, less blocking runs in deployment.
+Static analysis helps dbt v2 validate your SQL before it runs. This guide shows how to configure it so you get stronger checks while you develop, and faster, less blocking runs in deployment.
 
-This guide explains why using `strict` in development and `baseline` (the default, lighter static analysis mode) in deployment is a valid and recommended pattern, and how to configure it in your Fusion project. For more information about modes and features, refer to [About static analysis](../docs/build/about-static-analysis.md).
+This guide explains why using `strict` in development and `baseline` (the default, lighter static analysis mode) in deployment is a valid and recommended pattern, and how to configure it in your dbt v2 project. For more information about modes and features, refer to [About static analysis](../docs/build/about-static-analysis.md).
 
 ## Why this pattern
 
 * **Development:** `strict` mode has the strongest SQL checks before you promote changes, including richer column-level features in the VS Code extension.
 * **Deployment:** `baseline` skips remote warehouse schema downloads and surfaces findings as warnings, so jobs are less likely to block. That can save compile time (and warehouse cost) in deployment, especially in projects with many sources. Review deployment logs for warnings that `strict` would have raised as errors in development.
 
-`strict` can increase compile time because the dbt Fusion engine downloads schemas for all sources (including sources your models do not reference). Teams with thousands of sources have seen large differences between `baseline` and `strict`.
+`strict` can increase compile time because dbt v2 downloads schemas for all sources (including sources your models do not reference). Teams with thousands of sources have seen large differences between `baseline` and `strict`.
 
 ## Set the mode with the CLI flag
 
@@ -37,7 +37,7 @@ dbt compile --static-analysis strict
 dbt compile --static-analysis baseline
 ```
 
-You can use the same flag with `dbt run` or `dbt build`. If you already have dbt Core or the platform CLI installed alongside Fusion, use `dbtf` as the unambiguous Fusion command.
+You can use the same flag with `dbt run` or `dbt build`. If you already have dbt v1 or the platform CLI installed alongside dbt v2, use `dbtf` as the unambiguous dbt v2 command.
 
 You can also configure [`static_analysis`](../reference/resource-configs/static-analysis.md) per directory or model. Refer to [Configuring `static_analysis`](../docs/build/about-static-analysis.md#configuring-static_analysis) for examples.
 

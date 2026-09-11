@@ -1,6 +1,6 @@
 # Command line options
 
-For consistency, command-line interface (CLI) flags should come right after the `dbt` prefix and its subcommands. This includes "global" flags (supported for all commands). For the full list of global CLI options for dbt Core or the dbt Fusion engine (depending on your [selected docs version](../../docs/dbt-versions.md)), refer to [Available flags](./about-global-configs.md#available-flags). When set, CLI flags override [environment variables](./environment-variable-configs.md) and [project flags](./project-flags.md).
+For consistency, command-line interface (CLI) flags should come right after the `dbt` prefix and its subcommands. This includes "global" flags (supported for all commands). For the full list of global CLI options for dbt v1 or dbt v2 (depending on your [selected docs version](../../docs/dbt-versions.md)), refer to [Available flags](./about-global-configs.md#available-flags). When set, CLI flags override [environment variables](./environment-variable-configs.md) and [project flags](./project-flags.md).
 
 For example, instead of using:
 

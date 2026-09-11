@@ -19,7 +19,7 @@ info
 
 Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
+When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
 
 If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
@@ -124,15 +124,15 @@ AI features are enabled by default. Admins can [turn them off or back on anytime
 | x-dbt-dev-environment-id | Required for `execute_sql` | Your dbt platform development environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-dev-env-id) for step-by-step instructions. |
 | x-dbt-user-id            | Required for `execute_sql` | Your dbt platform user ID. Refer to [Where can I find my user ID?](../../faqs/Accounts/find-user-id.md) for details.                                                   |
 
-#### Additional configuration for Fusion tools
+#### Additional configuration for dbt v2 tools
 
-By default, Fusion tools use the environment you set in `x-dbt-prod-environment-id` for model and table metadata.
+By default, dbt v2 tools use the environment you set in `x-dbt-prod-environment-id` for model and table metadata.
 
 | Header                     | Required | Description                                                                                                                                                                                                  |
 | -------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | x-dbt-dev-environment-id   | Required | Your dbt platform development environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-dev-env-id) for step-by-step instructions.                     |
 | x-dbt-user-id              | Required | Your dbt platform user ID. Refer to [Where can I find my user ID?](../../faqs/Accounts/find-user-id.md) for details.                                                                       |
-| x-dbt-fusion-disable-defer | Optional | Default: `false`. When set to `true`, Fusion tools will not defer to the production environment and use the models and table metadata from the development environment (`x-dbt-dev-environment-id`) instead. |
+| x-dbt-fusion-disable-defer | Optional | Default: `false`. When set to `true`, dbt v2 tools will not defer to the production environment and use the models and table metadata from the development environment (`x-dbt-dev-environment-id`) instead. |
 
 #### Configuration to disable tools
 

@@ -16,7 +16,7 @@ The version tag in a `dbt_project` file represents the version of your dbt proje
 
 Starting in dbt version 1.5, `version` in the `dbt_project.yml` is an *optional parameter*. If used, the version must be in a [semantic version](https://semver.org/) format, such as `1.0.0`. The default value is `None` if not specified. For users on dbt version 1.4 or lower, this tag is required, though it isn't currently used meaningfully by dbt.
 
-For more on dbt Core versions, see [About dbt Core versions](../../docs/dbt-versions.md).
+For more on dbt v1 versions, see [About dbt versions](../../docs/dbt-versions.md).
 
 dbt\_project.yml
 
@@ -59,7 +59,7 @@ Why do model and source YAML files always start with \`version: 2\`?
 
 Once upon a time, the structure of these `.yml` files was very different (s/o to anyone who was using dbt back then!). Adding `version: 2` allowed us to make this structure more extensible.
 
-From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
+From [dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
 Also starting in v1.5, both the [`config-version: 2`](./config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 

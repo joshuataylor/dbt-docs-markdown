@@ -1,4 +1,4 @@
-# Connect TiDB to dbt Core
+# Connect TiDB to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some [core functionality](https://github.com/pingcap/dbt-tidb/blob/main/README.m
 * **GitHub repo**: [pingcap/dbt-tidb](https://github.com/pingcap/dbt-tidb) [![](https://img.shields.io/github/stars/pingcap/dbt-tidb?style=for-the-badge)](https://github.com/pingcap/dbt-tidb)
 * **PyPI package**: `dbt-tidb` [![](https://badge.fury.io/py/dbt-tidb.svg)](https://badge.fury.io/py/dbt-tidb)
 * **Slack channel**: [#db-tidb](https://getdbt.slack.com/archives/C03CC86R1NY)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

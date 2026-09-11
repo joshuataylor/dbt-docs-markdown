@@ -10,9 +10,9 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 [![](/img/icons/dbt-bit.svg)](./dbt-version-compatibility.md)
 
-#### [Fusion version compatibility](./dbt-version-compatibility.md)
+#### [dbt v2 version compatibility](./dbt-version-compatibility.md)
 
-[Learn about version compatibility between the dbt Fusion engine, LSP, and VS Code extension.](./dbt-version-compatibility.md)
+[Learn about version compatibility between v2, LSP, and VS Code extension.](./dbt-version-compatibility.md)
 
 [![](/img/icons/dbt-bit.svg)](./dbt-release-tracks.md)
 
@@ -24,7 +24,7 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 #### [Upgrade versions in dbt platform](./upgrade-dbt-platform-version.md)
 
-[Instructions for upgrading your dbt platform projects to the latest version of dbt, including the Fusion Engine.](./upgrade-dbt-platform-version.md)
+[Instructions for upgrading your dbt platform projects to the latest version of dbt, including dbt v2.](./upgrade-dbt-platform-version.md)
 
 [![](/img/icons/dbt-bit.svg)](./product-lifecycles.md)
 
@@ -42,4 +42,4 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 #### [dbt version upgrade guides](./dbt-upgrade.md)
 
-[All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more.](./dbt-upgrade.md)
+[All the information you need to prepare your projects for the next version of dbt, including dbt v2. Includes guidance on new features, behavior changes, deprecations, and much more.](./dbt-upgrade.md)

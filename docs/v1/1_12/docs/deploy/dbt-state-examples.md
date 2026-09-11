@@ -8,7 +8,7 @@ The following examples use this [Jaffle Shop project](https://github.com/dbt-lab
 
 ![The Jaffle Shop DAG](/img/docs/dbt-state/dbt_state_dag.png?v=2 "The Jaffle Shop DAG")The Jaffle Shop DAG
 
-Each of the following scenarios shows how a run differs between dbt Core alone and dbt Core with dbt State, using the same command and project.
+Each of the following scenarios shows how a run differs between dbt alone and dbt with dbt State, using the same command and project.
 
 | Scenario                                                                                                                                                            | Command                                     | What dbt State changes                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -214,7 +214,7 @@ Done. PASS=0 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=12 TOTAL=12
 dbt run --target dev --select "customers"
 ```
 
-Imagine you've made a small change to the `customers` model and run it in a fresh developer schema. Without dbt State, dbt Core fails because upstream relations are missing. With dbt State, dbt [defers](./dbt-state-deferral.md) to prod for upstream models and runs only the updated `customers` model.
+Imagine you've made a small change to the `customers` model and run it in a fresh developer schema. Without dbt State, dbt v1 fails because upstream relations are missing. With dbt State, dbt [defers](./dbt-state-deferral.md) to prod for upstream models and runs only the updated `customers` model.
 
 ### Without dbt State
 
@@ -270,7 +270,7 @@ Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
 dbt run --target dev --select "customers"
 ```
 
-Suppose you create a fresh dev schema and run only the `customers` model. Without dbt State, dbt Core fails because there is no data in the schema. With dbt State, dbt knows `customers` just ran in another schema: it defers to prod for upstream models and clones `customers` because the outcome is unchanged.
+Suppose you create a fresh dev schema and run only the `customers` model. Without dbt State, dbt v1 fails because there is no data in the schema. With dbt State, dbt knows `customers` just ran in another schema: it defers to prod for upstream models and clones `customers` because the outcome is unchanged.
 
 ### Without dbt State
 

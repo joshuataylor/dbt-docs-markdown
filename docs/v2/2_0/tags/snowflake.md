@@ -18,6 +18,6 @@ Introduction
 
 Snowflake Configurations - Read this in-depth guide to learn about configurations in dbt.
 
-## [Supported Snowflake functions in dbt Fusion](../reference/resource-configs/snowflake-function-support.md)
+## [Supported Snowflake functions in dbt v2](../reference/resource-configs/snowflake-function-support.md)
 
-Check which Snowflake built-in SQL functions dbt Fusion can typecheck during static analysis.
+Check which Snowflake built-in SQL functions dbt v2 can typecheck during static analysis.

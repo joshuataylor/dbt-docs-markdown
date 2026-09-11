@@ -4,4 +4,4 @@ If you're using dbt to deploy your project and have a [Starter, Enterprise, or E
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. Read-only users can access the documentation for your project — for license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
 
-dbt developer plan and dbt Core users can use [dbt Docs](../../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt v1 users can use [dbt Docs](../../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.

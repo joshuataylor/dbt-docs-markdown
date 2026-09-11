@@ -219,7 +219,7 @@ Archived release notes for dbt from 2023
   The dbt Semantic Layer is available to [dbt Cloud Team or Enterprise](https://www.getdbt.com/) multi-tenant plans on dbt v1.6 or higher.
 
   * Team and Enterprise customers can use 1,000 Queried Metrics per month for no additional cost on a limited trial basis, subject to reasonable use limitations. Refer to [Billing](../platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) for more information.
-  * dbt Developer plans and dbt Core users can define metrics but won't be able to query them with integrated tools.
+  * dbt Developer plans and dbt v1 users can define metrics but won't be able to query them with integrated tools.
 
 ## September 2023
 
@@ -306,7 +306,7 @@ Archived release notes for dbt from 2023
 
 *  Removing prerelease versions
 
-  Previously, when dbt Labs released a new [version](../dbt-versions.md#how-dbt-core-uses-semantic-versioning) in dbt Cloud, the older patch *prerelease* version and the *latest* version remained as options in the dropdown menu available in the **Environment settings**. Now, when the *latest* version is released, the *prerelease* version will be removed and all customers remaining on it will be migrated seamlessly. There will be no interruptions to service when this migration occurs.
+  Previously, when dbt Labs released a new [version](../dbt-versions.md#how-dbt-v1-uses-semantic-versioning) in dbt Cloud, the older patch *prerelease* version and the *latest* version remained as options in the dropdown menu available in the **Environment settings**. Now, when the *latest* version is released, the *prerelease* version will be removed and all customers remaining on it will be migrated seamlessly. There will be no interruptions to service when this migration occurs.
 
   To see which version you are currently using and to upgrade, select **Deploy** in the top navigation bar and select **Environments**. Choose the preferred environment and click **Settings**. Click **Edit** to make a change to the current dbt version. dbt Labs recommends always using the latest version whenever possible to take advantage of new features and functionality.
 

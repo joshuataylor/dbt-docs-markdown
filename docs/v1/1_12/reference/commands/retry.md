@@ -17,7 +17,7 @@ If you use the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) a
 
 (Applies to dbt v1.99 and earlier)
 
-The following flags are supported when you run `dbt retry` with the dbt Core engine:
+The following flags are supported when you run `dbt retry` with the dbt v1 engine:
 
 | Flag             | Input value | Description                                                                                              | Example                                      |
 | ---------------- | ----------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
@@ -51,7 +51,7 @@ Retry references [run\_results.json](../artifacts/run-results-json.md) to determ
 
 (Applies to dbt v1.99 and earlier)
 
-`dbt retry` reuses the prior command’s selection, including any [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments. You cannot override those selectors on retry with dbt Core or the dbt platform CLI.
+`dbt retry` reuses the prior command’s selection, including any [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments. You cannot override those selectors on retry with dbt v1 or the dbt platform CLI.
 
 Example results of executing `dbt retry` after a successful `dbt run`:
 

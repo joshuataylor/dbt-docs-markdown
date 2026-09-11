@@ -1,12 +1,12 @@
-# Connect Redshift Fusion compatible
+# Connect Redshift dbt v2 compatible
 
 dbt platform
 
 dbt platform supports connecting to Redshift.
 
-## Warehouse permissions for Fusion
+## Warehouse permissions for dbt v2
 
-The Redshift database user that dbt Fusion engine uses must be able to run dbt workloads and read catalog metadata used for introspection.
+The Redshift database user that dbt v2 uses must be able to run dbt workloads and read catalog metadata used for introspection.
 
 ### Required Redshift objects
 
@@ -37,7 +37,7 @@ The following permissions are required for fundamental dbt features:
 
 ### Metadata operations
 
-Fusion queries these Redshift system relations:
+dbt v2 queries these Redshift system relations:
 
 | System relation    | Purpose                                                | Permission required       |
 | ------------------ | ------------------------------------------------------ | ------------------------- |

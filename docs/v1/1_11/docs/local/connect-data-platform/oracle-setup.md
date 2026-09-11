@@ -1,4 +1,4 @@
-# Connect Oracle to dbt Core
+# Connect Oracle to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [oracle/dbt-oracle](https://github.com/oracle/dbt-oracle) [![](https://img.shields.io/github/stars/oracle/dbt-oracle?style=for-the-badge)](https://github.com/oracle/dbt-oracle)
 * **PyPI package**: `dbt-oracle` [![](https://badge.fury.io/py/dbt-oracle.svg)](https://badge.fury.io/py/dbt-oracle)
 * **Slack channel**: [#db-oracle](https://getdbt.slack.com/archives/C01PWH4TXLY)
-* **Supported dbt Core version**: v1.2.1 and newer
+* **Supported dbt version**: v1.2.1 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Oracle 12c and higher
 

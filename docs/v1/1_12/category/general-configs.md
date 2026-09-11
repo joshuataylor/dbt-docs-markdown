@@ -68,7 +68,7 @@ The list of general configs available in dbt.
 
 ## [static\_analysis](../reference/resource-configs/static-analysis.md)
 
-[Use the static\_analysis config to control how the Fusion engine performs static SQL analysis for models, tests, unit tests, seeds, and snapshots.](../reference/resource-configs/static-analysis.md)
+[Use the static\_analysis config to control how dbt v2 performs static SQL analysis for models, tests, seeds, and snapshots.](../reference/resource-configs/static-analysis.md)
 
 ## [tags](../reference/resource-configs/tags.md)
 

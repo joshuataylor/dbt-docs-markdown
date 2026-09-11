@@ -170,7 +170,7 @@ Use dbt Copilot in Insights in two ways:
 
 ## LSP features
 
-The following Language Server Protocol (LSP) features are available for projects upgraded to Fusion:
+The following Language Server Protocol (LSP) features are available for projects upgraded to dbt v2:
 
 * **Live CTE previews:** Preview a CTE’s output for faster validation and debugging.
 

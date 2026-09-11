@@ -1,4 +1,4 @@
-# Connect Snowflake [Generally available (GA)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") Fusion compatible
+# Connect Snowflake [Generally available (GA)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
 
 dbt platform
 
@@ -23,19 +23,19 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
 dbt platform connections and credentials inherit the permissions of the accounts configured. You can customize roles and associated permissions in Snowflake to fit your company's requirements and fine-tune access to database objects in your account.
 
-Refer to [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md) for more information about customizing roles in Snowflake. To see which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
+Refer to [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md) for more information about customizing roles in Snowflake. To see which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
-## Warehouse permissions for Fusion
+## Warehouse permissions for dbt v2
 
-The Snowflake user or service account that dbt Fusion engine connects as must be able to run dbt workloads (queries, metadata, and typical materializations). Grant privileges through a Snowflake role assigned to that user.
+The Snowflake user or service account that dbt v2 connects as must be able to run dbt workloads (queries, metadata, and typical materializations). Grant privileges through a Snowflake role assigned to that user.
 
 ### Required Snowflake objects
 
@@ -44,7 +44,7 @@ Before connecting, these objects must exist:
 | Object        | Purpose                                            |
 | ------------- | -------------------------------------------------- |
 | **Account**   | Your Snowflake account identifier                  |
-| **User**      | Service account or user for Fusion                 |
+| **User**      | Service account or user for dbt v2                 |
 | **Role**      | Role assigned to the user with required privileges |
 | **Warehouse** | Virtual warehouse for compute                      |
 | **Database**  | Target database or databases for dbt models        |
@@ -83,10 +83,10 @@ The following are required permissions for dbt metadata operations:
 
 The following are conditional permissions for schema and database management:
 
-| Permission        | Object   | When required                       |
-| ----------------- | -------- | ----------------------------------- |
-| `CREATE SCHEMA`   | Database | Fusion should auto-create schemas   |
-| `CREATE DATABASE` | Account  | Fusion should auto-create databases |
+| Permission        | Object   | When required                    |
+| ----------------- | -------- | -------------------------------- |
+| `CREATE SCHEMA`   | Database | dbt should auto-create schemas   |
+| `CREATE DATABASE` | Account  | dbt should auto-create databases |
 
 ### Advanced features
 
@@ -151,9 +151,9 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
 
 ![Snowflake keypair authentication](/img/docs/dbt-platform/snowflake-keypair-auth.png?v=2 "Snowflake keypair authentication")Snowflake keypair authentication
 
-#### Fusion key pair
+#### dbt v2 key pair
 
-We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with Fusion. Fusion doesn't support legacy 3DES encryption or headerless key formats. Using older key formats may cause authentication failures.
+We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with dbt v2. dbt v2 doesn't support legacy 3DES encryption or headerless key formats. Using older key formats may cause authentication failures.
 
 If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8` error, then your private key is in the wrong format. You have two options:
 

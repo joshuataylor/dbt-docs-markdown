@@ -1,4 +1,4 @@
-# Connect Rockset to dbt Core
+# Connect Rockset to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 * **GitHub repo**: [rockset/dbt-rockset](https://github.com/rockset/dbt-rockset) [![](https://img.shields.io/github/stars/rockset/dbt-rockset?style=for-the-badge)](https://github.com/rockset/dbt-rockset)
 * **PyPI package**: `dbt-rockset` [![](https://badge.fury.io/py/dbt-rockset.svg)](https://badge.fury.io/py/dbt-rockset)
 * **Slack channel**: [#dbt-rockset](https://getdbt.slack.com/archives/C02J7AZUAMN)
-* **Supported dbt Core version**: v0.19.2 and newer
+* **Supported dbt version**: v0.19.2 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: ?
 

@@ -23,9 +23,9 @@ dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it 
 | compression                   | Set the compression algorithm.                                                                                                                                                                                                                                                                                                                   | Optional                                | SQL, Python      | `zstd`                      |
 | skip\_optimize7               | Skip the post-materialization `OPTIMIZE` operation for this model while keeping `zorder` / `liquid_clustered_by` / `auto_liquid_cluster` in the table definition. Available since dbt-databricks 1.12.2.                                                                                                                                         | Optional                                | SQL, Python      | `skip_optimize: true`       |
 
-1 `use_uniform` applies to Fusion only. `dbt-databricks` doesn't support this config yet — the adapter logs a warning and ignores the value. In `dbt-databricks`, use the [`use_managed_iceberg`](../global-configs/databricks-changes.md#use-managed-iceberg) behavior flag instead.
+1 `use_uniform` applies to dbt v2 only. `dbt-databricks` doesn't support this config yet — the adapter logs a warning and ignores the value. In `dbt-databricks`, use the [`use_managed_iceberg`](../global-configs/databricks-changes.md#use-managed-iceberg) behavior flag instead.
 
-2 When `table_format` is `iceberg`, `file_format` must be `delta`. This requirement applies to `dbt-databricks` only. In Fusion, managed Iceberg tables use `parquet`.
+2 When `table_format` is `iceberg`, `file_format` must be `delta`. This requirement applies to `dbt-databricks` only. In dbt v2, managed Iceberg tables use `parquet`.
 
 3 When `liquid_clustered_by` is enabled, dbt-databricks issues an `OPTIMIZE` (Liquid Clustering) operation after each run. To disable this behavior, set the variable `DATABRICKS_SKIP_OPTIMIZE=true`, which can be passed into the dbt run command (`dbt run --vars "{'databricks_skip_optimize': true}"`) or set as an environment variable. See [issue #802](https://github.com/databricks/dbt-databricks/issues/802).
 

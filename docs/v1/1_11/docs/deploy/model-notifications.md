@@ -23,7 +23,7 @@ Create configuration YAML files in your project for dbt to send notifications ab
 ## Prerequisites
 
 * Your dbt administrator has [enabled the appropriate account setting](#enable-access-to-model-notifications) for you.
-* Your deployment environment(s) must be on a [release track](../dbt-versions/dbt-release-tracks.md) instead of a legacy dbt Core version.
+* Your deployment environment(s) must be on a [release track](../dbt-versions/dbt-release-tracks.md) instead of a legacy dbt v1 version.
 
 ## Configure groups
 

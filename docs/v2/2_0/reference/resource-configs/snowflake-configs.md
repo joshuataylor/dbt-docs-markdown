@@ -21,9 +21,9 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../docs/local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
@@ -250,7 +250,7 @@ Learn more about `initialize` in [Snowflake's docs](https://docs.snowflake.com/e
 
 Snowflake allows you to mark certain rows of a dynamic table as immutable using the `IMMUTABLE WHERE` clause. This prevents Snowflake from applying updates or deletions to matching rows during refreshes, so historical data stays the same and refreshes run faster.
 
-From dbt Core v1.11, you can configure this using the `immutable_where` configuration. This config accepts a SQL condition expression and rows that match it are treated as immutable and won’t be updated or deleted during future refreshes.
+From dbt v1.11, you can configure this using the `immutable_where` configuration. This config accepts a SQL condition expression and rows that match it are treated as immutable and won’t be updated or deleted during future refreshes.
 
 For example, to mark data older than 1 day as immutable since historical data typically doesn't change:
 
@@ -979,7 +979,7 @@ create or replace table my_database.my_schema.my_table as (
 
 ### Dynamic table clustering
 
-Starting in dbt Core v1.11, dynamic tables support the `cluster_by` configuration. When set, dbt includes the clustering specification in the `CREATE DYNAMIC TABLE` statement.
+Starting in dbt v1.11, dynamic tables support the `cluster_by` configuration. When set, dbt includes the clustering specification in the `CREATE DYNAMIC TABLE` statement.
 
 For example:
 

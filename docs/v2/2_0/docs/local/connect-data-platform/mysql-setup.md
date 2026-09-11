@@ -1,4 +1,4 @@
-# Connect MySQL to dbt Core
+# Connect MySQL to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [dbeatty10/dbt-mysql](https://github.com/dbeatty10/dbt-mysql) [![](https://img.shields.io/github/stars/dbeatty10/dbt-mysql?style=for-the-badge)](https://github.com/dbeatty10/dbt-mysql)
 * **PyPI package**: `dbt-mysql` [![](https://badge.fury.io/py/dbt-mysql.svg)](https://badge.fury.io/py/dbt-mysql)
 * **Slack channel**: [#db-mysql-family](https://getdbt.slack.com/archives/C03BK0SHC64)
-* **Supported dbt Core version**: v0.18.0 and newer
+* **Supported dbt version**: v0.18.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: MySQL 5.7 and 8.0
 

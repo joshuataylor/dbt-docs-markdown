@@ -1,6 +1,6 @@
-# Upgrade to Fusion part 2: Making the move
+# Upgrade to dbt v2 part 2: Making the move
 
-This guide helps you implement an in-place upgrade from the latest version of dbt Core to the dbt Fusion engine in the dbt platform.
+This guide helps you implement an in-place upgrade from the latest version of dbt v1 to dbt v2 in the dbt platform.
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -8,9 +8,9 @@ This guide helps you implement an in-place upgrade from the latest version of db
 
 ## Introduction
 
-The dbt Fusion engine represents the next evolution of data transformation. dbt has been rebuilt from the ground up but at its most basic, Fusion is a new version, and moving to it is the same as upgrading between dbt Core versions in the dbt platform. Once your project is Fusion ready, it's only a matter of pulling a few levers to make the move, but you have some flexibility in how you do so, especially in your development environments.
+dbt v2 represents the next evolution of data transformation. dbt has been rebuilt from the ground up but at its most basic, dbt v2 is a new version, and moving to it is the same as upgrading between dbt v1 versions in the dbt platform. Once your project is dbt v2 ready, it's only a matter of pulling a few levers to make the move, but you have some flexibility in how you do so, especially in your development environments.
 
-Once you complete the Fusion migration, your team will benefit from:
+Once you complete the dbt v2 migration, your team will benefit from:
 
 * ⚡ Up to 30x faster parsing and compilation
 * 💰 30%+ reduction in warehouse costs (with [dbt State](../docs/deploy/dbt-state-about.md))
@@ -53,46 +53,46 @@ Before upgrading your development environment, confirm:
 
 * You have a developer license in dbt platform
 
-* Fusion has been enabled for your account
+* dbt v2 has been enabled for your account
 
 * You have appropriate permissions to modify environments (see [Assign upgrade access](https://docs.getdbt.com/guides/upgrade-to-v2?step=3#assign-upgrade-access-optional) if restricted)
 
 ## Upgrade your development environment
 
-With your project prepared and tested on the **v1 Latest** release track, you're ready to upgrade your development environment to Fusion. The dbt platform provides a guided upgrade assistant that walks you through the process and helps validate your project is Fusion ready.
+With your project prepared and tested on the **v1 Latest** release track, you're ready to upgrade your development environment to dbt v2. The dbt platform provides a guided upgrade assistant that walks you through the process and helps validate your project is dbt v2 ready.
 
 Start with development
 
-Always upgrade your development environment first before moving to production. This lets you and your team test Fusion in a safe environment and address any issues before they affect production workflows.
+Always upgrade your development environment first before moving to production. This lets you and your team test dbt v2 in a safe environment and address any issues before they affect production workflows.
 
 ### Assign upgrade access (optional)
 
-The Fusion upgrade assistant is controlled by two account-level settings. An [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) must first enable the readiness experience, and can optionally restrict which users can execute the upgrade.
+The dbt v2 upgrade assistant is controlled by two account-level settings. An [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) must first enable the readiness experience, and can optionally restrict which users can execute the upgrade.
 
-#### Enable the Fusion readiness experience
+#### Enable the dbt v2 readiness experience
 
 The upgrade assistant and readiness panel only appear after an account admin enables this setting:
 
 1. Navigate to **Account settings** → **Account**.
 2. Click **Edit** and scroll to the **Settings** section.
-3. Select the checkbox next to **Enable Fusion readiness & upgrade features**.
+3. Select the checkbox next to **Enable dbt v2 readiness & upgrade features**.
 4. Click **Save**.
 
-Once enabled, all users can see the readiness panel and the **Start Fusion upgrade** assistant (subject to their existing permissions).
+Once enabled, all users can see the readiness panel and the **Start dbt v2 upgrade** assistant (subject to their existing permissions).
 
 #### Restrict who can execute upgrades (optional, Enterprise only)
 
 By default, any user who can see the upgrade assistant can use it. To restrict upgrade execution to designated users:
 
 1. In **Account settings** → **Account**, click **Edit**.
-2. Select the checkbox next to **Enable restricted Fusion upgrade permissions**.
+2. Select the checkbox next to **Enable restricted dbt v2 upgrade permissions**.
 3. Click **Save**.
 
-When this is enabled, only users with the **v2 Migration admin** [permission set](../docs/platform/manage-access/enterprise-permissions.md#v2-migration-admin) can execute upgrades. To assign this permission:
+When this is enabled, only users with the **v2 Migration Admin** [permission set](../docs/platform/manage-access/enterprise-permissions.md#v2-migration-admin) can execute upgrades. To assign this permission:
 
 1. Navigate to **Account settings** → **Groups** and choose the group to grant access.
 2. Click **Edit** and scroll to **Access and permissions**.
-3. Click **Add permission** and select **v2 Migration admin** from the dropdown.
+3. Click **Add permission** and select **v2 Migration Admin** from the dropdown.
 4. Select the project(s) users should access.
 5. Click **Save**.
 
@@ -100,12 +100,12 @@ For more details on access control, see [Assign access to upgrade](../docs/dbt-v
 
 ### Step 1: Start the upgrade assistant
 
-Launch the Fusion upgrade workflow from your project:
+Launch the dbt v2 upgrade workflow from your project:
 
 1. Log into dbt platform and navigate to your project.
-2. From the project homepage or sidebar, click **Start Fusion upgrade** or **Get started**.
+2. From the project homepage or sidebar, click **Start dbt v2 upgrade** or **Get started**.
 
-![Start the Fusion upgrade from the project homepage](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the Fusion upgrade from the project homepage")Start the Fusion upgrade from the project homepage
+![Start the dbt v2 upgrade from the project homepage](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the dbt v2 upgrade from the project homepage")Start the dbt v2 upgrade from the project homepage
 
 You'll be redirected to the Studio IDE with the upgrade assistant visible at the top.
 
@@ -124,9 +124,9 @@ Even if you resolved deprecations in Part 1, run a final check to ensure nothing
    * **No warnings found**: Skip to Step 4 to continue upgrading.
    * **Warnings found**: Continue to Step 3 to resolve them.
 
-Inconsistent Fusion warnings and `dbt-autofix` logs
+Inconsistent dbt v2 warnings and `dbt-autofix` logs
 
-You may see Fusion deprecation warnings about packages not being compatible with Fusion, while `dbt autofix` indicates they are compatible. Use `dbt autofix` as the source of truth because it has additional context that Fusion warnings don't have yet. This conflict is temporary and will be resolved as soon as we implement and roll out `dbt-autofix`'s enhanced compatibility detection to Fusion warnings.
+You may see dbt v2 deprecation warnings about packages not being compatible with dbt v2, while `dbt autofix` indicates they are compatible. Use `dbt autofix` as the source of truth because it has additional context that dbt v2 warnings don't have yet. This conflict is temporary and will be resolved as soon as we implement and roll out `dbt-autofix`'s enhanced compatibility detection to dbt v2 warnings.
 
 ### Step 3: Resolve remaining deprecations
 
@@ -147,30 +147,30 @@ Manual fixes required?
 
 If the autofix tool can't resolve all deprecations automatically, you'll need to fix them manually. Review the warning messages for specific guidance, make the necessary changes in your code, then run **Check deprecation warnings** again.
 
-### Step 4: Enable Fusion
+### Step 4: Enable dbt v2
 
 After you resolve all deprecations, upgrade your development environment:
 
-1. Click the **Enable Fusion** button at the top of the Studio IDE.
+1. Click the **Enable dbt v2** button at the top of the Studio IDE.
 2. Confirm the upgrade when prompted.
 3. Wait for the environment to update (this typically takes just a few seconds).
 
-Your development environment is now running on Fusion!
+Your development environment is now running on dbt v2!
 
 ### Step 5: Restart the IDE
 
-After upgrading, all users need to restart their IDE to connect to the new Fusion-powered environment:
+After upgrading, all users need to restart their IDE to connect to the new dbt v2-powered environment:
 
 1. If you're currently in the Studio IDE, refresh your browser window.
 2. Notify your team members that they also need to restart their IDEs.
 
 ### Step 6: Verify the upgrade
 
-Confirm your development environment is running Fusion:
+Confirm your development environment is running dbt v2:
 
 1. Open or create a dbt model file in the Studio IDE.
 
-2. Look for Fusion-powered [features](../docs/dbt/supported-features.md#features-and-capabilities):
+2. Look for dbt v2-powered [features](../docs/dbt/supported-features.md#features-and-capabilities):
 
    * Faster parsing and compilation times
    * Enhanced SQL validation and error messages
@@ -196,13 +196,13 @@ Before declaring victory, test your typical development workflows:
 
 Share feedback
 
-If you encounter any unexpected behavior or have feedback about the Fusion experience, share it with your account team or [dbt Support](../docs/dbt-support.md).
+If you encounter any unexpected behavior or have feedback about the dbt v2 experience, share it with your account team or [dbt Support](../docs/dbt-support.md).
 
 ### What about production?
 
-Your development environment is now on Fusion, but your production environment and deployment jobs are still running on dbt Core. This is intentional as it gives you and your team time to:
+Your development environment is now on dbt v2, but your production environment and deployment jobs are still running on dbt v1. This is intentional as it gives you and your team time to:
 
-* Test Fusion thoroughly in development.
+* Test dbt v2 thoroughly in development.
 * Build confidence in the new engine.
 * Identify and resolve any project-specific issues.
 * Train team members on any workflow changes.
@@ -211,13 +211,13 @@ When you're ready to upgrade production, you'll update your deployment environme
 
 ## Upgrade staging and intermediate environments
 
-After successfully upgrading and testing your development environment, the next step is upgrading your staging or other intermediate deployment environments. These environments serve as a critical validation layer before promoting Fusion to production, allowing you to test with production-like data and workflows while limiting risk.
+After successfully upgrading and testing your development environment, the next step is upgrading your staging or other intermediate deployment environments. These environments serve as a critical validation layer before promoting dbt v2 to production, allowing you to test with production-like data and workflows while limiting risk.
 
 Why upgrade staging first?
 
 Staging environments provide:
 
-* A final validation layer for Fusion with production-scale data
+* A final validation layer for dbt v2 with production-scale data
 * The ability to test scheduled jobs and deployment workflows
 * An opportunity to verify integrations and downstream dependencies
 * A safe environment to identify performance characteristics before production
@@ -226,7 +226,7 @@ Staging environments provide:
 
 A [staging environment](../docs/deploy/deploy-environments.md#staging-environment) is a deployment environment that mirrors your production setup but uses non-production data or limited access credentials. It enables your team to test deployment workflows, scheduled jobs, and data transformations without affecting production systems.
 
-If you don't have a staging environment yet, consider creating one before upgrading production to Fusion. It provides an invaluable testing ground.
+If you don't have a staging environment yet, consider creating one before upgrading production to dbt v2. It provides an invaluable testing ground.
 
 ### Step 1: Navigate to environment settings
 
@@ -242,7 +242,7 @@ Access the settings for your staging or intermediate environment:
 
 ### Step 2: Update the dbt version
 
-Change your staging environment to use the Fusion release track:
+Change your staging environment to use the dbt v2 release track:
 
 1. In the environment settings, scroll to the **dbt version** section.
 2. Click the **dbt version** dropdown menu.
@@ -251,11 +251,11 @@ Change your staging environment to use the Fusion release track:
 
 ![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable from the dbt version dropdown")Select v2 Stable from the dbt version dropdown
 
-Your staging environment is now configured to use Fusion! Any jobs associated with this environment will use Fusion on their next run.
+Your staging environment is now configured to use dbt v2! Any jobs associated with this environment will use dbt v2 on their next run.
 
 ### Step 3: Run a test job
 
-Validate that Fusion works correctly in your staging environment by running a job:
+Validate that dbt v2 works correctly in your staging environment by running a job:
 
 1. From the **Environments** page, click on your staging environment.
 2. Select an existing job or click **Create job** to make a new one.
@@ -269,7 +269,7 @@ If you have scheduled jobs in your staging environment, monitor their next sched
 1. Navigate to **Deploy** → **Jobs** and filter to your staging environment.
 2. Wait for scheduled jobs to run automatically (or trigger them manually).
 3. Review job run history for any unexpected failures or warnings.
-4. Compare run times to previous dbt Core runs. You should see significant improvements.
+4. Compare run times to previous dbt v1 runs. You should see significant improvements.
 
 ### Step 5: Validate integrations and dependencies
 
@@ -286,7 +286,7 @@ Found an issue?
 
 If you encounter problems in staging:
 
-* Review the [Fusion limitations](../docs/dbt/supported-features.md#limitations) to see if it's a known issue.
+* Review the [v2 limitations](../docs/dbt/supported-features.md#limitations) to see if it's a known issue.
 * Check job logs for specific error messages.
 * Test the same models in your development environment to isolate the problem.
 * Contact [dbt Support](../docs/dbt-support.md) or your account team for assistance.
@@ -307,11 +307,11 @@ Don't rush this phase. Thorough testing in staging prevents production disruptio
 
 ## Upgrade your production environment
 
-Congratulations! You've successfully upgraded development and staging environments and you're now ready for the final step: upgrading your production environment to the dbt Fusion engine.
+Congratulations! You've successfully upgraded development and staging environments and you're now ready for the final step: upgrading your production environment to dbt v2.
 
 Production environment upgrade considerations
 
-Upgrading production is a critical operation. While Fusion is production ready and has been thoroughly tested in your dev and staging environments, follow these best practices:
+Upgrading production is a critical operation. While dbt v2 is production ready and has been thoroughly tested in your dev and staging environments, follow these best practices:
 
 * Plan the upgrade during a low-traffic window to minimize impact.
 * Notify stakeholders about the maintenance window.
@@ -341,7 +341,7 @@ Access your production environment configuration:
 
 ### Step 3: Upgrade to v2 Stable
 
-Update your production environment to use Fusion:
+Update your production environment to use dbt v2:
 
 1. In the environment settings, scroll to the **dbt version** section.
 2. Click the **dbt version** dropdown menu.
@@ -351,7 +351,7 @@ Update your production environment to use Fusion:
 
 ![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable for production")Select v2 Stable for production
 
-Your production environment is now running on Fusion!
+Your production environment is now running on dbt v2!
 
 ### Step 4: Run an immediate test job
 
@@ -372,11 +372,11 @@ Validate the upgrade by running a job:
 
 If the job succeeds, your production upgrade is successful!
 
-Enable the Fusion readiness panel
+Enable the dbt v2 readiness panel
 
-The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](./prepare-v2-upgrade.md?step=2) for setup steps.
+The dbt v2 readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable dbt v2 readiness features](./prepare-v2-upgrade.md?step=2) for setup steps.
 
-If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
+If you have access to dbt Wizard, use the [dbt Wizard's dbt v2 migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
 ### Step 5: Enable dbt State (optional but recommended) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -384,7 +384,7 @@ If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflo
 
 State-aware orchestration is now dbt State
 
-[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
@@ -409,12 +409,12 @@ Ensure all systems dependent on your production data still function correctly:
 
 ### Step 8: Update any remaining jobs with version overrides
 
-Some jobs might have [version overrides](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version) set from earlier testing. Now that production is on Fusion, remove these overrides:
+Some jobs might have [version overrides](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version) set from earlier testing. Now that production is on dbt v2, remove these overrides:
 
 1. Navigate to **Orchestration** → **Jobs**.
 2. Review each job's settings.
 3. If a job has a version override (showing in the **dbt version** section), click **Edit**.
-4. Remove the override to let the job inherit the environment's Fusion setting.
+4. Remove the override to let the job inherit the environment's dbt v2 setting.
 5. Click **Save**.
 
 ### Rollback procedure
@@ -425,15 +425,15 @@ If you encounter critical issues in production, you can revert your dbt version:
 2. Click **Edit**.
 3. Change **dbt version** from **v2 Stable** back to **v1 Latest**.
 4. Click **Save**.
-5. Jobs will use dbt Core on their next run.
+5. Jobs will use dbt v1 on their next run.
 
 Rollback impact
 
-Rolling back to **v1 Latest** will disable Fusion-specific features. Only rollback if you're experiencing production-critical issues.
+Rolling back to **v1 Latest** will disable dbt v2-specific features. Only rollback if you're experiencing production-critical issues.
 
 ## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Now that your project is running on Fusion, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into Fusion. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical. For parity expectations, refer to [Rule parity with SQLFluff](../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
+Now that your project is running on dbt v2, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into dbt v2. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical. For parity expectations, refer to [Rule parity with SQLFluff](../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
 
 ### Basic usage
 
@@ -457,15 +457,15 @@ See the [`dbt lint` reference](../reference/commands/lint.md?version=2.0) for th
 
 🎉 Congratulations!
 
-You've successfully upgraded your entire dbt platform project to Fusion!
+You've successfully upgraded your entire dbt platform project to dbt v2!
 
 For your next steps:
 
 * **Optimize further**: Explore [dbt State configurations](../reference/resource-configs/dbt-state-configs.md) to fine-tune refresh intervals.
 * **Monitor savings**: Use [Cost Insights](../docs/explore/cost-insights.md) to track models built vs. reused.
-* **Train your team**: Share Fusion features and best practices with your team.
-* **Explore new features**: Check out column-level lineage, live CTE previews, and other Fusion-powered capabilities.
+* **Train your team**: Share dbt v2 features and best practices with your team.
+* **Explore new features**: Check out column-level lineage, live CTE previews, and other dbt v2-powered capabilities.
 
 Share your success
 
-We'd love to hear about your Fusion upgrade experience! Share feedback with your account team or join the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/) to discuss Fusion with other users.
+We'd love to hear about your dbt v2 upgrade experience! Share feedback with your account team or join the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/) to discuss dbt v2 with other users.

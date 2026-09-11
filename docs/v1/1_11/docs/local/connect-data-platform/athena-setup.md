@@ -1,4 +1,4 @@
-# Connect Athena to dbt Core
+# Connect Athena to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-athena` [![](https://badge.fury.io/py/dbt-athena.svg)](https://badge.fury.io/py/dbt-athena)
 * **Slack channel**: [#db-athena](https://getdbt.slack.com/archives/C013MLFR7BQ)
-* **Supported dbt Core version**: v1.3.0 and newer
+* **Supported dbt version**: v1.3.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: engine version 2 and 3
 

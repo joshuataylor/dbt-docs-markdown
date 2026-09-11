@@ -1,4 +1,4 @@
-# Quickstart for the dbt Fusion engine
+# Quickstart for dbt v2
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -8,33 +8,33 @@
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-The dbt Fusion engine is a powerful new approach to classic dbt ideas! Completely rebuilt from the ground up in Rust, Fusion lets you compile and run your dbt projects faster than ever — often in seconds.
+dbt v2 is a powerful new approach to classic dbt ideas! Completely rebuilt from the ground up in Rust, dbt v2 lets you compile and run your dbt projects faster than ever — often in seconds.
 
-This quickstart guide will get you from zero to running your first dbt project with Fusion + VS Code. By the end, you’ll have:
+This quickstart guide will get you from zero to running your first dbt project with dbt v2 + VS Code. By the end, you’ll have:
 
-* A working dbt project (`jaffle_shop`) built with the dbt Fusion engine
+* A working dbt project (`jaffle_shop`) built with dbt v2
 * The dbt VS Code extension installed and connected
 * The ability to preview, compile, and run dbt commands directly from your IDE
 
-### About the dbt Fusion engine
+### About dbt v2
 
-Fusion and the features it provides are available in multiple environments:
+dbt v2 and the features it provides are available in multiple environments:
 
-| Environment              | How to use Fusion                                                                                                                                                 |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Studio IDE**           | Fusion is automatically enabled; just [upgrade your environment(s)](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine). |
-| **Local CLI**            | [Install dbt Fusion engine](../docs/local/install-dbt.md?version=2) locally following this guide.                                            |
-| **VS Code / Cursor IDE** | [Install the dbt extension](../docs/install-dbt-extension.md) to unlock Fusion's interactive power in your editor.                           |
+| Environment              | How to use dbt v2                                                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Studio IDE**           | dbt v2 is automatically enabled; just [upgrade your environment(s)](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2). |
+| **Local CLI**            | [Install dbt v2](../docs/local/install-dbt.md?version=2) locally following this guide.                                            |
+| **VS Code / Cursor IDE** | [Install the dbt extension](../docs/install-dbt-extension.md) to unlock dbt v2's interactive power in your editor.                |
 
-To learn more about which tool is best for you, see the [Fusion availability](../docs/dbt/dbt-availability.md) page. To learn about the dbt Fusion engine and how it works, read more [about the dbt Fusion engine](../docs/introduction.md).
+To learn more about which tool is best for you, see the [v2 availability](../docs/dbt/dbt-availability.md) page. To learn about dbt v2 and how it works, read more [about dbt v2](../docs/introduction.md).
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 
   *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-* You need a macOS (Terminal), Linux, or Windows (Powershell) machine to run the dbt Fusion engine.
+* You need a macOS (Terminal), Linux, or Windows (Powershell) machine to run dbt v2.
 
 * You need to have [Visual Studio Code](https://code.visualstudio.com/) installed. The [Cursor](https://www.cursor.com/en) code editor will also work, but these instructions will focus on VS Code.
 
@@ -100,7 +100,7 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 By following this guide, you will:
 
 * Set up a fully functional dbt environment with an operational project
-* Install and use the dbt Fusion engine + dbt VS Code extension
+* Install and use dbt v2 + dbt VS Code extension
 * Run dbt commands from your IDE or terminal
 * Preview data, view lineage, and write SQL faster with autocomplete, and more!
 
@@ -108,25 +108,25 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 
 ## Installation
 
-It's easy to think of the dbt Fusion engine and the dbt extension as two different products, but they're a powerful combo that works together to unlock the full potential of dbt. Think of the dbt Fusion engine as exactly that — an engine. The dbt extension and VS Code are the chassis, and together they form a powerful vehicle for transforming your data.
+It's easy to think of dbt v2 and the dbt extension as two different products, but they're a powerful combo that works together to unlock the full potential of dbt. Think of dbt v2 as exactly that — an engine. The dbt extension and VS Code are the chassis, and together they form a powerful vehicle for transforming your data.
 
 info
 
-* You can install the dbt Fusion engine and use it standalone with the CLI.
-* You *cannot* use the dbt extension without Fusion installed.
-* Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt platform CLI or dbt Core), you can use `dbtf` as an unambiguous alias for Fusion.
+* You can install dbt v2 and use it standalone with the CLI.
+* You *cannot* use the dbt extension without dbt v2 installed.
+* Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt platform CLI or dbt v1), you can use `dbtf` as an unambiguous alias for dbt v2.
 
-The following are the essential steps from the [dbt Fusion engine](../docs/local/install-dbt.md?version=2) and [extension](../docs/install-dbt-extension.md) installation guides:
+The following are the essential steps from the [dbt v2](../docs/local/install-dbt.md?version=2) and [extension](../docs/install-dbt-extension.md) installation guides:
 
-1. Run the following commands to install the dbt Fusion engine CLI:
+1. Run the following commands to install the dbt v2 CLI:
 
    ```shell
    python -m pip install --pre dbt
    ```
 
-### Verify the dbt Fusion engine installation
+### Verify the dbt v2 installation
 
-1. After installation, open a new command-line window to confirm that Fusion installed correctly by checking the version.
+1. After installation, open a new command-line window to confirm that dbt v2 installed correctly by checking the version.
 
    ```bash
    dbt --version
@@ -154,7 +154,7 @@ The dbt VS Code extension is available in the [Visual Studio extension marketpla
 
 ## Initialize the Jaffle Shop project
 
-Now let's create your first dbt project powered by Fusion!
+Now let's create your first dbt project powered by dbt v2!
 
 1. Run `dbt init` in your terminal from the directory where you want to create the project. The `dbt init` command creates an example project and walks you through setting up a connection profile.
 
@@ -192,19 +192,19 @@ Now let's create your first dbt project powered by Fusion!
 
 ## Explore with the dbt VS Code extension
 
-The dbt VS Code extension (available for VS Code and Cursor) compiles and builds your project with the dbt Fusion engine, a powerful and blazing fast rebuild of dbt from the ground up.
+The dbt VS Code extension (available for VS Code and Cursor) compiles and builds your project with dbt v2, a powerful and blazing fast rebuild of dbt from the ground up.
 
-Want to see Fusion in action? Check out the following video to get a sense of how it works:
+Want to see dbt v2 in action? Check out the following video to get a sense of how it works:
 
-[dbt Fusion + VS Code extension walkthrough](https://app.storylane.io/share/a1rkqx0mbd7a)
+[dbt v2 + VS Code extension walkthrough](https://app.storylane.io/share/a1rkqx0mbd7a)
 
-Now that your project works, open it in VS Code or Cursor and see Fusion in action:
+Now that your project works, open it in VS Code or Cursor and see dbt v2 in action:
 
 1. Open the **View** menu and click **Command Palette**. Enter **Workspaces: Add Folder to Workspace**.
 
 2. Select your `jaffle_shop` folder. If you don't add the root folder of the dbt project to the workspace, the [dbt language server](https://docs.getdbt.com/blog/dbt-fusion-engine-components#the-dbt-vs-code-extension-and-language-server) (LSP) will not run. The LSP enables features like autocomplete, hover info, and inline error highlights.
 
-3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the Fusion binary, confirming your project is open, checking Fusion compatibility, and registering. If you haven't already upgraded your project to Fusion, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
+3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the dbt v2 binary, confirming your project is open, checking dbt v2 compatibility, and registering. If you haven't already upgraded your project to dbt v2, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
 
 4. Open a model file to see the definition for the `orders` model. This is the model we'll use in all of the examples below.
 
@@ -276,7 +276,7 @@ Testing, testing... is this mic on? It is and it's ready to execute your command
 
 Try choosing some of them and see what they do 😎
 
-This is just the start. There is so much more available and so much more coming. Be sure to check out our resources for all the information about the dbt Fusion engine and the dbt VS Code extension!
+This is just the start. There is so much more available and so much more coming. Be sure to check out our resources for all the information about dbt v2 and the dbt VS Code extension!
 
 ## Troubleshooting
 
@@ -380,34 +380,34 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](../docs/local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt v2 executable. If necessary, you can also install dbt v2 directly using these instructions: [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2)
 
- dbt Fusion binary not found at the configured path
+ dbt v2 binary not found at the configured path
 
-If the extension reports that the dbt Fusion engine binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
+If the extension reports that the dbt v2 binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
 
-* Verify that [`dbt.fusionPath`](../docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
-* If you haven't installed Fusion manually, clear the setting and let the extension download and manage it for you.
-* To install manually, follow [Install the Fusion CLI](../docs/local/install-dbt.md?version=2).
+* Verify that [`dbt.fusionPath`](../docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid dbt v2 binary.
+* If you haven't installed dbt v2 manually, clear the setting and let the extension download and manage it for you.
+* To install manually, follow [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2).
 
- dbt Fusion version is not compatible with this extension
+ dbt v2 version is not compatible with this extension
 
-If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
+If the extension reports that the installed dbt v2 version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
 
-1. Run `dbt --version` to check your installed Fusion version.
+1. Run `dbt --version` to check your installed dbt v2 version.
 2. Compare it against the [version compatibility matrix](../docs/dbt-versions/dbt-version-compatibility.md#compatibility-matrix) for your extension version.
-3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
+3. Update dbt v2 or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
 
- dbt Fusion crashes on startup
+ dbt v2 crashes on startup
 
-If the extension reports that Fusion crashed on startup, confirm the binary runs on its own:
+If the extension reports that dbt v2 crashed on startup, confirm the binary runs on its own:
 
-1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](../docs/local/install-dbt.md?version=2).
+1. Run `dbt --version` in your terminal. If this fails, reinstall dbt v2 using [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2).
 2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
 
- A known-bad dbt Fusion version is installed
+ A known-bad dbt v2 version is installed
 
-If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](../docs/dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+If the extension warns that your installed dbt v2 version has a known regression, dbt Labs has flagged that release as [known-bad](../docs/dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
 
 For standalone installations:
 
@@ -430,9 +430,9 @@ This should resolve the error and open your dbt project by opening the workspace
 
  Manifest cannot be downloaded from the dbt platform
 
-If the dbt VS Code extension cannot download the manifest from the dbt platform or you get `warning: dbt1200: Failed to download manifest` using Fusion locally, you are probably having DNS-related issues.
+If the dbt VS Code extension cannot download the manifest from the dbt platform or you get `warning: dbt1200: Failed to download manifest` using dbt v2 locally, you are probably having DNS-related issues.
 
-To confirm this, do a DNS lookup for the host Fusion is trying to download from (for example, prodeu2.blob.core.windows.net) by using `dig` on Linux/Mac or `nslookup` on Windows.
+To confirm this, do a DNS lookup for the host dbt v2 is trying to download from (for example, prodeu2.blob.core.windows.net) by using `dig` on Linux/Mac or `nslookup` on Windows.
 
 If this doesn't return an IP address, the likely reason is that your company uses the same cloud provider with private endpoints for cloud resources, and DNS requests for these are forwarded to private DNS zones.
 
@@ -445,6 +445,6 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 * [About the dbt extension](../docs/about-dbt-extension.md)
 * [Supported features matrix](../docs/dbt/supported-features.md)
 * [Install dbt](../docs/local/install-dbt.md)
-* [Quickstart for Fusion](./dbt.md?step=1)
+* [Quickstart for dbt v2](./dbt.md?step=1)
 * [Upgrade guide](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

@@ -5,7 +5,7 @@
 * ⌚ dbt keeps track of how **long each model took to build**, when it started, when it finished, its completion status (error, warn, or success), its materialization type, and *much* more.
 * 🖼️ This information is stored in a couple files which dbt calls **artifacts**.
 * 📊 Artifacts contain a ton of information in JSON format, so aren’t easy to read, but **dbt** packages the most useful bits of information into a tidy **visualization** for you.
-* ☁️ If you’re not using dbt platform, we can still use the output of the **dbt Core CLI to understand our runs**.
+* ☁️ If you’re not using dbt platform, we can still use the output of the **dbt CLI to understand our runs**.
 
 ### Model timing
 
@@ -27,9 +27,9 @@ That’s where dbt’s Model Timing visualization comes in extremely handy. If w
 
 ![Resource details table showing each model’s start time, end time, duration, execution phase, critical path status, type, and folder](/img/docs/dbt-platform/deployment/model-timing-resource-details.png?v=2 "Resource details table showing each model’s start time, end time, duration, execution phase, critical path status, type, and folder")Resource details table showing each model’s start time, end time, duration, execution phase, critical path status, type, and folder
 
-If you aren’t using dbt, that’s okay! We don’t get a fancy visualization out of the box, but we can use the output from the dbt Core CLI to check our model times, and it’s a great opportunity to become familiar with that output.
+If you aren’t using dbt, that’s okay! We don’t get a fancy visualization out of the box, but we can use the output from the dbt v1 CLI to check our model times, and it’s a great opportunity to become familiar with that output.
 
-### dbt Core CLI output
+### dbt v1 CLI output
 
 If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you’ve seen some output like below. Let’s take a closer look at how to read this.
 
@@ -49,6 +49,6 @@ If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you�
 
 ### dbt Artifacts package
 
-* 🎨  Lastly, when it comes to examining your dbt runs, you’re **not stuck without fancy visuals** if you’re using dbt Core. It’s not set up out-of-the-box, but if you want to introspect your project more deeply, you can use the [dbt Artifacts package](https://github.com/brooklyn-data/dbt_artifacts).
+* 🎨  Lastly, when it comes to examining your dbt runs, you’re **not stuck without fancy visuals** if you’re using dbt v1. It’s not set up out-of-the-box, but if you want to introspect your project more deeply, you can use the [dbt Artifacts package](https://github.com/brooklyn-data/dbt_artifacts).
 * 👩‍🎨  This provides models you can **visualize for every aspect of your project** at a very granular level.
 * ⌚  You can use it to **create your own model timing visualization** in your BI tool, and any other reports you need to keep an eye on your materialization strategy.

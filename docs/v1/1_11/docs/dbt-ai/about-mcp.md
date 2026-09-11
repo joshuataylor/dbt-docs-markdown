@@ -41,7 +41,7 @@ The self-hosted MCP server provides the best experience for development workflow
 The [self-hosted MCP server](./setup-local-mcp.md) runs on your machine and requires installing `uvx` (which installs dbt-mcp locally) and then running `uvx dbt-mcp` to start the server. You don't need to clone the repository unless you want to contribute to dbt MCP. The self-hosted MCP server provides:
 
 * Full access to dbt commands (`dbt run`, `dbt build`, `dbt test`, and more)
-* Support for dbt Core, dbt platform CLI, and dbt Fusion engine
+* Support for dbt v1, dbt platform CLI, and dbt v2
 * Ability to work with local dbt projects with or without a dbt platform account
 * Optional integration with dbt platform APIs for metadata discovery and Semantic Layer access
 
@@ -62,7 +62,7 @@ info
 
 Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
+When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
 
 If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
@@ -70,7 +70,7 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 The dbt MCP server has access to many parts of the dbt experience related to development, deployment, and discovery. Here are the categories of tools supported based on what form of the MCP server you connect to as well as detailed information on exact commands or queries available to the LLM.
 
-Self-hosted MCP is required for dbt platform CLI commands, Codegen, and Administrative API; remote MCP supports Semantic Layer, SQL, Discovery, Administrative API, and Fusion tools only.
+Self-hosted MCP is required for dbt platform CLI commands, Codegen, and Administrative API; remote MCP supports Semantic Layer, SQL, Discovery, Administrative API, and dbt v2 tools only.
 
 Note that access to the [dbt APIs](../dbt-apis/overview.md) is limited depending on your [plan type](https://www.getdbt.com/pricing).
 
@@ -82,7 +82,7 @@ Note that access to the [dbt APIs](../dbt-apis/overview.md) is limited depending
 | Metadata Discovery        | ✅          | ✅     |
 | Administrative API        | ✅          | ✅     |
 | Codegen Tools             | ✅          | ❌     |
-| Fusion Tools              | ✅          | ✅     |
+| dbt v2 Tools              | ✅          | ✅     |
 | Product Docs Tools        | ✅          | ✅     |
 | MCP Server Metadata Tools | ✅          | ✅     |
 

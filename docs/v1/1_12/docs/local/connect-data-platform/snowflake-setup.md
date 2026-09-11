@@ -1,6 +1,6 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect Snowflake to dbt Core
+# Connect Snowflake to dbt v1
 
 Local development
 
@@ -8,14 +8,14 @@ Snowflake enforcing strong authentication
 
 Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
 
-[Fusion compatible](./snowflake-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./snowflake-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 * **Maintained by**: dbt Labs
 * **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-snowflake` [![](https://badge.fury.io/py/dbt-snowflake.svg)](https://badge.fury.io/py/dbt-snowflake)
 * **Slack channel**: [#db-snowflake](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**: v0.8.0 and newer
+* **Supported dbt version**: v0.8.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
@@ -50,9 +50,9 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
@@ -131,7 +131,7 @@ my-snowflake-db:
 
 ### Key pair authentication
 
-To use key pair authentication, specify the `private_key_path` in your configuration, avoiding the use of a `password`. If needed, you can add a `private_key_passphrase`. **Note**: Unencrypted private keys are accepted, so add a passphrase only if necessary. However, for dbt Core versions 1.5 and 1.6, configurations using a private key in PEM format (for example, keys enclosed with BEGIN and END tags) are not supported. In these versions, you must use the `private_key_path` to reference the location of your private key file.
+To use key pair authentication, specify the `private_key_path` in your configuration, avoiding the use of a `password`. If needed, you can add a `private_key_passphrase`. **Note**: Unencrypted private keys are accepted, so add a passphrase only if necessary. However, for dbt v1.5 and v1.6, configurations using a private key in PEM format (for example, keys enclosed with BEGIN and END tags) are not supported. In these versions, you must use the `private_key_path` to reference the location of your private key file.
 
 dbt can specify a `private_key` directly as a string instead of a `private_key_path`. This `private_key` string can be in either Base64-encoded DER format, representing the key bytes, or in plain-text PEM format. Refer to [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth) for more info on how they generate the key.
 
@@ -150,7 +150,7 @@ my-snowflake-db:
       role: [user role]
 
       # Keypair config
-      # For dbt Fusion engine, make sure to read requirements about using PKCS#8 format with AES-256 encryption in the following section.
+      # For dbt v2, make sure to read requirements about using PKCS#8 format with AES-256 encryption in the following section.
       private_key_path: [path/to/private.key]
       # or private_key instead of private_key_path
       private_key_passphrase: [passphrase for the private key, if key is encrypted]
@@ -170,9 +170,9 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
-#### dbt Fusion engine key formats
+#### dbt v2 key formats
 
-Fusion requires modern key formats and doesn't support legacy 3DES encryption or headerless keys. We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with Fusion. Using older key formats may cause authentication failures.
+dbt v2 requires modern key formats and doesn't support legacy 3DES encryption or headerless keys. We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with dbt v2. Using older key formats may cause authentication failures.
 
 If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8` error, then your private key is in the wrong format. You have two options:
 
@@ -287,11 +287,11 @@ Please also note that the Snowflake account name should only be the `account_nam
 
 ### client\_session\_keep\_alive
 
-The `client_session_keep_alive` feature is intended to keep Snowflake sessions alive beyond the typical 4 hour timeout limit. The snowflake-connector-python implementation of this feature can prevent processes that use it (read: dbt) from exiting in specific scenarios. If you encounter this in your deployment of dbt, please let us know in [the GitHub issue](https://github.com/dbt-labs/dbt-core/issues/1271), and work around it by disabling the keepalive.
+The `client_session_keep_alive` feature is intended to keep Snowflake sessions alive beyond the typical 4 hour timeout limit. The snowflake-connector-python implementation of this feature can prevent processes that use it (read: dbt) from exiting in specific scenarios. If you encounter this in your deployment of dbt, please let us know in [the GitHub issue](https://github.com/dbt-labs/dbt/issues/1271), and work around it by disabling the keepalive.
 
 ### platform\_detection\_timeout\_seconds
 
-The Snowflake connector uses the `platform_detection_timeout_seconds` parameter to determine how long it waits to detect the cloud platform for a connection. This parameter is available starting in dbt Core v1.10.
+The Snowflake connector uses the `platform_detection_timeout_seconds` parameter to determine how long it waits to detect the cloud platform for a connection. This parameter is available starting in dbt v1.10.
 
 * Set to `0.0` (default) to disable cloud platform detection for faster connections.
 * Set to a positive value only if you're using WIF authentication, which requires the connector to detect the cloud environment.
@@ -308,7 +308,7 @@ During node execution (such as model and test), dbt opens connections against a 
 
 The `retry_on_database_errors` flag along with the `connect_retries` count specification is intended to make retries configurable after the snowflake connector encounters errors of type snowflake.connector.errors.DatabaseError. These retries can be helpful for handling errors of type "JWT token is invalid" when using key pair authentication.
 
-By default, `retry_on_database_errors` is set to `False` when using dbt Core (for example, if you're running dbt locally with `pip install dbt-snowflake`).
+By default, `retry_on_database_errors` is set to `False` when using dbt v1 (for example, if you're running dbt locally with `pip install dbt-snowflake`).
 
 However, in the dbt platform, this setting is automatically set to `True`, unless the user explicitly configures it.
 

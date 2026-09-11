@@ -19,7 +19,7 @@ Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-
 
 ## dbt metadata
 
-If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploading artifacts from dbt Core, make sure to follow the [setup instructions](../deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
+If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploading artifacts from dbt v1, make sure to follow the [setup instructions](../deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
 
 * To ensure all metadata is available in Catalog, run `dbt build` and `dbt docs generate` as part of your job in your production or staging environment. Running these two commands ensures all relevant metadata (like lineage, test results, documentation, and more) is available in Catalog.
 * Catalog automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project. This includes deploy and merge jobs.
@@ -54,7 +54,7 @@ dbt removes a model's metadata from Catalog in these two cases:
 
 tip
 
-If your organization works in both dbt Core and Cloud, you can unify these workflows by automatically uploading dbt Core artifacts into dbt Cloud and viewing them in Catalog for a more connected dbt experience. To learn more, visit [hybrid projects](../deploy/hybrid-projects.md).
+If your organization works in both dbt v1 and Cloud, you can unify these workflows by automatically uploading dbt v1 artifacts into dbt Cloud and viewing them in Catalog for a more connected dbt experience. To learn more, visit [hybrid projects](../deploy/hybrid-projects.md).
 
 ## Catalog overview
 
@@ -87,7 +87,7 @@ Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However,
 
 | Feature                                                                                    | Starter | Enterprise | Enterprise+ |
 | ------------------------------------------------------------------------------------------ | ------- | ---------- | ----------- |
-| dbt Core lineage & resource browsing                                                       | ✅      | ✅         | ✅          |
+| dbt lineage & resource browsing                                                            | ✅      | ✅         | ✅          |
 | [Global navigation](./global-navigation.md)             | ✅      | ✅         | ✅          |
 | [Data health signals](./data-health-signals.md)         | ✅      | ✅         | ✅          |
 | [Model performance](./model-performance.md)             | ❌      | ✅         | ✅          |

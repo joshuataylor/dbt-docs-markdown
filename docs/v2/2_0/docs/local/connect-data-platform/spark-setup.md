@@ -1,18 +1,18 @@
 (Applies to dbt v2.0 and later)
 
-# Connect Apache Spark to Fusion [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Apache Spark to dbt v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
-The dbt Fusion engine supports Apache Spark, enabling faster compilation and execution for your Spark-based dbt projects. Currently, Fusion only supports Apache Spark 3.0.
+dbt v2 supports Apache Spark, enabling faster compilation and execution for your Spark-based dbt projects. Currently, dbt v2 only supports Apache Spark 3.0.
 
-## Fusion and Spark
+## dbt v2 and Spark
 
-Fusion uses the Databricks SQL dialect for [static analysis](../../build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
+dbt v2 uses the Databricks SQL dialect for [static analysis](../../build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
 
 ## Authentication
 
-The Spark adapter in Fusion supports:
+The Spark adapter in dbt v2 supports:
 
 * Thrift
 
@@ -25,7 +25,7 @@ The Spark adapter in Fusion supports:
   * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
     * Supports authentication using single sign-on, service accounts, or user tokens
 
-## Configure Fusion
+## Configure dbt v2
 
 Configure your Spark connection in `profiles.yml`:
 
@@ -54,7 +54,7 @@ your_profile_name:
 | `auth`                   | Yes      | Authentication method.                                                                                                                                                                                                                                                                                                                                                                                | `SASL PLAIN`, `NOSASL`, `AWS_SIGV4`             |
 | `schema`                 | Yes      | The database or schema name where dbt will create and query objects.                                                                                                                                                                                                                                                                                                                                  | `analytics`                                     |
 | `host`                   | Yes      | Hostname of the Spark cluster or Databricks workspace.                                                                                                                                                                                                                                                                                                                                                | `yourorg.sparkhost.com`                         |
-| `platform_hint`          | No       | Hints to Fusion which Spark platform you use. Fusion uses this to validate required `server_side_parameters`. Accepted values: `aws_emr_serverless`, `aws_emr_eks`. If omitted, Fusion assumes a generic Spark cluster.                                                                                                                                                                               | `aws_emr_serverless`                            |
+| `platform_hint`          | No       | Hints to dbt v2 which Spark platform you use. dbt v2 uses this to validate required `server_side_parameters`. Accepted values: `aws_emr_serverless`, `aws_emr_eks`. If omitted, dbt v2 assumes a generic Spark cluster.                                                                                                                                                                               | `aws_emr_serverless`                            |
 | `server_side_parameters` | No       | Spark session parameters passed to the cluster.<br /><br />Required keys when using `platform_hint`:<br />- For `aws_emr_serverless`, use `emr-serverless.session.executionRoleArn`.<br />- For `aws_emr_eks`, use `spark.kubernetes.namespace`.<br /><br />When using `method: livy`, you can set `livy.server.session.ttl` to configure how long a session can remain idle before it is terminated. | Refer to [example profiles](#example-profiles). |
 
 ### Example profiles

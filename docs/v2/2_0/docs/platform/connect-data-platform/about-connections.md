@@ -6,9 +6,9 @@ The dbt platform can connect with a variety of data platform providers.
 
 (Applies to dbt v2.0 and later)
 
-For most supported data platforms, we recommend the v2 experience with Fusion, which supports the following data platforms:
+For most supported data platforms, we recommend the v2 experience with dbt v2, which supports the following data platforms:
 
-| Connection                                                                                         | Available on v2 with Fusion |
+| Connection                                                                                         | Available on v2 with dbt v2 |
 | -------------------------------------------------------------------------------------------------- | --------------------------- |
 | [Snowflake](./connect-snowflake.md)      | ✅                          |
 | [Amazon Redshift](./connect-redshift.md) | Preview                     |

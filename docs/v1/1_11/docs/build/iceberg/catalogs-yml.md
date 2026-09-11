@@ -33,11 +33,11 @@ You should start using `catalogs` when:
 * You want to write to multiple catalogs ("external" as well as built-in / managed)
 * You want to access the same catalog across multiple data platforms / dbt projects
 
-dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt Core v1.10; starting in dbt Core v1.12, we've introduced a new simpler spec (recommended) behind an opt-in behavior flag.
+dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt v1.10; starting in dbt v1.12, we've introduced a new simpler spec (recommended) behind an opt-in behavior flag.
 
 ### New spec (recommended) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-*Available in dbt Core v1.12+ (including dbt Core 2.0 and Fusion). See GitHub discussion [dbt-core#12723](https://github.com/dbt-labs/dbt-core/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
+*Available in dbt v1.12+ (including v2). See GitHub discussion [dbt-labs/dbt#12723](https://github.com/dbt-labs/dbt/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
 
 To use the new spec, first set this behavior flag:
 
@@ -110,7 +110,7 @@ If you don't specify a `catalog_database`, then dbt materializes models based on
 
 ### Old spec
 
-*Available in dbt Core v1.10+*
+*Available in dbt v1.10+*
 
 Each catalog configures one or more `write_integrations`, and then specifies an "active" write integration to use for the current invocation / data warehouse.
 

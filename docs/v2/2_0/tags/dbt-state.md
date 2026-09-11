@@ -28,7 +28,7 @@ Learn about dbt State trial and billing.
 
 ## [dbt State usage examples](../docs/deploy/dbt-state-examples.md)
 
-Side-by-side dbt Core and dbt Core with dbt State execution scenarios using the Jaffle Shop project.
+Side-by-side standalone local dbt execution and local dbt with dbt State execution scenarios using the Jaffle Shop project.
 
 ## [defer\_to\_target](../reference/resource-configs/defer-to-target.md)
 
@@ -80,4 +80,4 @@ Configure how many direct parent nodes need fresh data before a node is rebuilt 
 
 ## [Setting up dbt State](../docs/deploy/dbt-state-setup.md)
 
-Learn how to install and configure dbt State across dbt Core, dbt platform, and Fusion.
+Learn how to install and configure dbt State across dbt v1, dbt platform, and dbt v2.

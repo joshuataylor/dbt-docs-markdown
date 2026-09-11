@@ -261,7 +261,7 @@ For some extra practice, try one of the following exercises:
 
 ### Custom calendars
 
-To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [**v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md).
+To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [**v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt 1.9 and later](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md).
 
 1. Add a new SQL file named `fiscal_calendar.sql` with the following content (or use your own custom calendar and configure it in YAML):
 

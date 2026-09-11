@@ -17,7 +17,7 @@ If you use the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) a
 
 (Applies to dbt v2.0 and later)
 
-The following flags are supported when you run `dbt retry` with the dbt Fusion engine:
+The following flags are supported when you run `dbt retry` with dbt v2:
 
 | Flag                      | Input value | Description                                                      | Example                                          |
 | ------------------------- | ----------- | ---------------------------------------------------------------- | ------------------------------------------------ |
@@ -31,9 +31,9 @@ The following flags are supported when you run `dbt retry` with the dbt Fusion e
 
 Run `dbt retry --help` for the full list of flags available.
 
-### Fusion node selection
+### dbt v2 node selection
 
-Unlike `dbt retry` with dbt Core, Fusion lets you narrow what gets retried using [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), and [`--selector`](../node-selection/yaml-selectors.md). Those arguments override the prior invocation’s selection set for the retry run instead of only inheriting it.
+Unlike `dbt retry` with dbt v1, dbt v2 lets you narrow what gets retried using [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), and [`--selector`](../node-selection/yaml-selectors.md). Those arguments override the prior invocation’s selection set for the retry run instead of only inheriting it.
 
 #### Examples
 

@@ -226,4 +226,4 @@ If you're using macros or other pieces of Jinja in your models, your compiled SQ
 
 ## Related docs
 
-* [Updating our permissioning guidelines: grants as configs in dbt Core v1.2](https://docs.getdbt.com/blog/configuring-grants)
+* [Updating our permissioning guidelines: grants as configs in dbt v1.2](https://docs.getdbt.com/blog/configuring-grants)

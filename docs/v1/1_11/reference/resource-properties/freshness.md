@@ -82,7 +82,7 @@ Currently, calculating freshness from warehouse metadata tables is supported on 
 * [Snowflake](../resource-configs/snowflake-configs.md)
 * [Redshift](../resource-configs/redshift-configs.md)
 * [BigQuery](../resource-configs/bigquery-configs.md) (Supported in [`dbt-bigquery`](https://github.com/dbt-labs/dbt-bigquery) version 1.7.3 or higher)
-* [Databricks](../resource-configs/databricks-configs.md) (Supported in the dbt Fusion engine)
+* [Databricks](../resource-configs/databricks-configs.md) (Supported in dbt v2)
 
 Freshness blocks are applied hierarchically:
 
@@ -95,7 +95,7 @@ To exclude a source from freshness calculations, explicitly set `freshness: null
 
 State-aware orchestration is now dbt State
 
-[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 
@@ -300,4 +300,4 @@ where {{ filter }}
 {% endif %}
 ```
 
-*[Source code](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/include/global_project/macros/adapters/common.sql#L262)*
+*[Source code](https://github.com/dbt-labs/dbt/blob/HEAD/core/dbt/include/global_project/macros/adapters/common.sql#L262)*

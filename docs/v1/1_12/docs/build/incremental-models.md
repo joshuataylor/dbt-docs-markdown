@@ -23,9 +23,9 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 

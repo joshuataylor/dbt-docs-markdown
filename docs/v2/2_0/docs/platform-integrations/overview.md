@@ -8,7 +8,7 @@ Many data applications integrate with dbt, enabling you to leverage the power of
 
 #### [dbt VS Code extension](../about-dbt-extension.md)
 
-[The dbt extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. The best way to experience all the power of the new dbt Fusion engine while developing locally.](../about-dbt-extension.md)
+[The dbt extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. The best way to experience all the power of the new dbt v2 while developing locally.](../about-dbt-extension.md)
 
 [![](/img/icons/dbt-bit.svg)](./downstream-exposures.md)
 

@@ -1,4 +1,4 @@
-# Connect Cloudera Impala to dbt Core
+# Connect Cloudera Impala to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [cloudera/dbt-impala](https://github.com/cloudera/dbt-impala) [![](https://img.shields.io/github/stars/cloudera/dbt-impala?style=for-the-badge)](https://github.com/cloudera/dbt-impala)
 * **PyPI package**: `dbt-impala` [![](https://badge.fury.io/py/dbt-impala.svg)](https://badge.fury.io/py/dbt-impala)
 * **Slack channel**: [#db-impala](https://getdbt.slack.com/archives/C01PWAH41A5)
-* **Supported dbt Core version**: v1.1.0 and newer
+* **Supported dbt version**: v1.1.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

@@ -26,7 +26,7 @@ selectors:
 
 (Applies to dbt v1.12 and later)
 
-Starting in dbt Core v1.12, you can reference a named selector from `--select` or `--exclude` using the [`selector` method](./methods.md#selector) (for example, `selector:my_selector`).
+Starting in dbt v1.12, you can reference a named selector from `--select` or `--exclude` using the [`selector` method](./methods.md#selector) (for example, `selector:my_selector`).
 
 ## Definitions
 
@@ -306,7 +306,7 @@ selectors:
 
 ## Using `selector:` with `--select`
 
-Starting in dbt Core v1.12, dbt raises `SelectExcludeIgnoredWithSelectorWarning` when the legacy `--selector` flag is combined with `--select` or `--exclude`. Use the [`selector:` method](./methods.md#selector) directly with `--select` to reference a predefined selector alongside other selection criteria.
+Starting in dbt v1.12, dbt raises `SelectExcludeIgnoredWithSelectorWarning` when the legacy `--selector` flag is combined with `--select` or `--exclude`. Use the [`selector:` method](./methods.md#selector) directly with `--select` to reference a predefined selector alongside other selection criteria.
 
 For example:
 

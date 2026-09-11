@@ -1,4 +1,4 @@
-# Connect Layer to dbt Core
+# Connect Layer to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [layerai/dbt-layer](https://github.com/layerai/dbt-layer) [![](https://img.shields.io/github/stars/layerai/dbt-layer?style=for-the-badge)](https://github.com/layerai/dbt-layer)
 * **PyPI package**: `dbt-layer-bigquery` [![](https://badge.fury.io/py/dbt-layer-bigquery.svg)](https://badge.fury.io/py/dbt-layer-bigquery)
 * **Slack channel**: [#tools-layer](https://getdbt.slack.com/archives/C03STA39TFE)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

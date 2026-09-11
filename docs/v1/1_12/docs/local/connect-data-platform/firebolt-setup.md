@@ -1,4 +1,4 @@
-# Connect Firebolt to dbt Core
+# Connect Firebolt to dbt v1
 
 Local development
 
@@ -9,7 +9,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [firebolt-db/dbt-firebolt](https://github.com/firebolt-db/dbt-firebolt) [![](https://img.shields.io/github/stars/firebolt-db/dbt-firebolt?style=for-the-badge)](https://github.com/firebolt-db/dbt-firebolt)
 * **PyPI package**: `dbt-firebolt` [![](https://badge.fury.io/py/dbt-firebolt.svg)](https://badge.fury.io/py/dbt-firebolt)
 * **Slack channel**: [#db-firebolt](https://getdbt.slack.com/archives/C03K2PTHHTP)
-* **Supported dbt Core version**: v1.1.0 and newer
+* **Supported dbt version**: v1.1.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

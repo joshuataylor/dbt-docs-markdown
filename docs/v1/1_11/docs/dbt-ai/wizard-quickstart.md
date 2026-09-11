@@ -19,7 +19,7 @@ Refer to [Trial and billing](./pricing-billing/trial-and-billing.md) for what ea
 * Access to a [supported AI provider](#supported-ai-providers). Use a dbt managed provider or configure [BYOK](./wizard-byok.md) with your own provider credentials.
 * A dbt project with a built `target/` directory (run `dbt parse`, `dbt compile`, or `dbt build`)
 
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
+dbt Wizard is data warehouse agnostic and works with both the [dbt v2](../introduction.md) and [dbt v1](../local/install-dbt.md) — no specific engine is required.
 
 ## Supported AI providers
 
@@ -55,9 +55,9 @@ You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 (Applies to dbt v1.99 and earlier)
 
-Upgrade to the dbt Fusion engine
+Upgrade to dbt v2
 
-On dbt Fusion engine (version 2.0 and later), start dbt Wizard with `wizard` and use `wizard COMMAND_NAME` for CLI commands.
+On dbt v2 (version 2.0 and later), start dbt Wizard with `wizard` and use `wizard COMMAND_NAME` for CLI commands.
 
 ## Install and set up dbt Wizard
 

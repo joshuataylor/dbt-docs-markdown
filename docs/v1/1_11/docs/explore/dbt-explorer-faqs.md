@@ -22,9 +22,9 @@ Catalog is the default documentation experience for dbt customers. dbt Docs is s
 
 ## How dbt Catalog works
 
- Can I use dbt Catalog on-premises or with my self-hosted dbt Core deployment?
+ Can I use dbt Catalog on-premises or with my self-hosted dbt deployment?
 
-No. Catalog and all of its features are only available as a dbt user experience. Catalog reflects the metadata from your dbt project(s) and their runs.
+No. Catalog and all of its features are only available as a dbt platform user experience. Catalog reflects the metadata from your dbt platform project(s) and their runs.
 
  How does dbt Catalog support dbt environments?
 
@@ -111,7 +111,7 @@ Read-only users can consume metadata in Catalog. More bespoke experiences and ex
 
 Catalog is available on dbt Starter and all Enterprise plans. Certain features within Catalog are only available on Enterprise and Enterprise+ plans, including Model Performance, project recommendations, multi-project lineage, column-level lineage, and more. Refer to the [availability by plan](./explore-projects.md#availability-by-plan) table for a complete list.
 
- Will dbt Core users be able to leverage any of these new dbt Catalog features?
+ Will self-hosted dbt users be able to leverage any of these new dbt Catalog features?
 
 No. Catalog is a dbt-only product experience.
 

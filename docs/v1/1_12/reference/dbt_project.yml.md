@@ -51,7 +51,7 @@ flags:
 dbt-cloud:
   project-id: project_id # Required
   defer-env-id: environment_id # Optional
-  account_id: account_id # Optional, Fusion only; note the underscore, unlike the other dbt-cloud fields
+  account_id: account_id # Optional, v2 only; note the underscore, unlike the other dbt-cloud fields
   account-host: account-host # Defaults to 'cloud.getdbt.com'; Required if use a different Access URL
 
 analyses: # Requires the require_corrected_analysis_fqns flag; available starting v1.12
@@ -64,8 +64,8 @@ quoting:
   database: true | false
   schema: true | false
   identifier: true | false
-  snowflake_ignore_case: true | false  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
-                                       # Ignored by dbt Core and other adapters.
+  snowflake_ignore_case: true | false  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
+                                       # Ignored by dbt v1 and other adapters.
 metrics:
   <metric-configs>
 

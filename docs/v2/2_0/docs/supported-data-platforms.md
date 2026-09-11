@@ -1,6 +1,6 @@
 # Supported data platforms
 
-dbt connects to and runs SQL against your database, warehouse, lake, or query engine. These SQL-speaking platforms are collectively referred to as *data platforms*. dbt connects with data platforms by using a dedicated adapter plugin for each. Plugins are built as Python modules that dbt Core discovers if they are installed on your system. Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for details.
+dbt connects to and runs SQL against your database, warehouse, lake, or query engine. These SQL-speaking platforms are collectively referred to as *data platforms*. dbt connects with data platforms by using a dedicated adapter plugin for each. Plugins are built as Python modules that dbt v1 discovers if they are installed on your system. Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for details.
 
 (Applies to dbt v2.0 and later)
 
@@ -31,6 +31,6 @@ Considerations for depending on an open-source project
 1. Does it work?
 2. Does anyone "own" the code, or is anyone liable for ensuring it works?
 3. Do bugs get fixed quickly?
-4. Does it stay up-to-date with new dbt Core features?
+4. Does it stay up-to-date with new dbt v1 features?
 5. Is the usage substantial enough to self-sustain?
 6. Do other known projects depend on this library?

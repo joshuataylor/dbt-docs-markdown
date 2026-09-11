@@ -2,7 +2,7 @@
 
 Local development(Applies to dbt v2.0 and later)
 
-Get dbt running on your machine in a few minutes. Installing dbt gives you Fusion by default: the current, free-to-use experience for v2. Choose your preferred installation method:
+Get dbt running on your machine in a few minutes. Installing dbt gives you dbt v2 by default: the current, free-to-use experience for v2. Choose your preferred installation method:
 
 ## Install dbt [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -59,9 +59,9 @@ To upgrade later, run `dbt system update`.
   dbt --version
   ```
 
-* With dbt v2, you can start using the Fusion experience right away. For the best v2 editor experience, install the dbt VS Code extension to use features like autocomplete, inline errors, and lineage.
+* With dbt v2, you can start using it right away. For the best v2 editor experience, install the dbt VS Code extension to use features like autocomplete, inline errors, and lineage.
 
-  For full LSP features and other richer Fusion capabilities, run `dbt login` to sign in with a free dbt platform account:
+  For full LSP features and other richer dbt v2 capabilities, run `dbt login` to sign in with a free dbt platform account:
 
   ```shell
   dbt login
@@ -76,7 +76,7 @@ If you or your org has a strict requirement to use the open-source runtime, inst
 Common issues and resolutions:
 
 * **dbt command not found:** Add the installation location to your `$PATH`.
-* **Version conflicts:** Check that no other dbt Core or dbt platform CLI versions are installed or active on your machine.
+* **Version conflicts:** Check that no other self-hosted dbt or dbt platform CLI versions are installed or active on your machine.
 * **Installation permissions:** Make sure your user account can install software locally.
 
 ## FAQs
@@ -87,11 +87,11 @@ Common issues and resolutions:
 
 *  Can I download the Apache 2.0 runtime only?
 
-  Yes if you need to use the Apache 2.0 runtime, you can [install open source dbt v2](./install-dbt-v2.md), the open-source project behind Fusion.
+  Yes if you need to use the Apache 2.0 runtime, you can [install open source dbt v2](./install-dbt-v2.md), the open-source project behind dbt v2.
 
 *  How do I uninstall a curl (install.sh) install?
 
-  These steps apply only if you installed Fusion with the curl (`install.sh`) script. If you used pip, Homebrew, or winget, remove dbt with that tool instead (for example, `pip uninstall dbt` or `brew uninstall dbt`).
+  These steps apply only if you installed dbt v2 with the curl (`install.sh`) script. If you used pip, Homebrew, or winget, remove dbt with that tool instead (for example, `pip uninstall dbt` or `brew uninstall dbt`).
 
   1. **Uninstall dbt.** Run the built-in uninstall command to clear cached files and state. This also removes the binary for you:
 
@@ -120,7 +120,7 @@ Common issues and resolutions:
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](../dbt/supported-features.md)
 * [Install dbt](./install-dbt.md)
-* [Quickstart for Fusion](../../guides/dbt.md?step=1)
+* [Quickstart for dbt v2](../../guides/dbt.md?step=1)
 * [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 

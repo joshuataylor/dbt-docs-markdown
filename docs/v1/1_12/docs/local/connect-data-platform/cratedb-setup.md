@@ -1,4 +1,4 @@
-# Connect CrateDB to dbt Core
+# Connect CrateDB to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [crate/dbt-cratedb2](https://github.com/crate/dbt-cratedb2) [![](https://img.shields.io/github/stars/crate/dbt-cratedb2?style=for-the-badge)](https://github.com/crate/dbt-cratedb2)
 * **PyPI package**: `dbt-cratedb2` [![](https://badge.fury.io/py/dbt-cratedb2.svg)](https://badge.fury.io/py/dbt-cratedb2)
 * **Slack channel**: [Community Forum](https://community.cratedb.com/)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

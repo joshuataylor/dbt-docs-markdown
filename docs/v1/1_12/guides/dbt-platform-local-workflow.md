@@ -1,4 +1,4 @@
-# Hybrid development with dbt platform and Fusion
+# Hybrid development with dbt platform and dbt v2
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -6,23 +6,23 @@
 
 ## Introduction
 
-Hybrid dbt deployments are becoming increasingly common. Fusion adopters are frequently working in several places at once: in the dbt platform for production runs and IDE-based development, and on their local machine using the dbt platform CLI or the dbt VS Code extension.
+Hybrid dbt deployments are becoming increasingly common. dbt v2 adopters are frequently working in several places at once: in the dbt platform for production runs and IDE-based development, and on their local machine using the dbt platform CLI or the dbt VS Code extension.
 
 These paths are fully supported for dbt platform users. Keeping the environments in sync across credentials, environment variables, and engine versions is one of the first operational challenges teams encounter.
 
-This guide walks through credentials, environment variables, Fusion versions, and Mesh or deferral, with concrete, copy-paste-ready steps to keep everything aligned.
+This guide walks through credentials, environment variables, dbt v2 versions, and Mesh or deferral, with concrete, copy-paste-ready steps to keep everything aligned.
 
 ## Prerequisites
 
-* You have a dbt platform account with at least one project using the dbt Fusion engine.
+* You have a dbt platform account with at least one project using dbt v2.
 * You have either the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](../docs/local/install-dbt.md) installed.
 
 ## 1. Managing credentials
 
 How you authenticate to your data warehouse locally depends on which self-hosted tool you use:
 
-* [dbt platform CLI](./dbt-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with Fusion set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
-* [dbt VS Code extension](./dbt-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs the dbt Fusion engine and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
+* [dbt platform CLI](./dbt-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with dbt v2 set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
+* [dbt VS Code extension](./dbt-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs dbt v2 and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
 
 ### dbt platform CLI
 
@@ -36,9 +36,9 @@ This is the lowest-friction path for teams that don't need full IDE integration 
 
 ### dbt VS Code extension (profiles.yml required)
 
-The dbt VS Code extension runs Fusion and its language server in a local process and connects directly to your warehouse. For this reason, you need a `profiles.yml` for local extension development sessions.
+The dbt VS Code extension runs dbt v2 and its language server in a local process and connects directly to your warehouse. For this reason, you need a `profiles.yml` for local extension development sessions.
 
-Download your [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and Fusion attempts to hydrate non-sensitive credential metadata from dbt platform automatically.
+Download your [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and dbt v2 attempts to hydrate non-sensitive credential metadata from dbt platform automatically.
 
 If you get access to a new project, re-download the `dbt_cloud.yml` file before working on it locally. To switch between projects already listed in your file, update [`context.active-project`](../reference/dbt_cloud.yml.md#update-or-switch-projects). To avoid manually recreating your warehouse configuration, use `dbt init`.
 
@@ -46,7 +46,7 @@ If you get access to a new project, re-download the `dbt_cloud.yml` file before 
 dbt init
 ```
 
-Fusion pulls down fields such as your **username**, **role**, **warehouse**, **database**, and **schema**, but never sensitive values like passwords or tokens. If your authentication mechanism is passwordless (such as `externalbrowser` or SSO-based OAuth), Fusion configures that too, so you can work without storing secrets locally.
+dbt v2 pulls down fields such as your **username**, **role**, **warehouse**, **database**, and **schema**, but never sensitive values like passwords or tokens. If your authentication mechanism is passwordless (such as `externalbrowser` or SSO-based OAuth), dbt v2 configures that too, so you can work without storing secrets locally.
 
 note
 
@@ -68,7 +68,7 @@ When you use the dbt platform CLI, dbt platform injects the same environment var
 
 ### VS Code extension (.env file)
 
-The dbt VS Code extension runs Fusion as a local process, so environment variables from dbt platform are not automatically available. Instead, use a [`.env` file](https://dotenvx.com/docs) at the root of your dbt project:
+The dbt VS Code extension runs dbt v2 as a local process, so environment variables from dbt platform are not automatically available. Instead, use a [`.env` file](https://dotenvx.com/docs) at the root of your dbt project:
 
 ```shell
 # .env
@@ -77,7 +77,7 @@ DBT_MY_SCHEMA=my_dev_schema
 DBT_TARGET_SCHEMA=analytics_dev
 ```
 
-Fusion and the dbt VS Code extension automatically load values from this file. You can also view and override individual environment variables from the extension's settings UI.
+dbt v2 and the dbt VS Code extension automatically load values from this file. You can also view and override individual environment variables from the extension's settings UI.
 
 Reference these variables in your `profiles.yml` or elsewhere in your dbt project using the [`env_var` Jinja function](../reference/dbt-jinja-functions/env_var.md):
 
@@ -115,7 +115,7 @@ cp .env.example .env
 
 Do not commit .env
 
-Fusion and the dbt VS Code extension only load from a file named exactly `.env`, so each developer needs their own copy. Make sure `.env` is in your `.gitignore` so credentials are never committed. Running `dbt init` adds this automatically.
+dbt v2 and the dbt VS Code extension only load from a file named exactly `.env`, so each developer needs their own copy. Make sure `.env` is in your `.gitignore` so credentials are never committed. Running `dbt init` adds this automatically.
 
 ```shell
 echo ".env" >> .gitignore
@@ -127,17 +127,17 @@ For teams with strict security requirements
 
 Consider a script that fetches variables from your secrets manager (for example, AWS Secrets Manager or 1Password) and writes them to `.env` at the start of a session, instead of storing values in a file long term.
 
-## 3. Managing Fusion versions
+## 3. Managing dbt v2 versions
 
-The **v2 Stable** release track on dbt platform updates continuously as Fusion ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
+The **v2 Stable** release track on dbt platform updates continuously as dbt v2 ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
 
 ### Versions on the dbt platform
 
-On dbt platform, Fusion follows a versionless release track model. The default release track is **v2 Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [Fusion releases](../docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks).
+On dbt platform, dbt v2 follows a versionless release track model. The default release track is **v2 Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [dbt v2 releases](../docs/dbt-versions/dbt-release-tracks.md#dbt-v2-release-tracks).
 
 ### Versions installed locally
 
-By default, the Fusion [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **v2 Stable** release track on dbt platform:
+By default, the dbt v2 [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **v2 Stable** release track on dbt platform:
 
 ```shell
 # macOS / Linux
@@ -158,12 +158,12 @@ dbt --version
 
 ### Keeping versions in sync: dev containers (recommended)
 
-Use a [VS Code dev container](https://code.visualstudio.com/docs/devcontainers/containers) for the most reliable match between local Fusion versions and dbt platform. A dev container runs your environment inside a Docker image that rebuilds at the start of each session and performs a fresh Fusion install each time, so everyone on your team uses the same version as dbt platform without manual updates.
+Use a [VS Code dev container](https://code.visualstudio.com/docs/devcontainers/containers) for the most reliable match between local dbt v2 versions and dbt platform. A dev container runs your environment inside a Docker image that rebuilds at the start of each session and performs a fresh dbt v2 install each time, so everyone on your team uses the same version as dbt platform without manual updates.
 
-Our friends at Brooklyn Data have published a ready-to-use Fusion dev container:
+Our friends at Brooklyn Data have published a ready-to-use dbt v2 dev container:
 
 * **Dev container template:** [brooklyn-data/dbt-fusion-devcontainer](https://github.com/brooklyn-data/dbt-fusion-devcontainer)
-* **Blog post:** [Why you should use dev containers with dbt Fusion](https://www.brooklyndata.co/ideas/2025/06/11/why-you-should-use-dev-containers-with-dbt-fusion)
+* **Blog post:** [Why you should use dev containers with dbt v2](https://www.brooklyndata.co/ideas/2025/06/11/why-you-should-use-dev-containers-with-dbt-fusion)
 
 To get started with their template:
 
@@ -172,11 +172,11 @@ To get started with their template:
 curl -fsSL https://raw.githubusercontent.com/brooklyn-data/dbt-fusion-devcontainer/main/setup.sh | sh
 ```
 
-Then open your project in VS Code and select **Reopen in Container** when prompted. VS Code builds the image and installs the latest stable Fusion release automatically.
+Then open your project in VS Code and select **Reopen in Container** when prompted. VS Code builds the image and installs the latest stable dbt v2 release automatically.
 
 Coming soon
 
-We're introducing additional Fusion release tracks on dbt platform beyond **v2 Stable**. When they're available, we'll update this guide with steps to pin your dev container to a specific track.
+We're introducing additional dbt v2 release tracks on dbt platform beyond **v2 Stable**. When they're available, we'll update this guide with steps to pin your dev container to a specific track.
 
 ### Without dev containers: update at the start of each session
 
@@ -210,22 +210,22 @@ You can also document this convention in your project's `CONTRIBUTING.md` so it'
 
 ## 4. dbt Mesh and deferral
 
-If your project uses [dbt Mesh](../docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, Fusion handles this automatically during development when a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present.
+If your project uses [dbt Mesh](../docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, dbt v2 handles this automatically during development when a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present.
 
 ### How it works
 
-When Fusion detects upstream projects defined in your `dependencies.yml`, it downloads the publication artifact for each upstream project from dbt platform before resolving cross-project refs. Then `ref('upstream_project', 'model_name')` works locally without manual setup.
+When dbt v2 detects upstream projects defined in your `dependencies.yml`, it downloads the publication artifact for each upstream project from dbt platform before resolving cross-project refs. Then `ref('upstream_project', 'model_name')` works locally without manual setup.
 
-Your logs include lines such as the following while Fusion resolves cross-project refs:
+Your logs include lines such as the following while dbt v2 resolves cross-project refs:
 
 ```text
 Downloading publication artifact for <upstream_project> (resolving cross-project refs)
 Downloaded publication artifact for <upstream_project> to <path> (resolving cross-project refs)
 ```
 
-Fusion caches downloaded publication artifacts for up to one hour, so subsequent runs in the same session skip the download and resolve refs from the local cache.
+dbt v2 caches downloaded publication artifacts for up to one hour, so subsequent runs in the same session skip the download and resolve refs from the local cache.
 
-Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present, Fusion defers to your project's configured deferral environment, so you build only modified models and their downstream dependencies while the rest resolve against the production state.
+Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present, dbt v2 defers to your project's configured deferral environment, so you build only modified models and their downstream dependencies while the rest resolve against the production state.
 
 ### Disabling deferral
 
@@ -253,9 +253,9 @@ The following table summarizes the key differences between the two development p
 
 ## Related docs
 
-* [Install Fusion](../docs/local/install-dbt.md)
+* [Install dbt v2](../docs/local/install-dbt.md)
 * [dbt platform CLI installation](../docs/platform/dbt-cli-installation.md)
-* [Fusion releases and release channels](../docs/dbt/dbt-releases.md)
+* [dbt v2 releases and release channels](../docs/dbt/dbt-releases.md)
 * [About profiles.yml](../docs/local/profiles.yml.md)
 * [Environment variables (local)](../docs/local/configure-environment-variables.md)
 * [VS Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers)

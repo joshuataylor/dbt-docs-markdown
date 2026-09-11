@@ -1,12 +1,12 @@
 (Applies to dbt v2.0 and later)
 
-# Connect BigQuery to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect BigQuery to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 You can configure the BigQuery adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
-The BigQuery adapter for Fusion supports the following [authentication methods](#supported-authentication-types):
+The BigQuery adapter for dbt v2 supports the following [authentication methods](#supported-authentication-types):
 
 * Service account (JSON file)
 * gcloud OAuth
@@ -14,7 +14,7 @@ The BigQuery adapter for Fusion supports the following [authentication methods](
 
 ## Warehouse permissions
 
-The Google Cloud identity (service account or user) that dbt Fusion engine uses must have IAM permissions to run jobs, read and write table data, and read metadata Fusion uses for introspection and source freshness.
+The Google Cloud identity (service account or user) that dbt v2 uses must have IAM permissions to run jobs, read and write table data, and read metadata dbt v2 uses for introspection and source freshness.
 
 ### Required Google Cloud objects
 
@@ -63,7 +63,7 @@ The following roles represent the typical starting point for dbt access:
 | `roles/bigquery.user`       | Run jobs, create datasets         | Job execution           |
 | `roles/bigquery.jobUser`    | Run jobs only                     | Minimal query execution |
 
-For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](../../platform/connect-data-platform/connect-bigquery.md#required-permissions).
+For Storage Read API access with dbt v2, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](../../platform/connect-data-platform/connect-bigquery.md#required-permissions).
 
 ### Metadata operations
 
@@ -79,7 +79,7 @@ The following are required for fundamental dbt features:
 
 ### INFORMATION\_SCHEMA and metadata views
 
-Fusion queries these BigQuery system views:
+dbt v2 queries these BigQuery system views:
 
 | View                            | Purpose                  | Scope             |
 | ------------------------------- | ------------------------ | ----------------- |
@@ -93,7 +93,7 @@ Fusion queries these BigQuery system views:
 
 For BigQuery DataFrames workflows, users typically need additional roles such as `BigQuery Job User`, `BigQuery Read Session User`, `Notebook Runtime User`, `Code Creator`, and `colabEnterpriseUser`. See your Google Cloud admin for exact role names in your organization.
 
-## Configure Fusion
+## Configure dbt v2
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -173,7 +173,7 @@ default:
 
 Workload Identity Federation (WIF) lets you authenticate to BigQuery using credentials issued by an external OAuth identity provider — currently Microsoft Entra — without managing a Google service account key file.
 
-Fusion exchanges an Entra-issued token for short-lived Google credentials through a Google Cloud [workload identity pool](https://docs.cloud.google.com/iam/docs/workload-identity-federation#pools).
+dbt v2 exchanges an Entra-issued token for short-lived Google credentials through a Google Cloud [workload identity pool](https://docs.cloud.google.com/iam/docs/workload-identity-federation#pools).
 
 Before selecting this method, an administrator must configure a workload identity pool and provider in GCP that trusts your Entra tenant. You'll need the resulting workload pool provider path.
 

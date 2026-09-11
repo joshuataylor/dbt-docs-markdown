@@ -1,4 +1,4 @@
-# Connect Exasol to dbt Core
+# Connect Exasol to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [exasol/dbt-exasol](https://github.com/exasol/dbt-exasol) [![](https://img.shields.io/github/stars/exasol/dbt-exasol?style=for-the-badge)](https://github.com/exasol/dbt-exasol)
 * **PyPI package**: `dbt-exasol` [![](https://badge.fury.io/py/dbt-exasol.svg)](https://badge.fury.io/py/dbt-exasol)
 * **Slack channel**:
-* **Supported dbt Core version**: v1.8.0 and newer
+* **Supported dbt version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Exasol 6.x
 

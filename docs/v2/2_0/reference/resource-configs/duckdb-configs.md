@@ -211,7 +211,7 @@ In conditions and expressions, use `DBT_INTERNAL_SOURCE` to reference the incomi
 
 ### Microbatch strategy
 
-The `microbatch` strategy requires dbt Core 1.9 or later and runs incremental builds in time-based batches using a configured `event_time` column.
+The `microbatch` strategy requires dbt 1.9 or later and runs incremental builds in time-based batches using a configured `event_time` column.
 
 | Configuration            | Type       | Default | Description                                                           |
 | ------------------------ | ---------- | ------- | --------------------------------------------------------------------- |
@@ -228,4 +228,4 @@ Microbatching might not always be the best option from a performance perspective
 
 * For connection modes and profile setup, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md).
 * For adapter source code and plugins, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
-* For dbt Core concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).
+* For dbt concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).

@@ -20,7 +20,7 @@ Choose the option that best fits your needs:
 
 #### [dbt VS Code extension](../about-dbt-extension.md)
 
-[Bring the speed and intelligence of the dbt Fusion engine to VS Code for a seamless development experience.](../about-dbt-extension.md)
+[Bring the speed and intelligence of dbt v2 to VS Code for a seamless development experience.](../about-dbt-extension.md)
 
 [![](/img/icons/dashboard.svg)](./studio-ide/develop-in-studio.md)
 

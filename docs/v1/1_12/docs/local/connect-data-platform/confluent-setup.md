@@ -1,4 +1,4 @@
-# Connect Confluent Cloud to dbt Core
+# Connect Confluent Cloud to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some features may be limited. To contribute, refer to the source repository belo
 * **GitHub repo**: [confluentinc/dbt-confluent](https://github.com/confluentinc/dbt-confluent) [![](https://img.shields.io/github/stars/confluentinc/dbt-confluent?style=for-the-badge)](https://github.com/confluentinc/dbt-confluent)
 * **PyPI package**: `dbt-confluent` [![](https://badge.fury.io/py/dbt-confluent.svg)](https://badge.fury.io/py/dbt-confluent)
 * **Slack channel**: [n/a](https://docs.getdbt.com/n/a)
-* **Supported dbt Core version**: v1.11.0 and newer
+* **Supported dbt version**: v1.11.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

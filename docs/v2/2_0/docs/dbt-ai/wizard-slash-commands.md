@@ -239,4 +239,4 @@ Inspect the current session state without changing anything.
 * [Use subagents](./wizard-subagents.md) for the `/agent` and `/subagents` commands
 * [Headless mode](./wizard-headless.md) for using `wizard exec` in scripts and CI
 * [Configuration reference](./wizard-config.md) for `config.toml` keys and precedence
-* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands
+* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt commands

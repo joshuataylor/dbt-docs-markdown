@@ -1,4 +1,4 @@
-# Connect StarRocks to dbt Core
+# Connect StarRocks to dbt v1
 
 Local development
 
@@ -9,7 +9,7 @@ Local development
 * **GitHub repo**: [StarRocks/dbt-starrocks](https://github.com/StarRocks/dbt-starrocks)[![](https://img.shields.io/github/stars/StarRocks/dbt-starrocks?style=for-the-badge)](https://github.com/StarRocks/dbt-starrocks)
 * **PyPI package**: `dbt-starrocks` [![](https://badge.fury.io/py/dbt-starrocks.svg)](https://badge.fury.io/py/dbt-starrocks)
 * **Slack channel**: [#db-starrocks](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.6.2 and newer
+* **Supported dbt v1 version**: v1.6.2 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Starrocks 2.5
 

@@ -26,9 +26,9 @@ logs/dbt.log
 
 (Applies to dbt v2.0 and later)
 
-The dbt Fusion engine emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt Core's JSON event logs. To view it locally, use `--log-format otel` or the options in [Fusion telemetry and observability](./telemetry-observability.md#available-output-formats).
+dbt v2 emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt v1's JSON event logs. To view it locally, use `--log-format otel` or the options in [dbt v2 telemetry and observability](./telemetry-observability.md#available-output-formats).
 
-In dbt platform, you can [download OTel logs](../docs/deploy/run-visibility.md#access-logs) from Fusion job runs.
+In dbt platform, you can [download OTel logs](../docs/deploy/run-visibility.md#access-logs) from dbt v2 job runs.
 
 For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](./global-configs/logs.md).
 
@@ -36,6 +36,6 @@ For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](./gl
 
 (Applies to dbt v2.0 and later)
 
-The dbt Fusion engine doesn't share dbt Core's Python event interface.
+dbt v2 doesn't share dbt v1's Python event interface.
 
-We are currently [developing](https://github.com/dbt-labs/dbt-core/issues/13102) a Python API with Rust bindings for programmatic invocations.
+We are currently [developing](https://github.com/dbt-labs/dbt/issues/13102) a Python API with Rust bindings for programmatic invocations.

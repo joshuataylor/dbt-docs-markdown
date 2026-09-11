@@ -1,10 +1,10 @@
 # No + prefix on resource paths
 
-Fusion-only flag
+dbt v2-only flag
 
-This behavior change flag is specific to Fusion and has no equivalent in dbt Core.
+This behavior change flag is specific to dbt v2 and has no equivalent in dbt v1.
 
-| require\_resource\_names\_without\_plus\_prefix | Fusion             |
+| require\_resource\_names\_without\_plus\_prefix | dbt v2             |
 | ----------------------------------------------- | ------------------ |
 | Introduced                                      | 2.0.0-preview\.208 |
 | Matured (default → `true`)                      | —                  |

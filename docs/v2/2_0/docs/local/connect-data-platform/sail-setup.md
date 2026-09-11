@@ -5,7 +5,7 @@
 * **GitHub repo**: [lakehq/dbt-sail](https://github.com/lakehq/dbt-sail) [![](https://img.shields.io/github/stars/lakehq/dbt-sail?style=for-the-badge)](https://github.com/lakehq/dbt-sail)
 * **PyPI package**: `dbt-sail` [![](https://badge.fury.io/py/dbt-sail.svg)](https://badge.fury.io/py/dbt-sail)
 * **Slack channel**: [LakeSail Community Slack](https://www.launchpass.com/lakesail-community/free)
-* **Supported dbt Core version**: v1.8.0 and newer
+* **Supported dbt version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

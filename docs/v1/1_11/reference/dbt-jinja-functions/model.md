@@ -33,7 +33,7 @@ If you're using the Studio IDE, compile the following to print the full contents
 
 ## Batch properties for microbatch models
 
-Starting in dbt Core v1.9, the model object includes a `batch` property (`model.batch`), which provides details about the current batch when executing an [incremental microbatch](../../docs/build/incremental-microbatch.md) model. This property is only populated during the batch execution of a microbatch model.
+Starting in dbt v1.9, the model object includes a `batch` property (`model.batch`), which provides details about the current batch when executing an [incremental microbatch](../../docs/build/incremental-microbatch.md) model. This property is only populated during the batch execution of a microbatch model.
 
 The following table describes the properties of the `batch` object. Note that dbt appends the property to the `model` and `batch` objects.
 
@@ -85,18 +85,18 @@ To view the structure of `models` and their definitions:
 
 Use the following table to understand how the versioning pattern works and match the Manifest version with the dbt version:
 
-| dbt version            | Manifest version                                              |
-| ---------------------- | ------------------------------------------------------------- |
-| dbt Fusion engine v2.0 | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.11             | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.10             | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.9              | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.8              | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.7              | [v11](https://schemas.getdbt.com/dbt/manifest/v11/index.html) |
-| Core v1.6              | [v10](https://schemas.getdbt.com/dbt/manifest/v10/index.html) |
-| Core v1.5              | [v9](https://schemas.getdbt.com/dbt/manifest/v9/index.html)   |
-| Core v1.4              | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
-| Core v1.3              | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
+| dbt version | Manifest version                                              |
+| ----------- | ------------------------------------------------------------- |
+| dbt v2.0    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.11   | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.10   | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.9    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.8    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.7    | [v11](https://schemas.getdbt.com/dbt/manifest/v11/index.html) |
+| dbt v1.6    | [v10](https://schemas.getdbt.com/dbt/manifest/v10/index.html) |
+| dbt v1.5    | [v9](https://schemas.getdbt.com/dbt/manifest/v9/index.html)   |
+| dbt v1.4    | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
+| dbt v1.3    | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
 
 ## Related docs
 

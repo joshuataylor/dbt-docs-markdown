@@ -49,7 +49,7 @@ Before you're able to run exports in development or production, you'll need to m
 
 There are two ways to run an export:
 
-* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on the dbt Fusion engine, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt platform CLI](../platform/dbt-cli-installation.md) outside Fusion, run `dbt sl export` or `dbt sl export-all`.
+* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on dbt v2, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt platform CLI](../platform/dbt-cli-installation.md) outside dbt v2, run `dbt sl export` or `dbt sl export-all`.
 * [Run exports in production](#exports-in-production) using the [dbt job scheduler](../deploy/job-scheduler.md) to write these queries within your data platform.
 
 ## Exports in development
@@ -58,7 +58,7 @@ You can run an export in your development environment if you want to test its ou
 
 This section explains the different commands and options available to run exports in development.
 
-If your environment runs on the dbt Fusion engine (including Studio IDE), use `dbt build` instead of the following commands. Check out [Run exports](#run-exports) for details.
+If your environment runs on dbt v2 (including Studio IDE), use `dbt build` instead of the following commands. Check out [Run exports](#run-exports) for details.
 
 * Use the [`dbt sl export` command](#exports-for-single-saved-query) to test and generate exports in your development environment for a singular saved query. You can also use the `--select` flag to specify particular exports from a saved query.
 
@@ -66,7 +66,7 @@ If your environment runs on the dbt Fusion engine (including Studio IDE), use `d
 
 ### Exports for single saved query
 
-These commands apply when you're using the dbt platform CLI outside Studio IDE or the dbt Fusion engine. If your environment runs on Fusion, use `dbt build` instead. For more info, check out [Run exports](#run-exports).
+These commands apply when you're using the dbt platform CLI outside Studio IDE or dbt v2. If your environment runs on dbt v2, use `dbt build` instead. For more info, check out [Run exports](#run-exports).
 
 Use the following command to run exports in the dbt platform CLI:
 
@@ -196,7 +196,7 @@ Yes, this is possible. However, the difference would be the name, schema, and ma
  How do I run all exports for a saved query?
 
 * In production runs, you can build the saved query by calling it directly in the build command, or you build a model and any exports downstream of that model.
-* In development, run all exports by running `dbt sl export --saved-query sq_name`. If your environment runs on the dbt Fusion engine (including Studio IDE), run `dbt build` instead.
+* In development, run all exports by running `dbt sl export --saved-query sq_name`. If your environment runs on dbt v2 (including Studio IDE), run `dbt build` instead.
 
  Will I run duplicate exports if multiple models are downstream of my saved query?
 

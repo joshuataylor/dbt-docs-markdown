@@ -1,6 +1,6 @@
 # What version of Python can I use?
 
-Use this table to match dbt Core versions with their compatible Python versions. New [dbt minor versions](../../docs/dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
+Use this table to match dbt v1 versions with their compatible Python versions. New [dbt minor versions](../../docs/dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
 
 ## Python compatibility matrix
 
@@ -12,7 +12,7 @@ Use this table to match dbt Core versions with their compatible Python versions.
 | Python 3.11      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ❌   | ❌   | ❌   | ❌   |
 | Python 3.10      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   |
 
-⚠️ Python 3.13 is supported in dbt Core v1.10 for the Postgres adapter.
+⚠️ Python 3.13 is supported in dbt v1.10 for the Postgres adapter.
 
 Adapter plugins and their dependencies are not always compatible with the latest version of Python.
 

@@ -2,23 +2,23 @@
 
 Available in v1
 
-dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
 
-dbt Core versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
 
 Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
 
 ### Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.3.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.3.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
-There are three changes in dbt Core v1.3 that may require action from some users:
+There are three changes in dbt v1.3 that may require action from some users:
 
 1. If you have a `profiles.yml` file located in the root directory where you run dbt, dbt will start preferring that profiles file over the default location on your machine. [You can read more details here](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory).
 2. If you already have `.py` files defined in the `model-paths` of your dbt project, dbt will start trying to read them as Python models. You can use [the new `.dbtignore` file](../../../../reference/dbtignore.md) to tell dbt to ignore those files.
@@ -32,7 +32,7 @@ The names of metric properties have changed, with backward compatibility. Those 
 * Renamed `sql` to `expression`
 * Renamed `expression` calculation method metrics to `derived` calculation method metrics
 
-We plan to keep backward compatibility for a full minor version. Defining metrics with the old names will raise an error in dbt Core v1.4.
+We plan to keep backward compatibility for a full minor version. Defining metrics with the old names will raise an error in dbt v1.4.
 
 ### For consumers of dbt artifacts (metadata)
 
@@ -42,11 +42,11 @@ We have updated the manifest schema version to `v7`. This includes the changes t
 * Renamed `compiled_sql` to `compiled_code`
 * A new top-level node property, `language` (`'sql'` or `'python'`)
 
-For users of [state-based selection](../../../../reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt Core v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt Core v1.0 and higher.
+For users of [state-based selection](../../../../reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt v1.0 and higher.
 
 ### For maintainers of adapter plugins
 
-GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-labs/dbt-core/discussions/6011)
+GitHub discussion with details: [dbt-labs/dbt#6011](https://github.com/dbt-labs/dbt/discussions/6011)
 
 ## New and changed documentation
 

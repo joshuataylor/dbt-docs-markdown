@@ -27,7 +27,7 @@ The data type of your argument. Setting [`validate_macro_args`](../global-config
 
 tip
 
-From dbt Core v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
+From dbt v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
 
 * Infer arguments from the macro and includes them in the [manifest.json](../artifacts/manifest-json.md) file if no arguments are documented.
 * Raise a warning if documented argument names don't match the macro definition.
@@ -48,7 +48,7 @@ macros:
 
 ### Supported types
 
-From dbt Core v1.10, when you use the [`validate_macro_args`](../global-configs/behavior-flags/validate_macro_args.md) flag, dbt supports the following types for macro arguments:
+From dbt v1.10, when you use the [`validate_macro_args`](../global-configs/behavior-flags/validate_macro_args.md) flag, dbt supports the following types for macro arguments:
 
 * `string` or `str`
 * `boolean` or `bool`

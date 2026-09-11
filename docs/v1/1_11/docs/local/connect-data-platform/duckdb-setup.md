@@ -1,10 +1,10 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect DuckDB to dbt Core
+# Connect DuckDB to dbt v1
 
 Local development
 
-[Fusion compatible](./duckdb-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./duckdb-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 Community plugin
 
@@ -15,7 +15,7 @@ Some functionality may be limited. If you're interested in contributing, check o
 * **GitHub repo**: [duckdb/dbt-duckdb](https://github.com/duckdb/dbt-duckdb) [![](https://img.shields.io/github/stars/duckdb/dbt-duckdb?style=for-the-badge)](https://github.com/duckdb/dbt-duckdb)
 * **PyPI package**: `dbt-duckdb` [![](https://badge.fury.io/py/dbt-duckdb.svg)](https://badge.fury.io/py/dbt-duckdb)
 * **Slack channel**: [#db-duckdb](https://getdbt.slack.com/archives/C039D1J1LA2)
-* **Supported dbt Core version**: v1.0.1 and newer
+* **Supported dbt version**: v1.0.1 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: DuckDB 0.3.2
 
@@ -49,7 +49,7 @@ Refer to the following table for the fields to use in your `profiles.yml`. `type
 | `extensions`  | List of [DuckDB extensions](https://duckdb.org/docs/extensions/overview) to load at startup.                   | `httpfs`, `parquet`    |
 | `settings`    | Map of [DuckDB configuration options](https://duckdb.org/docs/sql/configuration) to set at startup.            | `s3_region: us-east-1` |
 
-If you're using Fusion, loading extensions requires you to install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Refer to [DuckDB driver and extensions](#driver-and-extensions) for details.
+If you're using dbt v2, loading extensions requires you to install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Refer to [DuckDB driver and extensions](#driver-and-extensions) for details.
 
 ### In-memory
 

@@ -5,13 +5,13 @@ Available in v1
 ### Resources
 
 * [Discourse](https://discourse.getdbt.com/t/3180)
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.0.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.0.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-dbt Core major version 1.0 includes a number of breaking changes! Wherever possible, we have offered backwards compatibility for old behavior, and (where necessary) made migration simple.
+dbt v1 major version 1.0 includes a number of breaking changes! Wherever possible, we have offered backwards compatibility for old behavior, and (where necessary) made migration simple.
 
 ### Renamed fields in `dbt_project.yml`
 
@@ -50,7 +50,7 @@ Global project macros have been reorganized, and some old unused macros have bee
 
 ### For maintainers of plugins + other integrations
 
-We've introduced a new [**structured event interface**](../../../../reference/events-logging.md), and we've transitioned all dbt logging to use this new system. **This includes a breaking change for adapter plugins**, requiring a very simple migration. For more details, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md#adapter-maintainers). If you maintain a different kind of plugin that *needs* legacy logging, for the time being, you can re-enable it with an env var (`DBT_ENABLE_LEGACY_LOGGER=True`); be advised that we will remove this capability in a future version of dbt Core.
+We've introduced a new [**structured event interface**](../../../../reference/events-logging.md), and we've transitioned all dbt logging to use this new system. **This includes a breaking change for adapter plugins**, requiring a very simple migration. For more details, see the [`events` module README](https://github.com/dbt-labs/dbt/blob/HEAD/core/dbt/events/README.md#adapter-maintainers). If you maintain a different kind of plugin that *needs* legacy logging, for the time being, you can re-enable it with an env var (`DBT_ENABLE_LEGACY_LOGGER=True`); be advised that we will remove this capability in a future version of dbt.
 
 The [**dbt RPC Server**](../../../../reference/commands/rpc.md) has been split out from `dbt-core` and is now packaged separately. Its functionality will be fully deprecated by the end of 2022, in favor of a new dbt Server. Instead of `dbt rpc`, use `dbt-rpc serve`.
 

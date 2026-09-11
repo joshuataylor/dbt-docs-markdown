@@ -617,7 +617,7 @@ To debug a failing test, find the SQL that dbt ran by:
 
   * Within the test output, click on the failed test, and then select "Details".
 
-* dbt Core:
+* dbt v1:
 
   * Open the file path returned as part of the error message.
   * Navigate to the `target/compiled/schema_tests` directory for all compiled test queries.
@@ -639,7 +639,7 @@ Why do model and source YAML files always start with \`version: 2\`?
 
 Once upon a time, the structure of these `.yml` files was very different (s/o to anyone who was using dbt back then!). Adding `version: 2` allowed us to make this structure more extensible.
 
-From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
+From [dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
 Also starting in v1.5, both the [`config-version: 2`](../reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 
@@ -752,7 +752,7 @@ If you're using dbt to deploy your project and have a [Starter, Enterprise, or E
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. Read-only users can access the documentation for your project — for license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
 
-dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
 ## Commit your changes
 

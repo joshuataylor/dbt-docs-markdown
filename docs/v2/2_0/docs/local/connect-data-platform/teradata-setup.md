@@ -1,19 +1,19 @@
-# Connect Teradata to dbt Core
+# Connect Teradata to dbt v1
 
 Local development
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code in the repository listed in the next section.
 
-`profiles.yml` file is for dbt Core and dbt fusion only
+`profiles.yml` file is for dbt v1 and dbt v2 only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 * **Maintained by**: Teradata
 * **Authors**: Teradata
 * **GitHub repo**: [Teradata/dbt-teradata](https://github.com/Teradata/dbt-teradata) [![](https://img.shields.io/github/stars/Teradata/dbt-teradata?style=for-the-badge)](https://github.com/Teradata/dbt-teradata)
 * **PyPI package**: `dbt-teradata` [![](https://badge.fury.io/py/dbt-teradata.svg)](https://badge.fury.io/py/dbt-teradata)
 * **Slack channel**: [#db-teradata](https://getdbt.slack.com/archives/C027B6BHMT3)
-* **Supported dbt Core version**: v0.21.0 and newer
+* **Supported dbt version**: v0.21.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
@@ -45,16 +45,16 @@ For Teradata-specific configuration, please refer to [Teradata configs.](../../.
 
 ## dbt dependent packages version compatibility
 
-| dbt-teradata | dbt Core | dbt-teradata-util | dbt-util       |
-| ------------ | -------- | ----------------- | -------------- |
-| 1.2.x        | 1.2.x    | 0.1.0             | 0.9.x or below |
-| 1.6.7        | 1.6.7    | 1.1.1             | 1.1.1          |
-| 1.7.x        | 1.7.x    | 1.1.1             | 1.1.1          |
-| 1.8.x        | 1.8.x    | 1.1.1             | 1.1.1          |
-| 1.8.x        | 1.8.x    | 1.2.0             | 1.2.0          |
-| 1.8.x        | 1.8.x    | 1.3.0             | 1.3.0          |
-| 1.9.x        | 1.9.x    | 1.3.0             | 1.3.0          |
-| 1.10.x       | 1.10.x   | 1.3.0             | 1.3.0          |
+| dbt-teradata | dbt v1 | dbt-teradata-util | dbt-util       |
+| ------------ | ------ | ----------------- | -------------- |
+| 1.2.x        | 1.2.x  | 0.1.0             | 0.9.x or below |
+| 1.6.7        | 1.6.7  | 1.1.1             | 1.1.1          |
+| 1.7.x        | 1.7.x  | 1.1.1             | 1.1.1          |
+| 1.8.x        | 1.8.x  | 1.1.1             | 1.1.1          |
+| 1.8.x        | 1.8.x  | 1.2.0             | 1.2.0          |
+| 1.8.x        | 1.8.x  | 1.3.0             | 1.3.0          |
+| 1.9.x        | 1.9.x  | 1.3.0             | 1.3.0          |
+| 1.10.x       | 1.10.x | 1.3.0             | 1.3.0          |
 
 ### Connecting to Teradata
 
@@ -284,4 +284,4 @@ The adapter was originally created by [Doug Beatty](https://github.com/dbeatty10
 
 ## License
 
-The adapter is published using Apache-2.0 License. Refer to the [terms and conditions](https://github.com/dbt-labs/dbt-core/blob/main/LICENSE) to understand items such as creating derivative work and the support model.
+The adapter is published using Apache-2.0 License. Refer to the [terms and conditions](https://github.com/dbt-labs/dbt/blob/main/LICENSE) to understand items such as creating derivative work and the support model.

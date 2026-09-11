@@ -1,20 +1,20 @@
 (Applies to dbt v2.0 and later)
 
-# Connect Databricks to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Databricks to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 You can configure the Databricks adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
-The Databricks adapter for Fusion supports the following [authentication methods](#supported-authentication-types):
+The Databricks adapter for dbt v2 supports the following [authentication methods](#supported-authentication-types):
 
 * Personal access token (for individual users)
 * Service Principal token (for service users)
 * OAuth
 
-## Warehouse permissions for Fusion
+## Warehouse permissions for dbt v2
 
-The Databricks user or service principal that dbt Fusion engine uses must have privileges on the catalog and schemas where models run, plus access required for metadata queries. Requirements depend on whether you use Unity Catalog or the legacy Hive Metastore.
+The Databricks user or service principal that dbt v2 uses must have privileges on the catalog and schemas where models run, plus access required for metadata queries. Requirements depend on whether you use Unity Catalog or the legacy Hive Metastore.
 
 ### Required Databricks objects
 
@@ -78,13 +78,13 @@ Optional permissions for environments using Python models
 
 ## Databricks configuration details
 
-The dbt Fusion engine `dbt-databricks` adapter is the only supported connection method for Databricks.
+The dbt v2 `dbt-databricks` adapter is the only supported connection method for Databricks.
 
 `dbt-databricks` can connect to Databricks SQL Warehouses. These warehouses are the recommended way to get started with Databricks.
 
 Refer to the [Databricks docs](https://docs.databricks.com/dev-tools/dbt.html#) for more info on how to obtain the credentials for configuring your profile.
 
-## Configure Fusion
+## Configure dbt v2
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 

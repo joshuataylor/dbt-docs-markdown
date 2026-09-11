@@ -182,7 +182,7 @@ Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 3. Check out the SQL dbt is running by either:
 
    * **dbt:** checking the Details tab.
-   * **dbt Core:** checking the `target/compiled` directory
+   * **dbt v1:** checking the `target/compiled` directory
 
 **Unique test**
 
@@ -240,13 +240,13 @@ where {{ column_name }} is null
 
 ## Running only data tests
 
-To run data tests while excluding unit tests, use the `test_type` selector — this works across all engines (dbt Core and Fusion):
+To run data tests while excluding unit tests, use the `test_type` selector — this works across all engines (dbt v1 and dbt v2):
 
 ```bash
 dbt test --select "test_type:data"
 ```
 
-In dbt Core (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](../../reference/node-selection/test-selection-examples.md).
+In dbt (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](../../reference/node-selection/test-selection-examples.md).
 
 ## Storing data test failures
 
@@ -385,7 +385,7 @@ To debug a failing test, find the SQL that dbt ran by:
 
   * Within the test output, click on the failed test, and then select "Details".
 
-* dbt Core:
+* dbt v1:
 
   * Open the file path returned as part of the error message.
   * Navigate to the `target/compiled/schema_tests` directory for all compiled test queries.

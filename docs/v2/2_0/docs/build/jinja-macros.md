@@ -80,7 +80,7 @@ You can recognize Jinja based on the delimiters the language uses, which we refe
 When used in a dbt model, your Jinja needs to compile to a valid query. To check what SQL your Jinja compiles to:
 
 * **Using dbt:** Click the compile button to see the compiled SQL in the Compiled SQL pane
-* **Using dbt Core:** Run `dbt compile` from the command line. Then open the compiled SQL file in the `target/compiled/{project name}/` directory. Use a split screen in your code editor to keep both files open at once.
+* **Using dbt v1:** Run `dbt compile` from the command line. Then open the compiled SQL file in the `target/compiled/{project name}/` directory. Use a split screen in your code editor to keep both files open at once.
 
 ### Macros
 
@@ -217,7 +217,7 @@ macros:
 
 tip
 
-From dbt Core v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
+From dbt v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
 
 * Infer arguments from the macro and includes them in the [manifest.json](../../reference/artifacts/manifest-json.md) file if no arguments are documented.
 * Raise a warning if documented argument names don't match the macro definition.

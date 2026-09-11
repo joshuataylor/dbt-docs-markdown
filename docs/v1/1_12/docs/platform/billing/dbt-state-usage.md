@@ -2,7 +2,7 @@
 
 Login required | Usage-based
 
-[dbt State](../../deploy/dbt-state-about.md) enables dbt to reuse nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed. It's a separate, usage-based product available to dbt Core, dbt platform, and dbt Fusion engine users. Learn more about how your usage influences the price so you can plan your savings effectively.
+[dbt State](../../deploy/dbt-state-about.md) enables dbt to reuse nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed. It's a separate, usage-based product available to dbt v1, dbt platform, and dbt v2 users. Learn more about how your usage influences the price so you can plan your savings effectively.
 
 ### About free trial
 

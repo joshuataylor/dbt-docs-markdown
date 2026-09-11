@@ -23,7 +23,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
   * A newly designed toolbar that groups all of your action and project insight tabs for easy access.
   * A dedicated inline **Commands** tab for history and logs.
-  * When you upgrade your development environment to the dbt Fusion engine, the environment includes a new **Problems** tab that gives you live error detection on issues that could block your project from running successfully.
+  * When you upgrade your development environment to dbt v2, the environment includes a new **Problems** tab that gives you live error detection on issues that could block your project from running successfully.
 
 ## November 2025
 
@@ -53,12 +53,12 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
 * **New**: The [dbt MCP server](../dbt-ai/about-mcp.md) is now generally available (GA). For more information on the dbt MCP server and dbt Agents, refer to the [Announcing dbt Agents and the remote dbt MCP Server: Trusted AI for analytics](https://www.getdbt.com/blog/dbt-agents-remote-dbt-mcp-server-trusted-ai-for-analytics) blog post.
 
-* **Private preview**: The [dbt platform (powered by Fusion)](./upgrade-dbt-platform-version.md#dbt-fusion-engine) is now in private preview. If you have any questions, please reach out to your account manager.
+* **Private preview**: The [dbt platform (powered by Fusion)](./upgrade-dbt-platform-version.md#dbt-v2) is now in private preview. If you have any questions, please reach out to your account manager.
   * [About data platform connections](../platform/connect-data-platform/about-connections.md) lists all available dbt platform connections on Fusion and the supported authentication methods per connection.
 
 * **New**: Fusion‑specific configuration is now available for BigQuery, Databricks, Redshift, and Snowflake. For more information, see [Connect Fusion to your data platform](../local/profiles.yml.md).
 
-* **Alpha**: The `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. Note that this connection is in the Alpha product stage and is not production-ready. For more information, see [Salesforce Data Cloud setup](../local/connect-data-platform/salesforce-data-cloud-setup.md).
+* **Alpha**: The `dbt-salesforce` adapter is available via dbt v2 CLI. Note that this connection is in the Alpha product stage and is not production-ready. For more information, see [Salesforce Data Cloud setup](../local/connect-data-platform/salesforce-data-cloud-setup.md).
 
 * **Private preview**: [State-aware orchestration](../deploy/state-aware-about.md) is now in private preview!
 
@@ -78,7 +78,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
   * **Private beta**: The [Analyst agent](../explore/navigate-dbt-insights.md#dbt-copilot) is now available in dbt Insights. The Analyst agent is a conversational AI feature where you can ask natural language prompts and receive analysis in real-time. For more information, see [Analyze data with the Analyst agent](../dbt-ai/analyst-agent.md).
   * **Beta**: The [Semantic Layer querying](../explore/navigate-dbt-insights.md#semantic-layer-querying) within dbt Insights is now available in beta. With this feature, you can build SQL queries against the Semantic Layer without writing SQL code. It guides you in creating queries based on available metrics, dimensions, and entities.
-  * **Enhancement**: In [dbt Insights](../explore/dbt-insights.md), projects upgraded to the [dbt Fusion engine](../introduction.md) get [Language Server Protocol (LSP) features](../explore/navigate-dbt-insights.md#lsp-features) and their compilation running on Fusion.
+  * **Enhancement**: In [dbt Insights](../explore/dbt-insights.md), projects upgraded to the [dbt v2](../introduction.md) get [Language Server Protocol (LSP) features](../explore/navigate-dbt-insights.md#lsp-features) and their compilation running on dbt v2.
 
 * **New**: [MetricFlow](../build/about-metricflow.md) is now developed and maintained as part of the [Open Semantic Interchange (OSI)](https://www.snowflake.com/en/blog/open-semantic-interchange-ai-standard/) initiative, and is distributed under the [Apache 2.0 license](https://github.com/dbt-labs/metricflow/blob/main/LICENSE). For more information, see the blog post about [Open sourcing MetricFlow](https://www.getdbt.com/blog/open-source-metricflow-governed-metrics).
 
@@ -94,7 +94,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
 * **Enhancement**:
 
-  * **Fusion MCP tools** — Added Fusion tools that support `compile_sql` and `get_column_lineage` (Fusion-exclusive) for both [Remote](../dbt-ai/mcp-available-tools.md#fusion-tools-remote) and [Local](../dbt-ai/mcp-available-tools.md#fusion-tools-local) usage. Remote Fusion tools defer to your prod environment by default (set with `x-dbt-prod-environment-id`); you can disable deferral with `x-dbt-fusion-disable-defer=true`. Refer to [set up remote MCP](../dbt-ai/setup-remote-mcp.md) for more info.
+  * **dbt v2 MCP tools** — Added dbt v2 tools that support `compile_sql` and `get_column_lineage` (Fusion-exclusive) for both [Remote](../dbt-ai/mcp-available-tools.md#fusion-tools-remote) and [Local](../dbt-ai/mcp-available-tools.md#fusion-tools-local) usage. Remote dbt v2 tools defer to your prod environment by default (set with `x-dbt-prod-environment-id`); you can disable deferral with `x-dbt-fusion-disable-defer=true`. Refer to [set up remote MCP](../dbt-ai/setup-remote-mcp.md) for more info.
   * **Self-hosted MCP server OAuth** — You can now authenticate the self-hosted dbt MCP server to the dbt platform with OAuth (supported docs for [Claude](../dbt-ai/integrate-mcp-claude.md), [Cursor](../dbt-ai/integrate-mcp-cursor.md), and [VS Code](../dbt-ai/integrate-mcp-vscode.md)), reducing local secret management and standardizing setup. Refer to [dbt platform authentication](../dbt-ai/setup-local-mcp.md#dbt-platform-authentication) for more information.
 
 * **Behavior change**: The CodeGenCodeLens feature for creating models from your sources with a click of a button has been temporarily removed from the Studio IDE due to compatibility issues. We plan to reintroduce this feature in the near future for both the IDE and the VS Code extension.
@@ -200,7 +200,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 ## March 2025
 
-* **Behavior change**: As of March 31st, 2025, dbt Core versions 1.0, 1.1, and 1.2 have been deprecated from dbt. They are no longer available to select as versions for dbt projects. Workloads currently on these versions will be automatically upgraded to v1.3, which may cause new failures.
+* **Behavior change**: As of March 31st, 2025, dbt v1 versions 1.0, 1.1, and 1.2 have been deprecated from dbt. They are no longer available to select as versions for dbt projects. Workloads currently on these versions will be automatically upgraded to v1.3, which may cause new failures.
 * **Enhancement**: [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) users on single-tenant configurations no longer need to contact their account representative to enable this feature. Setup is now self-service and available across all tenant configurations.
 * **New**: The Semantic Layer now supports Postgres as a data platform. For more details on how to set up the Semantic Layer for Postgres, see [Set up the Semantic Layer](../use-dbt-semantic-layer/setup-sl.md).
 * **New**: New [environment variable default](../build/environment-variables.md#dbt-cloud-context) `DBT_CLOUD_INVOCATION_CONTEXT`.

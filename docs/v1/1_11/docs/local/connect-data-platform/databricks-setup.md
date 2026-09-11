@@ -1,17 +1,17 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect Databricks to dbt Core
+# Connect Databricks to dbt v1
 
 Local development
 
-[Fusion compatible](./databricks-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./databricks-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 * **Maintained by**: Databricks
 * **Authors**: dbt loving Bricksters
 * **GitHub repo**: [databricks/dbt-databricks](https://github.com/databricks/dbt-databricks) [![](https://img.shields.io/github/stars/databricks/dbt-databricks?style=for-the-badge)](https://github.com/databricks/dbt-databricks)
 * **PyPI package**: `dbt-databricks` [![](https://badge.fury.io/py/dbt-databricks.svg)](https://badge.fury.io/py/dbt-databricks)
 * **Slack channel**: [#db-databricks-and-spark](https://getdbt.slack.com/archives/CNGCW8HKL)
-* **Supported dbt Core version**: v0.18.0 and newer
+* **Supported dbt version**: v0.18.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: Databricks SQL or DBR 12+
 
@@ -34,7 +34,7 @@ For Databricks-specific configuration, please refer to [Databricks configs.](../
 
 ## Connecting to Databricks
 
-To connect to a data platform with dbt Core, create the appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Databricks SQL Warehouse/cluster. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more info, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
+To connect to a data platform with dbt v1, create the appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Databricks SQL Warehouse/cluster. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more info, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
 
 `dbt-databricks` can connect to Databricks SQL Warehouses and all-purpose clusters. Databricks SQL Warehouses is the recommended way to get started with Databricks.
 
@@ -143,7 +143,7 @@ The following profile fields are optional to set up. They help you configure how
 
 ### Delta Lake
 
-Most dbt Core functionality is supported, but some features are only available on Delta Lake.
+Most dbt v1 functionality is supported, but some features are only available on Delta Lake.
 
 Delta-only features:
 

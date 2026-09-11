@@ -24,7 +24,7 @@ dbt Wizard is accessible from the sidebar panel or in the Console section of the
  Availability and considerations
 
 * **Where it runs:** Supported in the [Studio IDE](./develop-in-studio.md) only, all [deployment types](../about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt platform CLI.
-* **Engines:** Works with dbt Fusion engine and dbt Core.
+* **Engines:** Works with dbt v2 and dbt v1.
 * **Conversations:** In the conversation list, open **More actions** menu (three dots) of the conversation you want to delete, then click **Delete** to remove one thread. Deleting the open thread clears the panel.
 * **Sessions:** Refreshing the same browser tab keeps your active session. A new tab, or returning after closing the tab, starts empty.
 * **Chat history:** Retained for 90 days only. Chat history isn't supported yet on single-tenant deployments, so save anything important before closing.
@@ -146,25 +146,25 @@ Instead of hanging or showing a generic error, the agent returns a clear message
 
 You can then choose whether to retry the command, narrow the request, or take another action.
 
-### Fusion migration workflow
+### dbt v2 migration workflow
 
-If you have access to [dbt Wizard](../../dbt-ai/wizard-ide.md) with [AI features](../manage-dbt-ai.md) enabled, you can use the [Fusion migration workflow](../../dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
+If you have access to [dbt Wizard](../../dbt-ai/wizard-ide.md) with [AI features](../manage-dbt-ai.md) enabled, you can use the [dbt v2 migration workflow](../../dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
 info
 
-The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/dbt-package-compat?step=4) instead.
+The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/dbt-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
-   * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.
+   * If you don't see the **Review job** button, enable the **Show dbt v2 eligibility** toggle in the job list.
 
-2. In the **Fusion eligibility unknown for this job** pop-up, click **Debug in Studio with dbt Wizard**.
+2. In the **dbt v2 eligibility unknown for this job** pop-up, click **Debug in Studio with dbt Wizard**.
 
-3. dbt redirects you to the Studio IDE and sets your personal development environment to Fusion.
+3. dbt redirects you to the Studio IDE and sets your personal development environment to dbt v2.
 
-4. dbt Wizard opens and automatically triggers the Fusion migration skill with this prompt:
+4. dbt Wizard opens and automatically triggers the dbt v2 migration skill with this prompt:
 
    ```text
-   I need help fixing Fusion compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
+   I need help fixing dbt v2 compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
    ```
 
 5. Review and approve dbt Wizard's permission requests so it can run the commands it needs.
@@ -173,11 +173,11 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 7. When the project compiles with no warnings or errors, commit and publish your changes.
 
-8. After you merge the changes, wait for the job to run again or run it manually on Fusion.
+8. After you merge the changes, wait for the job to run again or run it manually on dbt v2.
 
-![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
+![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
 
-For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../../dbt/dbt-readiness.md) and the [Upgrade to Fusion guides](../../../guides/prepare-v2-upgrade.md).
+For more on how to prepare your project for dbt v2 and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../../dbt/dbt-readiness.md) and the [Upgrade to dbt v2 guides](../../../guides/prepare-v2-upgrade.md).
 
 ### Writing effective prompts
 

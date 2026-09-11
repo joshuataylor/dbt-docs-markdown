@@ -1,16 +1,16 @@
 # Failures in on-run-start hooks
 
-Removed in dbt Core 2.0
+Removed in v2
 
-This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| skip\_nodes\_if\_on\_run\_start\_fails | dbt **v1 Latest** | dbt Core |
-| -------------------------------------- | ----------------- | -------- |
-| Introduced                             | 2024.10           | 1.9.0    |
-| Matured (default → `true`)             | 2026.09           | 1.12.0   |
-| Removed                                | —                 | v2.0     |
+| skip\_nodes\_if\_on\_run\_start\_fails | dbt **v1 Latest** | dbt v1 |
+| -------------------------------------- | ----------------- | ------ |
+| Introduced                             | 2024.10           | 1.9.0  |
+| Matured (default → `true`)             | 2026.09           | 1.12.0 |
+| Removed                                | —                 | v2.0   |
 
-Starting in dbt Core v1.12, `skip_nodes_if_on_run_start_fails` defaults to `true`, skipping all selected resources if there is a failure on an `on-run-start` hook.
+Starting in dbt v1.12, `skip_nodes_if_on_run_start_fails` defaults to `true`, skipping all selected resources if there is a failure on an `on-run-start` hook.
 
 For more information, refer to [`on-run-start` / `on-run-end`](../../project-configs/on-run-start-on-run-end.md).
 

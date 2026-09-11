@@ -2,7 +2,7 @@
 
 note
 
-Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [schema](./schema.md) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro.
+Starting in dbt v1.9+, this functionality is no longer utilized. Use the [schema](./schema.md) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro.
 
 Try it now in the [dbt **v1 Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
@@ -30,7 +30,7 @@ On **BigQuery**, this is analogous to a `dataset`.
 
 ## Default
 
-(Applies to dbt v1.9 and later) In dbt Core v1.9+ and dbt **v1 Latest** release track, this is not a required parameter.
+(Applies to dbt v1.9 and later) In dbt v1.9+, this is not a required parameter.
 
 ## Examples
 

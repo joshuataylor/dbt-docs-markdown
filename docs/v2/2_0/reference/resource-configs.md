@@ -11,7 +11,7 @@ Platform-specific configs are used to configure the dbt project for a specific d
 
 ## [Amazon Athena configurations](./resource-configs/athena-configs.md)
 
-[Reference article for the Amazon Athena adapter for dbt Core and the dbt platform.](./resource-configs/athena-configs.md)
+[Reference article for the Amazon Athena adapter for dbt v1 and the dbt platform.](./resource-configs/athena-configs.md)
 
 ## [Cloudera Impala configurations](./resource-configs/impala-configs.md)
 
@@ -25,9 +25,9 @@ Platform-specific configs are used to configure the dbt project for a specific d
 
 [Reference guide for Big Query configurations in dbt.](./resource-configs/bigquery-configs.md)
 
-## [BigQuery functions in Fusion](./resource-configs/bigquery-function-support.md)
+## [BigQuery functions in dbt v2](./resource-configs/bigquery-function-support.md)
 
-[Check which BigQuery built-in SQL functions dbt Fusion can typecheck during static analysis.](./resource-configs/bigquery-function-support.md)
+[Check which BigQuery built-in SQL functions dbt v2 can typecheck during static analysis.](./resource-configs/bigquery-function-support.md)
 
 ## [ClickHouse configurations](./resource-configs/clickhouse-configs.md)
 
@@ -121,9 +121,9 @@ Platform-specific configs are used to configure the dbt project for a specific d
 
 [Snowflake Configurations - Read this in-depth guide to learn about configurations in dbt.](./resource-configs/snowflake-configs.md)
 
-## [Snowflake functions in Fusion](./resource-configs/snowflake-function-support.md)
+## [Snowflake functions in dbt v2](./resource-configs/snowflake-function-support.md)
 
-[Check which Snowflake built-in SQL functions dbt Fusion can typecheck during static analysis.](./resource-configs/snowflake-function-support.md)
+[Check which Snowflake built-in SQL functions dbt v2 can typecheck during static analysis.](./resource-configs/snowflake-function-support.md)
 
 ## [Starburst/Trino configurations](./resource-configs/trino-configs.md)
 

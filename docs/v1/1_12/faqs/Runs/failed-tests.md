@@ -6,7 +6,7 @@ To debug a failing test, find the SQL that dbt ran by:
 
   * Within the test output, click on the failed test, and then select "Details".
 
-* dbt Core:
+* dbt v1:
 
   * Open the file path returned as part of the error message.
   * Navigate to the `target/compiled/schema_tests` directory for all compiled test queries.

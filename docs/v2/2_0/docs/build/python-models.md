@@ -2,13 +2,13 @@
 
 Note that only specific data platforms support `dbt-py` models. Check the [platform configuration pages](../../reference/resource-configs.md) to confirm if Python models are supported.
 
-Python models for Snowflake, BigQuery, and Databricks are supported in [Fusion](../introduction.md). Please refer to the [supported features](../dbt/supported-features.md) page to learn more about Fusion.
+Python models for Snowflake, BigQuery, and Databricks are supported in [dbt v2](../introduction.md). Please refer to the [supported features](../dbt/supported-features.md) page to learn more about dbt v2.
 
 We encourage you to:
 
-* Read [the original discussion](https://github.com/dbt-labs/dbt-core/discussions/5261) that proposed this feature.
-* Share your thoughts and ideas on [next steps for Python models](https://github.com/dbt-labs/dbt-core/discussions/5742).
-* Join the **#dbt Core-python-models** channel in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/).
+* Read [the original discussion](https://github.com/dbt-labs/dbt/discussions/5261) that proposed this feature.
+* Share your thoughts and ideas on [next steps for Python models](https://github.com/dbt-labs/dbt/discussions/5742).
+* Join the **#dbt-python-models** channel in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/).
 
 ## Overview
 
@@ -57,7 +57,7 @@ models:
 
 ![SQL + Python, together at last](/img/docs/building-a-dbt-project/building-models/python-models/python-model-dag.png?v=2 "SQL + Python, together at last")SQL + Python, together at last
 
-The prerequisites for dbt Python models include using an adapter for a data platform that supports a fully featured Python runtime when using dbt Core or Fusion engine. In a dbt Python model, all Python code is executed remotely on the platform. None of it is run by dbt locally. We believe in clearly separating *model definition* from *model execution*. In this and many other ways, you'll find that dbt's approach to Python models mirrors its longstanding approach to modeling data in SQL.
+The prerequisites for dbt Python models include using an adapter for a data platform that supports a fully featured Python runtime when using dbt v1 or dbt v2 engine. In a dbt Python model, all Python code is executed remotely on the platform. None of it is run by dbt locally. We believe in clearly separating *model definition* from *model execution*. In this and many other ways, you'll find that dbt's approach to Python models mirrors its longstanding approach to modeling data in SQL.
 
 We've written this guide assuming that you have some familiarity with dbt. If you've never before written a dbt model, we encourage you to start by first reading [dbt Models](./models.md). Throughout, we'll be drawing connections between Python models and SQL models, as well as making clear their differences.
 
@@ -75,7 +75,7 @@ dbt Python models have access to almost all of the same configuration options as
 
 Each Python model lives in a `.py` file in your `models/` folder. It defines a function named **`model()`**, which takes two parameters:
 
-* **`dbt`**: A class compiled by dbt Core, unique to each model, enables you to run your Python code in the context of your dbt project and DAG.
+* **`dbt`**: A class compiled by dbt unique to each model, enables you to run your Python code in the context of your dbt project and DAG.
 * **`session`**: A class representing your data platform’s connection to the Python backend. The session is needed to read in tables as DataFrames, and to write DataFrames back to tables. In PySpark, by convention, the `SparkSession` is named `spark`, and available globally. For consistency across platforms, we always pass it into the `model` function as an explicit argument called `session`.
 
 The `model()` function must return a single DataFrame. On Snowpark (Snowflake), this can be a Snowpark or pandas DataFrame. On BigQuery this can be BigFrames, pandas or Spark datafame. Via PySpark (Databricks), this can be a Spark, pandas, or pandas-on-Spark DataFrame. For more information about choosing between pandas and native DataFrames, see [DataFrame API + syntax](#dataframe-api-and-syntax).
@@ -126,7 +126,7 @@ with upstream_python_model as (
 
 caution
 
-Referencing [ephemeral](./materializations.md#ephemeral) models is currently not supported (see [feature request](https://github.com/dbt-labs/dbt-core/issues/7288))
+Referencing [ephemeral](./materializations.md#ephemeral) models is currently not supported (see [feature request](https://github.com/dbt-labs/dbt/issues/7288))
 
 From dbt version 1.8, Python models also support dynamic configurations within Python f-strings. This allows for more nuanced and dynamic model configurations directly within your Python code. For example:
 
@@ -605,7 +605,7 @@ In the future, we're considering also adding support for Private Python packages
 * How can dbt help users when uploading or initializing private Python assets? Is this a new form of `dbt deps`?
 * How can dbt support users who want to test custom functions? If defined as UDFs: "unit testing" in the database? If "pure" functions in packages: encourage adoption of `pytest`?
 
-💬 Discussion: ["Python models: package, artifact/object storage, and UDF management in dbt"](https://github.com/dbt-labs/dbt-core/discussions/5741)
+💬 Discussion: ["Python models: package, artifact/object storage, and UDF management in dbt"](https://github.com/dbt-labs/dbt/discussions/5741)
 
 ### DataFrame API and syntax
 
@@ -627,7 +627,7 @@ When developing a Python model, you will find yourself asking these questions:
 * Which open source libraries provide compelling abstractions across different data engines and vendor-specific APIs?
 * Should dbt attempt to play a longer-term role in standardizing across them?
 
-💬 Discussion: ["Python models: the pandas problem (and a possible solution)"](https://github.com/dbt-labs/dbt-core/discussions/5738)
+💬 Discussion: ["Python models: the pandas problem (and a possible solution)"](https://github.com/dbt-labs/dbt/discussions/5738)
 
 ## Limitations
 

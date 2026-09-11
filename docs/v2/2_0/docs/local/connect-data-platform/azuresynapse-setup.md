@@ -1,4 +1,4 @@
-# Connect Microsoft Azure Synapse Analytics to dbt Core
+# Connect Microsoft Azure Synapse Analytics to dbt v1
 
 Local development
 
@@ -13,7 +13,7 @@ For Microsoft Fabric setup with dbt, refer to [Microsoft Fabric Data Warehouse](
 * **GitHub repo**: [Microsoft/dbt-synapse](https://github.com/Microsoft/dbt-synapse) [![](https://img.shields.io/github/stars/Microsoft/dbt-synapse?style=for-the-badge)](https://github.com/Microsoft/dbt-synapse)
 * **PyPI package**: `dbt-synapse` [![](https://badge.fury.io/py/dbt-synapse.svg)](https://badge.fury.io/py/dbt-synapse)
 * **Slack channel**: [#db-synapse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**: v0.18.0 and newer
+* **Supported dbt version**: v0.18.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: Azure Synapse 10
 

@@ -68,11 +68,11 @@ snapshots:
 
 info
 
-Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ### Snapshot configuration migration
 
-The latest snapshot configurations introduced in dbt Core v1.9 (such as [`snapshot_meta_column_names`](./resource-configs/snapshot_meta_column_names.md), [`dbt_valid_to_current`](./resource-configs/dbt_valid_to_current.md), and `hard_deletes`) are best suited for new snapshots, but you can also adopt them in existing snapshots by migrating your table schema and configs carefully to avoid any inconsistencies in your snapshots.
+The latest snapshot configurations introduced in dbt v1.9 (such as [`snapshot_meta_column_names`](./resource-configs/snapshot_meta_column_names.md), [`dbt_valid_to_current`](./resource-configs/dbt_valid_to_current.md), and `hard_deletes`) are best suited for new snapshots, but you can also adopt them in existing snapshots by migrating your table schema and configs carefully to avoid any inconsistencies in your snapshots.
 
 Here's how you can do it:
 
@@ -174,7 +174,7 @@ snapshots:
 
 info
 
-Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **v1 Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ## Configuring snapshots
 

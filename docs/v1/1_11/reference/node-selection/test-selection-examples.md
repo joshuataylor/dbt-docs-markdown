@@ -14,7 +14,7 @@ Test selection is powerful, and we know it can be tricky. To that end, we've inc
 
 ### Direct selection
 
-Use the `test_type` selector to run a specific category of tests without relying on model selection. This is useful when you want to isolate unit tests from data tests — for example, running only unit tests during development for fast feedback, or running only data tests in production where unit test compute isn't needed. The `test_type` selector works across all engines (dbt Core and Fusion).
+Use the `test_type` selector to run a specific category of tests without relying on model selection. This is useful when you want to isolate unit tests from data tests — for example, running only unit tests during development for fast feedback, or running only data tests in production where unit test compute isn't needed. The `test_type` selector works across all engines (dbt v1 and dbt v2).
 
 The following configurations can be used with `test_type` selector to compile matching test nodes without executing them. For command behavior, refer to [About dbt compile command](../commands/compile.md).
 

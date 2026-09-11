@@ -1,4 +1,4 @@
-# Connect AWS Glue to dbt Core
+# Connect AWS Glue to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [aws-samples/dbt-glue](https://github.com/aws-samples/dbt-glue) [![](https://img.shields.io/github/stars/aws-samples/dbt-glue?style=for-the-badge)](https://github.com/aws-samples/dbt-glue)
 * **PyPI package**: `dbt-glue` [![](https://badge.fury.io/py/dbt-glue.svg)](https://badge.fury.io/py/dbt-glue)
 * **Slack channel**: [#db-glue](https://getdbt.slack.com/archives/C02R4HSMBAT)
-* **Supported dbt Core version**: v0.24.0 and newer
+* **Supported dbt version**: v0.24.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Glue 2.0
 
@@ -1047,7 +1047,7 @@ For more information, check the dbt documentation about [testing a new adapter](
 
 ### Supported Functionality
 
-Most dbt Core functionality is supported, but some features are only available with Apache Hudi.
+Most dbt v1 functionality is supported, but some features are only available with Apache Hudi.
 
 Apache Hudi-only features:
 

@@ -20,7 +20,7 @@ This section explains how you can perform a job run in your deployment environme
 
    note
 
-   If you are on the dbt Fusion engine, add the `dbt docs generate` command to your job to successfully deploy your metrics.
+   If you are on dbt v2, add the `dbt docs generate` command to your job to successfully deploy your metrics.
 
 7. Run the job by clicking the **Run now** button. Monitor the job's progress in real-time through the **Run summary** tab.
 

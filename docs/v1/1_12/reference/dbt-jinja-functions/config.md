@@ -82,7 +82,7 @@ Example usage:
 
 ## config.meta\_get
 
-This functionality is available starting in dbt Core v1.10 and in the dbt Fusion engine.
+This functionality is available in dbt v1.10 and up.
 
 **Args**:
 
@@ -119,7 +119,7 @@ models:
 
 ## config.meta\_require
 
-This functionality is available starting in dbt Core v1.10 and in the dbt Fusion engine.
+This functionality is available in dbt v1.10 and up.
 
 **Args**:
 

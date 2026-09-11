@@ -1,6 +1,6 @@
 # How is dbt State different from using state:modified?
 
-`state:modified` in dbt Core requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes.
+`state:modified` in dbt v1 requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes.
 
 `state:modified` only checks if a file has changed. dbt State has semantic understanding of SQL, so meaningless changes like whitespace or table aliases are not counted as a change — making dbt State smarter about what actually needs to rebuild.
 

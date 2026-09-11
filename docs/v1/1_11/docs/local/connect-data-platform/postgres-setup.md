@@ -1,17 +1,17 @@
-# Connect Postgres to dbt Core
+# Connect Postgres to dbt v1
 
 Local development
 
-`profiles.yml` file is for dbt Core and dbt fusion only
+`profiles.yml` file is for dbt v1 and dbt v2 only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 * **Maintained by**: dbt Labs
 * **Authors**: core dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-postgres` [![](https://badge.fury.io/py/dbt-postgres.svg)](https://badge.fury.io/py/dbt-postgres)
 * **Slack channel**: [#db-postgres](https://getdbt.slack.com/archives/C0172G2E273)
-* **Supported dbt Core version**: v0.4.0 and newer
+* **Supported dbt version**: v0.4.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 

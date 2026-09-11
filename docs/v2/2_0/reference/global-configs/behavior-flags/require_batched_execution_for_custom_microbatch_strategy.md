@@ -1,18 +1,18 @@
 # Custom microbatch strategy
 
-Removed in dbt Core 2.0
+Removed in v2
 
-This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| require\_batched\_execution\_for\_custom\_microbatch\_strategy | dbt **v1 Latest** | dbt Core |
-| -------------------------------------------------------------- | ----------------- | -------- |
-| Introduced                                                     | 2024.11           | 1.9.0    |
-| Matured (default → `true`)                                     | 2026.09           | 1.12.0   |
-| Removed                                                        | —                 | v2.0     |
+| require\_batched\_execution\_for\_custom\_microbatch\_strategy | dbt **v1 Latest** | dbt v1 |
+| -------------------------------------------------------------- | ----------------- | ------ |
+| Introduced                                                     | 2024.11           | 1.9.0  |
+| Matured (default → `true`)                                     | 2026.09           | 1.12.0 |
+| Removed                                                        | —                 | v2.0   |
 
 The `require_batched_execution_for_custom_microbatch_strategy` flag is only relevant if you already have a custom `get_incremental_microbatch_sql` macro in your project. If you don't have a custom microbatch macro, you don't need to set this flag — dbt handles microbatching automatically for any model using the [microbatch strategy](../../../docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).
 
-Starting in dbt Core v1.12, this flag defaults to `true`, meaning dbt executes custom microbatch strategies in batches. If you have a custom microbatch macro and set the flag to `false`, dbt issues a deprecation warning.
+Starting in dbt v1.12, this flag defaults to `true`, meaning dbt executes custom microbatch strategies in batches. If you have a custom microbatch macro and set the flag to `false`, dbt issues a deprecation warning.
 
 Previously, users needed to set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `true` to prevent unintended interactions with existing custom incremental strategies. Setting `DBT_EXPERIMENTAL_MICROBATCH` no longer has any effect on runtime functionality.
 

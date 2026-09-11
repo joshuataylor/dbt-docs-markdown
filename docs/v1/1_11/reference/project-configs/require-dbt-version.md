@@ -14,7 +14,7 @@ When you set this configuration:
 
 * If you have installed packages from the [dbt Packages hub](https://hub.getdbt.com/) that specify a `require_dbt_version` that doesn't match, running dbt commands will result in an error.
 * It helps package maintainers (such as [dbt-utils](https://github.com/dbt-labs/dbt-utils)) ensure that users' dbt version is compatible with the package.
-* It signals [compatibility with dbt Fusion engine](#fusion-compatibility) (`2.0.0` and higher).
+* It signals [compatibility with dbt v2](#dbt-v2-compatibility) (`2.0.0` and higher).
 * It might also help your whole team remain synchronized on the same version of dbt for local development, to avoid compatibility issues from changed behavior.
 
 You should pin to a major release. See [pin to a range](#pin-to-a-range) for more details. If this configuration isn't specified, no version check will occur.
@@ -23,7 +23,7 @@ dbt release tracks
 
 Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
 
-dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt and new versions of dbt Core. We also recommend these best practices:
+dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt. We also recommend these best practices:
 
  Installing dbt packages
 
@@ -65,26 +65,26 @@ require-dbt-version: ">= 1.0.0" # Don't put whitespace after the equality signs
 
 We recommend [defining both lower and upper bounds](#pin-to-a-range), such as `">=1.0.0,<3.0.0"`, to ensure stability across releases. We don't recommend having an unbounded `require-dbt-version` (for example, `">=1.0.0"`). Without an upper limit, a project may break when dbt releases a new major version.
 
-## Fusion compatibility
+## dbt v2 compatibility
 
-The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](../../docs/introduction.md) (`2.0.0` and higher).
+The `require-dbt-version` also signals whether a project or package supports the [dbt v2](../../docs/introduction.md) (`2.0.0` and higher).
 
-* If it excludes `2.0.0`, Fusion will warn today and error in a future release, matching dbt Core behavior.
+* If it excludes `2.0.0`, dbt v2 will warn today and error in a future release, matching dbt v1 behavior.
 * You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
 
 Refer to [pin to a range](#pin-to-a-range) for more info on how to define a version range.
 
  Use dbt-autofix to update dbt projects and packages
 
-[`dbt-autofix` tool](https://github.com/dbt-labs/dbt-autofix) automatically scans your dbt project for deprecated configurations and updates them to align with the latest best practices and prepare for Fusion migration.
+[`dbt-autofix` tool](https://github.com/dbt-labs/dbt-autofix) automatically scans your dbt project for deprecated configurations and updates them to align with the latest best practices and prepare for dbt v2 migration.
 
 When it runs, `dbt-autofix` will:
 
 * Check your `packages.yml` to determine which packages it can automatically upgrade.
-* Look for packages that list `require-dbt-version: 2.0.0` or higher (indicating Fusion support).
-* Upgrade those packages to the lowest version that supports Fusion.
+* Look for packages that list `require-dbt-version: 2.0.0` or higher (indicating dbt v2 support).
+* Upgrade those packages to the lowest version that supports dbt v2.
 
-This ensures that `dbt-autofix` only updates packages that are confirmed to work with Fusion and avoids updating packages that are known to be incompatible with Fusion.
+This ensures that `dbt-autofix` only updates packages that are confirmed to work with dbt v2 and avoids updating packages that are known to be incompatible with dbt v2.
 
 ## Examples
 
@@ -92,7 +92,7 @@ The following examples showcase how to use the `require-dbt-version`:
 
 * [Specify a minimum dbt version](#specify-a-minimum-dbt-version) — Use a `>=` operator for a minimum boundary.
 * [Pin to a range](#pin-to-a-range) — Use a comma separated list to specify an upper and lower bound.
-* [Require a specific dbt version](#require-a-specific-dbt-version) — Restrict your project to run only with an exact version of dbt Core.
+* [Require a specific dbt version](#require-a-specific-dbt-version) — Restrict your project to run only with an exact version of dbt.
 
 ### Specify a minimum dbt version
 
@@ -102,7 +102,7 @@ dbt\_project.yml
 
 ```yml
 require-dbt-version: ">=1.9.0" # project will only work with versions 1.9 and higher.
-require-dbt-version: ">=2.0.0" # project will only work with the dbt Fusion engine (v2.0.0 and higher).
+require-dbt-version: ">=2.0.0" # project will only work with dbt v2 (v2.0.0 and higher).
 ```
 
 Remember, having an unbounded upper limit isn't recommended. Instead, check out the [pin to a range](#pin-to-a-range) example to define a range with both a lower and upper limit to ensure stability across releases.
@@ -111,7 +111,7 @@ Remember, having an unbounded upper limit isn't recommended. Instead, check out 
 
 Use a comma separated list for an upper and lower bound. You can define a version range either as a YAML list (using square brackets) or as a comma-delimited string — both forms are valid and work.
 
-To signal compatibility with the dbt Fusion engine, include `2.0.0` or higher in your version range. Both of the following formats are valid:
+To signal compatibility with dbt v2, include `2.0.0` or higher in your version range. Both of the following formats are valid:
 
 dbt\_project.yml
 
@@ -123,7 +123,7 @@ require-dbt-version: [">=1.10.0", "<3.0.0"]
 require-dbt-version: ">=1.10.0,<3.0.0"
 ```
 
-If your range excludes 2.0.0 (for example, `>=1.6.0,<2.0.0`), Fusion will show a warning now and error in a future release. You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
+If your range excludes 2.0.0 (for example, `>=1.6.0,<2.0.0`), dbt v2 will show a warning now and error in a future release. You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
 
 ### Require a specific dbt version
 
@@ -131,7 +131,7 @@ Not recommended
 
 Pinning to a specific dbt version is discouraged because it limits project flexibility and can cause compatibility issues, especially with dbt packages. It's recommended to [pin to a major release](#pin-to-a-range), using a version range (for example, `">=1.0.0", "<2.0.0"`) for broader compatibility and to benefit from updates.
 
-While you can restrict your project to run only with an exact version of dbt Core, we do not recommend this for dbt Core v1.0.0 and higher.
+While you can restrict your project to run only with an exact version of dbt, we do not recommend this for dbt v1.0.0 and higher.
 
 In the following example, the project will only run with dbt v1.5:
 

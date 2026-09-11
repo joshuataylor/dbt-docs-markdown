@@ -6,7 +6,7 @@
 
 ## What is the terminal?
 
-The terminal (also called the command line, shell, or CLI) is a text-based interface for running commands on your computer. Many dbt tools — including Fusion, dbt Core, and the dbt Wizard CLI — run from the terminal.
+The terminal (also called the command line, shell, or CLI) is a text-based interface for running commands on your computer. Many dbt tools — including dbt v2, dbt v1, and the dbt Wizard CLI — run from the terminal.
 
 You don't need to be a terminal expert to use dbt. This guide covers the basics.
 
@@ -30,7 +30,7 @@ You don't need to be a terminal expert to use dbt. This guide covers the basics.
 
 Using dbt on Windows?
 
-dbt Core runs natively on Windows via PowerShell. For the best experience, consider using [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install).
+dbt runs natively on Windows via PowerShell. For the best experience, consider using [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ### Linux
 
@@ -94,7 +94,7 @@ dbt-fusion 2.0.0-preview.45
 
 ## Common issues
 
-**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt Core](../docs/local/install-dbt.md) or [dbt Wizard CLI](../docs/dbt-ai/wizard-quickstart.md).
+**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt v1](../docs/local/install-dbt.md) or [dbt Wizard CLI](../docs/dbt-ai/wizard-quickstart.md).
 
 **`Permission denied`** You may need to run the command with elevated permissions, or check that the file is executable.
 
@@ -103,5 +103,5 @@ dbt-fusion 2.0.0-preview.45
 ## Next steps
 
 * [dbt Wizard quickstart](../docs/dbt-ai/wizard-quickstart.md) — use the dbt Wizard CLI in your terminal
-* [Install dbt](../docs/local/install-dbt.md) — set up dbt Fusion engine or dbt Core locally
+* [Install dbt](../docs/local/install-dbt.md) — set up dbt v2 or dbt v1 locally
 * [dbt commands reference](../reference/dbt-commands.md) — all available dbt CLI commands

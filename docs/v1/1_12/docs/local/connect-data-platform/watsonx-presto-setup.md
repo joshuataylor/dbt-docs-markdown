@@ -1,4 +1,4 @@
-# Connect IBM watsonx.data Presto to dbt Core
+# Connect IBM watsonx.data Presto to dbt v1
 
 Local development
 
@@ -15,7 +15,7 @@ Refer to [Configuring dbt-watsonx-presto](https://www.ibm.com/docs/en/watsonx/wa
 * **GitHub repo**: [IBM/dbt-watsonx-presto](https://github.com/IBM/dbt-watsonx-presto) [![](https://img.shields.io/github/stars/IBM/dbt-watsonx-presto?style=for-the-badge)](https://github.com/IBM/dbt-watsonx-presto)
 * **PyPI package**: `dbt-watsonx-presto` [![](https://badge.fury.io/py/dbt-watsonx-presto.svg)](https://badge.fury.io/py/dbt-watsonx-presto)
 * **Slack channel**: [#db-watsonx-presto](https://getdbt.slack.com/archives/C08C7D53R40)
-* **Supported dbt Core version**: v1.8.0 and newer
+* **Supported dbt version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

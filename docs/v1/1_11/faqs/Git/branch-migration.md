@@ -1,6 +1,6 @@
 # Branches when changing Git providers or repositories
 
-This FAQ explains how Git branch names and commit history carry over when you switch Git providers (for example, GitHub or GitLab), start using a new repository, or reconnect your project to a different remote. It is for dbt Core and dbt platform users: general Git behavior about remotes, branches, and history applies to both; sections on the Studio IDE, managed repositories, and disconnecting a project repository apply only to the dbt platform.
+This FAQ explains how Git branch names and commit history carry over when you switch Git providers (for example, GitHub or GitLab), start using a new repository, or reconnect your project to a different remote. It is for dbt v1 and dbt platform users: general Git behavior about remotes, branches, and history applies to both; sections on the Studio IDE, managed repositories, and disconnecting a project repository apply only to the dbt platform.
 
 Your branch names and history only appear on a new Git provider if you copied the entire repository with its history. If you only copied files or created a fresh repository, old branches do not show up. If you use the dbt platform and the [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md), work you saved there but have not pushed is separate and could be lost.
 

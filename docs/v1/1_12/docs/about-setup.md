@@ -2,9 +2,9 @@
 
 dbt compiles and runs your analytics code against your data platform, enabling you and your team to collaborate on a single source of truth for metrics, insights, and business definitions. There are two options for deploying dbt:
 
-* **dbt platform** (formerly dbt Cloud) runs the dbt Fusion engine or dbt Core in a hosted (single or multi-tenant) environment with a browser-based interface. The intuitive user interface aids you in setting up the various components. dbt comes equipped with turnkey support for scheduling jobs, CI/CD, hosting documentation, monitoring, and alerting. It also offers an integrated development environment (Studio IDE) and allows you to develop and run dbt commands from your local command line (CLI) or code editor.
+* **dbt platform** (formerly dbt Cloud) runs dbt v2 or dbt v1 in a hosted (single or multi-tenant) environment with a browser-based interface. The intuitive user interface aids you in setting up the various components. dbt comes equipped with turnkey support for scheduling jobs, CI/CD, hosting documentation, monitoring, and alerting. It also offers an integrated development environment (Studio IDE) and allows you to develop and run dbt commands from your local command line (CLI) or code editor.
 
-* **dbt Core** is an open-source command line tool that you can install in a self-hosted environment, and communication with databases is facilitated through adapters.
+* **Self-hosted dbt** is a free command line tool that you can install in a local environment, and communication with databases is facilitated through adapters.
 
 If you're not sure which is the right solution for you, read our [What is dbt?](./introduction.md) and our [dbt features](./platform/about-platform/dbt-platform-features.md) articles to help you decide. If you still have questions, don't hesitate to [contact us](https://www.getdbt.com/contact/).
 

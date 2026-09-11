@@ -6,17 +6,17 @@ Set up state-aware orchestration to automatically determine which models to buil
 
 State-aware orchestration is now dbt State
 
-[dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](./dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -25,7 +25,7 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 To use state-aware orchestration, make sure you meet these prerequisites:
 
 * You must have a dbt [Enterprise and Enterprise+ accounts](https://www.getdbt.com/signup/) and a [Developer seat license](../platform/manage-access/seats-and-users.md).
-* You have updated the environment that will run state-aware orchestration to the dbt Fusion engine. For more information, refer to [Upgrading to dbt Fusion engine](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
+* You have updated the environment that will run state-aware orchestration to dbt v2. For more information, refer to [Upgrading to dbt v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 * Your account must have access to state-aware orchestration. Contact your account manager to request access.
 * You must have a dbt project connected to a [data platform](../platform/connect-data-platform/about-connections.md).
 * You must have [access permission](../platform/manage-access/about-user-access.md) to view, create, modify, or run jobs.
@@ -39,13 +39,13 @@ State-aware orchestration is available for SQL models only. Python models are no
 
 ## Default settings
 
-Once your account has access to state-aware orchestration, any new deploy job you create in a Fusion environment is automatically state-aware. Without additional configuration, the job only builds models when code has changed or new data exists in a source.
+Once your account has access to state-aware orchestration, any new deploy job you create in a dbt v2 environment is automatically state-aware. Without additional configuration, the job only builds models when code has changed or new data exists in a source.
 
 ## Create a job
 
 New jobs are state-aware by default
 
-For existing jobs, select **Enable Fusion cost optimization features** in the **Job settings** page to enable state-aware orchestration.
+For existing jobs, select **Enable dbt v2 cost optimization features** in the **Job settings** page to enable state-aware orchestration.
 
 To create a state-aware job:
 
@@ -65,7 +65,7 @@ To create a state-aware job:
 
   * **Commands**: By default, it includes the `dbt build` command. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when the job runs.
   * **Generate docs on run**: Enable this option if you want to [generate project docs](../build/documentation.md) when this deploy job runs.
-  * **Enable Fusion cost optimization features**: Select this option to enable **State-aware orchestration**. **Efficient testing** is disabled by default. You can expand **More options** to enable or disable individual settings.
+  * **Enable dbt v2 cost optimization features**: Select this option to enable **State-aware orchestration**. **Efficient testing** is disabled by default. You can expand **More options** to enable or disable individual settings.
 
 * **Triggers** section:
 

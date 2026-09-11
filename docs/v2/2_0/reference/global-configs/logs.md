@@ -8,7 +8,7 @@ dbt outputs logs to two different locations: CLI console and the log file.
 
 The `LOG_FORMAT` and `LOG_FORMAT_FILE` configs specify how dbt's logs should be formatted. Shared options are `text`, `json`, and `default`. The `otel` option is available for `LOG_FORMAT` only (console output). Setting `--log-format-file otel` has no effect.
 
-The `otel` format streams [OpenTelemetry](https://opentelemetry.io/)-style structured telemetry to the console. It uses a different schema than dbt Core's `json` logs. For JSONL files, Parquet export, OTLP, and how this maps to dbt Core structured logging, refer to [Fusion telemetry and observability](../telemetry-observability.md).
+The `otel` format streams [OpenTelemetry](https://opentelemetry.io/)-style structured telemetry to the console. It uses a different schema than dbt v1's `json` logs. For JSONL files, Parquet export, OTLP, and how this maps to dbt v1 structured logging, refer to [dbt v2 telemetry and observability](../telemetry-observability.md).
 
 Usage
 
@@ -48,7 +48,7 @@ dbt run --log-format-file json
 
 Tip: structured observability
 
-Use `--log-format otel` to stream OpenTelemetry-style telemetry to the console, or use `--otel-file-name` and related flags for file and platform integrations. Refer to [Fusion telemetry and observability](../telemetry-observability.md).
+Use `--log-format otel` to stream OpenTelemetry-style telemetry to the console, or use `--otel-file-name` and related flags for file and platform integrations. Refer to [dbt v2 telemetry and observability](../telemetry-observability.md).
 
 For JSON-formatted log lines, use `--log-format json` with the `DEBUG` config:
 

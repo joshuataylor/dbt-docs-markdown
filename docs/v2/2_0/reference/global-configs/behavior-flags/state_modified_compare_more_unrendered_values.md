@@ -1,14 +1,14 @@
 # Source definitions for state:modified
 
-Removed in dbt Core 2.0
+Removed in v2
 
-This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in v2. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-| state\_modified\_compare\_more\_unrendered\_values | dbt **v1 Latest** | dbt Core |
-| -------------------------------------------------- | ----------------- | -------- |
-| Introduced                                         | 2024.10           | 1.9.0    |
-| Matured (default → `true`)                         | 2026.09           | 1.12.0   |
-| Removed                                            | —                 | v2.0     |
+| state\_modified\_compare\_more\_unrendered\_values | dbt **v1 Latest** | dbt v1 |
+| -------------------------------------------------- | ----------------- | ------ |
+| Introduced                                         | 2024.10           | 1.9.0  |
+| Matured (default → `true`)                         | 2026.09           | 1.12.0 |
+| Removed                                            | —                 | v2.0   |
 
 info
 
@@ -16,7 +16,7 @@ You need to build the state directory using dbt v1.9 or higher, or [the dbt **v1
 
 If the state directory was built with an older dbt version or if the `state_modified_compare_more_unrendered_values` behavior change flag was either not set or set to `false`, you need to rebuild the state directory to avoid false positives during state comparison with `state:modified`.
 
-Starting in dbt Core v1.12, `state_modified_compare_more_unrendered_values` defaults to `true`, reducing false positives during `state:modified` checks, especially when configs differ by target environment (such as `prod` vs. `dev`).
+Starting in dbt v1.12, `state_modified_compare_more_unrendered_values` defaults to `true`, reducing false positives during `state:modified` checks, especially when configs differ by target environment (such as `prod` vs. `dev`).
 
 The flag changes the `state:modified` comparison from using rendered values to unrendered values instead, by persisting `unrendered_config` during model parsing and `unrendered_database` and `unrendered_schema` configs during source parsing.
 

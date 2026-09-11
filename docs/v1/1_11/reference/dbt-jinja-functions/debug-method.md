@@ -1,12 +1,12 @@
 # About debug macro
 
-Requires dbt Core CLI
+Requires dbt CLI
 
-The `debug()` macro is only available when using the self-hosted dbt Core CLI in a development environment. It's *not available* in dbt platform.
+The `debug()` macro is only available when using the self-hosted dbt CLI in a development environment. It's *not available* in dbt platform.
 
 Do not deploy code to production that uses the `debug` macro.
 
-If developing in dbt platform or using Fusion, you can instead use:
+If developing in dbt platform or using dbt v2, you can instead use:
 
 * [`{{ print() }}`](./print.md) - Print messages to both the log file and standard output (`stdout`).
 * [`{{ log() }}`](./log.md) - Structured logging that prints messages during Jinja rendering.
@@ -15,8 +15,8 @@ The `{{ debug() }}` macro will open an iPython debugger in the context of a comp
 
 This function requires:
 
-* Interactive terminal access with iPython debugger (`ipdb`) installed. Fusion doesn't provide a iPython (ipdb) debugger since its built on Rust. It instead outputs a non-interactive snapshot of the MiniJinja render context in the compiled code.
-* Development environment running the self-hosted dbt Core CLI
+* Interactive terminal access with iPython debugger (`ipdb`) installed. dbt v2 doesn't provide a iPython (ipdb) debugger since its built on Rust. It instead outputs a non-interactive snapshot of the MiniJinja render context in the compiled code.
+* Development environment running the self-hosted dbt CLI
 * (Applies to dbt v1.11 and later) `DBT_ENGINE_MACRO_DEBUGGING` environment variable set
 
 ## Usage

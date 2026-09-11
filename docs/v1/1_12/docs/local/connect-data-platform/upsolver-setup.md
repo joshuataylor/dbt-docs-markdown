@@ -1,4 +1,4 @@
-# Connect Upsolver to dbt Core
+# Connect Upsolver to dbt v1
 
 Local development
 
@@ -9,7 +9,7 @@ Local development
 * **GitHub repo**: [Upsolver/dbt-upsolver](https://github.com/Upsolver/dbt-upsolver)[![](https://img.shields.io/github/stars/Upsolver/dbt-upsolver?style=for-the-badge)](https://github.com/Upsolver/dbt-upsolver)
 * **PyPI package**: `dbt-upsolver` [![](https://badge.fury.io/py/dbt-upsolver.svg)](https://badge.fury.io/py/dbt-upsolver)
 * **Slack channel**: [Upsolver Community](https://join.slack.com/t/upsolvercommunity/shared_invite/zt-1zo1dbyys-hj28WfaZvMh4Z4Id3OkkhA)
-* **Supported dbt Core version**: v1.5.0 and newer
+* **Supported dbt v1 version**: v1.5.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

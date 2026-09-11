@@ -1,6 +1,6 @@
-# Fusion telemetry and observability
+# dbt v2 telemetry and observability
 
-The dbt Fusion engine provides a comprehensive observability system that replaces [dbt Core's structured logging](./events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
+dbt v2 provides a comprehensive observability system that replaces [dbt v1's structured logging](./events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
 
 For shared CLI logging configs such as `--log-format` and `--log-level`, refer to [Logs](./global-configs/logs.md).
 
@@ -10,7 +10,7 @@ This uses the same integration that dbt platform relies on for orchestration and
 
 ## Available output formats
 
-Fusion telemetry supports three output formats, which you can enable independently:
+dbt v2 telemetry supports three output formats, which you can enable independently:
 
 | Format      | Use case                                                              | Availability                |
 | ----------- | --------------------------------------------------------------------- | --------------------------- |
@@ -54,13 +54,13 @@ OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" dbtf build --export-to-otlp
 
 ### Download telemetry from platform job runs
 
-On the dbt platform, Fusion job runs store OTel telemetry as Parquet artifacts for dbt command steps. From a completed run, open the **Run summary** tab, select a step, and click **Download** > **Download OTel log**. The option appears only for Fusion runs where the step produced an OTel file. For step-by-step instructions, refer to [Downloading logs](../docs/deploy/run-visibility.md#access-logs).
+On the dbt platform, dbt v2 job runs store OTel telemetry as Parquet artifacts for dbt command steps. From a completed run, open the **Run summary** tab, select a step, and click **Download** > **Download OTel log**. The option appears only for dbt v2 runs where the step produced an OTel file. For step-by-step instructions, refer to [Downloading logs](../docs/deploy/run-visibility.md#access-logs).
 
 #### Retrieve telemetry using the API
 
 You can also retrieve the OTel Parquet artifact for a run step through the [dbt Administrative API v2](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact), which lets you download artifacts after a job completes. Use this to automate ingestion of node outcomes and test outcomes into a downstream system, such as a data quality framework in your warehouse.
 
-Each Fusion command step that produces telemetry writes a `telemetry-STEP_NUMBER-otel.parquet` artifact. Some steps like `dbt deps` don't produce a Parquet artifact.
+Each dbt v2 command step that produces telemetry writes a `telemetry-STEP_NUMBER-otel.parquet` artifact. Some steps like `dbt deps` don't produce a Parquet artifact.
 
 You can use the Retrieve Run Artifact endpoint to fetch this artifact:
 
@@ -85,11 +85,11 @@ To find which step produced the telemetry artifact you want, list the run's step
 GET https://YOUR_ACCESS_URL/api/v2/accounts/ACCOUNT_ID/runs/RUN_ID/?include_related=["run_steps"]
 ```
 
-You can only retrieve this artifact for Fusion steps that emitted an OTel log.
+You can only retrieve this artifact for dbt v2 steps that emitted an OTel log.
 
 ## Telemetry data
 
-Fusion telemetry contains two types of records:
+dbt v2 telemetry contains two types of records:
 
 * **Spans** — Operations with a start and end time (like compiling a model or running a test).
 * **Log records** — Point-in-time events within a span.
@@ -115,7 +115,7 @@ The `trace_id` (also known as `invocation_id`) remains consistent across all tel
 
 Every node produces a result for each phase it participates in. Some phases, such as `parse`, don't involve node-level execution, so they don't produce node spans or node outcomes.
 
-The `node_outcome` field indicates whether or not Fusion executed the node's operation.
+The `node_outcome` field indicates whether or not dbt v2 executed the node's operation.
 
 | Outcome    | Description                                                       |
 | ---------- | ----------------------------------------------------------------- |
@@ -126,12 +126,12 @@ The `node_outcome` field indicates whether or not Fusion executed the node's ope
 
 ### Skip reasons
 
-When Fusion skips a node, the telemetry includes a reason:
+When dbt v2 skips a node, the telemetry includes a reason:
 
 | Skip reason      | Description                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `upstream`       | A dependency failed.                                                                                                            |
-| `cached`         | Fusion reused results from cache (no changes detected via [dbt State](../docs/deploy/dbt-state-about.md)). |
+| `cached`         | dbt v2 reused results from cache (no changes detected via [dbt State](../docs/deploy/dbt-state-about.md)). |
 | `phase_disabled` | The phase was disabled (for example, `--static-analysis off`).                                                                  |
 | `noop`           | Node doesn't perform work in this phase (for example, ephemeral models).                                                        |
 
@@ -147,7 +147,7 @@ When a test executes successfully (`node_outcome: success`), it reports the test
 
 Test outcomes
 
-A test with `node_outcome: success` and `test_outcome: failed` means Fusion successfully ran the test, and the test reported data quality issues. This differs from `node_outcome: error`, which means the test itself couldn't run (for example, invalid SQL).
+A test with `node_outcome: success` and `test_outcome: failed` means dbt v2 successfully ran the test, and the test reported data quality issues. This differs from `node_outcome: error`, which means the test itself couldn't run (for example, invalid SQL).
 
 ## Querying telemetry data
 
@@ -198,10 +198,10 @@ Choose the right timing metric
 
 Telemetry provides several ways to measure node performance:
 
-* **Processing time (`attributes.duration_ms`)** measures the time Fusion spent actively processing the node, including nested `NodeEvaluated` work. It excludes time spent waiting for upstream nodes or internal backpressure. Use this metric to identify the nodes that take the longest to process.
+* **Processing time (`attributes.duration_ms`)** measures the time v2 spent actively processing the node, including nested `NodeEvaluated` work. It excludes time spent waiting for upstream nodes or internal backpressure. Use this metric to identify the nodes that take the longest to process.
 * **Node lifetime (`end_time_unix_nano - start_time_unix_nano`)** measures the full time from the start to the end of the span, including time spent waiting at the connection-limit gate. In builds with saturated threads, this metric might surface nodes with the longest queue time rather than the most processing work.
 * **Idle time (`attributes.idle_time_ms`)** measures how long the node spent waiting instead of being actively processed, such as while waiting for an upstream node or available processing capacity. Use it to identify where resource constraints are causing delays.
-* **Warehouse execution time** is the sum of `QueryExecuted` span durations for each `unique_id`. It excludes Fusion-side work such as compilation and static analysis. Use this metric to compare telemetry with your warehouse query history.
+* **Warehouse execution time** is the sum of `QueryExecuted` span durations for each `unique_id`. It excludes v2-side work such as compilation and static analysis. Use this metric to compare telemetry with your warehouse query history.
 
 Find nodes with the highest warehouse time (optional):
 
@@ -237,7 +237,7 @@ For ad hoc exploration without a local install, web-based Parquet viewers (such 
 
 ## OpenTelemetry integration
 
-Fusion's native OTLP support lets you send telemetry directly to any OpenTelemetry-compatible receiver, including Datadog, Jaeger, Google Cloud Trace, Grafana Tempo, and Honeycomb.
+dbt v2's native OTLP support lets you send telemetry directly to any OpenTelemetry-compatible receiver, including Datadog, Jaeger, Google Cloud Trace, Grafana Tempo, and Honeycomb.
 
 This enables:
 
@@ -255,11 +255,11 @@ export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
 dbtf build --export-to-otlp
 ```
 
-## Mapping to dbt Core concepts
+## Mapping to dbt v1 concepts
 
-If you're familiar with dbt Core's structured logging, here's how Fusion telemetry maps:
+If you're familiar with dbt v1's structured logging, here's how dbt v2 telemetry maps:
 
-| dbt Core                           | Fusion telemetry                                 |
+| dbt v1                             | dbt v2 telemetry                                 |
 | ---------------------------------- | ------------------------------------------------ |
 | `invocation_id`                    | `trace_id` (same value, different format)        |
 | `run_results.json` status          | `node_outcome` + `skip_reason` or `test_outcome` |
@@ -268,22 +268,22 @@ If you're familiar with dbt Core's structured logging, here's how Fusion telemet
 
 ### Node status mapping
 
-| dbt Core status | Fusion outcome                                   |
-| --------------- | ------------------------------------------------ |
-| `success`       | `node_outcome: success`                          |
-| `error`         | `node_outcome: error`                            |
-| `skipped`       | `node_outcome: skipped`, `skip_reason: upstream` |
-| `pass` (tests)  | `node_outcome: success`, `test_outcome: passed`  |
-| `warn` (tests)  | `node_outcome: success`, `test_outcome: warned`  |
-| `fail` (tests)  | `node_outcome: success`, `test_outcome: failed`  |
+| dbt v1 status  | dbt v2 outcome                                   |
+| -------------- | ------------------------------------------------ |
+| `success`      | `node_outcome: success`                          |
+| `error`        | `node_outcome: error`                            |
+| `skipped`      | `node_outcome: skipped`, `skip_reason: upstream` |
+| `pass` (tests) | `node_outcome: success`, `test_outcome: passed`  |
+| `warn` (tests) | `node_outcome: success`, `test_outcome: warned`  |
+| `fail` (tests) | `node_outcome: success`, `test_outcome: failed`  |
 
-Note that dbt Core's `fail` status maps to Fusion's `node_outcome: success` because Fusion distinguishes between "the test ran successfully and found data issues" versus "the test couldn't run." This separation enables more precise alerting and retry logic.
+Note that dbt v1's `fail` status maps to dbt v2's `node_outcome: success` because dbt v2 distinguishes between "the test ran successfully and found data issues" versus "the test couldn't run." This separation enables more precise alerting and retry logic.
 
-Fusion adds `skip_reason: cached` for nodes reused via [State Aware Orchestration](../docs/deploy/state-aware-about.md), which has no dbt Core equivalent.
+dbt v2 adds `skip_reason: cached` for nodes reused via [dbt State](../docs/deploy/dbt-state-about.md), which has no dbt v1 equivalent.
 
 State-aware orchestration is now dbt State
 
-[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
@@ -320,12 +320,12 @@ Each telemetry record contains envelope fields plus event-specific `attributes`:
 
 ## Schema stability
 
-Unlike dbt Core's structured logging, Fusion telemetry is backed by a public protobuf schema with strict compatibility guarantees:
+Unlike dbt v1's structured logging, dbt v2 telemetry is backed by a public protobuf schema with strict compatibility guarantees:
 
 * **Additive only** — New fields and event types may be added, but existing fields are never removed or changed.
 * **Forward compatible** — Your integrations will continue to work as the schema evolves.
 
-This makes Fusion telemetry a reliable foundation for production integrations, orchestrators, and long-term analytics pipelines.
+This makes dbt v2 telemetry a reliable foundation for production integrations, orchestrators, and long-term analytics pipelines.
 
 ## Official client library
 

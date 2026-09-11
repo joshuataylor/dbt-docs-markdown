@@ -2,22 +2,22 @@
 
 Available in v1
 
-dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
 
-dbt Core versions v1.3-v1.7 have reached [end of life](../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
 
 Upgrade your environments to a [supported dbt version](../../dbt-versions.md) or a [release track](../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
 
 ## Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.7.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.7.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../local/install-dbt.md)
 * [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
-* [Release schedule](https://github.com/dbt-labs/dbt-core/issues/8260)
+* [Release schedule](https://github.com/dbt-labs/dbt/issues/8260)
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 Snowflake column size change
 
@@ -40,15 +40,15 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
 ### Behavior changes
 
-dbt Core v1.7 expands the amount of sources you can configure freshness for. Previously, freshness was limited to sources with a `loaded_at_field`; now, freshness can be generated from warehouse metadata tables when available.
+dbt v1.7 expands the amount of sources you can configure freshness for. Previously, freshness was limited to sources with a `loaded_at_field`; now, freshness can be generated from warehouse metadata tables when available.
 
 As part of this change, the `loaded_at_field` is no longer required to generate source freshness. If a source has a `freshness:` block, dbt will attempt to calculate freshness for that source:
 
@@ -90,7 +90,7 @@ To retain the behavior prior to v1.7, there are two main options:
 
 ### Model governance
 
-dbt Core v1.5 introduced model governance which we're continuing to refine. v1.7 includes these additional features and functionality:
+dbt v1.5 introduced model governance which we're continuing to refine. v1.7 includes these additional features and functionality:
 
 * **[Breaking change detection](../../../reference/resource-properties/versions.md#detecting-breaking-changes) for models with contracts enforced:** When dbt detects a breaking change to a model with an enforced contract during state comparison, it will now raise an error for versioned models and a warning for models that are not versioned.
 * **[Set `access` as a config](../../../reference/resource-configs/access.md):** You can now set a model's `access` within config blocks in the model's SQL file or in the project YAML file (`dbt_project.yml`) for an entire subfolder at once.

@@ -8,7 +8,7 @@ Welcome to the 2021 changelog for the dbt application! You can use this changelo
 
 ## dbt Cloud v1.1.41 (December 8, 2021)
 
-It's one of the best weeks of the year - it's [Coalesce](https://coalesce.getdbt.com/)! We'll have some exciting product announcements to share! Did somebody say [metrics](https://coalesce.getdbt.com/talks/keynote-metric-system/) and [dbt Core v1.0](https://coalesce.getdbt.com/talks/dbt-v10-reveal/)?!
+It's one of the best weeks of the year - it's [Coalesce](https://coalesce.getdbt.com/)! We'll have some exciting product announcements to share! Did somebody say [metrics](https://coalesce.getdbt.com/talks/keynote-metric-system/) and [dbt v1](https://coalesce.getdbt.com/talks/dbt-v10-reveal/)?!
 
 #### New products and features
 
@@ -24,7 +24,7 @@ We shipped environment variables in dbt. Environment variables create a way to s
 
 #### New products and features
 
-* You can now add environment variables to your dbt project. Why does this matter? Environment variables are a fundamental building block of a dbt project, which until now, we only enabled in dbt Core. They power many use cases such as cloning private packages, limiting the amount of data that is processed in development environments, changing your data sources depending on the environment, and more. Read about environment variables in our [blog post](https://blog.getdbt.com/introducing-environment-variables-in-dbt-cloud/) or [docs](../../build/environment-variables.md).
+* You can now add environment variables to your dbt project. Why does this matter? Environment variables are a fundamental building block of a dbt project, which until now, we only enabled in dbt v1. They power many use cases such as cloning private packages, limiting the amount of data that is processed in development environments, changing your data sources depending on the environment, and more. Read about environment variables in our [blog post](https://blog.getdbt.com/introducing-environment-variables-in-dbt-cloud/) or [docs](../../build/environment-variables.md).
 
 ## dbt Cloud v1.1.38 (October 27, 2021)
 
@@ -137,7 +137,7 @@ We shipped a resizable folder pane in the Studio IDE, and we're hearing great th
 
 ## dbt Cloud v1.1.29 (June 23, 2021)
 
-We're heads down working on a handful of new features that we're going to share at the end of this month. The finish line is in sight. In the meantime, check out our latest release candidates for dbt Core. The biggest changes are better tests, providing consistency, configurability, and persistence.
+We're heads down working on a handful of new features that we're going to share at the end of this month. The finish line is in sight. In the meantime, check out our latest release candidates for dbt v1. The biggest changes are better tests, providing consistency, configurability, and persistence.
 
 #### New products and features
 

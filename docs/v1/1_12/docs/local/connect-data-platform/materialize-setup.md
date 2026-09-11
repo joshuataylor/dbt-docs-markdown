@@ -1,4 +1,4 @@
-# Connect Materialize to dbt Core
+# Connect Materialize to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 * **GitHub repo**: [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize) [![](https://img.shields.io/github/stars/MaterializeInc/materialize?style=for-the-badge)](https://github.com/MaterializeInc/materialize)
 * **PyPI package**: `dbt-materialize` [![](https://badge.fury.io/py/dbt-materialize.svg)](https://badge.fury.io/py/dbt-materialize)
 * **Slack channel**: [#db-materialize](https://getdbt.slack.com/archives/C01PWAH41A5)
-* **Supported dbt Core version**: v0.18.1 and newer
+* **Supported dbt version**: v0.18.1 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: v0.28.0
 

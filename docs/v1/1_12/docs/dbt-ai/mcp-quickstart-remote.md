@@ -16,7 +16,7 @@ Remote MCP is a good fit when:
 
 Self-hosted development requires self-hosted MCP
 
-Self-hosted development and agentic workflows (for example, running dbt commands like `dbt run` or `dbt build` from your AI assistant) require the **self-hosted** MCP server. Remote MCP does not support the self-hosted dbt Core or Fusion CLI or local project access. Use [Connect to dbt platform](./mcp-quickstart-oauth.md) or [Run self-hosted dbt](./mcp-quickstart-cli.md) for those workflows.
+Self-hosted development and agentic workflows (for example, running dbt commands like `dbt run` or `dbt build` from your AI assistant) require the **self-hosted** MCP server. Remote MCP does not support the self-hosted dbt v1 or dbt v2 CLI or local project access. Use [Connect to dbt platform](./mcp-quickstart-oauth.md) or [Run self-hosted dbt](./mcp-quickstart-cli.md) for those workflows.
 
 ## Set up remote MCP
 
@@ -66,7 +66,7 @@ info
 
 Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
+When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
 
 If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
@@ -155,7 +155,7 @@ Add this to `mcp.json` (run **MCP: Open Workspace Folder MCP Configuration** fro
 Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the required headers:
 
 * **Required:** `Authorization` (value `Token YOUR_TOKEN` or `Bearer YOUR_TOKEN`), `x-dbt-prod-environment-id`
-* **For `execute_sql` with token-based auth or Fusion tools:** Also add `x-dbt-dev-environment-id` and `x-dbt-user-id`
+* **For `execute_sql` with token-based auth or dbt v2 tools:** Also add `x-dbt-dev-environment-id` and `x-dbt-user-id`
 * Use numeric IDs in headers, not full URLs copied from your browser.
 
 ##### Claude Code

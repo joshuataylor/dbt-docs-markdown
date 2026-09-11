@@ -1,6 +1,6 @@
 # dbt Community Code of Conduct
 
-This Code of Conduct applies to all dbt Community spaces, both online and offline. This includes Slack, Discourse, code repositories (dbt Core, the dbt Fusion engine, dbt packages, etc.), dbt Labs virtual events, and Meetups. Participants are responsible for knowing and abiding by this Code of Conduct.
+This Code of Conduct applies to all dbt Community spaces, both online and offline. This includes Slack, Discourse, code repositories (dbt v1, dbt v2, dbt packages, etc.), dbt Labs virtual events, and Meetups. Participants are responsible for knowing and abiding by this Code of Conduct.
 
 This Code of Conduct has two sections:
 
@@ -19,7 +19,7 @@ Each community member should strive to create more value in the community than t
 
 Ways to demonstrate this value:
 
-* [Coding contributions](../contributing/contributing-coding.md): Contribute to dbt Core, a package, or an adapter. Beyond implementing new functionality, you can also open issues or participate in discussions.
+* [Coding contributions](../contributing/contributing-coding.md): Contribute to dbt v1, a package, or an adapter. Beyond implementing new functionality, you can also open issues or participate in discussions.
 * [Writing contributions](../contributing/contributing-writing.md): You can suggest edits to every page of the dbt documentation, or suggest a topic for the dbt Developer Blog.
 * [Join in online](../contributing/contributing-online-community.md): Ask and answer questions on the Discourse forum, kick off a lively discussion in Slack, or even maintain a Slack channel of your own.
 * [Participate in events](../contributing/contributing-realtime-events.md): Organise a community Meetup, speak at an event, or provide office space/sponsorship for an existing event.

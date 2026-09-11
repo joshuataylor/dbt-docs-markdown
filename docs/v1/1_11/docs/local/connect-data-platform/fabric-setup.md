@@ -1,10 +1,10 @@
-# Connect Microsoft Fabric Data Warehouse to dbt Core
+# Connect Microsoft Fabric Data Warehouse to dbt v1
 
 Local development
 
-`profiles.yml` file is for dbt Core and dbt fusion only
+`profiles.yml` file is for dbt v1 and dbt v2 only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 Below is a guide for use with [Fabric Data Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing#synapse-data-warehouse), a new product within Microsoft Fabric. The adapter currently supports connecting to a warehouse.
 
@@ -17,7 +17,7 @@ To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azu
 * **GitHub repo**: [Microsoft/dbt-fabric](https://github.com/Microsoft/dbt-fabric) [![](https://img.shields.io/github/stars/Microsoft/dbt-fabric?style=for-the-badge)](https://github.com/Microsoft/dbt-fabric)
 * **PyPI package**: `dbt-fabric` [![](https://badge.fury.io/py/dbt-fabric.svg)](https://badge.fury.io/py/dbt-fabric)
 * **Slack channel**:
-* **Supported dbt Core version**: 1.4.0 and newer
+* **Supported dbt version**: 1.4.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**:
 

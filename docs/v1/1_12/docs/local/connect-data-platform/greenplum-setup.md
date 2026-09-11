@@ -1,4 +1,4 @@
-# Connect Greenplum to dbt Core
+# Connect Greenplum to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [markporoshin/dbt-greenplum](https://github.com/markporoshin/dbt-greenplum) [![](https://img.shields.io/github/stars/markporoshin/dbt-greenplum?style=for-the-badge)](https://github.com/markporoshin/dbt-greenplum)
 * **PyPI package**: `dbt-greenplum` [![](https://badge.fury.io/py/dbt-greenplum.svg)](https://badge.fury.io/py/dbt-greenplum)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.0.0 and newer
+* **Supported dbt version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Greenplum 6.0
 

@@ -1,20 +1,20 @@
-# About self-hosted Fusion installation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About self-hosted dbt v2 installation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
-Learn more about installing Fusion locally, along with important prerequisites, step-by-step installation instructions, troubleshooting common issues, and configuration guidance.
+Learn more about installing dbt v2 locally, along with important prerequisites, step-by-step installation instructions, troubleshooting common issues, and configuration guidance.
 
 ## Prerequisites
 
-Before installing Fusion, ensure that you:
+Before installing dbt v2, ensure that you:
 
 * Have administrative privileges to install software on your local machine.
 
@@ -75,7 +75,7 @@ Before installing Fusion, ensure that you:
 
 ## Getting started
 
-If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [Fusion availability](./dbt-availability.md) page.
+If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [v2 availability](./dbt-availability.md) page.
 
 [![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
 
@@ -85,12 +85,12 @@ If you're ready to get started, choose one of the following options. To learn mo
 
 [![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
 
-#### [dbt Fusion engine from the CLI](../local/install-dbt.md?version=2)
+#### [dbt v2 from the CLI](../local/install-dbt.md?version=2)
 
-[Learn how to install the dbt Fusion engine on the command line interface (CLI).](../local/install-dbt.md?version=2)
+[Learn how to install dbt v2 on the command line interface (CLI).](../local/install-dbt.md?version=2)
 
-[![](/img/icons/dbt-bit.svg)](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+[![](/img/icons/dbt-bit.svg)](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
-#### [dbt Fusion engine upgrade](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+#### [dbt v2 upgrade](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
-[Learn how you can upgrade and leverage the speed and scale of the dbt Fusion engine](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+[Learn how you can upgrade and leverage the speed and scale of dbt v2](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)

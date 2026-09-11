@@ -1085,7 +1085,7 @@ To work with metrics in dbt, you have several tools to validate or run commands.
 
 * [**Studio IDE users**](#studio-ide-users) — Run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) directly in the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) to query/preview metrics. View metrics visually in the **Lineage** tab.
 * [**dbt platform CLI users**](#dbt-cli-users) — The [dbt platform CLI](../docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
-* **dbt Core users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt Core users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
+* **dbt v1 users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt v1 users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
 
 Alternatively, you can run commands with SQL client tools like DataGrip, DBeaver, or RazorSQL.
 
@@ -1143,7 +1143,7 @@ This section explains how you can perform a job run in your deployment environme
 
    note
 
-   If you are on the dbt Fusion engine, add the `dbt docs generate` command to your job to successfully deploy your metrics.
+   If you are on dbt v2, add the `dbt docs generate` command to your job to successfully deploy your metrics.
 
 7. Run the job by clicking the **Run now** button. Monitor the job's progress in real-time through the **Run summary** tab.
 

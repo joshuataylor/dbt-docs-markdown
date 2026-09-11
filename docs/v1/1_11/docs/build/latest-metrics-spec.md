@@ -9,8 +9,8 @@ Availability
 The latest YAML spec is supported in the following environments:
 
 * **dbt platform (v1 Latest release track)**
-* **dbt Fusion engine**
-* **dbt Core v1.12**
+* **dbt v2**
+* **dbt v1.12**
 
 ## Changes in the latest spec
 
@@ -465,7 +465,7 @@ metrics:
 
 Studio IDE YAML validation
 
-The Studio IDE validates dbt YAML using JSON Schema from the [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project. These definitions are aligned with the dbt Fusion engine and apply across all [dbt platform release tracks](../dbt-versions/dbt-release-tracks.md), including when your development environment is still running dbt Core.
+The Studio IDE validates dbt YAML using JSON Schema from the [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project. These definitions are aligned with dbt v2 and apply across all [dbt platform release tracks](../dbt-versions/dbt-release-tracks.md), including when your development environment is still running dbt v1.
 
 If the Studio IDE flags your YAML as invalid but dbt commands succeed, trust your run results. Share examples with [dbt Support](mailto:support@getdbt.com) or your account team so the schema can be updated.
 
@@ -487,7 +487,7 @@ To update packages, a package maintainer should:
 
 2. Validate the changes by running:
 
-* For Fusion and dbt users in the dbt platform CLI or locally with a valid [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md):
+* For dbt v2 and dbt users in the dbt platform CLI or locally with a valid [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md):
 
   ```bash
   dbt parse
@@ -496,7 +496,7 @@ To update packages, a package maintainer should:
 
   When using `dbt sl validate` locally, the command validates your local semantic manifest, and not the platform's manifest. This means your uncommitted local changes are included in the validation.
 
-* For Fusion CLI users not connected to dbt platform and using local MetricFlow:
+* For dbt v2 CLI users not connected to dbt platform and using local MetricFlow:
 
   ```bash
   dbt parse

@@ -4,15 +4,15 @@ This flag has reached maturity
 
 The default value is now `true`. To preserve the previous behavior, set this flag to `false` in your `dbt_project.yml`.
 
-| require\_generic\_test\_arguments\_property | dbt **v1 Latest** | dbt Core |
-| ------------------------------------------- | ----------------- | -------- |
-| Introduced                                  | 2025.07           | 1.10.5   |
-| Matured (default → `true`)                  | 2025.08           | 1.10.8   |
-| Removed                                     | —                 | —        |
+| require\_generic\_test\_arguments\_property | dbt **v1 Latest** | dbt v1 |
+| ------------------------------------------- | ----------------- | ------ |
+| Introduced                                  | 2025.07           | 1.10.5 |
+| Matured (default → `true`)                  | 2025.08           | 1.10.8 |
+| Removed                                     | —                 | —      |
 
 dbt supports parsing key-value arguments that are inputs to generic tests when specified under the `arguments` property. In the past, dbt didn't support a way to clearly disambiguate between properties that were inputs to generic tests and framework configurations, and only accepted arguments as top-level properties.
 
-If you are on an older dbt Core version where the flag is `false`, dbt will recognize the `arguments` property but raise the `ArgumentsPropertyInGenericTestDeprecation` warning.
+If you are on an older dbt v1 version where the flag is `false`, dbt will recognize the `arguments` property but raise the `ArgumentsPropertyInGenericTestDeprecation` warning.
 
 Here's an example using the new `arguments` property:
 

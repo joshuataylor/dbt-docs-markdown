@@ -1,12 +1,12 @@
 # Macro argument validation
 
-| validate\_macro\_args      | dbt **v1 Latest** | dbt Core |
-| -------------------------- | ----------------- | -------- |
-| Introduced                 | 2025.03           | 1.10.0   |
-| Matured (default → `true`) | 2026.09           | 1.12.0   |
-| Removed                    | —                 | —        |
+| validate\_macro\_args      | dbt **v1 Latest** | dbt v1 |
+| -------------------------- | ----------------- | ------ |
+| Introduced                 | 2025.03           | 1.10.0 |
+| Matured (default → `true`) | 2026.09           | 1.12.0 |
+| Removed                    | —                 | —      |
 
-dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
+dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt v1.12, this flag defaults to `true`.
 
 In the past, dbt didn't enforce a standard vocabulary for the [`type`](../../resource-properties/arguments.md#type) field on macro arguments in YAML. Because of this, the `type` field was used for documentation only, and dbt didn't check that:
 
@@ -37,7 +37,7 @@ With this flag enabled (the default), dbt:
 
 Macro argument validation runs during project parsing, not during macro execution. Any dbt command that parses the project triggers validation.
 
-* In dbt Core:
+* In dbt v1:
 
   * Validation runs as part of parsing for most commands (`parse`, `build`, `run`, `test`, `seed`, `snapshot`, `compile`).
   * With a full parse, dbt validates all macros.

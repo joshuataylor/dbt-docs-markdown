@@ -1,4 +1,4 @@
-# Connect Yellowbrick to dbt Core
+# Connect Yellowbrick to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited.
 * **GitHub repo**: [InfoCapital-AU/dbt-yellowbrick](https://github.com/InfoCapital-AU/dbt-yellowbrick) [![](https://img.shields.io/github/stars/InfoCapital-AU/dbt-yellowbrick?style=for-the-badge)](https://github.com/InfoCapital-AU/dbt-yellowbrick)
 * **PyPI package**: `dbt-yellowbrick` [![](https://badge.fury.io/py/dbt-yellowbrick.svg)](https://badge.fury.io/py/dbt-yellowbrick)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.7.0 and newer
+* **Supported dbt version**: v1.7.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: Yellowbrick 5.2
 

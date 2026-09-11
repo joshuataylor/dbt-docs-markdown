@@ -7,8 +7,8 @@ quoting:
   database: true | false
   schema: true | false
   identifier: true | false
-  snowflake_ignore_case: true | false  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
-                                       # Ignored by dbt Core and other adapters.
+  snowflake_ignore_case: true | false  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
+                                       # Ignored by dbt v1 and other adapters.
 ```
 
 ## Definition
@@ -54,8 +54,8 @@ quoting:
   database: false
   schema: false
   identifier: false
-  snowflake_ignore_case: false  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
-                                # Ignored by dbt Core and other adapters.
+  snowflake_ignore_case: false  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
+                                # Ignored by dbt v1 and other adapters.
 ```
 
 ## Examples
@@ -69,8 +69,8 @@ quoting:
   database: false
   schema: false
   identifier: false      
-  snowflake_ignore_case: false  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
-                                # Ignored by dbt Core and other adapters.
+  snowflake_ignore_case: false  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
+                                # Ignored by dbt v1 and other adapters.
 ```
 
 dbt will then create relations without quotes:
@@ -89,15 +89,15 @@ If you're using Snowflake, we recommend:
 
   * Setting all quoting configs to `False` also means you cannot use reserved words as identifiers, such as model or table names. We recommend you avoid using these reserved words anyway.
 
-* If you're using Fusion and your Snowflake environment sets the session parameter `QUOTED_IDENTIFIERS_IGNORE_CASE = true` (for example, in an orchestrator or pre-hook), you should also enable quoting and `snowflake_ignore_case` in your `dbt_project.yml` to preserve the exact case of database, schema, and identifier:
+* If you're using dbt v2 and your Snowflake environment sets the session parameter `QUOTED_IDENTIFIERS_IGNORE_CASE = true` (for example, in an orchestrator or pre-hook), you should also enable quoting and `snowflake_ignore_case` in your `dbt_project.yml` to preserve the exact case of database, schema, and identifier:
 
   ```yml
   quoting:
     database: true
     schema: true
     identifier: true
-    snowflake_ignore_case: true  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
-                                 # Ignored by dbt Core and other adapters.
+    snowflake_ignore_case: true  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
+                                 # Ignored by dbt v1 and other adapters.
   ```
 
   Setting `snowflake_ignore_case: true` ensures that dbt compiles column and identifier names match Snowflake’s behavior at runtime, preserving parity between compile-time and runtime logic. Without this, you may encounter "column not found" errors.

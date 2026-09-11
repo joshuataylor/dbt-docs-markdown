@@ -158,13 +158,13 @@ DuckLake applies partitioning using `ALTER TABLE ... SET PARTITIONED BY (...)`, 
 
 `dbt-duckdb` has a [plugin system](https://github.com/duckdb/dbt-duckdb#configuring-dbt-duckdb-plugins) for extending the adapter with custom Python UDFs, loading source data from Excel/Google Sheets/SQLAlchemy, and more. For details on configuring and writing plugins, refer to the [dbt-duckdb documentation on plugins](https://github.com/duckdb/dbt-duckdb#configuring-dbt-duckdb-plugins).
 
-dbt Core only
+dbt v1 only
 
-Plugins are a `dbt-duckdb` feature and are not supported in dbt Fusion engine or dbt platform.
+Plugins are a `dbt-duckdb` feature and are not supported in dbt v2 or dbt platform.
 
 ## Python models
 
-dbt supports [Python models](../../docs/build/python-models.md) in dbt Core 1.3 and later. In `dbt-duckdb`, Python models run in the same process that owns the DuckDB connection. The `.py` file is loaded as a Python module using [`importlib`](https://docs.python.org/3/library/importlib.html), the `model` function is called with a `dbt` object (containing `ref` and `source` information) and a `DuckDBPyConnection` object, and the returned object is materialized as a table.
+dbt supports [Python models](../../docs/build/python-models.md) in dbt 1.3 and later. In `dbt-duckdb`, Python models run in the same process that owns the DuckDB connection. The `.py` file is loaded as a Python module using [`importlib`](https://docs.python.org/3/library/importlib.html), the `model` function is called with a `dbt` object (containing `ref` and `source` information) and a `DuckDBPyConnection` object, and the returned object is materialized as a table.
 
 The value of `dbt.ref` and `dbt.source` inside a Python model will be a [DuckDB Relation](https://duckdb.org/docs/api/python/reference/) object that you can convert into a Pandas/Polars DataFrame or an Arrow table. The return value can be any object DuckDB knows how to turn into a table, including a Pandas/Polars DataFrame, a DuckDB Relation, or an Arrow Table, Dataset, RecordBatchReader, or Scanner.
 
@@ -399,7 +399,7 @@ In conditions and expressions, use `DBT_INTERNAL_SOURCE` to reference the incomi
 
 ### Microbatch strategy
 
-The `microbatch` strategy requires dbt Core 1.9 or later and runs incremental builds in time-based batches using a configured `event_time` column.
+The `microbatch` strategy requires dbt 1.9 or later and runs incremental builds in time-based batches using a configured `event_time` column.
 
 | Configuration            | Type       | Default | Description                                                           |
 | ------------------------ | ---------- | ------- | --------------------------------------------------------------------- |
@@ -436,4 +436,4 @@ The shell provides access to all standard dbt commands (`run`, `test`, `build`, 
 
 * For connection modes and profile setup, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md).
 * For adapter source code and plugins, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
-* For dbt Core concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).
+* For dbt concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).

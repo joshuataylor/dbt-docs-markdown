@@ -4,9 +4,9 @@ Available in v2 | dbt platform | Enterprise, Enterprise+
 
 (Applies to dbt v1.99 and earlier)
 
-Fusion only
+dbt v2 only
 
-Freshness model configurations are only available for the dbt Fusion engine. Refer to [Source data freshness](../../docs/build/sources.md#source-data-freshness) when using dbt Core.
+Freshness model configurations are only available for dbt v2. Refer to [Source data freshness](../../docs/build/sources.md#source-data-freshness) when using dbt v1.
 
 ## Project YAML file
 
@@ -59,7 +59,7 @@ models/\<filename>.sql
 
 State-aware orchestration is now dbt State
 
-[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 

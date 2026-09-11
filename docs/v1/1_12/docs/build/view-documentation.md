@@ -4,11 +4,11 @@ dbt provides intuitive and scalable tools for viewing your dbt documentation. De
 
 You can view documentation in three complementary ways, depending on your needs:
 
-| Option                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                            | Availability                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| [**dbt Docs (Legacy)**](#dbt-docs)                                                                                                                                        | Generates a static website with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify).                                                                                                                                                                 | dbt Core or dbt Developer plans               |
-| [**dbt Docs v2**](#dbt-docs-v2) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, and column-level lineage (Fusion), served as a static site you can host anywhere.                                                                     | dbt Fusion engine and dbt Core 2.0            |
-| [**Catalog**](../explore/explore-projects.md)                                                                                                   | The premier documentation experience in dbt. Builds on dbt Docs to provide a dynamic, real-time interface with rich [metadata](../explore/explore-projects.md#generate-metadata), customizable views, deep insight into your project and resources, and collaborative tools. | dbt Starter, Enterprise, or Enterprise+ plans |
+| Option                                                                  | Description                                                                                                                                                                                                                                                                                            | Availability                                  |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| [**dbt Docs (Legacy)**](#dbt-docs)                                      | Generates a static website with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify).                                                                                                                                                                 | dbt v1 or dbt Developer plans                 |
+| [**dbt Docs v2**](#dbt-docs-v2)                                         | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, and column-level lineage (dbt v2), served as a static site you can host anywhere.                                                                     | dbt v2                                        |
+| [**Catalog**](../explore/explore-projects.md) | The premier documentation experience in dbt. Builds on dbt Docs to provide a dynamic, real-time interface with rich [metadata](../explore/explore-projects.md#generate-metadata), customizable views, deep insight into your project and resources, and collaborative tools. | dbt Starter, Enterprise, or Enterprise+ plans |
 
 ## Navigating your documentation
 
@@ -34,19 +34,19 @@ Catalog offers users a comprehensive suite of features to enhance data project n
 
 For additional details and instructions on how to explore your lineage, navigate your resources, view model query history and data health signals, feature availability, and more — refer to [Discover data with Catalog](../explore/explore-projects.md).
 
-### dbt Docs v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### dbt Docs v2
 
-dbt Docs v2 is the next-generation open-source catalog experience, available when using the dbt Fusion engine and dbt Core 2.0. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
+dbt Docs v2 is the next-generation open-source catalog experience, available when using dbt v2. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
 
 Key improvements over dbt Docs:
 
 * **Performance:** Better handling for large dbt projects. The browser queries compact, pre-built index files with DuckDB-WASM (WebAssembly) instead of loading the full `manifest.json`.
 * **Modernized UI:** Visually aligned with the dbt platform, with better navigation and resource discovery.
 * **Semantic Layer metadata:** Surfaces compiled SQL logic, queryable dimensions, and metric definitions from your dbt Semantic Layer.
-* **Column-level lineage:** Available when using the dbt Fusion engine.
+* **Column-level lineage:** Available when using dbt v2.
 * **Statically hostable:** `dbt docs generate` writes a self-contained static site — no server or live warehouse connection — that you can host on any file host, such as S3, GitHub Pages, or Netlify.
 
-To generate and serve dbt Docs v2 with the dbt Fusion engine or dbt Core 2.0, run `dbt docs generate` to build the site, then `dbt docs serve` to preview it locally. `dbt docs generate` compiles your project and writes the index for you in a single command.
+To generate and serve dbt Docs v2 with dbt v2, run `dbt docs generate` to build the site, then `dbt docs serve` to preview it locally. `dbt docs generate` compiles your project and writes the index for you in a single command.
 
 To include column-level lineage and richer column metadata, first produce the artifacts with [`--static-analysis strict`](https://docs.getdbt.com/docs/build/about-static-analysis?version=1.13) using `dbt compile` or `dbt build`, then export the site:
 
@@ -71,7 +71,7 @@ This writes a `site/` directory (the app, hashed assets, and a copy of the index
 
 ### dbt Docs (Legacy)
 
-dbt Docs provides valuable insights into your dbt Core or dbt Developer plan projects. The interface enables you to navigate to the documentation for specific models. That might look something like this:
+dbt Docs provides valuable insights into your dbt v1 or dbt Developer plan projects. The interface enables you to navigate to the documentation for specific models. That might look something like this:
 
 ![Auto-generated documentation for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/f2221dc-Screen_Shot_2018-08-14_at_6.29.55_PM.png?v=2 "Auto-generated documentation for a dbt model")Auto-generated documentation for a dbt model
 

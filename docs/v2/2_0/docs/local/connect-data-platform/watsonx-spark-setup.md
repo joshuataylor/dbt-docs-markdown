@@ -1,4 +1,4 @@
-# Connect IBM watsonx.data Spark to dbt Core
+# Connect IBM watsonx.data Spark to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [IBM/dbt-watsonx-spark](https://github.com/IBM/dbt-watsonx-spark) [![](https://img.shields.io/github/stars/IBM/dbt-watsonx-spark?style=for-the-badge)](https://github.com/IBM/dbt-watsonx-spark)
 * **PyPI package**: `dbt-watsonx-spark` [![](https://badge.fury.io/py/dbt-watsonx-spark.svg)](https://badge.fury.io/py/dbt-watsonx-spark)
 * **Slack channel**:
-* **Supported dbt Core version**: v0.0.8 and newer
+* **Supported dbt version**: v0.0.8 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 
@@ -36,10 +36,10 @@ Read the official documentation for using **watsonx.data** with `dbt-watsonx-spa
 
 ## Installing dbt-watsonx-spark
 
-Note: Installing an adapter doesn't install 'dbt Core' automatically. This is because adapters and dbt Core versions are decoupled to avoid overwriting dbt Core installations. Use the following command for installation:
+Note: Installing an adapter doesn't install 'dbt v1' automatically. This is because adapters and dbt v1 versions are decoupled to avoid overwriting dbt v1 installations. Use the following command for installation:
 
 ```sh
-python -m pip install dbt Core dbt-watsonx-spark
+python -m pip install dbt v1 dbt-watsonx-spark
 ```
 
 ## Configuring `dbt-watsonx-spark`

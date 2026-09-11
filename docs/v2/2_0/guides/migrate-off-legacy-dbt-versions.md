@@ -4,11 +4,11 @@
 
 
 
-Legacy dbt Core versions v1.3–v1.7 are being deprecated on January 31, 2027. To keep your work running and supported, move your environments and jobs to a [dbt Core release track](../docs/dbt-versions/dbt-release-tracks.md) now. A release track keeps you on a supported version automatically and prepares your project for [dbt Fusion engine](../docs/introduction.md) later.
+Legacy dbt versions v1.3–v1.7 are being deprecated on January 31, 2027. To keep your work running and supported, move your environments and jobs to a [dbt v1 release track](../docs/dbt-versions/dbt-release-tracks.md) now. A release track keeps you on a supported version automatically and prepares your project for [dbt v2](../docs/introduction.md) later.
 
 The single-hop path
 
-Move to a dbt Core release track now; move to Fusion later. Migrating first to a supported release track lowers your migration risk and gets you on a supported version faster.
+Move to a dbt v1 release track now; move to dbt v2 later. Migrating first to a supported release track lowers your migration risk and gets you on a supported version faster.
 
 Your project code, connections, and history stay accessible throughout.
 

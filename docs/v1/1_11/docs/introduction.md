@@ -38,13 +38,13 @@ dbt has two major versions: v1 and v2.
 | Version                   | What it is                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **v2**<br />*Recommended* | The current Rust-based generation of dbt, built for the full modern development experience and powered by an open-source runtime.<br /><br />Many features work right away. Some advanced capabilities unlock with a free sign-in — see [v2 feature availability](./dbt/dbt-availability.md) for the full breakdown or [upgrade to v2](./dbt-versions/dbt-upgrade/upgrading-to-v2.md). |
-| **v1**                    | The original Python-based generation of dbt, still maintained as dbt Core v1.x.                                                                                                                                                                                                                                                                                                                                                              |
+| **v1**                    | The original Python-based generation of dbt, still maintained as dbt v1.                                                                                                                                                                                                                                                                                                                                                                     |
 
 Refer to the [Licensing FAQs](https://www.getdbt.com/licenses-faq) for more info.
 
 ## The dbt engine
 
-The current generation of the dbt is written in Rust with a native understanding of SQL across multiple engine dialects. That comprehension lets dbt catch errors before they reach your warehouse and powers editor features like autocomplete and inline errors as you type.
+The current generation of dbt is written in Rust with a native understanding of SQL across multiple engine dialects. That comprehension lets dbt catch errors before they reach your warehouse and powers editor features like autocomplete and inline errors as you type.
 
 v2 is the default experience when you [install dbt](./local/install-dbt.md). It builds on the Apache 2.0 open-source runtime CLI foundation for the dbt framework. dbt is free to use, with some capabilities unlocked when you sign in with any dbt platform account.
 
@@ -57,7 +57,7 @@ As a developer, dbt can:
 * Preview inline CTEs for faster debugging
 * Trace model and column definitions across your entire project
 
-Get all of this, free, in the [dbt extension for VS Code](./about-dbt-extension.md), built on v2.
+Get all of this, free, in the [dbt extension for VS Code](./about-dbt-extension.md), built to enhance the power of v2, but also available in v1.
 
 ## How to use dbt
 
@@ -84,10 +84,10 @@ To get started quickly, try the [dbt quickstart](../guides/dbt.md).
 
 Other ways to run self-hosted dbt:
 
-* [dbt Core v1.x](./local/install-dbt.md?version=1.0): The original Python-based CLI.
-* [dbt Core 2.0](./local/install-dbt-v2.md): dbt Core 2.0, the free, fully open-source (Apache 2.0) distribution of the new Rust-based dbt engine. Typically for organizations with a strict requirement to use this OSS runtime.
+* [dbt v1](./local/install-dbt.md?version=1.0): The original Python-based CLI.
+* [dbt OSS](./local/install-dbt-v2.md): The free, fully open-source (Apache 2.0) distribution of the new Rust-based dbt engine. Typically for organizations with a strict requirement to use this OSS runtime.
 
-To contribute to the open-source project, refer to the [GitHub repo](https://github.com/dbt-labs/dbt-core).
+To contribute to the open-source project, refer to the [GitHub repo](https://github.com/dbt-labs/dbt).
 
 ## Why use dbt
 

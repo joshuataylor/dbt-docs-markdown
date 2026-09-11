@@ -1,4 +1,4 @@
-# Quickstart for dbt Core from a manual install
+# Quickstart for dbt v1 from a manual install
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -6,14 +6,14 @@
 
 ## Introduction
 
-When you use dbt Core to work with dbt, you will be editing files locally using a code editor, and running projects using a command line interface (CLI).
+When you use dbt v1 to work with dbt, you will be editing files locally using a code editor, and running projects using a command line interface (CLI).
 
 If you want to edit files and run projects using the web-based dbt Integrated Development Environment (Studio IDE), refer to the [dbt quickstarts](https://docs.getdbt.com/guides). You can also develop and run dbt commands using the [dbt CLI](../docs/platform/dbt-cli-installation.md) — a dbt powered command line.
 
 ### Prerequisites
 
-* To use dbt Core, it's important that you know some basics of the Terminal. In particular, you should understand `cd`, `ls` and `pwd` to navigate through the directory structure of your computer easily.
-* Install dbt Core using the [installation instructions](../docs/local/install-dbt.md) for your operating system.
+* To use dbt v1, it's important that you know some basics of the Terminal. In particular, you should understand `cd`, `ls` and `pwd` to navigate through the directory structure of your computer easily.
+* Install dbt v1 using the [installation instructions](../docs/local/install-dbt.md) for your operating system.
 * Complete appropriate Setting up and Loading data steps in the Quickstart for dbt series. For example, for BigQuery, complete [Setting up (in BigQuery)](./bigquery.md?step=2) and [Loading data (BigQuery)](./bigquery.md?step=3).
 * [Create a GitHub account](https://github.com/join) if you don't already have one.
 
@@ -40,11 +40,11 @@ The following steps use [GitHub](https://github.com/) as the Git provider for th
 
 ## Create a project
 
-Learn how to use a series of commands using the command line of the Terminal to create your project. dbt Core includes an `init` command that helps scaffold a dbt project.
+Learn how to use a series of commands using the command line of the Terminal to create your project. dbt v1 includes an `init` command that helps scaffold a dbt project.
 
 To create your dbt project:
 
-1. Make sure you have dbt Core installed and check the version using the `dbt --version` command:
+1. Make sure you have dbt v1 installed and check the version using the `dbt --version` command:
 
 ```shell
 dbt --version
@@ -138,11 +138,11 @@ Profiles are stored separately to dbt projects to avoid checking credentials int
 
 What should I name my profile?
 
-We typically use a company name for a profile name, and then use targets to differentiate between `dev` and `prod`. Check out the docs on [environments in dbt Core](../docs/local/dbt-environments.md) for more information.
+We typically use a company name for a profile name, and then use targets to differentiate between `dev` and `prod`. Check out the docs on [environments in dbt v1](../docs/local/dbt-environments.md) for more information.
 
 What should I name my target?
 
-We typically use targets to differentiate between development and production runs of dbt, naming the targets `dev` and `prod`, respectively. Check out the docs on [managing environments in dbt Core](../docs/local/dbt-environments.md) for more information.
+We typically use targets to differentiate between development and production runs of dbt, naming the targets `dev` and `prod`, respectively. Check out the docs on [managing environments in dbt v1](../docs/local/dbt-environments.md) for more information.
 
 Can I use environment variables in my profile?
 
@@ -442,7 +442,7 @@ select * from final
 
 4. From the command line, enter `dbt run`.
 
-![A successful run with the dbt Core CLI](/img/first-model-dbt-cli.png?v=2 "A successful run with the dbt Core CLI")A successful run with the dbt Core CLI
+![A successful run with the v1 CLI](/img/first-model-dbt-cli.png?v=2 "A successful run with the v1 CLI")A successful run with the v1 CLI
 
 When you return to the BigQuery console, you can `select` from this model.
 
@@ -455,7 +455,7 @@ To check out the SQL that dbt is running, you can look in:
 * dbt:
   * Within the run output, click on a model name, and then select "Details"
 
-* dbt Core:
+* dbt v1:
 
   * The `target/compiled/` directory for compiled `select` statements
   * The `target/run/` directory for compiled `create` statements
@@ -466,7 +466,7 @@ How did dbt choose which schema to build my models in?
 By default, dbt builds models in your target schema. To change your target schema:
 
 * If you're developing in **dbt**, these are set for each user when you first use a development environment.
-* If you're developing with **dbt Core**, this is the `schema:` parameter in your `profiles.yml` file.
+* If you're developing with **dbt v1**, this is the `schema:` parameter in your `profiles.yml` file.
 
 If you wish to split your models across multiple schemas, check out the docs on [using custom schemas](../docs/build/custom-schemas.md).
 
@@ -851,7 +851,7 @@ Before moving on from building your first models, make a change and see how it a
 You can also explore:
 
 * The `target` directory to see all of the compiled SQL. The `run` directory shows the create or replace table statements that are running, which are the select statements wrapped in the correct DDL.
-* The `logs` file to see how dbt Core logs all of the action happening within your project. It shows the select statements that are running and the python logging happening when dbt runs.
+* The `logs` file to see how dbt v1 logs all of the action happening within your project. It shows the select statements that are running and the python logging happening when dbt runs.
 
 ## Add tests to your models
 
@@ -940,7 +940,7 @@ To debug a failing test, find the SQL that dbt ran by:
 
   * Within the test output, click on the failed test, and then select "Details".
 
-* dbt Core:
+* dbt v1:
 
   * Open the file path returned as part of the error message.
   * Navigate to the `target/compiled/schema_tests` directory for all compiled test queries.
@@ -962,7 +962,7 @@ Why do model and source YAML files always start with \`version: 2\`?
 
 Once upon a time, the structure of these `.yml` files was very different (s/o to anyone who was using dbt back then!). Adding `version: 2` allowed us to make this structure more extensible.
 
-From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
+From [dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
 Also starting in v1.5, both the [`config-version: 2`](../reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 
@@ -1040,8 +1040,8 @@ models:
 
 1. Run one of the following commands:
 
-   * `dbt docs generate` if you're on dbt Core
-   * `dbt build` if you're on the dbt Fusion engine
+   * `dbt docs generate` if you're on dbt v1
+   * `dbt build` if you're on dbt v2
 
 2. Click **Catalog** in the navigation menu to launch Catalog.
 
@@ -1059,7 +1059,7 @@ Catalog displays your model's description, column documentation, data tests, and
 
 ### View in Studio IDE
 
-You can view docs directly from the IDE if you're on **v1 Latest** or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
+You can view docs directly from the IDE if you're on **v1 Latest** or another version of dbt v1. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
 
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
@@ -1110,7 +1110,7 @@ If you're using dbt to deploy your project and have a [Starter, Enterprise, or E
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. Read-only users can access the documentation for your project — for license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
 
-dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
 #### Next steps
 
@@ -1137,4 +1137,4 @@ For more info on how to get started, refer to [create and schedule jobs](../docs
 
 ![Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.](/img/docs/dbt-platform/deployment/run-overview.png?v=2 "Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.")Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.
 
-For more information about using dbt Core to schedule a job, refer [dbt airflow](https://docs.getdbt.com/blog/dbt-airflow-spiritual-alignment) blog post.
+For more information about using dbt v1 to schedule a job, refer [dbt airflow](https://docs.getdbt.com/blog/dbt-airflow-spiritual-alignment) blog post.

@@ -175,7 +175,7 @@ There are some key differences from [pattern 1](#incremental-merge-from-append-o
 
 ## Pattern 3: Microbatch for large time-series tables
 
-For large `fact` tables where backfills or long lookback windows are challenging, use `incremental_strategy='microbatch'` (available in dbt Core v1.9 or higher and **v1 Latest** release track in dbt platform). Refer to [incremental microbatch](../../docs/build/incremental-microbatch.md) for more details. Note that Microsoft Fabric doesn't support microbatch yet. See [incremental strategy by adapter](../../docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for more details.
+For large `fact` tables where backfills or long lookback windows are challenging, use `incremental_strategy='microbatch'` (available in dbt v1.9 or higher and **v1 Latest** release track in dbt platform). Refer to [incremental microbatch](../../docs/build/incremental-microbatch.md) for more details. Note that Microsoft Fabric doesn't support microbatch yet. See [incremental strategy by adapter](../../docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for more details.
 
 microbatch must have event\_time
 

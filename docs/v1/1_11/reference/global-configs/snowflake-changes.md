@@ -20,7 +20,7 @@ Set the `snowflake_default_transient_dynamic_tables` flag in your `dbt_project.y
 
 dbt v2
 
-In dbt v2, this behavior is the default and there's no flag to set. `external_volume` defaults to `SNOWFLAKE_MANAGED`, and dbt omits `base_location` whenever the table uses Snowflake-managed storage.
+In v2, this behavior is the default and there's no flag to set. `external_volume` defaults to `SNOWFLAKE_MANAGED`, and dbt omits `base_location` whenever the table uses Snowflake-managed storage.
 
 Available starting `dbt-snowflake` v1.12. The `snowflake_managed_iceberg_default` flag controls what dbt does when a model sets `table_format: iceberg` for an [Iceberg table](../../docs/build/iceberg/adapters/snowflake-iceberg-support.md) without an `external_volume`.
 

@@ -2,7 +2,7 @@
 
 dbt platform
 
-You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [**v1 Compatible** or **v1 Latest** release track](../../dbt-versions/dbt-release-tracks.md) of dbt Core before you upgrade to Fusion!
+You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [**v1 Compatible** or **v1 Latest** release track](../../dbt-versions/dbt-release-tracks.md) of dbt v1 before you upgrade to dbt v2!
 
 To find and fix deprecations:
 
@@ -36,13 +36,13 @@ To find and fix deprecations:
 
    After a successful `dbt parse` command, you'll see a **Compile** button to the right of the **Successfully resolved** result. Use **Compile** to compile your project from the results panel.
 
-   ![Autofix success with Compile in the Fusion flow](/img/docs/dbt-platform/platform-ide/autofix-success-fusion-compile.png?v=2 "Autofix success with Compile in the Fusion flow")Autofix success with Compile in the Fusion flow
+   ![Autofix success with Compile in the v2 flow](/img/docs/dbt-platform/platform-ide/autofix-success-fusion-compile.png?v=2 "Autofix success with Compile in the v2 flow")Autofix success with Compile in the v2 flow
 
    If successful, you'll see a **Successfully compiled** result. If you see any errors, review them and make any necessary changes.
 
 9. Click **Commit and sync** in the top left of Studio IDE to commit these changes to the project repository.
 
-10. You are now ready to enable Fusion if you [meet the requirements](../../dbt/supported-features.md#requirements)!
+10. You are now ready to enable dbt v2 if you [meet the requirements](../../dbt/supported-features.md#requirements)!
 
 ## Related docs
 

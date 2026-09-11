@@ -40,7 +40,7 @@ The list of commands available in dbt.
 
 ## [init](../reference/commands/init.md)
 
-[dbt init helps get you started using !](../reference/commands/init.md)
+[dbt init helps get you started using dbt!](../reference/commands/init.md)
 
 ## [invocation](../reference/commands/invocation.md)
 
@@ -100,7 +100,7 @@ The list of commands available in dbt.
 
 ## [system](../reference/commands/system.md)
 
-[Use dbt system to update or uninstall the Fusion engine using the CLI, or pre-install supported ADBC adapter drivers.](../reference/commands/system.md)
+[Use dbt system to update or uninstall dbt v2 using the CLI, or pre-install supported ADBC adapter drivers.](../reference/commands/system.md)
 
 ## [test](../reference/commands/test.md)
 
@@ -108,7 +108,7 @@ The list of commands available in dbt.
 
 ## [version](../reference/commands/version.md)
 
-[The --version command-line flag returns information about the currently installed version of , the , or the . This flag is not supported when invoking dbt in other runtimes (for example, the IDE or scheduled runs).](../reference/commands/version.md)
+[The --version command-line flag returns information about the currently installed version of , the , or . This flag is not supported when invoking dbt in other runtimes (for example, the IDE or scheduled runs).](../reference/commands/version.md)
 
 [Previous](../reference/dbt-commands.md)
 

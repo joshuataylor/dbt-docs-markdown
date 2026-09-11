@@ -4,7 +4,7 @@ By default, dbt rebuilds every selected node on every run — even if nothing ha
 
 ## dbt State
 
-[dbt State](./deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment — including self-hosted deployments using dbt Fusion engine or dbt Core — without requiring a recurring dbt platform subscription.
+[dbt State](./deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment — including self-hosted deployments using dbt v2 or dbt v1 — without requiring a recurring dbt platform subscription.
 
 Instead of rebuilding every node on every run, it compares each node's logic and upstream data against the previous run and picks the most efficient path:
 
@@ -14,14 +14,14 @@ Instead of rebuilding every node on every run, it compares each node's logic and
 
 To enable dbt State:
 
-* **dbt Core v1.7–1.12**:
+* **dbt v1.7–1.12**:
 
   ```bash
   cd path/to/your/project
   pip install dbt-state
   ```
 
-* **dbt Core v2**:
+* **dbt v2**:
 
   ```bash
   cd path/to/your/project

@@ -27,7 +27,7 @@ The scheduler also:
 
 * Uses [dbt's Git repository caching](../platform/account-settings.md#git-repository-caching) to protect against third-party outages and improve job run reliability. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 * Powers running dbt in staging and production environments, bringing ease and confidence to CI/CD workflows and enabling observability and governance in deploying dbt at scale.
-* Uses [Hybrid projects](./hybrid-projects.md) to upload dbt Core artifacts into dbt for central visibility, cross-project referencing, and easier collaboration. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+* Uses [Hybrid projects](./hybrid-projects.md) to upload dbt v1 artifacts into dbt for central visibility, cross-project referencing, and easier collaboration. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 * Uses [dbt State](./dbt-state-about.md) to decide what needs to be rebuilt based on upstream data freshness and code changes. [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 ## Scheduler terms

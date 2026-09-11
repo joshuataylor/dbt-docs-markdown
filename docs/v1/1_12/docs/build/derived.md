@@ -152,7 +152,7 @@ models:
             alias: bookings_7_days_ago
 ```
 
-When you run the query `dbt sl query --metrics d7_booking_change --group-by metric_time__month` for the metric, here's how it's calculated. For dbt Core, you can use the `mf query` prefix.
+When you run the query `dbt sl query --metrics d7_booking_change --group-by metric_time__month` for the metric, here's how it's calculated. For dbt v1, you can use the `mf query` prefix.
 
 1. Retrieve the raw, unaggregated dataset with the specified (Applies to dbt v1.12 and later) simple metric and dimensions at the smallest level of detail, which is currently 'day'.
 

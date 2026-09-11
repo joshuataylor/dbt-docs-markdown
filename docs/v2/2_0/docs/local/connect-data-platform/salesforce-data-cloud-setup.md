@@ -2,7 +2,7 @@
 
 Local development
 
-This `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. To access the adapter, [install Fusion](../install-dbt.md). We recommend using the [VS Code Extension](../install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
+This `dbt-salesforce` adapter is available via the dbt v2 CLI. To access the adapter, [install dbt v2](../install-dbt.md). We recommend using the [VS Code Extension](../install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Then, configure the OAuth settings for the app:
 
 11. Click **Save**.
 
-## Configure Fusion
+## Configure dbt v2
 
 To connect dbt to Salesforce Data 360, set up your `profiles.yml`. Refer to the following configuration:
 

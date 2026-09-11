@@ -1,10 +1,10 @@
 # No spaces in source and semantic model names
 
-| require\_source\_and\_semantic\_model\_names\_without\_spaces | dbt **v1 Latest** | dbt Core |
-| ------------------------------------------------------------- | ----------------- | -------- |
-| Introduced                                                    | 2026.4            | 1.12.0   |
-| Matured (default → `true`)                                    | —                 | —        |
-| Removed                                                       | —                 | —        |
+| require\_source\_and\_semantic\_model\_names\_without\_spaces | dbt **v1 Latest** | dbt v1 |
+| ------------------------------------------------------------- | ----------------- | ------ |
+| Introduced                                                    | 2026.4            | 1.12.0 |
+| Matured (default → `true`)                                    | —                 | —      |
+| Removed                                                       | —                 | —      |
 
 The `require_source_and_semantic_model_names_without_spaces` flag is set to `false` by default.
 

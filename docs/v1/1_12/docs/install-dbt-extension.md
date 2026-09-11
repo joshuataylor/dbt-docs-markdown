@@ -42,18 +42,18 @@ To use the extension, you need the following:
 
    ![Follow the prompt to install v2](/img/docs/extension/install-dbt-fusion-engine.png?v=2 "Follow the prompt to install v2")Follow the prompt to install v2
 
-7. Run the VS Code extension [upgrade tool](./upgrade-to-dbt-extension.md) to check whether your project is ready for dbt v2 and fix any errors or deprecations.
+7. Run the VS Code extension [upgrade tool](./upgrade-to-dbt-extension.md) to check whether your project is ready for v2 and fix any errors or deprecations.
 
 8. Optional: [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.
 
 The language server ships with dbt v2
 
-The dbt language server is part of the dbt v2 binary rather than a separate download — the extension runs it through dbt v2. If you install v2 manually (for example, in an air-gapped environment) instead of letting the extension manage it, use the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md) to pick a binary that matches your extension version.
+The dbt language server is part of the v2 binary rather than a separate download — the extension runs it through v2. If you install v2 manually (for example, in an air-gapped environment) instead of letting the extension manage it, use the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md) to pick a binary that matches your extension version.
 
 You're ready to use the dbt extension. Next, you can:
 
 * Follow the [getting started](#getting-started) workflow to finish setup.
-* [Upgrade your project to dbt v2](./upgrade-to-dbt-extension.md) if you're migrating from dbt v1.
+* [Upgrade your project to dbt v2](./upgrade-to-dbt-extension.md) if you're migrating from v1.
 * [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 * Review the [limitations and unsupported features](./dbt/supported-features.md#limitations).
 
@@ -93,7 +93,7 @@ dbt system update
 
 note
 
-`dbtf system update` installs Fusion globally — it updates your `PATH` in `~/.zshrc` and creates a `dbtf` alias. To manage multiple versions or isolate your install, use separate shell profiles or virtual environments.
+`dbtf system update` installs dbt v2 globally — it updates your `PATH` in `~/.zshrc` and creates a `dbtf` alias. To manage multiple versions or isolate your install, use separate shell profiles or virtual environments.
 
  Standalone installation for Windows
 
@@ -145,7 +145,7 @@ Run the following command to verify your installation:
 dbt --version
 ```
 
-You can use `dbt` or its Fusion alias `dbtf` (handy if you already have the Core or platform CLI installed). Default install path:
+You can use `dbt` or its dbt v2 alias `dbtf` (handy if you already have another dbt CLI installed). Default install path:
 
 * macOS/Linux: `$HOME/.local/bin/dbt`
 * Windows: `C:\Users\<username>\.local\bin\dbt.exe`
@@ -162,15 +162,15 @@ After installation, follow the [getting started](#getting-started) workflow. You
 
 After v2 and the dbt VS Code extension are installed, the dbt logo appears in the sidebar. Click it to open the **Get started** panel.
 
-The **Get started** panel is a persistent setup companion available in VS Code and Cursor. It monitors your environment and shows the most important next action. As new dbt v2 releases ship or your project changes, the panel resurfaces relevant steps automatically. For more details refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
+The **Get started** panel is a persistent setup companion available in VS Code and Cursor. It monitors your environment and shows the most important next action. As new v2 releases ship or your project changes, the panel resurfaces relevant steps automatically. For more details refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
 
 ![The Get started panel in VS Code showing the setup steps, with the active step highlighted.](/img/docs/extension/vsce-get-started.png?v=2 "The Get started panel in VS Code showing the setup steps, with the active step highlighted.")The Get started panel in VS Code showing the setup steps, with the active step highlighted.
 
 The panel guides you through:
 
-1. **Install or update dbt v2**: Detects whether the dbt v2 binary is missing or outdated and installs or updates it with a single click.
+1. **Install or update dbt v2**: Detects whether the v2 binary is missing or outdated and installs or updates it with a single click.
 2. **Open project**: Checks for a `dbt_project.yml` file in your workspace to confirm a valid dbt project is open before proceeding.
-3. **Check dbt v2 compatibility**: Guides you through upgrading your project to dbt v2. You can choose between an agentic migration or manual CLI onboarding — refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
+3. **Check dbt v2 compatibility**: Guides you through upgrading your project to v2. You can choose between an agentic migration or manual CLI onboarding — refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
 4. **Register**: Confirms you've registered your email to use the extension beyond the 14-day trial period — refer to [Sign in or register](./sign-in-dbt-extension.md).
 
 When all setup steps are complete, the panel shows a green **Extension setup complete** button.

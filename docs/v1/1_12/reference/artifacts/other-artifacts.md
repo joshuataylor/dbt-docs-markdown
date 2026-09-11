@@ -24,7 +24,7 @@ Stores the network representation of the dbt resource DAG.
 
 **Produced by:** [manifest commands](./manifest-json.md)
 
-This file is useful for investigating performance issues in dbt Core's graph algorithms.
+This file is useful for investigating performance issues in dbt v1's graph algorithms.
 
 It is more anonymized and compact than [`manifest.json`](./manifest-json.md) and [`graph.gpickle`](#graph.gpickle).
 

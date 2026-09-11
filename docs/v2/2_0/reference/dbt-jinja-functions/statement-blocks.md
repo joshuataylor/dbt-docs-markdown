@@ -2,11 +2,11 @@
 
 (Applies to dbt v2.0 and later)
 
-When to use statement blocks in Fusion
+When to use statement blocks in dbt v2
 
 For queries where you need to fetch results (for example, when your macro or Jinja code needs to use data returned from the database), you can use either `statement` blocks with `fetch_result=True` or the [`run_query` macro](./run_query.md).
 
-For DDL or utility operations (like `OPTIMIZE`, `VACUUM`, or maintenance queries), use `statement` blocks with `fetch_result=False` when you don't need to access the results in Jinja. This avoids issues with Fusion's strict type checking, which can fail when processing result sets that contain `NULL` values in columns declared as non-nullable.
+For DDL or utility operations (like `OPTIMIZE`, `VACUUM`, or maintenance queries), use `statement` blocks with `fetch_result=False` when you don't need to access the results in Jinja. This avoids issues with dbt v2's strict type checking, which can fail when processing result sets that contain `NULL` values in columns declared as non-nullable.
 
 `statement`s are SQL queries that hit the database and return results to your Jinja context. Here’s an example of a `statement` which gets all of the states from a users table.
 

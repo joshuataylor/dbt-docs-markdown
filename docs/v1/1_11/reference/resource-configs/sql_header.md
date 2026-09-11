@@ -62,7 +62,7 @@ snapshots:
 
 ## Property file
 
-Setting `sql_header` in the `config` of a [generic data test](../../docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](../global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
+Setting `sql_header` in the `config` of a [generic data test](../../docs/build/data-tests.md) is available starting in dbt v1.12. Enable the [`require_sql_header_in_test_configs`](../global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
 
 Here's an example of a model-level configuration:
 

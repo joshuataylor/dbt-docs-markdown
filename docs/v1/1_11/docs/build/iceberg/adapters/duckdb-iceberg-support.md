@@ -1,8 +1,8 @@
 # DuckDB and Apache Iceberg [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Fusion only
+dbt v2 only
 
-DuckDB support for `catalogs.yml` requires the [dbt Fusion engine](../../../introduction.md) (v2) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt Core v1.
+DuckDB support for `catalogs.yml` requires [dbt v2](../../../introduction.md) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt v1.
 
 dbt\_project.yml
 

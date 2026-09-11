@@ -1,4 +1,4 @@
-# Connect Cloudera Hive to dbt Core
+# Connect Cloudera Hive to dbt v1
 
 Local development
 
@@ -7,7 +7,7 @@ Local development
 * **GitHub repo**: [cloudera/dbt-hive](https://github.com/cloudera/dbt-hive) [![](https://img.shields.io/github/stars/cloudera/dbt-hive?style=for-the-badge)](https://github.com/cloudera/dbt-hive)
 * **PyPI package**: `dbt-hive` [![](https://badge.fury.io/py/dbt-hive.svg)](https://badge.fury.io/py/dbt-hive)
 * **Slack channel**: [#db-hive](https://getdbt.slack.com/archives/C0401DTNSKW)
-* **Supported dbt Core version**: v1.1.0 and newer
+* **Supported dbt version**: v1.1.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

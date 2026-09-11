@@ -4,7 +4,7 @@ The `dbt ls` command lists resources in your dbt project. It accepts selector ar
 
 (Applies to dbt v2.0 and later)
 
-In dbt platform run logs when using dbt Fusion engine, `dbt ls` and `dbt list` node results can appear as **No-op** when there is no final status. This replaces **Unknown** and indicates that dbt selected the node but did not run it.
+In dbt platform run logs when using dbt v2, `dbt ls` and `dbt list` node results can appear as **No-op** when there is no final status. This replaces **Unknown** and indicates that dbt selected the node but did not run it.
 
 ### Usage
 

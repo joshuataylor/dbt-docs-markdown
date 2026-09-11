@@ -6,9 +6,9 @@ dbt connects to your data platform to run SQL transformations against your data.
 
 (Applies to dbt v1.99 and earlier)
 
-## Supported dbt Core data platforms
+## Supported dbt v1 data platforms
 
-dbt Core connects to data platforms through adapters. Popular platforms include:
+dbt v1 connects to data platforms through adapters. Popular platforms include:
 
 * [Snowflake](./snowflake-setup.md)
 * [Databricks](./databricks-setup.md)
@@ -20,7 +20,7 @@ dbt Core connects to data platforms through adapters. Popular platforms include:
 * [Microsoft Fabric](./fabric-setup.md)
 * [Azure Synapse](./azuresynapse-setup.md)
 
-When you install dbt Core, you also need to install the specific adapter for your data platform. Data platform adapters may be verified by our [Trusted Adapter Program](../../trusted-adapters.md), and maintained by dbt Labs, partners, or community members.
+When you install dbt v1, you also need to install the specific adapter for your data platform. Data platform adapters may be verified by our [Trusted Adapter Program](../../trusted-adapters.md), and maintained by dbt Labs, partners, or community members.
 
 For the full list of supported platforms, see [Supported data platforms](../../supported-data-platforms.md).
 
@@ -46,7 +46,7 @@ The following table lists features available for adapters:
 
 ### Catalog
 
-For adapters that support it, you can partially build the catalog (dbt Core v1.x only). This builds the catalog for only selected models via `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
+For adapters that support it, you can partially build the catalog (dbt v1 only). This builds the catalog for only selected models via `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
 
 ### Source freshness
 

@@ -92,7 +92,7 @@ To get started, in VS Code:
 
     Self-hosted MCP (CLI only)
 
-   For users who only want to use dbt commands with dbt Core or Fusion
+   For users who only want to use dbt commands with dbt v1 or dbt v2
 
    (Applies to dbt v1.11 and later)
 
@@ -256,7 +256,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
    * **`Authorization`** *(required)* — `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`. Use a [personal access token (PAT)](../dbt-apis/user-tokens.md) or a [service token](../dbt-apis/service-tokens.md) with at least Semantic Layer, Metadata, and Developer permissions.
    * **`x-dbt-prod-environment-id`** *(required)* — your dbt platform production environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.
-   * **`x-dbt-dev-environment-id`** — required for `execute_sql` and Fusion tools. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-dev-env-id) for step-by-step instructions.
+   * **`x-dbt-dev-environment-id`** — required for `execute_sql` and dbt v2 tools. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-dev-env-id) for step-by-step instructions.
    * **`x-dbt-user-id`** — required for `execute_sql` with token-based auth. Refer to [Where can I find my user ID?](../../faqs/Accounts/find-user-id.md) for details.
 
    Use numeric IDs, not full URLs

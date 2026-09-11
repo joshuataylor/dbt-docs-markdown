@@ -12,7 +12,7 @@ Optionally specify a custom list of directories where [snapshots](../../docs/bui
 
 (Applies to dbt v1.9 and later)
 
-In dbt Core v1.9+, you can co-locate your snapshots with models if they are [defined using the latest YAML syntax](../../docs/build/snapshots.md).
+In dbt v1.9+, you can co-locate your snapshots with models if they are [defined using the latest YAML syntax](../../docs/build/snapshots.md).
 
 ## Default
 

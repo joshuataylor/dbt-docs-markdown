@@ -4,7 +4,7 @@ Legacy opt-in configuration to enable invalidating hard deleted records while sn
 
 This is a legacy config — Use the [`hard_deletes`](./hard-deletes.md) config instead.
 
-In dbt release tracks and dbt Core 1.9 and higher, the [`hard_deletes`](./hard-deletes.md) config replaces the `invalidate_hard_deletes` config for better control over how to handle deleted rows from the source.
+In dbt release tracks and dbt 1.9 and higher, the [`hard_deletes`](./hard-deletes.md) config replaces the `invalidate_hard_deletes` config for better control over how to handle deleted rows from the source.
 
 For new snapshots, set the config to `hard_deletes='invalidate'` instead of `invalidate_hard_deletes=true`. For existing snapshots, [arrange an update](../snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
 

@@ -1,10 +1,10 @@
 (Applies to dbt v2.0 and later)
 
-# Connect DuckDB to Fusion [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect DuckDB to dbt v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
-DuckDB with dbt Fusion engine is the easiest way to get a dbt project running locally — no warehouse account or credentials required. [DuckDB](https://duckdb.org) is an embedded database that runs entirely in-process, so dbt connects directly to a local `.duckdb` file with no additional setup.
+DuckDB with dbt v2 is the easiest way to get a dbt project running locally — no warehouse account or credentials required. [DuckDB](https://duckdb.org) is an embedded database that runs entirely in-process, so dbt connects directly to a local `.duckdb` file with no additional setup.
 
 DuckDB does not require authentication — it runs locally on your machine.
 
@@ -14,22 +14,22 @@ The DuckDB adapter is built into v2. To get started, [install dbt](../install-db
 
 #### DuckDB driver and extensions
 
-Fusion ships with a built-in DuckDB driver. However, this bundled driver does *not* support loading DuckDB extensions (for example, `httpfs`, `parquet`, or `spatial`).
+dbt v2 ships with a built-in DuckDB driver. However, this bundled driver does *not* support loading DuckDB extensions (for example, `httpfs`, `parquet`, or `spatial`).
 
-To use [DuckDB extensions](https://duckdb.org/docs/current/extensions/overview) with Fusion, install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Fusion checks for a system-installed DuckDB driver first and falls back to the bundled driver if none is found.
+To use [DuckDB extensions](https://duckdb.org/docs/current/extensions/overview) with dbt v2, install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). dbt v2 checks for a system-installed DuckDB driver first and falls back to the bundled driver if none is found.
 
 For connection examples and shared profile settings, refer to [Connecting to DuckDB](#connecting-to-duckdb).
 
 ### Limitations
 
-The DuckDB adapter for Fusion is in beta. Some features available in the `dbt-duckdb` adapter for dbt Core are not yet supported.
+The DuckDB adapter for dbt v2 is in beta. Some features available in the `dbt-duckdb` adapter for dbt v1 are not yet supported.
 
 * Current adapter feature parity work is tracked in [dbt-fusion#1593](https://github.com/dbt-labs/dbt-fusion/issues/1593).
 * Current SQL analysis gaps are tracked in [dbt-fusion#1464](https://github.com/dbt-labs/dbt-fusion/issues/1464).
 
 #### Static analysis and local flat files
 
-dbt Fusion engine performs static analysis on your SQL models to determine column types and lineage without executing queries. If your models reference local flat files (CSV, Parquet, or JSON) through DuckDB's `read_csv()`, `read_parquet()`, or `read_json()` functions, Fusion may not be able to infer the schema of those files at analysis time. As a result, you may see type-resolution warnings or compilation errors even when the query would succeed at runtime. To learn more, refer to [New concepts](../../build/about-static-analysis.md).
+dbt v2 performs static analysis on your SQL models to determine column types and lineage without executing queries. If your models reference local flat files (CSV, Parquet, or JSON) through DuckDB's `read_csv()`, `read_parquet()`, or `read_json()` functions, dbt v2 may not be able to infer the schema of those files at analysis time. As a result, you may see type-resolution warnings or compilation errors even when the query would succeed at runtime. To learn more, refer to [New concepts](../../build/about-static-analysis.md).
 
 ## Connecting to DuckDB
 
@@ -51,7 +51,7 @@ Refer to the following table for the fields to use in your `profiles.yml`. `type
 | `extensions`  | List of [DuckDB extensions](https://duckdb.org/docs/extensions/overview) to load at startup.                   | `httpfs`, `parquet`    |
 | `settings`    | Map of [DuckDB configuration options](https://duckdb.org/docs/sql/configuration) to set at startup.            | `s3_region: us-east-1` |
 
-If you're using Fusion, loading extensions requires you to install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Refer to [DuckDB driver and extensions](#driver-and-extensions) for details.
+If you're using dbt v2, loading extensions requires you to install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Refer to [DuckDB driver and extensions](#driver-and-extensions) for details.
 
 ### In-memory
 

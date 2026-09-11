@@ -1103,7 +1103,7 @@ To work with metrics in dbt, you have several tools to validate or run commands.
 
 * [**Studio IDE users**](#studio-ide-users) — Run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) directly in the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) to query/preview metrics. View metrics visually in the **Lineage** tab.
 * [**dbt platform CLI users**](#dbt-cli-users) — The [dbt platform CLI](../docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
-* **dbt Core users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt Core users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
+* **dbt v1 users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt v1 users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
 
 Alternatively, you can run commands with SQL client tools like DataGrip, DBeaver, or RazorSQL.
 
@@ -1123,7 +1123,7 @@ Refer to the following steps to get started:
 
 1. Install the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) (if you haven't already). Then, navigate to your dbt project directory.
 2. Run a dbt command, such as `dbt parse`, `dbt run`, `dbt compile`, or `dbt build`. If you don't, you'll receive an error message that begins with: "ensure that you've ran an artifacts....".
-3. MetricFlow builds a semantic graph and generates a `semantic_manifest.json` file in dbt, which is stored in the `/target` directory. (Applies to dbt v1.12 and later) Starting in dbt Core v1.12, dbt also writes `osi_document.json` to your `target/` directory at parse time. For more information, refer to [Semantic manifest](../reference/artifacts/sl-manifest.md#apache-ossie-document). If using the Jaffle Shop example, run `dbt seed && dbt run` to ensure the required data is in your data platform before proceeding.
+3. MetricFlow builds a semantic graph and generates a `semantic_manifest.json` file in dbt, which is stored in the `/target` directory. (Applies to dbt v1.12 and later) Starting in dbt v1.12, dbt also writes `osi_document.json` to your `target/` directory at parse time. For more information, refer to [Semantic manifest](../reference/artifacts/sl-manifest.md#apache-ossie-document). If using the Jaffle Shop example, run `dbt seed && dbt run` to ensure the required data is in your data platform before proceeding.
 
 Run dbt parse to reflect metric changes
 
@@ -1161,7 +1161,7 @@ This section explains how you can perform a job run in your deployment environme
 
    note
 
-   If you are on the dbt Fusion engine, add the `dbt docs generate` command to your job to successfully deploy your metrics.
+   If you are on dbt v2, add the `dbt docs generate` command to your job to successfully deploy your metrics.
 
 7. Run the job by clicking the **Run now** button. Monitor the job's progress in real-time through the **Run summary** tab.
 

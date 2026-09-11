@@ -13,11 +13,11 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 
 (Applies to dbt v2.0 and later)
 
-## dbt Fusion engine telemetry
+## dbt v2 telemetry
 
-Fusion has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt-core/blob/main/crates/vortex-events/src/event_functions.rs).
+dbt v2 has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt/blob/main/crates/vortex-events/src/event_functions.rs).
 
-Telemetry requires outbound HTTPS access to `https://p.vx.dbt.com`. If the endpoint is unreachable, Fusion logs errors on each invocation. For the complete list of outbound endpoints, refer to [dbt v2 networking requirements](../../docs/local/dbt-networking-requirements.md).
+Telemetry requires outbound HTTPS access to `https://p.vx.dbt.com`. If the endpoint is unreachable, dbt v2 logs errors on each invocation. For the complete list of outbound endpoints, refer to [dbt v2 networking requirements](../../docs/local/dbt-networking-requirements.md).
 
 To disable anonymous usage statistics, set the following environment variable:
 

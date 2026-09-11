@@ -59,7 +59,7 @@ target/
 
 This inclusion uses a trailing slash, making these lines in the `.gitignore` file act as 'folder wildcards' that prevent any files or folders within them from being tracked by git. You can also specify additional exclusions as needed for your project.
 
-However, this global `.gitignore` *does not* apply to dbt Core and dbt platform CLI users directly. Therefore, if you're working with dbt Core or dbt platform CLI, you need to manually add the three lines mentioned previously to your project's `.gitignore` file.
+However, this global `.gitignore` *does not* apply to dbt v1 and dbt platform CLI users directly. Therefore, if you're working with dbt v1 or dbt platform CLI, you need to manually add the three lines mentioned previously to your project's `.gitignore` file.
 
 It's worth noting that while some git providers generate a basic `.gitignore` file when the repository is created, these often lack the necessary exclusions for dbt. This means it's important to ensure you add the three lines mentioned previously in your `.gitignore` to ensure dbt operates smoothly.
 
@@ -67,6 +67,6 @@ note
 
 * **dbt projects created after Dec 1, 2022** — If you use the **Initialize dbt Project** button in the Studio IDE to set up a new and empty dbt project, dbt will automatically add a `.gitignore` file with the required entries. If a `.gitignore` file already exists, the necessary folders will be appended to the existing file.
 
-* **Migrating project from dbt Core to dbt** — Make sure you check the `.gitignore` file contains the necessary entries. dbt Core doesn't interact with git so dbt doesn't automatically add or verify entries in the `.gitignore` file. Additionally, if the repository already contains dbt code and doesn't require initialization, dbt won't add any missing entries to the .gitignore file.
+* **Migrating project from dbt v1 to dbt** — Make sure you check the `.gitignore` file contains the necessary entries. dbt v1 doesn't interact with git so dbt doesn't automatically add or verify entries in the `.gitignore` file. Additionally, if the repository already contains dbt code and doesn't require initialization, dbt won't add any missing entries to the .gitignore file.
 
 For additional info or troubleshooting tips please refer to the [detailed FAQ](../../../faqs/Git/gitignore.md).

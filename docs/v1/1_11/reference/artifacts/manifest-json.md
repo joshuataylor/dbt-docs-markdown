@@ -1,17 +1,17 @@
 # Manifest JSON file
 
-| dbt version            | Manifest version                                              |
-| ---------------------- | ------------------------------------------------------------- |
-| dbt Fusion engine v2.0 | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.11             | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.10             | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.9              | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.8              | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
-| Core v1.7              | [v11](https://schemas.getdbt.com/dbt/manifest/v11/index.html) |
-| Core v1.6              | [v10](https://schemas.getdbt.com/dbt/manifest/v10/index.html) |
-| Core v1.5              | [v9](https://schemas.getdbt.com/dbt/manifest/v9/index.html)   |
-| Core v1.4              | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
-| Core v1.3              | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
+| dbt version | Manifest version                                              |
+| ----------- | ------------------------------------------------------------- |
+| dbt v2.0    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.11   | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.10   | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.9    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.8    | [v12](https://schemas.getdbt.com/dbt/manifest/v12/index.html) |
+| dbt v1.7    | [v11](https://schemas.getdbt.com/dbt/manifest/v11/index.html) |
+| dbt v1.6    | [v10](https://schemas.getdbt.com/dbt/manifest/v10/index.html) |
+| dbt v1.5    | [v9](https://schemas.getdbt.com/dbt/manifest/v9/index.html)   |
+| dbt v1.4    | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
+| dbt v1.3    | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
 
 **Produced by**: Any [dbt command](../../category/list-of-commands.md) that parses the project. This includes all commands, *except* [`deps`](../commands/deps.md), [`clean`](../commands/clean.md), [`debug`](../commands/debug.md), and [`init`](../commands/init.md).
 
@@ -48,7 +48,7 @@ All resources nested within `nodes`, `sources`, `metrics`, `exposures`, `macros`
 * `name`: Resource name
 * `unique_id`: `<resource_type>.<package>.<resource_name>`, same as dictionary key
 * `package_name`: Name of package that defines this resource
-* `root_path`: Absolute file path of this resource's package. (**Note:** This was removed for most node types in dbt Core v1.4 / manifest v8 to reduce duplicative information across nodes, but it is still present for seeds.)
+* `root_path`: Absolute file path of this resource's package. (**Note:** This was removed for most node types in dbt v1.4 / manifest v8 to reduce duplicative information across nodes, but it is still present for seeds.)
 * `path`: Relative file path of this resource's definition within its "resource path" (`model-paths`, `seed-paths`, and more).
 * `original_file_path`: Relative file path of this resource's definition, including its resource path.
 

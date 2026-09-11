@@ -68,7 +68,7 @@ On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](./dbt-state-about
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
-* **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.
+* **Works everywhere** — dbt State works with dbt v1, dbt v2, and dbt platform, as well as external orchestrators, across both development and deployment environments.
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
@@ -80,7 +80,7 @@ To get started, refer to [Migrate from state-aware orchestration](./dbt-state-mi
 
 How is dbt State different from using state:modified?
 
-`state:modified` in dbt Core requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes.
+`state:modified` in dbt v1 requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes.
 
 `state:modified` only checks if a file has changed. dbt State has semantic understanding of SQL, so meaningless changes like whitespace or table aliases are not counted as a change — making dbt State smarter about what actually needs to rebuild.
 
@@ -215,7 +215,7 @@ After a run, use (Applies to dbt v2.0 and later) [`dbt state explain`](../../ref
 
 note
 
-The command name differs by version: dbt Core 2.0 uses `dbt state explain` (with a space), while dbt Core v1.x uses `dbt-state explain` (with a hyphen).
+The command name differs by version: dbt v2 uses `dbt state explain` (with a space), while dbt v1 uses `dbt-state explain` (with a hyphen).
 
 (Applies to dbt v2.0 and later)
 

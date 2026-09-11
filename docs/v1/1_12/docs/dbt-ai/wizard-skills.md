@@ -157,10 +157,10 @@ The following skills all ship bundled with dbt Wizard. You don't call them direc
 
 These skills are for migration projects rather than everyday sessions:
 
-| Skill                                    | What it does                                                |
-| ---------------------------------------- | ----------------------------------------------------------- |
-| `migrating-dbt-core-to-fusion`           | Migrate dbt projects from dbt Core to the dbt Fusion engine |
-| `migrating-dbt-project-across-platforms` | Migrate dbt projects across data platforms                  |
+| Skill                                    | What it does                               |
+| ---------------------------------------- | ------------------------------------------ |
+| `migrating-dbt-core-to-fusion`           | Migrate dbt projects from dbt v1 to dbt v2 |
+| `migrating-dbt-project-across-platforms` | Migrate dbt projects across data platforms |
 
 Built-in skills are updated with each dbt Wizard release. Custom skills with the same name take precedence.
 

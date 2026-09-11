@@ -34,11 +34,11 @@ For more information on defaults, see [Caveats](../docs/local/connect-data-platf
 
 ### Pure Python
 
-If you use dbt Core, you no longer have to download an independent driver to interact with Databricks. The connection information is all embedded in a pure-Python library called `databricks-sql-connector`.
+If you use dbt v1, you no longer have to download an independent driver to interact with Databricks. The connection information is all embedded in a pure-Python library called `databricks-sql-connector`.
 
 ## Migrate your dbt projects in dbt
 
-You can migrate your projects to the Databricks-specific adapter from the generic Apache Spark adapter. If you're using dbt Core, then skip to Step 4.
+You can migrate your projects to the Databricks-specific adapter from the generic Apache Spark adapter. If you're using dbt v1, then skip to Step 4.
 
 The migration to the `dbt-databricks` adapter from `dbt-spark` shouldn't cause any downtime for production jobs. dbt Labs recommends that you schedule the connection change when usage of the IDE is light to avoid disrupting your team.
 
@@ -74,9 +74,9 @@ These credentials will not get lost when there's a successful connection to Data
 * The personal access tokens your team added in their dbt profile so they can develop in the Studio IDE for a given project.
 * The access token you added for each deployment environment so dbt can connect to Databricks during production jobs.
 
-## Migrate dbt projects in dbt Core
+## Migrate dbt projects in dbt
 
-To migrate your dbt Core projects to the `dbt-databricks` adapter from `dbt-spark`, you:
+To migrate your dbt v1 projects to the `dbt-databricks` adapter from `dbt-spark`, you:
 
 1. Install the [dbt-databricks adapter](https://github.com/databricks/dbt-databricks) in your environment
 2. Update your Databricks connection by modifying your `target` in your `~/.dbt/profiles.yml` file

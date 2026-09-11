@@ -2,17 +2,17 @@
 
 Available in v2
 
-v2 is the current era of dbt, delivered through Fusion. When you install dbt, you get Fusion by default. This guide walks you through upgrading a v1 project to v2.
+v2 is the current era of dbt, delivered through dbt v2. When you install dbt, you get dbt v2 by default. This guide walks you through upgrading a v1 project to v2.
 
 v2 is faster and stricter, but your existing project language and DAG semantics carry over, so once you upgrade, your project works as before — just faster.
 
 important
 
-The dbt Fusion engine is currently available for installation in:
+dbt v2 is currently available for installation in:
 
 * [Local command line interface (CLI) tools](../../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [VS Code and Cursor with the dbt extension](../../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](../upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [dbt platform environments](../upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -21,17 +21,17 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 * [About the dbt extension](../../about-dbt-extension.md)
 * [Supported features matrix](../../dbt/supported-features.md)
 * [Install dbt](../../local/install-dbt.md)
-* [Quickstart for Fusion](../../../guides/dbt.md?step=1)
+* [Quickstart for dbt v2](../../../guides/dbt.md?step=1)
 * [Upgrade guide](./upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
 ## Resources
 
-* [dbt Fusion engine changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md)
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
 
 ## Install dbt
 
-Upgrading to v2 is an install step. Install dbt using `pip` to get Fusion for v2:
+Upgrading to v2 is an install step. Install dbt using `pip` to get dbt v2 for v2:
 
 ```shell
 python -m pip install --pre dbt
@@ -47,21 +47,21 @@ This new major version is an opportunity to *strengthen the framework* by removi
 
 That work is documented below — it should be simple, straightforward, and in many cases, auto-fixable with the [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) helper or the [agent skill](https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-fusion).
 
-Test v2 parser compatibility from dbt Core v1.12
+Test v2 parser compatibility from dbt v1.12
 
-If you're on dbt Core v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](../../../reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
+If you're on dbt v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](../../../reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
 
 #### Upgrade considerations
 
 Keep in mind the following considerations during the upgrade process:
 
-* **Manifest compatibility** — Fusion produces a `v12` [manifest](../../../reference/artifacts/manifest-json.md) that's compatible with dbt Core. The only differences are optional Fusion-specific fields that only Fusion writes, which dbt Core safely ignores.
+* **Manifest compatibility** — dbt v2 produces a `v12` [manifest](../../../reference/artifacts/manifest-json.md) that's compatible with dbt v1. The only differences are optional dbt v2-specific fields that only dbt v2 writes, which dbt v1 safely ignores.
 
-  As a result, you can run Fusion and dbt Core side by side. State-dependent features such as `state:modified`, `--defer`, and cross-environment `dbt docs generate` work across mixed Fusion and dbt Core environments, so you can migrate to Fusion incrementally without breaking existing dbt Core jobs.
+  As a result, you can run dbt v2 and dbt v1 side by side. State-dependent features such as `state:modified`, `--defer`, and cross-environment `dbt docs generate` work across mixed dbt v2 and dbt v1 environments, so you can migrate to dbt v2 incrementally without breaking existing dbt v1 jobs.
 
 State-aware orchestration is now dbt State
 
-[dbt State](../../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, the dbt platform, and dbt Fusion engine.
+[dbt State](../../deploy/dbt-state-about.md) works with all engines and environments: dbt v1, the dbt platform, and dbt v2.
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../deploy/dbt-state-migration.md).
 
@@ -118,7 +118,7 @@ DuckDB does not require authentication — it runs locally on your machine.
 
 v2 will not support any deprecated functionality (see the [Changes overview](../../../reference/changes-overview.md) for details):
 
-* All [deprecation warnings](../../../reference/deprecations.md) must be resolved before upgrading to the new engine. This includes historic deprecations and [new ones as of dbt Core v1.10](./upgrading-to-v1.10.md#deprecation-warnings).
+* All [deprecation warnings](../../../reference/deprecations.md) must be resolved before upgrading to the new engine. This includes historic deprecations and [new ones as of dbt v1.10](./upgrading-to-v1.10.md#deprecation-warnings).
 * Some [behavior change flags](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) will be removed (generally enabled). You can no longer opt out of them using `flags:` in your `dbt_project.yml`.
 
 ### Ecosystem packages
@@ -157,7 +157,7 @@ When upgrading to v2, you should expect the following changes in functionality:
 
 #### Parse time printing of relations will print out the full qualified name, instead of an empty string
 
-In dbt Core v1.x, when printing the result of `get_relation()`, the parse time output for that Jinja would print `None` (the undefined object coerces to the string "None").
+In dbt v1, when printing the result of `get_relation()`, the parse time output for that Jinja would print `None` (the undefined object coerces to the string "None").
 
 In v2, to help with intelligent batching of `get_relation()` calls (and significantly speed up `dbt compile`), dbt needs to construct a relation object with the fully qualified name resolved at parse time for the `get_relation()` adapter call.
 
@@ -181,7 +181,7 @@ identifier='a'
 {{ print('relation_via_api: ' ~ relation_via_api) }}
 ```
 
-The output after `dbt parse` in dbt Core v1.x:
+The output after `dbt parse` in dbt v1:
 
 ```text
 relation: None
@@ -238,15 +238,15 @@ Some historic CLI flags from v1 will no longer do anything in v2. If you pass th
 
 The following deprecated flags require updates in your job definitions or scripts:
 
-* **`--models` / `--model` / `-m`:** Use `--select` / `-s` instead (renamed in dbt Core v0.21). dbt raises an error in v2 if you use the old flags. Do not pass `--models` as the value to `-s` (for example, `dbt run -s --models`); v1 treated that as a model name, but v2 requires a valid selector.
+* **`--models` / `--model` / `-m`:** Use `--select` / `-s` instead (renamed in dbt v0.21). dbt raises an error in v2 if you use the old flags. Do not pass `--models` as the value to `-s` (for example, `dbt run -s --models`); v1 treated that as a model name, but v2 requires a valid selector.
 
 * **`--resource-type` / `--exclude-resource-type`:** Use `--resource-types` / `--exclude-resource-types`. For more information, see [Resource type flags](../../../reference/global-configs/resource-type.md).
 
-Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](./upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
+dbt v2 job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt v1 command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your dbt v2 job commands. For more information, refer to [Deprecated flags](./upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to dbt v2.
 
 #### Conflicting package versions when a local package depends on a hub package which the root package also wants will error
 
-If a local package depends on a hub package that the root package also wants, `dbt deps` doesn't resolve conflicting versions in dbt Core v1; it will install whatever the root project requests.
+If a local package depends on a hub package that the root package also wants, `dbt deps` doesn't resolve conflicting versions in dbt v1; it will install whatever the root project requests.
 
 v2 will present an error:
 
@@ -319,7 +319,7 @@ To resolve this error, rename any duplicate docs blocks.
 
 #### `dbt clean` will not delete any files in configured resource paths or files outside the project directory
 
-In dbt Core v1.x, `dbt clean` deletes:
+In dbt v1, `dbt clean` deletes:
 
 * Any files outside the project directory if `clean-targets` is configured with an absolute path or relative path containing `../`, though there is an opt-in config to disable this (`--clean-project-files-only` / `--no-clean-project-files-only`).
 * Any files in the `asset-paths` or `doc-paths` (even though other resource paths, like `model-paths` and `seed-paths`, are restricted).
@@ -328,34 +328,34 @@ In v2, `dbt clean` will not delete any files in configured resource paths or fil
 
 #### All unit tests are run first in `dbt build`
 
-In dbt Core v1.x, the direct parents of the model being unit tested needed to exist in the warehouse to retrieve the needed column name and type information. `dbt build` runs the unit tests (and their dependent models) *in lineage order*.
+In dbt v1, the direct parents of the model being unit tested needed to exist in the warehouse to retrieve the needed column name and type information. `dbt build` runs the unit tests (and their dependent models) *in lineage order*.
 
 In v2, `dbt build` runs *all* of the unit tests *first*, and then builds the rest of the DAG, due to built-in column name and type awareness.
 
 #### Configuring `--threads`
 
-dbt Core v1 runs with `--threads 1` by default. You can increase this number to run more nodes in parallel on the remote data platform, up to the max parallelism enabled by the DAG.
+dbt v1 runs with `--threads 1` by default. You can increase this number to run more nodes in parallel on the remote data platform, up to the max parallelism enabled by the DAG.
 
 v2 handles threading differently depending on your data platform:
 
 | Adapter        | Behavior                                                                                                                                                                                                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Snowflake**  | Fusion automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but Fusion is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
-| **Databricks** | Fusion automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but Fusion is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
-| **BigQuery**   | Fusion respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                             |
-| **Redshift**   | Fusion respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                          |
+| **Snowflake**  | dbt v2 automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but dbt v2 is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
+| **Databricks** | dbt v2 automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but dbt v2 is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
+| **BigQuery**   | dbt v2 respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows dbt v2 to dynamically optimize parallelism.                                                                                                                                                             |
+| **Redshift**   | dbt v2 respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows dbt v2 to dynamically optimize parallelism.                                                                                                                                                          |
 
-For more information, refer to [Using threads](../../running-a-dbt-project/using-threads.md#fusion-engine-thread-optimization).
+For more information, refer to [Using threads](../../running-a-dbt-project/using-threads.md#dbt-v2-thread-optimization).
 
 #### Continue to compile unrelated nodes after hitting a compile error
 
-As soon as dbt Core v1 `compile` encounters an error compiling one of your models, dbt stops and doesn't compile anything else.
+As soon as v1's `compile` encounters an error compiling one of your models, dbt stops and doesn't compile anything else.
 
 When v2's `compile` encounters an error, it will skip nodes downstream of the one that failed to compile, but it will keep compiling the rest of the DAG (in parallel, up to the number of configured / optimal threads).
 
 #### Seeds with extra commas don't result in extra columns
 
-In dbt Core v1.x, if you have an additional comma on your seed, dbt creates a seed with an additional empty column.
+In dbt v1, if you have an additional comma on your seed, dbt creates a seed with an additional empty column.
 
 For example, the following seed file (with an extra comma):
 
@@ -515,7 +515,7 @@ from {{ ref('my_table') }}
 
 ### Package support
 
-To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the dbt v2-compatible badge, or review the package's [`require-dbt-version` configuration](../../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
 * Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with dbt v2. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
@@ -546,7 +546,7 @@ This means that even if you see a v2 warning for a package that `dbt-autofix` id
 
 The message discrepancy is temporary while we implement and roll out `dbt-autofix`'s enhanced compatibility detection to v2 warnings.
 
-Here's an example of a dbt v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
+Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
@@ -558,7 +558,7 @@ v2 is available in two distributions. For more information, refer to [dbt licens
 
 | Distribution | Package    | Use it when                                                                                                                                   |
 | ------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Fusion       | `dbt`      | You want the recommended v2 experience, with Fusion installed by default.                                                                     |
-| dbt Core 2.0 | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](../../local/install-dbt-v2.md). |
+| dbt v2       | `dbt`      | The recommended v2 experience.                                                                                                                |
+| dbt OSS      | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](../../local/install-dbt-v2.md). |
 
-If you have a older project that isn’t ready to move to v2, continue using `dbt-core` v1.x for compatibility. For new or upgraded projects, we recommend v2.
+If you have a older project that isn’t ready to move to v2, continue using v1.x for compatibility. For new or upgraded projects, we recommend v2.

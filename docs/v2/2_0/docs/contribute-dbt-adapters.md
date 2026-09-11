@@ -1,4 +1,4 @@
-# Contribute to dbt Core adapters
+# Contribute to dbt adapters
 
 The dbt Community helps analytics practitioners share their knowledge, help others, and collectively drive forward the discipline of analytics engineering. There are opportunities here for everyone to contribute, whether you're at the beginning of your analytics engineering journey or you are a seasoned data professional.
 
@@ -8,13 +8,13 @@ This section explains how you can contribute to existing adapters or create a ne
 
 Community-supported plugins are works in progress, and you can contribute by testing and writing code. If you're interested in contributing:
 
-* Join both the dedicated channel, [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM), in [dbt Slack](https://community.getdbt.com/) and the channel for your adapter's data store. See the **Slack Channel** link in the [dbt Core v1.x platform](./local/profiles.yml.md) pages.
-* Review open issues in the plugin's source repository. Use the relevant **GitHub repo** link in the [dbt Core v1.x platform](./local/profiles.yml.md) pages.
+* Join both the dedicated channel, [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM), in [dbt Slack](https://community.getdbt.com/) and the channel for your adapter's data store. See the **Slack Channel** link in the [dbt v1 platform](./local/profiles.yml.md) pages.
+* Review open issues in the plugin's source repository. Use the relevant **GitHub repo** link in the [dbt v1 platform](./local/profiles.yml.md) pages.
 
-### Create a new dbt Core 2.0 adapter
+### Create a new v2 adapter
 
-v2 is a Rust-based rewrite of the dbt engine built around a single monorepo. Instead of maintaining a separate Python package per warehouse, all adapters live together, organized by feature area rather than warehouse, inside `dbt-labs/dbt-core`. A bug fix in authentication or relation logic benefits every adapter at once, and your contribution makes the entire ecosystem stronger.
+v2 is a Rust-based rewrite of the dbt engine built around a single monorepo. Instead of maintaining a separate Python package per warehouse, all adapters live together, organized by feature area rather than warehouse, inside `dbt-labs/dbt`. A bug fix in authentication or relation logic benefits every adapter at once, and your contribution makes the entire ecosystem stronger.
 
 ADBC drivers handle connection management—pre-compiled binaries you register, not write. You build the warehouse-specific logic: credentials, relation naming, SQL macros, and catalog queries across roughly 13 files in total.
 
-Contributing a dbt Core 2.0 adapter means opening a pull request directly against the monorepo. You'll register your warehouse in the `AdapterType` enum, implement credential and relation types in Rust, write Jinja macros for your SQL dialect, and wire up basic integration tests against a real warehouse. The Rust compiler's match exhaustiveness enforcement acts as your to-do list — every unhandled variant is a compile error until your adapter is complete. For a step-by-step walkthrough, see [Contribute a dbt Core 2.0 adapter](../guides/adapter-creation-v2.md).
+Contributing a v2 adapter means opening a pull request directly against the monorepo. You'll register your warehouse in the `AdapterType` enum, implement credential and relation types in Rust, write Jinja macros for your SQL dialect, and wire up basic integration tests against a real warehouse. The Rust compiler's match exhaustiveness enforcement acts as your to-do list — every unhandled variant is a compile error until your adapter is complete. For a step-by-step walkthrough, see [Contribute a dbt v2 adapter](../guides/adapter-creation-v2.md).

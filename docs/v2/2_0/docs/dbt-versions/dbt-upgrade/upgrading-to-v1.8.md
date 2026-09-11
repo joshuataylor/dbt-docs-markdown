@@ -4,17 +4,17 @@ Available in v1
 
 ## Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.8.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.8.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../local/install-dbt.md)
 * [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x, except for any changes explicitly mentioned on this page. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x, except for any changes explicitly mentioned on this page. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 ## Release tracks
 
-Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. Select a release track in your development, staging, and production [environments](../../deploy/deploy-environments.md) to access everything in dbt Core v1.8+ and more. To upgrade an environment in the [dbt Admin API](../../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the string `latest`.
+Starting in 2024, dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. Select a release track in your development, staging, and production [environments](../../deploy/deploy-environments.md) to access everything in dbt v1.8+ and more. To upgrade an environment in the [dbt Admin API](../../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the string `latest`.
 
 ## New and changed features and functionality
 
@@ -41,9 +41,9 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
-  * **dbt platform**: Any release track (\*\*\*\*\*\*\*\*\*\***v1 Latest**, **v1 Compatible**, **v1 Extended**, or \*\***v1 Fallback**).
-  * **dbt Fusion engine**: v2.0.0.
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
@@ -84,7 +84,7 @@ The [`run`](../../../reference/commands/run.md#the-%60--empty%60-flag) and [`bui
 
 ### dbt-core and adapters are decoupled
 
-Before v1.8, dbt adapters directly depended on components of `dbt-core`, and `dbt-core` depended on the adapter for execution. This bidirectional dependency made it difficult to develop adapters independently. Starting in dbt Core v1.8, [`dbt-core` and adapters are decoupled](https://github.com/dbt-labs/dbt-adapters/discussions/87), making it easier to maintain and evolve them independent of each other.
+Before v1.8, dbt adapters directly depended on components of `dbt-core`, and `dbt-core` depended on the adapter for execution. This bidirectional dependency made it difficult to develop adapters independently. Starting in dbt v1.8, [`dbt-core` and adapters are decoupled](https://github.com/dbt-labs/dbt-adapters/discussions/87), making it easier to maintain and evolve them independent of each other.
 
 For backward compatibility, adapter packages continue to depend on `dbt-core` at install time. Running a dbt project still requires both `dbt-core` and an adapter, and since v1.0, many users have installed both together using [`pip install dbt-<adapter>`](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.0.md#installation>).
 
@@ -108,7 +108,7 @@ The ability for installed packages to override built-in materializations without
 
 ### Managing changes to legacy behaviors
 
-dbt Core v1.8 has introduced flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
+dbt v1.8 has introduced flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
 You can read more about each of these behavior changes in the following links:
 

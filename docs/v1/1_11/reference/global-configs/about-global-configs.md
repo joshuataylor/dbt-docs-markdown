@@ -4,7 +4,7 @@ In dbt, "flags" (also called "global configs" and often configured with [environ
 
 Flags control things like the visual output of logs, whether to treat specific warning messages as errors, or whether to "fail fast" after encountering the first error. Flags are "global" configs because they are available for all dbt commands and they can be set in multiple places.
 
-You can use flags with the dbt Fusion engine or dbt Core engine through the CLI during local development or in dbt platform.
+You can use flags with the dbt v2 or dbt v1 engine through the CLI during local development or in dbt platform.
 
 There is a significant overlap between dbt's flags and dbt's command line options, but there are differences:
 

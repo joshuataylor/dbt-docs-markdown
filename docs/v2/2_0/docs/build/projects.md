@@ -33,20 +33,20 @@ Every dbt project includes a project configuration file called `dbt_project.yml`
 
 Edit `dbt_project.yml` to set up common project configurations such as:
 
-| YAML key                                                                                        | Value description                                                                                                    |
-| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [name](../../reference/project-configs/name.md)                               | Your project’s name in [snake case](https://en.wikipedia.org/wiki/Snake_case)                                        |
-| [version](../../reference/project-configs/version.md)                         | Version of your project                                                                                              |
-| [require-dbt-version](../../reference/project-configs/require-dbt-version.md) | Restrict your project to only work with a range of [dbt Core versions](../dbt-versions.md) |
-| [profile](../../reference/project-configs/profile.md)                         | The profile dbt uses to connect to your data platform                                                                |
-| [model-paths](../../reference/project-configs/model-paths.md)                 | Directories to where your model and source files live                                                                |
-| [seed-paths](../../reference/project-configs/seed-paths.md)                   | Directories to where your seed files live                                                                            |
-| [test-paths](../../reference/project-configs/test-paths.md)                   | Directories to where your test files live                                                                            |
-| [analysis-paths](../../reference/project-configs/analysis-paths.md)           | Directories to where your analyses live                                                                              |
-| [macro-paths](../../reference/project-configs/macro-paths.md)                 | Directories to where your macros live                                                                                |
-| [snapshot-paths](../../reference/project-configs/snapshot-paths.md)           | Directories to where your snapshots live                                                                             |
-| [docs-paths](../../reference/project-configs/docs-paths.md)                   | Directories to where your docs blocks live                                                                           |
-| [vars](./project-variables.md)                                 | Project variables you want to use for data compilation                                                               |
+| YAML key                                                                                        | Value description                                                                                                  |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [name](../../reference/project-configs/name.md)                               | Your project’s name in [snake case](https://en.wikipedia.org/wiki/Snake_case)                                      |
+| [version](../../reference/project-configs/version.md)                         | Version of your project                                                                                            |
+| [require-dbt-version](../../reference/project-configs/require-dbt-version.md) | Restrict your project to only work with a range of [dbt v1 versions](../dbt-versions.md) |
+| [profile](../../reference/project-configs/profile.md)                         | The profile dbt uses to connect to your data platform                                                              |
+| [model-paths](../../reference/project-configs/model-paths.md)                 | Directories to where your model and source files live                                                              |
+| [seed-paths](../../reference/project-configs/seed-paths.md)                   | Directories to where your seed files live                                                                          |
+| [test-paths](../../reference/project-configs/test-paths.md)                   | Directories to where your test files live                                                                          |
+| [analysis-paths](../../reference/project-configs/analysis-paths.md)           | Directories to where your analyses live                                                                            |
+| [macro-paths](../../reference/project-configs/macro-paths.md)                 | Directories to where your macros live                                                                              |
+| [snapshot-paths](../../reference/project-configs/snapshot-paths.md)           | Directories to where your snapshots live                                                                           |
+| [docs-paths](../../reference/project-configs/docs-paths.md)                   | Directories to where your docs blocks live                                                                         |
+| [vars](./project-variables.md)                                 | Project variables you want to use for data compilation                                                             |
 
 For complete details on project configurations, see [dbt\_project.yml](../../reference/dbt_project.yml.md).
 
@@ -92,4 +92,4 @@ If you want to see what a mature, production project looks like, check out the [
 
 * [Best practices: How we structure our dbt projects](../../best-practices/how-we-structure/1-guide-overview.md)
 * [Quickstarts for dbt](https://docs.getdbt.com/guides)
-* [Quickstart for dbt Core](../../guides/manual-install.md)
+* [Quickstart for dbt v1](../../guides/manual-install.md)

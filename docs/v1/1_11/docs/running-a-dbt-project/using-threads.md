@@ -17,17 +17,17 @@ Generally the optimal number of threads depends on your data warehouse and its c
 
 You can use a different number of threads than the value defined in your target by using the `--threads` option when executing a dbt command.
 
-You will define the number of threads in your `profiles.yml` file (when developing locally with dbt Core and the dbt Fusion engine), dbt job definition, and dbt development credentials under your profile.
+You will define the number of threads in your `profiles.yml` file (when developing locally with dbt v1 and dbt v2), dbt job definition, and dbt development credentials under your profile.
 
-## dbt Fusion engine thread optimization
+## dbt v2 thread optimization
 
-In the context of Fusion, a thread is an open connection to your data warehouse, not the number of parallel threads on your local machine's CPU. Data platforms vary in how many concurrent connections they allow; exceeding those limits causes the platform to reject new connections.
+In the context of dbt v2, a thread is an open connection to your data warehouse, not the number of parallel threads on your local machine's CPU. Data platforms vary in how many concurrent connections they allow; exceeding those limits causes the platform to reject new connections.
 
 Historically, analytics engineers set `threads:` to ensure dbt never opened more connections than the platform could handle.
 
-Fusion works well without configuring `threads`. Rather than treating `threads` as a strict limit, Fusion automatically manages connection parallelism based on platform limits and uses backpressure to avoid overloading your warehouse. In general, we recommend not setting `threads` when using Fusion.
+dbt v2 works well without configuring `threads`. Rather than treating `threads` as a strict limit, dbt v2 automatically manages connection parallelism based on platform limits and uses backpressure to avoid overloading your warehouse. In general, we recommend not setting `threads` when using dbt v2.
 
-However, if Fusion still opens more connections than your warehouse can handle, configure `threads` to cap the maximum number of concurrent connections.
+However, if dbt v2 still opens more connections than your warehouse can handle, configure `threads` to cap the maximum number of concurrent connections.
 
 Project parsing runs separately and automatically uses all available CPUs. To disable parallel parsing and run one operation at a time, use the `--no-parallel` flag. This is useful for debugging parse errors and does not affect threads.
 
@@ -35,12 +35,12 @@ Project parsing runs separately and automatically uses all available CPUs. To di
 
 | Adapter        | Behavior                                                                                                                                                                                                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Snowflake**  | Fusion automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but Fusion is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
-| **Databricks** | Fusion automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but Fusion is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
-| **BigQuery**   | Fusion respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                             |
-| **Redshift**   | Fusion respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                          |
+| **Snowflake**  | dbt v2 automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but dbt v2 is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
+| **Databricks** | dbt v2 automatically manages connection parallelism based on platform limits and backpressure. The `threads` setting acts as a maximum connection cap if set, but dbt v2 is designed to work optimally without it configured. If you're experiencing timeout or rate limit issues, setting `threads` to a lower value can help. |
+| **BigQuery**   | dbt v2 respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows dbt v2 to dynamically optimize parallelism.                                                                                                                                                             |
+| **Redshift**   | dbt v2 respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows dbt v2 to dynamically optimize parallelism.                                                                                                                                                          |
 
-For more information about Fusion's approach to parallelism, refer to [the dbt Fusion engine](../introduction.md) page.
+For more information about dbt v2's approach to parallelism, refer to [the dbt v2](../introduction.md) page.
 
 ## Related docs
 

@@ -6,7 +6,7 @@ Support for dbt is available to all users through the following channels:
 * [The Community Forum](https://discourse.getdbt.com/).
 * [dbt Community slack](https://www.getdbt.com/community/join-the-community/).
 
-## dbt Core support
+## dbt support
 
 If you're developing on the command line (CLI) and have questions or need some help — reach out to the helpful dbt community through [the Community Forum](https://discourse.getdbt.com/) or [dbt Community slack](https://www.getdbt.com/community/join-the-community/).
 
@@ -95,7 +95,7 @@ Support tickets are assigned a severity level based on the impact of the issue o
 
 ## Leave feedback
 
-Leave feedback or submit a feature request for dbt or dbt Core.
+Leave feedback or submit a feature request for dbt or dbt v1.
 
 #### Share feedback or feature request for the dbt platform
 
@@ -107,9 +107,9 @@ Leave feedback or submit a feature request for dbt or dbt Core.
 
 ![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")Leave feedback in dbt
 
-#### Share feedback or feature request for dbt Core
+#### Share feedback or feature request for dbt
 
-* [Create a GitHub issue here](https://github.com/dbt-labs/dbt-core/issues).
+* [Create a GitHub issue here](https://github.com/dbt-labs/dbt/issues).
 
 ## External help
 

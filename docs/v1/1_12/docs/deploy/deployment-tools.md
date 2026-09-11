@@ -16,9 +16,9 @@ Installing the [dbt Provider](https://airflow.apache.org/docs/apache-airflow-pro
 
 ![dbt job triggered by Airflow](/img/docs/running-a-dbt-project/dbt_cloud_airflow_trigger.png?v=2 "dbt job triggered by Airflow")dbt job triggered by Airflow
 
-### dbt Core
+### dbt v1
 
-Invoking dbt Core jobs through the [BashOperator](https://registry.astronomer.io/providers/apache-airflow/modules/bashoperator). In this case, be sure to install dbt into a virtual environment to avoid issues with conflicting dependencies between Airflow and dbt.
+Invoking dbt v1 jobs through the [BashOperator](https://registry.astronomer.io/providers/apache-airflow/modules/bashoperator). In this case, be sure to install dbt into a virtual environment to avoid issues with conflicting dependencies between Airflow and dbt.
 
 For more details on both of these methods, including example implementations, check out [this guide](https://docs.astronomer.io/learn/airflow-dbt-cloud).
 
@@ -46,7 +46,7 @@ Cron is a decent way to schedule bash commands. However, while it may seem like 
 
 ## Dagster
 
-If your organization uses [Dagster](https://dagster.io/), you can use the [dagster\_dbt](https://docs.dagster.io/_apidocs/libraries/dagster-dbt) library to integrate dbt commands into your pipelines. This library supports the execution of dbt through dbt or dbt Core. Running dbt from Dagster automatically aggregates metadata about your dbt runs. Refer to the [example pipeline](https://dagster.io/blog/dagster-dbt) for details.
+If your organization uses [Dagster](https://dagster.io/), you can use the [dagster\_dbt](https://docs.dagster.io/_apidocs/libraries/dagster-dbt) library to integrate dbt commands into your pipelines. This library supports the execution of dbt through dbt or dbt v1. Running dbt from Dagster automatically aggregates metadata about your dbt runs. Refer to the [example pipeline](https://dagster.io/blog/dagster-dbt) for details.
 
 ## Databricks workflows
 
@@ -56,7 +56,7 @@ For more info, refer to the guide on [Databricks workflows and dbt jobs](../../g
 
 ## Kestra
 
-If your organization uses [Kestra](http://kestra.io/), you can leverage the [dbt plugin](https://kestra.io/plugins/plugin-dbt) to orchestrate dbt and dbt Core jobs. Kestra's user interface (UI) has built-in [Blueprints](https://kestra.io/docs/user-interface-guide/blueprints), providing ready-to-use workflows. Navigate to the Blueprints page in the left navigation menu and [select the dbt tag](https://demo.kestra.io/ui/blueprints/community?selectedTag=36) to find several examples of scheduling dbt Core commands and dbt jobs as part of your data pipelines. After each scheduled or ad-hoc workflow execution, the Outputs tab in the Kestra UI allows you to download and preview all dbt build artifacts. The Gantt and Topology view additionally render the metadata to visualize dependencies and runtimes of your dbt models and tests. The dbt task provides convenient links to easily navigate between Kestra and dbt UI.
+If your organization uses [Kestra](http://kestra.io/), you can leverage the [dbt plugin](https://kestra.io/plugins/plugin-dbt) to orchestrate dbt and dbt v1 jobs. Kestra's user interface (UI) has built-in [Blueprints](https://kestra.io/docs/user-interface-guide/blueprints), providing ready-to-use workflows. Navigate to the Blueprints page in the left navigation menu and [select the dbt tag](https://demo.kestra.io/ui/blueprints/community?selectedTag=36) to find several examples of scheduling dbt v1 commands and dbt jobs as part of your data pipelines. After each scheduled or ad-hoc workflow execution, the Outputs tab in the Kestra UI allows you to download and preview all dbt build artifacts. The Gantt and Topology view additionally render the metadata to visualize dependencies and runtimes of your dbt models and tests. The dbt task provides convenient links to easily navigate between Kestra and dbt UI.
 
 ## Orchestra
 
@@ -74,7 +74,7 @@ The following is an example of viewing lineage in Orchestra for dbt jobs:
 
 ## Prefect
 
-If your organization uses [Prefect](https://www.prefect.io/), the way you will run your jobs depends on the dbt version you're on, and whether you're orchestrating dbt or dbt Core jobs. Refer to the following variety of options:
+If your organization uses [Prefect](https://www.prefect.io/), the way you will run your jobs depends on the dbt version you're on, and whether you're orchestrating dbt or dbt v1 jobs. Refer to the following variety of options:
 
 ![Prefect DAG using a dbt job run flow](/img/docs/running-a-dbt-project/prefect_dag_dbt_cloud.jpg?v=2 "Prefect DAG using a dbt job run flow")Prefect DAG using a dbt job run flow
 
@@ -85,7 +85,7 @@ If your organization uses [Prefect](https://www.prefect.io/), the way you will r
 * Use the [trigger\_dbt\_cloud\_job\_run\_and\_wait\_for\_completion](https://prefecthq.github.io/prefect-dbt/cloud/jobs/#prefect_dbt.cloud.jobs.trigger_dbt_cloud_job_run_and_wait_for_completion) flow.
 * As jobs are executing, you can poll dbt to see whether or not the job completes without failures, through the [Prefect user interface (UI)](https://docs.prefect.io/ui/overview/).
 
-#### dbt Core
+#### dbt v1
 
 * Use the [trigger\_dbt\_cli\_command](https://prefecthq.github.io/prefect-dbt/cli/commands/#prefect_dbt.cli.commands.trigger_dbt_cli_command) task.
 * For details on both of these methods, see [prefect-dbt docs](https://prefecthq.github.io/prefect-dbt/).
@@ -98,7 +98,7 @@ If your organization uses [Prefect](https://www.prefect.io/), the way you will r
 * Running this task will generate a markdown artifact viewable in the Prefect UI.
 * The artifact will contain links to the dbt artifacts generated as a result of the job run.
 
-#### dbt Core
+#### dbt v1
 
 * Use the [DbtShellTask](https://docs.prefect.io/api/latest/tasks/dbt.html#dbtshelltask) to schedule, execute, and monitor your dbt runs.
 * Use the supported [ShellTask](https://docs.prefect.io/api/latest/tasks/shell.html#shelltask) to execute dbt commands through the shell.

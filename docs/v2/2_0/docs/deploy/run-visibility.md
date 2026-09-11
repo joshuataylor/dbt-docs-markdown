@@ -37,7 +37,7 @@ For in-progress steps, dbt platform only displays the tail of the log output —
 
 (Applies to dbt v2.0 and later)
 
-When a job on the dbt Fusion engine finishes, selecting a step displays a structured logs view showing the status of each resource. Nodes are classified into the following categories, and you can expand each node to view its log details:
+When a job on dbt v2 finishes, selecting a step displays a structured logs view showing the status of each resource. Nodes are classified into the following categories, and you can expand each node to view its log details:
 
 * **Success**
 * **Reused**
@@ -47,9 +47,9 @@ When a job on the dbt Fusion engine finishes, selecting a step displays a struct
 * **Skipped**
 * **No-op**
 
-For more information about each status, refer to [Fusion telemetry and observability](../../reference/telemetry-observability.md#node-outcome).
+For more information about each status, refer to [dbt v2 telemetry and observability](../../reference/telemetry-observability.md#node-outcome).
 
-![Structured logs in Fusion](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in Fusion")Structured logs in Fusion
+![Structured logs in v2](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in v2")Structured logs in v2
 
 #### Downloading logs
 
@@ -57,7 +57,7 @@ For more information about each status, refer to [Fusion telemetry and observabi
 
 * Note that when viewing debug logs, the log output is truncated. To view and export all debug logs for an individual step, click **Download** > **Download all debug logs**.
 
-* You can download OpenTelemetry (OTel) logs for Fusion job command steps as a Parquet file. The file contains structured step-level log data that you can query or inspect outside dbt.
+* You can download OpenTelemetry (OTel) logs for dbt v2 job command steps as a Parquet file. The file contains structured step-level log data that you can query or inspect outside dbt.
 
 To download it, go to the **Run summary** tab in the job, select a step and click **Download** > **Download OTel log** to export a Parquet file
 

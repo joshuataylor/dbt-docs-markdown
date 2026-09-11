@@ -1,11 +1,11 @@
 # About model governance
 
-dbt supports model governance to help you control who can access models, what data they contain, how they change over time, and reference them across projects. dbt supports model governance in dbt Core and the dbt platform, with some differences in the features available across environments/plans.
+dbt supports model governance to help you control who can access models, what data they contain, how they change over time, and reference them across projects. dbt supports model governance in dbt v1 and the dbt platform, with some differences in the features available across environments/plans.
 
-* Use model governance to define model structure and visibility in dbt Core and the dbt platform.
+* Use model governance to define model structure and visibility in dbt v1 and the dbt platform.
 * dbt builds on this with features like [cross-project ref](./project-dependencies.md) that enable collaboration at scale across multiple projects, powered by its metadata service and [Catalog](../../explore/explore-projects.md). Available in dbt Enterprise or Enterprise+ plans.
 
-All of the following features are available in dbt Core and the dbt platform, *except* project dependencies, which is only available to [dbt Enterprise-tier plans](https://www.getdbt.com/pricing).
+All of the following features are available in dbt v1 and the dbt platform, *except* project dependencies, which is only available to [dbt Enterprise-tier plans](https://www.getdbt.com/pricing).
 
 * [**Model access**](./model-access.md) — Mark models as "public" or "private" to distinguish between mature data products and implementation details — and to control who can `ref` each.
 * [**Model contracts**](./model-contracts.md) —Guarantee the shape of a model (column names, data types, constraints) before it builds, to prevent surprises for downstream data consumers.

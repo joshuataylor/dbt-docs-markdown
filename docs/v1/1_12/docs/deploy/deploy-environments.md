@@ -4,7 +4,7 @@ dbt platform
 
 Deployment environments in dbt are crucial for deploying dbt jobs in production and using features or integrations that depend on dbt metadata or results. To execute dbt, environments determine the settings used during job runs, including:
 
-* The version of dbt Core that will be used to run your project
+* The version of dbt that will be used to run your project
 * The warehouse connection information (including the target database/schema settings)
 * The [connection profile](../platform/about-profiles.md) (the credentials dbt uses to connect)
 * The version of your code to execute

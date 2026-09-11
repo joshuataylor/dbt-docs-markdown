@@ -16,7 +16,7 @@ Proceed with caution in production environments
 
 Using the `--warn-error` flag or `--warn-error-options '{"error": "all"}'` will treat *all* current and future warnings as errors.
 
-This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
+This means that if a new warning is introduced in a future version of dbt, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
 ## Use `--warn-error-options` for targeted warnings
 
@@ -28,12 +28,12 @@ In some cases, you may want to convert *all* warnings to errors. However, when y
 
 Warnings that should be treated as errors can be specified through the `error` parameter. Warning names can be found in:
 
-* [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
+* [The types.py file in `dbt-labs/dbt`](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
 (Applies to dbt v1.12 and later)
 
-Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
+Starting in v1.12, dbt v1 ignores [dbt v2-specific names](https://github.com/dbt-labs/dbt/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt v1 and dbt v2. Genuine typos still raise an error.
 
 The `error` parameter can be set to `"all"` or `"*"` to treat all warnings as errors (this behavior is the same as using the `--warn-error` flag), or to a list of specific warning names to treat as exceptions.
 
@@ -57,7 +57,7 @@ You can choose to:
 * Promote specific warnings to errors using `error` and optionally exclude others from being treated as errors with `--warn-error-options` flag. `warn` tells dbt to continue treating the warnings as warnings.
 * Ignore warnings using `silence` with `--warn-error-options` flag.
 
-In the following example, we're silencing the [`NoNodesForSelectionCriteria` warning](https://github.com/dbt-labs/dbt-core/blob/main/core/dbt/events/types.py#L1227) in the `dbt_project.yml` file by adding it to the `silence` parameter:
+In the following example, we're silencing the [`NoNodesForSelectionCriteria` warning](https://github.com/dbt-labs/dbt/blob/main/core/dbt/events/types.py#L1227) in the `dbt_project.yml` file by adding it to the `silence` parameter:
 
 dbt\_project.yml
 
@@ -148,4 +148,4 @@ caution
 
 Note, using `warn_error_options: error: "all"` will treat all current and future warnings as errors.
 
-This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
+This means that if a new warning is introduced in a future version of dbt, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.

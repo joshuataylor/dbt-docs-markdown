@@ -39,9 +39,9 @@ The [`PARTIAL_PARSE` global config](./global-configs/parsing.md) can be enabled 
 
 (Applies to dbt v2.0 and later)
 
-Fusion and partial parsing
+dbt v2 and partial parsing
 
-Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
+dbt v2 job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt v1 command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your dbt v2 job commands. For more information, refer to [Deprecated flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to dbt v2.
 
 ### Known limitations
 

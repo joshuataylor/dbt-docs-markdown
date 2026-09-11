@@ -1,4 +1,4 @@
-# Connect Microsoft SQL Server to dbt Core
+# Connect Microsoft SQL Server to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [dbt-msft/dbt-sqlserver](https://github.com/dbt-msft/dbt-sqlserver) [![](https://img.shields.io/github/stars/dbt-msft/dbt-sqlserver?style=for-the-badge)](https://github.com/dbt-msft/dbt-sqlserver)
 * **PyPI package**: `dbt-sqlserver` [![](https://badge.fury.io/py/dbt-sqlserver.svg)](https://badge.fury.io/py/dbt-sqlserver)
 * **Slack channel**: [#db-sqlserver](https://getdbt.slack.com/archives/CMRMDDQ9W)
-* **Supported dbt Core version**: v0.14.0 and newer
+* **Supported dbt version**: v0.14.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: SQL Server 2016
 

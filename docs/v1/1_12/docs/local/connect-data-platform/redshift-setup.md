@@ -1,17 +1,17 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect Redshift to dbt Core
+# Connect Redshift to dbt v1
 
 Local development
 
-[Fusion compatible](./redshift-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./redshift-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 * **Maintained by**: dbt Labs
 * **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-redshift` [![](https://badge.fury.io/py/dbt-redshift.svg)](https://badge.fury.io/py/dbt-redshift)
 * **Slack channel**: [#db-redshift](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**: v0.10.0 and newer
+* **Supported dbt version**: v0.10.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
@@ -54,7 +54,7 @@ For your tcp\_keepalive inputs, we recommend taking a look at the [Redshift docu
 
 ## Authentication Parameters
 
-The authentication methods that dbt Core supports on Redshift are:
+The authentication methods that dbt v1 supports on Redshift are:
 
 * `Database` — Password-based authentication (default, will be used if `method` is not provided)
 * `IAM User` — IAM User authentication via AWS Profile

@@ -32,7 +32,7 @@ The dbt framework is composed of a *language* and an *engine*:
 
 ### dbt platform
 
-The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
+The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted dbt installation.
 
 * [Develop in your browser using the Studio IDE](../platform/studio-ide/develop-in-studio.md)
 * [Seamless drag-and-drop development with Canvas](../platform/canvas.md)
@@ -42,10 +42,10 @@ For more details, see [About dbt plans](https://www.getdbt.com/pricing).
 
 ### Self-hosted dbt development
 
-You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
+You can run dbt locally with dbt v2 or the dbt v1 engine:
 
-* [Install dbt](../local/install-dbt.md) — Get Fusion from the command line
-* [Install the dbt VS Code extension](../about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](../about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
+* [Install dbt](../local/install-dbt.md) — Get dbt v2 from the command line
+* [Install the dbt VS Code extension](../about-dbt-extension.md) — Combines dbt v2 performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](../about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
 * [Install the dbt platform CLI](../platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
 
 ## Related docs

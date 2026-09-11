@@ -230,15 +230,15 @@ Check out the [model selection syntax](../../reference/node-selection/syntax.md)
 
 With a couple of extra configs, dbt can optionally capture the "freshness" of the data in your source tables. This is useful for understanding if your data pipelines are in a healthy state, and is a critical component of defining Service Level Agreements (SLAs) for your warehouse.
 
-### Fusion and dbt State
+### dbt v2 and dbt State
 
 State-aware orchestration is now dbt State
 
-[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt v1, dbt platform, and dbt v2
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
 
-If you're using the dbt Fusion engine with [state-aware orchestration](../deploy/state-aware-about.md), dbt automatically tracks source freshness using warehouse metadata. You don't need to configure `warn_after` or `error_after` for dbt to detect when source data changes.
+If you're using dbt v2 with [dbt State](../deploy/dbt-state-about.md), dbt automatically tracks source freshness using warehouse metadata. You don't need to configure `warn_after` or `error_after` for dbt to detect when source data changes.
 
 If you're using [dbt State](../deploy/dbt-state-about.md), use [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) to control how frequently models rebuild based on upstream data changes. You can also configure `loaded_at_field` or `loaded_at_query` on your source for more accurate freshness detection (for example, for streaming data or late-arriving records).
 
@@ -246,7 +246,7 @@ However, you should still configure source freshness if you want to:
 
 * Receive SLA alerts when sources don't update within expected timeframes.
 * Define custom freshness logic using `loaded_at_field` or `loaded_at_query` (for example, for streaming data or partial loads).
-* Track freshness for source views. Fusion treats views as "always fresh" since it can't determine freshness from view metadata.
+* Track freshness for source views. dbt v2 treats views as "always fresh" since it can't determine freshness from view metadata.
 
 ### Declaring source freshness
 

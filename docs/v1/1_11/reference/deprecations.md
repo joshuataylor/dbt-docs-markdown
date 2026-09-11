@@ -6,9 +6,9 @@ note
 
 Deprecated functionality still works in the v1.10 release but is no longer supported and will be removed in a future version. Deprecations currently show as warnings but don't prevent runs and other commands (unless you've configured [warnings as errors](./global-configs/warnings.md)), but will cause errors after upgrading if not addressed.
 
-Not the same as [behavior change flags](./global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in Fusion). See the [Changes overview](./changes-overview.md) for a quick comparison.
+Not the same as [behavior change flags](./global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in dbt v2). See the [Changes overview](./changes-overview.md) for a quick comparison.
 
-Upgrading to [Fusion](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
+Upgrading to [dbt v2](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
 
 As dbt runs, it generates different categories of [events](./events-logging.md), one of which is *deprecations*. Deprecations are a special type of warning that lets you know that there are problems in parts of your project that will result in breaking changes in a future version of dbt. Although it's just a warning for now, it is important to resolve any deprecation warnings in your project to enable you to work with more safety, feedback, and confidence going forward.
 
@@ -57,7 +57,7 @@ dbt Labs recommends fixing deprecation warnings rather than silencing them. If y
 
 For full configuration options (CLI flag, environment variable, and `dbt_project.yml`), refer to [Warnings](./global-configs/warnings.md).
 
-To silence all deprecation warnings in dbt Core:
+To silence all deprecation warnings in dbt v1:
 
 ```bash
 dbt test --warn-error-options '{"silence": ["Deprecations"]}'
@@ -230,7 +230,7 @@ This warning is displayed when you specify a config that dbt does not recognize 
 
 Previously, when you could define any additional fields directly under `config`, it could lead to collisions between pre-existing user-defined configurations and official configurations of the dbt framework.
 
-As of dbt Core v1.10 and in the dbt Fusion engine, top-level config keys will be reserved for official configurations of the dbt framework.
+As of dbt v1.10 and in dbt v2, top-level config keys will be reserved for official configurations of the dbt framework.
 
 This deprecation warning is only raised for the following adapters:
 
@@ -479,7 +479,7 @@ This deprecation type is a catch-all/fallback. dbt attempts to handle all JSON s
 
 #### GenericJSONSchemaValidationDeprecation warning resolution
 
-If you are seeing this warning, unfortunately, there isn't much you can do at this time, but we are continuing to work on reducing instances of this deprecation. If you would like guidance on a specific instance you are seeing, please [contact support](mailto:support@getdbt.com) (available for cloud-based dbt platform customers) or the [community Slack](https://www.getdbt.com/community) (for dbt Core users).
+If you are seeing this warning, unfortunately, there isn't much you can do at this time, but we are continuing to work on reducing instances of this deprecation. If you would like guidance on a specific instance you are seeing, please [contact support](mailto:support@getdbt.com) (available for cloud-based dbt platform customers) or the [community Slack](https://www.getdbt.com/community) (for dbt v1 users).
 
 ### MFCumulativeTypeParamsDeprecation
 
@@ -632,7 +632,7 @@ models:
 
 ### ModelParamUsageDeprecation
 
-The `--models` / `--model` / `-m` flag was renamed to `--select` / `--s` way back in dbt Core v0.21 (Oct 2021). Silently skipping this flag means ignoring your command's selection criteria, which could mean building your entire DAG when you only meant to select a small subset. For this reason, the `--models` / `--model` / `-m` flag will raise a warning in dbt Core v1.10, and an error in Fusion. Please update your job definitions accordingly.
+The `--models` / `--model` / `-m` flag was renamed to `--select` / `--s` way back in dbt v0.21 (Oct 2021). Silently skipping this flag means ignoring your command's selection criteria, which could mean building your entire DAG when you only meant to select a small subset. For this reason, the `--models` / `--model` / `-m` flag will raise a warning in dbt v1.10, and an error in dbt v2. Please update your job definitions accordingly.
 
 #### ModelParamUsageDeprecation warning resolution
 

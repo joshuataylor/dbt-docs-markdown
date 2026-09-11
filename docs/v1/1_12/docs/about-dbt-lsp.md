@@ -48,4 +48,4 @@ dbt and the language server run independently. Running a command like `dbt run` 
 
 ## Versioning
 
-The dbt v2 CLI and the language server ship in a single binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which dbt versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md).
+The v2 CLI and the language server ship in a single binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which dbt versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md).

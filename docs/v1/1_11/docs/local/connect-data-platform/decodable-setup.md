@@ -1,4 +1,4 @@
-# Connect Decodable to dbt Core
+# Connect Decodable to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited. If you're interested in contributing, se
 * **GitHub repo**: [decodableco/dbt-decodable](https://github.com/decodableco/dbt-decodable) [![](https://img.shields.io/github/stars/decodableco/dbt-decodable?style=for-the-badge)](https://github.com/decodableco/dbt-decodable)
 * **PyPI package**: `dbt-decodable` [![](https://badge.fury.io/py/dbt-decodable.svg)](https://badge.fury.io/py/dbt-decodable)
 * **Slack channel**: [#general](https://decodablecommunity.slack.com)
-* **Supported dbt Core version**: 1.3.1 and newer
+* **Supported dbt version**: 1.3.1 and newer
 * **dbt support**: Not supported
 * **Minimum data platform version**: n/a
 

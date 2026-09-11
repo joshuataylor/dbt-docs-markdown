@@ -246,7 +246,7 @@ Requires registration
 
 Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
 
-You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
+You can use compare changes, powered by dbt v2, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 
 For more details on how to use this feature, refer to [Compare changes in local development](./dbt/vs-compare-changes.md).
 

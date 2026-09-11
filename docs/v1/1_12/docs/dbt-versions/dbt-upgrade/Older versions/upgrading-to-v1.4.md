@@ -2,25 +2,25 @@
 
 Available in v1
 
-dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
 
-dbt Core versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
 
 Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
 
 ### Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.4.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.4.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 **Final release:** January 25, 2023
 
-dbt Core v1.4 is a "behind-the-scenes" release. We've been hard at work rebuilding `dbt-core` internals on top of more-solid foundations, to enable an exciting year of new feature development. Check out the [v1.5 milestone](https://github.com/dbt-labs/dbt-core/milestone/82) in GitHub for a preview of what's planned for April.
+dbt v1.4 is a "behind-the-scenes" release. We've been hard at work rebuilding `dbt-core` internals on top of more-solid foundations, to enable an exciting year of new feature development. Check out the [v1.5 milestone](https://github.com/dbt-labs/dbt/milestone/82) in GitHub for a preview of what's planned for April.
 
 ## What to know before upgrading
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 ### For consumers of dbt artifacts (metadata)
 
@@ -43,12 +43,12 @@ The high-level changes are:
 * Add support for Incremental Predicates (if applicable)
 * Make use of new adapter-zone tests
 
-For more detailed information and to ask any questions, please visit [dbt Core/discussions/6624](https://github.com/dbt-labs/dbt-core/discussions/6624).
+For more detailed information and to ask any questions, please visit [dbt v1/discussions/6624](https://github.com/dbt-labs/dbt/discussions/6624).
 
 ## New and changed documentation
 
 * [**Events and structured logging**](../../../../reference/events-logging.md): dbt's event system got a makeover. Expect more consistency in the availability and structure of information, backed by type-safe event schemas.
-* [**Python support**](../../../../faqs/Core/install-python-compatibility.md): Python 3.11 was released in October 2022. It is officially supported in dbt-core v1.4, although full support depends also on the adapter plugin for your data platform. According to the Python maintainers, "Python 3.11 is between 10-60% faster than Python 3.10." We encourage you to try [`dbt parse`](../../../../reference/commands/parse.md) with dbt Core v1.4 + Python 3.11, and compare the timing with dbt Core v1.3 + Python 3.10. Let us know what you find!
+* [**Python support**](../../../../faqs/Core/install-python-compatibility.md): Python 3.11 was released in October 2022. It is officially supported in dbt-core v1.4, although full support depends also on the adapter plugin for your data platform. According to the Python maintainers, "Python 3.11 is between 10-60% faster than Python 3.10." We encourage you to try [`dbt parse`](../../../../reference/commands/parse.md) with dbt v1.4 + Python 3.11, and compare the timing with dbt v1.3 + Python 3.10. Let us know what you find!
 * [**Metrics**](../../../build/build-metrics-intro.md): `time_grain` is optional, to provide better ergonomics around metrics that aren't time-bound.
 * **dbt-Jinja context:** The [local\_md5](../../../../reference/dbt-jinja-functions/local_md5.md) context method will calculate an [MD5 hash](https://en.wikipedia.org/wiki/MD5) for use *within* dbt. (Not to be confused with SQL md5!)
 * [**Exposures**](../../../build/exposures.md) can now depend on `metrics`.

@@ -4,11 +4,11 @@ Local development (Applies to dbt v1.99 and earlier)
 
 Want faster dbt?
 
-Upgrade to v2 to get Fusion — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
+Upgrade to v2 to get dbt v2 — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 
-## Install dbt Core v1.x CLI
+## Install dbt v1 CLI
 
-dbt Core v1.x is the original open-source dbt engine. Install it with `pip`, Docker, or from source.
+dbt v1 is the original open-source dbt engine. Install it with `pip`, Docker, or from source.
 
  Pip installation
 
@@ -19,11 +19,11 @@ dbt Core v1.x is the original open-source dbt engine. Install it with `pip`, Doc
 
 Does my operating system have prerequisites?
 
-Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](./install-dbt.md).
+Your operating system may require pre-installation setup before installing dbt v1 with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt v1](./install-dbt.md).
 
 ### CentOS
 
-CentOS requires Python and some other dependencies to successfully install and run dbt Core.
+CentOS requires Python and some other dependencies to successfully install and run dbt v1.
 
 To install Python and other dependencies:
 
@@ -35,7 +35,7 @@ sudo yum install redhat-rpm-config gcc libffi-devel \
 
 ### MacOS
 
-The MacOS requires Python 3.8 or higher to successfully install and run dbt Core.
+The MacOS requires Python 3.8 or higher to successfully install and run dbt v1.
 
 To check the Python version:
 
@@ -50,7 +50,7 @@ If your machine runs on an Apple M1 architecture, we recommend that you install 
 
 ### Ubuntu/Debian
 
-Ubuntu requires Python and other dependencies to successfully install and run dbt Core.
+Ubuntu requires Python and other dependencies to successfully install and run dbt v1.
 
 To install Python and other dependencies:
 
@@ -64,7 +64,7 @@ pip install cryptography~=3.4
 
 ### Windows
 
-Windows requires Python and git to successfully install and run dbt Core.
+Windows requires Python and git to successfully install and run dbt v1.
 
 Install [Git for Windows](https://git-scm.com/downloads) and [Python version 3.9 or higher for Windows](https://www.python.org/downloads/windows/).
 
@@ -72,7 +72,7 @@ For further questions, please see the [Python compatibility FAQ](../../faqs/Core
 
 What version of Python can I use?
 
-Use this table to match dbt Core versions with their compatible Python versions. New [dbt minor versions](../dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
+Use this table to match dbt v1 versions with their compatible Python versions. New [dbt minor versions](../dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
 
 ## Python compatibility matrix
 
@@ -84,7 +84,7 @@ Use this table to match dbt Core versions with their compatible Python versions.
 | Python 3.11      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ❌   | ❌   | ❌   | ❌   |
 | Python 3.10      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   |
 
-⚠️ Python 3.13 is supported in dbt Core v1.10 for the Postgres adapter.
+⚠️ Python 3.13 is supported in dbt v1.10 for the Postgres adapter.
 
 Adapter plugins and their dependencies are not always compatible with the latest version of Python.
 
@@ -146,12 +146,12 @@ python3 -m pip install --pre dbt-ADAPTER_NAME
 
  Docker
 
-dbt Core images are distributed via [GitHub Packages](https://github.com/dbt-labs/dbt-core/pkgs/container/dbt-core) and include pinned versions of dbt-core, one or more adapters, and all dependencies.
+dbt v1 images are distributed via [GitHub Packages](https://github.com/dbt-labs/dbt/pkgs/container/dbt-core) and include pinned versions of dbt-core, one or more adapters, and all dependencies.
 
 ### Prerequisites
 
 * [Docker](https://docs.docker.com/) installed
-* Familiarity with [adapters](../supported-data-platforms.md) and [dbt Core versioning](../dbt-versions.md)
+* Familiarity with [adapters](../supported-data-platforms.md) and [dbt v1 versioning](../dbt-versions.md)
 
 ### Pull an image
 
@@ -181,15 +181,15 @@ Note: bind-mount sources must be absolute paths. You may need to adjust `--netwo
 
 ### Build a custom image
 
-If the pre-made images don't fit your use case, use the [`Dockerfile`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/Dockerfile) and [`README`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/README.md) to build images with multiple adapters, third-party adapters, or different system architectures. Custom image builds are community-supported — [open an issue](https://github.com/dbt-labs/dbt-core/issues) or [ask the community](../../community/resources/getting-help.md) if you run into trouble.
+If the pre-made images don't fit your use case, use the [`Dockerfile`](https://github.com/dbt-labs/dbt/blob/1.latest/docker/Dockerfile) and [`README`](https://github.com/dbt-labs/dbt/blob/1.latest/docker/README.md) to build images with multiple adapters, third-party adapters, or different system architectures. Custom image builds are community-supported — [open an issue](https://github.com/dbt-labs/dbt/issues) or [ask the community](../../community/resources/getting-help.md) if you run into trouble.
 
  Source
 
 Install from source to get unreleased code or a specific commit. Clone the repo and install with `pip`:
 
 ```shell
-git clone -b 1.latest https://github.com/dbt-labs/dbt-core.git
-cd dbt-core
+git clone -b 1.latest https://github.com/dbt-labs/dbt.git
+cd dbt
 python -m pip install -r requirements.txt
 ```
 
@@ -211,7 +211,7 @@ python -m pip install .
 
 For editable mode: `python -m pip install -e .`
 
-For more details, read the [contributing guidelines](https://github.com/dbt-labs/dbt-core/blob/1.latest/CONTRIBUTING.md).
+For more details, read the [contributing guidelines](https://github.com/dbt-labs/dbt/blob/1.latest/CONTRIBUTING.md).
 
 Pro tip: Using the --help flag
 
@@ -219,7 +219,7 @@ Most command-line tools, including dbt, support a `--help` flag that shows avail
 
 ## FAQs
 
-*  How do I uninstall dbt Core v1.x?
+*  How do I uninstall dbt v1?
 
   Uninstall with the same tool you used to install:
 
@@ -231,7 +231,7 @@ Most command-line tools, including dbt, support a `--help` flag that shows avail
   brew uninstall dbt
   ```
 
-  If `dbt --version` still finds a version after uninstalling, another install of dbt Core or dbt platform CLI may exist elsewhere on your `$PATH` (for example, a global or pipx install alongside a virtual environment). Check `which dbt` to confirm which install is being used, then uninstall that one too.
+  If `dbt --version` still finds a version after uninstalling, another install of dbt v1 or dbt platform CLI may exist elsewhere on your `$PATH` (for example, a global or pipx install alongside a virtual environment). Check `which dbt` to confirm which install is being used, then uninstall that one too.
 
 ## Next steps
 

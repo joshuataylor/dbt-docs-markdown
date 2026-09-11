@@ -1,4 +1,4 @@
-# Quickstart for dbt Core using DuckDB
+# Quickstart for dbt v1 using DuckDB
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -6,9 +6,9 @@
 
 ## Introduction
 
-In this quickstart guide, you'll learn how to use dbt Core with DuckDB, enabling you to get set up quickly and efficiently. [DuckDB](https://duckdb.org/) is an open-source database management system which is designed for analytical workloads. It is designed to provide fast and easy access to large datasets, making it well-suited for data analytics tasks.
+In this quickstart guide, you'll learn how to use dbt v1 with DuckDB, enabling you to get set up quickly and efficiently. [DuckDB](https://duckdb.org/) is an open-source database management system which is designed for analytical workloads. It is designed to provide fast and easy access to large datasets, making it well-suited for data analytics tasks.
 
-This guide covers DuckDB with dbt Core command-line interface (CLI). For Fusion-specific DuckDB setup, refer to [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md?version=2).
+This guide covers DuckDB with dbt v1 command-line interface (CLI). For dbt v2-specific DuckDB setup, refer to [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md?version=2).
 
 This guide will demonstrate how to:
 
@@ -29,15 +29,15 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 
 ## Prerequisites
 
-* When using DuckDB with dbt Core, you'll need to use the CLI. Currently, DuckDB is not supported in dbt platform.
+* When using DuckDB with dbt v1, you'll need to use the CLI. Currently, DuckDB is not supported in dbt platform.
 * It's important that you know some basics of the terminal. In particular, you should understand `cd`, `ls` , and `pwd` to navigate through the directory structure of your computer easily.
 * You have a [GitHub account](https://github.com/join).
 
-## Set up DuckDB for dbt Core
+## Set up DuckDB for dbt v1
 
 This section will provide a step-by-step guide for setting up DuckDB for use in local (Mac and Windows) environments and web browsers.
 
-In the repository, there's a [`requirements.txt`](https://github.com/dbt-labs/jaffle_shop_duckdb/blob/duckdb/requirements.txt) file which is used to install dbt Core, DuckDB, and all other necessary dependencies. You can check this file to see what will be installed on your machine. It's typically located in the root directory of your project alongside other key files like `dbt_project.yml`. Otherwise, we will show you how in later steps.
+In the repository, there's a [`requirements.txt`](https://github.com/dbt-labs/jaffle_shop_duckdb/blob/duckdb/requirements.txt) file which is used to install dbt v1, DuckDB, and all other necessary dependencies. You can check this file to see what will be installed on your machine. It's typically located in the root directory of your project alongside other key files like `dbt_project.yml`. Otherwise, we will show you how in later steps.
 
 Below is an example of the `requirements.txt` file alongside other key files like `dbt_project.yml`:
 
@@ -69,7 +69,7 @@ For more information, refer to the [DuckDB setup](../docs/local/connect-data-pla
    cd jaffle_shop_duckdb
    ```
 
-3. Install dbt Core and DuckDB in a virtual environment.
+3. Install dbt v1 and DuckDB in a virtual environment.
 
     Example for Mac
 
@@ -241,7 +241,7 @@ As you increase the number of years, it takes exponentially more time to generat
 
 ## Next steps
 
-Now that you have dbt Core, DuckDB, and the Jaffle Shop data up and running, you can explore dbt's capabilities. Refer to these materials to get a better understanding of dbt projects and commands:
+Now that you have dbt v1, DuckDB, and the Jaffle Shop data up and running, you can explore dbt's capabilities. Refer to these materials to get a better understanding of dbt projects and commands:
 
 * The [About projects](../docs/build/projects.md) page guides you through the structure of a dbt project and its components.
 * [dbt command reference](../reference/dbt-commands.md) explains the various commands available and what they do.
@@ -275,7 +275,7 @@ git push
 
 ### Schedule a job
 
-1. Ensure dbt Core is installed and configured to connect to your DuckDB instance.
+1. Ensure dbt v1 is installed and configured to connect to your DuckDB instance.
 2. Create a dbt project and define your [`models`](../docs/build/models.md), [`seeds`](../reference/seed-properties.md), and [`tests`](../reference/commands/test.md).
 3. Use a scheduler such [Prefect](../docs/deploy/deployment-tools.md#prefect) to schedule your dbt runs. You can create a DAG (Directed Acyclic Graph) that triggers dbt commands at specified intervals.
 4. Write a script that runs your dbt commands, such as [`dbt run`](../reference/commands/run.md), `dbt test` and more so.

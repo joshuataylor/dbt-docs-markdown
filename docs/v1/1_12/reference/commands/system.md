@@ -2,9 +2,9 @@
 
 `dbt system` provides commands for managing your dbt installation. v2 is a single compiled binary with no dependencies on other libraries. Once installed, `dbt system` lets you update, uninstall, and manage drivers directly without pip, brew, or a Python environment.
 
-`dbt system update` and `dbt system uninstall` are only supported for [CDN installations](../../docs/local/install-dbt.md) of Fusion. If you installed Fusion via Pip, Homebrew, or Winget, you'll need to update or uninstall dbt from those tools.
+`dbt system update` and `dbt system uninstall` are only supported for [CDN installations](../../docs/local/install-dbt.md) of dbt v2. If you installed dbt v2 via Pip, Homebrew, or Winget, you'll need to update or uninstall dbt from those tools.
 
-dbt Core has no equivalent.
+dbt v1 has no equivalent.
 
 ## Usage
 
@@ -17,7 +17,7 @@ dbt system <subcommand> [flags]
 | Subcommand                   | Description                                       |
 | ---------------------------- | ------------------------------------------------- |
 | `dbt system update`          | Update dbt to the latest (or a specified) version |
-| `dbt system uninstall`       | Remove Fusion from your system                    |
+| `dbt system uninstall`       | Remove dbt v2 from your system                    |
 | `dbt system install-drivers` | Pre-install all supported ADBC adapter drivers    |
 
 ## dbt system update
@@ -90,4 +90,4 @@ Networking note
 ## Related commands
 
 * [`dbt debug`](./debug.md) — Test your dbt project and connection configuration.
-* [dbt v2 networking requirements](../../docs/local/dbt-networking-requirements.md) — Review outbound endpoints required by the dbt Fusion engine.
+* [dbt v2 networking requirements](../../docs/local/dbt-networking-requirements.md) — Review outbound endpoints required by dbt v2.

@@ -1,4 +1,4 @@
-# Connect SQLite to dbt Core
+# Connect SQLite to dbt v1
 
 Local development
 
@@ -11,7 +11,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [codeforkjeff/dbt-sqlite](https://github.com/codeforkjeff/dbt-sqlite) [![](https://img.shields.io/github/stars/codeforkjeff/dbt-sqlite?style=for-the-badge)](https://github.com/codeforkjeff/dbt-sqlite)
 * **PyPI package**: `dbt-sqlite` [![](https://badge.fury.io/py/dbt-sqlite.svg)](https://badge.fury.io/py/dbt-sqlite)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**: v1.1.0 and newer
+* **Supported dbt version**: v1.1.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: SQlite Version 3.0
 
@@ -25,10 +25,10 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 For SQLite-specific configuration, please refer to [SQLite configs.](../../../reference/resource-configs/no-configs.md)
 
-Starting with the release of dbt Core 1.0.0, versions of dbt-sqlite are aligned to the same major+minor [version](https://semver.org/) of dbt Core.
+Starting with the release of dbt 1.0.0, versions of dbt-sqlite are aligned to the same major+minor [version](https://semver.org/) of dbt v1.
 
-* versions 1.1.x of this adapter work with dbt Core 1.1.x
-* versions 1.0.x of this adapter work with dbt Core 1.0.x
+* versions 1.1.x of this adapter work with dbt 1.1.x
+* versions 1.0.x of this adapter work with dbt 1.0.x
 
 ## Connecting to SQLite with dbt-sqlite
 

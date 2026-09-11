@@ -4,13 +4,13 @@ Available in v1
 
 ### Resources
 
-* [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.1.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.1.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
-There are no breaking changes for code in dbt projects and packages. We are committed to providing backwards compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+There are no breaking changes for code in dbt projects and packages. We are committed to providing backwards compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 ### For maintainers of adapter plugins
 
@@ -62,4 +62,4 @@ Expected a schema version of "https://schemas.getdbt.com/dbt/manifest/v5.json" i
 
 ### Dependencies
 
-[Python compatibility](../../../../faqs/Core/install-python-compatibility.md): dbt Core officially supports Python 3.10
+[Python compatibility](../../../../faqs/Core/install-python-compatibility.md): dbt v1 officially supports Python 3.10

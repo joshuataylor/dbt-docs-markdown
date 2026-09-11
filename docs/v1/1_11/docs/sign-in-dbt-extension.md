@@ -304,34 +304,34 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](./local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt v2 executable. If necessary, you can also install dbt v2 directly using these instructions: [Install the dbt v2 CLI](./local/install-dbt.md?version=2)
 
- dbt Fusion binary not found at the configured path
+ dbt v2 binary not found at the configured path
 
-If the extension reports that the dbt Fusion engine binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
+If the extension reports that the dbt v2 binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
 
-* Verify that [`dbt.fusionPath`](./configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
-* If you haven't installed Fusion manually, clear the setting and let the extension download and manage it for you.
-* To install manually, follow [Install the Fusion CLI](./local/install-dbt.md?version=2).
+* Verify that [`dbt.fusionPath`](./configure-dbt-extension.md#dbt-extension-settings) points to a valid dbt v2 binary.
+* If you haven't installed dbt v2 manually, clear the setting and let the extension download and manage it for you.
+* To install manually, follow [Install the dbt v2 CLI](./local/install-dbt.md?version=2).
 
- dbt Fusion version is not compatible with this extension
+ dbt v2 version is not compatible with this extension
 
-If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
+If the extension reports that the installed dbt v2 version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
 
-1. Run `dbt --version` to check your installed Fusion version.
+1. Run `dbt --version` to check your installed dbt v2 version.
 2. Compare it against the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md#compatibility-matrix) for your extension version.
-3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
+3. Update dbt v2 or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
 
- dbt Fusion crashes on startup
+ dbt v2 crashes on startup
 
-If the extension reports that Fusion crashed on startup, confirm the binary runs on its own:
+If the extension reports that dbt v2 crashed on startup, confirm the binary runs on its own:
 
-1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](./local/install-dbt.md?version=2).
+1. Run `dbt --version` in your terminal. If this fails, reinstall dbt v2 using [Install the dbt v2 CLI](./local/install-dbt.md?version=2).
 2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
 
- A known-bad dbt Fusion version is installed
+ A known-bad dbt v2 version is installed
 
-If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+If the extension warns that your installed dbt v2 version has a known regression, dbt Labs has flagged that release as [known-bad](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
 
 For standalone installations:
 
@@ -354,9 +354,9 @@ This should resolve the error and open your dbt project by opening the workspace
 
  Manifest cannot be downloaded from the dbt platform
 
-If the dbt VS Code extension cannot download the manifest from the dbt platform or you get `warning: dbt1200: Failed to download manifest` using Fusion locally, you are probably having DNS-related issues.
+If the dbt VS Code extension cannot download the manifest from the dbt platform or you get `warning: dbt1200: Failed to download manifest` using dbt v2 locally, you are probably having DNS-related issues.
 
-To confirm this, do a DNS lookup for the host Fusion is trying to download from (for example, prodeu2.blob.core.windows.net) by using `dig` on Linux/Mac or `nslookup` on Windows.
+To confirm this, do a DNS lookup for the host dbt v2 is trying to download from (for example, prodeu2.blob.core.windows.net) by using `dig` on Linux/Mac or `nslookup` on Windows.
 
 If this doesn't return an IP address, the likely reason is that your company uses the same cloud provider with private endpoints for cloud resources, and DNS requests for these are forwarded to private DNS zones.
 
@@ -369,6 +369,6 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 * [About the dbt extension](./about-dbt-extension.md)
 * [Supported features matrix](./dbt/supported-features.md)
 * [Install dbt](./local/install-dbt.md)
-* [Quickstart for Fusion](../guides/dbt.md?step=1)
+* [Quickstart for dbt v2](../guides/dbt.md?step=1)
 * [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

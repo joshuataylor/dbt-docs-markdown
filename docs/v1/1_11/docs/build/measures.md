@@ -2,7 +2,7 @@
 
 Measures are deprecated in the new spec
 
-Heads up, measures have been deprecated in favor of simple metrics under the `metrics:` key. Migrate by converting each measure to a `type: simple` metric. For more info, check out [Migrate to the latest YAML spec](./latest-metrics-spec.md) and [upgrade to dbt Fusion v2.0](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
+Heads up, measures have been deprecated in favor of simple metrics under the `metrics:` key. Migrate by converting each measure to a `type: simple` metric. For more info, check out [Migrate to the latest YAML spec](./latest-metrics-spec.md) and [upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 
 Measures are aggregations performed on columns in your model. They can be used as final metrics or as building blocks for more complex metrics.
 
@@ -273,7 +273,7 @@ dbt sl query --metrics mrr_by_end_of_month --group-by subscription__subscription
 dbt sl query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__week --order subscription__subscription_date__week 
 ```
 
-For dbt Core:
+For dbt v1:
 
 ```bash
 mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__month --order subscription__subscription_date__month 

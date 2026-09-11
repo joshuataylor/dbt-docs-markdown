@@ -41,7 +41,7 @@ With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a
 
 Linting considerations
 
-* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **v2 Stable** release track. For more information, refer to [Fusion limitations](../../dbt/supported-features.md#limitations).
+* The Studio IDE runs linting using the dbt v1 engine, even when your development environment uses the **v2 Stable** release track. For more information, refer to [dbt v2 limitations](../../dbt/supported-features.md#limitations).
 * Linting doesn't support ephemeral models in dbt v1.5 and lower. Refer to the [FAQs](#faqs) for more info.
 
 ### Enable linting
@@ -66,13 +66,13 @@ Linting is available on all branches, including your protected primary git branc
 
 ### Lint multiple files
 
-You can lint multiple SQL files at once, depending on how you are working with dbt. The behavior differs between the Studio IDE, dbt Core, and the dbt platform CLI.
+You can lint multiple SQL files at once, depending on how you are working with dbt. The behavior differs between the Studio IDE, dbt v1, and the dbt platform CLI.
 
 * **Studio IDE:** By default, linting runs against all modified `.sql` files in your project on your current branch. Refer to [Snapshot linting](#snapshot-linting) for more information.
 
-* **dbt Core:** Does not include a built-in linter. To lint SQL files in your project, use a third-party linter such as SQLFluff configured to use the [dbt templater](https://docs.sqlfluff.com/en/stable/configuration/templating/dbt.html). You can lint multiple files by specifying one or more file or directory paths as arguments to the command.
+* **dbt v1:** Does not include a built-in linter. To lint SQL files in your project, use a third-party linter such as SQLFluff configured to use the [dbt templater](https://docs.sqlfluff.com/en/stable/configuration/templating/dbt.html). You can lint multiple files by specifying one or more file or directory paths as arguments to the command.
 
-* **dbt platform CLI:** Supports the same linting [commands](../configure-dbt-cli.md#lint-sql-files) as dbt Core:
+* **dbt platform CLI:** Supports the same linting [commands](../configure-dbt-cli.md#lint-sql-files) as dbt v1:
 
   ```text
   dbt sqlfluff lint [PATHS]... [flags]

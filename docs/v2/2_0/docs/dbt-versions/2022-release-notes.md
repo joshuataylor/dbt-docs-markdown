@@ -201,7 +201,7 @@ Love the DAG in the Studio IDE as much as we do? Now when you click on a node in
 
 #### Performance improvements and enhancements
 
-* Updated recommended dbt commands in the Studio IDE to include dbt Core v1.0 commands, such as "build" and the "--select" argument.
+* Updated recommended dbt commands in the Studio IDE to include dbt v1 commands, such as "build" and the "--select" argument.
 
 ### Service tokens and bug fixes
 

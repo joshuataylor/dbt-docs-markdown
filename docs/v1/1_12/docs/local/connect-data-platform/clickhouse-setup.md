@@ -1,4 +1,4 @@
-# Connect ClickHouse to dbt Core
+# Connect ClickHouse to dbt v1
 
 Local development
 
@@ -9,7 +9,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **GitHub repo**: [ClickHouse/dbt-clickhouse](https://github.com/ClickHouse/dbt-clickhouse) [![](https://img.shields.io/github/stars/ClickHouse/dbt-clickhouse?style=for-the-badge)](https://github.com/ClickHouse/dbt-clickhouse)
 * **PyPI package**: `dbt-clickhouse` [![](https://badge.fury.io/py/dbt-clickhouse.svg)](https://badge.fury.io/py/dbt-clickhouse)
 * **Slack channel**: [#db-clickhouse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**: v0.19.0 and newer
+* **Supported dbt version**: v0.19.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a
 

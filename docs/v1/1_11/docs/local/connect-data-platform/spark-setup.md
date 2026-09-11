@@ -1,14 +1,14 @@
 (Applies to dbt v1.99 and earlier)
 
-# Connect Apache Spark to dbt Core
+# Connect Apache Spark to dbt v1
 
 Local development
 
-[Fusion compatible](./spark-setup.md?version=2 "Fusion compatible") connection also available.
+[dbt v2 compatible](./spark-setup.md?version=2 "dbt v2 compatible") connection also available.
 
-`profiles.yml` file is for dbt Core and dbt fusion only
+`profiles.yml` file is for dbt v1 and dbt v2 only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 If you're using Databricks, use `dbt-databricks`
 
@@ -21,7 +21,7 @@ For the Databricks version of this page, refer to [Databricks setup](#databricks
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-spark` [![](https://badge.fury.io/py/dbt-spark.svg)](https://badge.fury.io/py/dbt-spark)
 * **Slack channel**: [db-databricks-and-spark](https://getdbt.slack.com/archives/CNGCW8HKL)
-* **Supported dbt Core version**: v0.15.0 and newer
+* **Supported dbt version**: v0.15.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
@@ -209,7 +209,7 @@ To connect to Apache Spark running on an Amazon EMR cluster, you will need to ru
 
 ### Supported functionality
 
-Most dbt Core functionality is supported, but some features are only available on Delta Lake (Databricks).
+Most dbt v1 functionality is supported, but some features are only available on Delta Lake (Databricks).
 
 Delta-only features:
 

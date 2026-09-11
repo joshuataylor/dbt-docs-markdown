@@ -110,7 +110,7 @@ If you're using dbt to deploy your project and have a [Starter, Enterprise, or E
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. Read-only users can access the documentation for your project — for license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
 
-dbt developer plan and dbt Core users can use [dbt Docs](../explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt v1 users can use [dbt Docs](../explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
 Can I document things other than models, like sources, seeds, and snapshots?
 
@@ -120,7 +120,7 @@ Yes! You can document almost everything in your project using the `description:`
 
 (Applies to dbt v2.0 and later)
 
-Using the dbt Fusion engine, dbt Docs v2 replaces the v1 static site with a modern, performant catalog. `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and writes a static site that the browser queries directly with DuckDB-WASM (WebAssembly), so you don't need a server to view it. To generate and serve documentation:
+Using dbt v2, dbt Docs v2 replaces the v1 static site with a modern, performant catalog. `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and writes a static site that the browser queries directly with DuckDB-WASM (WebAssembly), so you don't need a server to view it. To generate and serve documentation:
 
 1. Run `dbt docs generate` to compile your project, write the index, and export the documentation site in a single command.
 2. Run `dbt docs serve` to preview the site locally.
@@ -129,8 +129,8 @@ Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usag
 
 dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
 
-* [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
-* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles"): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and column-level lineage, served as a static site you can host anywhere. Available with the dbt Fusion engine and dbt Core 2.0.
+* [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt v1 or dbt Developer plans.
+* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and column-level lineage, served as a static site you can host anywhere. Available with dbt v2.
 * [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
 
 Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.

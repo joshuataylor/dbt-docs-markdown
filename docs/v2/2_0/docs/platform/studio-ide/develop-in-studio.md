@@ -64,7 +64,7 @@ The Studio IDE comes with **CodeGenCodeLens**, a powerful feature that simplifie
 
 ### dbt YAML validation
 
-The Studio IDE uses JSON Schema from the open source [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project to power YAML completion, structure checks, and inline diagnostics. These schemas are aligned with the dbt Fusion engine specification and apply across [dbt platform release tracks](../../dbt-versions/dbt-release-tracks.md), even when your development environment is running dbt Core.
+The Studio IDE uses JSON Schema from the open source [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project to power YAML completion, structure checks, and inline diagnostics. These schemas are aligned with the dbt v2 specification and apply across [dbt platform release tracks](../../dbt-versions/dbt-release-tracks.md), even when your development environment is running dbt v1.
 
 If a warning looks wrong but dbt commands succeed, trust your project commands and report the discrepancy so the schema can be improved. For background on the latest Semantic Layer YAML shape, see [Migrate to the latest YAML spec](../../build/latest-metrics-spec.md).
 
@@ -75,7 +75,7 @@ If a warning looks wrong but dbt commands succeed, trust your project commands a
 With dbt Wizard, you can:
 
 * **Build and refactor models:** Describe what you want to create or change, then review the proposed diff before any files are updated.
-* **Validate changes as you work:** Compile changes with dbt Fusion engine and run them against your warehouse to catch issues early.
+* **Validate changes as you work:** Compile changes with dbt v2 and run them against your warehouse to catch issues early.
 * **Understand downstream impact:** See affected models, tests, and metrics *before* making changes.
 * **Generate YAML resources:** Create documentation, tests, semantic models, and metrics from the Studio IDE console.
 
@@ -179,12 +179,12 @@ If the Studio IDE freezes with two or more models open and the **Lineage** tab a
 
 As a proprietary product, dbt's source code isn't available for community contributions. If you want to build something in the dbt ecosystem, we encourage you to review [this article](../../../community/contributing/contributing-coding.md) about contributing to a dbt package, a plugin, dbt-core, or this documentation site. Participation in open-source is a great way to level yourself up as a developer, and give back to the community.
 
- What is the difference between developing on the Studio IDE, the dbt platform CLI, and dbt Core?
+ What is the difference between developing on the Studio IDE, the dbt platform CLI, and dbt CLI?
 
-You can develop dbt using the web-based IDE in dbt or on the command line interface using the dbt platform CLI or open-source dbt Core, all of which enable you to execute dbt commands. The key distinction between the dbt platform CLI and dbt Core is the dbt platform CLI is tailored for dbt's infrastructure and integrates with all its features:
+You can develop dbt using the web-based IDE in the dbt platform or on the command line interface using the dbt platform CLI or dbt CLI, all of which enable you to execute dbt commands. The key distinction between the dbt platform CLI and dbt CLI is the dbt platform CLI is tailored for the dbt platform's infrastructure and integrates with all its features:
 
 * Studio IDE: [dbt](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features) is a web-based application that allows you to develop dbt projects with the IDE, includes a purpose-built scheduler, and provides an easier way to share your dbt documentation with your team. The IDE is a faster and more reliable way to deploy your dbt models and provides a real-time editing and execution environment for your dbt project.
 
-* dbt platform CLI: [The dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation) allows you to run dbt commands against your dbt dbt development environment from your local command line or code editor. It supports cross-project ref, speedier, lower-cost builds, automatic deferral of build artifacts, and more.
+* dbt platform CLI: [The dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation) allows you to run dbt commands against your dbt platform development environment from your local command line or code editor. It supports cross-project ref, speedier, lower-cost builds, automatic deferral of build artifacts, and more.
 
-* dbt Core: dbt Core is an [open-sourced](https://github.com/dbt-labs/dbt) software that's freely available. You can build your dbt project in a code editor, and run dbt commands from the command line
+* dbt CLI: dbt CLI is free, self-hosted software used to manage your dbt project locally on your machine. You can build your dbt project in a code editor, and run dbt commands from the command line

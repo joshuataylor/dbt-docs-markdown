@@ -1,6 +1,6 @@
 # dbt v2 networking requirements [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Fusion requires outbound HTTPS access to several endpoints depending on your usage. This page describes each requirement and provides guidance for enterprise environments that restrict outbound traffic.
+dbt v2 requires outbound HTTPS access to several endpoints depending on your usage. This page describes each requirement and provides guidance for enterprise environments that restrict outbound traffic.
 
 The following table summarizes all endpoints. See each section below for details.
 
@@ -12,7 +12,7 @@ The following table summarizes all endpoints. See each section below for details
 
 ## Adapter drivers
 
-The Fusion binary does *not* bundle database drivers. Instead, Fusion automatically downloads the correct [ADBC](https://arrow.apache.org/adbc/) driver for your data platform the first time you run a dbt command (such as `dbt run`, `dbt debug`, or `dbt compile`). Fusion detects which driver you need based on your `profiles.yml` configuration and downloads it from the dbt Labs CDN. Fusion distributes all checksums with the binary itself to guarantee authenticity of the downloaded drivers.
+The dbt v2 binary does *not* bundle database drivers. Instead, dbt v2 automatically downloads the correct [ADBC](https://arrow.apache.org/adbc/) driver for your data platform the first time you run a dbt command (such as `dbt run`, `dbt debug`, or `dbt compile`). dbt v2 detects which driver you need based on your `profiles.yml` configuration and downloads it from the dbt Labs CDN. dbt v2 distributes all checksums with the binary itself to guarantee authenticity of the downloaded drivers.
 
 Adapter driver downloads require outbound HTTPS access to the dbt CDN:
 
@@ -22,7 +22,7 @@ Adapter driver downloads require outbound HTTPS access to the dbt CDN:
 
 info
 
-Fusion handles driver download automatically on first use. The `dbt system install-drivers` command downloads **all** supported drivers (Snowflake, BigQuery, Postgres, Databricks, Redshift, DuckDB, and Salesforce) at once. This is useful if you work across multiple data platforms and want to pre-cache every driver before going offline or switching projects.
+dbt v2 handles driver download automatically on first use. The `dbt system install-drivers` command downloads **all** supported drivers (Snowflake, BigQuery, Postgres, Databricks, Redshift, DuckDB, and Salesforce) at once. This is useful if you work across multiple data platforms and want to pre-cache every driver before going offline or switching projects.
 
 ### Enterprise proxy considerations
 
@@ -37,19 +37,19 @@ If you cannot change your proxy configuration, see [Restricted network installat
 
 ### Restricted network installation
 
-If your environment cannot access `public.cdn.getdbt.com` for adapter driver downloads, you can pre-build a bundle of the Fusion binary and the adapter drivers into a single `.tar.gz` or Docker image and host it on an internally approved fileshare.
+If your environment cannot access `public.cdn.getdbt.com` for adapter driver downloads, you can pre-build a bundle of the dbt v2 binary and the adapter drivers into a single `.tar.gz` or Docker image and host it on an internally approved fileshare.
 
 When you assemble a bundle for air-gapped or firewall-restricted machines:
 
-1. Use the [version compatibility matrix](../dbt-versions/dbt-version-compatibility.md#compatibility-matrix) to choose a Fusion version that matches the dbt VS Code extension your users run.
+1. Use the [version compatibility matrix](../dbt-versions/dbt-version-compatibility.md#compatibility-matrix) to choose a dbt v2 version that matches the dbt VS Code extension your users run.
 2. Verify the binary against its published SHA-256 checksum before distributing it. Refer to [Verify binaries for manual and air-gapped installs](../dbt-versions/dbt-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs).
 3. Point the dbt VS Code extension at the bundled binary with the `dbt.fusionPath` setting. Refer to [dbt extension settings](../configure-dbt-extension.md#dbt-extension-settings).
 
-For supported adapters, refer to [Fusion requirements](../dbt/supported-features.md#requirements).
+For supported adapters, refer to [v2 requirements](../dbt/supported-features.md#requirements).
 
 ## Telemetry
 
-Fusion sends anonymous usage statistics to help improve the product. If the telemetry endpoint is unreachable (for example, blocked by a firewall or proxy), Fusion logs errors on each invocation.
+dbt v2 sends anonymous usage statistics to help improve the product. If the telemetry endpoint is unreachable (for example, blocked by a firewall or proxy), dbt v2 logs errors on each invocation.
 
 | Resource      | URL                    | Purpose                          |
 | ------------- | ---------------------- | -------------------------------- |
@@ -59,9 +59,9 @@ To suppress these errors without allowlisting the URL, disable telemetry using t
 
 ## Manifest downloads (dbt platform only) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-For [dbt platform](../platform/about-platform/dbt-platform-features.md) customers using Fusion locally, Fusion downloads production manifests from dbt platform to enable features like [deferral](../../reference/node-selection/defer.md) and [cross-project references](../mesh/govern/project-dependencies.md). The [cloud storage provider](../platform/about-platform/access-regions-ip-addresses.md) hosting your dbt platform cell serves these manifests via **pre-signed URLs**.
+For [dbt platform](../platform/about-platform/dbt-platform-features.md) customers using dbt v2 locally, dbt v2 downloads production manifests from dbt platform to enable features like [deferral](../../reference/node-selection/defer.md) and [cross-project references](../mesh/govern/project-dependencies.md). The [cloud storage provider](../platform/about-platform/access-regions-ip-addresses.md) hosting your dbt platform cell serves these manifests via **pre-signed URLs**.
 
-The specific hostnames depend on your dbt platform deployment region and the underlying cloud provider. To ensure Fusion can download manifests, allowlist the appropriate storage domain for your region:
+The specific hostnames depend on your dbt platform deployment region and the underlying cloud provider. To ensure dbt v2 can download manifests, allowlist the appropriate storage domain for your region:
 
 | Cloud provider           | URL pattern                               | Example                                         |
 | ------------------------ | ----------------------------------------- | ----------------------------------------------- |

@@ -14,9 +14,9 @@ Returns a [Table](https://agate.readthedocs.io/page/api/table.html) object with 
 
 (Applies to dbt v2.0 and later)
 
-## Fusion type checking
+## dbt v2 type checking
 
-The dbt Fusion engine processes result sets with more strict null checking. This can cause failures when using `run_query` for DDL or maintenance operations (like `OPTIMIZE`, `VACUUM`). When a given result set returns null values in columns declared as non-nullable, fusion will fail - whereas dbt Core would silently ignore it.
+dbt v2 processes result sets with more strict null checking. This can cause failures when using `run_query` for DDL or maintenance operations (like `OPTIMIZE`, `VACUUM`). When a given result set returns null values in columns declared as non-nullable, v2 will fail - whereas dbt v1 would silently ignore it.
 
 For "fire and forget" operations where you don't need the result set, use a [statement block](./statement-blocks.md) with `fetch_result=False` instead, as highlighted in this Databricks example:
 

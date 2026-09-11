@@ -62,7 +62,7 @@ Docs block names must be unique within your project. If you define multiple `{% 
 
 (Applies to dbt v1.11 to v1.99)
 
-In dbt Core v1.11 and later, duplicate docs block names are not allowed. If duplicates are found, dbt reports the conflicting files and raises a compilation error. Rename one block so each docs block name is unique.
+In dbt v1.11 and later 1.x versions, duplicate docs block names are not allowed. If duplicates are found, dbt reports the conflicting files and raises a compilation error. Rename one block so each docs block name is unique.
 
 models/docs/example.md
 

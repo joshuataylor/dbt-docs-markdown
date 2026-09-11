@@ -1,6 +1,6 @@
 # About References
 
-The References section contains reference materials for developing with dbt, which includes dbt and dbt Core.
+The References section contains reference materials for developing with dbt, which includes dbt and dbt v1.
 
 Learn how to add more configurations to your dbt project or adapter, use properties for extra ability, refer to dbt commands, use powerful Jinja functions to streamline your dbt project, and understand how to use dbt artifacts.
 

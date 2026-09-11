@@ -2,7 +2,7 @@
 
 Local development
 
-[The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt platform CLI. You can use it with or without a dbt platform account.
+[The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt v1, dbt v2, and dbt platform CLI. You can use it with or without a dbt platform account.
 
 No clone required
 
@@ -22,7 +22,7 @@ Use this table to understand what each toolset needs and whether it works with o
 | Admin API                     | `DBT_HOST`, `DBT_TOKEN`, `DBT_ACCOUNT_ID`                      | Yes                     | No                         |
 | SQL execution (`execute_sql`) | Personal access token, `DBT_DEV_ENV_ID`, `DBT_USER_ID`         | Yes                     | No                         |
 | Codegen                       | `DBT_PROJECT_DIR`, `DBT_PATH`, and `DISABLE_DBT_CODEGEN=false` | Yes                     | Yes                        |
-| LSP / Fusion                  | `DBT_PROJECT_DIR`, `DBT_PATH`, and the dbt VS Code extension   | Yes                     | Yes                        |
+| LSP / dbt v2                  | `DBT_PROJECT_DIR`, `DBT_PATH`, and the dbt VS Code extension   | Yes                     | Yes                        |
 
 Toolsets auto-disable when required variables are missing
 
@@ -118,7 +118,7 @@ After completing OAuth setup, skip to [Test your configuration](#optional-test-y
 
 This option runs the MCP server locally and connects it to your local dbt project using `DBT_PROJECT_DIR` and `DBT_PATH`.
 
-If you're using dbt Core v1.x or Fusion and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up local MCP with just your dbt project information.
+If you're using dbt v1 or dbt v2 and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up local MCP with just your dbt project information.
 
 Add this configuration to your MCP client (refer to the specific [integration guides](#set-up-your-mcp-client) for exact file locations):
 
@@ -335,12 +335,12 @@ You don't need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`.
 
 ## Environment variables
 
-The self-hosted dbt-mcp supports all flavors of dbt, including dbt Core and dbt Fusion engine.
+The self-hosted dbt-mcp supports all flavors of dbt, including dbt v1 and dbt v2.
 
 | Environment variable | Required | Description                                                                                                                             | Example                                                                          |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `DBT_PROJECT_DIR`    | Required | The full path to where the repository of your dbt project is hosted locally. This is the folder containing your `dbt_project.yml` file. | macOS/Linux: `/Users/myname/reponame`<br />Windows: `C:/Users/myname/reponame`   |
-| `DBT_PATH`           | Required | The full path to your dbt executable (dbt Core/Fusion/dbt platform CLI). See the next section for how to find this.                     | macOS/Linux: `/opt/homebrew/bin/dbt`<br />Windows: `C:/Python39/Scripts/dbt.exe` |
+| `DBT_PATH`           | Required | The full path to your dbt executable (dbt v1/dbt v2/dbt platform CLI). See the next section for how to find this.                       | macOS/Linux: `/opt/homebrew/bin/dbt`<br />Windows: `C:/Python39/Scripts/dbt.exe` |
 | `DBT_CLI_TIMEOUT`    | Optional | Configure the number of seconds before your agent will timeout dbt commands.                                                            | Defaults to 60 seconds.                                                          |
 
 ### Locating your `DBT_PATH`
@@ -371,7 +371,7 @@ Example output: `C:\Python39\Scripts\dbt.exe`
 
 **Additional notes:**
 
-* You can set any environment variable supported by your dbt executable, like [the ones supported in dbt Core](../../reference/global-configs/about-global-configs.md#available-flags).
+* You can set any environment variable supported by your dbt executable, like [the ones supported in dbt v1](../../reference/global-configs/about-global-configs.md#available-flags).
 * dbt MCP respects the standard environment variables and flags for usage tracking mentioned [here](../../reference/global-configs/usage-stats.md).
 * `DBT_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}'` is automatically set so that the MCP server knows if no node is selected when running a dbt command. You can overwrite it if needed, but it provides a better experience when calling dbt from the MCP server, ensuring the tool selects valid nodes.
 
@@ -395,13 +395,13 @@ All tools are available by default. Set any of these to `true` to turn off a too
 
 | Name                          | Default | Description                                                                                                                                                                         |
 | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DISABLE_DBT_CLI`             | `false` | Disable dbt Core, dbt platform CLI, and dbt Fusion MCP tools.                                                                                                                       |
+| `DISABLE_DBT_CLI`             | `false` | Disable dbt v1, dbt platform CLI, and dbt v2 MCP tools.                                                                                                                             |
 | `DISABLE_SEMANTIC_LAYER`      | `false` | Disable dbt Semantic Layer MCP tools.                                                                                                                                               |
 | `DISABLE_DISCOVERY`           | `false` | Disable dbt Discovery API MCP tools.                                                                                                                                                |
 | `DISABLE_ADMIN_API`           | `false` | Disable dbt Administrative API MCP tools.                                                                                                                                           |
 | `DISABLE_SQL`                 | `true`  | SQL MCP tools are disabled by default. Set to `false` to enable.                                                                                                                    |
 | `DISABLE_DBT_CODEGEN`         | `true`  | [dbt codegen MCP tools](./mcp-available-tools.md#codegen-tools) are disabled by default. Set to `false` to enable (requires dbt-codegen package). |
-| `DISABLE_LSP`                 | `false` | Disable dbt LSP/Fusion MCP tools.                                                                                                                                                   |
+| `DISABLE_LSP`                 | `false` | Disable dbt LSP/dbt v2 MCP tools.                                                                                                                                                   |
 | `DISABLE_MCP_SERVER_METADATA` | `true`  | MCP server metadata tools (like `get_mcp_server_version`) are disabled by default. Set to `false` to enable.                                                                        |
 | `DISABLE_TOOLS`               | `""`    | A comma-separated list of specific tool names to disable.                                                                                                                           |
 
@@ -417,7 +417,7 @@ Use `DBT_MCP_ENABLE_*` variables when you want to explicitly allowlist which too
 | `DBT_MCP_ENABLE_ADMIN_API`      | Not set | Set to `true` to enable Administrative API tools.        |
 | `DBT_MCP_ENABLE_SQL`            | Not set | Set to `true` to enable SQL tools.                       |
 | `DBT_MCP_ENABLE_DBT_CODEGEN`    | Not set | Set to `true` to enable dbt codegen tools.               |
-| `DBT_MCP_ENABLE_LSP`            | Not set | Set to `true` to enable LSP/Fusion tools.                |
+| `DBT_MCP_ENABLE_LSP`            | Not set | Set to `true` to enable LSP/dbt v2 tools.                |
 | `DBT_MCP_ENABLE_TOOLS`          | Not set | A comma-separated list of specific tool names to enable. |
 
 ### Precedence

@@ -76,11 +76,11 @@ Yes, the dbt Semantic Layer is compatible with [dbt v1.6 or higher](../dbt-versi
 
 Yes, dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing) plan customers can access the dbt Semantic Layer. Certain features like caching and using multiple credentials are available for Enterprise and Enterprise+ plans.
 
- Is there a way to leverage dbt Semantic Layer capabilities in dbt Core?
+ Is there a way to leverage dbt Semantic Layer capabilities outside the dbt platform?
 
-The dbt Semantic Layer is proprietary to dbt, however some components of it are open-source. dbt Core users can use MetricFlow features, like defining metrics in their projects, without a dbt plan.
+The dbt Semantic Layer is proprietary to dbt, however some components of it are open-source. dbt users can use MetricFlow features, like defining metrics in their projects, without a dbt platform plan.
 
-dbt Core users can also query their semantic layer locally using the command line. However, they won't be able to use the [APIs](../dbt-apis/sl-api-overview.md) or [available integrations](../platform-integrations/avail-sl-integrations.md) to access metrics dynamically.
+dbt users can also query their semantic layer locally using the command line. However, they won't be able to use the [APIs](../dbt-apis/sl-api-overview.md) or [available integrations](../platform-integrations/avail-sl-integrations.md) to access metrics dynamically.
 
  Is there a solution or licensing path for an organization that doesn't use dbt for pipelining, but might like to implement the dbt Semantic Layer?
 
