@@ -6,14 +6,14 @@ The dbt platform can connect with a variety of data platform providers.
 
 (Applies to dbt v2.0 and later)
 
-For most supported data platforms, we recommend the v2 experience with dbt v2, which supports the following data platforms:
+For most supported data platforms, we recommend the v2 experience, which supports the following data platforms:
 
-| Connection                                                                                         | Available on v2 with dbt v2 |
-| -------------------------------------------------------------------------------------------------- | --------------------------- |
-| [Snowflake](./connect-snowflake.md)      | ✅                          |
-| [Amazon Redshift](./connect-redshift.md) | Preview                     |
-| [Databricks](./connect-databricks.md)    | Preview                     |
-| [Google BigQuery](./connect-bigquery.md) | Preview                     |
+| Connection                                                                                         | Available on v2 |
+| -------------------------------------------------------------------------------------------------- | --------------- |
+| [Snowflake](./connect-snowflake.md)      | ✅              |
+| [Amazon Redshift](./connect-redshift.md) | Preview         |
+| [Databricks](./connect-databricks.md)    | Preview         |
+| [Google BigQuery](./connect-bigquery.md) | Preview         |
 
 *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
