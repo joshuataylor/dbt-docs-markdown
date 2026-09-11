@@ -83,8 +83,6 @@ There is exactly one source (`sensitive_source`), and all downstream dbt models 
 
 Finally, the staging environment has its own view in [Catalog](../explore/explore-projects.md), giving you a full view of your prod and pre-prod data.
 
-![Explore in a staging environment](/img/docs/collaborate/dbt-explorer/explore-staging-env.png?v=2 "Explore in a staging environment")Explore in a staging environment
-
 ### Create a Staging environment
 
 ![Create a staging environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-staging-environment.png?v=2 "Create a staging environment")Create a staging environment
@@ -97,9 +95,10 @@ We recommend that the data warehouse credentials be for a dedicated user or serv
 
 A deployment environment needs two settings to run jobs:
 
-\| Setting | Scope | Controls |
-
-\| --- | --- | --- | | **Deployment connection** | Environment-level | Where dbt builds objects in your warehouse (database, schema, and warehouse) | | **Connection profile** | Project-level (assigned to the environment) | How dbt authenticates, and the credentials it uses to connect |
+| Setting                   | Scope                                       | Controls                                                                     |
+| ------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Deployment connection** | Environment-level                           | Where dbt builds objects in your warehouse (database, schema, and warehouse) |
+| **Connection profile**    | Project-level (assigned to the environment) | How dbt authenticates, and the credentials it uses to connect                |
 
 You need to complete both settings as a deployment connection on its own isn't enough for jobs to run. You also need a [connection profile](#connection-profiles) assigned to the environment.
 
