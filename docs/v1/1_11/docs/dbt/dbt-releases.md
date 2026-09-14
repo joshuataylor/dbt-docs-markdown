@@ -70,11 +70,11 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 ### All releases
 
-[v2.0.1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#201 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#201 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
 
-Released by: **mishamsk**Sep 11, 2026, 11:42 PM
+Released by: **itsnamangoyal**Sep 14, 2026, 05:28 PM
 
-planned
+planned promotion of v2.0.1 to stable
 
 [v2.0.0-preview.221](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200-preview221 "View this release in the dbt v2 changelog")GoodDevnightly
 
@@ -96,9 +96,9 @@ planned promotion
 
 [v2.0.0-preview.218](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200-preview218 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLatestST MondayST WednesdaystableST Thursdayst-monday-stablest-wednesday-stablest-thursday-stable
 
-Released by: **johnchappelledbt**Sep 9, 2026, 10:19 PM
+Released by: **mishamsk**Sep 14, 2026, 04:22 PM
 
-Automated ST snapshot
+2.0.0 was accidentally promoted early
 
 [v2.0.0-preview.217](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200-preview217 "View this release in the dbt v2 changelog")GoodDevnightly
 
