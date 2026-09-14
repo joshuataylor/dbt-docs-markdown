@@ -332,6 +332,8 @@ Setting [`compute: local`](./compute.md) on a unit test (which runs the test wit
 
 If you set `static_analysis: off` on a unit test that's configured to run locally, the test can't run and fails with `ExecutorFailed (dbt1401)`. Use `compute: remote` for that test instead.
 
+`compute: local` is in experimental and requires the `DBT_ENGINE_EXPERIMENTAL_LOCAL_UNIT_TESTS` environment variable set to `true`, so this interaction only applies once you've opted in.
+
 ### Configure static analysis for seeds
 
 This example shows how to set static analysis for all seeds in a project.
