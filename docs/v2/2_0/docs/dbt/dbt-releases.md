@@ -1132,8 +1132,8 @@ Released by: **akbog**May 12, 2026, 08:21 PM
 
 Rollback incorrect release of 2.0.0
 
-[v2.0.0](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.0](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
 
-Released by: **mishamsk**Sep 10, 2026, 07:30 PM
+Released by: **itsnamangoyal**Sep 14, 2026, 12:48 PM
 
-planned
+planned promotion of v2.0.0 to stable
