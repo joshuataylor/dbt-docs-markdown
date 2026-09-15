@@ -471,6 +471,14 @@ Here's an example of a v2 warning in the Studio IDE that says a package isn't 
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
+(Applies to dbt v2.0 and later)
+
+## Ship agent skills in a package
+
+A package can share more than models and macros — it can also ship [agent skills](../dbt-ai/package-skills.md), which are reusable instructions that a coding agent reads from a `SKILL.md` file. An agent doesn't know that your staging models take a `stg_` prefix, so teams end up copying those conventions between repos, where they drift. Using a package makes agent skills a versioned dependency like everything else.
+
+Add a `skills` directory to the package, and every project that installs it gets those skills with `dbt deps`, as long as the installing project sets the `ai_provider` flag. Refer to [Installing agent skills from dbt packages](../dbt-ai/package-skills.md) for the setup.
+
 ## Advanced package configuration
 
 ### Updating a package

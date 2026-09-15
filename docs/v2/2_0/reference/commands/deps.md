@@ -119,3 +119,16 @@ dbt deps --add-package https://github.com/fivetran/dbt_amplitude@v0.3.0 --source
 # Local package
 dbt deps --add-package /opt/dbt/redshift --source local
 ```
+
+(Applies to dbt v2.0 and later)
+
+## Installing agent skills
+
+If you set the [`ai_provider`](../../docs/dbt-ai/package-skills.md#set-the-ai_provider-flag) flag, `dbt deps` also installs the [agent skills](../../docs/dbt-ai/package-skills.md) that your project and its packages ship, writing them into the directory your coding agent reads from:
+
+```text
+Installing add-a-data-test (demo_skills) -> .claude/skills
+Installing naming-conventions (demo_skills) -> .claude/skills
+```
+
+Without `ai_provider`, `dbt deps` installs your packages as usual and doesn't write any skills.

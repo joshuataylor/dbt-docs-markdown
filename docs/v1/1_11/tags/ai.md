@@ -1,4 +1,4 @@
-# 36 docs tagged with "AI"
+# 37 docs tagged with "AI"
 
 [View all tags](../tags.md)
 
@@ -83,6 +83,10 @@ Understand the dbt Wizard agent loop, tools, project context, and approval workf
 ## [How to use prompts for dbt Wizard](../guides/prompt-cookbook.md)
 
 A cookbook of prompts and real-world examples to use dbt Wizard efficiently.
+
+## [Installing agent skills from dbt packages](../docs/dbt-ai/package-skills.md)
+
+Ship agent skills in a dbt package and install them with dbt deps.
 
 ## [Invite read-only users to dbt Wizard](../docs/platform/wizard-read-only-users.md)
 

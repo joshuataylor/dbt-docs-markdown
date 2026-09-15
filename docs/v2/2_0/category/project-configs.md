@@ -81,6 +81,10 @@ The list of project configs available in dbt.
 
 [Read this guide to understand the require-dbt-version configuration in dbt.](../reference/project-configs/require-dbt-version.md)
 
+## [skill-paths](../reference/project-configs/skill-paths.md)
+
+[Read this guide to understand the skill-paths configuration in dbt.](../reference/project-configs/skill-paths.md)
+
 ## [snapshot-paths](../reference/project-configs/snapshot-paths.md)
 
 [Read this guide to understand the snapshot-paths configuration in dbt.](../reference/project-configs/snapshot-paths.md)

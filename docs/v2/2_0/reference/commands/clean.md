@@ -43,6 +43,19 @@ Deletes all the paths specified in the `clean-targets` list of `dbt_project.yml`
 dbt clean --no-clean-project-files-only
 ```
 
+(Applies to dbt v2.0 and later)
+
+## Removing agent skills
+
+If you set the [`ai_provider`](../../docs/dbt-ai/package-skills.md#set-the-ai_provider-flag) flag, `dbt clean` also removes the [agent skills](../../docs/dbt-ai/package-skills.md) that dbt installed:
+
+```text
+  Removing add-a-data-test -> .claude/skills
+  Removing naming-conventions -> .claude/skills
+```
+
+dbt removes only the skills it installed, which it recognizes by the record it writes into each installed `SKILL.md`. Skills you wrote by hand stay in place, even when they sit in the same directory.
+
 ## dbt clean with remote file system
 
 To avoid complex permissions issues and potentially deleting crucial aspects of the remote file system without access to fix them, this command does not work when interfacing with the RPC server that powers the Studio IDE. Instead, when working in dbt, the `dbt deps` command cleans before it installs packages automatically. The `target` folder can be manually deleted from the sidebar file tree if needed.

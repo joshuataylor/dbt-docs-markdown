@@ -251,6 +251,31 @@ saved_queries:
       enabled: true | false
 ```
 
+## Skills
+
+(Applies to dbt v2.0 and later)
+
+dbt\_project.yml
+
+```yaml
+skills:
+  <resource-path>:
+    +enabled: true | false
+```
+
+For [agent skills](../../docs/dbt-ai/package-skills.md), the resource path is the package that ships the skill, followed by the skill's name:
+
+dbt\_project.yml
+
+```yaml
+skills:
+  demo_skills:
+    naming-conventions:
+      +enabled: false
+```
+
+A package's own `skills` config sets the defaults for the skills it ships, and your root project's `skills` config overrides it. Disabling a skill is how you resolve two packages that ship skills with the same name.
+
 ## Definition
 
 An optional configuration for enabling or disabling a resource.

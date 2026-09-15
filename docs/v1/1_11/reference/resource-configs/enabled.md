@@ -251,6 +251,8 @@ saved_queries:
       enabled: true | false
 ```
 
+## Skills
+
 ## Definition
 
 An optional configuration for enabling or disabling a resource.

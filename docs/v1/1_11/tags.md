@@ -4,7 +4,7 @@
 
 * [Adapter creation2](./tags/adapter-creation.md)
 * [Agents2](./tags/agents.md)
-* [AI36](./tags/ai.md)
+* [AI37](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst2](./tags/analyst.md)
 * [API2](./tags/api.md)

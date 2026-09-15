@@ -36,6 +36,7 @@ docs-paths: [directorypath]
 asset-paths: [directorypath]
 function-paths: [directorypath]
 osi-paths: [directorypath]
+skill-paths: [directorypath]
 
 packages-install-path: directorypath
 
@@ -80,6 +81,9 @@ semantic-models:
 
 saved-queries:
   <saved-queries-configs>
+
+skills:
+  <skill-configs>
 
 snapshots:
   <snapshot-configs>
