@@ -286,4 +286,4 @@ Now that you've configured your local environment, you can start using the dbt e
 
 * [About the dbt extension](./about-dbt-extension.md)
 * [dbt extension features](./dbt-extension-features.md)
-* [Sign in or register](./sign-in-dbt-extension.md)
+* [Sign in](./sign-in-dbt-extension.md)

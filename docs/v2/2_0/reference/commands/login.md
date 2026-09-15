@@ -16,7 +16,7 @@ Run [`dbt login status`](#dbt-login-status) to view your current authentication 
 
 `dbt login` is an interactive, browser-based sign-in flow for development on macOS, Linux, and Windows. Use `dbt login` to unlock advanced features including:
 
-* advanced features in the [dbt VS Code extension](../../docs/about-dbt-extension.md)
+* dbt platform capabilities in the [dbt VS Code extension](../../docs/about-dbt-extension.md), such as the **Catalog** tab
 * [dbt State](../../docs/deploy/dbt-state-setup.md#setting-up-dbt-state) in supported versions
 * advanced features in v2.0 CLI
 
@@ -26,11 +26,7 @@ Refer to [VS Code extension features](../../docs/dbt-extension-features.md#featu
 
 ## Before you log in
 
-Downloading the dbt VS Code extension gives you 14 days to try [advanced features](../../docs/dbt-extension-features.md#feature-availability) — no account needed. After the trial ends, sign in to or create a free dbt platform account to keep using them. The vast majority of features keep working either way.
-
-This 14-day trial applies to the dbt VS Code extension only. It's separate from the [dbt platform trial](https://www.getdbt.com/pricing) and doesn't require a credit card or a paid plan.
-
-A free dbt platform account keeps advanced features working after your trial ends and carries your access across all your dbt tools — the CLI, the VS Code extension, and dbt State — so you only log in once. No credit card required.
+A free dbt platform account carries your access across all your dbt tools — the CLI, the VS Code extension, and dbt State — so you only log in once. No credit card required.
 
 Run `dbt login` to create a free account, or log in to an existing one. Logging in is simply how dbt confirms your access to advanced features in your local development environment.
 
@@ -125,7 +121,7 @@ export DBT_CLOUD_PROJECT_ID=67890
 
 When you run a command or use a feature that requires authentication, dbt checks your current login state. If you're signed in, the feature runs. If you're not signed in, dbt tells you which feature requires authentication and prompts you to run `dbt login`.
 
-For the VS Code extension registration flow, refer to [Sign in or register](../../docs/sign-in-dbt-extension.md).
+For the VS Code extension sign-in flow, refer to [Sign in](../../docs/sign-in-dbt-extension.md).
 
 ## Staying signed in
 
@@ -135,8 +131,8 @@ You stay signed in as long as you use dbt at least once every 7 days. If you're 
 
 If your access expires, run `dbt login` to sign back in.
 
-* On the 14-day trial without a dbt account? Create a free account with `dbt login` — it's the best way to use the [full set of features](../../docs/dbt-extension-features.md#feature-availability) and get the most out of the extension.
-* Not ready to run `dbt login`? No worries — continue using the vast majority of features after the trial ends.
+* No dbt account yet? Create a free one with `dbt login` — it's the best way to use the [full set of features](../../docs/dbt-extension-features.md#feature-availability) and get the most out of the extension.
+* Not ready to run `dbt login`? No worries — continue using the vast majority of features.
 
 If you're not sure where you stand, run [`dbt license info`](#troubleshooting) to check your status.
 
@@ -266,14 +262,13 @@ dbt license info --json
 
 The output shows your current status. Use the following table to interpret it:
 
-| Status            | What it means                                      | What to do                                                                                                    |
-| ----------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `valid`           | You're signed in and your features are available.  | Nothing — you're all set.                                                                                     |
-| `trial_expired`   | Your 14-day dbt VS Code extension trial has ended. | [Sign in or register](../../docs/sign-in-dbt-extension.md) for a free dbt platform account. |
-| `expired`         | Your access has expired.                           | Run `dbt login` to sign in again.                                                                             |
-| `not_found`       | dbt couldn't find any sign-in for you.             | Run `dbt login`, or set a [service token](#authenticate-with-a-service-token) for orchestrated runs.          |
-| `invalid`         | Your access failed validation.                     | Run `dbt login` to refresh it.                                                                                |
-| `transient_error` | A temporary network or server issue.               | Retry — your cached access stays active in the meantime.                                                      |
+| Status            | What it means                                     | What to do                                                                                           |
+| ----------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `valid`           | You're signed in and your features are available. | Nothing — you're all set.                                                                            |
+| `expired`         | Your access has expired.                          | Run `dbt login` to sign in again.                                                                    |
+| `not_found`       | dbt couldn't find any sign-in for you.            | Run `dbt login`, or set a [service token](#authenticate-with-a-service-token) for orchestrated runs. |
+| `invalid`         | Your access failed validation.                    | Run `dbt login` to refresh it.                                                                       |
+| `transient_error` | A temporary network or server issue.              | Retry — your cached access stays active in the meantime.                                             |
 
 If you just registered a new account
 

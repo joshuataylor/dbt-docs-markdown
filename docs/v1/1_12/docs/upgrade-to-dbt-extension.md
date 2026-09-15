@@ -37,7 +37,7 @@ You can start manual onboarding in either of the following ways:
 
 Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 
-Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+Next, [sign in](./sign-in-dbt-extension.md) to a dbt platform account if you want to use the extension's dbt platform capabilities.
 
 ### From your terminal
 
@@ -84,13 +84,13 @@ The tool compiles your project with full dbt v2 static analysis. This checks tha
 
 Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 
-Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+Next, [sign in](./sign-in-dbt-extension.md) to a dbt platform account if you want to use the extension's dbt platform capabilities.
 
 ## Next steps
 
 Once you've upgraded your project to dbt v2, you can:
 
-* [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+* [Sign in](./sign-in-dbt-extension.md) to a dbt platform account if you want to use the extension's dbt platform capabilities, such as the **Catalog** tab.
 * [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.
 * [Compare changes locally](./dbt/vs-compare-changes.md) to preview data changes caused by your local edits.
 * [Optimize static analysis for development and deployment](../best-practices/optimize-static-analysis-for-development-and-deployment.md) for stronger local validation without slowing deployment jobs.

@@ -133,7 +133,7 @@ In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) enabl
 
 Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
 
-`dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](../../about-dbt-extension.md). For details, refer to [`dbt login`](../../../reference/commands/login.md?version=2.0).
+`dbt login` unlocks a broader set of features, and connects tools like the [dbt VS Code extension](../../about-dbt-extension.md) to your dbt platform account. For details, refer to [`dbt login`](../../../reference/commands/login.md?version=2.0).
 
 ### dbt Docs v2
 

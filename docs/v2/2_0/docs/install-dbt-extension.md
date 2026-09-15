@@ -54,7 +54,7 @@ You're ready to use the dbt extension. Next, you can:
 
 * Follow the [getting started](#getting-started) workflow to finish setup.
 * [Upgrade your project to dbt v2](./upgrade-to-dbt-extension.md) if you're migrating from v1.
-* [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+* [Sign in](./sign-in-dbt-extension.md) to a dbt platform account if you want to use the extension's dbt platform capabilities, such as the **Catalog** tab.
 * Review the [limitations and unsupported features](./dbt/supported-features.md#limitations).
 
  Install dbt v2 from the command line, if you haven't already.
@@ -171,7 +171,7 @@ The panel guides you through:
 1. **Install or update dbt v2**: Detects whether the v2 binary is missing or outdated and installs or updates it with a single click.
 2. **Open project**: Checks for a `dbt_project.yml` file in your workspace to confirm a valid dbt project is open before proceeding.
 3. **Check dbt v2 compatibility**: Guides you through upgrading your project to v2. You can choose between an agentic migration or manual CLI onboarding — refer to [Upgrade to dbt v2](./upgrade-to-dbt-extension.md).
-4. **Register**: Confirms you've registered your email to use the extension beyond the 14-day trial period — refer to [Sign in or register](./sign-in-dbt-extension.md).
+4. **Sign in**: Confirms you've signed in to a dbt platform account, which the extension uses for dbt platform capabilities like the **Catalog** tab — refer to [Sign in](./sign-in-dbt-extension.md).
 
 When all setup steps are complete, the panel shows a green **Extension setup complete** button.
 
@@ -182,5 +182,5 @@ When all setup steps are complete, the panel shows a green **Extension setup com
 Once you've installed the dbt VS Code extension, go to the next pages to get started:
 
 1. Review the [Upgrade to dbt v2](./upgrade-to-dbt-extension.md) page to upgrade your dbt project to the next-gen engine today!
-2. [Sign in or register](./sign-in-dbt-extension.md) for a free dbt platform account to keep using advanced features after the 14-day trial.
+2. [Sign in](./sign-in-dbt-extension.md) to a dbt platform account if you want to use the extension's dbt platform capabilities, such as the **Catalog** tab.
 3. Review the [limitations and unsupported features](./dbt/supported-features.md#limitations).

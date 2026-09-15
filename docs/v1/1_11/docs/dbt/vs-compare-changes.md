@@ -4,7 +4,7 @@ Available in v2 | Local development | Login required
 
 info
 
-This feature is in beta. All dbt VS Code extension users can use compare changes during the 14-day trial. After the trial, [sign in or register](../sign-in-dbt-extension.md) for a dbt platform account to keep using it.
+Compare changes needs a baseline to compare against — either [dbt platform deferral](#how-it-works), which uses your dbt platform account, or a local `manifest.json`, which doesn't.
 
 The dbt VS Code extension previews and compares how your local edits affect your data in your dbt platform account — including added/removed rows and join verification — without waiting on CI.
 
@@ -31,9 +31,9 @@ To use the dbt VS Code extension compare changes feature, you need:
 
 **Sign-in and authentication**
 
-Compare changes is available to all dbt VS Code extension users during the 14-day trial. After the trial:
+Whether you need to sign in depends on how you set your baseline state:
 
-* **If you use dbt platform deferral (recommended):** [Sign in or register](../sign-in-dbt-extension.md) for a free dbt platform account. You'll also need a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file in your local `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux) so the extension can fetch the deferred manifest from your environment.
+* **If you use dbt platform deferral (recommended):** [Sign in](../sign-in-dbt-extension.md) to a dbt platform account. You'll also need a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file in your local `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux) so the extension can fetch the deferred manifest from your environment.
 * **If you set the baseline manually with a `manifest.json`:** No dbt platform account is required. Point the extension at a local `manifest.json` and compare changes runs against it.
 
 ## How it works

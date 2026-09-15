@@ -4,44 +4,44 @@ Local development
 
 The dbt VS Code extension uses a dynamic Language Server Protocol (LSP) to provide a fast, intelligent, and cost-efficient dbt development experience with enhanced workflows and easy navigation.
 
-Registration for advanced features
+Feature availability
 
-All dbt VS Code extension features are available to all users for 14 days. After the 14-day trial period, most features remain available without registration. To keep using advanced features, [register](./sign-in-dbt-extension.md) for a free dbt platform account. Existing registered users keep access automatically.
+The extension's editor features are available to all users. Some features depend on your project's [static analysis](./build/about-static-analysis.md) mode, and a few read data from your dbt platform account.
 
-See the [feature availability](#feature-availability) table for the full list of features and what each needs.
-
-(Applies to dbt v1.13 and later)
-
-In dbt v2.0 and later, authentication for registration and features that require sign-in is handled by [`dbt login`](../reference/commands/login.md?version=2.0), so your login state is shared across dbt tools like the dbt VS Code extension and, in supported versions, dbt State.
+See the [feature availability](#feature-availability) tables for the full list of features and what each needs.
 
 ## Feature availability
 
-The dbt VS Code extension is free to install. All features work for 14 days with no login; after that, the vast majority keep working, and a few advanced features need a free dbt platform account (sign in or register with your email, or run `dbt login`).
+The dbt VS Code extension is free to install, and its editor features are available to all users. What's available depends on your project's [static analysis](./build/about-static-analysis.md) mode rather than your account:
 
-| Feature                                                    | Works without login/registration | Register or login<br />Any dbt platform account, free or paid |
-| ---------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------- |
-| Error diagnostics for Jinja, YAML, and SQL syntax          | ✅                               | ✅                                                            |
-| Jinja LSP go-to ref, source, and macro                     | ✅                               | ✅                                                            |
-| Linter warning diagnostics                                 | ✅                               | ✅                                                            |
-| Table-level lineage                                        | ✅                               | ✅                                                            |
-| Basic dbt command UI (run, build, test, and query results) | ✅                               | ✅                                                            |
-| Ref autocomplete                                           | ✅                               | ✅                                                            |
-| Refactor ref and column names                              | ✅                               | ✅                                                            |
-| Dialect-aware function autocomplete                        | ✅                               | ✅                                                            |
-| SQL type and schema error diagnostics                      | -                                | ✅                                                            |
-| Preview CTE                                                | -                                | ✅                                                            |
-| Query cache for faster incremental compiles                | -                                | ✅                                                            |
-| Model docs tab with platform metadata                      | -                                | ✅                                                            |
-| Column-level lineage                                       | -                                | ✅                                                            |
-| Compare changes                                            | -                                | ✅                                                            |
-| SQL LSP go-to column and CTE                               | -                                | ✅                                                            |
-| SQL LSP hover to see the schema for `select *`             | -                                | ✅                                                            |
+| Feature                                                    | Availability                         |
+| ---------------------------------------------------------- | ------------------------------------ |
+| Error diagnostics for Jinja, YAML, and SQL syntax          | All users                            |
+| Jinja LSP go-to ref, source, and macro                     | All users                            |
+| Linter warning diagnostics                                 | All users                            |
+| Table-level lineage                                        | All users                            |
+| Basic dbt command UI (run, build, test, and query results) | All users                            |
+| Ref autocomplete                                           | All users                            |
+| Refactor ref names                                         | All users                            |
+| Dialect-aware function autocomplete                        | All users                            |
+| Query cache for faster incremental compiles                | All users                            |
+| Preview CTE                                                | `baseline` (the default) or `strict` |
+| SQL type and schema error diagnostics                      | `static_analysis: strict`            |
+| Refactor column names                                      | `static_analysis: strict`            |
+| Column-level lineage                                       | `static_analysis: strict`            |
+| SQL LSP go-to column and CTE                               | `static_analysis: strict`            |
+| SQL LSP hover to see the schema for `select *`             | `static_analysis: strict`            |
+
+These features need you to [sign in](./sign-in-dbt-extension.md) so the extension can read data from your dbt platform account:
+
+| Feature                                                                                              | Why it needs a dbt platform account                                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Model docs tab with platform metadata                                                                | Reads build status, descriptions, and test results from your dbt platform account.                                                           |
+| [Compare changes](./dbt/vs-compare-changes.md) with dbt platform deferral | Fetches the deferred manifest from your dbt platform environment. You can also point it at a local `manifest.json` instead, with no account. |
 
 ## Lightning-fast parse times
 
-Parse even the largest projects up to 30x faster than with dbt v1.
-
-**Requires registration** — LSP query cache (for faster incremental compiles).
+Parse even the largest projects up to 30x faster than with dbt v1. The LSP query cache makes incremental compiles faster still.
 
 [](/img/docs/extension/zoomzoom.mp4)
 
@@ -73,17 +73,13 @@ Usage:
 
 Automatically validate your SQL code to detect errors and surface warnings without hitting the warehouse.
 
-**Available to all users:**
-
 Syntax-tree diagnostics for Jinja, YAML, and SQL syntax errors (L1):
 
 * Syntax errors (missing commas, misspelled keywords, and more)
 * Hover over red squiggles to display errors
 * Full diagnostic information is available in the **Problems** panel
 
-**Requires registration:**
-
-L2 dbt v2 SQL comprehension diagnostics (depends on strict static analysis):
+L2 dbt v2 SQL comprehension diagnostics (requires [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
 
 * Missing `group by` clauses, or columns that are neither grouped nor aggregated
 * Invalid function names or arguments
@@ -96,8 +92,6 @@ L2 dbt v2 SQL comprehension diagnostics (depends on strict static analysis):
 
 Autocomplete SQL functions, model names, macros, and more.
 
-**Available to all users:**
-
 * Autocomplete `ref`s and `source` calls. For example, type `{{ ref(` or `{{ source(` and you will see a list of available resources and their type complete the function call. Autocomplete doesn't trigger when replacing existing model names inside parentheses.
 * Dialect-aware SQL function autocomplete
 
@@ -107,8 +101,6 @@ Autocomplete SQL functions, model names, macros, and more.
 
 Rename models or columns and see references update project-wide.
 
-**Available to all users:**
-
 Renaming models:
 
 * Right-click on a file in the file tree and select **Rename**.
@@ -116,9 +108,7 @@ Renaming models:
   * Select **OK** to apply the changes, or **Show Preview** to display a preview of refactorings.
 * After applying your changes, `ref`s should be updated to use the updated model name.
 
-**Requires registration:**
-
-Renaming columns (depends on strict static analysis):
+Renaming columns (requires [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
 
 Column renaming depends on strict static analysis, which validates column references across your project before the extension updates downstream models.
 
@@ -135,15 +125,11 @@ Note: Renaming models and columns is not yet supported for snapshots, or any res
 
 Jump to the definition of any `ref`, macro, model, or column with a single click. Particularly useful in large projects with many models and macros. Excludes definitions from installed packages.
 
-**Available to all users:**
-
 * Command or Ctrl-click to go to the definition for an identifier.
 * Right-click an identifier and select **Go to Definition** or **Go to References**.
 * Jinja LSP go-to-definition for `ref()`, `source()`, and macros.
 
-**Requires registration:**
-
-Column and CTE go-to-definition (depends on `strict` static analysis):
+Column and CTE go-to-definition (requires [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
 
 * Go-to-definition for column names
 * Go-to-definition for CTE names
@@ -153,8 +139,6 @@ Column and CTE go-to-definition (depends on `strict` static analysis):
 ## Rich lineage in context
 
 See lineage at the column or table level as you develop — no context switching or breaking flow.
-
-**Available to all users:**
 
 Table-level lineage:
 
@@ -169,9 +153,7 @@ View table lineage:
 * The lineage pane updates as you navigate the files in your dbt project.
 * Right-click on a node to update the DAG, or view column lineage for a node.
 
-**Requires registration:**
-
-Column-level lineage (depends on strict static analysis):
+Column-level lineage (requires [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
 
 View column lineage:
 
@@ -187,9 +169,7 @@ View column lineage:
 
 See context on tables, columns, and functions without leaving your code. Simply hover over any SQL element to see details like column names and data types.
 
-**Requires registration:**
-
-Hover insights depend on strict static analysis, which lets the extension understand column types and function signatures across your project.
+Hover insights depend on [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2), which lets the extension understand column types and function signatures across your project.
 
 Usage:
 
@@ -202,13 +182,9 @@ Usage:
 
 Preview query output directly from inside your editor for faster validation and debugging.
 
-**Available to all users:**
-
 * Click the **table icon** or use keyboard shortcut `cmd+enter` (macOS) / `ctrl+enter` (Windows/Linux) to preview query results for a model or selected SQL snippet.
 * Results are displayed in the **Query Results** tab in the bottom panel.
 * The preview table is sortable and results are stored until the tab is closed.
-
-**Requires registration:**
 
 CTE preview:
 
@@ -218,7 +194,7 @@ CTE preview:
 
 ## Explore your catalog [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-**Requires registration:**
+This tab reads metadata from your dbt platform account, so you need to [sign in](./sign-in-dbt-extension.md) to use it.
 
 Open the **Catalog** tab to see information for the model you're working on — enriched by your dbt platform account — without leaving your editor.
 
@@ -228,8 +204,6 @@ For the current model, the catalog tab surfaces:
 * The model's **Description**.
 * The model's **Columns**, including each column's type, description, and test results. Sort columns alphabetically or by test name.
 * A **View in dbt platform** link to open the resource in the dbt platform.
-
-The **Catalog** tab is an advanced feature. Before your 14-day trial expires, [register](./sign-in-dbt-extension.md) for a dbt platform account to continue using it.
 
 ![Example of the Catalog tab in the dbt VS Code extension](/img/docs/extension/vsce-catalog-tab.png?v=2 "Example of the Catalog tab in the dbt VS Code extension")Example of the Catalog tab in the dbt VS Code extension
 
@@ -246,9 +220,9 @@ To generate and download a system report:
 
 ## Compare changes in development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-Requires registration
+Uses your dbt platform account
 
-Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
+This capability can read from your dbt platform account. [Sign in](./sign-in-dbt-extension.md) so the dbt VS Code extension can reach it.
 
 (Applies to dbt v2.0 and later)
 
