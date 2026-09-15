@@ -2,13 +2,15 @@
 
 Available in v2
 
-`dbt lint` is a high-performance SQL linter built into the dbt platform. It is SQLFluff-compatible: it reads your `.sqlfluff` config, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical: `dbt lint` and SQLFluff can return different results for the same file and config. Refer to [Rule parity with SQLFluff](#rule-parity-with-sqlfluff).
+`dbt lint` is a fast SQL linter built into dbt v2, available locally or in dbt platform. dbt lint requires v2 or later. If you're on an earlier version, [upgrade or install dbt](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2).
+
+It's SQLFluff-compatible: it reads your `.sqlfluff` config, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible doesn't mean identical: `dbt lint` and SQLFluff can return different results for the same file and config. Refer to [Rule parity with SQLFluff](#rule-parity-with-sqlfluff).
 
 You can use your existing SQLFluff config with minimal changes. dbt Labs intends to track the latest SQLFluff rule spec going forward.
 
 note
 
-`dbt lint` is part of dbt v2. It is not the same as `dbt sqlfluff lint` on the dbt platform CLI. For SQLFluff on the platform CLI, see [Configure the dbt platform CLI](../../docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](../../docs/platform/studio-ide/lint-format.md) continues to use SQLFluff.
+`dbt lint` is part of dbt v2 and is not the same as `dbt sqlfluff lint` on the dbt platform CLI. For SQLFluff on the platform CLI, refer to [Configure the dbt platform CLI](../../docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](../../docs/platform/studio-ide/lint-format.md) continues to use SQLFluff.
 
 ## Benchmarks
 
