@@ -16,7 +16,7 @@ Controls whether dbt State checks both the Jinja template (unrendered code) and 
 
 ## [Configuring deferral in dbt State](../docs/deploy/dbt-state-deferral.md)
 
-Configure which environment dbt State defers to, including project and org disambiguation and deferral target customization.
+Configure which environment dbt State defers to, and use dbt State as the comparison source for state:\* selectors in self-managed deployments.
 
 ## [dbt State configurations](../reference/resource-configs/dbt-state-configs.md)
 

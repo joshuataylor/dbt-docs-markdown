@@ -20,13 +20,27 @@ For a clean slate, it's a good practice to drop the development schema at the st
 
 If you require additional controls over production data, create a [staging environment](../deploy/deploy-environments.md#staging-environment), and dbt will use that, rather than the production environment, to resolve `{{ ref() }}`(Applies to dbt v1.11 and later) and `{{ function() }}` calls.
 
-## Required setup
+## Configuration options
+
+There are several ways to configure deferral in dbt, depending on how your project is set up:
+
+* **dbt platform**: When using the Studio IDE or dbt platform CLI, deferral is managed automatically. You can optionally configure `defer-env-id` to target a specific environment. Refer to [Set up deferral in the dbt platform](#set-up-deferral-in-the-dbt-platform) for setup details.
+* **Self-managed deployments (`defer_to_target`)**: If you have [dbt State](../deploy/dbt-state-about.md) enabled, set `defer_to_target` in `profiles.yml` to specify which environment dbt State defers to. Refer to [`defer_to_target`](../../reference/resource-configs/defer-to-target.md) and [Configuring deferral in dbt State](../deploy/dbt-state-deferral.md) for setup details.
+* **Manual defer (`--state`)**: Pass `--state` or `--defer-state` explicitly to point dbt to a specific `manifest.json`. Refer to [Defer](../../reference/node-selection/defer.md) for usage details.
+
+Use dbt State for smarter deferral [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+In self-managed deployments with [dbt State](../deploy/dbt-state-about.md) enabled, `state:*` selectors can compare each node against its own last execution instead of a single `manifest.json` — no manifest management needed. Refer to [dbt State-powered `state:*` selectors](../deploy/dbt-state-deferral.md#dbt-state-powered-state-selectors).
+
+## Set up deferral in the dbt platform
 
 * You must select the **[Production environment](../deploy/deploy-environments.md#set-as-production-environment)** checkbox in the **Environment Settings** page.
   * This can be set for one deployment environment per dbt project.
 * You must have a successful job run first.
 
 When using defer, it compares artifacts from the most recent successful production job, excluding CI jobs.
+
+The following sections cover how to enable and configure deferral in the Studio IDE, the dbt platform CLI, and how to customize which environment dbt defers to.
 
 ### Defer in the dbt IDE
 

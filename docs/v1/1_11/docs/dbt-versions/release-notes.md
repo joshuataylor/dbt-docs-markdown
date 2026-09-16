@@ -15,6 +15,8 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## September 2026
 
+* **Beta:** When [dbt State](../deploy/dbt-state-about.md) is enabled in a self-managed deployment and your project is connected to the dbt platform, `state:*` selectors use dbt State as their comparison source, unless a state manifest is explicitly provided. Each node (models, snapshots, seeds, and tests) is compared against its own last execution in the deferral target environment rather than a single `manifest.json` from the most recent job run. Refer to [dbt State-powered `state:*` selectors](../deploy/dbt-state-deferral.md#dbt-state-powered-state-selectors) for more information.
+
 * **New:** The **dbt State** page now includes a [**Lag tolerance recommendations**](../deploy/dbt-state-interface.md#lag-tolerance-recommendations) section that identifies models that could safely tolerate more lag. For each model, it shows the current lag tolerance, the recommended value, the estimated percentage of build time you'd save, and projected build time savings over the next 30 days. You can search by model name or filter by project, and apply recommendations by updating the [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) config.
 
 * **New:** The Snowflake adapter now supports the `interactive_table` materialization in beta on dbt v2 (dbt-snowflake v1.13+), covering both static and dynamic (auto-refreshing) interactive tables. For more information, see [Interactive tables](../../reference/resource-configs/snowflake-configs.md).

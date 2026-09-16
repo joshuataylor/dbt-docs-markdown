@@ -52,6 +52,10 @@ The following decision tree shows how dbt State chooses the most efficient valid
 
 The key idea is that dbt State only skips work when it can prove the existing object is sufficiently equivalent for the current run. If the SQL logic, relevant config, schema, or upstream freshness means the result might be different, dbt rebuilds instead.
 
+### Use dbt State with state:\* selectors [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+In self-managed deployments, you can also use dbt State with `state:*` selectors. Instead of comparing against a single `manifest.json`, these selectors use dbt State as the comparison source, with state tracked for each individual node. Refer to [dbt State-powered `state:*` selectors](./dbt-state-deferral.md#dbt-state-powered-state-selectors) for more information.
+
 ## Signing up for dbt State
 
 dbt State is connected to your existing dbt platform account. Your dbt State credentials are the same as your platform credentials, and dbt State has access to your platform environments and jobs.
@@ -80,7 +84,7 @@ To get started, refer to [Migrate from state-aware orchestration](./dbt-state-mi
 
 How is dbt State different from using state:modified?
 
-`state:modified` in dbt v1 requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes.
+On its own, `state:modified` requires manual management of `manifest.json`, which is cumbersome and error-prone. dbt State is completely managed with almost zero setup and no workflow changes. In self-managed deployments, dbt State can also power `state:*` selectors directly — see the last item below.
 
 `state:modified` only checks if a file has changed. dbt State has semantic understanding of SQL, so meaningless changes like whitespace or table aliases are not counted as a change — making dbt State smarter about what actually needs to rebuild.
 
@@ -89,6 +93,8 @@ How is dbt State different from using state:modified?
 dbt State also has the ability to auto-defer refs and automatically clone tables when the result of the clone would have been the same as a full model run.
 
 `state:modified` has a limitation on seed files over 1MB, while dbt State does not.
+
+When dbt State is enabled in a self-managed deployment, all [`state:*` selectors](../../reference/node-selection/methods.md#state) can use dbt State as their comparison source. This provides per-node granularity — each node is compared against its own last execution in the [`defer_to_target`](../../reference/resource-configs/defer-to-target.md) environment, rather than comparing all nodes against a single `manifest.json` from the most recent job. This applies automatically when no explicit [`--state`](../../reference/node-selection/configure-state.md) manifest has been provided. For more details, refer to [dbt State-powered `state:*` selectors](./dbt-state-deferral.md#dbt-state-powered-state-selectors).
 
 Does dbt State support incremental models?
 
