@@ -50,6 +50,7 @@ dbt retry --exclude package:analytics --selector nightly_models
 Retry works with the following commands:
 
 * [`build`](./build.md)
+* [`check`](./check.md)
 * [`compile`](./compile.md)
 * [`clone`](./clone.md)
 * [`docs generate`](./cmd-docs.md#dbt-docs-generate)

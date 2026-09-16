@@ -38,6 +38,7 @@ Run `dbt retry --help` for the full list of flags available.
 Retry works with the following commands:
 
 * [`build`](./build.md)
+* [`check`](./check.md)
 * [`compile`](./compile.md)
 * [`clone`](./clone.md)
 * [`docs generate`](./cmd-docs.md#dbt-docs-generate)

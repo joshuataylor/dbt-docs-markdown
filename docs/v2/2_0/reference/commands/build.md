@@ -34,6 +34,10 @@ dbt build --generate-info-schema --static-analysis strict
 * In the case of a test with multiple parents, where one parent depends on the other (e.g. a `relationships` test between `model_a` + `model_b`), that test will block-and-skip children of the most-downstream parent only (`model_b`).
 * If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
 
+(Applies to dbt v2.0 and later)
+
+**Checks:** `dbt build` runs [checks](../../docs/build/checks.md) before it compiles or runs any models. Checks are SQL queries you write against the [dbt Information Schema](../../docs/build/dbt-information-schema.md) to enforce your team's project standards. For example, a check might be that every model has a description. A check passes when its query returns no rows. A failing check stops the build before anything is materialized, unless the check's `severity` is set to `warn`.
+
 (Applies to dbt v1.12 and later)
 
 **Skipping on model errors:** By default, if a model fails, all downstream models are skipped. Set [`on_error: continue`](../resource-configs/on_error.md) on a model to allow its downstream models to run even when that model fails.
@@ -49,6 +53,25 @@ dbt build --generate-info-schema --static-analysis strict
 Snapshots ignore full refresh
 
 Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A command such as `dbt build --full-refresh` or `dbt snapshot --full-refresh` that includes a snapshot node runs the snapshot as normal — it won't drop or recreate the snapshot table, so existing snapshot history is preserved.
+
+(Applies to dbt v2.0 and later)
+
+### The `--skip-checks` flag
+
+The `build` command supports `--skip-checks` to bypass the [checks](../../docs/build/checks.md) gate.
+
+```shell
+dbt build --skip-checks
+```
+
+To disable a single check rather than the entire gate, set `enabled: false` on that check's config:
+
+```yaml
+checks:
+  - name: all_models_have_descriptions
+    config:
+      enabled: false
+```
 
 ### The `--empty` flag
 

@@ -10,6 +10,10 @@ The list of commands available in dbt.
 
 [The dbt build command will:](../reference/commands/build.md)
 
+## [check](../reference/commands/check.md)
+
+[dbt check parses your project, runs checks, and reports results.](../reference/commands/check.md)
+
 ## [clean](../reference/commands/clean.md)
 
 [dbt clean is a utility function that deletes the paths specified within the clean-targets list in the dbt\_project.yml file. It helps by removing unnecessary files or directories generated during the execution of other dbt commands, ensuring a clean state for the project.](../reference/commands/clean.md)

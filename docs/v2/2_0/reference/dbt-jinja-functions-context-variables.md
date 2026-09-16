@@ -82,6 +82,10 @@ In addition to the standard Jinja library, we've added additional functions and 
 
 [The \`graph\` context variable contains info about nodes in your project.](./dbt-jinja-functions/graph.md)
 
+## [info\_schema](./dbt-jinja-functions/info-schema-macro.md)
+
+[Use the \`info\_schema()\` macro to reference dbt Information Schema tables in checks or with dbt show --inline.](./dbt-jinja-functions/info-schema-macro.md)
+
 ## [invocation\_id](./dbt-jinja-functions/invocation_id.md)
 
 [The \`invocation\_id\` outputs a UUID generated for this dbt command.](./dbt-jinja-functions/invocation_id.md)

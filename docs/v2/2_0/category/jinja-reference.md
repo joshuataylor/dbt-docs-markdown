@@ -7,7 +7,7 @@ The list of Jinja functions and context variables available in dbt.
 
 ## [dbt Jinja context functions](../reference/dbt-jinja-functions-context-variables.md)
 
-[47 items](../reference/dbt-jinja-functions-context-variables.md)
+[48 items](../reference/dbt-jinja-functions-context-variables.md)
 
 ## [dbt Classes](../reference/dbt-classes.md)
 

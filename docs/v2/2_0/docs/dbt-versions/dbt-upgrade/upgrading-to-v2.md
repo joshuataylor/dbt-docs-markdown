@@ -139,6 +139,12 @@ When you use the [`--generate-info-schema`](#generating-the-information-schema) 
 
 For more information, refer to [dbt Information Schema](../../build/dbt-information-schema.md).
 
+### Checks [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+In dbt v2, you can create [checks](../../build/checks.md) to enforce project standards (for example, all models must have a description, a public model must have an owner, and so on) at parse time, before any warehouse work runs. Write a SQL rule under the `checks/` directory, then run checks on demand with `dbt check`. Checks also run automatically with every `dbt build`. Use `--skip-checks` to bypass checks on a build.
+
+For more information, refer to [Checks](../../build/checks.md).
+
 ### dbt Docs v2
 
 v2 introduces [dbt Docs v2](../../build/view-documentation.md#dbt-docs-v2), a fast, modern self-hosted catalog experience built to help you understand and trust your production data. You get column-level lineage, Semantic Layer metadata, and a beautifully refreshed interface, all working smoothly on the largest projects. Under the hood, your metadata lives in efficient Parquet artifacts for faster load times and a catalog that scales as your project grows.

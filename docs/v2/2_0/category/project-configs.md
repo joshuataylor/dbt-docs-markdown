@@ -25,6 +25,10 @@ The list of project configs available in dbt.
 
 [Read this guide to understand the asset-paths configuration in dbt.](../reference/project-configs/asset-paths.md)
 
+## [check-paths](../reference/project-configs/check-paths.md)
+
+[Definition](../reference/project-configs/check-paths.md)
+
 ## [clean-targets](../reference/project-configs/clean-targets.md)
 
 [Definition](../reference/project-configs/clean-targets.md)

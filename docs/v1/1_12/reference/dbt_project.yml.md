@@ -36,6 +36,7 @@ docs-paths: [directorypath]
 asset-paths: [directorypath]
 function-paths: [directorypath]
 osi-paths: [directorypath]
+check-paths: [directorypath]
 skill-paths: [directorypath]
 
 packages-install-path: directorypath
@@ -91,8 +92,14 @@ snapshots:
 sources:
   <source-configs>
   
+checks:
+  <check-configs>
+
 data_tests:
   <test-configs>
+
+info_schema:
+  version: 1  # Pins which version of the dbt Information Schema the {{ info_schema() }} macro resolves to
 
 vars:
   <variables>
