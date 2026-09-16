@@ -200,7 +200,7 @@ Use a `freshness` block to define expectations about how frequently a table is u
 
 dbt compares the most recently updated timestamp calculated from a column, warehouse metadata, or custom query against the current timestamp when the freshness check is running.
 
-You can provide one or both of the `warn_after` and `error_after` parameters. If neither is provided, then dbt will not calculate freshness snapshots for the tables in this source. For more information, see [freshness](./resource-properties/freshness.md).
+You can provide one or both of the `warn_after` and `error_after` parameters. If neither is provided, then dbt will not calculate freshness snapshots for the tables in this source. For more information, see [freshness](./resource-configs/freshness.md).
 
 See the following example of a `dbt_project.yml` file using the `freshness` config:
 

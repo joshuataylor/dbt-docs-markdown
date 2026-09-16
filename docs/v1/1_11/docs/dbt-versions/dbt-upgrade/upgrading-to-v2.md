@@ -149,6 +149,14 @@ To hydrate catalog metadata (`catalog.json`) for Catalog without building the si
 
 For full usage, refer to [About dbt docs commands](../../../reference/commands/cmd-docs.md?version=2).
 
+### Model freshness and the `dbt freshness` command [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+v2 expands freshness checks to models, building on the existing support for sources. You can configure freshness thresholds on models to receive warnings or errors when the data is stale. For config options and materialization requirements, refer to [freshness](../../../reference/resource-configs/freshness.md).
+
+Use the new [`dbt freshness`](../../../reference/commands/freshness.md) command to check all sources and models with freshness configured in a single invocation and, and to write results to a [`target/freshness.json` file](../../../reference/artifacts/freshness-json.md).
+
+The [`dbt source freshness`](../../../reference/commands/source.md?version=2#dbt-source-freshness) command remains supported for backward compatibility, checks sources only, and continues to produce a `sources.json` file. We recommend using `dbt freshness` going forward.
+
 ### Adapters built on ADBC drivers
 
 All v2 adapters connect to data warehouses via the [Arrow Database Connectivity (ADBC)](https://arrow.apache.org/adbc/) standard instead of Python-based adapter libraries. As a result, dbt ships as a single self-contained binary with no Python runtime required.
@@ -318,7 +326,7 @@ Some historic CLI flags from v1 will no longer do anything in v2. If you pass th
 | [`--cache-selected-only` / `--no-cache-selected-only`](../../../reference/global-configs/cache.md)                                | No action required                                                    |
 | [`--clean-project-files-only` / `--no-clean-project-files-only`](../../../reference/commands/clean.md#--clean-project-files-only) | No action required                                                    |
 | `--single-threaded` / `--no-single-threaded`                                                                                                     | No action required                                                    |
-| `dbt source freshness` [`--output` / `-o`](../../deploy/source-freshness.md)                                              |                                                                       |
+| `dbt source freshness` [`--output` / `-o`](../../../reference/commands/source.md?version=1.12#source-freshness-commands)          |                                                                       |
 | [`--config-dir`](../../../reference/commands/debug.md)                                                                            | No action required                                                    |
 | [`--resource-type` / `--exclude-resource-type`](../../../reference/global-configs/resource-type.md)                               | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
 | `--show-resource-report` / `--no-show-resource-report`                                                                                           | No action required                                                    |
@@ -337,11 +345,9 @@ Some historic CLI flags from v1 will no longer do anything in v2. If you pass th
 
 ##### CLI flags that need changes
 
-The following deprecated flags require updates in your job definitions or scripts:
+The following deprecated flag requires updates in your job definitions or scripts:
 
 * **`--models` / `--model` / `-m`:** Use `--select` / `-s` instead (renamed in dbt v0.21). dbt raises an error in v2 if you use the old flags. Do not pass `--models` as the value to `-s` (for example, `dbt run -s --models`); v1 treated that as a model name, but v2 requires a valid selector.
-
-* **`--resource-type` / `--exclude-resource-type`:** Use `--resource-types` / `--exclude-resource-types`. For more information, see [Resource type flags](../../../reference/global-configs/resource-type.md).
 
 dbt v2 job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt v1 command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your dbt v2 job commands. For more information, refer to [Deprecated flags](./upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to dbt v2.
 

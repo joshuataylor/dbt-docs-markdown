@@ -8,7 +8,9 @@ This file contains information about a completed invocation of dbt, including ti
 
 Note that only executed nodes appear in the run results. If you have multiple run or test steps with different critiera, each will produce different run results.
 
-Note: `dbt source freshness` produces a different artifact, [`sources.json`](./sources-json.md), with similar attributes.
+(Applies to dbt v2.0 and later)
+
+Note: `dbt freshness` produces different artifacts — [`freshness.json`](./freshness-json.md) for both sources and models, and [`sources.json`](./sources-json.md) for sources only (retained for backward compatibility). `dbt source freshness` is still supported but is considered a legacy command.
 
 ### Top-level keys
 

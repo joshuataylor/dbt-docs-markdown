@@ -76,7 +76,7 @@ The list of commands available in dbt.
 
 ## [source](../reference/commands/source.md)
 
-[The dbt source command provides subcommands that are useful when working with source data. This command provides one subcommand, dbt source freshness.](../reference/commands/source.md)
+[Use the dbt source command to work with source data in your dbt project.](../reference/commands/source.md)
 
 ## [state explain](../reference/commands/state-explain.md)
 

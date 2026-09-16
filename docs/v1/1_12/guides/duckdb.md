@@ -144,7 +144,7 @@ Here's what a successful output will look like:
 To query data, some useful commands you can run from the command line:
 
 * `dbt show --select "raw_orders"` — run a query against the data warehouse and preview the results in the terminal.
-* [`dbt source`](../reference/commands/source.md) — provides subcommands such as [`dbt source freshness`](../reference/commands/source.md#dbt-source-freshness) that are useful when working with source data.
+* [`dbt source`](../reference/commands/source.md) — provides the [`dbt source freshness`](../reference/commands/source.md#freshness) subcommand, which is useful when working with source data.
   * `dbt source freshness` — checks the freshness (how up to date) a specific source table is.
 
 note

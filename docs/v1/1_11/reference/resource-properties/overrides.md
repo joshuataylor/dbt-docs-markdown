@@ -28,8 +28,8 @@ The following source properties can be overridden:
 * [schema](./schema.md)
 * [loader](./loader.md)
 * [quoting](./quoting.md)
-* [freshness](./freshness.md)
-* [loaded\_at\_field](./freshness.md#loaded_at_field)
+* [freshness](../resource-configs/freshness.md)
+* [loaded\_at\_field](../resource-configs/freshness.md)
 * [tags](../resource-configs/tags.md)
 
 ## Examples

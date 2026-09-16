@@ -232,7 +232,7 @@ models:
         description: "Type of event recorded (click, purchase, etc.)"
 ```
 
-(Applies to dbt v1.10 and later)
+(Applies to dbt v1.10 to v1.99)
 
 ### Configuring source freshness
 

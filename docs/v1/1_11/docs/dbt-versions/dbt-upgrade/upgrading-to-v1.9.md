@@ -70,7 +70,8 @@ To learn how to safely migrate existing snapshots, refer to [Snapshot configurat
 
 The following `properties` were moved to `configs` in [dbt v1.10](./upgrading-to-v1.10.md) and backported to dbt v1.9:
 
-* [`freshness`](../../../reference/resource-properties/freshness.md) for sources
+* [`freshness`](../../../reference/resource-configs/freshness.md) for sources
+  * dbt v2 [expands freshness checks](./upgrading-to-v2.md?version=2#model-freshness-and-the-dbt-freshness-command) to support models.
 * [`meta`](../../../reference/resource-configs/meta.md) under `columns`
 * [`tags`](../../../reference/resource-configs/tags.md) under `columns`
 

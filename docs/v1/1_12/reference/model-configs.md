@@ -33,7 +33,7 @@ models:
 
 #### Property file
 
-(Applies to dbt v1.12 and later)
+(Applies to dbt v1.12 to v1.99)
 
 Note, most model configurations are defined under `config`, while `build_after` is set under `freshness`.
 
@@ -238,7 +238,7 @@ models:
         description: "Type of event recorded (click, purchase, etc.)"
 ```
 
-(Applies to dbt v1.10 and later)
+(Applies to dbt v1.10 to v1.99)
 
 ### Configuring source freshness
 

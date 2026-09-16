@@ -37,6 +37,6 @@ You can use `--sqlparse` with the following commands:
 * [`dbt test`](../commands/test.md)
 * [`dbt seed`](../commands/seed.md)
 * [`dbt snapshot`](../commands/snapshot.md)
-* [`dbt source freshness`](../commands/source.md#dbt-source-freshness)
+* [`dbt source freshness`](../commands/source.md#freshness)
 * [`dbt docs generate`](../commands/cmd-docs.md#dbt-docs-generate)
 * [`dbt show`](../commands/show.md)

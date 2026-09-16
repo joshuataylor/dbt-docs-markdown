@@ -5,7 +5,10 @@
 * [Source properties](../../reference/source-properties.md)
 * [Source configurations](../../reference/source-configs.md)
 * [`{{ source() }}` Jinja function](../../reference/dbt-jinja-functions/source.md)
-* [`source freshness` command](../../reference/commands/source.md)
+
+(Applies to dbt v2.0 and later)
+
+* [`dbt freshness` command](../../reference/commands/freshness.md)
 
 ## Using sources
 
@@ -287,13 +290,17 @@ Additionally, the `loaded_at_field` is required to calculate freshness for a tab
 
 These configs are applied hierarchically, so `freshness` and `loaded_at_field` values specified for a `source` will flow through to all of the `tables` defined in that source. This is useful when all of the tables in a source have the same `loaded_at_field`, as the config can just be specified once in the top-level source definition.
 
-### Checking source freshness
+### Evaluate source freshness
 
-To obtain freshness information for your sources, use the `dbt source freshness` command ([reference docs](../../reference/commands/source.md)):
+(Applies to dbt v2.0 and later)
 
-```text
-$ dbt source freshness
+To evaluate freshness for your sources, use [`dbt freshness`](../../reference/commands/freshness.md) with `--resource-type source`:
+
+```shell
+dbt freshness --resource-type source
 ```
+
+Running `dbt freshness` without a resource type evaluates every source *and* model that has a `freshness` config.
 
 Behind the scenes, dbt uses the freshness properties to construct a `select` query, shown below. You can find this query in the [query logs](../../faqs/Runs/checking-logs.md).
 
@@ -306,20 +313,34 @@ from raw.jaffle_shop.orders
 
 The results of this query are used to determine whether the source is fresh or not:
 
-![Uh oh! Not everything is as fresh as we'd like!](/img/docs/building-a-dbt-project/snapshot-freshness.png?v=2 "Uh oh! Not everything is as fresh as we'd like!")Uh oh! Not everything is as fresh as we'd like!
+(Applies to dbt v2.0 and later)
+
+```text
+$ dbt freshness --resource-type source
+
+    Passed source jaffle_shop.orders (last updated 32m 14s ago) [0.42s]
+     Stale source jaffle_shop.customers (last updated 2days 6h 18m ago) [0.39s]
+
+[error] [StaleSource (dbt1063)]: Stale source source.jaffle_shop.jaffle_shop.customers
+  --> models/<filename>.yml
+```
 
 ### Build models based on source freshness
 
-Our best practice recommendation is to use [data source freshness](./sources.md#declaring-source-freshness). This will allow settings to be transfered into a `.yml` file where source freshness is defined on [model level](../../reference/resource-properties/freshness.md).
+Our best practice recommendation is to use [data source freshness](./sources.md#declaring-source-freshness), configured in your `.yml` files using the [`freshness`](../../reference/resource-configs/freshness.md) config.
 
 To build models based on source freshness in dbt:
 
-1. Run `dbt source freshness` to check the freshness of your sources.
+1. (Applies to dbt v2.0 and later) Run [`dbt freshness --resource-type source`](../../reference/commands/freshness.md) to check the freshness of your sources.
 2. Use the `dbt build --select source_status:fresher+` command to build and test models downstream of fresher sources.
 
 Using these commands in order makes sure models update with the latest data. This eliminates wasted compute cycles on unchanged data and builds models *only* when necessary.
 
 Set [source freshness checks](../deploy/source-freshness.md#enabling-source-freshness-checks) to 30 minutes, then run a job which rebuilds every hour. This setup retrieves all the models and rebuilds them in one attempt if their source freshness has expired. For more information, refer to [Source freshness check frequency](../deploy/source-freshness.md#source-freshness-check-frequency).
+
+tip
+
+You can also use [dbt State](../deploy/dbt-state-about.md) for this use case. Set the [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) config to control how much time must pass since the last upstream data change before dbt triggers a rebuild, without chaining commands manually.
 
 ### Filter
 
@@ -382,8 +403,10 @@ Are the results of freshness stored anywhere?
 
 Yes!
 
-The `dbt source freshness` command will output a pass/warning/error status for each table selected in the freshness snapshot.
+(Applies to dbt v2.0 and later)
 
-Additionally, dbt will write the freshness results to a file in the `target/` directory called `sources.json` by default. You can also override this destination, use the `-o` flag to the `dbt source freshness` command.
+The [`dbt freshness`](../../reference/commands/freshness.md) command measures how recently data was loaded and reports a pass/warning/error for each source or model based on your `warn_after` and `error_after` thresholds.
+
+dbt writes the model and source freshness results to `target/freshness.json`. When sources are included, it also writes `target/sources.json` for backward compatibility.
 
 After enabling source freshness within a job, configure [Artifacts](../deploy/artifacts.md) in your **Project Details** page, which you can find by selecting your account name on the left side menu in dbt and clicking **Account settings**. You can see the current status for source freshness by clicking **View Sources** in the job page.

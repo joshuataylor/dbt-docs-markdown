@@ -1,16 +1,20 @@
 # About dbt source command
 
-The `dbt source` command provides subcommands that are useful when working with source data. This command provides one subcommand, `dbt source freshness`.
+(Applies to dbt v1.99 and earlier)
 
-### dbt source freshness
+The `dbt source` command provides a subcommand that's useful when working with source data. The available subcommand is `dbt source freshness`.
+
+### Freshness
+
+(Applies to dbt v1.99 and earlier)
 
 If your dbt project is [configured with sources](../../docs/build/sources.md), then the `dbt source freshness` command will query all of your defined source tables, determining the "freshness" of these tables. If the tables are stale (based on the `freshness` config specified for your sources) then dbt will report a warning or error accordingly. If a source table is in a stale state, then dbt will exit with a nonzero exit code.
 
 You can also use [source freshness commands](./source.md#source-freshness-commands) to help make sure the data you get is new and not old or outdated.
 
-### Configure source freshness
+### Configure freshness
 
-The example below, shows how to configure source freshness in dbt. Refer to [Declaring source freshness](../../docs/build/sources.md#declaring-source-freshness) for more information.
+The example below shows how to configure source freshness in dbt. Refer to [Declaring source freshness](../../docs/build/sources.md#declaring-source-freshness) for more information.
 
 models/\<filename>.yml
 
@@ -45,7 +49,9 @@ sources:
 
 This helps to monitor the data pipeline health.
 
-You can also configure source freshness in the **Execution settings** section in your dbt job **Settings** page. For more information, refer to [Enabling source freshness checks](../../docs/deploy/source-freshness.md#enabling-source-freshness-checks).
+You can also configure source freshness in the **Execution settings** section in your dbt platform job **Settings** page. For more information, refer to [Enabling source freshness checks](../../docs/deploy/source-freshness.md#enabling-source-freshness-checks).
+
+(Applies to dbt v1.99 and earlier)
 
 ### Source freshness commands
 
@@ -55,9 +61,11 @@ Some of the typical commands you can use are:
 
 | **Command**                                                                                                                                              | **Description**                                        |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| [`dbt source freshness`](./source.md#dbt-source-freshness)                                                      | Checks the "freshness" for all sources.                |
+| [`dbt source freshness`](./source.md#freshness)                                                                 | Checks the "freshness" for all sources.                |
 | [`dbt source freshness --output target/source_freshness.json`](./source.md#configuring-source-freshness-output) | Output of "freshness" information to a different path. |
 | [`dbt source freshness --select "source:source_name"`](./source.md#specifying-sources-to-check)                 | Checks the "freshness" for specific sources.           |
+
+(Applies to dbt v1.99 and earlier)
 
 ### Specifying sources to check
 
@@ -70,6 +78,8 @@ $ dbt source freshness --select "source:snowplow"
 # Check freshness for a particular source table:
 $ dbt source freshness --select "source:snowplow.event"
 ```
+
+(Applies to dbt v1.99 and earlier)
 
 ### Configuring source freshness output
 
@@ -111,6 +121,8 @@ To override the destination for this `sources.json` file, use the `-o` (or `--ou
 $ dbt source freshness --output target/source_freshness.json
 ```
 
+(Applies to dbt v1.99 and earlier)
+
 ### Using source freshness
 
 Source freshness results can be used to understand:
@@ -120,4 +132,4 @@ Source freshness results can be used to understand:
 
 This command can be run manually to determine the state of your source data freshness at any time. It is also recommended that you run this command on a schedule, storing the freshness results at regular intervals. These longitudinal results will make it possible to be alerted when source data freshness SLAs are violated, as well as understand the trend of freshness over time.
 
-dbt makes it easy to run source freshness checks on a schedule, and provides a dashboard out of the box indicating the state of freshness for all of the sources defined in your project. For more information on source freshness checks in dbt, check out the [docs](../../docs/build/sources.md#source-data-freshness).
+dbt makes it easy to run freshness checks on a schedule, and provides a dashboard out of the box indicating the state of freshness for the sources defined in your project. For more information, refer to [source data freshness](../../docs/build/sources.md#source-data-freshness).

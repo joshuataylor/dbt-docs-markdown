@@ -33,9 +33,7 @@ models:
 
 #### Property file
 
-(Applies to dbt v1.12 and later)
-
-Note, most model configurations are defined under `config`, while `build_after` is set under `freshness`.
+(Applies to dbt v2.0 and later)
 
 models/properties.yml
 
@@ -49,8 +47,10 @@ models:
       on_configuration_change: apply | continue | fail # only for materialized views on supported adapters
       unique_key: <column_name_or_expression>
       freshness:
-        # build_after is nested under freshness. Available on dbt platform Enterprise tiers only.
-        build_after: <dict>
+        warn_after: {count: 24, period: hour}
+        error_after: {count: 48, period: hour}
+        build_after: <dict>        # build scheduling — Enterprise only
+      loaded_at_field: updated_at  # or loaded_at_query
       on_error: skip_children | continue
       latest_version_pointer: <dict>
 ```
@@ -238,15 +238,15 @@ models:
         description: "Type of event recorded (click, purchase, etc.)"
 ```
 
-(Applies to dbt v1.10 and later)
+(Applies to dbt v2.0 and later)
 
-### Configuring source freshness
+### Configuring model freshness [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-The model `freshness` config rebuilds models only when new source or upstream data is available. This is useful for models that depend on other models but only need to be updated periodically. For more information, see [freshness](./resource-configs/freshness.md).
+You can use the `freshness` config in the following ways:
 
-Note that for every `freshness` config, you're required to either set values for both `count` and `period`, or set `freshness: null`. This requirement applies to all `freshness` types: `freshness.warn_after`, `freshness.error_after`, and `freshness.build_after`.
+* **Freshness SLA** (`warn_after`, `error_after`): To declare how stale this model's data is allowed to be. dbt evaluates these thresholds when you run [`dbt freshness`](./commands/freshness.md) and reports `Pass`, `Warn`, or `Error`. Support varies by materialization and measurement method. Refer to the [measurement methods table](./commands/freshness.md#what-gets-checked) for more information.
 
-See the following example of a `my_model.yml` file using the `freshness` config:
+* **Build scheduling** (`build_after`): To skip rebuilding a model when upstream data hasn't changed since the last build. Available on dbt platform Enterprise tiers only.
 
 models/my\_model.yml
 
@@ -255,8 +255,13 @@ models:
   - name: stg_orders
     config:
       freshness:
-        build_after:  # build this model no more often than every X amount of time, as long as it has new data. Available only on dbt platform Enterprise tiers. 
-          count: <positive_integer>
-          period: minute | hour | day
-          updates_on: any | all # optional config
+        # Freshness SLA — report warn/error when data is stale
+        warn_after: {count: 24, period: hour}
+        error_after: {count: 48, period: hour}
+        # Build scheduling — Enterprise only
+        build_after:
+          count: 6
+          period: hour
+          updates_on: any  # optional
+      loaded_at_field: updated_at  # or loaded_at_query
 ```

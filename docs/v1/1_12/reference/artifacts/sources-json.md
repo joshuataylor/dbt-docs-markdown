@@ -2,9 +2,11 @@
 
 **Current schema:** [`v3`](https://schemas.getdbt.com/dbt/sources/v3/index.html)
 
-**Produced by:** [`source freshness`](../commands/source.md)
+(Applies to dbt v1.99 and earlier)
 
-This file contains information about [sources with freshness checks](../../docs/build/sources.md#checking-source-freshness). Today, dbt uses this file to power its [Source Freshness visualization](../../docs/build/sources.md#source-data-freshness).
+**Produced by:** [`dbt source freshness`](../commands/source.md)
+
+This file contains information about [sources with freshness checks](../../docs/build/sources.md#evaluate-source-freshness). dbt uses this file to power its [Source Freshness visualization](../../docs/build/sources.md#source-data-freshness).
 
 ### Top-level keys
 

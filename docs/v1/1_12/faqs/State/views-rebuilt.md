@@ -78,7 +78,7 @@ On BigQuery, models that use external sources (such as Google Sheets) always reb
 
 tip
 
-To prevent external sources from always being considered stale, configure [`loaded_at_field`](../../reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](../../reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
+To prevent external sources from always being considered stale, configure [`loaded_at_field`](../../reference/resource-configs/freshness.md) or [`loaded_at_query`](../../reference/resource-configs/freshness.md) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
 
 ## Models with custom materializations
 

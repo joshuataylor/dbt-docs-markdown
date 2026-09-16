@@ -2,9 +2,15 @@
 
 **Current schema:** [`v3`](https://schemas.getdbt.com/dbt/sources/v3/index.html)
 
-**Produced by:** [`source freshness`](../commands/source.md)
+(Applies to dbt v2.0 and later)
 
-This file contains information about [sources with freshness checks](../../docs/build/sources.md#checking-source-freshness). Today, dbt uses this file to power its [Source Freshness visualization](../../docs/build/sources.md#source-data-freshness).
+**Produced by:** [`dbt freshness`](../commands/freshness.md) (when sources are included in the run)
+
+This file contains information about [sources with freshness checks](../../docs/build/sources.md#evaluate-source-freshness). dbt uses this file to power its [Source Freshness visualization](../../docs/build/sources.md#source-data-freshness).
+
+(Applies to dbt v2.0 and later)
+
+`sources.json` is a legacy artifact that contains freshness results for sources only. For results that includes both sources and models in one file, use [`freshness.json`](./freshness-json.md). If a `dbt freshness` run checks only models and no sources are included, dbt does not overwrite `sources.json`.
 
 ### Top-level keys
 

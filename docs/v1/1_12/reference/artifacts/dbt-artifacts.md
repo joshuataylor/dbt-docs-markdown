@@ -29,7 +29,10 @@ Most dbt commands (and corresponding RPC methods) produce artifacts:
 - [manifest](./manifest-json.md): produced by commands that read and understand your project
 - [run results](./run-results-json.md): produced by commands that run, compile, or catalog nodes in your DAG
 - [catalog](./catalog-json.md): produced by `docs generate`
-- [sources](./sources-json.md): produced by `source freshness`
+
+(Applies to dbt v1.99 and earlier)
+
+* [sources](./sources-json.md): produced by `dbt source freshness`
 
 When running commands from the [dbt CLI](../../docs/platform/dbt-cli-installation.md), all artifacts are downloaded by default. If you want to change this behavior, refer to [How to skip artifacts from being downloaded](../../docs/platform/configure-dbt-cli.md#how-to-skip-artifacts-from-being-downloaded).
 

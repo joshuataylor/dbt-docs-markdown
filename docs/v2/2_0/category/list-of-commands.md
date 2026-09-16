@@ -38,6 +38,10 @@ The list of commands available in dbt.
 
 [The provides the dbt environment command for environment and connection details. If you're using or , use dbt debug to inspect profile, target, and connection \&mdash; or use dbtf debug if you have both / and platform CLIs and want to inspect .](../reference/commands/dbt-environment.md)
 
+## [freshness](../reference/commands/freshness.md)
+
+[The dbt freshness command evaluates whether sources and models with freshness configured meet your warnafter and errorafter thresholds, reporting warnings and errors accordingly.](../reference/commands/freshness.md)
+
 ## [init](../reference/commands/init.md)
 
 [dbt init helps get you started using dbt!](../reference/commands/init.md)
@@ -92,7 +96,7 @@ The list of commands available in dbt.
 
 ## [source](../reference/commands/source.md)
 
-[The dbt source command provides subcommands that are useful when working with source data. This command provides one subcommand, dbt source freshness.](../reference/commands/source.md)
+[Use the dbt source command to work with source data in your dbt project.](../reference/commands/source.md)
 
 ## [state explain](../reference/commands/state-explain.md)
 
