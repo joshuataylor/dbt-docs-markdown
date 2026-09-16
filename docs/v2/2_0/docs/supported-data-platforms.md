@@ -8,14 +8,15 @@ dbt connects to and runs SQL against your database, warehouse, lake, or query en
 
 dbt v2 is available across adapters (data warehouse connectors). Track status by adapter using the following table:
 
-| Adapter                 | Lifecycle |
-| ----------------------- | --------- |
-| Snowflake               | Preview   |
-| BigQuery                | Preview   |
-| Databricks              | Preview   |
-| Redshift                | Preview   |
-| Apache Spark (CLI only) | Beta      |
-| DuckDB (CLI only)       | Beta      |
+| Adapter                 | Lifecycle           |
+| ----------------------- | ------------------- |
+| Snowflake               | Generally available |
+| BigQuery                | Generally available |
+| Databricks              | Generally available |
+| Redshift                | Generally available |
+| Apache Spark (CLI only) | Beta                |
+| DuckDB (CLI only)       | Generally available |
+| ClickHouse              | Private beta        |
 
 *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 

@@ -4,13 +4,15 @@ dbt Wizard helps teams develop, troubleshoot, harden, and ship trusted dbt proje
 
 Built for governed data development in dbt, dbt Wizard understands your project, routes to the right dbt tools, and validates work with awareness of warehouse operations. Use it to investigate failed runs, debug models, assess impact, make changes, and ship trusted data work in one place.
 
-Most of how dbt Wizard works is the same in the [dbt platform](../platform/wizard-platform.md) and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
+Most of how dbt Wizard works is the same in [dbt platform](../platform/wizard-platform.md), [Wizard Desktop](./wizard-desktop.md), and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
 
 ## Native metadata engine
 
 dbt Wizard ships with a metadata engine — a pre-built, structured index of your entire project that's ready before your first prompt.
 
-Think of it like a map of your whole city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout.
+Think of it like a map of your whole city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout. (No crystal ball
+
+required.)
 
 That index gives dbt Wizard four capabilities that aren't possible from file-reading alone:
 
@@ -21,7 +23,7 @@ That index gives dbt Wizard four capabilities that aren't possible from file-rea
 | Data profiling      | dbt Wizard can profile your data — row counts, column distributions, null rates — and use that context when deciding how to build or refactor a model. It can reason about your data without materializing models or running expensive queries.                                                                              |
 | Validation planning | dbt Wizard uses project metadata to identify affected resources and choose relevant checks. In the CLI, you control the depth of structured validation before commands run.                                                                                                                                                  |
 
-dbt Wizard builds and updates this index from dbt artifacts. In the dbt platform, project state comes from your connected development environment. In the terminal, run `dbt parse`, `dbt compile`, or `dbt build` before a session so dbt Wizard has your latest local project state.
+dbt Wizard builds and updates this index from dbt artifacts. In dbt platform, project state comes from your connected development environment. In the terminal, run `dbt parse`, `dbt compile`, or `dbt build` before a session so dbt Wizard has your latest local project state.
 
 dbt version shown in the status panel
 
@@ -31,7 +33,7 @@ The dbt version dbt Wizard displays comes from your project's manifest (`target/
 
 Validation can combine static checks, dbt commands, development builds, downstream impact analysis, and development-to-production comparisons. The checks that run depend on the surface, available tools, project state, permissions, and the validation depth you approve.
 
-In dbt Wizard CLI, choose light, medium, heavy, or skipped validation. Medium validation is the default:
+In dbt Wizard CLI or [Wizard Desktop](./wizard-desktop.md), choose light, medium, heavy, or skipped validation. Medium validation is the default:
 
 * Light validation focuses on syntax, linting where supported, tests, and code review without materializing the changed models.
 * Medium validation adds development materialization and downstream checks.
@@ -43,14 +45,14 @@ dbt Wizard reports failures and checks it couldn't complete. A passing check doe
 
 dbt Wizard takes action through a defined set of tools — from reading files to running dbt commands — so you can see exactly what it's doing and why.
 
-| Tool            | Purpose                                                      | Where available                                                         |
-| --------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| File read/write | Read files and propose edits as diffs                        | Platform and CLI                                                        |
-| Project queries | Query lineage, tests, metadata, metrics, and run results     | Platform and CLI                                                        |
-| dbt commands    | Run commands like `dbt compile`, `dbt build`, and `dbt test` | Platform and CLI                                                        |
-| Bash            | Execute shell commands in your project directory             | CLI only                                                                |
-| Web search      | Look up dbt docs and troubleshooting information             | Platform and CLI                                                        |
-| MCP             | Access connected MCP servers                                 | CLI (add servers); platform includes built-in docs and platform context |
+| Tool            | Purpose                                                      | Where available                                                                     |
+| --------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| File read/write | Read files and propose edits as diffs                        | Platform, CLI, and Desktop                                                          |
+| Project queries | Query lineage, tests, metadata, metrics, and run results     | Platform, CLI, and Desktop                                                          |
+| dbt commands    | Run commands like `dbt compile`, `dbt build`, and `dbt test` | Platform, CLI, and Desktop                                                          |
+| Bash            | Execute shell commands in your project directory             | CLI and Desktop                                                                     |
+| Web search      | Look up dbt docs and troubleshooting information             | Platform, CLI, and Desktop                                                          |
+| MCP             | Access connected MCP servers                                 | CLI and Desktop (add servers); platform includes built-in docs and platform context |
 
 dbt Wizard never runs destructive commands (such as `dbt build --full-refresh`, `dbt run --full-refresh`, or `git reset --hard`) without approval.
 
@@ -67,9 +69,9 @@ dbt Wizard automatically loads skills from your project and local directories in
 
 Refer to the [Skills](./wizard-skills.md) page for more details.
 
-## In the dbt platform
+## In dbt platform
 
-Use dbt Wizard in the [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE.
+Use dbt Wizard in [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE.
 
 ![How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.](/img/docs/dbt-platform/wizard-architecture-platform.png?v=2 "How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.")How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.
 
@@ -99,13 +101,13 @@ Start a new session with **Start new dbt Wizard chat** in the panel. Chat histor
 
 For Studio-specific behavior and availability, refer to [dbt Wizard in Studio IDE](./wizard-ide.md).
 
-## In the terminal (CLI)
+## Locally (CLI and Desktop)
 
-Use the [dbt Wizard CLI](./wizard-cli.md) for local development.
+Use the [dbt Wizard CLI](./wizard-cli.md) or [Wizard Desktop](./wizard-desktop.md) for local development. Everything in this section applies to both, since the app runs the same engine as the CLI.
 
 ### Connections and authentication (MCP)
 
-dbt Wizard can connect to MCP servers from the CLI, including the [dbt MCP server](./about-mcp.md), for access to platform APIs, Semantic Layer metadata, and cross-project context. For the complete setup (like supported server types, configuration keys, authentication, and examples), refer to [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md).
+dbt Wizard can connect to MCP servers from the CLI, including the [dbt MCP server](./about-mcp.md), for access to platform APIs, Semantic Layer metadata, and cross-project context. For the complete setup (like supported server types, configuration keys, authentication, and examples), refer to [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md). MCP connector support for Wizard Desktop is coming soon.
 
 To connect to an MCP server, run the following commands, replacing `MCP_NAME` with a name of your choice and `YOUR_MCP_URL` with the URL of the MCP server:
 
@@ -143,8 +145,8 @@ How deferral is handled depends on the mode set up in `wizard_config.toml` for y
 | `deferral.mode` value | Behavior                                                                                                                                                                                                                                                                                            |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `"wizard"`            | dbt Wizard handles deferral for you. You tell dbt Wizard which target from your `profiles.yml` to defer to (it tries to detect one automatically when you first set up the project). dbt Wizard then compiles that target and reuses its models for any upstream models you haven't built yourself. |
-| `"fusion_cloud"`      | The dbt platform handles deferral against your connected environment, so dbt Wizard doesn't manage local state.                                                                                                                                                                                     |
-| `"cloud_cli"`         | The dbt platform CLI handles credentials and deferral through the dbt platform, so dbt Wizard doesn't manage local state or inject deferral flags.                                                                                                                                                  |
+| `"fusion_cloud"`      | dbt platform handles deferral against your connected environment, so dbt Wizard doesn't manage local state.                                                                                                                                                                                         |
+| `"cloud_cli"`         | The dbt platform CLI handles credentials and deferral through dbt platform, so dbt Wizard doesn't manage local state or inject deferral flags.                                                                                                                                                      |
 | `"dbt_state"`         | dbt State or run cache handles deferral, so dbt Wizard skips its own production compile.                                                                                                                                                                                                            |
 | `"manual"`            | You maintain the deferral manifest path manually.                                                                                                                                                                                                                                                   |
 | `"disabled"`          | Deferral is disabled for the project.                                                                                                                                                                                                                                                               |
@@ -192,7 +194,7 @@ wizard --help
 
 ### Sessions
 
-In the CLI, a session is a saved conversation and task history from a previous run on your machine. Sessions help you return to earlier work, continue a multi-step task, or review what the agent did in a past interaction.
+Locally, a session is a saved conversation and task history from a previous run on your machine. Sessions help you return to earlier work, continue a multi-step task, or review what the agent did in a past interaction.
 
 Within a session, you can:
 
@@ -207,12 +209,12 @@ wizard resume        # choose from a list of saved sessions
 wizard resume --last # resume the most recent session
 ```
 
-Each CLI session is saved locally. This is separate from platform conversations, which are stored in your dbt platform account.
+Local sessions are saved on your machine, in the CLI and in Wizard Desktop alike. This is separate from platform conversations, which are stored in your dbt platform account.
 
 ## Related docs
 
 * [dbt Wizard overview](../platform/wizard-overview.md)
-* [dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [dbt Wizard in dbt platform](../platform/wizard-platform.md)
 * [Use dbt Wizard locally](./wizard-quickstart.md)
 * [dbt Wizard command reference](./wizard-cli-reference.md)
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows

@@ -1,4 +1,4 @@
-# Freshness JSON file [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Freshness JSON file
 
 Available in v2
 

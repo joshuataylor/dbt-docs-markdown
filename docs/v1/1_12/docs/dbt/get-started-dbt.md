@@ -2,17 +2,17 @@
 
 Once you've caught up on everything [dbt has to offer](../introduction.md), start with the path that matches how you want to use dbt.
 
-[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md)
 
-#### Install dbt
+#### [Install dbt](../local/install-dbt.md)
 
-Install dbt from your command line.
+[Install dbt from your command line.](../local/install-dbt.md)
 
-[![](/img/icons/dbt-bit.svg)](../about-dbt-extension.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+[![](/img/icons/dbt-bit.svg)](../about-dbt-extension.md)
 
-#### Install the dbt VS Code extension
+#### [Install the dbt VS Code extension](../about-dbt-extension.md)
 
-Get dbt's performance plus autocomplete, inline errors, and lineage in your editor.
+[Get dbt's performance plus autocomplete, inline errors, and lineage in your editor.](../about-dbt-extension.md)
 
 [![](/img/icons/dbt-bit.svg)](https://www.getdbt.com/signup)
 

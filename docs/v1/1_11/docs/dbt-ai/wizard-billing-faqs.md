@@ -246,5 +246,5 @@ Yes. Questions asked in [Explore mode](./wizard-ide.md#agent-modes) — includin
 * [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) to turn AI features on or off
 * [How dbt Wizard works](./wizard-how-it-works.md)
 * [dbt AI usage](../platform/billing/dbt-ai-usage.md) for how dbt AI usage is metered and limited
-* [BYOK for the dbt platform](../platform/wizard-byok-platform.md) or [BYOK for the CLI](./wizard-byok.md)
+* [BYOK for dbt platform](../platform/wizard-byok-platform.md) or [BYOK for the CLI](./wizard-byok.md)
 * [Billing](../platform/billing.md) for general dbt platform billing

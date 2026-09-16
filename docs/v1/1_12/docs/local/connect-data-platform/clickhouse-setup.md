@@ -1,6 +1,12 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect ClickHouse to dbt v1
 
-Local development
+Local development[Fusion compatible](./clickhouse-setup.md?version=2 "Fusion compatible")
+
+A dbt v2 connection is also available.
+
+Community plugin
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
 
@@ -10,7 +16,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 * **PyPI package**: `dbt-clickhouse` [![](https://badge.fury.io/py/dbt-clickhouse.svg)](https://badge.fury.io/py/dbt-clickhouse)
 * **Slack channel**: [#db-clickhouse](https://getdbt.slack.com/archives/C01DRQ178LQ)
 * **Supported dbt version**: v0.19.0 and newer
-* **dbt support**: Not Supported
+* **dbt support**: Supported
 * **Minimum data platform version**: n/a
 
 ## Installing dbt-clickhouse
@@ -21,7 +27,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring dbt-clickhouse
 
-For Clickhouse-specific configuration, please refer to [Clickhouse configs.](../../../reference/resource-configs/clickhouse-configs.md)
+For ClickHouse-specific configuration, please refer to [ClickHouse configs.](../../../reference/resource-configs/clickhouse-configs.md)
 
 ## Connecting to ClickHouse
 
@@ -42,10 +48,10 @@ clickhouse-service:
       port: [ 8123 ]  # Defaults to 8123, 8443, 9000, 9440 depending on the secure and driver settings 
       user: [ default ]  # User for all database operations
       password: [ <empty string> ]  # Password for the user
-      secure: [ False ]  # Use TLS (native protocol) or HTTPS (http protocol)
+      secure: [ False ]  # Use TLS (native protocol) or HTTPS (http protocol). Must be set to true for ClickHouse Cloud.
 ```
 
-For a complete list of configuration options, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
+For a complete list of configuration options, refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
 ### Create a dbt project
 
@@ -65,39 +71,41 @@ profile: 'clickhouse-service'
 
 Execute `dbt debug` with the CLI tool to confirm whether dbt is able to connect to ClickHouse. Confirm the response includes `Connection test: [OK connection ok]`, indicating a successful connection.
 
+(Applies to dbt v1.99 and earlier)
+
 ## Supported features
 
 ### dbt features
 
 | Type                  | Supported? | Details                    |
 | --------------------- | ---------- | -------------------------- |
-| Contracts             | YES        |                            |
-| Docs generate         | YES        |                            |
-| Most dbt-utils macros | YES        | (now included in dbt-core) |
-| Seeds                 | YES        |                            |
-| Sources               | YES        |                            |
-| Snapshots             | YES        |                            |
-| Tests                 | YES        |                            |
+| Contracts             | ✅         |                            |
+| Docs generate         | ✅         |                            |
+| Most dbt-utils macros | ✅         | (now included in dbt-core) |
+| Seeds                 | ✅         |                            |
+| Sources               | ✅         |                            |
+| Snapshots             | ✅         |                            |
+| Tests                 | ✅         |                            |
 
 ### Materializations
 
-| Type                                    | Supported?        | Details                                                                                                                                                                                                                                         |
-| --------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Table                                   | YES               | Creates a [table](https://clickhouse.com/docs/en/operations/system-tables/tables/). See below for the list of supported engines.                                                                                                                |
-| View                                    | YES               | Creates a [view](https://clickhouse.com/docs/en/sql-reference/table-functions/view/).                                                                                                                                                           |
-| Incremental                             | YES               | Creates a table if it doesn't exist, and then writes only updates to it.                                                                                                                                                                        |
-| Microbatch incremental                  | YES               |                                                                                                                                                                                                                                                 |
-| Ephemeral materialization               | YES               | Creates a ephemeral/CTE materialization. This model is internal to dbt and does not create any database objects.                                                                                                                                |
-| Materialized View                       | YES, Experimental | Creates a [materialized view](https://clickhouse.com/docs/en/materialized-view).                                                                                                                                                                |
-| Distributed table materialization       | YES, Experimental | Creates a [distributed table](https://clickhouse.com/docs/en/engines/table-engines/special/distributed).                                                                                                                                        |
-| Distributed incremental materialization | YES, Experimental | Incremental model based on the same idea as distributed table. Note that not all strategies are supported, visit [this](https://github.com/ClickHouse/dbt-clickhouse?tab=readme-ov-file#distributed-incremental-materialization) for more info. |
-| Dictionary materialization              | YES, Experimental | Creates a [dictionary](https://clickhouse.com/docs/en/engines/table-engines/special/dictionary).                                                                                                                                                |
+| Type                                    | Supported?       | Details                                                                                                                                                                                                                                                                                                |
+| --------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Table                                   | ✅               | Creates a [table](https://clickhouse.com/docs/en/operations/system-tables/tables/).                                                                                                                                                                                                                    |
+| View                                    | ✅               | Creates a [view](https://clickhouse.com/docs/en/sql-reference/table-functions/view/).                                                                                                                                                                                                                  |
+| Incremental                             | ✅               | Creates a table if it doesn't exist, and then writes only updates to it.                                                                                                                                                                                                                               |
+| Microbatch incremental                  | ✅               |                                                                                                                                                                                                                                                                                                        |
+| Ephemeral materialization               | ✅               | Creates a ephemeral/CTE materialization. This model is internal to dbt and does not create any database objects.                                                                                                                                                                                       |
+| Materialized View                       | ✅, Experimental | Creates a [materialized view](https://clickhouse.com/docs/en/materialized-view).                                                                                                                                                                                                                       |
+| Distributed table materialization       | ✅, Experimental | Creates a [distributed table](https://clickhouse.com/docs/en/engines/table-engines/special/distributed).                                                                                                                                                                                               |
+| Distributed incremental materialization | ✅, Experimental | Incremental model based on the same idea as distributed table. Note that not all strategies are supported. For more information, refer to the [distributed incremental materialization docs](https://github.com/ClickHouse/dbt-clickhouse?tab=readme-ov-file#distributed-incremental-materialization). |
+| Dictionary materialization              | ✅, Experimental | Creates a [dictionary](https://clickhouse.com/docs/en/engines/table-engines/special/dictionary).                                                                                                                                                                                                       |
 
 **Note**: Community-developed features are labeled as experimental. Despite this designation, many of these features, like materialized views, are widely adopted and successfully used in production environments.
 
 ## Documentation
 
-See the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt) for more details on using the `dbt-clickhouse` adapter to manage your data model.
+Refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt) for more details on using the `dbt-clickhouse` adapter to manage your data model.
 
 ## Contributing
 

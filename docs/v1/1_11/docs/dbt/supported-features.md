@@ -6,10 +6,10 @@ Learn about the features supported by dbt v2, including requirements and limitat
 
 important
 
-dbt v2 is currently available for installation in:
+dbt v2 is available for installation in:
 
-* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md)
 * [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
@@ -22,7 +22,7 @@ To use v2 in your project you must:
 
 * Use a supported adapter and authentication method:
 
-   BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   BigQuery
 
   * Service Account / User Token
   * Native OAuth
@@ -30,12 +30,12 @@ To use v2 in your project you must:
     * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks
 
   * Service Account / User Token
   * Native OAuth
 
-   Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Redshift
 
   * Username / Password
   * IAM profile
@@ -47,6 +47,10 @@ To use v2 in your project you must:
   * External OAuth
   * Key pair using a modern PKCS#8 method
   * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
 
    Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -61,7 +65,7 @@ To use v2 in your project you must:
     * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
       * Supports authentication using single sign-on, service accounts, or user tokens
 
-   DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   DuckDB (CLI only)
 
   DuckDB does not require authentication — it runs locally on your machine.
 
@@ -141,7 +145,7 @@ The message discrepancy is temporary while we implement and roll out `dbt-autofi
 Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
-dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
+dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
 ## More information about dbt v2

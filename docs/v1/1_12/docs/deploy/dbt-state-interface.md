@@ -1,4 +1,4 @@
-# Monitor dbt State activity [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Monitor dbt State activity
 
 Login required | Usage-based
 

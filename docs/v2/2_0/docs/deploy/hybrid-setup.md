@@ -19,7 +19,7 @@ Follow these steps to set up a dbt Hybrid project and upload dbt v1 artifacts in
 * [Make dbt models public](#make-dbt-models-public) (optional)
 * [Create hybrid project](#create-hybrid-project)
 * [Generate service token and artifact upload values](#generate-service-token-and-artifact-upload-values)
-* [Configure dbt v1 project and upload artifacts](#configure-dbt-core-project-and-upload-artifacts)
+* [Configure dbt v1 project and upload artifacts](#configure-dbt-project-and-upload-artifacts)
 * [Review artifacts in dbt](#review-artifacts-in-dbt-cloud)
 
 Make sure to enable the hybrid projects toggle in dbt’s **Account settings** page.

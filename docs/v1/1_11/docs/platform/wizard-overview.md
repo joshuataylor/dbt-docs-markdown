@@ -23,17 +23,18 @@ Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for
 
 ## Use dbt Wizard
 
-dbt Wizard is for anyone doing dbt development. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account. dbt Wizard is data warehouse agnostic and works on any [dbt version](../introduction.md#dbt-versions).
+dbt Wizard is for anyone developing with or exploring dbt. You can use it in dbt platform, locally in your terminal or IDE, or through the [Wizard Desktop](../dbt-ai/wizard-desktop.md) native app, where rich data visualizations, data diffs, and lineage render alongside the chat. dbt Wizard works with any data warehouse and [dbt version](../introduction.md#dbt-versions).
 
-It's also for people who don't build data at all. In the dbt platform, [Explore mode](../dbt-ai/wizard-ide.md#agent-modes) lets [read-only users](./wizard-read-only-users.md) ask questions of production data in plain language, with no developer license and nothing to set up.
+dbt Wizard is also for people who don’t develop data models. In dbt platform, [Explore mode](../dbt-ai/wizard-ide.md#agent-modes) lets [read-only users](./wizard-read-only-users.md) ask questions about production data in plain language with no developer license or setup.
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
-| Where                                                                                     | Status         | AI access options                         |
-| ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
-| [dbt platform: Studio IDE](../dbt-ai/wizard-ide.md)             | Public preview | dbt managed or BYOK                       |
-| [dbt platform: dbt Wizard home tab](./wizard-home.md) | Public preview | dbt managed or BYOK                       |
-| [Locally: Terminal (CLI)](../dbt-ai/wizard-cli.md)              | Public beta    | dbt managed, BYOK, or OpenAI subscription |
+| Where                                                                                 | Status         | AI access options                         |
+| ------------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
+| [dbt platform: Studio IDE](../dbt-ai/wizard-ide.md)         | Public preview | dbt managed or BYOK                       |
+| [dbt platform: Wizard home tab](./wizard-home.md) | Public preview | dbt managed or BYOK                       |
+| [Locally: Wizard terminal (CLI)](../dbt-ai/wizard-cli.md)   | Public beta    | dbt managed, BYOK, or OpenAI subscription |
+| [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)      | Private beta   | dbt managed or BYOK                       |
 
 ## Supported providers
 
@@ -71,7 +72,7 @@ For pricing and how billing works, refer to [Models and pricing](../dbt-ai/prici
 
 ## Get started
 
-You can get started with Wizard wherever you work, whether it's the terminal or the dbt platform:
+You can get started with Wizard wherever you work, whether it's the terminal or dbt platform:
 
 * [Wizard in the CLI](#wizard-in-the-cli)
 * [Wizard in dbt platform](#wizard-in-dbt-platform)
@@ -82,7 +83,7 @@ You can get started with Wizard wherever you work, whether it's the terminal or 
 
 ### Wizard in the CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-A terminal-based agent for governed data development in dbt, whether your team uses the dbt platform or self-hosts. Bring your own key to experience the full agentic analytics engineering loop.
+A terminal-based agent for governed data development in dbt, whether your team uses dbt platform or self-hosts. Bring your own key to experience the full agentic analytics engineering loop.
 
 (Applies to dbt v1.99 and earlier)
 
@@ -120,6 +121,16 @@ New to the terminal?
 
 If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for for some helpful tips to help you get started!
 
+### Wizard Desktop [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Wizard Desktop is Wizard as a native app. Wizard Desktop runs the same engine as the dbt Wizard CLI, but you get the full view: charts, tables, diffs, and lineage render right in the app, so you can see the work, steer it, and keep several chats moving at once, each on its own branch.
+
+Available in Private beta
+
+Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
+
+To learn more, refer to [Get started with Wizard Desktop](../dbt-ai/wizard-desktop.md).
+
 ### Wizard in dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Leverage agentic capabilities in the home app or [Studio IDE](../dbt-ai/wizard-ide.md) for governed data development in dbt.
@@ -128,7 +139,7 @@ AI features are on by default, so most accounts can jump straight in. If your ac
 
 To get started:
 
-1. Sign in to the [dbt platform](https://www.getdbt.com/signup), or create a free account if you don't have one yet.
+1. Sign in to [dbt platform](https://www.getdbt.com/signup), or create a free account if you don't have one yet.
 
 2. Open dbt Wizard from the **home tab** in the left sidebar, or from [Studio IDE](../dbt-ai/wizard-ide.md) to work alongside the file editor.
 
@@ -146,7 +157,7 @@ Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompt
 
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md) — generate docs, tests, semantic models, SQL, and delegate end-to-end model work
 * [Invite read-only users to dbt Wizard](./wizard-read-only-users.md) — let business users ask questions of production data in Explore mode, without development access
-* [Use skills in the dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
+* [Use skills in dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
 * [Use MCP servers with dbt Wizard CLI](../dbt-ai/wizard-mcp.md) — connect the dbt Wizard CLI to more tools and context
 * [Migrate to dbt Wizard](../dbt-ai/wizard-migrate.md) — switch from Claude Code, Cursor, or another AI agent to dbt Wizard
 * [Privacy and data FAQs](../dbt-ai/dbt-ai-faqs.md#privacy-and-data) — understand how dbt Wizard handles privacy and data

@@ -10,12 +10,13 @@ dbt connects to your data platform to run SQL transformations against your data.
 
 dbt v2 includes built-in support for:
 
-* [Snowflake](./snowflake-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [Databricks](./databricks-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [Amazon Redshift](./redshift-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [Google BigQuery](./bigquery-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [DuckDB](./duckdb-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Snowflake](./snowflake-setup.md)
+* [Databricks](./databricks-setup.md)
+* [Amazon Redshift](./redshift-setup.md)
+* [Google BigQuery](./bigquery-setup.md)
+* [DuckDB](./duckdb-setup.md)
 * [Apache Spark](./spark-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [ClickHouse](./clickhouse-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 *Adapter lifecycle can differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 

@@ -1,4 +1,4 @@
-# Use skills with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Use skills with dbt Wizard in dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Usage-based
 

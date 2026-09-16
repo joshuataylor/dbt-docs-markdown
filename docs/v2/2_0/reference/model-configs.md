@@ -240,7 +240,7 @@ models:
 
 (Applies to dbt v2.0 and later)
 
-### Configuring model freshness [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Configuring model freshness
 
 You can use the `freshness` config in the following ways:
 

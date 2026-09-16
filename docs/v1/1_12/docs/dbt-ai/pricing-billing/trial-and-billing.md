@@ -31,7 +31,7 @@ Every new account gets free dbt Wizard usage credits to start. What you get, and
 
 Running dbt Wizard from the CLI against a self-hosted dbt project?
 
-Run `dbt login` (or `wizard login`) to get the same 30-day trial. The command creates your free dbt account and provisions the trial together, and that account is where you manage usage and spend limits.
+The trial is opt-in here too — running `dbt login` (or `wizard login`) is how you opt in. The command creates your free dbt account and starts the same 30-day trial, and that account is where you manage usage and spend limits.
 
 Everything on this page describes dbt managed billing — usage that dbt Labs bills through your dbt account. If you bring your own key, your AI provider bills you directly and none of this applies. Refer to [BYOK for dbt platform](../../platform/wizard-byok-platform.md) or [BYOK for the CLI](../wizard-byok.md) instead.
 

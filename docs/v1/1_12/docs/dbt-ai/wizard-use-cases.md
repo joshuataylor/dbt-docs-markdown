@@ -1,6 +1,8 @@
 # dbt Wizard use cases
 
-Common use cases for dbt Wizard, with example prompts and what to expect.
+Common use cases for dbt Wizard, with example prompts and what to expect. No spellbook
+
+needed.
 
 dbt Wizard works best when you give it a clear scope (which dbt model or area), an intent (what you want to change or learn), and any constraints (naming conventions, materialization, tests). The following examples follow that pattern.
 
@@ -14,7 +16,7 @@ dbt Wizard works best when you give it a clear scope (which dbt model or area), 
 * [Validate before shipping](#validate-before-shipping)
 * [Add a semantic model](#add-a-semantic-model)
 
-This page assumes you're using dbt Wizard in the terminal with an active session or in dbt platform. For examples of using dbt Wizard in the Studio IDE, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](./wizard-cli-reference.md).
+These prompts work the same across surfaces — the [CLI](./wizard-quickstart.md), the [Wizard Desktop](./wizard-desktop.md), and dbt Wizard in [dbt platform](../platform/wizard-platform.md). For examples specific to the Studio IDE, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](./wizard-cli-reference.md).
 
 Best practices for using dbt Wizard
 
@@ -248,5 +250,5 @@ For version-specific examples and validation steps, refer to [Build Semantic Lay
 * [Build Semantic Layer definitions](../../best-practices/how-to-use-wizard/wizard-7-semantic-layer.md)
 * [dbt Wizard overview](./wizard-cli.md)
 * [Configure BYOK](./wizard-byok.md)
-* [dbt Wizard in Studio IDE](./wizard-ide.md): same agent, in the dbt platform
+* [dbt Wizard in Studio IDE](./wizard-ide.md): same agent, in dbt platform
 * [Prompt cookbook](../../guides/prompt-cookbook.md): more prompt patterns for the dbt Wizard in Studio IDE (many apply to the CLI too)

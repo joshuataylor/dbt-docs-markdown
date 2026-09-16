@@ -1,4 +1,4 @@
-# Setting up dbt State for non-interactive environments [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Setting up dbt State for non-interactive environments
 
 Login required | Usage-based
 

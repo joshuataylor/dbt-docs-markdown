@@ -1,4 +1,4 @@
-# Install the dbt VS Code extension [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Install the dbt VS Code extension
 
 Local development
 
@@ -64,13 +64,13 @@ Choose your preferred installation method:
  Pip installation for Windows, macOS, and Linux
 
 ```shell
-python -m pip install --pre dbt
+python -m pip install dbt
 ```
 
 To upgrade to a newer version:
 
 ```shell
-python -m pip install --upgrade --pre dbt
+python -m pip install --upgrade dbt
 ```
 
  Standalone installation for macOS and Linux

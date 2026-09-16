@@ -88,7 +88,7 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 
    * **Run timeout** — Cancel the CI job if the run time exceeds the timeout value. You can use this option to help ensure that a CI check doesn't consume too much of your warehouse resources. If you enable the **dbt compare** option, the timeout value defaults to `3600` (one hour) to prevent long-running comparisons.
 
-   * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](./dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
+   * **Enable dbt State** — [dbt State](./dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
 
 5. (optional) Options in the **Advanced settings** section:
 

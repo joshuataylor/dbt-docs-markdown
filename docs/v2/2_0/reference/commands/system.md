@@ -30,10 +30,10 @@ dbt system update [flags]
 
 ### Options
 
-| Flag                | Description                                                                                                                                  |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--version VERSION` | Update to a specific version (for example, `2.0.0-preview.190`) or a named channel (`canary`, `dev`). Defaults to the latest stable release. |
-| `--package PACKAGE` | Which package to update. Accepts `dbt` or `all`. Defaults to `dbt`.                                                                          |
+| Flag                | Description                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--version VERSION` | Update to a specific version (for example, `2.0.1`) or a named channel (`canary`, `dev`). Defaults to the latest stable release. |
+| `--package PACKAGE` | Which package to update. Accepts `dbt` or `all`. Defaults to `dbt`.                                                              |
 
 ### Version channels
 
@@ -54,7 +54,7 @@ dbt system update
 Update to a specific version:
 
 ```shell
-dbt system update --version 2.0.0-preview.188
+dbt system update --version 2.0.1
 ```
 
 Update to the canary channel:

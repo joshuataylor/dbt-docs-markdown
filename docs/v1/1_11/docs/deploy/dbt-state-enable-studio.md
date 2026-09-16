@@ -1,4 +1,4 @@
-# Enabling dbt State in Studio [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Enabling dbt State in Studio
 
 Login required | Usage-based
 

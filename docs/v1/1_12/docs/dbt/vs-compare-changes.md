@@ -1,4 +1,4 @@
-# Compare changes during development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Compare changes during development
 
 Available in v2 | Local development | Login required
 

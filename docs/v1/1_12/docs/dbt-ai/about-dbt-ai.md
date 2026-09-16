@@ -14,7 +14,7 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 #### [About dbt Wizard](../platform/wizard-overview.md)
 
-[Purpose-built AI for governed data development in the dbt platform and CLI.](../platform/wizard-overview.md)
+[Purpose-built AI for governed data development in dbt platform, Desktop, and CLI.](../platform/wizard-overview.md)
 
 [![](/img/icons/wizard.svg)](./wizard-quickstart.md)
 
@@ -27,6 +27,12 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 #### [dbt Wizard in dbt platform](../platform/wizard-platform.md)
 
 [AI is on by default in your dbt platform account. Use dbt Wizard for governed dbt data development and dbt Copilot for inline AI assistance.](../platform/wizard-platform.md)
+
+[![](/img/icons/wizard.svg)](./wizard-desktop.md)
+
+#### [Wizard Desktop](./wizard-desktop.md)
+
+[A native app for data authors and analysts. View rich data visualizations, data diffs, lineage, and more to get to your results faster than ever before.](./wizard-desktop.md)
 
 [![](/img/icons/wizard.svg)](./wizard-migrate.md)
 

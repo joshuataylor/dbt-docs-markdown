@@ -1,4 +1,4 @@
-# Sign in [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Sign in
 
 Local development
 

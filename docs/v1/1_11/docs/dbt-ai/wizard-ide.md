@@ -240,7 +240,7 @@ With dbt managed inference, you can switch between the supported managed models 
 
 ## Related docs
 
-* [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [About dbt Wizard in dbt platform](../platform/wizard-platform.md)
 * [dbt v2 readiness checklist](../dbt/dbt-readiness.md)
 * [Develop with dbt Wizard](../platform/studio-ide/develop-studio-ai.md)
 * [Prompt cookbook](../../guides/prompt-cookbook.md)

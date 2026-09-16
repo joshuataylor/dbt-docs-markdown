@@ -177,7 +177,7 @@ If the Studio IDE freezes with two or more models open and the **Lineage** tab a
 
  Can I be a contributor to dbt
 
-As a proprietary product, dbt's source code isn't available for community contributions. If you want to build something in the dbt ecosystem, we encourage you to review [this article](../../../community/contributing/contributing-coding.md) about contributing to a dbt package, a plugin, dbt-core, or this documentation site. Participation in open-source is a great way to level yourself up as a developer, and give back to the community.
+As a proprietary product, dbt's source code isn't available for community contributions. If you want to build something in the dbt ecosystem, we encourage you to review [this article](../../../community/contributing/contributing-coding.md) about contributing to a dbt package, a plugin, the `dbt` repo, or this documentation site. Participation in open-source is a great way to level yourself up as a developer, and give back to the community.
 
  What is the difference between developing on the Studio IDE, the dbt platform CLI, and dbt CLI?
 

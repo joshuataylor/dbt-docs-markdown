@@ -10,7 +10,7 @@ dbt Wizard automatically imports Claude Code instructions, skills, and settings 
 
 You'll need:
 
-* [dbt Wizard CLI](./wizard-cli.md) installed or dbt Wizard enabled in the [dbt platform](../platform/wizard-platform.md)
+* [dbt Wizard CLI](./wizard-cli.md) installed or dbt Wizard enabled in [dbt platform](../platform/wizard-platform.md)
 * [BYOK](./wizard-byok.md) configured for a supported CLI provider (OpenAI, Anthropic, AWS Bedrock, or Snowflake Cortex in preview)
 * Any existing Claude Code files you want to migrate, such as `CLAUDE.md`, `.claude/CLAUDE.md`, or `.claude/skills/`
 

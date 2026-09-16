@@ -12,10 +12,10 @@ If you were using state-aware orchestration prior to June 1, 2026, you can conti
 
 important
 
-dbt v2 is currently available for installation in:
+dbt v2 is available for installation in:
 
-* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md)
 * [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).

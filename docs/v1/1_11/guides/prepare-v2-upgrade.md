@@ -26,7 +26,7 @@ To follow the steps in this guide, you must meet the following prerequisites:
 
 * Your project is using a [supported adapter](../docs/platform/connect-data-platform/about-connections.md?version=2.0)
 
-   BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   BigQuery
 
   * Service Account / User Token
   * Native OAuth
@@ -34,12 +34,12 @@ To follow the steps in this guide, you must meet the following prerequisites:
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks
 
   * Service Account / User Token
   * Native OAuth
 
-   Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Redshift
 
   * Username / Password
   * IAM profile
@@ -51,6 +51,10 @@ To follow the steps in this guide, you must meet the following prerequisites:
   * External OAuth
   * Key pair using a modern PKCS#8 method
   * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
 
 Upgrading your first project
 
@@ -316,7 +320,7 @@ The message discrepancy is temporary while we implement and roll out `dbt-autofi
 Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
-dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
+dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
 ### Step 1: Review your current packages

@@ -4,15 +4,15 @@ Local development(Applies to dbt v2.0 and later)
 
 Get dbt running on your machine in a few minutes. Installing dbt gives you dbt v2 by default: the current, free-to-use experience for v2. Choose your preferred installation method:
 
-## Install dbt [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Install dbt
 
 ### pip
 
 ```shell
-python -m pip install --pre dbt
+python -m pip install dbt
 ```
 
-To upgrade later, run `python -m pip install --upgrade --pre dbt`.
+To upgrade later, run `python -m pip install --upgrade dbt`.
 
 ### Homebrew (macOS)
 

@@ -2,7 +2,7 @@
 
 dbt platform | Usage-based
 
-The dbt Wizard home tab is an agent-native development experience in the dbt platform.
+The dbt Wizard home tab is an agent-native development experience in dbt platform.
 
 Use the dbt Wizard home tab to investigate and generate changes with natural language prompts, review inline diffs and DAG previews, and validate changes without leaving the agent.
 
@@ -119,7 +119,7 @@ With dbt managed inference, you can switch between the supported managed models 
 
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
 * [Invite read-only users to dbt Wizard](./wizard-read-only-users.md)
-* [About dbt Wizard in the dbt platform](./wizard-platform.md)
+* [About dbt Wizard in dbt platform](./wizard-platform.md)
 * [How dbt Wizard works](../dbt-ai/wizard-how-it-works.md)
 * [Prompt cookbook](../../guides/prompt-cookbook.md)
 * [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md)

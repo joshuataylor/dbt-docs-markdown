@@ -1,4 +1,4 @@
-# About dbt lint command [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About dbt lint command
 
 Available in v2
 
@@ -192,7 +192,7 @@ Because [linting in the Studio IDE](../../docs/platform/studio-ide/lint-format.m
 
 If you need SQLFluff behavior, you can either lint in the Studio IDE, which continues to run SQLFluff, or run SQLFluff locally using the standalone dbt v1 engine templater. Refer to [dbt v2 limitations](../../docs/dbt/supported-features.md#limitations) for more information.
 
-## Beta limitations
+## Limitations
 
 Keep these limitations in mind:
 

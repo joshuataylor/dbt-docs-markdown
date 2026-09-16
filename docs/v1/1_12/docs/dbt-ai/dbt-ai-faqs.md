@@ -10,7 +10,7 @@ dbt Labs is committed to protecting your privacy and data. This page provides in
 
  What is dbt Wizard?
 
-dbt Wizard is the latest and recommended agentic experience for governed data development in dbt, available in both the dbt platform and the terminal CLI. It helps teams ship trusted dbt changes faster and with less risk by understanding project context, routing to the right dbt tools, validating changes, and supporting review before changes are persisted.
+dbt Wizard is the latest and recommended agentic experience for governed data development in dbt. Wizard is available in the dbt platform, the terminal CLI, and as a [Desktop app](./wizard-desktop.md). It helps teams ship trusted dbt changes faster and with less risk by understanding project context, routing to the right dbt tools, validating changes, and supporting review before changes are persisted.
 
 Use dbt Wizard to investigate lineage and downstream impact, generate or refactor SQL from natural-language prompts, create [documentation](../build/documentation.md), [data tests](../build/data-tests.md), [metrics](../build/metrics-overview.md), and [semantic models](../build/semantic-models.md), and validate changes with warehouse awareness.
 
@@ -18,12 +18,15 @@ In the dbt platform, dbt Wizard is available in the [Studio IDE](../platform/stu
 
 In the CLI, you can use dbt Wizard from your terminal for local development workflows.
 
+In [Wizard Desktop](./wizard-desktop.md), you get dbt Wizard as a native app. View rich data visualizations, data diffs, and lineage to understand your data and your changes, and keep several conversations going at once, each on its own branch, so you can work on more than one thing at a time.
+
  Where can I find dbt Wizard?
 
-dbt Wizard is available in the dbt platform and as a terminal CLI.
+dbt Wizard is available in the dbt platform, as a terminal CLI, and as Wizard Desktop.
 
 * In the platform, you can use dbt Wizard in the [Studio IDE](./wizard-ide.md) for governed data development in dbt.
 * In the CLI, use the [dbt Wizard CLI](./wizard-cli.md) for local development and automation.
+* In [Wizard Desktop](./wizard-desktop.md), use a native app with rich data visualizations, data diffs, lineage, and multiple conversations running at once.
 
 To use dbt Wizard in the platform, you need any dbt [platform account](https://www.getdbt.com/contact).
 

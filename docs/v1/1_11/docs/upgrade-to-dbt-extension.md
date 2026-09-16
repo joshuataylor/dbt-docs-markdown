@@ -1,4 +1,4 @@
-# Upgrade to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Upgrade to dbt v2
 
 Local development
 

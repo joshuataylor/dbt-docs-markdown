@@ -1,4 +1,4 @@
-# Example usage for dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Example usage for dbt State
 
 Login required | Usage-based
 

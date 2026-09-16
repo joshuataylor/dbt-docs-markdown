@@ -4,7 +4,7 @@
 
 Anchors are a [YAML feature](https://yaml.org/spec/1.2.2/#692-node-anchors) that let you reuse configuration blocks inside a single YAML file. In dbt v1.10, the `anchors:` key was introduced to enclose configuration fragments that aren't valid on their own or that only exist as template data. Using the `anchors:` key ensures these fragments won't be rejected during file validation.
 
-In dbt v1.10 and higher, invalid anchors trigger a warning. In dbt v2, these invalid anchors will result in errors when dbt v2 leaves beta.
+In dbt v1.10 and higher, invalid anchors trigger a warning. In dbt v2, these invalid anchors result in errors.
 
 note
 

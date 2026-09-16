@@ -25,7 +25,7 @@ Before upgrading your development environment, confirm:
 
 * Your project must be using a supported adapter and auth method.
 
-   BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   BigQuery
 
   * Service Account / User Token
   * Native OAuth
@@ -33,12 +33,12 @@ Before upgrading your development environment, confirm:
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks
 
   * Service Account / User Token
   * Native OAuth
 
-   Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Redshift
 
   * Username / Password
   * IAM profile
@@ -50,6 +50,10 @@ Before upgrading your development environment, confirm:
   * External OAuth
   * Key pair using a modern PKCS#8 method
   * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
 
 * You have a developer license in dbt platform
 
@@ -378,9 +382,9 @@ The dbt v2 readiness panel shows each project's eligibility status and blockers 
 
 If you have access to dbt Wizard, use the [dbt Wizard's dbt v2 migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
-### Step 5: Enable dbt State (optional but recommended) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Step 5: Enable dbt State (optional but recommended)
 
-[dbt State](../docs/deploy/dbt-state-about.md) automatically determines which models need rebuilding based on code or data changes, which can reduce warehouse costs by 30% or more. dbt State is in preview. To get started, see [Set up dbt State](../docs/deploy/dbt-state-setup.md).
+[dbt State](../docs/deploy/dbt-state-about.md) automatically determines which models need rebuilding based on code or data changes, which can reduce warehouse costs by 30% or more. To get started, see [Set up dbt State](../docs/deploy/dbt-state-setup.md).
 
 State-aware orchestration is now dbt State
 
@@ -431,7 +435,7 @@ Rollback impact
 
 Rolling back to **v1 Latest** will disable dbt v2-specific features. Only rollback if you're experiencing production-critical issues.
 
-## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## dbt lint
 
 Now that your project is running on dbt v2, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into dbt v2. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical. For parity expectations, refer to [Rule parity with SQLFluff](../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
 

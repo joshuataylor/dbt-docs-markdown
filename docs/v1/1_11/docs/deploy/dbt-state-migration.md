@@ -1,4 +1,4 @@
-# Migrating from state-aware orchestration to dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Migrating from state-aware orchestration to dbt State
 
 Login required | Usage-based
 
@@ -9,8 +9,6 @@ dbt State improves upon state-aware orchestration in a few key ways:
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](../platform/billing.md#dbt-state-usage).
-
-While dbt State is in preview, there is no required migration timeline — dbt Labs will communicate a timeline when dbt State reaches general availability.
 
 ## Migrating your configuration
 
@@ -29,8 +27,6 @@ In dbt v2, you can enable dbt State without updating your project configs first.
 
 * If `lag_tolerance` and `require_fresh_data_from` are not set, dbt State falls back to your existing `build_after` configs until `build_after` is deprecated.
 * If neither `build_after` nor the `state` configs exist, dbt State uses its [default configs](../../reference/resource-configs/dbt-state-configs.md): `lag_tolerance: 45m` and `require_fresh_data_from: any`.
-
-dbt Labs will communicate a migration timeline for state-aware orchestration users when dbt State reaches general availability.
 
 ### Examples
 

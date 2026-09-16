@@ -55,7 +55,7 @@ To set environment variables in the dbt platform CLI for your dbt project:
 
 The dbt platform CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt v1 to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt platform CLI, you can:
 
-* Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
+* Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution).
 * Automatically defer build artifacts to your project's production environment.
 * Support [project dependencies](../mesh/govern/project-dependencies.md), which allows you to depend on another project using the metadata service in dbt.
   * Project dependencies instantly connect to and reference (or `ref`) public models defined in other projects. You don't need to execute or analyze these upstream models yourself. Instead, you treat them as an API that returns a dataset.

@@ -1,4 +1,4 @@
-# dbt VS Code extension features [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# dbt VS Code extension features
 
 Local development
 
@@ -192,7 +192,7 @@ CTE preview:
 
 [](/img/docs/extension/preview-cte.mp4)
 
-## Explore your catalog [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Explore your catalog
 
 This tab reads metadata from your dbt platform account, so you need to [sign in](./sign-in-dbt-extension.md) to use it.
 

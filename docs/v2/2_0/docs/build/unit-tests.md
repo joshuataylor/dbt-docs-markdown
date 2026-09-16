@@ -72,7 +72,7 @@ dbt test --select "test_type:unit"
 
 (Applies to dbt v2.0 and later)
 
-## Run unit tests locally [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Run unit tests locally
 
 Opt in with an environment variable
 

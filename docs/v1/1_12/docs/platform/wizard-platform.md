@@ -1,8 +1,8 @@
-# About dbt Wizard in the dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About dbt Wizard in dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Usage-based
 
-dbt Wizard is dbt's AI agent in the dbt platform, helping teams investigate, change, validate, and ship trusted dbt work with warehouse-aware grounding.
+dbt Wizard is dbt's AI agent in dbt platform, helping teams investigate, change, validate, and ship trusted dbt work with warehouse-aware grounding.
 
 dbt Wizard is more than a general coding agent with access to dbt. Built for governed data development in dbt, it understands lineage, documentation, tests, and semantic definitions, and accounts for dev builds, compute, run time, and post-build inspection. Its suggestions are grounded in your project's actual data *and* context.
 
@@ -16,9 +16,10 @@ Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for
 
 ## Where you can use dbt Wizard
 
-* **[dbt Wizard home tab](./wizard-home.md):** Ask questions about your project, generate changes, review the diff, and run validations — all in one place.
+* **[Wizard home tab](./wizard-home.md):** Ask questions about your project, generate changes, review the diff, and run validations — all in one place.
 * **[Studio IDE](../dbt-ai/wizard-ide.md):** Work with dbt Wizard alongside the code editor, console, and file explorer.
 * **[Terminal (CLI)](../dbt-ai/wizard-cli.md):** Use the same agent from your terminal, with or without a dbt platform account.
+* **[Wizard Desktop](../dbt-ai/wizard-desktop.md):** A native app for building and validating data, with rich data visualizations, data diffs, and lineage rendered alongside the chat.
 
 You can teach dbt Wizard your team's conventions with [skills](../dbt-ai/wizard-platform-skills.md), hand off bigger jobs to [subagents](../dbt-ai/wizard-platform-subagents.md), or connect your project to other AI tools with the [dbt platform MCP server](../dbt-ai/wizard-platform-mcp.md).
 

@@ -15,6 +15,45 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## September 2026
 
+### dbt Summit 2026 announcements
+
+The following product name changes and features are part of dbt Labs announcements at [dbt Summit 2026](https://www.getdbt.com/dbt-summit) in Las Vegas, September 15-18, 2026.
+
+#### Product naming updates
+
+We've updated some of our product names and we're excited to unveil them at dbt Summit! Our docs have been updated to use this terminology:
+
+| Previously            | Now                                                              | What to know                                                                                          |
+| --------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| —                     | `dbt`                                                            | The industry standard for data transformation, available in self-host and cloud-hosted configurations |
+| Fusion, dbt Core v2.x | `dbt v2` (recommended), `dbt OSS` (open source, Apache 2.0 only) | Check out [our blog](https://docs.getdbt.com/blog/comparing-dbt-and-dbt-oss) for more information     |
+| dbt Core v1.x         | `dbt v1`                                                         | Remains open source                                                                                   |
+
+Two other things moved:
+
+* The GitHub repo for dbt (v1 and v2) is now at [dbt-labs/dbt](https://github.com/dbt-labs/dbt).
+
+* The [`pip install`](../local/install-dbt.md?version=2) instructions:
+
+  * dbt v2: `pip install dbt` (previously installed the dbt platform CLI).
+  * dbt v1: `pip install dbt-core` remains for now, but over time will be migrated to `pip install dbt-oss`.
+
+#### Now generally available
+
+* **[dbt v2.0](./dbt-upgrade/upgrading-to-v2.md)** is the next major version of dbt, running on a single engine written in Rust. Install it with `pip install dbt` and run it wherever you deploy dbt: on your laptop, in your virtual private cloud, or on the dbt platform. Read more in [dbt v2.0 is GA](https://docs.getdbt.com/blog/dbt-v2-is-ga).
+* **[dbt State](../deploy/dbt-state-about.md)** skips or clones nodes when the logic and data haven't changed, rather than rebuilding everything on every run. It works locally (dbt v1.7 through v2.0), on the dbt platform, and with external orchestrators. To get started, refer to [Setting up dbt State](../deploy/dbt-state-setup.md).
+* **Adapters for dbt v2.0** — [Snowflake](../local/connect-data-platform/snowflake-setup.md?version=2), [BigQuery](../local/connect-data-platform/bigquery-setup.md?version=2), [Redshift](../local/connect-data-platform/redshift-setup.md?version=2), and [Databricks](../local/connect-data-platform/databricks-setup.md?version=2) are available for local and platform use. [DuckDB](../local/connect-data-platform/duckdb-setup.md?version=2) is available for local use. Refer to [Adapter lifecycle](../supported-data-platforms.md?version=2.0#adapter-lifecycle) and [About connections](../platform/connect-data-platform/about-connections.md?version=2.0) for current status and platform connection support.
+
+#### In preview and beta
+
+* **Private beta: [Lake Compute](../lake-compute.md)** is a dedicated engine, built on DuckDB, that runs dbt models directly against your Apache Iceberg™ tables, priced for transformation and nothing else.
+* **Private beta: [Wizard Desktop](../dbt-ai/wizard-desktop.md)** runs the same Wizard engine in a native app with rendered tables and charts, inline diffs, and parallel chats. [Sign up to get the download link](https://www.getdbt.com/wizard-desktop-waitlist).
+* **Private beta: [ClickHouse](../platform/connect-data-platform/connect-clickhouse.md?version=2.0)** connections for dbt v2.0 on the dbt platform. Connect ClickHouse Cloud on a v2 release track using username and password over HTTPS. ClickHouse is also in beta for local use — refer to [Connect ClickHouse](../local/connect-data-platform/clickhouse-setup.md?version=2).
+* **Beta: [Apache Spark](../local/connect-data-platform/spark-setup.md?version=2)** adapter for dbt v2.0, for local use (CLI only).
+* **Public beta: [dbt Charts](https://docs.dbtcharts.com/)** turns YAML into interactive dashboards that query your dbt models directly, so boards stay in sync with the transformations your team already trusts. Develop locally with the `dct` CLI.
+
+### Pre-dbt Summit
+
 * **Beta:** When [dbt State](../deploy/dbt-state-about.md) is enabled in a self-managed deployment and your project is connected to the dbt platform, `state:*` selectors use dbt State as their comparison source, unless a state manifest is explicitly provided. Each node (models, snapshots, seeds, and tests) is compared against its own last execution in the deferral target environment rather than a single `manifest.json` from the most recent job run. Refer to [dbt State-powered `state:*` selectors](../deploy/dbt-state-deferral.md#dbt-state-powered-state-selectors) for more information.
 
 * **New:** The **dbt State** page now includes a [**Lag tolerance recommendations**](../deploy/dbt-state-interface.md#lag-tolerance-recommendations) section that identifies models that could safely tolerate more lag. For each model, it shows the current lag tolerance, the recommended value, the estimated percentage of build time you'd save, and projected build time savings over the next 30 days. You can search by model name or filter by project, and apply recommendations by updating the [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) config.
@@ -212,7 +251,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Alpha**: [dbt Core 2.0](./dbt-upgrade/upgrading-to-v2.md) is now available in alpha!
 
-  * **New**: dbt Core 2.0 is the open-source Apache 2.0 foundation that dbt v2 builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (dbt v2 distribution, proprietary).
+  * **New**: dbt Core 2.0 is the open-source Apache 2.0 foundation that dbt v2 builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-oss` (OSS, Apache 2.0) and `dbt` (dbt v2 distribution, proprietary).
 
 * **Beta**: [`dbt lint`](../../reference/commands/lint.md?version=2.0) is now available in beta!
 

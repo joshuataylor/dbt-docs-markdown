@@ -40,7 +40,7 @@ dbt v2 example:
 
 ```shell
 $ dbt --version
-dbt-fusion 2.0.0-preview.92
+dbt 2.0.1
 ```
 
 For a machine-readable version, add the `--format json` flag. This is useful when filing a bug report or when tooling needs to parse the installed version:
@@ -51,6 +51,6 @@ dbt --version --format json
 
 ```json
 {
-  "version": "2.0.0-preview.92"
+  "version": "2.0.1"
 }
 ```

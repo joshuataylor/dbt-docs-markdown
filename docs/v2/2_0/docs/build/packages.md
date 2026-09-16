@@ -20,6 +20,9 @@ In dbt, libraries like these are called *packages*. dbt's packages are so powerf
   * Models to understand [Redshift](https://hub.getdbt.com/dbt-labs/redshift/latest/) privileges.
   * Macros to work with data loaded by [Stitch](https://hub.getdbt.com/dbt-labs/stitch_utils/latest/).
 
+* shaping unstructured data so AI agents can retrieve, trust, and cite it, for example:
+  * chunking, embedding, and semantically searching call transcripts or support tickets with the [dbt\_context\_engineering](https://hub.getdbt.com/dbt-labs/dbt_context_engineering/latest/) package. Refer to the [dbt\_context\_engineering blog](https://docs.getdbt.com/blog/dbt-context-engineering).
+
 dbt *packages* are in fact standalone dbt projects, with models, macros, and other resources that tackle a specific problem area. As a dbt user, by adding a package to your project, all of the package's resources will become part of your own project. This means:
 
 * Models in the package will be materialized when you `dbt run`.
@@ -468,7 +471,7 @@ The message discrepancy is temporary while we implement and roll out `dbt-autofi
 Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
-dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
+dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
 (Applies to dbt v2.0 and later)

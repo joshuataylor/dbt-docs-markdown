@@ -129,11 +129,11 @@ python -m pip install dbt-core
 ### Upgrade
 
 ```shell
-# Upgrade adapter (and dbt-core)
+# Upgrade v1 pip installations
 python -m pip install --upgrade dbt-ADAPTER_NAME
 
 # Downgrade to a specific version
-python -m pip install --upgrade dbt-core==1.9
+python -m pip install --upgrade dbt-core==1.11
 ```
 
 ### Install a prerelease
@@ -141,7 +141,7 @@ python -m pip install --upgrade dbt-core==1.9
 Use `--pre` to install prerelease versions. This may also install prerelease versions of other dependencies.
 
 ```shell
-python3 -m pip install --pre dbt-ADAPTER_NAME
+python3 -m pip install --pre dbt
 ```
 
  Docker

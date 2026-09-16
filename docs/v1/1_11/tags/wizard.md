@@ -2,9 +2,9 @@
 
 [View all tags](../tags.md)
 
-## [About dbt Wizard in the dbt platform](../docs/platform/wizard-platform.md)
+## [About dbt Wizard in dbt platform](../docs/platform/wizard-platform.md)
 
-dbt Wizard in the dbt platform helps teams investigate, change, validate, and ship trusted dbt work with warehouse-aware AI.
+dbt Wizard in dbt platform helps teams investigate, change, validate, and ship trusted dbt work with warehouse-aware AI.
 
 ## [Adding data-informed tests with dbt Wizard](../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md)
 
@@ -36,7 +36,7 @@ Understand what dbt Wizard CLI telemetry collects, why it is collected, and how 
 
 ## [dbt Wizard home tab](../docs/platform/wizard-home.md)
 
-Use the dbt Wizard home tab in the dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
+Use the dbt Wizard home tab in dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
 
 ## [dbt Wizard use cases](../docs/dbt-ai/wizard-use-cases.md)
 
@@ -82,9 +82,9 @@ Start a dbt Wizard trial, set a spend limit, and manage Wizard billing for the d
 
 Use dbt Wizard CLI to map an unfamiliar dbt project, investigate model behavior, and identify downstream impact.
 
-## [Use MCP servers with dbt Wizard in the dbt platform](../docs/dbt-ai/wizard-platform-mcp.md)
+## [Use MCP servers with dbt Wizard in dbt platform](../docs/dbt-ai/wizard-platform-mcp.md)
 
-Understand MCP server support for dbt Wizard in the dbt platform.
+Understand MCP server support for dbt Wizard in dbt platform.
 
 ## [Use MCP servers with the dbt Wizard CLI](../docs/dbt-ai/wizard-mcp.md)
 
@@ -94,9 +94,9 @@ Connect the dbt Wizard CLI to MCP servers to give it more tools and context.
 
 Create and use skills to give dbt Wizard CLI reusable, project-specific instructions.
 
-## [Use skills with dbt Wizard in the dbt platform](../docs/dbt-ai/wizard-platform-skills.md)
+## [Use skills with dbt Wizard in dbt platform](../docs/dbt-ai/wizard-platform-skills.md)
 
-Create and use skills to give dbt Wizard in the dbt platform reusable, project-specific instructions.
+Create and use skills to give dbt Wizard in dbt platform reusable, project-specific instructions.
 
 ## [Use subagents with dbt Wizard CLI](../docs/dbt-ai/wizard-subagents.md)
 

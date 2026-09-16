@@ -4,7 +4,7 @@
 
 ## [dbt Wizard home tab](../docs/platform/wizard-home.md)
 
-Use the dbt Wizard home tab in the dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
+Use the dbt Wizard home tab in dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
 
 ## [Invite read-only users to dbt Wizard](../docs/platform/wizard-read-only-users.md)
 

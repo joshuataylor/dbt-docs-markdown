@@ -67,11 +67,11 @@ dbt platformdbt v1
 
 #### ClickHouse
 
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-clickhouse.md)
 * [Install with dbt v1](./local/connect-data-platform/clickhouse-setup.md)
+* [Install with dbt v2](./local/connect-data-platform/clickhouse-setup.md)
 
 [![](https://badge.fury.io/py/dbt-clickhouse.svg/)](https://badge.fury.io/py/dbt-clickhouse)
-
-dbt v1
 
 ![](/img/icons/databricks.svg)
 

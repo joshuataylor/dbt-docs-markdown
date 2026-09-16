@@ -1,6 +1,6 @@
 (Applies to dbt v2.0 and later)
 
-# Connect Snowflake to dbt v2 [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Snowflake to dbt v2
 
 Local development
 

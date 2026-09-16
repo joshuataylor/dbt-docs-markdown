@@ -196,7 +196,7 @@ where {{ filter }}
 
 (Applies to dbt v2.0 and later)
 
-## Model freshness [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Model freshness
 
 Use the `freshness` config on a model to:
 

@@ -1,4 +1,4 @@
-# 19 docs tagged with "Quickstart"
+# 20 docs tagged with "Quickstart"
 
 [View all tags](../tags.md)
 
@@ -43,6 +43,10 @@ Introduction
 ## [Quickstart for dbt and Teradata](../guides/teradata.md)
 
 Introduction
+
+## [Quickstart for dbt Charts](../guides/dbt-charts.md)
+
+Build a dbt project locally, write your first dbt Charts board by hand, and preview it in the browser.
 
 ## [Quickstart for dbt v1 from a manual install](../guides/manual-install.md)
 

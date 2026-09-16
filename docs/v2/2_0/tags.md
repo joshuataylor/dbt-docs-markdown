@@ -3,8 +3,8 @@
 ## A
 
 * [Adapter creation2](./tags/adapter-creation.md)
-* [Agents2](./tags/agents.md)
-* [AI37](./tags/ai.md)
+* [Agents5](./tags/agents.md)
+* [AI40](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst2](./tags/analyst.md)
 * [API2](./tags/api.md)
@@ -44,13 +44,14 @@
 
 * [Databricks6](./tags/databricks.md)
 * [dbt2](./tags/dbt.md)
+* [dbt Charts1](./tags/dbt-charts.md)
 * [dbt Insights2](./tags/dbt-insights.md)
 * [dbt MCP2](./tags/dbt-mcp.md)
 * [dbt platform27](./tags/dbt-platform.md)
 * [dbt State20](./tags/dbt-state.md)
 * [dbt v16](./tags/dbt-v-1.md)
 * [dbt v213](./tags/dbt-v-2.md)
-* [dbt Wizard2](./tags/dbt-wizard.md)
+* [dbt Wizard5](./tags/dbt-wizard.md)
 * [Dremio1](./tags/dremio.md)
 * [DuckDB2](./tags/duck-db.md)
 
@@ -112,7 +113,7 @@
 
 ## Q
 
-* [Quickstart19](./tags/quickstart.md)
+* [Quickstart20](./tags/quickstart.md)
 
 ***
 

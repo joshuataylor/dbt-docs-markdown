@@ -35,6 +35,7 @@ Click the name of the adapter in the following table for more information about 
 | [dbt-athena](../../reference/resource-configs/athena-configs.md#incremental-models)                                     | ✅       | ✅      |                 | ✅                 | ✅           |
 | [dbt-teradata](../../reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
 | [dbt-duckdb](../../reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-clickhouse](../../reference/resource-configs/clickhouse-configs.md#incremental-models)                             | ✅       |         | ✅              | ✅                 |              |
 
 ### Configuring incremental strategy
 

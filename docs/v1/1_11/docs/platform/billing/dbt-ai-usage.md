@@ -13,6 +13,10 @@ From September 1, 2026, a couple of things are changing for dbt AI features:
 
 Refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md) for more info.
 
+The [Wizard Desktop](../../dbt-ai/wizard-desktop.md) is billed through consumption pool pricing when you use dbt-managed inference, or directly by your provider when you use BYOK.
+
+### Usage and metering information
+
 | Feature                     | How it's metered                                   | What limits usage                                    |
 | --------------------------- | -------------------------------------------------- | ---------------------------------------------------- |
 | [dbt Wizard](#dbt-wizard)   | Dollar-based usage, converted from tokens          | Your consumption pool, then your monthly spend limit |
@@ -24,13 +28,13 @@ Bring your own key (BYOK) usage isn't metered by dbt. Your AI provider bills you
 
 dbt Wizard is metered by dollar-based usage rather than a count of actions. Usage is measured in tokens — prompts, project context, cached content, and generated responses all consume them — and converted into a dollar amount based on the model and token type. That amount is deducted from your consumption pool.
 
-Usage from the dbt platform and the local CLI both draw from the same account-level pool.
+Usage from dbt platform and the local CLI both draw from the same account-level pool.
 
 ### Usage credits by plan
 
 All credits are account-level
 
-Usage credits are granted per account, not per user or per seat. Everyone on your account draws from the same balance, whether they use dbt Wizard in the dbt platform or the local CLI.
+Usage credits are granted per account, not per user or per seat. Everyone on your account draws from the same balance, whether they use dbt Wizard in dbt platform or the local CLI.
 
 | Plan                                      | What you get                                                       |
 | ----------------------------------------- | ------------------------------------------------------------------ |

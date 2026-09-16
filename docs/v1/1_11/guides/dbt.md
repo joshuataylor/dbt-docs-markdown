@@ -8,10 +8,10 @@
 
 important
 
-dbt v2 is currently available for installation in:
+dbt v2 is available for installation in:
 
-* [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md)
 * [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
@@ -44,7 +44,7 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 
 * Make sure you're using a supported adapter and authentication method:
 
-   BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   BigQuery
 
   * Service Account / User Token
   * Native OAuth
@@ -52,12 +52,12 @@ To take full advantage of this guide, you'll need to meet the following prerequi
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks
 
   * Service Account / User Token
   * Native OAuth
 
-   Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Redshift
 
   * Username / Password
   * IAM profile
@@ -69,6 +69,10 @@ To take full advantage of this guide, you'll need to meet the following prerequi
   * External OAuth
   * Key pair using a modern PKCS#8 method
   * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
 
    Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -83,7 +87,7 @@ To take full advantage of this guide, you'll need to meet the following prerequi
     * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
       * Supports authentication using single sign-on, service accounts, or user tokens
 
-   DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   DuckDB (CLI only)
 
   DuckDB does not require authentication — it runs locally on your machine.
 
@@ -121,7 +125,7 @@ The following are the essential steps from the [dbt v2](../docs/local/install-db
 1. Run the following commands to install the dbt v2 CLI:
 
    ```shell
-   python -m pip install --pre dbt
+   python -m pip install dbt
    ```
 
 ### Verify the dbt v2 installation
@@ -135,7 +139,7 @@ The following are the essential steps from the [dbt v2](../docs/local/install-db
 2. You should see output similar to the following:
 
    ```bash
-   dbt 2.0.0-preview.178
+   dbt 2.0.0
    ```
 
 ### Install the dbt VS Code extension

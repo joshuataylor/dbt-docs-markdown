@@ -1,4 +1,4 @@
-# Enabling dbt State on individual jobs [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Enabling dbt State on individual jobs
 
 Login required | Usage-based
 

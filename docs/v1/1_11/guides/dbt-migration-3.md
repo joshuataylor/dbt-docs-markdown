@@ -93,7 +93,7 @@ A web-based interface for building, testing, running, and version-controlling db
 
 * Allows users to natively [defer to production](../docs/platform/about-defer.md#defer-in-dbt-cli) metadata directly in their development workflows, reducing the number of objects.
 
-* Support running multiple dbt commands at the same time through [safe parallel execution](../reference/dbt-commands.md#parallel-execution), a [feature](../docs/platform/about-platform/dbt-platform-features.md) available in dbt platform's infrastructure. In contrast, `dbt-core` *doesn't support* safe parallel execution for multiple invocations in the same process.
+* Support running multiple dbt commands at the same time through [safe parallel execution](../reference/dbt-commands.md#parallel-execution), a [feature](../docs/platform/about-platform/dbt-platform-features.md) available in dbt platform's infrastructure. In contrast, local dbt *doesn't support* safe parallel execution for multiple invocations in the same process.
 
 The Studio IDE provides a simplified interface that's accessible to all users, regardless of their technical background. However, there are some capabilities that are intentionally not available in the Studio IDE due to its focus on simplicity and ease of use:
 
@@ -117,7 +117,7 @@ When moving from self-hosted dbt to the dbt platform, make sure you check the `.
 
 * Allows users to run dbt commands against their dbt platform development environment from their local command line with minimal configuration.
 * Allows users to natively [defer to production](../docs/platform/about-defer.md#defer-in-dbt-cli) metadata directly in their development workflows, reducing the number of objects.
-* Support running multiple dbt commands at the same time through [safe parallel execution](../reference/dbt-commands.md#parallel-execution), a [feature](../docs/platform/about-platform/dbt-platform-features.md) available in dbt platform's infrastructure. In contrast, `dbt-core` *doesn't support* safe parallel execution for multiple invocations in the same process.
+* Support running multiple dbt commands at the same time through [safe parallel execution](../reference/dbt-commands.md#parallel-execution), a [feature](../docs/platform/about-platform/dbt-platform-features.md) available in dbt platform's infrastructure. In contrast, local dbt *doesn't support* safe parallel execution for multiple invocations in the same process.
 * Able to use Visual Studio (VS) Code extensions
 
 ## Orchestration

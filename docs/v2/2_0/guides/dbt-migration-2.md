@@ -172,7 +172,7 @@ After [setting the foundations of the dbt platform](./dbt-migration-1.md?step=1)
 
 ## Transition and training
 
-Once you've confirmed that dbt platform orchestration and CI/CD are working as expected, you should pause your current orchestration tool and stop or update your current CI/CD process. This is not relevant if you're still using an external orchestrator (such as Airflow), and you've swapped out `dbt-core` execution for dbt platform execution (through the [API](../docs/dbt-apis/overview.md)).
+Once you've confirmed that dbt platform orchestration and CI/CD are working as expected, you should pause your current orchestration tool and stop or update your current CI/CD process. This is not relevant if you're still using an external orchestrator (such as Airflow), and you've swapped out local dbt execution for dbt platform execution (through the [API](../docs/dbt-apis/overview.md)).
 
 Familiarize your team with the dbt platform's [features](../docs/platform/about-platform/dbt-platform-features.md) and optimize development and deployment processes. Some key features to consider include:
 

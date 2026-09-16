@@ -1,4 +1,4 @@
-# dbt State trial and billing [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# dbt State trial and billing
 
 Login required | Usage-based
 

@@ -1,27 +1,91 @@
-# Connect ClickHouse to dbt v1
+(Applies to dbt v2.0 and later)
+
+# Connect ClickHouse to dbt v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
-Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
+The ClickHouse adapter for the dbt v2 connects to [ClickHouse](https://clickhouse.com) over HTTP or HTTPS. It supports self-managed single-node ClickHouse and [ClickHouse Cloud](https://clickhouse.com/cloud).
 
-* **Maintained by**: Community
-* **Authors**: Geoff Genz & Bentsi Leviav
-* **GitHub repo**: [ClickHouse/dbt-clickhouse](https://github.com/ClickHouse/dbt-clickhouse) [![](https://img.shields.io/github/stars/ClickHouse/dbt-clickhouse?style=for-the-badge)](https://github.com/ClickHouse/dbt-clickhouse)
-* **PyPI package**: `dbt-clickhouse` [![](https://badge.fury.io/py/dbt-clickhouse.svg)](https://badge.fury.io/py/dbt-clickhouse)
-* **Slack channel**: [#db-clickhouse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt version**: v0.19.0 and newer
-* **dbt support**: Not Supported
-* **Minimum data platform version**: n/a
+## Installing dbt
 
-## Installing dbt-clickhouse
+The ClickHouse adapter is built into v2. To get started, [install dbt](../install-dbt.md).
 
-Use `pip` to install the adapter. Use the following command for installation:
+For connection examples and profile settings, refer to [Connecting to ClickHouse](#connecting-to-clickhouse).
 
-`python -m pip install dbt-clickhouse`
+## Authentication
 
-## Configuring dbt-clickhouse
+dbt v2 authenticates to ClickHouse with a username and password. Set `secure: true` in your profile to connect over HTTPS (default port 8443), or leave it unset to connect over plain HTTP (default port 8123). ClickHouse Cloud requires `secure: true`.
 
-For Clickhouse-specific configuration, please refer to [Clickhouse configs.](../../../reference/resource-configs/clickhouse-configs.md)
+## Warehouse permissions
+
+The ClickHouse user that the dbt v2 connects as must be able to run dbt workloads in the target database and read the system tables used for introspection.
+
+### Required ClickHouse objects
+
+Before connecting, these objects must exist or be accessible:
+
+| Object                                                           | Purpose                                                                                          |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Service (ClickHouse Cloud) or server (self-managed, single node) | Compute resource                                                                                 |
+| Database                                                         | Target database. ClickHouse has no separate schema level, so the dbt `schema` maps to a database |
+| User                                                             | Database user for authentication                                                                 |
+
+### Core permissions
+
+The following permissions are required for fundamental dbt features:
+
+| Permission                                         | Object           | Purpose                                                                                                                                                                      |
+| -------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SELECT`                                           | Tables and views | Read data                                                                                                                                                                    |
+| `INSERT`                                           | Tables           | Load models, seeds, and snapshots                                                                                                                                            |
+| `ALTER`                                            | Tables           | Schema changes (`on_schema_change`), indexes and projections, comments (`persist_docs`), `REPLACE PARTITION` (`insert_overwrite`), and lightweight deletes (`delete+insert`) |
+| `TRUNCATE`                                         | Tables           | Full-refresh seeds                                                                                                                                                           |
+| `CREATE TABLE`, `CREATE VIEW`, `CREATE DICTIONARY` | Database         | Create materializations, including the intermediate and backup relations used for atomic rebuilds (`EXCHANGE TABLES`, `RENAME TABLE`)                                        |
+| `DROP TABLE`, `DROP VIEW`, `DROP DICTIONARY`       | Database         | Drop or replace objects                                                                                                                                                      |
+
+### Metadata operations
+
+dbt v2 reads these ClickHouse system tables:
+
+| System table            | Purpose                                                                          |
+| ----------------------- | -------------------------------------------------------------------------------- |
+| `system.tables`         | List relations, build the catalog, detect materialized views pointing at a table |
+| `system.columns`        | Column metadata for the catalog and for schema-change detection                  |
+| `system.databases`      | Check whether the target database exists                                         |
+| `system.settings`       | Capability probes (lightweight deletes, `insert_distributed_sync`)               |
+| `system.view_refreshes` | Validate refreshable materialized view dependencies                              |
+
+ClickHouse filters system tables to the objects the user can access, so no separate grant is needed for them.
+
+### Database management
+
+Conditional permissions for database management:
+
+| Permission        | Object | When required                                             |
+| ----------------- | ------ | --------------------------------------------------------- |
+| `CREATE DATABASE` | Server | Auto-create the target database when it doesn't exist yet |
+
+## Limitations
+
+The ClickHouse adapter for dbt v2 is in beta. Expect some minor bugs, and avoid using it in production environments for now. Some features available in the `dbt-clickhouse` adapter for dbt v1 are not yet supported.
+
+The ClickHouse adapter is under active development. If you encounter an issue, please [open it in dbt-core](https://github.com/dbt-labs/dbt-core/issues/new) and add the `adapter:clickhouse` label.
+
+### What works today
+
+On single-node ClickHouse and on ClickHouse Cloud (compatible with multi-node clusters):
+
+* All materializations: table, view, incremental (all strategies and `on_schema_change`), materialized view (including refreshable), dictionary, snapshot, seed, and ephemeral
+* Contracts and constraints, model and query `settings`, projections and indexes
+* Data tests, unit tests, catalog generation, and the `s3` table function
+
+### Not yet supported
+
+* Self-managed clusters that set `cluster:` in the profile aren't supported yet. `ON CLUSTER` isn't emitted in the data definition language (DDL) instructions, so Replicated engines and the `distributed_table` and `distributed_incremental` materializations don't work.
+* The `grants` config, and the `dbt clone` and `dbt source freshness` commands, aren't supported yet.
+* Smaller gaps remain: `query-comment: null` isn't honored, run results don't include the ClickHouse `query_id`, and `persist_docs` descriptions that contain `;` fail.
+* SQL comprehension features (static analysis and the rest of dbt's SQL intelligence) aren't available yet. Support is coming soon.
+* Minor issues may still be present in general ClickHouse functionality.
 
 ## Connecting to ClickHouse
 
@@ -42,10 +106,10 @@ clickhouse-service:
       port: [ 8123 ]  # Defaults to 8123, 8443, 9000, 9440 depending on the secure and driver settings 
       user: [ default ]  # User for all database operations
       password: [ <empty string> ]  # Password for the user
-      secure: [ False ]  # Use TLS (native protocol) or HTTPS (http protocol)
+      secure: [ False ]  # Use TLS (native protocol) or HTTPS (http protocol). Must be set to true for ClickHouse Cloud.
 ```
 
-For a complete list of configuration options, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
+For a complete list of configuration options, refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
 ### Create a dbt project
 
@@ -64,43 +128,3 @@ profile: 'clickhouse-service'
 ### Test connection
 
 Execute `dbt debug` with the CLI tool to confirm whether dbt is able to connect to ClickHouse. Confirm the response includes `Connection test: [OK connection ok]`, indicating a successful connection.
-
-## Supported features
-
-### dbt features
-
-| Type                  | Supported? | Details                    |
-| --------------------- | ---------- | -------------------------- |
-| Contracts             | YES        |                            |
-| Docs generate         | YES        |                            |
-| Most dbt-utils macros | YES        | (now included in dbt-core) |
-| Seeds                 | YES        |                            |
-| Sources               | YES        |                            |
-| Snapshots             | YES        |                            |
-| Tests                 | YES        |                            |
-
-### Materializations
-
-| Type                                    | Supported?        | Details                                                                                                                                                                                                                                         |
-| --------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Table                                   | YES               | Creates a [table](https://clickhouse.com/docs/en/operations/system-tables/tables/). See below for the list of supported engines.                                                                                                                |
-| View                                    | YES               | Creates a [view](https://clickhouse.com/docs/en/sql-reference/table-functions/view/).                                                                                                                                                           |
-| Incremental                             | YES               | Creates a table if it doesn't exist, and then writes only updates to it.                                                                                                                                                                        |
-| Microbatch incremental                  | YES               |                                                                                                                                                                                                                                                 |
-| Ephemeral materialization               | YES               | Creates a ephemeral/CTE materialization. This model is internal to dbt and does not create any database objects.                                                                                                                                |
-| Materialized View                       | YES, Experimental | Creates a [materialized view](https://clickhouse.com/docs/en/materialized-view).                                                                                                                                                                |
-| Distributed table materialization       | YES, Experimental | Creates a [distributed table](https://clickhouse.com/docs/en/engines/table-engines/special/distributed).                                                                                                                                        |
-| Distributed incremental materialization | YES, Experimental | Incremental model based on the same idea as distributed table. Note that not all strategies are supported, visit [this](https://github.com/ClickHouse/dbt-clickhouse?tab=readme-ov-file#distributed-incremental-materialization) for more info. |
-| Dictionary materialization              | YES, Experimental | Creates a [dictionary](https://clickhouse.com/docs/en/engines/table-engines/special/dictionary).                                                                                                                                                |
-
-**Note**: Community-developed features are labeled as experimental. Despite this designation, many of these features, like materialized views, are widely adopted and successfully used in production environments.
-
-## Documentation
-
-See the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt) for more details on using the `dbt-clickhouse` adapter to manage your data model.
-
-## Contributing
-
-We welcome contributions from the community to help improve the `dbt-ClickHouse` adapter. Whether you're fixing a bug, adding a new feature, or enhancing the documentation, your efforts are greatly appreciated!
-
-Please take a moment to read our [Contribution Guide](https://github.com/ClickHouse/dbt-clickhouse/blob/main/CONTRIBUTING.md) to get started. The guide provides detailed instructions on setting up your environment, running tests, and submitting pull requests.

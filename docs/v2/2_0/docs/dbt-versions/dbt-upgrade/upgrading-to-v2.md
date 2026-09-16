@@ -1,4 +1,4 @@
-# Upgrading to v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Upgrading to v2
 
 Available in v2
 
@@ -8,10 +8,10 @@ v2 is faster and stricter, but your existing project language and DAG semantics 
 
 important
 
-dbt v2 is currently available for installation in:
+dbt v2 is available for installation in:
 
-* [Local command line interface (CLI) tools](../../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](../../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Local command line interface (CLI) tools](../../local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../../install-dbt-extension.md)
 * [dbt platform environments](../upgrade-dbt-platform-version.md#dbt-v2)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
@@ -30,7 +30,7 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 Upgrading to v2 is an install step. Install dbt using `pip` to get dbt v2 for v2:
 
 ```shell
-python -m pip install --pre dbt
+python -m pip install dbt
 ```
 
 For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](../../local/install-dbt.md).
@@ -65,7 +65,7 @@ If you were using state-aware orchestration prior to June 1, 2026, you can conti
 
 The following adapters are supported in v2:
 
- BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ BigQuery
 
 * Service Account / User Token
 * Native OAuth
@@ -73,12 +73,12 @@ The following adapters are supported in v2:
   * [Workload Identity Federation](../../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
 * [Required permissions](../../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
- Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ Databricks
 
 * Service Account / User Token
 * Native OAuth
 
- Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ Redshift
 
 * Username / Password
 * IAM profile
@@ -90,6 +90,10 @@ The following adapters are supported in v2:
 * External OAuth
 * Key pair using a modern PKCS#8 method
 * MFA
+
+ ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+* Username / Password
 
  Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -104,7 +108,7 @@ The following adapters are supported in v2:
   * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
     * Supports authentication using single sign-on, service accounts, or user tokens
 
- DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ DuckDB (CLI only)
 
 DuckDB does not require authentication — it runs locally on your machine.
 
@@ -139,7 +143,7 @@ When you use the [`--generate-info-schema`](#generating-the-information-schema) 
 
 For more information, refer to [dbt Information Schema](../../build/dbt-information-schema.md).
 
-### Checks [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Checks
 
 In dbt v2, you can create [checks](../../build/checks.md) to enforce project standards (for example, all models must have a description, a public model must have an owner, and so on) at parse time, before any warehouse work runs. Write a SQL rule under the `checks/` directory, then run checks on demand with `dbt check`. Checks also run automatically with every `dbt build`. Use `--skip-checks` to bypass checks on a build.
 
@@ -155,7 +159,7 @@ To hydrate catalog metadata (`catalog.json`) for Catalog without building the si
 
 For full usage, refer to [About dbt docs commands](../../../reference/commands/cmd-docs.md?version=2).
 
-### Model freshness and the `dbt freshness` command [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Model freshness and the `dbt freshness` command
 
 v2 expands freshness checks to models, building on the existing support for sources. You can configure freshness thresholds on models to receive warnings or errors when the data is stale. For config options and materialization requirements, refer to [freshness](../../../reference/resource-configs/freshness.md).
 
@@ -169,7 +173,7 @@ All v2 adapters connect to data warehouses via the [Arrow Database Connectivity 
 
 On first run, dbt downloads adapter drivers from the dbt Labs CDN and caches them locally. Subsequent runs work offline. For supported adapters, refer to [Supported data platforms](../../supported-data-platforms.md).
 
-### `dbt lint` [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### `dbt lint`
 
 v2 introduces [`dbt lint`](../../../reference/commands/lint.md), a high-performance SQL linter built into dbt. It is SQLFluff-compatible: you keep your existing .sqlfluff config and rule codes (for example, `CP01`, `RF03`). Run `dbt lint` to lint all models, or `dbt lint [FILE]` to target a specific file. Use `--fix` to auto-apply fixable violations.
 
@@ -248,7 +252,7 @@ Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-lo
 
 ### Experimental features
 
-#### Local execution of unit tests [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+#### Local execution of unit tests
 
 v2 introduces the [`compute`](../../../reference/resource-configs/compute.md) config for unit tests. Set your unit tests with `compute: local` and dbt runs the test with DuckDB instead of sending it to your data platform, which takes the warehouse round trip out of your development loop.
 
@@ -680,16 +684,16 @@ The message discrepancy is temporary while we implement and roll out `dbt-autofi
 Here's an example of a v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
-dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
+dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
 ## Distributions
 
 v2 is available in two distributions. For more information, refer to [dbt licensing](../../dbt-licensing.md).
 
-| Distribution | Package    | Use it when                                                                                                                                   |
-| ------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| dbt v2       | `dbt`      | The recommended v2 experience.                                                                                                                |
-| dbt OSS      | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](../../local/install-dbt-v2.md). |
+| Distribution | Package   | Use it when                                                                                                                                   |
+| ------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| dbt v2       | `dbt`     | The recommended v2 experience.                                                                                                                |
+| dbt OSS      | `dbt-oss` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](../../local/install-dbt-v2.md). |
 
 If you have a older project that isn’t ready to move to v2, continue using v1.x for compatibility. For new or upgraded projects, we recommend v2.

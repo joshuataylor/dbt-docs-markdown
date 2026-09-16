@@ -1,4 +1,4 @@
-# 37 docs tagged with "AI"
+# 40 docs tagged with "AI"
 
 [View all tags](../tags.md)
 
@@ -6,9 +6,9 @@
 
 Learn about AI-powered features and agents in dbt that help you build, manage, and consume governed data at scale.
 
-## [About dbt Wizard in the dbt platform](../docs/platform/wizard-platform.md)
+## [About dbt Wizard in dbt platform](../docs/platform/wizard-platform.md)
 
-dbt Wizard in the dbt platform helps teams investigate, change, validate, and ship trusted dbt work with warehouse-aware AI.
+dbt Wizard in dbt platform helps teams investigate, change, validate, and ship trusted dbt work with warehouse-aware AI.
 
 ## [Adding data-informed tests with dbt Wizard](../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md)
 
@@ -50,7 +50,7 @@ Understand what dbt Wizard CLI telemetry collects, why it is collected, and how 
 
 ## [dbt Wizard home tab](../docs/platform/wizard-home.md)
 
-Use the dbt Wizard home tab in the dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
+Use the dbt Wizard home tab in dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
 
 ## [dbt Wizard in Studio IDE](../docs/dbt-ai/wizard-ide.md)
 
@@ -71,6 +71,10 @@ Configure dbt Wizard CLI to reuse production state while developing and validati
 ## [Extending dbt Wizard with plugins and hooks](../best-practices/how-to-use-wizard/wizard-8-plugins-hooks.md)
 
 Install dbt Wizard CLI plugins from marketplaces and review lifecycle hooks before allowing them to run.
+
+## [Get started with Wizard Desktop](../docs/dbt-ai/wizard-desktop.md)
+
+Sign up to get the download link for Wizard Desktop, download it, and start your first session with rich data visualizations, data diffs, and lineage.
 
 ## [Headless mode](../docs/dbt-ai/wizard-headless.md)
 
@@ -114,9 +118,9 @@ Use dbt Wizard CLI to map an unfamiliar dbt project, investigate model behavior,
 
 Install the dbt Wizard local CLI, complete first-run onboarding, and send your first prompt from the terminal.
 
-## [Use MCP servers with dbt Wizard in the dbt platform](../docs/dbt-ai/wizard-platform-mcp.md)
+## [Use MCP servers with dbt Wizard in dbt platform](../docs/dbt-ai/wizard-platform-mcp.md)
 
-Understand MCP server support for dbt Wizard in the dbt platform.
+Understand MCP server support for dbt Wizard in dbt platform.
 
 ## [Use MCP servers with the dbt Wizard CLI](../docs/dbt-ai/wizard-mcp.md)
 
@@ -126,13 +130,17 @@ Connect the dbt Wizard CLI to MCP servers to give it more tools and context.
 
 Create and use skills to give dbt Wizard CLI reusable, project-specific instructions.
 
-## [Use skills with dbt Wizard in the dbt platform](../docs/dbt-ai/wizard-platform-skills.md)
+## [Use skills with dbt Wizard in dbt platform](../docs/dbt-ai/wizard-platform-skills.md)
 
-Create and use skills to give dbt Wizard in the dbt platform reusable, project-specific instructions.
+Create and use skills to give dbt Wizard in dbt platform reusable, project-specific instructions.
 
 ## [Use subagents with dbt Wizard CLI](../docs/dbt-ai/wizard-subagents.md)
 
 Delegate work to specialized subagents in dbt Wizard CLI.
+
+## [Use Wizard Desktop](../docs/dbt-ai/wizard-desktop-use.md)
+
+Reference for Wizard Desktop: starting a session, permission modes, worktrees, diff review, validation, and troubleshooting.
 
 ## [Validating dbt changes with dbt Wizard](../best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
 
@@ -141,6 +149,10 @@ Use dbt Wizard to assess impact, run the right level of validation, and review a
 ## [Wizard CLI command reference](../docs/dbt-ai/wizard-cli-reference.md)
 
 Full reference for all wizard subcommands and global flags.
+
+## [Wizard Desktop settings](../docs/dbt-ai/wizard-desktop-settings.md)
+
+Reference for every setting in Wizard Desktop: general layout, account, AI providers, connectors, appearance, shortcuts, and version control.
 
 ## [Wizard slash command reference](../docs/dbt-ai/wizard-slash-commands.md)
 

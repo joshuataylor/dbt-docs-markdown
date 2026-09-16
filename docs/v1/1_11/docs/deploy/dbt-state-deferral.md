@@ -1,4 +1,4 @@
-# Configuring deferral in dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Configuring deferral in dbt State
 
 Login required | Usage-based
 

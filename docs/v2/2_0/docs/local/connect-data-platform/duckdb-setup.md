@@ -1,6 +1,6 @@
 (Applies to dbt v2.0 and later)
 
-# Connect DuckDB to dbt v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect DuckDB to dbt v2
 
 Local development
 
@@ -22,7 +22,7 @@ For connection examples and shared profile settings, refer to [Connecting to Duc
 
 ### Limitations
 
-The DuckDB adapter for dbt v2 is in beta. Some features available in the `dbt-duckdb` adapter for dbt v1 are not yet supported.
+Some features available in the `dbt-duckdb` adapter for dbt v1 are not yet supported.
 
 * Current adapter feature parity work is tracked in [dbt-fusion#1593](https://github.com/dbt-labs/dbt-fusion/issues/1593).
 * Current SQL analysis gaps are tracked in [dbt-fusion#1464](https://github.com/dbt-labs/dbt-fusion/issues/1464).

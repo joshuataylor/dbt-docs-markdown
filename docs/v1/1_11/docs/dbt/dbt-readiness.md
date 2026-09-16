@@ -1,6 +1,8 @@
 # dbt v2 readiness checklist
 
-dbt v2 is here and is now generally available for dbt platform projects on Snowflake! We currently offer it as a [preview](../dbt-versions/product-lifecycles.md) for all other supported adapters. Even if we haven't enabled it for your account, you can still start preparing your projects for upgrade. Use this checklist to ensure a smooth upgrade once dbt v2 becomes available. If this is all new to you, first [learn about dbt v2](../introduction.md), its current state, and the features available.
+The dbt v2 is here and is now generally available for dbt platform projects on Snowflake, BigQuery, Redshift, and Databricks!
+
+We currently offer it as a [preview](../dbt-versions/product-lifecycles.md) for all other supported adapters. Even if we haven't enabled it for your account, you can still start preparing your projects for upgrade. Use this checklist to ensure a smooth upgrade once dbt v2 becomes available. If this is all new to you, first [learn about dbt v2](../introduction.md), its current state, and the features available.
 
 Enable the dbt v2 readiness panel
 
@@ -79,7 +81,7 @@ We determine dbt v2 eligibility using data from your job runs.
 
 ### Stay informed about dbt v2 progress
 
-dbt v2 is generally available for dbt platform projects on Snowflake and in preview for all other eligible projects! Keep up-to-date with these resources:
+The dbt v2 is generally available for dbt platform projects on Snowflake, BigQuery, Redshift, and Databricks, and in preview for all other eligible projects! Keep up-to-date with these resources:
 
 * [ ] Check out the [v2 homepage](https://www.getdbt.com/product/fusion) for available resources, including supported adapters, prerequisites, installation instructions, limitations, and deprecations.
 * [ ] Read the [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to learn about the new features and functionality that impact your dbt projects.

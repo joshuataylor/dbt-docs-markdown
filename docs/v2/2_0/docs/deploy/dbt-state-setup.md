@@ -1,4 +1,4 @@
-# Setting up dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Setting up dbt State
 
 Login required | Usage-based
 
@@ -79,7 +79,7 @@ For next steps, see:
    * [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
    * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
 
-### v2
+### dbt v2
 
 1. Navigate to your project:
 

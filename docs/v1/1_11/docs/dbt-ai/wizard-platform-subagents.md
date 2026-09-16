@@ -1,4 +1,4 @@
-# Use subagents with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Use subagents with dbt Wizard in dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Usage-based
 
@@ -48,7 +48,7 @@ You don't need to declare these — dbt Wizard routes to them automatically when
 
 ## Related docs
 
-* [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [About dbt Wizard in dbt platform](../platform/wizard-platform.md)
 * [dbt Wizard in Studio IDE](./wizard-ide.md)
 * [Use subagents locally](./wizard-subagents.md)
 * [How dbt Wizard works](./wizard-how-it-works.md)

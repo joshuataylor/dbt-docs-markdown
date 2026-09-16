@@ -135,6 +135,6 @@ Both bug fixes and backwards-compatible new features will be included in the [ne
 
 #### dbt v2
 
-dbt v2 is released continuously, and it contains a superset of the code and functionality available in the open source layer. When dbt v2.0.0 is released (General Availability), the version numbers for dbt OSS and dbt v2 will converge.
+dbt v2 is released continuously, and it contains a superset of the code and functionality available in the open source layer. Version numbers for dbt OSS and dbt v2 converge at v2.0.0.
 
-The next major version of our [open source](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md) offering is built on the v2 runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because v2 is currently in beta, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
+The major version of our [open source](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md) offering is built on the v2 runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release.

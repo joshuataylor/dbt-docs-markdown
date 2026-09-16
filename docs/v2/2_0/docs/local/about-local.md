@@ -11,7 +11,7 @@ You can run dbt locally from your terminal with the dbt CLI, or from your code e
 Install dbt locally to run dbt commands from your terminal. You can install it with `pip`:
 
 ```shell
-python -m pip install --pre dbt
+python -m pip install dbt
 ```
 
 Or with `curl`:
