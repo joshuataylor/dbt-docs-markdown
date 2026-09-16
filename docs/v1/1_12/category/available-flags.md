@@ -19,6 +19,10 @@ The list of flags available in dbt.
 
 [Log formatting](../reference/global-configs/logs.md)
 
+## [Batch tests](../reference/global-configs/batch-tests.md)
+
+[Use the --batch-tests flag to combine compatible data tests into a single query per test type, improving performance in large projects.](../reference/global-configs/batch-tests.md)
+
 ## [Cache](../reference/global-configs/cache.md)
 
 [Cache population](../reference/global-configs/cache.md)

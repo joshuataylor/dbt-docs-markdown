@@ -19,6 +19,10 @@ The list of flags available in dbt.
 
 [Log formatting](../reference/global-configs/logs.md)
 
+## [Batch tests](../reference/global-configs/batch-tests.md)
+
+[Use the --batch-tests flag to combine compatible data tests into a single query per test type, improving performance in large projects.](../reference/global-configs/batch-tests.md)
+
 ## [Failing fast](../reference/global-configs/failing-fast.md)
 
 [Supply the -x or --fail-fast flag to dbt run, dbt build, or dbt test to make dbt exit immediately on the first failure. fail\_fast is a global flag, so it stops on both run errors and test errors —\&mdash; not just run errors. If other models are in-progress when the first failure happens, then dbt will terminate the connections for these still-running models.](../reference/global-configs/failing-fast.md)

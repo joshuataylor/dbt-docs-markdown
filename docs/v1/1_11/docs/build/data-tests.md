@@ -10,6 +10,7 @@ Use [dbt Wizard](../platform/wizard-overview.md) to generate data tests in the d
 * [Data test properties](../../reference/resource-properties/data-tests.md)
 * [Data test configurations](../../reference/data-test-configs.md)
 * [Test selection examples](../../reference/node-selection/test-selection-examples.md)
+* [Batch tests](../../reference/global-configs/batch-tests.md)
 
 important
 
@@ -247,6 +248,10 @@ dbt test --select "test_type:data"
 ```
 
 In dbt (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](../../reference/node-selection/test-selection-examples.md).
+
+## Batch your data tests
+
+In dbt v2, you can reduce the number of queries dbt issues for tests by enabling [batch tests](../../reference/global-configs/batch-tests.md). Batching groups `unique` and `not_null` tests that are attached to the same model into one query per test type, and each test still reports its own pass or fail result.
 
 ## Storing data test failures
 
