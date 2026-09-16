@@ -13,9 +13,9 @@ The list of Jinja functions and context variables available in dbt.
 
 [dbt has a number of classes it uses to represent objects in a , parts of a dbt project, and the results of a command.](../reference/dbt-classes.md)
 
-[Previous](../reference/programmatic-invocations.md)
+[Previous](../reference/info-schema.md)
 
-[Programmatic invocations](../reference/programmatic-invocations.md)
+[Information Schema tables](../reference/info-schema.md)
 
 [Next](../reference/dbt-jinja-functions-context-variables.md)
 

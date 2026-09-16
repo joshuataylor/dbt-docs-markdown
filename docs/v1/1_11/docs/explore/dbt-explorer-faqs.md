@@ -99,7 +99,7 @@ Yes, a reused column, labeled as passthrough or rename, inherits its description
 
  Is column-level lineage also available in the development tab?
 
-Not currently, but we plan to incorporate column-level awareness across features in dbt in the future.
+If you develop in dbt platform, column-level lineage is not in the Studio IDE, but it is available in Catalog for Enterprise and Enterprise+ plans. If you develop locally with dbt v2, the [dbt VS Code extension](../dbt-extension-features.md#rich-lineage-in-context) shows column lineage in your editor.
 
 ## Availability, access, and permissions
 

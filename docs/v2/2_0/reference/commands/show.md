@@ -11,6 +11,10 @@ Use `dbt show` to:
 
 * Preview the results in the terminal
 
+(Applies to dbt v2.0 and later)
+
+* Query the [dbt Information Schema](../../docs/build/dbt-information-schema.md) directly from the CLI using the `--info` flag, without connecting to your warehouse
+
 ## How it works
 
 By default, `dbt show` will display the first 5 rows from the query result. This can be customized by passing the `limit` or the `inline` flags , where `n` is the number of rows to display.
@@ -26,6 +30,24 @@ If previewing a model, dbt will always compile and run the compiled query from s
 
 * The results of the preview query are only included in dbt's logs and displayed in the terminal and aren't materialized in the data warehouse or stored in any dbt file, except if you use `dbt show --inline`.
 * The `--inline` flags enables you to run ad-hoc SQL, which means dbt can't ensure the query doesn't modify the data warehouse. To ensure no changes are made, use a profile or role with read-only permissions, which are managed directly in your data warehouse. For example: `dbt show --inline "select * from my_table" --profile my-read-only-profile`.
+
+(Applies to dbt v2.0 and later)
+
+#### `--info` flag
+
+* The `--info <view>` flag queries the [dbt Information Schema](../../docs/build/dbt-information-schema.md) directly from the CLI. It reads from `target/info_schema/` and does not connect to your warehouse.
+* It is equivalent to `--inline "select * from {{ info_schema('<view>') }}"`.
+
+```shell
+dbt show --info models
+dbt show --info models --limit 20
+```
+
+You can also write custom SQL against the Information Schema using `--inline`:
+
+```shell
+dbt show --inline "select name from {{ info_schema('models') }} order by name"
+```
 
 ### `--output json` flag
 

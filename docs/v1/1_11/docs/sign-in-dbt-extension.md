@@ -368,5 +368,6 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 * [Supported features matrix](./dbt/supported-features.md)
 * [Install dbt](./local/install-dbt.md)
 * [Quickstart for dbt v2](../guides/dbt.md?step=1)
-* [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)
 * [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
+* [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)

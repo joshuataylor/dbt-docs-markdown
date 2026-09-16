@@ -81,3 +81,15 @@ target/perf\_info.json
     ]
 }
 ```
+
+(Applies to dbt v2.0 and later)
+
+## dbt Information Schema
+
+Use `--generate-info-schema` to write the [dbt Information Schema](../../docs/build/dbt-information-schema.md) to `target/info_schema/` in a versioned subdirectory (currently `v1/`). The Information Schema exposes your project's metadata as queryable SQL tables (similar to a database's `INFORMATION_SCHEMA`) so you can query models, sources, and more without parsing `manifest.json`.
+
+```shell
+dbt parse --generate-info-schema
+```
+
+Because `dbt parse` doesn't connect to your warehouse, the Information Schema it produces contains no column types, no column-level lineage, and no runtime results.

@@ -53,6 +53,22 @@ For more information, see the [Model Selection Syntax Documentation](../node-sel
 
 For more information on running parents or children of specific models, see the [Graph Operators Documentation](../node-selection/graph-operators.md).
 
+(Applies to dbt v2.0 and later)
+
+## dbt Information Schema
+
+Use `--generate-info-schema` to write the [dbt Information Schema](../../docs/build/dbt-information-schema.md) to `target/info_schema/` in a versioned subdirectory (currently `v1/`). The Information Schema exposes your project's metadata as queryable SQL tables (similar to a database's `INFORMATION_SCHEMA`) so you can query models, sources, and more without parsing `manifest.json`.
+
+```shell
+dbt run --generate-info-schema
+```
+
+To populate column types and column-level lineage in `dbt.node_columns` and `dbt.column_lineage`, combine with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Without it, `dbt.node_columns` and `dbt.column_lineage` contain no column types and no lineage.
+
+```shell
+dbt run --generate-info-schema --static-analysis strict
+```
+
 ## Treat warnings as errors
 
 See [global configs](../global-configs/warnings.md)

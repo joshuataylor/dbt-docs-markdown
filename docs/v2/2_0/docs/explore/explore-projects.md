@@ -98,6 +98,8 @@ Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However,
 | [Downstream exposures](./view-downstream-exposures.md)  | ❌      | ✅         | ✅          |
 | [Data health tile](./data-tile.md)                      | ❌      | ✅         | ✅          |
 
+This table covers Catalog only. Refer to [Column-level lineage](./column-level-lineage.md) to learn how you can use this feature locally.
+
 On-demand learning
 
 If you enjoy video courses, check out our [dbt Catalog on-demand course](https://learn.getdbt.com/courses/dbt-catalog) and learn how to best explore your dbt project(s)!

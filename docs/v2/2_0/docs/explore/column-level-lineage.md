@@ -1,24 +1,37 @@
 # Column-level lineage
 
-dbt platform | Enterprise, Enterprise+
+Local development | dbt platform
 
-Catalog now offers column-level lineage (CLL) for the resources in your dbt project. Analytics engineers can quickly and easily gain insight into the provenance of their data products at a more granular level. For each column in a resource (model, source, or snapshot) in a dbt project, Catalog provides end-to-end lineage for the data in that column given how it's used.
-
-CLL is available to all dbt Enterprise plans that can use Catalog.
+Column-level lineage (CLL) gives you insight into the provenance of your data products at a more granular level. For each column in a resource (model, source, or snapshot) in a dbt project, dbt provides end-to-end lineage for the data in that column given how it's used.
 
 ![Overview of column level lineage](/img/docs/collaborate/dbt-explorer/example-overview-cll.png?v=2 "Overview of column level lineage")Overview of column level lineage
+
+## Prerequisites
+
+You can use CLL in two places:
+
+* **[Catalog](./explore-projects.md) in the dbt platform**: Requires an Enterprise or Enterprise+ plan with Catalog access.
+* **Locally with dbt v2**: Requires [strict static analysis](../build/about-static-analysis.md#configuring-static_analysis). Available in the [dbt VS Code extension](../dbt-extension-features.md#rich-lineage-in-context), [dbt Docs v2](../build/view-documentation.md#dbt-docs-v2), or from the command line. For more information, refer to [dbt Information Schema](../build/dbt-information-schema.md?version=2).
 
 On-demand learning
 
 If you enjoy video courses, check out our [dbt Catalog on-demand course](https://learn.getdbt.com/courses/dbt-catalog) and learn how to best explore your dbt project(s)!
 
-## Access the column-level lineage
+## Access the column-level lineage in Catalog
 
-There is no additional setup required for CLL if your account is on an Enterprise plan that can use Catalog. You can access the CLL by expanding the column card in the **Columns** tab of an Catalog [resource details page](./explore-projects.md#view-resource-details) for a model, source, or snapshot.
+There is no additional setup required for CLL in Catalog if your account is an Enterprise or Enterprise+ plan with Catalog access. You can access CLL from the column card in the **Columns** tab in the Catalog [resource details page](./explore-projects.md#view-resource-details) for a model, source, or snapshot.
 
-dbt updates the lineage in Explorer after each run that's executed in the production or staging environment. At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
+dbt updates the lineage in Catalog after each run that's executed in the production or staging environment. At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
 
-![Example of the Columns tab and where to expand for the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to expand for the CLL")Example of the Columns tab and where to expand for the CLL
+![Example of the Columns tab and where to open the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to open the CLL")Example of the Columns tab and where to open the CLL
+
+## Access column-level lineage locally
+
+When you develop with dbt v2, you can see column-level lineage in these ways:
+
+* **dbt VS Code extension**: Right-click a filename or a model's SQL, then select **dbt: View Lineage** → **Show column lineage**. Refer to [Rich lineage in context](../dbt-extension-features.md#rich-lineage-in-context) for the full workflow.
+* **dbt Docs v2**: Run `dbt compile --generate-info-schema --static-analysis strict`, then `dbt docs generate --no-compile`. `dbt docs generate` has no `--static-analysis` flag, so the strict compile must come first or the site won't include column lineage. Refer to [dbt Docs v2](../build/view-documentation.md#dbt-docs-v2).
+* **Command line or artifact**: Run `dbt compile --generate-info-schema --static-analysis strict`, then [`dbt show --info column_lineage`](../build/dbt-information-schema.md#querying-with-dbt-show). You can find these files in `target/info_schema/` and read the [`dbt.column_lineage`](../../reference/info-schema.md) Parquet directly.
 
 ## Column evolution lens
 
@@ -52,7 +65,7 @@ During development, analytics engineers can use column-level lineage to understa
 
 When exploring your data products, navigating column lineage allows analytics engineers and data analysts to more easily navigate and understand the origin and usage of their data, enabling them to make better decisions with higher confidence.
 
-## Caveats
+## Caveats in Catalog
 
 Refer to the following CLL caveats or limitations as you navigate Catalog.
 

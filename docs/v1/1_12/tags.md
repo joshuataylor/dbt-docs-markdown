@@ -28,6 +28,7 @@
 * [Canvas1](./tags/canvas.md)
 * [CI2](./tags/ci.md)
 * [CLI2](./tags/cli.md)
+* [CLL1](./tags/cll.md)
 * [Configuration1](./tags/configuration.md)
 * [Copilot1](./tags/copilot.md)
 * [cost insights3](./tags/cost-insights.md)

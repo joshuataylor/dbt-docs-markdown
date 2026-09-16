@@ -153,7 +153,7 @@ View table lineage:
 * The lineage pane updates as you navigate the files in your dbt project.
 * Right-click on a node to update the DAG, or view column lineage for a node.
 
-Column-level lineage (requires [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
+[Column-level lineage](./explore/column-level-lineage.md) (depends on [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2)):
 
 View column lineage:
 

@@ -23,7 +23,7 @@ Some common misconceptions:
 * `dbt compile` is *not* a pre-requisite of `dbt run`, or other building commands. Those commands will handle compilation themselves.
 * If you just want dbt to read and validate your project code, without connecting to the data warehouse, use `dbt parse` instead.
 
-### Interactive compile
+## Interactive compile
 
 Starting in dbt v1.5, `compile` can be "interactive" in the CLI, by displaying the compiled code of a node or arbitrary dbt-SQL query:
 
@@ -93,11 +93,9 @@ Resources that use introspective queries
 
 Compiled SQL for resources that use introspective queries may depend on metadata from your warehouse. Compilation may be incomplete or may differ depending on the state of that metadata.
 
-### Compiling tests with `--select`
+## Compiling tests with `--select`
 
-You can use `dbt compile` to compile tests, as long as your selector matches a test node in the project.
-
-You can also target groups of tests with selector methods:
+You can use `dbt compile` to compile tests, as long as your selector matches a test node in the project. You can also target groups of tests with selector methods:
 
 **Compile all test nodes:**
 
@@ -141,7 +139,7 @@ FULL_TEST_NODE_NAME
 
 For more selector patterns, refer to [Test selection examples](../node-selection/test-selection-examples.md).
 
-### FAQs
+## FAQs
 
 Why dbt compile needs a data platform connection
 
