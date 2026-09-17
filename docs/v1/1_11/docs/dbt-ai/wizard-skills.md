@@ -44,6 +44,14 @@ The following table summarizes where dbt Wizard looks for skills. Use the intend
 
 Avoid duplicate skill names across locations. If you need to replace a built-in or imported skill, create the replacement in an intended project or user location and remove or rename the older copy.
 
+## Skills from dbt packages
+
+(Applies to dbt v1.99 and earlier)
+
+From v2 and later, you can ship agent skills in a dbt package and install them with `dbt deps` into the directory your coding agent reads from. Your whole team picks up the same skills from a versioned dependency instead of managing them separately.
+
+For more information, refer to [upgrading to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2#agent-skills).
+
 ## Create a skill
 
 From your terminal, use the following commands to create a skill folder and file:
@@ -169,7 +177,7 @@ Built-in skills are updated with each dbt Wizard release. Custom skills with the
 * **Keep `SKILL.md` focused.** One skill per concern (style guide, testing conventions, deployment workflow). Smaller skills are loaded more reliably than large monolithic ones.
 * **Use `description` to control when dbt Wizard activates the skill.** A precise description ("Use when creating or editing models in models/marts/") means the skill fires when relevant, not on every prompt.
 * **Start a new session after adding or editing a skill.** Skills are discovered at session start — mid-session changes aren't picked up until you start a new chat.
-* **Cross-project sharing isn't supported yet.** To reuse a skill in another repo, copy the skill files manually. CLI users can also use `~/.agents/skills/` for skills they want everywhere.
+* **Share skills across projects**: To share skills across projects in v2, [ship them in a dbt package](./package-skills.md?version=2) and install it with `dbt deps`. Refer to [Skills from dbt packages](./package-skills.md?version=2). For personal skills you want across all your local projects, use \~/.agents/skills/.
 
 ## Related docs
 

@@ -12,7 +12,7 @@ Agent skills install locally where your coding agent runs. Skills install only w
 
 ## Set the ai\_provider flag
 
-Set [`ai_provider` in the `flags`](../../reference/global-configs/about-global-configs.md?version=2#available-flags) block of your root project. For example, if you use claude as your AI provider, you'd set it as such:
+Set [`ai_provider` in the `flags`](../../reference/global-configs/about-global-configs.md?version=2#available-flags) block of your root project to tell dbt which directory to write skills to. For example, if you use claude as your AI provider, you'd set it as such:
 
 dbt\_project.yml
 
@@ -33,6 +33,8 @@ Each provider has a directory it reads skills from. Most providers share `.agent
 | `gemini`            | `.agents/skills` |
 
 Values are case-insensitive, so `wizard`, `Wizard`, and `WIZARD` all resolve the same way.
+
+If you use dbt Wizard, set `wizard` even if you [bring your own key](./wizard-byok.md) or use dbt-managed AI.
 
 You can also list more than one provider, which installs the same skills into each provider's directory:
 
@@ -181,6 +183,58 @@ skills:
 ```
 
 A package's own `skills` config sets the defaults for the skills it ships, and your root project's `skills` config overrides it. This works the same way as [enabling and disabling other resources](../../reference/resource-configs/enabled.md).
+
+## More examples
+
+Set `+enabled` at the package level to control a whole package, or nest it under a skill name to control a single skill.
+
+Disable every skill from one package, and leave all others enabled:
+
+dbt\_project.yml
+
+```yml
+skills:
+  demo_skills:
+    +enabled: false
+```
+
+Enable skills from only one package, and disable them from all others:
+
+dbt\_project.yml
+
+```yml
+skills:
+  +enabled: false
+  demo_skills:
+    +enabled: true
+```
+
+Enable just two skills, and disable everything else:
+
+dbt\_project.yml
+
+```yml
+skills:
+  demo_skills:
+    +enabled: false
+    naming-conventions:
+      +enabled: true
+    adding-exposures:
+      +enabled: true
+```
+
+Disable just two skills, and leave everything else enabled:
+
+dbt\_project.yml
+
+```yml
+skills:
+  demo_skills:
+    naming-conventions:
+      +enabled: false
+    adding-exposures:
+      +enabled: false
+```
 
 Skill names must be unique
 
