@@ -58,23 +58,23 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Canary
 
-[`v2.0.4`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#204 "View this version in the dbt v2 changelog")
+[`v2.0.5`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this version in the dbt v2 changelog")
 
-2026-09-16
+2026-09-17
 
 #### Latest
 
-[`v2.0.4`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#204 "View this version in the dbt v2 changelog")
+[`v2.0.5`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this version in the dbt v2 changelog")
 
-2026-09-16
+2026-09-17
 
 ### All releases
 
-[v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
 
-Released by: **xuliangs**Sep 17, 2026, 09:04 PM
+Released by: **xuliangs**Sep 17, 2026, 10:36 PM
 
-Automated promotion
+Bug fix for INC-8093
 
 [v2.0.4](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#204 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
 
