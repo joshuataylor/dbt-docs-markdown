@@ -6,17 +6,17 @@ The dbt MCP server has access to many parts of the dbt experience related to dev
 
 The following sections list every tool by category, along with which server type (local or remote) supports it.
 
-| Tools                                             | Local | Remote |
-| ------------------------------------------------- | ----- | ------ |
-| [dbt commands](#dbt-commands)                     | ✅    | ❌     |
-| [Semantic Layer](#semantic-layer)                 | ✅    | ✅     |
-| [SQL](#sql)                                       | ✅    | ✅     |
-| [Metadata Discovery](#discovery)                  | ✅    | ✅     |
-| [Administrative API](#admin-api)                  | ✅    | ✅     |
-| [Codegen Tools](#dbt-codegen)                     | ✅    | ❌     |
-| [dbt v2 Tools](#dbt-lsp)                          | ✅    | ✅     |
-| [Product Docs Tools](#product-docs)               | ✅    | ✅     |
-| [MCP Server Metadata Tools](#mcp-server-metadata) | ✅    | ✅     |
+| Tools                                                  | Local | Remote |
+| ------------------------------------------------------ | ----- | ------ |
+| [dbt commands](#dbt-commands)                          | ✅    | ❌     |
+| [Semantic Layer (Semantic Layer API)](#semantic-layer) | ✅    | ✅     |
+| [SQL](#sql)                                            | ✅    | ✅     |
+| [Metadata Discovery (Discovery API)](#discovery)       | ✅    | ✅     |
+| [Administrative API (Admin API)](#admin-api)           | ✅    | ✅     |
+| [Codegen Tools](#dbt-codegen)                          | ✅    | ❌     |
+| [dbt v2 Tools](#dbt-lsp)                               | ✅    | ✅     |
+| [Product Docs Tools](#product-docs)                    | ✅    | ✅     |
+| [MCP Server Metadata Tools](#mcp-server-metadata)      | ✅    | ✅     |
 
 Note that access to the Discovery API and the Semantic Layer API is limited depending on your [plan type](https://www.getdbt.com/pricing).
 
