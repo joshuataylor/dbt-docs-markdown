@@ -29,6 +29,8 @@ for r in res.result:
     print(f"{r.node.name}: {r.status}")
 ```
 
+Report incorrect code
+
 For implementation details, refer to the source definitions of `dbtRunner` and `dbtRunnerResult` in the [dbt v1 repository](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/cli/main.py).
 
 ## Supported arguments
@@ -44,6 +46,8 @@ dbt = dbtRunner()
 dbt.invoke(["run", "--select", "tag:my_tag"])
 dbt.invoke(["run"], select="tag:my_tag")
 ```
+
+Report incorrect code
 
 ## Parallel execution not supported
 
@@ -111,6 +115,8 @@ cli_args = ["run", "--select", "tag:my_tag"]
 res = dbt.invoke(cli_args)
 ```
 
+Report incorrect code
+
 ### Registering callbacks
 
 Register `callbacks` on dbt's `EventManager`, to access structured events and enable custom logging. The current behavior of callbacks is to block subsequent steps from proceeding; this functionality is not guaranteed in future versions.
@@ -127,6 +133,8 @@ dbt = dbtRunner(callbacks=[print_version_callback])
 dbt.invoke(["list"])
 ```
 
+Report incorrect code
+
 ### Overriding parameters
 
 Pass in parameters as keyword arguments, instead of a list of CLI-style strings. At present, dbt will not do any validation or type coercion on your inputs. The command must be specified, in a list, as the first positional argument.
@@ -139,3 +147,5 @@ dbt = dbtRunner()
 dbt.invoke(["--fail-fast", "run", "--select", "tag:my_tag"])
 dbt.invoke(["run"], select=["tag:my_tag"], fail_fast=True)
 ```
+
+Report incorrect code

@@ -23,12 +23,16 @@ my\_table.sql
 select ...
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
 models:
   +unlogged: true
 ```
+
+Report incorrect code
 
 ### Indexes
 
@@ -54,6 +58,8 @@ my\_table.sql
 select ...
 ```
 
+Report incorrect code
+
 If one or more indexes are configured on a resource, dbt will run `create index` DDL statement(s) as part of that resource's materialization, within the same transaction as its main `create` statement. For the index's name, dbt uses a hash of its properties and the current timestamp, in order to guarantee uniqueness and avoid namespace conflict with other indexes.
 
 ```sql
@@ -69,6 +75,8 @@ on "my_target_database"."my_target_schema"."indexed_model"
 (column_a, column_b);
 ```
 
+Report incorrect code
+
 You can also configure indexes for a number of resources at once:
 
 dbt\_project.yml
@@ -81,6 +89,8 @@ models:
         - columns: ['column_a']
           type: hash
 ```
+
+Report incorrect code
 
 ## Materialized views
 
@@ -106,6 +116,8 @@ models:
         type: hash | btree
 ```
 
+Report incorrect code
+
 ### Properties YAML file
 
 models/properties.yml
@@ -122,6 +134,8 @@ models:
           unique: true | false
           type: hash | btree
 ```
+
+Report incorrect code
 
 ### SQL file config
 
@@ -140,6 +154,8 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 The [`indexes`](#indexes) parameter corresponds to that of a table, as explained above. It's worth noting that, unlike tables, dbt monitors this parameter for changes and applies the changes without dropping the materialized view. This happens via a `DROP/CREATE` of the indexes, which can be thought of as an `ALTER` of the materialized view.
 

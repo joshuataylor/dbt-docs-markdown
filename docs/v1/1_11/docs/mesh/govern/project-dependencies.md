@@ -89,6 +89,8 @@ dbt\_project.yml
 name: jaffle_marketing
 ```
 
+Report incorrect code
+
 As part of your modeling of marketing data, you need to take a dependency on two other projects:
 
 * `dbt_utils` as a package: A collection of utility macros you can use while writing the SQL for your own models. This package is open-source public and maintained by dbt Labs.
@@ -106,6 +108,8 @@ packages:
 projects:
   - name: jaffle_finance  # case sensitive and matches the 'name' in the 'dbt_project.yml'
 ```
+
+Report incorrect code
 
 What's happening here?
 
@@ -137,6 +141,8 @@ with monthly_revenue as (
 
 ...
 ```
+
+Report incorrect code
 
 #### Cycle detection
 

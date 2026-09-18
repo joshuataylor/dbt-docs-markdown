@@ -51,6 +51,8 @@ models:
       +materialized: view
 ```
 
+Report incorrect code
+
 ### Model file
 
 Alternatively, materializations can be configured directly inside of the model SQL files. This can be useful if you are also setting \[Performance Optimization] configs for specific models (for example, [Redshift specific configurations](../../reference/resource-configs/redshift-configs.md) or [BigQuery specific configurations](../../reference/resource-configs/bigquery-configs.md)).
@@ -65,6 +67,8 @@ select *
 from ...
 ```
 
+Report incorrect code
+
 ### Property file
 
 Materializations can also be configured in the model's `properties.yml` file. The following example shows the `table` materialization type. For a complete list of materialization types, refer to [materializations](./materializations.md#materializations).
@@ -78,6 +82,8 @@ models:
     config:
       materialized: table
 ```
+
+Report incorrect code
 
 ## Materializations
 
@@ -215,6 +221,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 ### PySpark
 
 models/my\_python\_model.py
@@ -239,5 +247,7 @@ def model(dbt, session):
 
     return df
 ```
+
+Report incorrect code
 
 **Note:** Incremental models are supported on BigQuery/Dataproc for the `merge` incremental strategy. The `insert_overwrite` strategy is not yet supported.

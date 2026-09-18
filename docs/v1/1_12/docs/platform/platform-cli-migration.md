@@ -18,6 +18,8 @@ If you can't reinstall right now (for example, a Docker image that only has pip 
 pip install dbt==1.0.0.40.20
 ```
 
+Report incorrect code
+
 This keeps working indefinitely, but won't receive further dbt platform CLI updates through pip. Reinstalling with a currently supported method is the long-term path.
 
 ## General areas of impact

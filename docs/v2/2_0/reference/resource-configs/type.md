@@ -13,6 +13,8 @@ functions:
       type: scalar | aggregate 
 ```
 
+Report incorrect code
+
 In the future, we're considering adding support for `table` type. Refer to [this issue](https://github.com/dbt-labs/dbt/issues/11917) to track the progress and provide any feedback.
 
 ## Definition
@@ -61,6 +63,8 @@ functions:
       data_type: BOOLEAN
 ```
 
+Report incorrect code
+
 ### aggregate
 
 Aggregate functions operate on multiple rows and return a single value — for example, they sum values or calculate an average for a group. Queries use these functions in `GROUP BY` operations.
@@ -90,6 +94,8 @@ functions:
     returns:
       data_type: FLOAT
 ```
+
+Report incorrect code
 
 ## Related documentation
 

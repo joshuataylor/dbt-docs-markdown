@@ -28,6 +28,8 @@ def model(dbt, session):
     return final_df
 ```
 
+Report incorrect code
+
 models/config.yml
 
 ```yml
@@ -54,6 +56,8 @@ models:
       # Write your own validation logic (in SQL) for Python results
       - custom_generic_test
 ```
+
+Report incorrect code
 
 ![SQL + Python, together at last](/img/docs/building-a-dbt-project/building-models/python-models/python-model-dag.png?v=2 "SQL + Python, together at last")SQL + Python, together at last
 
@@ -92,6 +96,8 @@ def model(dbt, session):
     return final_df
 ```
 
+Report incorrect code
+
 ### Referencing other models
 
 Python models participate fully in dbt's directed acyclic graph (DAG) of transformations. Use the `dbt.ref()` method within a Python model to read data from other models (SQL or Python). If you want to read directly from a raw source table, use `dbt.source()`. These methods return DataFrames pointing to the upstream source, model, seed, or snapshot.
@@ -110,6 +116,8 @@ def model(dbt, session):
     ...
 ```
 
+Report incorrect code
+
 Of course, you can `ref()` your Python model in downstream SQL models, too:
 
 models/downstream\_model.sql
@@ -123,6 +131,8 @@ with upstream_python_model as (
 
 ...
 ```
+
+Report incorrect code
 
 caution
 
@@ -140,6 +150,8 @@ print(f"{dbt.config.get('my_var')}")  # Output before change: None
 # Assuming 'my_var' is configured to 5 for the current model
 print(f"{dbt.config.get('my_var')}")  # Output after change: 5
 ```
+
+Report incorrect code
 
 This also means you can use `dbt.config.get()` within Python models to ensure that configuration values are effectively retrievable and usable within Python f-strings.
 
@@ -161,6 +173,8 @@ def model(dbt, session):
     # setting configuration
     dbt.config(materialized="table")
 ```
+
+Report incorrect code
 
 There's a limit to how complex you can get with the `dbt.config()` method. It accepts *only* literal values (strings, booleans, and numeric types) and dynamic configuration. Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the [`config` property](../../reference/resource-properties/config.md) in a properties YAML file.
 
@@ -190,6 +204,8 @@ models:
       specific_env_var: "{{ env_var('SPECIFIC_ENV_VAR') }}"
 ```
 
+Report incorrect code
+
 Then, within the model's Python code, use the `dbt.config.get()` function to *access* values of configurations that have been set:
 
 models/my\_python\_model.py
@@ -207,6 +223,8 @@ def model(dbt, session):
         orders_df = orders_df.limit(500)
 ```
 
+Report incorrect code
+
 #### Accessing custom meta values
 
 To store custom values, use the [`meta` config](../../reference/resource-configs/meta.md). For example, if you have a model named `my_python_model` and you want to store custom values, you can do the following:
@@ -223,6 +241,8 @@ models:
         another_value: "abc"
 ```
 
+Report incorrect code
+
 Then access them in your Python model using the `dbt.config.meta_get()` method:
 
 models/my\_python\_model.py
@@ -238,6 +258,8 @@ def model(dbt, session):
     ...
 ```
 
+Report incorrect code
+
 Alternative approach
 
 You can also retrieve meta values using `dbt.config.get("meta")`, which returns the entire meta dictionary. When using this approach, handle the case where `meta` might not be configured:
@@ -245,6 +267,8 @@ You can also retrieve meta values using `dbt.config.get("meta")`, which returns 
 ```python
 custom_value = dbt.config.get("meta", {}).get("custom_value")
 ```
+
+Report incorrect code
 
 #### Dynamic configurations
 
@@ -261,6 +285,8 @@ def model(dbt, session):
     # Assuming 'my_var' is set to 5, this will print: Dynamic config value: 5
     print(f"Dynamic config value: {dbt.config.get('my_var')}")
 ```
+
+Report incorrect code
 
 ### Materializations
 
@@ -300,6 +326,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 #### BigQuery DataFrames
 
 models/my\_python\_model.py
@@ -324,6 +352,8 @@ def model(dbt, session):
 
   return bdf
 ```
+
+Report incorrect code
 
 #### PySpark
 
@@ -350,6 +380,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 ## Python-specific functionality
 
 ### Defining functions
@@ -370,6 +402,8 @@ def model(dbt, session):
     df = temps_df.withColumn("degree_plus_one", add_one(temps_df["degree"]))
     return df
 ```
+
+Report incorrect code
 
 Currently, Python functions defined in one dbt model can't be imported and reused in other models. Refer to [Code reuse](#code-reuse) for the potential patterns being considered.
 
@@ -411,6 +445,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 #### BigQuery DataFrames
 
 models/my\_python\_model.py
@@ -434,6 +470,8 @@ def model(dbt, session):
 
     return bdf[bdf['birthday'].isin(us_holidays)]
 ```
+
+Report incorrect code
 
 #### PySpark
 
@@ -470,6 +508,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 #### Configuring packages
 
 We encourage you to configure required packages and versions so dbt can track them in project metadata. This configuration is required for the implementation on some platforms. If you need specific versions of packages, specify them.
@@ -483,6 +523,8 @@ def model(dbt, session):
     )
 ```
 
+Report incorrect code
+
 models/config.yml
 
 ```yml
@@ -494,6 +536,8 @@ models:
         - "numpy==1.23.1"
         - scikit-learn
 ```
+
+Report incorrect code
 
 #### User-defined functions (UDFs)
 
@@ -541,6 +585,8 @@ def model(dbt, session):
     return df
 ```
 
+Report incorrect code
+
 **Note:** Due to a Snowpark limitation, it is not currently possible to register complex named UDFs within stored procedures and, therefore, dbt Python models. We are looking to add native support for Python UDFs as a project/DAG resource type in a future release. For the time being, if you want to create a "vectorized" Python UDF via the Batch API, we recommend either:
 
 * Writing [`create function`](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-batch.html) inside a SQL macro, to run as a hook or run-operation
@@ -565,6 +611,8 @@ def model(dbt, session):
 
     return bdf
 ```
+
+Report incorrect code
 
 ##### PySpark
 
@@ -593,6 +641,8 @@ def model(dbt, session):
     df = temps_df.withColumn("degree_plus_random", add_random("degree"))
     return df
 ```
+
+Report incorrect code
 
 #### Code reuse
 
@@ -667,5 +717,7 @@ Python models have capabilities that SQL models do not. They also have some draw
 
       return df
   ```
+
+  Report incorrect code
 
 As a general rule, if there's a transformation you could write equally well in SQL or Python, we believe that well-written SQL is preferable: it's more accessible to a greater number of colleagues, and it's easier to write code that's performant at scale. If there's a transformation you *can't* write in SQL, or where ten lines of elegant and well-annotated Python could save you 1000 lines of hard-to-read Jinja-SQL, Python is the way to go.

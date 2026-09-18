@@ -92,6 +92,8 @@ After deciding that a change needs a new [version](../../reference/resource-prop
                exclude: [column_to_remove]   # columns removed in v2
    ```
 
+   Report incorrect code
+
 2. Merge the new version into the main branch.
 
 3. Run the job to build the new version.
@@ -124,6 +126,8 @@ models:
       - v: 1 # this represents the old version
       - v: 2 # this represents the new version
 ```
+
+Report incorrect code
 
 This then updates the default `ref` to the new version. For example, `{{ ref('upstream_project', 'fishtown_analytics_orders') }}` will now resolve to the `fishtown_analytics_orders_v2` model in the `upstream_project`. If consumers want to use the old version, they can use `v=1` when referencing the model: `{{ ref('upstream_project', 'fishtown_analytics_orders', v=1) }}`.
 
@@ -180,6 +184,8 @@ If the model has an enforced contract, complete the workflow in the callout abov
              - include: all
                exclude: [column_to_remove]   # columns removed in v2
    ```
+
+   Report incorrect code
 
 3. Drop or delete the `fishtown_analytics_orders_v1` object from your warehouse with a manual script or appropriate process or using a cleanup macro.
 

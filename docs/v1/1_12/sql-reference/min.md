@@ -30,6 +30,8 @@ group by 1
 limit 3
 ```
 
+Report incorrect code
+
 This simple query is returning the first and last order date for a customer in the Jaffle Shop’s `orders` table:
 
 | customer\_id | first\_order\_date | last\_order\_date |

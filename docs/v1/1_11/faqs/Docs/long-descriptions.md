@@ -14,6 +14,8 @@ models:
       consequat.
 ```
 
+Report incorrect code
+
 2. Split your description over multiple lines using `|`. Interior line breaks are maintained and Markdown can be used. This method is recommended for more complex descriptions:
 
 ```yml
@@ -25,5 +27,7 @@ models:
       * dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
+
+Report incorrect code
 
 3. Use a [docs block](../../docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.

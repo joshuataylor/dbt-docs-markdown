@@ -30,6 +30,8 @@ source dbt-env/bin/activate			# activate the environment for Mac and Linux
 dbt-env\Scripts\activate			# activate the environment for Windows
 ```
 
+Report incorrect code
+
 If you install `dbt` in a virtual environment, you need to reactivate that same virtual environment each time you create a shell window or session.
 
 *Tip:* You can create an alias for the `source` command in your `$HOME/.bashrc`, `$HOME/.zshrc`, or whichever rc file your shell draws from. For example, you can add a command like `alias env_dbt='source <PATH_TO_VIRTUAL_ENV_CONFIG>/bin/activate'`, replacing `<PATH_TO_VIRTUAL_ENV_CONFIG>` with the path to your virtual environment configuration.
@@ -44,3 +46,5 @@ Before installing dbt, make sure you have the latest versions:
 
 python -m pip install --upgrade pip wheel setuptools
 ```
+
+Report incorrect code

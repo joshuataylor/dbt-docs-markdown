@@ -17,16 +17,22 @@ models/sales.sql
 seeds/sales.csv
 ```
 
+Report incorrect code
+
 And a model contains:
 
 ```sql
 select * from {{ ref('sales') }}
 ```
 
+Report incorrect code
+
 When the flag is set to `true`, dbt will raise:
 
 ```text
 DuplicateResourceNameError: Found resources with the same name 'sales' in package 'project': 'model.project.sales' and 'seed.project.sales'. Please update one of the resources to have a unique name.
 ```
+
+Report incorrect code
 
 When this error is raised, rename one of the resources or refactor the project structure to avoid name conflicts.

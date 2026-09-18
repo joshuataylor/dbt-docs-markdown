@@ -11,6 +11,8 @@ models:
       require_fresh_data_from: any | all
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -23,6 +25,8 @@ models:
         require_fresh_data_from: any | all
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -34,6 +38,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -64,6 +70,8 @@ models:
         require_fresh_data_from: all
 ```
 
+Report incorrect code
+
 ### Apply a project-wide default
 
 dbt\_project.yml
@@ -73,6 +81,8 @@ models:
   +state:
     require_fresh_data_from: all
 ```
+
+Report incorrect code
 
 ## Related docs
 

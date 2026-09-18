@@ -31,6 +31,8 @@ from {{ ref('orders') }}
 order by 1
 ```
 
+Report incorrect code
+
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return the unique row number per customer by their `order_date`:
 
 | customer\_id | order\_id | order\_date | row\_n |

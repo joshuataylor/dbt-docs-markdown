@@ -76,11 +76,15 @@ flags:
       - SourceOverrideDeprecation
 ```
 
+Report incorrect code
+
 Alternatively, the `--warn-error-options` flag can be used to silence specific deprecations from the command line:
 
 ```sh
 dbt parse --warn-error-options '{"silence": ["CustomTopLevelKeyDeprecation", "CustomKeyInConfigDeprecation", "CustomKeyInObjectDeprecation", "MissingPlusPrefixDeprecation", "SourceOverrideDeprecation"]}'
 ```
+
+Report incorrect code
 
 To silence *all* deprecation warnings within `dbt_project.yml`:
 
@@ -94,11 +98,15 @@ flags:
       - Deprecations
 ```
 
+Report incorrect code
+
 Similarly, all deprecation warnings can be silenced via the `--warn-error-options` command line flag:
 
 ```sh
 dbt parse --warn-error-options '{"silence": ["Deprecations"]}'
 ```
+
+Report incorrect code
 
 ## Adapter-specific features and functionalities
 

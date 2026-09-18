@@ -24,12 +24,16 @@ git@github.com:organization/repo-name.git
 user@custom-host.example.com:organization/repo-name.git
 ```
 
+Report incorrect code
+
 If you prefer a `ssh://` URL instead, you can rewrite it as follows. The equivalent ssh:// format uses a slash after the host:
 
 ```text
 ssh://git@github.com/organization/repo-name.git
 ssh://user@custom-host.example.com/organization/repo-name.git
 ```
+
+Report incorrect code
 
 ## Availability of features by Git provider
 
@@ -231,6 +235,8 @@ logs/
 dbt_modules/
 ```
 
+Report incorrect code
+
 * **Note** — You can place these lines anywhere in the file, as long as they're on separate lines. The lines shown are wildcards that will include all nested files and folders. Avoid adding a trailing `'*'` to the lines, such as `target/*`.
 
 For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com/docs/gitignore).
@@ -285,6 +291,8 @@ logs/
 dbt_modules/
 ```
 
+Report incorrect code
+
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
@@ -312,6 +320,8 @@ logs/
 # legacy -- renamed to dbt_packages in dbt v1
 dbt_modules/
 ```
+
+Report incorrect code
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:

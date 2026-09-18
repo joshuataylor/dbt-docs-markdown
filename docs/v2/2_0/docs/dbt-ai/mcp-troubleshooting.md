@@ -29,6 +29,8 @@ This page consolidates troubleshooting steps for all dbt MCP setups. For specifi
 }
 ```
 
+Report incorrect code
+
 Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 
 For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full path in the `command` field.
@@ -131,6 +133,8 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
+Report incorrect code
+
 See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
  Multi-cell or static subdomain account connection issues
@@ -144,5 +148,7 @@ See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 DBT_HOST=abc123.us1.dbt.com
 DBT_ACCOUNT_ID=12345  # required for PAT-based auth
 ```
+
+Report incorrect code
 
 You no longer need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. If you have these set from an older configuration, remove them.

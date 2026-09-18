@@ -39,6 +39,8 @@ After issuing one of the above commands, you can reference the results by adding
 dbt run --select "result:<status>" --defer --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 The available options depend on the resource (node) type:
 
 | `result:\<status>` | model | seed | snapshot | test |
@@ -58,6 +60,8 @@ The state and result selectors can also be combined in a single invocation of db
 dbt run --select "result:<status>+" state:modified+ --defer --state ./<dbt-artifact-path>
 ```
 
+Report incorrect code
+
 ### The "source\_status" status
 
 Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](../artifacts/sources-json.md) page.
@@ -75,6 +79,8 @@ After issuing the `dbt source freshness` command, you can reference the source f
 dbt source freshness # must be run again to compare current to previous state
 dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 ```
+
+Report incorrect code
 
 For more example commands, refer to [Pro-tips for workflows](../../best-practices/best-practice-workflows.md#pro-tips-for-workflows).
 

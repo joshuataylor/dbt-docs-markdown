@@ -125,6 +125,8 @@ dbt run -s state:modified+ --defer --state path/to/prod/artifacts
 dbt test -s state:modified+ --defer --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 By comparing to artifacts from a previous production run, dbt can determine model and test result statuses.
 
 * `result:fail`
@@ -140,17 +142,23 @@ For smarter reruns, use the `result:<status>` selector instead of manually overr
 dbt run --select state:modified+ result:error+ --defer --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 * Rerun all my erroneous models AND run changes I made concurrently that may relate to the erroneous models for downstream use
 
 ```bash
 dbt build --select state:modified+ result:error+ --defer --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 * Rerun and retest all my erroneous models AND run changes I made concurrently that may relate to the erroneous models for downstream use
 
 ```bash
 dbt build --select state:modified+ result:error+ result:fail+ --defer --state path/to/prod/artifacts
 ```
+
+Report incorrect code
 
 * Rerun all my erroneous models AND all my failed tests
 * Rerun all my erroneous models AND run changes I made concurrently that may relate to the erroneous models for downstream use
@@ -159,6 +167,8 @@ dbt build --select state:modified+ result:error+ result:fail+ --defer --state pa
 ```bash
 dbt test --select result:fail --exclude <example test> --defer --state path/to/prod/artifacts
 ```
+
+Report incorrect code
 
 * Rerun all my failed tests and exclude tests that I know will still fail
 * This can apply to updates in source data during the "EL" process that need to be rerun after they are refreshed
@@ -174,6 +184,8 @@ By comparing to a `sources.json` artifact from a previous production run to a cu
 dbt source freshness # must be run to get previous state
 ```
 
+Report incorrect code
+
 Test all my sources that are fresher than the previous run, and run and test all models downstream of them:
 
 ```bash
@@ -181,6 +193,8 @@ Test all my sources that are fresher than the previous run, and run and test all
 dbt source freshness # must be run again to compare current to previous state
 dbt build --select source_status:fresher+ --state path/to/prod/artifacts
 ```
+
+Report incorrect code
 
 To learn more, read the docs on [state](../reference/node-selection/syntax.md#about-node-selection).
 
@@ -199,6 +213,8 @@ where created_at >= dateadd('day', -3, current_date)
 {% endif %}
 ```
 
+Report incorrect code
+
 Another option is to use the [environment variable `DBT_CLOUD_INVOCATION_CONTEXT`](../docs/build/environment-variables.md#dbt-platform-context). This environment variable provides metadata about the execution context of dbt. The possible values are `prod`, `dev`, `staging`, and `ci`.
 
 **Example usage**:
@@ -206,6 +222,8 @@ Another option is to use the [environment variable `DBT_CLOUD_INVOCATION_CONTEXT
 ```text
 {% if env_var('DBT_CLOUD_INVOCATION_CONTEXT') != 'prod' %}
 ```
+
+Report incorrect code
 
 ### Use grants to manage privileges on objects that dbt creates
 

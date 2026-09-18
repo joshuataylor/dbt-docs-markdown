@@ -6,3 +6,5 @@ You can specify your org ID in `dbt_project.yml`:
 dbt-cloud:
   state-org-id: <your-org-id>
 ```
+
+Report incorrect code

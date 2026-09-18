@@ -136,6 +136,8 @@ If **Private endpoints** isn't available in your account settings, configure Red
      - dbt multi-tenant environment (US, EMEA, AU, JP):
      ```
 
+     Report incorrect code
+
    * **Redshift Serverless**
 
       Support request email template
@@ -150,6 +152,8 @@ If **Private endpoints** isn't available in your account settings, configure Red
      - Redshift workgroup AWS Region (for example, us-east-1, eu-west-2):
      - dbt multi-tenant environment (US, EMEA, AU, JP):
      ```
+
+     Report incorrect code
 
 ### Per-workgroup authorization required
 
@@ -239,6 +243,8 @@ Subject: New Multi-Tenant PrivateLink Request
 - Redshift cluster AWS Region (for example, us-east-1, eu-west-2):
 - dbt AWS multi-tenant environment (US, EMEA, AU, JP):
 ```
+
+Report incorrect code
 
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 

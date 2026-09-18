@@ -29,6 +29,8 @@ group by 1
 limit 3
 ```
 
+Report incorrect code
+
 This simple query is returning the summed amount of all orders for a customer in the Jaffle Shop’s `orders` table:
 
 | customer\_id | all\_orders\_amount |

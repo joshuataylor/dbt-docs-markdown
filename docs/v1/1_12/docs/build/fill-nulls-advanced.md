@@ -49,6 +49,8 @@ models:
           - name: website_visits
 ```
 
+Report incorrect code
+
 The `website_visits` and `leads` metrics have the following data:
 
 | metric\_time | website\_visits |
@@ -116,6 +118,8 @@ models:
         fill_nulls_with: 0
         join_to_timespine: true
 ```
+
+Report incorrect code
 
 Once you do this, if you query the `leads` metric after the timespine join, there will be a record for each day and any null values will get filled with zero.
 

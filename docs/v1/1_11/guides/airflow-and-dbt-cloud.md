@@ -44,6 +44,8 @@ In this example, we’re using Homebrew to install Astro CLI. Follow the instruc
 brew install astro
 ```
 
+Report incorrect code
+
 [Wistia video](https://fast.wistia.net/embed/iframe/uosszw1qul?seo=false\&videoFoam=true)
 
 ## Install and start Docker Desktop
@@ -63,6 +65,8 @@ git clone https://github.com/dbt-labs/airflow-dbt-cloud.git
 cd airflow-dbt-cloud
 ```
 
+Report incorrect code
+
 For more information about cloning GitHub repositories, refer to "[Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)" in the GitHub documentation.
 
 ## Start the Docker container
@@ -72,6 +76,8 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
    ```bash
    astro dev start
    ```
+
+   Report incorrect code
 
    When this finishes, you should see a message similar to the following:
 
@@ -85,6 +91,8 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
    The default Airflow UI credentials are: admin:admin
    The default Postgres DB credentials are: postgres:postgres
    ```
+
+   Report incorrect code
 
 2. Open the Airflow interface. Launch your web browser and navigate to the address for the **Airflow Webserver** from your output above (for us, `http://localhost:8080`).
 
@@ -116,6 +124,8 @@ As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create
 ```html
 https://YOUR_ACCESS_URL/#/accounts/{account_id}/projects/{project_id}/jobs/{job_id}/
 ```
+
+Report incorrect code
 
 [Wistia video](https://fast.wistia.net/embed/iframe/qiife5rzlp?seo=false\&videoFoam=true)
 
@@ -149,6 +159,8 @@ ACCOUNT_ID = "16173"
 JOB_ID = "65767"
 ```
 
+Report incorrect code
+
 [Wistia video](https://fast.wistia.net/embed/iframe/wgy7wvgqof?seo=false\&videoFoam=true)
 
 ## Run the Airflow DAG
@@ -172,11 +184,15 @@ $ astrocloud dev stop
  ⠿ Container airflow-dbt-cloud_e3fe3c-postgres-1   Stopped    0.3s
 ```
 
+Report incorrect code
+
 To verify that the deployment has stopped, use the following command:
 
 ```bash
 astrocloud dev ps
 ```
+
+Report incorrect code
 
 This should give you an output like this:
 
@@ -186,6 +202,8 @@ airflow-dbt-cloud_e3fe3c-webserver-1    exited
 airflow-dbt-cloud_e3fe3c-scheduler-1    exited
 airflow-dbt-cloud_e3fe3c-postgres-1     exited
 ```
+
+Report incorrect code
 
 [Wistia video](https://fast.wistia.net/embed/iframe/u83nuqegn9?seo=false\&videoFoam=true)
 

@@ -51,6 +51,8 @@ clickhouse-service:
       secure: [ False ]  # Use TLS (native protocol) or HTTPS (http protocol). Must be set to true for ClickHouse Cloud.
 ```
 
+Report incorrect code
+
 For a complete list of configuration options, refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
 ### Create a dbt project
@@ -61,11 +63,15 @@ You can now use this profile in one of your existing projects or create a new on
 dbt init project_name
 ```
 
+Report incorrect code
+
 Navigate to the `project_name` directory and update your `dbt_project.yml` file to use the profile you configured to connect to ClickHouse.
 
 ```yaml
 profile: 'clickhouse-service'
 ```
+
+Report incorrect code
 
 ### Test connection
 

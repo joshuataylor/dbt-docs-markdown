@@ -37,6 +37,8 @@ This means that you are using dbt's default implementation of the macro, as defi
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 Note that this logic is designed so that two dbt users won't accidentally overwrite each other's work by writing to the same schema.
 
 ### You have a `generate_schema_name` macro in a project that calls another macro
@@ -48,6 +50,8 @@ If your `generate_schema_name` macro looks like so:
     {{ generate_schema_name_for_env(custom_schema_name, node) }}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 Your project is switching out the `generate_schema_name` macro for another macro, `generate_schema_name_for_env`. Similar to the above example, this is a macro which is defined in dbt's global project, [here](https://github.com/dbt-labs/dbt/blob/main/crates/dbt-loader/src/dbt_macro_assets/dbt-adapters/macros/get_custom_name/get_custom_schema.sql).
 
@@ -67,6 +71,8 @@ Your project is switching out the `generate_schema_name` macro for another macro
 
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 ### You have a `generate_schema_name` macro with custom logic
 
@@ -112,6 +118,8 @@ The macro looks like this:
     {%- endif -%}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 Verify actual relation locations with `dbt ls --output json` or by querying your warehouse catalog (`pg_views`, `information_schema.tables`, or equivalent).
 

@@ -31,6 +31,8 @@ By default dbt-greenplum distributes data `RANDOMLY`. To implement a distributio
 select ...
 ```
 
+Report incorrect code
+
 Also you can choose `DISTRIBUTED REPLICATED` option:
 
 ```sql
@@ -45,6 +47,8 @@ Also you can choose `DISTRIBUTED REPLICATED` option:
 
 select ...
 ```
+
+Report incorrect code
 
 ### Column orientation
 
@@ -62,6 +66,8 @@ Greenpum supports two type of [orientation](https://gpdb.docs.pivotal.io/6-6/adm
 
 select ...
 ```
+
+Report incorrect code
 
 ### Compression
 
@@ -87,6 +93,8 @@ Compression allows reducing read-write time. Greenplum suggest several [algorith
 
 select ...
 ```
+
+Report incorrect code
 
 As you can see, you can also specify `compresslevel` and `blocksize`.
 
@@ -130,3 +138,5 @@ To implement partitions into your dbt-model you need to specify the following co
 
 select *
 ```
+
+Report incorrect code

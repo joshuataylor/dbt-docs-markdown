@@ -78,6 +78,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
    }
    ```
 
+   Report incorrect code
+
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
    ##### dbt platform + CLI
@@ -102,6 +104,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
    }
    ```
 
+   Report incorrect code
+
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
     Self-hosted MCP (CLI only)
@@ -122,6 +126,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
      }
    }
    ```
+
+   Report incorrect code
 
    Finding your paths:
 
@@ -158,6 +164,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
    }
    ```
 
+   Report incorrect code
+
    Using an .env file (alternative):
 
    ```json
@@ -174,6 +182,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
      }
    }
    ```
+
+   Report incorrect code
 
 5. Save the file and restart Claude Desktop. You'll see an MCP server indicator in the bottom-right corner of the conversation input box.
 
@@ -261,6 +271,8 @@ Token-based remote MCP on Claude Desktop requires [Node.js](https://nodejs.org/)
    }
    ```
 
+   Report incorrect code
+
    Replace `YOUR_DBT_HOST_URL` with your hostname (for example, `abc123.us1.dbt.com`), and replace the token and environment ID placeholders with your values. To pass optional headers such as `x-dbt-user-id` or `x-dbt-dev-environment-id`, add more `"--header"` and `"Header-Name: value"` pairs to the `args` array.
 
    For token-based remote MCP, set these headers in your client's MCP config:
@@ -324,6 +336,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
    }
    ```
 
+   Report incorrect code
+
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
    #### dbt platform + CLI
@@ -348,6 +362,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
    }
    ```
 
+   Report incorrect code
+
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
     Self-hosted MCP (CLI only)
@@ -368,6 +384,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
      }
    }
    ```
+
+   Report incorrect code
 
    Finding your paths:
 
@@ -404,6 +422,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
    }
    ```
 
+   Report incorrect code
+
    Using an .env file (alternative):
 
    ```json
@@ -420,6 +440,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
      }
    }
    ```
+
+   Report incorrect code
 
 About `claude mcp add`
 
@@ -472,6 +494,8 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    }
    ```
 
+   Report incorrect code
+
    Replace `YOUR_DBT_HOST_URL` with your hostname (for example, `abc123.us1.dbt.com`). You can find the URL in dbt platform under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
 
    You can also register the same server from the CLI:
@@ -479,6 +503,8 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    ```bash
    claude mcp add --transport http dbt https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/
    ```
+
+   Report incorrect code
 
    #### Token-based
 
@@ -498,6 +524,8 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
      }
    }
    ```
+
+   Report incorrect code
 
    For token-based remote MCP, set these headers in your client's MCP config:
 

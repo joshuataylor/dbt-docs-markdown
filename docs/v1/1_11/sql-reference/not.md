@@ -32,6 +32,8 @@ from {{ ref('payments') }}
 where payment_method not like '%card' 
 ```
 
+Report incorrect code
+
 This simple query using the sample dataset [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `payments` table is returning all rows whose `payment_method` is not a card-type (ex. gift card or credit card):
 
 | **payment\_id** | **order\_id** | **payment\_method** |

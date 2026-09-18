@@ -10,6 +10,8 @@ Running with dbt=1.0.0
 Found 13 models, 2 tests, 1 archives, 0 analyses, 204 macros, 2 operations....
 ```
 
+Report incorrect code
+
 dbt release tracks
 
 Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
@@ -37,3 +39,5 @@ models/some\_days.sql
 
 {% endmacro %}
 ```
+
+Report incorrect code

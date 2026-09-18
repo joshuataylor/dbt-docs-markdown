@@ -21,12 +21,16 @@ When the `require_resource_names_without_plus_prefix` flag is set to `false`, db
 [warning] [InvalidConfig (dbt1005)]: Resource path `snapshot_contract.+path_1` in dbt_project.yml starts with `+`. This will be deprecated in future versions of dbt.
 ```
 
+Report incorrect code
+
 When the flag is set to `true`, dbt treats a `+`-prefixed key as an unrecognized config key and raises an error instead:
 
 ```shell
 
 [error] [SerializationError (dbt1013)]: Invalid model definition `snapshot_contract.+path_1`: Unrecognized key `snapshot_contract.+path_1`. Custom keys must go under `+meta`.
 ```
+
+Report incorrect code
 
 To resolve the warning or error, remove the + prefix from any folder or file name in dbt\_project.yml. For custom keys, nest them under [`+meta`](../../resource-configs/meta.md).
 
@@ -41,3 +45,5 @@ models:
     my_folder:        # resource path — no + prefix
       +enabled: true  # config — keep the + prefix
 ```
+
+Report incorrect code

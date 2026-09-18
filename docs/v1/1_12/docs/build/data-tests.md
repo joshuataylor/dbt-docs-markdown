@@ -56,6 +56,8 @@ group by 1
 having total_amount < 0
 ```
 
+Report incorrect code
+
 The test name is the file name: `assert_total_payment_amount_is_positive`.
 
 Note:
@@ -75,6 +77,8 @@ data_tests:
       Therefore return records where total amount < 0 to make the test fail.
 ```
 
+Report incorrect code
+
 Singular data tests are so easy that you may find yourself writing the same basic structure repeatedly, only changing the name of a column or model. By that point, the test isn't so singular! In that case, we recommend generic data tests.
 
 ## Generic data tests
@@ -90,6 +94,8 @@ Certain data tests are generic: they can be reused over and over again. A generi
 
 {% endtest %}
 ```
+
+Report incorrect code
 
 You'll notice that there are two arguments, `model` and `column_name`, which are then templated into the query. This is what makes the data test "generic": it can be defined on as many columns as you like, across as many models as you like, and dbt will pass the values of `model` and `column_name` accordingly. Once that generic test has been defined, it can be added as a *property* on any existing model (or source, seed, or snapshot). These properties are added in `.yml` files in the same directory as your resource.
 
@@ -120,6 +126,8 @@ models:
                 to: ref('customers')
                 field: id
 ```
+
+Report incorrect code
 
 In plain English, these data tests translate to:
 
@@ -159,6 +167,8 @@ models:
           - not_null
 ```
 
+Report incorrect code
+
 2. Run the [`dbt test` command](../../reference/commands/test.md):
 
 ```text
@@ -179,6 +189,8 @@ Completed successfully
 
 Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
+
+Report incorrect code
 
 3. Check out the SQL dbt is running by either:
 
@@ -204,6 +216,8 @@ from (
 ) validation_errors
 ```
 
+Report incorrect code
+
 #### Templated SQL
 
 ```sql
@@ -221,6 +235,8 @@ from (
 ) validation_errors
 ```
 
+Report incorrect code
+
 **Not null test**
 
 ##### Compiled SQL
@@ -231,6 +247,8 @@ from analytics.orders
 where order_id is null
 ```
 
+Report incorrect code
+
 ##### Templated SQL
 
 ```sql
@@ -239,6 +257,8 @@ from {{ model }}
 where {{ column_name }} is null
 ```
 
+Report incorrect code
+
 ## Running only data tests
 
 To run data tests while excluding unit tests, use the `test_type` selector — this works across all engines (dbt v1 and dbt v2):
@@ -246,6 +266,8 @@ To run data tests while excluding unit tests, use the `test_type` selector — t
 ```bash
 dbt test --select "test_type:data"
 ```
+
+Report incorrect code
 
 In dbt (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](../../reference/node-selection/test-selection-examples.md).
 
@@ -284,12 +306,16 @@ models:
           - not_null
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
 data_tests:
   +store_failures: true
 ```
+
+Report incorrect code
 
 ## Tests with and without `arguments`
 
@@ -310,6 +336,8 @@ models:
           - unique
           - not_null
 ```
+
+Report incorrect code
 
 ### With `arguments`
 
@@ -334,6 +362,8 @@ models:
                 field: id
 ```
 
+Report incorrect code
+
 Use `arguments:` for inputs to the test macro (for example, `values`, `to`, and `field`). Use [`config`](../../reference/data-test-configs.md) for framework options such as `severity`, `where`, and `store_failures`.
 
 If you previously set test inputs as top-level properties next to the test name, nest them under `arguments:` instead. For details, refer to [`require_generic_test_arguments_property`](../../reference/global-configs/behavior-flags/require_generic_test_arguments_property.md) and [MissingArgumentsPropertyInGenericTestDeprecation](../../reference/deprecations.md#missingargumentspropertyingenerictestdeprecation).
@@ -354,6 +384,8 @@ select
 from {{ ref('orders') }}
 where status not in ('placed', 'shipped', 'completed', 'returned')
 ```
+
+Report incorrect code
 
 When you run `dbt test --store-failures` (or set the [`store_failures`](../../reference/resource-configs/store_failures.md) config), dbt saves those rows so you can query them and inspect every selected column.
 
@@ -379,6 +411,8 @@ Running tests on one model looks very similar to running a model: use the `--sel
 ```shell
 dbt test --select customers
 ```
+
+Report incorrect code
 
 Check out the [model selection syntax documentation](../../reference/node-selection/syntax.md) for full syntax, and [test selection examples](../../reference/node-selection/test-selection-examples.md) in particular.
 
@@ -421,6 +455,8 @@ dbt\_project.yml
 test-paths: ["my_cool_tests"]
 ```
 
+Report incorrect code
+
 Then, you can define generic data tests in `my_cool_tests/generic/`, and singular data tests everywhere else in `my_cool_tests/`.
 
 How do I run data tests on just my sources?
@@ -431,6 +467,8 @@ To run data tests on all sources, use the following command:
   dbt test --select "source:*"
 ```
 
+Report incorrect code
+
 (You can also use the `-s` shorthand here instead of `--select`)
 
 To run data tests on one source (and all of its tables):
@@ -439,11 +477,15 @@ To run data tests on one source (and all of its tables):
 $ dbt test --select source:jaffle_shop
 ```
 
+Report incorrect code
+
 And, to run data tests on one source table only:
 
 ```shell
 $ dbt test --select source:jaffle_shop.orders
 ```
+
+Report incorrect code
 
 Can I set test failure thresholds?
 
@@ -482,6 +524,8 @@ select
   ...
 ```
 
+Report incorrect code
+
 models/orders.yml
 
 ```yml
@@ -492,6 +536,8 @@ models:
         data_tests:
           - unique
 ```
+
+Report incorrect code
 
 #### 2. Test an expression
 
@@ -505,6 +551,8 @@ models:
           arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
             column_name: "(country_code || '-' || order_id)"
 ```
+
+Report incorrect code
 
 #### 3. Use the `dbt_utils.unique_combination_of_columns` test
 
@@ -522,3 +570,5 @@ models:
               - country_code
               - order_id
 ```
+
+Report incorrect code

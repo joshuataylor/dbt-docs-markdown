@@ -123,6 +123,8 @@ To solve this issue, do one of the following:
   },
   ```
 
+  Report incorrect code
+
   This could disable *all* use of the schema store, resulting in unintended consequences.
 
 ## dbt Wizard

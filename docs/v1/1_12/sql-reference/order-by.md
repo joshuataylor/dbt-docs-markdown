@@ -19,6 +19,8 @@ from source_table
 order by <field(s)> <asc/desc> --comes after FROM, WHERE, and GROUP BY statements
 ```
 
+Report incorrect code
+
 You can order a query result by multiple columns, represented by their column name or by their column number in the select statement (ex. `order by column_2 == order by 2`). You can additionally specify the ordering type you want (ascending or descending) to return the desired row order.
 
 Let’s take a look at a practical example using ORDER BY.
@@ -33,6 +35,8 @@ from {{ ref('orders') }}
 group by 1
 order by 1 desc
 ```
+
+Report incorrect code
 
 This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return the rounded order amount per each order month in descending order:
 

@@ -48,6 +48,8 @@ models:
   +concurrent_batches: true # value set to true to run batches in parallel
 ```
 
+Report incorrect code
+
 ### my\_model.sql
 
 models/my\_model.sql
@@ -67,3 +69,5 @@ models/my\_model.sql
 
 select ...
 ```
+
+Report incorrect code

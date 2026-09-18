@@ -41,6 +41,8 @@ INSERT INTO returned_orders (order_id, order_date, total_return)
 SELECT order_id, order_date, total FROM orders WHERE type = 'return'
 ```
 
+Report incorrect code
+
 Converting this with a first pass to a [dbt model](./bigquery.md?step=8) (in a file called returned\_orders.sql) might look something like:
 
 ```sql
@@ -53,6 +55,8 @@ FROM {{ ref('orders') }}
 
 WHERE type = 'return'
 ```
+
+Report incorrect code
 
 Functionally, this would create a model (which could be materialized as a table or view depending on needs) called `returned_orders` that contains three columns: `order_id`, `order_date`, `total_return`) predicated on the type column. It achieves the same end as the `INSERT`, just in a declarative fashion, using dbt.
 
@@ -72,6 +76,8 @@ INSERT INTO all_customers SELECT * FROM us_customers
 INSERT INTO all_customers SELECT * FROM eu_customers
 ```
 
+Report incorrect code
+
 The dbt-ified version of this would end up looking something like:
 
 ```sql
@@ -81,6 +87,8 @@ UNION ALL
 
 SELECT * FROM {{ ref('eu_customers') }}
 ```
+
+Report incorrect code
 
 The logic is functionally equivalent. So if there’s another statement that `INSERT`s into a model that I’ve already created, I can just add that logic into a second `SELECT` statement that is just `UNION ALL`'ed with the first. Easy!
 
@@ -95,6 +103,8 @@ SET type = 'return'
 
 WHERE total < 0
 ```
+
+Report incorrect code
 
 The way to look at this is similar to an `INSERT`-`SELECT` statement. The table being updated is the model you want to modify, and since this is an `UPDATE`, that model has likely already been created, and you can either:
 
@@ -118,6 +128,8 @@ SELECT
 FROM {{ ref('stg_orders') }}
 ```
 
+Report incorrect code
+
 Since the `UPDATE` statement doesn’t modify every value of the type column, we use a `CASE` statement to apply the contents’ `WHERE` clause. We still want to select all of the columns that should end up in the target table. If we left one of the columns out, it wouldn’t be passed through to the target table at all due to dbt’s declarative approach.
 
 Sometimes, you may not be sure what all the columns are in a table, or in the situation as above, you’re only modifying a small number of columns relative to the total number of columns in the table. It can be cumbersome to list out every column in the table, but fortunately dbt contains some useful utility macros that can help list out the full column list of a table.
@@ -135,6 +147,8 @@ SELECT
 FROM {{ ref('stg_orders') }}
 ```
 
+Report incorrect code
+
 The `dbt_utils.star()` macro will print out the full list of columns in the table, but skip the ones I’ve listed in the except list, which allows me to perform the same logic while writing fewer lines of code. This is a simple example of using dbt macros to simplify and shorten your code, and dbt can get a lot more sophisticated as you learn more techniques. Read more about the [dbt\_utils package](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) and the [star macro](https://github.com/dbt-labs/dbt-utils/tree/0.8.6/#star-source).
 
 ## Map DELETEs
@@ -147,11 +161,15 @@ Let’s consider a simple example query:
 DELETE FROM stg_orders WHERE order_status IS NULL
 ```
 
+Report incorrect code
+
 In a dbt model, you’ll need to first identify the records that should be deleted and then filter them out. There are really two primary ways you might translate this query:
 
 ```sql
 SELECT * FROM {{ ref('stg_orders') }} WHERE order_status IS NOT NULL
 ```
+
+Report incorrect code
 
 This first approach just inverts the logic of the DELETE to describe the set of records that should remain, instead of the set of records that should be removed. This ties back to the way dbt declaratively describes datasets. You reference the data that should be in a dataset, and the table or view gets created with that set of data.
 
@@ -175,6 +193,8 @@ soft_deletes AS (
 
 SELECT * FROM soft_deletes WHERE to_delete = false
 ```
+
+Report incorrect code
 
 This approach flags all of the deleted records, and the final `SELECT` filters out any deleted data, so the resulting table contains only the remaining records. It’s a lot more verbose than just inverting the `DELETE` logic, but for complex `DELETE` logic, this ends up being a very effective way of performing the `DELETE` that retains historical context.
 
@@ -209,6 +229,8 @@ MERGE INTO ride_details USING (
     VALUES (rtl.ride_id, rtl.subtotal, NVL(rtl.tip, 0, rtl.tip)
 );
 ```
+
+Report incorrect code
 
 The content of the `USING` clause is a useful piece of code because that can easily be placed in a CTE as a starting point for handling the match statement. I find that the easiest way to break this apart is to treat each match statement as a separate CTE that builds on the previous match statements.
 
@@ -261,6 +283,8 @@ FROM updates
 UNION inserts
 ```
 
+Report incorrect code
+
 To be clear, this transformation isn’t complete. The logic here is similar to the `MERGE`, but will not actually do the same thing, since the updates and inserts CTEs are both selecting from the same source query. We’ll need to ensure we grab the separate sets of data as we transition to the incremental materialization.
 
 One important caveat is that dbt does not natively support `DELETE` as a `MATCH` action. If you have a line in your `MERGE` statement that uses `WHEN MATCHED THEN DELETE`, you’ll want to treat it like an update and add a soft-delete flag, which is then filtered out in a follow-on transformation.
@@ -282,6 +306,8 @@ We can add the following `config()` block to the top of our model to specify how
     )
 }}
 ```
+
+Report incorrect code
 
 The three configuration fields in this example are the most important ones.
 
@@ -356,6 +382,8 @@ inserts AS (
 
 SELECT * FROM updates UNION inserts
 ```
+
+Report incorrect code
 
 There are a couple important concepts to understand here:
 

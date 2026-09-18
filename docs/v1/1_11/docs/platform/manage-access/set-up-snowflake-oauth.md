@@ -57,6 +57,8 @@ CREATE OR REPLACE SECURITY INTEGRATION DBT_CLOUD
   OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';  -- Required for secondary roles
 ```
 
+Report incorrect code
+
 Permissions
 
 Note: Only Snowflake account administrators (users with the `ACCOUNTADMIN` role) or a role with the global `CREATE INTEGRATION` privilege can execute this SQL command.
@@ -90,6 +92,8 @@ select
 from
   integration_secrets;
 ```
+
+Report incorrect code
 
 To complete the creation of your connection in dbt:
 
@@ -126,6 +130,8 @@ ALTER SECURITY INTEGRATION IF EXISTS <INTEGRATION_NAME>
 SET OAUTH_ALTERNATE_REDIRECT_URIS = ('<ACCESS_URL>/complete/snowflake')
 ```
 
+Report incorrect code
+
 Values for `OAUTH_REDIRECT_URI` and `OAUTH_ALTERNATE_REDIRECT_URIS` are interchangeable.
 
 ### Troubleshooting
@@ -158,6 +164,8 @@ ALTER SECURITY INTEGRATION <security_integration_name>
 SET NETWORK_POLICY = <network_policy_name> ;
 ```
 
+Report incorrect code
+
  Secondary role not working. Error: USE ROLE not allowed
 
 If you want to use secondary roles but experience `Current sessions is restricted. USE ROLE not allowed` error when setting up Snowflake OAuth, double-check you added the following statement to the query:
@@ -165,6 +173,8 @@ If you want to use secondary roles but experience `Current sessions is restricte
 ```sql
 OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';
 ```
+
+Report incorrect code
 
 For the full query example, see [Create a security integration](#create-a-security-integration).
 

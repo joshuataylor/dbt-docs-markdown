@@ -57,6 +57,8 @@ from jaffle_shop.customers
 left join customer_orders using (customer_id)
 ```
 
+Report incorrect code
+
 When you execute `dbt run`, dbt will build this as a *view* named `customers` in your target schema:
 
 ```sql
@@ -86,6 +88,8 @@ create view dbt_alice.customers as (
     left join customer_orders using (customer_id)
 )
 ```
+
+Report incorrect code
 
 Why a *view* named `dbt_alice.customers`? By default dbt will:
 
@@ -145,6 +149,8 @@ Database Error in model customers (models/customers.sql)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../../faqs/Runs/checking-logs.md) to debug any errors.
 
 Which SQL dialect should I write my models in? Or which SQL dialect does dbt use?
@@ -162,6 +168,8 @@ models/test\_model.sql
 ```sql
 select 1 as my_column
 ```
+
+Report incorrect code
 
 To replace an existing table, here's an *illustrative* example of the SQL dbt will run on different warehouses (the actual SQL can get much more complicated than this!)
 
@@ -189,6 +197,8 @@ drop table if exists "dbt_alice"."test_model__dbt_backup" cascade;
 commit;
 ```
 
+Report incorrect code
+
 #### BigQuery
 
 ```sql
@@ -200,6 +210,8 @@ create or replace table `dbt-dev-87681`.`dbt_alice`.`test_model` as (
 );
 ```
 
+Report incorrect code
+
 #### Snowflake
 
 ```sql
@@ -209,6 +221,8 @@ create or replace table analytics.dbt_alice.test_model as (
     select 1 as my_column
 );
 ```
+
+Report incorrect code
 
 ## Configuring models
 
@@ -226,6 +240,8 @@ models
 └── marts
     └── marketing
 ```
+
+Report incorrect code
 
 Here's an example of a model configuration:
 
@@ -245,6 +261,8 @@ models:
         +schema: marketing # this applies to all models in the `marts/marketing/`` directory
 ```
 
+Report incorrect code
+
 models/customers.sql
 
 ```sql
@@ -256,6 +274,8 @@ models/customers.sql
 
 with customer_orders as ...
 ```
+
+Report incorrect code
 
 It is important to note that configurations are applied hierarchically — a configuration applied to a subdirectory will override any general configurations.
 
@@ -305,6 +325,8 @@ orders as (
 ...
 ```
 
+Report incorrect code
+
 ### Compiled code in dev
 
 ```sql
@@ -327,6 +349,8 @@ create view dbt_alice.customers as (
 ...
 ```
 
+Report incorrect code
+
 ### Compiled code in prod
 
 ```sql
@@ -348,6 +372,8 @@ create view analytics.customers as (
 
 ...
 ```
+
+Report incorrect code
 
 dbt uses the `ref` function to:
 
@@ -390,6 +416,8 @@ dbt\_project.yml
 model-paths: ["transformations"]
 ```
 
+Report incorrect code
+
 Can I build my models in a schema other than my target schema or split my models across multiple schemas?
 
 Yes! Use the [schema](../../reference/resource-configs/schema.md) configuration in your `dbt_project.yml` file, or using a `config` block:
@@ -406,6 +434,8 @@ models:
       +schema: marketing # models in the `models/marketing/` subdirectory will use the marketing schema
 ```
 
+Report incorrect code
+
 models/customers.sql
 
 ```sql
@@ -415,6 +445,8 @@ models/customers.sql
   )
 }}
 ```
+
+Report incorrect code
 
 Do ref-able resource names need to be unique?
 
@@ -484,6 +516,8 @@ select
 from some_other_table
 ```
 
+Report incorrect code
+
 You might have this question if you're used to running statements like this:
 
 ```sql
@@ -496,6 +530,8 @@ insert into dbt_alice.my_table (
 )
 ```
 
+Report incorrect code
+
 In comparison, dbt would build this table using a `create table as` statement:
 
 ```sql
@@ -503,6 +539,8 @@ create table dbt_alice.my_table as (
   select id, created from some_other_table
 )
 ```
+
+Report incorrect code
 
 So long as your model queries return the correct column type, the table you create will also have the correct column type.
 

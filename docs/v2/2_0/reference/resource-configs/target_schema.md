@@ -14,6 +14,8 @@ snapshots:
     +target_schema: string
 ```
 
+Report incorrect code
+
 snapshots/\<filename>.sql
 
 ```jinja2
@@ -21,6 +23,8 @@ snapshots/\<filename>.sql
       target_schema="string"
 ) }}
 ```
+
+Report incorrect code
 
 ## Description
 
@@ -42,3 +46,5 @@ dbt\_project.yml
 snapshots:
   +target_schema: snapshots
 ```
+
+Report incorrect code

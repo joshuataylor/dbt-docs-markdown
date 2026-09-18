@@ -28,6 +28,8 @@ models:
       +materialized: table
 ```
 
+Report incorrect code
+
 Throughout this documentation, we use the `+` prefix on configuration keys in `dbt_project.yml` files.
 
 For projects using [`config-version`](../project-configs/config-version.md) 2, dbt expects configuration keys to use the `+` prefix. Specifying configurations without the `+` prefix is [deprecated](../deprecations.md#missingplusprefixdeprecation). Folder and file names within resource configurations still do not use the `+` prefix.
@@ -73,5 +75,7 @@ models:
         # The below config applies to models in the models/tags/ directory.
         +materialized: view
 ```
+
+Report incorrect code
 
 **Note:** The use of the `+` prefix in `dbt_project.yml` is distinct from the use of `+` to control config merge behavior (clobber vs. add) in other config settings (specific resource `.yml` and `.sql` files). Currently, the only config which supports `+` for controlling config merge behavior is [`grants`](./grants.md#grant-config-inheritance).

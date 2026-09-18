@@ -105,6 +105,8 @@ your_profile_name:
       token: [my_secret_token]
 ```
 
+Report incorrect code
+
 An example of how much simpler authentication is with `dbt-databricks`:
 
 \~/.dbt/profiles.yml
@@ -120,3 +122,5 @@ your_profile_name:
       http_path: /sql/1.0/endpoints/8657cad335ae63e3
       token: [my_secret_token]
 ```
+
+Report incorrect code

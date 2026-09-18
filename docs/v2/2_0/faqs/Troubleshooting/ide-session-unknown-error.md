@@ -7,6 +7,8 @@ If you're seeing the following error when you launch the Studio IDE, it could be
 Your Studio IDE session experienced an unknown error and was terminated. Please contact support.
 ```
 
+Report incorrect code
+
 You can try to resolve this by adding a repository like a [managed repository](../../docs/platform/git/managed-repository.md) or your preferred Git account. To add your Git account, navigate to **Project** > **Repository** and select your repository.
 
 If you're still running into this error, please contact the Support team at <support@getdbt.com> for help.

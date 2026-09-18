@@ -22,6 +22,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -31,6 +33,8 @@ models:
   <resource-path>:
     +sql_header: <sql-statement>
 ```
+
+Report incorrect code
 
 ## Seeds
 
@@ -52,6 +56,8 @@ select ...
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -59,6 +65,8 @@ snapshots:
   <resource-path>:
     +sql_header: <sql-statement>
 ```
+
+Report incorrect code
 
 ## Property file
 
@@ -80,6 +88,8 @@ models:
             sql_header: "-- SQL_HEADER_TEST_MARKER"
 ```
 
+Report incorrect code
+
 You can also use `sql_header` for column-level data tests:
 
 models/properties.yml
@@ -95,6 +105,8 @@ models:
               config:
                 sql_header: "-- SQL_HEADER_TEST_MARKER"
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -130,6 +142,8 @@ models/my\_model.sql
 select * from {{ ref('other_model') }}
 ```
 
+Report incorrect code
+
 ### Set Snowflake session parameters for all models
 
 dbt\_project.yml
@@ -140,6 +154,8 @@ config-version: 2
 models:
   +sql_header: "alter session set timezone = 'Australia/Sydney';"
 ```
+
+Report incorrect code
 
 ### Create a BigQuery Temporary UDF
 
@@ -165,3 +181,5 @@ models/my\_model.sql
 
 select yes_no_to_boolean(yes_no) from {{ ref('other_model') }}
 ```
+
+Report incorrect code

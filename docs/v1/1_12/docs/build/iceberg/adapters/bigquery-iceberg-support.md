@@ -55,6 +55,8 @@ catalogs:
         file_format: parquet
 ```
 
+Report incorrect code
+
 #### Old spec
 
 catalogs.yml
@@ -70,6 +72,8 @@ catalogs:
         file_format: parquet
         catalog_type: biglake_metastore
 ```
+
+Report incorrect code
 
 2. Apply the catalog configuration at either the model, folder, or project level:
 
@@ -87,6 +91,8 @@ iceberg\_model.sql
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
+
+Report incorrect code
 
 3. Finally, run the model: `dbt run -s my_iceberg_model`.
 
@@ -128,6 +134,8 @@ iceberg\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
+Report incorrect code
+
 #### New spec (beta)
 
 catalogs.yml
@@ -143,6 +151,8 @@ catalogs:
         file_format: parquet
         base_location_root: foo
 ```
+
+Report incorrect code
 
 #### Old spec
 
@@ -161,6 +171,8 @@ catalogs:
         adapter_properties:
           base_location_root: foo
 ```
+
+Report incorrect code
 
 #### Rationale
 

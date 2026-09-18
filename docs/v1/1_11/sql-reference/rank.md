@@ -27,6 +27,8 @@ select
 from {{ ref('orders') }}
 ```
 
+Report incorrect code
+
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return the rank of orders by their `order_date`:
 
 | order\_id | order\_date | order\_rank |

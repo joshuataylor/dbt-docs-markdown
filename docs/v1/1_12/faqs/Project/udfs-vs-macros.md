@@ -81,6 +81,8 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 {% endmacro %}
 ```
 
+Report incorrect code
+
 #### Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)

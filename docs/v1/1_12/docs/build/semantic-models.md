@@ -77,6 +77,8 @@ models:
         # Other properties like fill_nulls_with, join_to_timespine can go here
 ```
 
+Report incorrect code
+
 The following example displays a complete configuration and detailed descriptions of each field:
 
 (Applies to dbt v1.12 and later)
@@ -150,6 +152,8 @@ models:
           name: first_name
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.12 and later)
 
 Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) [`config`](../../reference/resource-properties/config.md) property in the schema file:
@@ -164,6 +168,8 @@ models:
         meta:
           some_key: some_value
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -221,6 +227,8 @@ models:
         expr: bookings_monthly
 ```
 
+Report incorrect code
+
 #### Entity types
 
 Here are the types of keys:
@@ -247,6 +255,8 @@ entity:
     type: foreign
     expr: substring(id_order FROM 2)
 ```
+
+Report incorrect code
 
 You can refer to entities (join keys) in a semantic model using the `name` parameter. Entity names must be unique within a semantic model, and identifier names can be non-unique across semantic models since MetricFlow uses them for [joins](./join-logic.md).
 

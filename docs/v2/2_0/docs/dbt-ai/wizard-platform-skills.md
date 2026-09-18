@@ -19,6 +19,8 @@ At the start of every session, dbt Wizard scans for repo-level skills in the `.a
       SKILL.md
 ```
 
+Report incorrect code
+
 Custom skills use the [Agent Skills](https://agentskills.io/specification) format, the same format used by [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) on GitHub. A skill file contains YAML frontmatter (`name`, `description`) and a Markdown body with instructions.
 
 If a custom skill and a built-in skill share the same name, the custom skill takes precedence.
@@ -69,6 +71,8 @@ Use this skill whenever you are changing SQL or YAML under `models/` and the use
 - Facts and dimensions use `fct_` and `dim_` prefixes respectively.
 - Document new columns in the same PR as the model change.
 ```
+
+Report incorrect code
 
 For a full production-style example, refer to dbt's [`adding-dbt-unit-test` skill](https://github.com/dbt-labs/dbt-agent-skills/blob/main/skills/dbt/skills/adding-dbt-unit-test/SKILL.md).
 

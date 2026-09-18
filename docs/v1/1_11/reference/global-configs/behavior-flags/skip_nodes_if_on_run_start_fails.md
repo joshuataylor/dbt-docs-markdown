@@ -30,3 +30,5 @@ dbt\_project.yml
 flags:
   skip_nodes_if_on_run_start_fails: false
 ```
+
+Report incorrect code

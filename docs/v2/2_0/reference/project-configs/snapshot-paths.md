@@ -6,6 +6,8 @@ dbt\_project.yml
 snapshot-paths: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories where [snapshots](../../docs/build/snapshots.md) are located.
@@ -28,6 +30,8 @@ Paths specified in `snapshot-paths` must be relative to the location of your `db
     snapshot-paths: ["snapshots"]
     ```
 
+    Report incorrect code
+
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -35,6 +39,8 @@ Paths specified in `snapshot-paths` must be relative to the location of your `db
     ```yml
     snapshot-paths: ["/Users/username/project/snapshots"]
     ```
+
+    Report incorrect code
 
 ## Examples
 
@@ -45,3 +51,5 @@ dbt\_project.yml
 ```yml
 snapshot-paths: ["archives"]
 ```
+
+Report incorrect code

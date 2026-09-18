@@ -49,6 +49,8 @@ company-name:
   
 ```
 
+Report incorrect code
+
 ### Configuration notes
 
 This adapter is based on the dbt-postgres adapter documented here [Postgres profile setup](./postgres-setup.md)

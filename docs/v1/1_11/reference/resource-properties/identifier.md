@@ -12,6 +12,8 @@ sources:
         identifier: <table_identifier>
 ```
 
+Report incorrect code
+
 ## Definition
 
 The table name as stored in the database.
@@ -37,17 +39,23 @@ sources:
         identifier: api_orders
 ```
 
+Report incorrect code
+
 In a downstream model:
 
 ```sql
 select * from {{ source('jaffle_shop', 'orders') }}
 ```
 
+Report incorrect code
+
 Will get compiled to:
 
 ```sql
 select * from jaffle_shop.api_orders
 ```
+
+Report incorrect code
 
 ### Reference sharded tables as a source in BigQuery
 
@@ -62,6 +70,8 @@ sources:
         identifier: "events_*"
 ```
 
+Report incorrect code
+
 In a downstream model:
 
 ```sql
@@ -71,6 +81,8 @@ select * from {{ source('ga', 'events') }}
 where _table_suffix > '20200101'
 ```
 
+Report incorrect code
+
 Will get compiled to:
 
 ```sql
@@ -79,3 +91,5 @@ select * from `my_project`.`ga`.`events_*`
 -- filter on shards by suffix
 where _table_suffix > '20200101'
 ```
+
+Report incorrect code

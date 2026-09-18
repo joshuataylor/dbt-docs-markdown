@@ -23,6 +23,8 @@ To temporarily adjust session properties for a specific dbt model or a group of 
 }}
 ```
 
+Report incorrect code
+
 ## Connector properties
 
 IBM watsonx.data SaaS/Software support various connector properties to manage how your data is represented. These properties are particularly useful for file-based connectors like Hive.
@@ -52,6 +54,8 @@ Hive supports specifying file formats and partitioning strategies using the prop
 }}
 ```
 
+Report incorrect code
+
 For more details about Hive table creation and supported properties, refer to the [Hive connector documentation](https://prestodb.io/docs/current/connector/hive.html#create-a-managed-table).
 
 ### Iceberg Configuration
@@ -69,6 +73,8 @@ Iceberg supports defining file formats and advanced partitioning strategies to o
   )
 }}
 ```
+
+Report incorrect code
 
 For more information about Iceberg table creation and supported configurations, refer to the [Iceberg connector documentation](https://prestodb.io/docs/current/connector/iceberg.html#create-table).
 
@@ -100,6 +106,8 @@ Certain watsonx.data Presto connectors, particularly read-only ones or those wit
 ```sh
 PrestoUserError(type=USER_ERROR, name=NOT_SUPPORTED, message="This connector does not support creating tables with data", query_id=20241206_071536_00026_am48r)
 ```
+
+Report incorrect code
 
 ### View
 

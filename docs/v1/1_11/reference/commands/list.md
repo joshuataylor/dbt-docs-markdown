@@ -15,6 +15,8 @@ dbt ls
      [--output-keys KEY_NAME [KEY_NAME]]
 ```
 
+Report incorrect code
+
 Refer to [resource selection syntax](../node-selection/syntax.md) for more information on how to select resources in dbt
 
 **Arguments**:
@@ -57,6 +59,8 @@ snowplow.snowplow_sessions
 ...
 ```
 
+Report incorrect code
+
 #### Listing tests by tag name
 
 ```bash
@@ -68,6 +72,8 @@ my_project.schema_test.unique_products_product_id
 ...
 ```
 
+Report incorrect code
+
 #### Listing schema tests of incremental models
 
 ```bash
@@ -75,6 +81,8 @@ dbt ls --select config.materialized:incremental,test_type:schema
 model.my_project.logs_parsed
 model.my_project.events_categorized
 ```
+
+Report incorrect code
 
 #### Listing JSON output
 
@@ -85,6 +93,8 @@ dbt ls --select snowplow.* --output json
 ...
 ```
 
+Report incorrect code
+
 #### Listing JSON output with custom keys
 
 ```bash
@@ -94,6 +104,8 @@ dbt ls --select snowplow.* --output json --output-keys "name resource_type descr
 ...
 ```
 
+Report incorrect code
+
 #### Listing semantic models
 
 List all resources upstream of your orders semantic model:
@@ -101,6 +113,8 @@ List all resources upstream of your orders semantic model:
 ```bash
 dbt ls -s +semantic_model:orders
 ```
+
+Report incorrect code
 
 #### Listing file paths
 
@@ -112,6 +126,8 @@ models/identification/snowplow_id_map.sql
 ...
 ```
 
+Report incorrect code
+
 #### Listing functions
 
 List all functions in your project:
@@ -121,3 +137,5 @@ dbt list --select "resource_type:function" # or dbt ls --resource-type function
 jaffle_shop.area_of_circle
 jaffle_shop.whoami
 ```
+
+Report incorrect code

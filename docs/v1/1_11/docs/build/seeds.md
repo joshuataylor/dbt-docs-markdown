@@ -41,6 +41,8 @@ GB,United Kingdom
 ...
 ```
 
+Report incorrect code
+
 2. Run the `dbt seed` [command](../../reference/commands/seed.md) — a new table will be created in your warehouse in your target schema, named `country_codes`
 
 ```text
@@ -60,6 +62,8 @@ Completed successfully
 Done. PASS=1 ERROR=0 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 3. Refer to seeds in downstream models using the `ref` function.
 
 models/orders.sql
@@ -68,6 +72,8 @@ models/orders.sql
 -- This refers to the table created from seeds/country_codes.csv
 select * from {{ ref('country_codes') }}
 ```
+
+Report incorrect code
 
 ## Configuring seeds
 
@@ -99,6 +105,8 @@ dbt\_project.yml
 seed-paths: ["custom_seeds"]
 ```
 
+Report incorrect code
+
 The columns of my seed changed, and now I get an error when running the \`seed\` command, what should I do?
 
 If you changed the columns of your seed, you may get a `Database Error`:
@@ -126,6 +134,8 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 ### Redshift
 
 ```shell
@@ -148,11 +158,15 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 In this case, you should rerun the command with a `--full-refresh` flag, like so:
 
 ```text
 dbt seed --full-refresh
 ```
+
+Report incorrect code
 
 **Why is this the case?**
 
@@ -185,6 +199,8 @@ seeds:
           - not_null
 ```
 
+Report incorrect code
+
 How do I set a datatype for a column in my seed?
 
 dbt will infer the datatype for each column based on the data in your CSV.
@@ -201,6 +217,8 @@ seeds:
         zipcode: varchar(5)
 ```
 
+Report incorrect code
+
 How do I run models downstream of a seed?
 
 You can run models downstream of a seed using the [model selection syntax](../../reference/node-selection/syntax.md), and treating the seed like a model.
@@ -210,6 +228,8 @@ For example, the following would run all models downstream of a seed named `coun
 ```shell
 $ dbt run --select country_codes+
 ```
+
+Report incorrect code
 
 How do I preserve leading zeros in a seed?
 
@@ -223,6 +243,8 @@ You can use a `--select` option with the `dbt seed` command, like so:
 
 $ dbt seed --select country_codes
 ```
+
+Report incorrect code
 
 There is also an `--exclude` option.
 

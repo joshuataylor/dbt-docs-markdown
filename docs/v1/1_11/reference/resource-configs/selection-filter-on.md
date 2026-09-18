@@ -28,6 +28,8 @@ group by child_unique_id
 having count(*) > 1
 ```
 
+Report incorrect code
+
 Configure `selection_filter_on` for this check using one of the following methods:
 
 ### Project YAML file
@@ -38,6 +40,8 @@ dbt\_project.yml
 checks:
   +selection_filter_on: child_unique_id
 ```
+
+Report incorrect code
 
 ### Properties YAML file
 
@@ -52,6 +56,8 @@ checks:
       selection_filter_on: child_unique_id
 ```
 
+Report incorrect code
+
 ### SQL file config
 
 checks/multiple\_sources\_joined.sql
@@ -61,6 +67,8 @@ checks/multiple\_sources\_joined.sql
     selection_filter_on = "child_unique_id"
 ) }}
 ```
+
+Report incorrect code
 
 ## Related docs
 

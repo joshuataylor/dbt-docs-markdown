@@ -85,6 +85,8 @@ group by 1
 order by 1;
 ```
 
+Report incorrect code
+
 Kimiko clicks **Replace** to move all of the SQL into her editor and replaces the original query. She runs the new query and reviews the data but decides to limit the dates using dbt Wizard once again:
 
 *Can we limit the dates to 2024?*
@@ -102,6 +104,8 @@ where
 group by 1
 order by 1;
 ```
+
+Report incorrect code
 
 She's happy with the results and clicks **Details** to see the AI-generated report, which includes a title and description, supplied SQL, and the compiled SQL.
 

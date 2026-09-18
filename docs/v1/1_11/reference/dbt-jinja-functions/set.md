@@ -19,15 +19,21 @@ You can use the `set` context method to convert any iterable to a sequence of it
 {% do log(my_set) %}  {# {1, 2, 3} #}
 ```
 
+Report incorrect code
+
 ```text
 {% set my_invalid_iterable = 1234 %}
 {% set my_set = set(my_invalid_iterable) %}
 {% do log(my_set) %}  {# None #}
 ```
 
+Report incorrect code
+
 ```text
 {% set email_id = "'admin@example.com'" %}
 ```
+
+Report incorrect code
 
 ### set\_strict
 
@@ -43,6 +49,8 @@ The `set_strict` context method can be used to convert any iterable to a sequenc
 {% do log(my_set) %}  {# {1, 2, 3} #}
 ```
 
+Report incorrect code
+
 ```text
 {% set my_invalid_iterable = 1234 %}
 {% set my_set = set_strict(my_invalid_iterable) %}
@@ -51,3 +59,5 @@ The `set_strict` context method can be used to convert any iterable to a sequenc
 Compilation Error in ... (...)
   'int' object is not iterable
 ```
+
+Report incorrect code

@@ -64,6 +64,8 @@ store.set('MODE_API_TOKEN', 'abc123') #replace with your Mode API Token
 store.set('MODE_API_SECRET', 'abc123') #replace with your Mode API Secret
 ```
 
+Report incorrect code
+
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
 ## Add a code action
@@ -130,6 +132,8 @@ if hook_data['runStatus'] == "Success":
 
 return
 ```
+
+Report incorrect code
 
 ## Test and deploy
 

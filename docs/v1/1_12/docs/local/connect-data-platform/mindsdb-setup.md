@@ -43,6 +43,8 @@ mindsdb:
   target: dev
 ```
 
+Report incorrect code
+
 | Key      | Required | Description                                          | Example                         |
 | -------- | -------- | ---------------------------------------------------- | ------------------------------- |
 | type     | ✔️       | The specific adapter to use                          | `mindsdb`                       |

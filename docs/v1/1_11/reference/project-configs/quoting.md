@@ -11,6 +11,8 @@ quoting:
                                        # Ignored by dbt v1 and other adapters.
 ```
 
+Report incorrect code
+
 ## Definition
 
 You can optionally enable quoting in a dbt project to control whether dbt wraps database, schema, or identifier names in quotes when generating SQL. dbt uses this configuration when:
@@ -41,6 +43,8 @@ quoting:
   identifier: true
 ```
 
+Report incorrect code
+
 ### Snowflake
 
 For Snowflake, quoting is set to `false` by default.
@@ -58,6 +62,8 @@ quoting:
                                 # Ignored by dbt v1 and other adapters.
 ```
 
+Report incorrect code
+
 ## Examples
 
 Set quoting to `false` for a project:
@@ -73,11 +79,15 @@ quoting:
                                 # Ignored by dbt v1 and other adapters.
 ```
 
+Report incorrect code
+
 dbt will then create relations without quotes:
 
 ```sql
 create table analytics.dbt_alice.dim_customers
 ```
+
+Report incorrect code
 
 ## Recommendations
 
@@ -99,6 +109,8 @@ If you're using Snowflake, we recommend:
     snowflake_ignore_case: true  # v2-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
                                  # Ignored by dbt v1 and other adapters.
   ```
+
+  Report incorrect code
 
   Setting `snowflake_ignore_case: true` ensures that dbt compiles column and identifier names match Snowflake’s behavior at runtime, preserving parity between compile-time and runtime logic. Without this, you may encounter "column not found" errors.
 
@@ -156,6 +168,8 @@ select * from "analytics"."orders";
 
 select * from analytics.orders;
 ```
+
+Report incorrect code
 
 ### Other warehouses
 

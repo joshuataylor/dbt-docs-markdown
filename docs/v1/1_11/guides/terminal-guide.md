@@ -63,12 +63,16 @@ Your dbt project is a folder on your computer containing a `dbt_project.yml` fil
 cd ~/path/to/your-dbt-project
 ```
 
+Report incorrect code
+
 Verify you're in the right place:
 
 ```bash
 ls          # macOS/Linux — you should see dbt_project.yml
 dir         # Windows
 ```
+
+Report incorrect code
 
 ## Run your first dbt command
 
@@ -78,17 +82,23 @@ After installing dbt, you can run your first dbt command to verify it's installe
 cd ~/path/to/your-dbt-project
 ```
 
+Report incorrect code
+
 Then run your first dbt command:
 
 ```bash
 dbt --version
 ```
 
+Report incorrect code
+
 You should see output similar to the following:
 
 ```bash
 dbt-fusion 2.0.1
 ```
+
+Report incorrect code
 
 .... and that's it! Congrats, you're ready to start using dbt in the terminal! 🎉
 

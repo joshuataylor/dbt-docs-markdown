@@ -13,6 +13,8 @@ functions:
       runtime_version: <string> # required for Snowflake and BigQuery; optional and ignored on Databricks
 ```
 
+Report incorrect code
+
 ## Definition
 
 When creating Python UDFs, specify the Python version to run in `runtime_version`.
@@ -35,6 +37,8 @@ functions:
     config:
       runtime_version: "3.11"
 ```
+
+Report incorrect code
 
 ## Related documentation
 

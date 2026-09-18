@@ -92,6 +92,8 @@ saved_queries:
           export_as: table
 ```
 
+Report incorrect code
+
 To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](../../reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
 
 dbt\_project.yml
@@ -103,6 +105,8 @@ saved-queries:
       +cache:
         enabled: true
 ```
+
+Report incorrect code
 
 ### Run your declarative cache
 

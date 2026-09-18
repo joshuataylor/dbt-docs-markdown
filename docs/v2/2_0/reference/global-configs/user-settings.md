@@ -13,6 +13,8 @@ flags:
   manage_state: true
 ```
 
+Report incorrect code
+
 Some dbt commands write to this file automatically. You can also edit it manually.
 
 When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state), dbt writes to `user_settings.yml`:

@@ -59,6 +59,8 @@ query Compare($environmentId: Int!, $first: Int!) {
 }
 ```
 
+Report incorrect code
+
 Most Discovery API use cases will favor the *applied state* since it pertains to what has actually been run and can be analyzed.
 
 ## Affected states by node type

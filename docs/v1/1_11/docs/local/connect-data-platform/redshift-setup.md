@@ -98,6 +98,8 @@ company-name:
       connect_timeout: None
 ```
 
+Report incorrect code
+
 ### IAM User via AWS Profile (\<Constant name="core" />)
 
 The following table lists the authentication parameters to use IAM authentication.
@@ -146,6 +148,8 @@ If you receive the "You must specify a region" error when using IAM Authenticati
       autocreate: true
       db_groups: ['ANALYSTS']
 ```
+
+Report incorrect code
 
 #### Specifying an IAM Profile
 
@@ -203,6 +207,8 @@ profile-to-my-RS-target:
       autocommit: True
 ```
 
+Report incorrect code
+
 To run certain macros with autocommit, load the profile with autocommit using the `--profile` flag. For more context, please refer to this [PR](https://github.com/dbt-labs/dbt-redshift/pull/475/files).
 
 ### `datasharing` [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
@@ -226,6 +232,8 @@ company-name:
       datasharing: true  # default: false
 ```
 
+Report incorrect code
+
 Once enabled, you can materialize a model into a different database by setting `database` in the model config. For example:
 
 ```sql
@@ -233,6 +241,8 @@ Once enabled, you can materialize a model into a different database by setting `
 
 select * from {{ ref('my_model') }}
 ```
+
+Report incorrect code
 
 The following macros switch to `SHOW` commands when `datasharing: true`:
 

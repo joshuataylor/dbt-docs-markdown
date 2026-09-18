@@ -108,6 +108,8 @@ Options:
   --help                 Show this message and exit.
 ```
 
+Report incorrect code
+
 ## List dimensions
 
 This command lists all unique dimensions for a metric or multiple metrics. It displays only common dimensions when querying multiple metrics:
@@ -122,6 +124,8 @@ Options:
   --metrics SEQUENCE  List dimensions by given metrics (intersection). Ex. --metrics bookings,messages
   --help              Show this message and exit.
 ```
+
+Report incorrect code
 
 ## List dimension-values
 
@@ -146,6 +150,8 @@ Options:
   --help              Show this message and exit.
 ```
 
+Report incorrect code
+
 ## List entities
 
 This command lists all unique entities:
@@ -161,6 +167,8 @@ Options:
   --help              Show this message and exit.
 ```
 
+Report incorrect code
+
 ## List saved queries
 
 This command lists all available saved queries:
@@ -169,11 +177,15 @@ This command lists all available saved queries:
 dbt sl list saved-queries # For dbt platform users (dbt v1 or v2) 
 ```
 
+Report incorrect code
+
 You can also add the `--show-exports` flag (or option) to show each export listed under a saved query:
 
 ```bash
 dbt sl list saved-queries --show-exports # For dbt platform users (dbt v1 or v2) 
 ```
+
+Report incorrect code
 
 **Output**
 
@@ -188,6 +200,8 @@ The list of available saved queries:
        - Export(new_customer_orders, alias=orders, schemas=customer_schema, exportAs=TABLE)
 ```
 
+Report incorrect code
+
 ## Validate
 
 The following command performs validations against the defined semantic model configurations.
@@ -198,11 +212,15 @@ The following command performs validations against the defined semantic model co
   dbt sl validate
   ```
 
+  Report incorrect code
+
 * For self-hosted users (dbt v1 or v2):
 
   ```bash
   mf validate-configs
   ```
+
+  Report incorrect code
 
 ```bash
 Options:
@@ -223,6 +241,8 @@ Options:
   --help                          Show this message and exit.
 ```
 
+Report incorrect code
+
 ## Health checks
 
 The following command performs a health check against the data platform you provided in the configs.
@@ -233,6 +253,8 @@ Note, in dbt, the `health-checks` command isn't required since it uses dbt's cre
 mf health-checks # For self-hosted users (dbt v1 or v2)
 ```
 
+Report incorrect code
+
 ## Tutorial
 
 Follow the dedicated MetricFlow tutorial to help you get started:
@@ -240,6 +262,8 @@ Follow the dedicated MetricFlow tutorial to help you get started:
 ```bash
 mf tutorial # For self-hosted users (dbt v1 or v2)
 ```
+
+Report incorrect code
 
 ## Query
 
@@ -307,6 +331,8 @@ Options:
   --help                   Show this message and exit.
 ```
 
+Report incorrect code
+
 ## Query examples
 
 This section shares various types of query examples that you can use to query metrics and dimensions. The query examples listed are:
@@ -330,6 +356,8 @@ dbt sl query --metrics order_total,users_active --group-by metric_time # For dbt
 mf query --metrics order_total,users_active --group-by metric_time # For self-hosted users (dbt v1 or v2)
 ```
 
+Report incorrect code
+
 **Result**
 
 ```bash
@@ -344,6 +372,8 @@ mf query --metrics order_total,users_active --group-by metric_time # For self-ho
 | 2017-06-21    |         541.65 |
 ```
 
+Report incorrect code
+
 ### Query dimensions
 
 You can include multiple dimensions in a query. For example, you can group by the `is_food_order` dimension to confirm if orders were for food or not. Note that when you query a dimension, you need to specify the primary entity for that dimension. In the following example, the primary entity is `order_id`.
@@ -355,6 +385,8 @@ dbt sl query --metrics order_total --group-by order_id__is_food_order # For dbt 
 
 mf query --metrics order_total --group-by order_id__is_food_order # For self-hosted users (dbt v1 or v2)
 ```
+
+Report incorrect code
 
 **Result**
 
@@ -371,6 +403,8 @@ mf query --metrics order_total --group-by order_id__is_food_order # For self-hos
 | 2017-06-19    | False           |         300.98 |
 | 2017-06-19    | True            |         448.11 |
 ```
+
+Report incorrect code
 
 ### Add order/limit
 
@@ -389,6 +423,8 @@ dbt sl query --metrics order_total --group-by order_id__is_food_order --limit 10
 mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --order-by -metric_time 
 ```
 
+Report incorrect code
+
 **Result**
 
 ```bash
@@ -404,6 +440,8 @@ mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --o
 | 2017-08-28    | False           |         334.73 |
 ```
 
+Report incorrect code
+
 ### Add where clause
 
 You can further filter the data set by adding a `where` clause to your query. The following example shows you how to query the `order_total` metric, grouped by `is_food_order` with multiple `where` statements (orders that are food orders and orders from the week starting on or after Feb 1st, 2024).
@@ -418,6 +456,8 @@ dbt sl query --metrics order_total --group-by order_id__is_food_order --where "{
 
 mf query --metrics order_total --group-by order_id__is_food_order --where "{{ Dimension('order_id__is_food_order') }} = True" --where "{{ TimeDimension('metric_time', 'week') }} >= '2024-02-01'"
 ```
+
+Report incorrect code
 
 Notes:
 
@@ -442,6 +482,8 @@ Notes:
 | 2017-08-22    | True            |         401.91 |
 ```
 
+Report incorrect code
+
 ### Filter by time
 
 To filter by time, there are dedicated start and end time options. Using these options to filter by time allows MetricFlow to further optimize query performance by pushing down the where filter when appropriate.
@@ -455,6 +497,8 @@ Note that when you query a dimension, you need to specify the primary entity for
 
 mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' 
 ```
+
+Report incorrect code
 
 **Result**
 
@@ -470,6 +514,8 @@ mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --o
 | 2017-08-22    | True            |         401.91 |
 ```
 
+Report incorrect code
+
 ### Query saved queries
 
 You can use this for frequently used queries. Replace `<name>` with the name of your [saved query](./saved-queries.md).
@@ -481,6 +527,8 @@ dbt sl query --saved-query <name> # For dbt platform users (dbt v1 or v2)
 
 mf query --saved-query <name> # For self-hosted users (dbt v1 or v2)
 ```
+
+Report incorrect code
 
 For example, if you use dbt and have a saved query named `new_customer_orders`, you would run `dbt sl query --saved-query new_customer_orders`.
 
@@ -507,6 +555,8 @@ dbt sl query --metrics order_total --group-by metric_time,is_food_order --limit 
 mf query --metrics order_total --group-by metric_time,is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' --explain
 ```
 
+Report incorrect code
+
 **Result**
 
 ```bash
@@ -532,6 +582,8 @@ order by metric_time desc
 limit 10
 ```
 
+Report incorrect code
+
 ### Export to CSV
 
 Add the `--csv file_name.csv` flag to export the results of your query to a CSV. The `--csv` flag is available to local self-hosted users only (with the `mf` prefix) and isn't supported by `dbt sl` in dbt platform.
@@ -545,12 +597,16 @@ Add the `--csv file_name.csv` flag to export the results of your query to a CSV.
 mf query --metrics order_total --group-by metric_time,is_food_order --limit 10 --order-by -metric_time --where "is_food_order = True" --start-time '2017-08-22' --end-time '2017-08-27' --csv query_example.csv
 ```
 
+Report incorrect code
+
 **Result**
 
 ```bash
 ✔ Success 🦄 - query completed after 0.83 seconds
 🖨 Successfully written query output to query_example.csv
 ```
+
+Report incorrect code
 
 ## Time granularity
 
@@ -564,6 +620,8 @@ dbt sl query --metrics revenue --group-by metric_time__month # For dbt platform 
 mf query --metrics revenue --group-by metric_time__month # For self-hosted users (dbt v1 or v2)
 ```
 
+Report incorrect code
+
 ## Export
 
 Run [exports for a specific saved query](../use-dbt-semantic-layer/exports.md#exports-for-single-saved-query). Use this command to test and generate exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
@@ -574,6 +632,8 @@ Export is available in dbt.
 dbt sl export # For dbt platform users (dbt v1 or v2)
 ```
 
+Report incorrect code
+
 ## Export-all
 
 Run [exports for multiple saved queries](../use-dbt-semantic-layer/exports.md#exports-for-multiple-saved-queries) at once. This command provides a convenient way to manage and execute exports for several queries simultaneously, saving time and effort. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
@@ -583,6 +643,8 @@ Export is available in dbt.
 ```bash
 dbt sl export-all # For dbt platform users (dbt v1 or v2)
 ```
+
+Report incorrect code
 
 ## FAQs
 
@@ -607,11 +669,15 @@ To configure your `.zshrc`profile to escape curly braces, you can use the `setop
 nano ~/.zshrc
 ```
 
+Report incorrect code
+
 3. Add the following line to the file:
 
 ```bash
 setopt BRACECCL
 ```
+
+Report incorrect code
 
 4. Save and exit the text editor (in `nano`, press Ctrl + O to save, and Ctrl + X to exit).
 
@@ -620,6 +686,8 @@ setopt BRACECCL
 ```bash
 source ~/.zshrc
 ```
+
+Report incorrect code
 
 6. After making these changes, your Zsh shell will treat curly braces as literal characters and will not perform brace expansion. This means that you can use curly braces without worrying about unintended expansions.
 

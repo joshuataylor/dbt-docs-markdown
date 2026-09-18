@@ -168,6 +168,8 @@ sample\_IAM\_Policy.yml
 }
 ```
 
+Report incorrect code
+
 ### Configuration of the local environment
 
 Because **`dbt`** and **`dbt-glue`** adapters are compatible with Python versions 3.9 or higher, check the version of Python:
@@ -175,6 +177,8 @@ Because **`dbt`** and **`dbt-glue`** adapters are compatible with Python version
 ```bash
 $ python3 --version
 ```
+
+Report incorrect code
 
 Configure a Python virtual environment to isolate package version and code dependencies:
 
@@ -185,6 +189,8 @@ $ source dbt_venv/bin/activate
 $ python3 -m pip install --upgrade pip
 ```
 
+Report incorrect code
+
 Configure the last version of AWS CLI
 
 ```bash
@@ -193,6 +199,8 @@ $ unzip awscliv2.zip
 $ sudo ./aws/install
 ```
 
+Report incorrect code
+
 Install boto3 package
 
 ```bash
@@ -200,11 +208,15 @@ $ sudo yum install gcc krb5-devel.x86_64 python3-devel.x86_64 -y
 $ pip3 install —upgrade boto3
 ```
 
+Report incorrect code
+
 Install the package:
 
 ```bash
 $ pip3 install dbt-glue
 ```
+
+Report incorrect code
 
 ### Example config
 
@@ -222,6 +234,8 @@ schema: "dbt_demo"
 session_provisioning_timeout_in_seconds: 120
 location: "s3://dbt_demo_bucket/dbt_demo_data"
 ```
+
+Report incorrect code
 
 The table below describes all the options.
 
@@ -302,6 +316,8 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
+Report incorrect code
+
 #### Run Code
 
 ```sql
@@ -316,6 +332,8 @@ create temporary view spark_incremental__dbt_tmp as
 insert into table analytics.spark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
+
+Report incorrect code
 
 ### The `insert_overwrite` strategy
 
@@ -355,6 +373,8 @@ from events
 group by 1
 ```
 
+Report incorrect code
+
 #### Run Code
 
 ```sql
@@ -383,6 +403,8 @@ insert overwrite table analytics.spark_incremental
     partition (date_day)
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
+
+Report incorrect code
 
 Specifying `insert_overwrite` as the incremental strategy is optional since it's the default strategy used when none is specified.
 
@@ -417,6 +439,8 @@ When using a connector be sure that your IAM role has these policies:
     "Effect": "Allow"
 }
 ```
+
+Report incorrect code
 
 and that the managed policy `AmazonEC2ContainerRegistryReadOnly` is attached. Be sure that you follow the getting started instructions [here](https://docs.aws.amazon.com/glue/latest/ug/setting-up.html#getting-started-min-privs-connectors).
 
@@ -454,6 +478,8 @@ test_project:
       datalake_formats: hudi
 ```
 
+Report incorrect code
+
 #### Source Code example
 
 ```sql
@@ -484,6 +510,8 @@ select
 from events
 group by 1
 ```
+
+Report incorrect code
 
 #### Delta
 
@@ -526,6 +554,8 @@ test_project:
       delta_athena_prefix: "delta"
 ```
 
+Report incorrect code
+
 #### Source Code example
 
 ```sql
@@ -556,6 +586,8 @@ from events
 group by 1
 ```
 
+Report incorrect code
+
 #### Iceberg
 
 **Usage notes:** The `merge` with Iceberg incremental strategy requires:
@@ -566,6 +598,8 @@ group by 1
 ```yaml
 iceberg_glue_commit_lock_table: "MyDynamoDbTable"
 ```
+
+Report incorrect code
 
 * the latest connector for iceberg in AWS marketplace uses Ver 0.14.0 for Glue 3.0, and Ver 1.2.1 for Glue 4.0 where Kryo serialization fails when writing iceberg, use "org.apache.spark.serializer.JavaSerializer" for spark.serializer instead, more info [here](https://github.com/apache/iceberg/pull/546)
 
@@ -597,6 +631,8 @@ Make sure you update your conf with `--conf spark.sql.catalog.glue_catalog.lock.
 }
 ```
 
+Report incorrect code
+
 * To add `file_format: Iceberg` in your table configuration
 
 * To add a datalake\_formats in your profile : `datalake_formats: iceberg`
@@ -623,6 +659,8 @@ Make sure you update your conf with `--conf spark.sql.catalog.glue_catalog.lock.
     --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 ```
 
+Report incorrect code
+
 * For Glue 3.0, set `spark.sql.catalog.glue_catalog.lock-impl` to `org.apache.iceberg.aws.glue.DynamoLockManager` instead
 
 dbt will run an [atomic `merge` statement](https://iceberg.apache.org/docs/latest/spark-writes/) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. You need to provide a `unique_key` to perform merge operation otherwise it will fail. This key is to provide in a Python list format and can contains multiple column name to create a composite unique\_key.
@@ -639,11 +677,15 @@ dbt will run an [atomic `merge` statement](https://iceberg.apache.org/docs/lates
 --conf spark.sql.catalog.RandomCatalogName=org.apache.iceberg.spark.SparkCatalog
 ```
 
+Report incorrect code
+
 And then run in an AWS Glue Studio Notebook a session with the following config:
 
 ```text
 --conf spark.sql.catalog.AnotherRandomCatalogName=org.apache.iceberg.spark.SparkCatalog
 ```
+
+Report incorrect code
 
 In both cases, the underlying catalog would be the AWS Glue Catalog, unique in your AWS Account and Region, and you would be able to work with the exact same data. Also make sure that if you change the name of the Glue Catalog Alias, you change it in all the other `--conf` where it's used:
 
@@ -653,6 +695,8 @@ In both cases, the underlying catalog would be the AWS Glue Catalog, unique in y
  ...
  --conf spark.sql.catalog.RandomCatalogName.lock-impl=org.apache.iceberg.aws.glue.DynamoLockManager
 ```
+
+Report incorrect code
 
 * A full reference to `table_properties` can be found [here](https://iceberg.apache.org/docs/latest/configuration/).
 * Iceberg Tables are natively supported by Athena. Therefore, you can query tables created and operated with dbt-glue adapter from Athena.
@@ -678,6 +722,8 @@ test_project:
       datalake_formats: iceberg
       conf: --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.serializer=org.apache.spark.serializer.KryoSerializer --conf spark.sql.warehouse=s3://aws-dbt-glue-datalake-1234567890-eu-west-1/dbt_test_project --conf spark.sql.catalog.glue_catalog=org.apache.iceberg.spark.SparkCatalog --conf spark.sql.catalog.glue_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog --conf spark.sql.catalog.glue_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO --conf spark.sql.catalog.glue_catalog.lock-impl=org.apache.iceberg.aws.dynamodb.DynamoDbLockManager --conf spark.sql.catalog.glue_catalog.lock.table=myGlueLockTable  --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions 
 ```
+
+Report incorrect code
 
 #### Source Code example
 
@@ -710,6 +756,8 @@ from events
 group by 1
 ```
 
+Report incorrect code
+
 #### Iceberg Snapshot source code example
 
 (Applies to dbt v1.9 and later)
@@ -730,6 +778,8 @@ select * from {{ ref('customers') }}
 
 {% endsnapshot %}
 ```
+
+Report incorrect code
 
 ## Monitoring your Glue Interactive Session
 
@@ -772,6 +822,8 @@ Monitoring is an important part of maintaining the reliability, availability, an
 }
 ```
 
+Report incorrect code
+
 * To add monitoring parameters in your Interactive Session Config (in your profile). More information on [Job parameters used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 
 #### Profile config example
@@ -793,6 +845,8 @@ test_project:
       location: "s3://aws-dbt-glue-datalake-1234567890-eu-west-1/"
       default_arguments: "--enable-metrics=true, --enable-continuous-cloudwatch-log=true, --enable-continuous-log-filter=true, --enable-spark-ui=true, --spark-event-logs-path=s3://bucket-to-write-sparkui-logs/dbt/"
 ```
+
+Report incorrect code
 
 If you want to use the Spark UI, you can launch the Spark history server using a AWS CloudFormation template that hosts the server on an EC2 instance, or launch locally using Docker. More information on [Launching the Spark history server](https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui-history.html#monitor-spark-ui-history-local)
 
@@ -836,6 +890,8 @@ test_project:
       default_arguments: "--enable-auto-scaling=true"
 ```
 
+Report incorrect code
+
 ## Access Glue catalog in another AWS account
 
 In many cases, you may need to run you dbt jobs to read from another AWS account.
@@ -866,6 +922,8 @@ test_project:
       conf: "--conf hive.metastore.client.factory.class=com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory 
              --conf spark.hadoop.hive.metastore.glue.catalogid=<TARGET-AWS-ACCOUNT-ID-B>"
 ```
+
+Report incorrect code
 
 ## Persisting model descriptions
 
@@ -914,6 +972,8 @@ lf_grants={
     }
 ```
 
+Report incorrect code
+
 The below configuration let the specified principal (lf-data-scientist IAM user) access rows that have a customer\_lifetime\_value > 15 and all the columns *except* the one specified ('first\_name')
 
 ```sql
@@ -931,6 +991,8 @@ lf_grants={
         }
     }
 ```
+
+Report incorrect code
 
 See below some examples of how you can integrate LF Tags management and data cell filtering to your configurations :
 
@@ -990,6 +1052,8 @@ This way of defining your Lakeformation rules is appropriate if you want to hand
     left join customer_payments using (customer_id)
 ```
 
+Report incorrect code
+
 #### At dbt-project level
 
 This way you can specify tags and data filtering policy for a particular path in your dbt project (eg. models, seeds, models/model\_group1, etc.) This is especially useful for seeds, for which you can't define configuration in the file directly.
@@ -1012,6 +1076,8 @@ models:
       name_of_my_table_tag: 'value_of_my_table_tag'
 ```
 
+Report incorrect code
+
 ## Tests
 
 To perform a functional test:
@@ -1022,11 +1088,15 @@ To perform a functional test:
 $ pip3 install -r dev-requirements.txt
 ```
 
+Report incorrect code
+
 2. Install dev locally
 
 ```bash
 $ python3 setup.py build && python3 setup.py install_lib
 ```
+
+Report incorrect code
 
 3. Export variables
 
@@ -1035,11 +1105,15 @@ $ export DBT_S3_LOCATION=s3://mybucket/myprefix
 $ export DBT_ROLE_ARN=arn:aws:iam::1234567890:role/GlueInteractiveSessionRole
 ```
 
+Report incorrect code
+
 4. Run the test
 
 ```bash
 $ python3 -m pytest tests/functional
 ```
+
+Report incorrect code
 
 For more information, check the dbt documentation about [testing a new adapter](../../../guides/adapter-creation.md).
 

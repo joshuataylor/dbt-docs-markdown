@@ -24,6 +24,8 @@ select *
 from ...
 ```
 
+Report incorrect code
+
 #### Project config
 
 dbt\_project.yml
@@ -36,6 +38,8 @@ models:
       materialized: table
       index: HEAP
 ```
+
+Report incorrect code
 
 The following are the supported index types:
 

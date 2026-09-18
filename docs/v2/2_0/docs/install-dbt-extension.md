@@ -67,11 +67,15 @@ Choose your preferred installation method:
 python -m pip install dbt
 ```
 
+Report incorrect code
+
 To upgrade to a newer version:
 
 ```shell
 python -m pip install --upgrade dbt
 ```
+
+Report incorrect code
 
  Standalone installation for macOS and Linux
 
@@ -79,17 +83,23 @@ python -m pip install --upgrade dbt
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
 ```
 
+Report incorrect code
+
 To use `dbt` immediately after installation, close and reopen your terminal or reload your shell so that the new `$PATH` is recognized:
 
 ```shell
 exec $SHELL
 ```
 
+Report incorrect code
+
 To upgrade to a newer version:
 
 ```shell
 dbt system update
 ```
+
+Report incorrect code
 
 note
 
@@ -101,17 +111,23 @@ note
 irm https://public.cdn.getdbt.com/fs/install/install.ps1 | iex
 ```
 
+Report incorrect code
+
 To use `dbt` immediately after installation, close and reopen or reload your shell so that the new `Path` is recognized:
 
 ```powershell
 Start-Process powershell
 ```
 
+Report incorrect code
+
 To upgrade to a newer version:
 
 ```shell
 dbt system update
 ```
+
+Report incorrect code
 
  Homebrew installation for macOS
 
@@ -120,6 +136,8 @@ brew tap dbt-labs/dbt
 brew install dbt-labs/dbt/dbt
 ```
 
+Report incorrect code
+
 To upgrade to a newer version:
 
 ```shell
@@ -127,11 +145,15 @@ brew tap dbt-labs/dbt
 brew upgrade dbt
 ```
 
+Report incorrect code
+
  Winget installation for Windows
 
 ```shell
 winget install --id dbtLabs.dbt --exact
 ```
+
+Report incorrect code
 
 To upgrade to a specific version:
 
@@ -139,11 +161,15 @@ To upgrade to a specific version:
 winget install --id dbtLabs.dbt --exact --version <version>
 ```
 
+Report incorrect code
+
 Run the following command to verify your installation:
 
 ```bash
 dbt --version
 ```
+
+Report incorrect code
 
 You can use `dbt` or its dbt v2 alias `dbtf` (handy if you already have another dbt CLI installed). Default install path:
 

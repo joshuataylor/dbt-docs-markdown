@@ -14,6 +14,8 @@ functions:
         quote_args: true | false  # optional, default: true
 ```
 
+Report incorrect code
+
 ## Definition
 
 When creating JavaScript user-defined functions (UDFs) on Snowflake, `quote_args` controls whether argument names are quoted in the `CREATE FUNCTION` statement. Defaults to `true`.
@@ -44,11 +46,15 @@ functions:
       data_type: integer
 ```
 
+Report incorrect code
+
 functions/is\_positive\_int.js
 
 ```js
 return /^[0-9]+$/.test(A_STRING) ? 1 : 0;
 ```
+
+Report incorrect code
 
 With `quote_args: false`, dbt generates:
 
@@ -61,6 +67,8 @@ return /^[0-9]+$/.test(A_STRING) ? 1 : 0;
 $$;
 ```
 
+Report incorrect code
+
 With the default `quote_args: true`, dbt generates:
 
 ```sql
@@ -71,6 +79,8 @@ AS $$
 return /^[0-9]+$/.test(a_string) ? 1 : 0;
 $$;
 ```
+
+Report incorrect code
 
 ## Related documentation
 

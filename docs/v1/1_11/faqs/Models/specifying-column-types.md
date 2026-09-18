@@ -9,6 +9,8 @@ select
 from some_other_table
 ```
 
+Report incorrect code
+
 You might have this question if you're used to running statements like this:
 
 ```sql
@@ -21,6 +23,8 @@ insert into dbt_alice.my_table (
 )
 ```
 
+Report incorrect code
+
 In comparison, dbt would build this table using a `create table as` statement:
 
 ```sql
@@ -28,6 +32,8 @@ create table dbt_alice.my_table as (
   select id, created from some_other_table
 )
 ```
+
+Report incorrect code
 
 So long as your model queries return the correct column type, the table you create will also have the correct column type.
 

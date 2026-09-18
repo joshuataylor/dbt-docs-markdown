@@ -72,6 +72,8 @@ dbt-cloud:
   project-id: '654321'
 ```
 
+Report incorrect code
+
 ### Configure deferral environment ID
 
 The Studio IDE and dbt platform CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt platform CLI and Studio IDE) or `dbt_cloud.yml` (dbt platform CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
@@ -87,6 +89,8 @@ context:
   defer-env-id: '123456'
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -94,3 +98,5 @@ dbt-cloud:
   project-id: '654321'
   defer-env-id: '123456'
 ```
+
+Report incorrect code

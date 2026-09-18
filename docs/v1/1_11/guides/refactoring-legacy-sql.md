@@ -83,6 +83,8 @@ sources:
       - name: customers
 ```
 
+Report incorrect code
+
 With a few lines of code in a `.yml` file in your dbt project's `/models` subfolder, you can now version control how your data sources (Snowplow, Shopify, etc) map to actual database tables.
 
 For example, let's say you migrate from one ETL tool to another, and the new tool writes to a new schema in your warehouse. dbt sources allow you to make that update in a single config file, and flip on the change with one pull request to your dbt project.
@@ -179,6 +181,8 @@ final_cte as (
 
 select * from final_cte
 ```
+
+Report incorrect code
 
 Notice there are no nested queries here, which makes reading our logic much more straightforward. If a query needs to be nested, it's just a new CTE that references the previous CTE.
 

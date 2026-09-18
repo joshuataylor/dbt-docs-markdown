@@ -16,6 +16,8 @@ snapshots:
       - column_name
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -24,6 +26,8 @@ snapshots:
     +strategy: check
     +check_cols: [column_name] | all
 ```
+
+Report incorrect code
 
 ## Description
 
@@ -58,6 +62,8 @@ snapshots:
         - is_cancelled
 ```
 
+Report incorrect code
+
 To select from this snapshot in a downstream model: `select * from {{ ref('orders_snapshot_check') }}`
 
 ### Check all columns for changes
@@ -76,5 +82,7 @@ snapshots:
       strategy: check
       check_cols: all
 ```
+
+Report incorrect code
 
 To select from this snapshot in a downstream model: `select * from {{ ref('orders_snapshot_check') }}`

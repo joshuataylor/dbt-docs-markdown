@@ -8,6 +8,8 @@
 dbt state explain
 ```
 
+Report incorrect code
+
 The output shows all nodes from the last run, with a summary of the State decision for each:
 
 ```shell
@@ -16,6 +18,8 @@ READY_TO_EXECUTE model.jaffle_shop.orders - model was executed because the view 
 READY_TO_EXECUTE test.jaffle_shop.not_null_customers_customer_id - data test was executed because it has no prior execution or its query changed
 UNKNOWN unit_test.jaffle_shop.orders.test_order_items_compute_to_bools_correctly - dbt State explain details unavailable
 ```
+
+Report incorrect code
 
 If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
 
@@ -29,6 +33,8 @@ By default, (Applies to dbt v2.0 and later) `dbt state explain` reads from the m
 dbt state explain --log-file 'logs/state/responses_2026_08_25_11_00_15_667.jsonl'
 ```
 
+Report incorrect code
+
 ## Using verbose mode
 
 Use the `--verbose` flag to see the full step-by-step analysis for each node and add a run configuration summary. Use `-s` to filter the output to a specific node.
@@ -38,6 +44,8 @@ Use the `--verbose` flag to see the full step-by-step analysis for each node and
 ```bash
 dbt state explain --verbose -s my_node_name
 ```
+
+Report incorrect code
 
 In dbt v2, `--verbose` adds a run configuration summary at the top and shows the full step-by-step analysis for each node.
 
@@ -65,6 +73,8 @@ SKIP_EXECUTION model.jaffle_shop.customers - model was a no-op because its query
         - last updated: 5 days ago
     - upstream data is up to date [SUCCESS]
 ```
+
+Report incorrect code
 
 The `--verbose` flag produces a decision breakdown that may include the following analyses, depending on the node type:
 

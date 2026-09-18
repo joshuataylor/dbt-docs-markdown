@@ -25,6 +25,8 @@ select *
 from ...
 ```
 
+Report incorrect code
+
 #### Project config
 
 dbt\_project.yml
@@ -38,6 +40,8 @@ models:
       as_columnstore: False
 ```
 
+Report incorrect code
+
 ## Seeds
 
 By default, `dbt-sqlserver` will attempt to insert seed files in batches of 400 rows. If this exceeds SQL Server's 2100 parameter limit, the adapter will automatically limit to the highest safe value possible.
@@ -50,6 +54,8 @@ dbt\_project.yml
 vars:
   max_batch_size: 200 # Any integer less than or equal to 2100 will do.
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -87,6 +93,8 @@ select *
 from ...
 ```
 
+Report incorrect code
+
 ## Grants with auto provisioning
 
 dbt 1.2 introduced the capability to grant/revoke access using the `grants` [configuration option](./grants.md). In dbt-sqlserver, you can additionally set `auto_provision_aad_principals` to `true` in your model configuration if you are using Microsoft Entra ID authentication with an Azure SQL Database or Azure Synapse Dedicated SQL Pool.
@@ -102,6 +110,8 @@ models:
   your_project_name:
     auto_provision_aad_principals: true
 ```
+
+Report incorrect code
 
 ## Permissions
 

@@ -70,6 +70,8 @@ To run only unit tests on demand, use the `test_type` selector — this works ac
 dbt test --select "test_type:unit"
 ```
 
+Report incorrect code
+
 (Applies to dbt v2.0 and later)
 
 ## Run unit tests locally
@@ -110,6 +112,8 @@ First, opt in to the config in the environment where dbt runs:
 export DBT_ENGINE_EXPERIMENTAL_LOCAL_UNIT_TESTS=true
 ```
 
+Report incorrect code
+
 Then you can configure it on a single unit test:
 
 models/schema.yml
@@ -122,6 +126,8 @@ unit_tests:
       compute: local
 ```
 
+Report incorrect code
+
 Or on every unit test in your project:
 
 dbt\_project.yml
@@ -131,6 +137,8 @@ unit_tests:
   my_project:
     +compute: local
 ```
+
+Report incorrect code
 
 [`compute`](../../reference/resource-configs/compute.md) accepts two values:
 
@@ -180,6 +188,8 @@ check_valid_emails as (
 select * from check_valid_emails
 ```
 
+Report incorrect code
+
 The logic posed in this example can be challenging to validate. You can add a unit test to this model to ensure the `is_valid_email_address` logic captures all known edge cases: emails without `.`, emails without `@`, and emails from invalid domains.
 
 ```yaml
@@ -208,6 +218,8 @@ unit_tests:
         - {email: badgmail.com,        is_valid_email_address: false}
         - {email: missingdot@gmailcom, is_valid_email_address: false}
 ```
+
+Report incorrect code
 
 The previous example defines the mock data using the inline `dict` format, but you can also use `csv` or `sql` either inline or in a separate fixture file. Store your fixture files in a `fixtures` subdirectory in any of your [test paths](../../reference/project-configs/test-paths.md). For example, `tests/fixtures/my_unit_test_fixture.sql`.
 
@@ -238,6 +250,8 @@ unit_tests:
       fixture: valid_email_address_fixture_output
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yaml
@@ -262,6 +276,8 @@ unit_tests:
       fixture: valid_email_address_fixture_output
 ```
 
+Report incorrect code
+
 When using the `dict` or `csv` format, you only have to define the mock data for the columns relevant to you. This enables you to write succinct and *specific* unit tests.
 
 note
@@ -274,6 +290,8 @@ Use the [`--empty`](../../reference/commands/build.md#the---empty-flag) flag to 
 
 dbt run --select "stg_customers top_level_email_domains" --empty
 ```
+
+Report incorrect code
 
 Alternatively, use `dbt build` to, in lineage order:
 
@@ -320,6 +338,8 @@ actual differs from expected:
 16:03:51  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 The clever regex statement wasn’t as clever as initially thought, as the model incorrectly flagged `cool@example.com` as an invalid email address.
 
 Updating the regex logic to `'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'` (those pesky escape characters) and rerunning the unit test solves the problem:
@@ -343,6 +363,8 @@ dbt test --select test_is_valid_email_address
 16:09:13  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 Your model is now ready for production! Adding this unit test helped catch an issue with the SQL logic *before* you materialized `dim_customers` in your warehouse and will better ensure the reliability of this model in the future.
 
 ## Unit testing incremental models
@@ -356,6 +378,8 @@ Incremental models need to exist in the database before running unit tests or do
 ```shell
 dbt run --select "config.materialized:incremental" --empty
 ```
+
+Report incorrect code
 
 After running the command, you can then perform a regular `dbt build` for that model and then run your unit test.
 
@@ -378,6 +402,8 @@ select * from {{ ref('events') }}
 where event_time > (select max(event_time) from {{ this }})
 {% endif %}
 ```
+
+Report incorrect code
 
 You can define unit tests on `my_incremental_model` to ensure your incremental logic is working as expected:
 
@@ -421,6 +447,8 @@ unit_tests:
         - {event_id: 3, event_time: 2020-01-03}
 ```
 
+Report incorrect code
+
 There is currently no way to unit test whether the dbt framework inserted/merged the records into your existing model correctly, but [we're investigating support for this in the future](https://github.com/dbt-labs/dbt/issues/8664).
 
 ## Unit testing a model that depends on ephemeral model(s)
@@ -440,6 +468,8 @@ unit_tests:
       rows:
         - {id: 1, first_name: emily}
 ```
+
+Report incorrect code
 
 ## Unit test exit codes
 

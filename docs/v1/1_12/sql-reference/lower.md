@@ -20,6 +20,8 @@ The syntax for using the LOWER function looks like the following:
 lower(<string_column>)
 ```
 
+Report incorrect code
+
 Executing this command in a SELECT statement will return the lowercase version of the input string. You may additionally use the LOWER function in WHERE clauses and on join values.
 
 Let’s take a look at a practical example using the LOWER function.
@@ -35,6 +37,8 @@ select
 	lower(last_name) as last_name
 from {{ ref('customers') }}
 ```
+
+Report incorrect code
 
 After running this query, the `customers` table will look a little something like this:
 

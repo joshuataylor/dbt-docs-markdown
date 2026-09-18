@@ -182,6 +182,8 @@ Example usage:
 $ cookiecutter gh:dbt-labs/dbt-database-adapter-scaffold
 ```
 
+Report incorrect code
+
 The generated boilerplate starting project will include a basic adapter plugin file structure, examples of macros, high level method descriptions, etc.
 
 One of the most important choices you will make during the cookiecutter generation will revolve around the field for `is_sql_adapter` which is a boolean used to correctly apply imports for either a `SQLAdapter` or `BaseAdapter`. Knowing which you will need requires a deeper knowledge of your selected database but a few good guides for the choice are.
@@ -259,6 +261,8 @@ class MyAdapterCredentials(Credentials):
         return ('host', 'port', 'database', 'username')
 ```
 
+Report incorrect code
+
 There are a few things you can do to make it easier for users when connecting to your database:
 
 * Be sure to implement the Credentials' `_connection_keys` method shown above. This method will return the keys that should be displayed in the output of the `dbt debug` command. As a general rule, it's good to return all the arguments used in connecting to the actual database except the password (even optional arguments).
@@ -279,6 +283,8 @@ class MyAdapterCredentials(Credentials):
         'collection': 'database',
     }
 ```
+
+Report incorrect code
 
 Then users can use `collection` OR `database` in their `profiles.yml`, `dbt_project.yml`, or `config()` calls to set the database.
 
@@ -343,6 +349,8 @@ connections.py
         return connection
 ```
 
+Report incorrect code
+
 ##### `get_response(cls, cursor)`
 
 `get_response` is a classmethod that gets a cursor object and returns adapter-specific information about the last executed command. The return value should be an `AdapterResponse` object that includes items such as `code`, `rows_affected`, `bytes_processed`, and a summary `_message` for logging to stdout.
@@ -362,6 +370,8 @@ connections.py
         )
 ```
 
+Report incorrect code
+
 ##### `cancel(self, connection)`
 
 `cancel` is an instance method that gets a connection object and attempts to cancel any ongoing queries, which is database dependent. Some databases don't support the concept of cancellation, they can simply implement it via 'pass' and their adapter classes should implement an `is_cancelable` that returns False - On ctrl+c connections may remain running. This method must be implemented carefully, as the affected connection will likely be in use in a different thread.
@@ -377,6 +387,8 @@ connections.py
         res = cursor.fetchone()
         logger.debug("Canceled query '{}': {}".format(connection_name, res))
 ```
+
+Report incorrect code
 
 ##### `exception_handler(self, sql, connection_name='master')`
 
@@ -402,6 +414,8 @@ connections.py
             self.release(connection_name)
             raise dbt.exceptions.RuntimeException(str(exc))
 ```
+
+Report incorrect code
 
 ##### `standardize_grants_dict(self, grants_table: agate.Table) -> dict`
 
@@ -431,6 +445,8 @@ impl.py
         return grants_dict
 ```
 
+Report incorrect code
+
 ### Editing the adapter implementation
 
 Edit the connection manager at `myadapter/dbt/adapters/myadapter/impl.py`
@@ -448,6 +464,8 @@ impl.py
     def date_function(cls):
         return 'datenow()'
 ```
+
+Report incorrect code
 
 ### Editing SQL logic
 
@@ -509,6 +527,8 @@ adapters.sql
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 The `adapter.dispatch()` macro takes a second argument, `packages`, which represents a set of "search namespaces" in which to find potential implementations of a dispatched macro. This allows users of community-supported adapters to extend or "shim" dispatched macros from common packages, such as `dbt-utils`, with adapter-specific versions in their own project or other installed packages. See:
 
 * "Shim" package examples: [`spark-utils`](https://github.com/dbt-labs/spark-utils), [`tsql-utils`](https://github.com/dbt-msft/tsql-utils)
@@ -530,6 +550,8 @@ impl.py
             self.drop_relation(relation)
         super().drop_schema(relation)
 ```
+
+Report incorrect code
 
 #### Grants Macros
 
@@ -566,6 +588,8 @@ class ABCAdapter(BaseAdapter):
         ]
 ```
 
+Report incorrect code
+
 Once a behavior change flag has been implemented, it can be referenced on the adapter both in `impl.py` and in Jinja macros:
 
 impl.py
@@ -580,6 +604,8 @@ class ABCAdapter(BaseAdapter):
             # do the old thing
 ```
 
+Report incorrect code
+
 adapters.sql
 
 ```sql
@@ -591,6 +617,8 @@ adapters.sql
     {% endif %}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 Every time the behavior flag evaluates to `False,` it warns the user, informing them that a change will occur in the future.
 
@@ -610,6 +638,8 @@ impl.py
                 # do the old thing
 ```
 
+Report incorrect code
+
 adapters.sql
 
 ```sql
@@ -621,6 +651,8 @@ adapters.sql
     {% endif %}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 It's best practice to evaluate a behavior flag as few times as possible. This will make it easier to remove once the behavior change has matured.
 
@@ -713,6 +745,8 @@ models:
 """
 ```
 
+Report incorrect code
+
 2. Use the "fixtures" to define the project for your test case. These fixtures are always scoped to the **class**, where the class represents one test case—that is, one dbt project or scenario. (The same test case can be used for one or more actual tests, which we'll see in step 3.) Following the default pytest configurations, the file name must begin with `test_`, and the class name must begin with `Test`.
 
 tests/functional/example/test\_example\_failing\_test.py
@@ -764,6 +798,8 @@ class TestExample:
     # continues below
 ```
 
+Report incorrect code
+
 3. Now that we've set up our project, it's time to define a sequence of dbt commands and assertions. We define one or more methods in the same file, on the same class (`TestExampleFailingTest`), whose names begin with `test_`. These methods share the same setup (project scenario) from above, but they can be run independently by pytest—so they shouldn't depend on each other in any way.
 
 tests/functional/example/test\_example\_failing\_test.py
@@ -798,6 +834,8 @@ tests/functional/example/test\_example\_failing\_test.py
         results = run_dbt(["build"])
 ```
 
+Report incorrect code
+
 3. Our test is ready to run! The last step is to invoke `pytest` from your command line. We'll walk through the actual setup and configuration of `pytest` in the next section.
 
 terminal
@@ -813,6 +851,8 @@ tests/functional/test_example.py .X                                  [100%]
 
 ======================= 1 passed, 1 xpassed in 1.38s =======================
 ```
+
+Report incorrect code
 
 You can find more ways to run tests, along with a full command reference, in the [pytest usage docs](https://docs.pytest.org/how-to/usage.html).
 
@@ -864,9 +904,13 @@ pytest-dotenv
 dbt-tests-adapter
 ```
 
+Report incorrect code
+
 ```sh
 python -m pip install -r dev_requirements.txt
 ```
+
+Report incorrect code
 
 ### Set up and configure pytest
 
@@ -887,6 +931,8 @@ env_files =
 testpaths =
     tests/functional  # name per convention
 ```
+
+Report incorrect code
 
 Then, create a configuration file within your tests directory. In it, you'll want to define all necessary profile configuration for connecting to your data platform in local development and continuous integration. We recommend setting these values with environment variables, since this file will be checked into version control.
 
@@ -912,6 +958,8 @@ def dbt_profile_target():
         ...
     }
 ```
+
+Report incorrect code
 
 ### Define test cases
 
@@ -973,11 +1021,15 @@ class TestBaseAdapterMethod(BaseAdapterMethod):
     pass
 ```
 
+Report incorrect code
+
 Finally, run pytest:
 
 ```sh
 python3 -m pytest tests/functional
 ```
+
+Report incorrect code
 
 ### Modifying test cases
 
@@ -1015,6 +1067,8 @@ class TestSnapshotCheckColsRedshift(BaseSnapshotCheckCols):
         }
 ```
 
+Report incorrect code
+
 As another example, the `dbt-bigquery` adapter asks users to "authorize" replacing a table with a view by supplying the `--full-refresh` flag. The reason: In the table materialization logic, a view by the same name must first be dropped; if the table query fails, the model will be missing.
 
 Knowing this possibility, the "base" test case offers a `require_full_refresh` switch on the `test_config` fixture class. For BigQuery, we'll switch it on:
@@ -1031,6 +1085,8 @@ class TestSimpleMaterializationsBigQuery(BaseSimpleMaterializations):
         # effect: add '--full-refresh' flag in requisite 'dbt run' step
         return {"require_full_refresh": True}
 ```
+
+Report incorrect code
 
 It's always worth asking whether the required modifications represent gaps in perceived or expected dbt functionality. Are these simple implementation details, which any user of this database would understand? Are they limitations worth documenting?
 
@@ -1089,6 +1145,8 @@ def skip_by_profile_type(request):
                 pytest.skip("skipped on '{profile_type}' profile")
 ```
 
+Report incorrect code
+
 If there are tests that *shouldn't* run for a given profile:
 
 tests/functional/adapter/basic.py
@@ -1110,12 +1168,16 @@ class TestSnapshotCheckColsSpark(BaseSnapshotCheckCols):
         }
 ```
 
+Report incorrect code
+
 Finally:
 
 ```sh
 python3 -m pytest tests/functional --profile apache_spark
 python3 -m pytest tests/functional --profile databricks_sql_endpoint
 ```
+
+Report incorrect code
 
 ## Document a new adapter
 
@@ -1143,6 +1205,8 @@ title: "Documenting a new adapter"
 id: "documenting-a-new-adapter"
 ---
 ```
+
+Report incorrect code
 
 ### Single Source of Truth
 
@@ -1182,6 +1246,8 @@ import SetUpPages from '/snippets/_setup-pages-intro.md';
 
 <SetUpPages meta={frontMatter.meta} />
 ```
+
+Report incorrect code
 
 ## Promote a new adapter
 

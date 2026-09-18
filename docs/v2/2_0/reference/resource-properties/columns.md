@@ -21,6 +21,8 @@ models:
         ...
 ```
 
+Report incorrect code
+
 ## Sources
 
 models/\<filename>.yml
@@ -44,6 +46,8 @@ sources:
           ...
 ```
 
+Report incorrect code
+
 ## Seeds
 
 seeds/\<filename>.yml
@@ -65,6 +69,8 @@ seeds:
             ...
 ```
 
+Report incorrect code
+
 ## Snapshots
 
 snapshots/\<filename>.yml
@@ -85,6 +91,8 @@ snapshots:
       - name: <another_column>
 ```
 
+Report incorrect code
+
 ## Analyses
 
 analyses/\<filename>.yml
@@ -99,6 +107,8 @@ analyses:
         data_type: <string>
       - name: <another_column>
 ```
+
+Report incorrect code
 
 Columns are not resources in and of themselves. Instead, they are child properties of another resource type. They can define sub-properties that are similar to properties defined at the resource level:
 
@@ -131,6 +141,8 @@ models:
         quote: true | false
 ```
 
+Report incorrect code
+
 #### Sources
 
 models/schema.yml
@@ -146,6 +158,8 @@ sources:
             quote: true | false
 ```
 
+Report incorrect code
+
 #### Seeds
 
 seeds/schema.yml
@@ -158,6 +172,8 @@ seeds:
       - name: column_name
         quote: true | false
 ```
+
+Report incorrect code
 
 #### Snapshots
 
@@ -172,6 +188,8 @@ snapshots:
         quote: true | false
 ```
 
+Report incorrect code
+
 #### Analyses
 
 analysis/schema.yml
@@ -184,6 +202,8 @@ analyses:
       - name: column_name
         quote: true | false
 ```
+
+Report incorrect code
 
 ### Default
 
@@ -202,6 +222,8 @@ This property is useful when:
 ```sql
 select user_group as "group"
 ```
+
+Report incorrect code
 
 Without setting `quote: true`:
 
@@ -227,6 +249,8 @@ sources:
               - not_null
 ```
 
+Report incorrect code
+
 Without `quote: true`, the following error will occur:
 
 ```text
@@ -249,6 +273,8 @@ Database Error in test source_not_null_stripe_payment_order_id (models/staging/s
   compiled SQL at target/compiled/jaffle_shop/schema_test/source_not_null_stripe_payment_orderID.sql
 ```
 
+Report incorrect code
+
 This is because dbt is trying to run:
 
 ```sql
@@ -257,6 +283,8 @@ from raw.stripe.payment
 where orderID is null
 ```
 
+Report incorrect code
+
 Instead of:
 
 ```sql
@@ -264,3 +292,5 @@ select count(*)
 from raw.stripe.payment
 where "orderID" is null
 ```
+
+Report incorrect code

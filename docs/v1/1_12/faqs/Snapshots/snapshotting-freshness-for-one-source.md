@@ -13,4 +13,6 @@ $ dbt source freshness --select source:jaffle_shop.orders
 $ dbt source freshness --select source:jaffle_shop.orders source:jaffle_shop.customers
 ```
 
+Report incorrect code
+
 See the [`source freshness` command reference](../../reference/commands/source.md) for more information.

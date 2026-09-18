@@ -82,11 +82,15 @@ macOS/Linux:
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
+Report incorrect code
+
 Windows (PowerShell):
 
 ```powershell
 irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
+
+Report incorrect code
 
 This installs dbt Wizard to `/usr/local/bin/wizard`, along with the dbt [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
 
@@ -98,6 +102,8 @@ Run the following command to update dbt Wizard to the latest version:
 wizard update
 ```
 
+Report incorrect code
+
 ## Uninstall
 
 1. Run the built-in uninstall command. It lists every binary, config, and data directory it's about to remove, then asks you to confirm (`Proceed? [Y/N]`) before deleting anything:
@@ -105,6 +111,8 @@ wizard update
    ```shell
    wizard system uninstall
    ```
+
+   Report incorrect code
 
 Uninstalling Wizard
 
@@ -115,6 +123,8 @@ Removing `~/.dbt/wizard` deletes your local config, logs, and cache, and can't b
    ```bash
    which wizard
    ```
+
+   Report incorrect code
 
 If no output path is returned, dbt Wizard is successfully uninstalled.
 

@@ -50,6 +50,8 @@ models:
       - *id_column_alias
 ```
 
+Report incorrect code
+
 Move the anchor under the `anchors:` key instead:
 
 models/\_models.yml
@@ -75,6 +77,8 @@ models:
       - *id_column_alias
 ```
 
+Report incorrect code
+
 This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](../../../reference/resource-properties/anchors.md).
 
 ### Parsing `catalogs.yml`
@@ -95,6 +99,8 @@ catalogs:
           catalog_type: unity 
 ```
 
+Report incorrect code
+
 The implementation for the model would look like this:
 
 models/schemas.yml
@@ -106,6 +112,8 @@ models:
     config:
       catalog_name: catalog_dave
 ```
+
+Report incorrect code
 
 Check out our [docs on external catalog support](../../build/iceberg/about-catalogs.md) today! We'll have more information about this in the coming weeks, but this is an exciting step in journey to cross-platform support.
 
@@ -159,6 +167,8 @@ models:
     dbt_is_awesome: true # a custom property
 ```
 
+Report incorrect code
+
 dbt detects the unrecognized custom property (`dbt_is_awesome`) and silently continues. Without a set of strictly defined inputs, it becomes challenging to validate your project's configuration. This creates unintended issues such as:
 
 * Silently ignoring misspelled properties and configurations (for example, `desciption:` instead of `description:`).
@@ -175,6 +185,8 @@ models:
       meta:
         dbt_is_awesome: true 
 ```
+
+Report incorrect code
 
 #### Custom keys not nested under meta
 
@@ -195,6 +207,8 @@ models:
             some_key: some_value
 ```
 
+Report incorrect code
+
 #### Duplicate keys in the same yaml file
 
 If two identical keys exist in the same properties YAML file, you will get a warning, and in a future version, dbt will stop supporting duplicate keys. Previously, if identical keys existed in the same properties YAML file, dbt silently overwrite, using the last configuration listed in the file.
@@ -214,6 +228,8 @@ my_profile: # dbt would use only this profile key
 ...
 ```
 
+Report incorrect code
+
 Moving forward, you should delete unused keys or move them to a separate properties YAML file.
 
 #### Unexpected Jinja blocks
@@ -230,6 +246,8 @@ macros/my\_macro.sql
 hello!
 {% endmacro %}
 ```
+
+Report incorrect code
 
 Moving forward, you should delete these orphaned Jinja blocks.
 
@@ -253,6 +271,8 @@ sources:
         period: hour
 ```
 
+Report incorrect code
+
 You should now set it under `config`:
 
 ```yaml
@@ -267,6 +287,8 @@ sources:
           count: 24
           period: hour
 ```
+
+Report incorrect code
 
 #### Custom output path for source freshness
 
@@ -286,6 +308,8 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
+Report incorrect code
+
 ## Adapter-specific features and functionalities
 
 Snowflake column size change
@@ -304,6 +328,8 @@ To check whether this change affects your project, run the following [list](../.
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
+
+Report incorrect code
 
 * If the command returns `No nodes selected!`, no action is required.
 

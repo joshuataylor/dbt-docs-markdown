@@ -27,6 +27,8 @@ my_project:
   target: prod
 ```
 
+Report incorrect code
+
 ## Definition
 
 `defer_to_target` specifies which target environment dbt State should defer to when resolving unselected upstream nodes and evaluating whether models need to be rebuilt.
@@ -72,6 +74,8 @@ my_project:
   target: prod
 ```
 
+Report incorrect code
+
 ## Caveats to dbt State without a manifest
 
 When dbt State tries to guess where the production version of a relation was built, it re-renders the database and schema names using the configured target from `defer_to_target`.
@@ -93,6 +97,8 @@ If your schema name depends on an environment variable or a CLI var, dbt State m
 {% endmacro %}
 ```
 
+Report incorrect code
+
 * Production runs with `DBT_BRANCH=main`, so the relation is built at `analytics_main.orders`.
 * When a developer runs with `DBT_BRANCH=feature/x`, dbt State swaps `target.schema` to the prod value (`analytics`) but reads `DBT_BRANCH` from the developer's shell, producing the guess `analytics_feature_x.orders`.
 * That relation does not exist in production, so no clone is performed and the node rebuilds from scratch.
@@ -104,6 +110,8 @@ The same issue occurs with CLI vars:
     {{ target.schema }}_{{ var('environment', 'dev') }}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 * Production runs `dbt run --vars '{environment: prod}'`, so the relation is built at `analytics_prod.orders`.
 * When a developer runs `dbt run` with no `--vars`, `var('environment')` falls back to its default (`dev`), so dbt State guesses `analytics_dev.orders`.
@@ -118,6 +126,8 @@ A common pattern is to use a node's directory as its schema:
     {{ target.schema }}_{{ node.fqn[-2] }}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 * Production builds `models/finance/orders.sql` into `analytics_finance.orders`.
 * If a developer reorganizes the project and renames the directory to `models/accounting/`, then runs `dbt run -s orders`, their local manifest records the node's parent directory as `accounting`. dbt State then guesses `analytics_accounting.orders`.
@@ -136,6 +146,8 @@ Unlike database and schema, dbt State currently does not re-render aliases. An o
     {%- endif -%}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 * When `target.name == 'prod'`, production builds `analytics.orders_prod`.
 * When a developer runs with `target.name == 'dev'`, dbt State swaps the schema component to `analytics` but leaves the alias as-is, producing the guess `analytics.orders_dev`.

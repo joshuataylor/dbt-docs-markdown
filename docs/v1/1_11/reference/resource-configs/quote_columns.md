@@ -19,6 +19,8 @@ seeds:
   +quote_columns: true
 ```
 
+Report incorrect code
+
 ### Only quote seeds in the `seeds/mappings` directory.
 
 For a project with:
@@ -35,6 +37,8 @@ seeds:
       +quote_columns: true
 ```
 
+Report incorrect code
+
 Or:
 
 seeds/properties.yml
@@ -46,6 +50,8 @@ seeds:
     config:
       quote_columns: true
 ```
+
+Report incorrect code
 
 ## Recommended configuration
 

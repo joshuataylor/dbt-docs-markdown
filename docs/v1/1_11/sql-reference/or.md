@@ -22,6 +22,8 @@ where status = 'shipped' or status = 'completed'
 limit 3
 ```
 
+Report incorrect code
+
 This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return results where the order status is shipped or completed:
 
 | order\_id | customer\_id | order\_date | status    | amount  |

@@ -93,6 +93,8 @@ Subject: New Multi-Tenant PrivateLink Request
 - dbt AWS multi-tenant environment (US, EMEA, AU, JP):
 ```
 
+Report incorrect code
+
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
 ### 5. Accept the connection request

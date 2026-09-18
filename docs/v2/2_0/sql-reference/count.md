@@ -27,6 +27,8 @@ from {{ ref('orders') }}
 group by 1
 ```
 
+Report incorrect code
+
 This simple query is something you may do while doing initial exploration of your data; it will return the count of `order_ids` and count of distinct `customer_ids` per order month that appear in the Jaffle Shop’s `orders` table:
 
 | order\_month | count\_all\_orders | count\_distinct\_customers |

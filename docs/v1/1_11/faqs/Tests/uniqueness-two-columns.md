@@ -26,6 +26,8 @@ select
   ...
 ```
 
+Report incorrect code
+
 models/orders.yml
 
 ```yml
@@ -36,6 +38,8 @@ models:
         data_tests:
           - unique
 ```
+
+Report incorrect code
 
 #### 2. Test an expression
 
@@ -49,6 +53,8 @@ models:
           arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
             column_name: "(country_code || '-' || order_id)"
 ```
+
+Report incorrect code
 
 #### 3. Use the `dbt_utils.unique_combination_of_columns` test
 
@@ -66,3 +72,5 @@ models:
               - country_code
               - order_id
 ```
+
+Report incorrect code

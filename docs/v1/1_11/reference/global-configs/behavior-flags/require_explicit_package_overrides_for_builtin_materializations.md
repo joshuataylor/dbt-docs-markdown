@@ -24,4 +24,6 @@ macros/materialization\_view\.sql
 {% endmaterialization %}
 ```
 
+Report incorrect code
+
 In the future, we may extend the project-level [`dispatch` configuration](../../project-configs/dispatch-config.md) to support a list of authorized packages for overriding built-in materializations.

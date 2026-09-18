@@ -6,6 +6,8 @@ dbt\_project.yml
 seed-paths: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories where [seed](../../docs/build/seeds.md) files are located.
@@ -24,6 +26,8 @@ Paths specified in `seed-paths` must be relative to the location of your `dbt_pr
     seed-paths: ["seed"]
     ```
 
+    Report incorrect code
+
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -31,6 +35,8 @@ Paths specified in `seed-paths` must be relative to the location of your `dbt_pr
     ```yml
     seed-paths: ["/Users/username/project/seed"]
     ```
+
+    Report incorrect code
 
 ## Examples
 
@@ -41,6 +47,8 @@ dbt\_project.yml
 ```yml
 seed-paths: ["custom_seeds"]
 ```
+
+Report incorrect code
 
 ### Co-locate your models and seeds in the `models` directory
 
@@ -53,6 +61,8 @@ seed-paths: ["models"]
 model-paths: ["models"]
 ```
 
+Report incorrect code
+
 ### Split your seeds across two directories
 
 Note: We recommend that you instead use two subdirectories within the `seeds/` directory to achieve a similar effect.
@@ -62,3 +72,5 @@ dbt\_project.yml
 ```yml
 seed-paths: ["seeds", "custom_seeds"]
 ```
+
+Report incorrect code

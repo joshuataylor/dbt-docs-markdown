@@ -34,6 +34,8 @@ models:
           +materialized: table
 ```
 
+Report incorrect code
+
 ### Staging views
 
 We’ll start off simple with staging models. Lets consider some aspects of staging models to determine the ideal materialization strategy:
@@ -50,6 +52,8 @@ models:
     staging:
       +materialized: view
 ```
+
+Report incorrect code
 
 ### Intermediate models in larger projects
 
@@ -71,6 +75,8 @@ models:
     marts:
       +materialized: table
 ```
+
+Report incorrect code
 
 When to avoid ephemeral models
 

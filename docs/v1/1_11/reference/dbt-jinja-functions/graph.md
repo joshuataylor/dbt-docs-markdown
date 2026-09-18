@@ -66,6 +66,8 @@ The `graph` context variable is a dictionary which maps node ids onto dictionary
 }
 ```
 
+Report incorrect code
+
 The exact contract for these model and source nodes is not currently documented, but that will change in the future.
 
 ### Accessing models
@@ -107,6 +109,8 @@ model.snowplow.snowplow_sessions, materialized: table
 */
 ```
 
+Report incorrect code
+
 ### Accessing sources
 
 To access the sources in your dbt project programmatically, use the `sources` attribute of the `graph` object.
@@ -145,6 +149,8 @@ select * from (
 */
 ```
 
+Report incorrect code
+
 ### Accessing exposures
 
 To access the exposures in your dbt project programmatically, use the `exposures` attribute of the `graph` object.
@@ -181,6 +187,8 @@ models/my\_important\_view\_model.sql
 */
 ```
 
+Report incorrect code
+
 ### Accessing metrics
 
 To access the metrics in your dbt project programmatically, use the `metrics` attribute of the `graph` object.
@@ -211,6 +219,8 @@ macros/get\_metric.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 ### Accessing groups
 
 To access the groups in your dbt project programmatically, use the `groups` attribute of the `graph` object.
@@ -231,3 +241,5 @@ macros/get\_group.sql
 
 {% endmacro %}
 ```
+
+Report incorrect code

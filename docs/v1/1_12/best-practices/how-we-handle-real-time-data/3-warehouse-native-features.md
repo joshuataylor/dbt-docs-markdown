@@ -51,6 +51,8 @@ from {{ source('raw', 'events') }}
 where event_ts >= current_timestamp() - interval '7 days';
 ```
 
+Report incorrect code
+
 #### target\_lag config
 
 The [`target_lag` parameter](../../reference/resource-configs/snowflake-configs.md#target-lag) tells the warehouse the maximum acceptable staleness of the dynamic table relative to its sources, and helps determine when the table should be refreshed.
@@ -109,6 +111,8 @@ select
 from {{ source('raw', 'events') }}
 group by 1, 2;
 ```
+
+Report incorrect code
 
 ## Resources by warehouse
 

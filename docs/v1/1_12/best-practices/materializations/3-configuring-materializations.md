@@ -23,6 +23,8 @@ Let’s look at how we can use tables and views to get started with materializat
     select ...
 ```
 
+Report incorrect code
+
 info
 
 🐍 **Not all adapters support python yet**, check the [docs here to be sure](../../docs/build/python-models.md#specific-data-platforms) before spending time writing python models.
@@ -41,6 +43,8 @@ info
 select ...
 ```
 
+Report incorrect code
+
 #### Python
 
 ```python
@@ -52,5 +56,7 @@ def model(dbt, session):
 
     return model_df
 ```
+
+Report incorrect code
 
 Go ahead and try some of these out!

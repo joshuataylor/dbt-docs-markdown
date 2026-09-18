@@ -25,4 +25,6 @@ To disable anonymous usage statistics, set the following environment variable:
 export DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=false
 ```
 
+Report incorrect code
+
 You can also set `DO_NOT_TRACK=1`.

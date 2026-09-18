@@ -39,6 +39,8 @@ dbt compile --select "stg_orders"
 dbt compile --inline "select * from {{ ref('raw_orders') }}"
 ```
 
+Report incorrect code
+
 returns the following:
 
 ```bash
@@ -71,6 +73,8 @@ renamed as (
 select * from renamed
 ```
 
+Report incorrect code
+
 ```bash
 dbt compile --inline "select * from {{ ref('raw_orders') }}"
 
@@ -83,6 +87,8 @@ dbt compile --inline "select * from {{ ref('raw_orders') }}"
 18:15:50  Compiled inline node is:
 select * from "jaffle_shop"."main"."raw_orders"
 ```
+
+Report incorrect code
 
 The command accesses the data platform to cache-related metadata, and to run introspective queries. Use the flags:
 
@@ -103,17 +109,23 @@ You can use `dbt compile` to compile tests, as long as your selector matches a t
 dbt compile --select "resource_type:test"
 ```
 
+Report incorrect code
+
 **Compile only generic tests:**
 
 ```bash
 dbt compile --select "test_type:generic"
 ```
 
+Report incorrect code
+
 **Compile only singular tests:**
 
 ```bash
 dbt compile --select "test_type:singular"
 ```
+
+Report incorrect code
 
 If dbt returns `selection does not match any nodes`, your selector did not match a discovered node. To troubleshoot:
 
@@ -123,17 +135,23 @@ If dbt returns `selection does not match any nodes`, your selector did not match
 dbt ls --resource-type test --select "MODEL_NAME"
 ```
 
+Report incorrect code
+
 2. Copy one of the returned test node names into `dbt compile --select`:
 
 ```bash
 dbt compile --select "TEST_NODE_NAME"
 ```
 
+Report incorrect code
+
 For example, a returned test node name may look like this:
 
 ```text
 FULL_TEST_NODE_NAME
 ```
+
+Report incorrect code
 
 3. If no tests are returned, check test definitions and project paths before running `compile` again.
 

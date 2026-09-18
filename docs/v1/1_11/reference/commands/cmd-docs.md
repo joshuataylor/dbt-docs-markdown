@@ -22,6 +22,8 @@ With dbt v2, generate docs metadata by running `dbt build --write-catalog` (or `
 dbt docs generate
 ```
 
+Report incorrect code
+
 When you provide `--select`, dbt limits the nodes in `catalog.json` to your selection. dbt restricts step (3) to the selected nodes and excludes all other nodes. Step (2) is unaffected.
 
 **Example**:
@@ -29,6 +31,8 @@ When you provide `--select`, dbt limits the nodes in `catalog.json` to your sele
 ```shell
 dbt docs generate --select +orders
 ```
+
+Report incorrect code
 
 Catalog query behavior for large projects
 
@@ -44,6 +48,8 @@ When you provide `--no-compile`, `dbt docs generate` skips step (2) described ab
 dbt docs generate --no-compile
 ```
 
+Report incorrect code
+
 When you provide `--empty-catalog`, `dbt docs generate` skips step (3) described above.
 
 This is not recommended for production environments: your documentation won't include warehouse metadata, such as the full set of columns in each table and statistics about those tables. It can speed up `docs generate` in development when you only want to visualize lineage and other information defined in your project. To build documentation in dbt, see [Build and view your docs in dbt](../../docs/explore/build-and-view-your-docs.md).
@@ -54,11 +60,15 @@ This is not recommended for production environments: your documentation won't in
 dbt docs generate --empty-catalog
 ```
 
+Report incorrect code
+
 Use the `--static` flag to generate the docs as a static page for hosting on a cloud storage provider. dbt inserts `catalog.json` and `manifest.json` into `index.html`, creating a single page you can share via email or file-sharing apps.
 
 ```shell
 dbt docs generate --static
 ```
+
+Report incorrect code
 
 ### dbt docs serve
 
@@ -78,6 +88,8 @@ dbt docs serve [--profiles-dir PROFILES_DIR]
                [--no-browser]
 ```
 
+Report incorrect code
+
 You may specify a different port using the `--port` flag.
 
 **Example**:
@@ -85,6 +97,8 @@ You may specify a different port using the `--port` flag.
 ```shell
 dbt docs serve --port 8001
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.8.2 and later)
 
@@ -99,5 +113,7 @@ The `--host` flag is only available in the [dbt v1](../../docs/local/install-dbt
 ```shell
 dbt docs serve --host ""
 ```
+
+Report incorrect code
 
 As of 1.8.1, the default host is `127.0.0.1`. For versions 1.8.0 and prior, the default host was `""`.

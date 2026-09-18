@@ -10,6 +10,8 @@ Usage
 dbt run --no-write-json 
 ```
 
+Report incorrect code
+
 ### Target path
 
 By default, dbt will write JSON artifacts and compiled SQL files to a directory named `target/`. This directory is located relative to `dbt_project.yml` of the active project.

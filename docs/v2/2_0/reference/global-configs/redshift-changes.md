@@ -31,6 +31,8 @@ flags:
   redshift_skip_autocommit_transaction_statements: true
 ```
 
+Report incorrect code
+
 ### How this flag interacts with `autocommit`
 
 * If the connection uses `autocommit=False`, dbt’s explicit transaction behavior is unchanged.

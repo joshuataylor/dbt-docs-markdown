@@ -27,3 +27,5 @@ Encountered an error:
 FailFast Error in model model_1 (models/model_1.sql)
   Failing early due to test failure or runtime error
 ```
+
+Report incorrect code

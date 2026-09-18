@@ -57,17 +57,23 @@ The following examples highlight how you can customize the dbt compare command b
   --select state:modified --exclude fct_orders
   ```
 
+  Report incorrect code
+
 * Exclude models based on tags for scenarios like when models share a common feature or function. Use the following command:
 
   ```sql
      --select state:modified --exclude tag:tagname_a tag:tagname_b
   ```
 
+  Report incorrect code
+
 * Include models that were directly modified and also those one step downstream using the `modified+1` selector. Use the following command:
 
   ```sql
   --select state:modified+1
   ```
+
+  Report incorrect code
 
 #### Job outcome
 

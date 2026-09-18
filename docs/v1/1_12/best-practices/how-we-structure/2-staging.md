@@ -25,6 +25,8 @@ models/staging
 └── stg_supplies.yml
 ```
 
+Report incorrect code
+
 * **Folders.** Folder structure is extremely important in dbt. Not only do we need a consistent structure to find our way around the codebase, as with any software project, but our folder structure is also one of the key interfaces for understanding the knowledge graph encoded in our project (alongside the DAG and the data output into our warehouse). It should reflect how the data flows, step-by-step, from a wide variety of source-conformed models into fewer, richer business-conformed models. Moreover, we can use our folder structure as a means of selection in dbt [selector syntax](../../reference/node-selection/syntax.md). For example, with the above structure, if we got fresh e-commerce data loaded and wanted to run all the models that build on our staging layer, we can easily run `dbt build --select staging+` and we're all set for building more up-to-date reports.
 
   * ✅ **Subdirectories based on the source system**. Our internal transactional database is one system, the data we get from Stripe's API is another, and lastly the events from our Snowplow instrumentation. We've found this to be the best grouping for most companies, as source systems tend to share similar loading methods and properties between tables, and this allows us to operate on those similar sets easily. The Jaffle Shop example project uses a single `ecom` source, so its staging models live in a flat `staging/` folder. As you add more source systems, create a subdirectory per source.
@@ -83,6 +85,8 @@ renamed as (
 select * from renamed
 ```
 
+Report incorrect code
+
 * Based on the above, the most standard types of staging model transformations are:
 
   * ✅ **Renaming**
@@ -106,6 +110,8 @@ select * from renamed
         staging:
           +materialized: view
     ```
+
+    Report incorrect code
 
 * Staging models are the only place we'll use the [`source` macro](../../docs/build/sources.md), and our staging models should have a 1-to-1 relationship to our source tables. That means for each source system table we’ll have a single staging model referencing it, acting as its entry point — *staging* it — for use downstream.
 

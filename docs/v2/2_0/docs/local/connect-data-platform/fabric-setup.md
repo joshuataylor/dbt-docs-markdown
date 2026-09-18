@@ -39,6 +39,8 @@ On Debian/Ubuntu make sure you have the ODBC header files before installing
 sudo apt install unixodbc-dev
 ```
 
+Report incorrect code
+
 Download and install the [Microsoft ODBC Driver 18 for SQL Server](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15). If you already have ODBC Driver 17 installed, then that one will work as well.
 
 #### Supported configurations
@@ -131,6 +133,8 @@ your_profile_name:
       password: iheartopensource
 ```
 
+Report incorrect code
+
 #### Service principal
 
 Client ID is often also referred to as Application ID.
@@ -154,6 +158,8 @@ your_profile_name:
       client_secret: S3cret!
 ```
 
+Report incorrect code
+
 #### Managed Identity
 
 This authentication option allows you to dynamically select an authentication method depending on the available environment variables.
@@ -176,6 +182,8 @@ your_profile_name:
       authentication: environment
 ```
 
+Report incorrect code
+
 #### Environment-based
 
 First, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), then, log in:
@@ -197,6 +205,8 @@ your_profile_name:
       schema: schema_name
       authentication: CLI
 ```
+
+Report incorrect code
 
 #### Azure CLI
 
@@ -227,6 +237,8 @@ your_profile_name:
       authentication: auto
 ```
 
+Report incorrect code
+
 #### Additional options for Microsoft Entra ID on Windows
 
 On Windows systems, the following additional authentication methods are also available for Azure SQL:
@@ -256,6 +268,8 @@ your_profile_name:
       user: bill.gates@microsoft.com
 ```
 
+Report incorrect code
+
 ##### Microsoft Entra ID integrated
 
 This uses the credentials you're logged in with on the current machine.
@@ -276,6 +290,8 @@ your_profile_name:
       authentication: ActiveDirectoryIntegrated
 ```
 
+Report incorrect code
+
 ### Automatic Microsoft Entra ID principal provisioning for grants
 
 Please note that automatic Microsoft Entra ID principal provisioning is not supported by Microsoft Fabric Data Warehouse at this time. Even though in dbtn use the [grants](../../../reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups, the data warehouse does not support this feature at this time.
@@ -289,6 +305,8 @@ You can optionally set the principal who should own all schemas created by dbt. 
 ```sql
 CREATE SCHEMA [schema_name] AUTHORIZATION [schema_authorization]
 ```
+
+Report incorrect code
 
 A common use case is to use this when you are authenticating with a principal who has permissions based on a group, such as a Microsoft Entra ID group. When that principal creates a schema, the server will first try to create an individual login for this principal and then link the schema to that principal. If you would be using Microsoft Entra ID in this case, then this would fail since Azure SQL can't create logins for individuals part of an AD group automatically.
 

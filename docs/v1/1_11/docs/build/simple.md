@@ -43,6 +43,8 @@ metrics:
         join_to_timespine: true/false # Boolean that indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. # Optional
 ```
 
+Report incorrect code
+
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Simple metrics example
@@ -72,6 +74,8 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
       filter: | # For any metric you can optionally include a filter on dimension values
         {{Dimension('customer__order_total_dim')}} >= 20
 ```
+
+Report incorrect code
 
 ## Related docs
 

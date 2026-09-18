@@ -25,6 +25,8 @@ macros:
         type: <string>
 ```
 
+Report incorrect code
+
 With this flag enabled (the default), dbt:
 
 * Validates macro arguments during project parsing.
@@ -65,6 +67,8 @@ flags:
       - InvalidMacroAnnotation
 ```
 
+Report incorrect code
+
 To opt out of this behavior, set the flag to `false`:
 
 dbt\_project.yml
@@ -73,3 +77,5 @@ dbt\_project.yml
 flags:
   validate_macro_args: false
 ```
+
+Report incorrect code

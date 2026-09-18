@@ -76,6 +76,8 @@ zorder="column_A" | ["column_A", "column_B"]
 )
 ```
 
+Report incorrect code
+
 ### Analyze Table
 
 The `ANALYZE TABLE` command ensures that our system has the most up-to-date statistics to select the optimal join plan. You will likely want to either run analyze table posthook after your model builds or run analyze table as a separate scheduled dbt job on a consistent cadence, whether it is daily, weekly, or monthly.  The SQL syntax for this is:
@@ -85,6 +87,8 @@ ANALYZE TABLE mytable COMPUTE STATISTICS FOR
 
 COLUMNS col1, col2, col3
 ```
+
+Report incorrect code
 
 An important item to clarify is that you will want to prioritize statistics for columns that are frequently used in joins.
 
@@ -121,6 +125,8 @@ incremental_predicates = [
 
 }}
 ```
+
+Report incorrect code
 
 ## Performance Troubleshooting
 

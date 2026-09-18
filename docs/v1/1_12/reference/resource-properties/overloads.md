@@ -28,6 +28,8 @@ functions:
       - defined_in: ...            # declare additional overloads
 ```
 
+Report incorrect code
+
 ## Definition
 
 The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](../../docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
@@ -89,6 +91,8 @@ functions:
           data_type: numeric
 ```
 
+Report incorrect code
+
 Create a separate SQL file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
 
 functions/null\_if\_empty.sql
@@ -101,6 +105,8 @@ CASE WHEN val = '' THEN NULL ELSE val END
 SELECT CASE WHEN val = '' THEN NULL ELSE val END
 ```
 
+Report incorrect code
+
 functions/null\_if\_empty\_numeric.sql
 
 ```sql
@@ -110,6 +116,8 @@ CASE WHEN val = 0 THEN NULL ELSE val END
 # syntax for Postgres
 SELECT CASE WHEN val = 0 THEN NULL ELSE val END
 ```
+
+Report incorrect code
 
 ### Python
 
@@ -135,6 +143,8 @@ functions:
           data_type: numeric
 ```
 
+Report incorrect code
+
 Create a separate Python file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
 
 functions/null\_if\_empty.py
@@ -144,12 +154,16 @@ def main(val):
     return None if val == '' else val
 ```
 
+Report incorrect code
+
 functions/null\_if\_empty\_numeric.py
 
 ```python
 def main(val):
     return None if val == 0 else val
 ```
+
+Report incorrect code
 
 ### JavaScript
 
@@ -172,6 +186,8 @@ functions:
           data_type: numeric
 ```
 
+Report incorrect code
+
 Create a separate JavaScript file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
 
 functions/null\_if\_empty.js
@@ -181,12 +197,16 @@ if (val === '') return null;
 return val;
 ```
 
+Report incorrect code
+
 functions/null\_if\_empty\_numeric.js
 
 ```javascript
 if (val === 0) return null;
 return val;
 ```
+
+Report incorrect code
 
 ## Related documentation
 

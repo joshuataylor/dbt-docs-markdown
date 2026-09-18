@@ -51,6 +51,8 @@ models:
           alias: joel_hates_data
 ```
 
+Report incorrect code
+
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Ratio metrics example
@@ -75,6 +77,8 @@ metrics:
     denominator: orders
 ```
 
+Report incorrect code
+
 #### Example 2
 
 This example is a ratio metric that calculates the ratio of food orders to total orders, with a filter and alias applied to the numerator. Note that in order to add these attributes, you'll need to use an explicit key for the name attribute too.
@@ -98,6 +102,8 @@ metrics:
       filter: location = 'New York'
       alias: ny_orders
 ```
+
+Report incorrect code
 
 ## Ratio metrics using different semantic models
 
@@ -147,6 +153,8 @@ on
   )
 ```
 
+Report incorrect code
+
 ## Add filter
 
 Users can define constraints on input metrics for a ratio metric by applying a filter directly to the input metric, like so:
@@ -168,6 +176,8 @@ metrics:
     denominator:
       name: distinct_purchasers
 ```
+
+Report incorrect code
 
 Note the `filter` and `alias` parameters for the metric referenced in the numerator.
 

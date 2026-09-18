@@ -12,11 +12,15 @@ flags:
   partial_parse: true
 ```
 
+Report incorrect code
+
 Usage
 
 ```text
 dbt run --no-partial-parse
 ```
+
+Report incorrect code
 
 ### Static parser
 
@@ -29,6 +33,8 @@ profiles.yml
 config:
   static_parser: true
 ```
+
+Report incorrect code
 
 ### Opt-in v2 parser
 
@@ -55,6 +61,8 @@ flags:
   use_v2_parser: true
 ```
 
+Report incorrect code
+
 Note: Partial parsing is disabled when `--use-v2-parser` is set. Any stale `partial_parse.msgpack` from a prior run is automatically removed.
 
 Because the flag only affects project parsing, the fastest way to check v2 parse compatibility is with `dbt parse`. You can also use `--use-v2-parser` with any other command.
@@ -68,6 +76,8 @@ dbt parse --use-v2-parser
 # Or use it with any command
 dbt run --use-v2-parser
 ```
+
+Report incorrect code
 
 Plugin authors
 

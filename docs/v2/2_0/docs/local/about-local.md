@@ -14,11 +14,15 @@ Install dbt locally to run dbt commands from your terminal. You can install it w
 python -m pip install dbt
 ```
 
+Report incorrect code
+
 Or with `curl`:
 
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh
 ```
+
+Report incorrect code
 
 For full installation instructions, including adapter-specific setup, refer to [Install dbt](./install-dbt.md).
 

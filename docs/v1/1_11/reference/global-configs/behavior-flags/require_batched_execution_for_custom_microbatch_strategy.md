@@ -46,6 +46,8 @@ To fix, rewrite the macro to use the per-batch window:
 {% endmacro %}
 ```
 
+Report incorrect code
+
 To verify, run `dbt run --event-time-start <date> --event-time-end <date> -s <model>` for a single batch and confirm the row count matches that single day.
 
 To opt out of this behavior, set the flag to `false`:
@@ -56,3 +58,5 @@ dbt\_project.yml
 flags:
   require_batched_execution_for_custom_microbatch_strategy: false
 ```
+
+Report incorrect code

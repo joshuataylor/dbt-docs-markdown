@@ -55,6 +55,8 @@ dbt-decodable:
       local_namespace: [namespace prefix]   
 ```
 
+Report incorrect code
+
 #### Description of Profile Fields
 
 | Option             | Description                                                                                                                                                                                                                                   | Required? | Example                        |
@@ -92,6 +94,8 @@ For example, the following command runs the `delete_streams` operation
 ```text
 dbt run-operation delete_streams --args '{streams: [stream1, stream2], skip_errors: True}'
 ```
+
+Report incorrect code
 
 **stop\_pipelines(pipelines)**
 

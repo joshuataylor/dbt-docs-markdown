@@ -50,6 +50,8 @@ select * from {{ source('events', 'raw_events') }}
 {% endif %}
 ```
 
+Report incorrect code
+
 **Idempotent incremental model:**
 
 This example adds a `unique_key`, so matching rows are updated or replaced instead of appended as duplicates.
@@ -67,6 +69,8 @@ select * from {{ source('events', 'raw_events') }}
   where event_at >= (select max(event_at) from {{ this }})
 {% endif %}
 ```
+
+Report incorrect code
 
 With `unique_key` set, dbt updates existing rows and inserts new rows instead of appending duplicates. Depending on your adapter and [incremental strategy](../docs/build/incremental-strategy.md), dbt does this with `merge` or `delete+insert`.
 

@@ -36,6 +36,8 @@ where first_name like 'J%'
 order by 1
 ```
 
+Report incorrect code
+
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `customers` table would return all of the customers whose first name starts with the *uppercase* letter J:
 
 | **customer\_id** | **first\_name** |

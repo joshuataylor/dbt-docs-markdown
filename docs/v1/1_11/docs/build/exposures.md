@@ -41,6 +41,8 @@ exposures:
       email: data@jaffleshop.com
 ```
 
+Report incorrect code
+
 ### Available properties
 
 *Required:*
@@ -78,6 +80,8 @@ Once an exposure is defined, you can run commands that reference it:
 dbt run -s +exposure:weekly_jaffle_report
 dbt test -s +exposure:weekly_jaffle_report
 ```
+
+Report incorrect code
 
 When we generate the [Catalog site](../explore/explore-projects.md), you'll see the exposure appear:
 

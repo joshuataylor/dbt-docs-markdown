@@ -46,6 +46,8 @@ Confirm your workspace uses VNet injection before you submit the request. If it 
    - Azure Databricks workspace region (for example, WestEurope, NorthEurope)
    ```
 
+   Report incorrect code
+
    dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
 5. Once our Support team confirms the resources are available in the Azure portal, navigate to the Azure Databricks Workspace and browse to **Networking** > **Private Endpoint Connections**. Then, highlight the `dbt` named option and select **Approve**.

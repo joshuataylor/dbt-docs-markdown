@@ -17,6 +17,8 @@ models/intermediate
     └── int_orders_summed_to_customer.sql
 ```
 
+Report incorrect code
+
 * **Folders**
   * ✅ **Subdirectories based on business groupings.** Much like the staging layer, we'll house this layer of models inside their own `intermediate` subfolder. Unlike the staging layer, here we shift towards being business-conformed, splitting our models up into subdirectories not by their source system, but by their area of business concern.
 * **File names**

@@ -12,6 +12,8 @@ The syntax for using TRIM function looks like the following:
 trim(<field_name> [, <characters_to_remove>])
 ```
 
+Report incorrect code
+
 Like we said earlier, the default `<characters_to_remove>` is a blank space, such that if you were to `trim(' string with extra leading space')` it would return `'string with extra leading space'`. You can explicitly specify single characters or a pattern to trim from your strings.
 
 ### SQL TRIM function example
@@ -24,6 +26,8 @@ select
 from {{ ref('customers') }}
 limit 3
 ```
+
+Report incorrect code
 
 After running this query, the resulting `orders` table will look like this:
 

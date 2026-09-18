@@ -35,17 +35,23 @@ Most configurations are "clobbered" when applied hierarchically. Whenever a more
   +meta: {owner: "alice", dagster: {automation_condition: "eager"}}
   ```
 
+  Report incorrect code
+
   and a model sets:
 
   ```yaml
   meta: {dagster: {asset_key: "my_key"}}
   ```
 
+  Report incorrect code
+
   the result is:
 
   ```yaml
   {owner: "alice", dagster: {asset_key: "my_key"}}
   ```
+
+  Report incorrect code
 
   `owner` is kept because it appears at only one level. `dagster` appears at both levels, so the more specific value replaces it as a whole — and because the merge never looks inside `dagster`, the nested `automation_condition` is lost. A deep (recursive) merge would instead combine the nested keys, producing `dagster: {automation_condition: "eager", asset_key: "my_key"}`. `meta` doen't do this — nested dictionaries are replaced, not merged.
 
@@ -131,6 +137,8 @@ models:
               config:
                 severity: warn
 ```
+
+Report incorrect code
 
 ## Related documentation
 
@@ -223,6 +231,8 @@ This error occurs when your `.yml` file does not conform to the structure expect
   Invalid arguments passed to "UnparsedNodeUpdate" instance: 'name' is a required property, Additional properties are not allowed ('namee' was unexpected)
 ```
 
+Report incorrect code
+
 While verbose, an error like this should help you track down the issue. Here, the `name` field was provided as `namee` by accident. To fix this error, ensure that your `.yml` conforms to the expected structure described in this guide.
 
  Invalid syntax in your schema.yml file
@@ -244,5 +254,7 @@ Runtime Error
           description; "A table containing clickstream events from the marketing website"
           ^
 ```
+
+Report incorrect code
 
 This error occurred because a semicolon (`;`) was accidentally used instead of a colon (`:`) after the `description` field. To resolve issues like this, find the `.yml` file referenced in the error message and fix any syntax errors present in the file. There are online YAML validators that can be helpful here, but please be mindful of submitting sensitive information to third-party applications!

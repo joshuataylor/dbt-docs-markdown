@@ -10,6 +10,8 @@ For example, code in the `incremental` materialization like this:
   ...
 ```
 
+Report incorrect code
+
 is responsible for handling model code that looks like this:
 
 ```text
@@ -20,6 +22,8 @@ is responsible for handling model code that looks like this:
   )
 }}
 ```
+
+Report incorrect code
 
 Review [Model configurations](../model-configs.md) for examples and more information on valid arguments.
 
@@ -60,6 +64,8 @@ Example usage:
   ...
 ```
 
+Report incorrect code
+
 ## config.require
 
 **Args**:
@@ -79,6 +85,8 @@ Example usage:
   {%- set unique_key = config.require('unique_key') -%}
   ...
 ```
+
+Report incorrect code
 
 ## config.meta\_get
 
@@ -107,6 +115,8 @@ Example usage:
   ...
 ```
 
+Report incorrect code
+
 Example model configuration:
 
 ```yaml
@@ -116,6 +126,8 @@ models:
       meta:
         custom_setting: "my_value"
 ```
+
+Report incorrect code
 
 ## config.meta\_require
 
@@ -140,6 +152,8 @@ Example usage:
   ...
 ```
 
+Report incorrect code
+
 Example model configuration:
 
 ```yaml
@@ -149,3 +163,5 @@ models:
       meta:
         required_setting: "my_value"
 ```
+
+Report incorrect code

@@ -26,6 +26,8 @@ $ python3 --version
 Python 3.11.4 # Must be Python 3
 ```
 
+Report incorrect code
+
 ```shell
 
 $ dbt --version
@@ -41,6 +43,8 @@ Plugins:
   - dremio: 1.5.0 - Up to date! # Must be 1.5 or newer
 ```
 
+Report incorrect code
+
 ## Getting started
 
 1. Clone the Dremio dbt v1 sample project from the [GitHub repo](https://github.com/dremio-brock/DremioDBTSample/tree/master/dremioSamples).
@@ -55,6 +59,8 @@ PATTERN = re.compile(r"""((?:[^."']|"[^"]*"|'[^']*')+)""")
 return ".".join(PATTERN.split(identifier)[1::2])
 ```
 
+Report incorrect code
+
 The complete selection should look like this:
 
 ```python
@@ -65,6 +71,8 @@ def quoted_by_component(self, identifier, componentName):
         else:
             return self.quoted(identifier)
 ```
+
+Report incorrect code
 
 You need to update this pattern because the plugin doesn’t support schema names in Dremio containing dots and spaces.
 
@@ -91,12 +99,16 @@ dremioSamples:
   target: dev
 ```
 
+Report incorrect code
+
 2. Execute the transformation pipeline:
 
 ```shell
 
 $ dbt run -t cloud_dev
 ```
+
+Report incorrect code
 
 If the above configurations have been implemented, the output will look something like this:
 
@@ -124,6 +136,8 @@ If the above configurations have been implemented, the output will look somethin
 17:24:41
 17:24:41  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
 ```
+
+Report incorrect code
 
 Now that you have a running environment and a completed job, you can view the data in Dremio and expand your code. This is a snapshot of the project structure in an Studio IDE:
 
@@ -173,6 +187,8 @@ SELECT vendor_id,
 FROM dev.application."nyc_treips_with_weather"
 GROUP BY vendor_id
 ```
+
+Report incorrect code
 
 ![Sample output from SQL query](/img/guides/dremio/dremio-test-results.png?v=2 "Sample output from SQL query")Sample output from SQL query
 

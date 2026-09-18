@@ -50,6 +50,8 @@ select ...
 select ...
 ```
 
+Report incorrect code
+
 For more information on distkeys and sortkeys, view Amazon's docs:
 
 * [AWS Documentation » Amazon Redshift » Database Developer Guide » Designing Tables » Choosing a Data Distribution Style](https://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)
@@ -76,6 +78,8 @@ company-name:
       datasharing: true  # default: false
 ```
 
+Report incorrect code
+
 Once enabled, you can materialize a model into a different database by setting `database` in the model config. For example:
 
 ```sql
@@ -83,6 +87,8 @@ Once enabled, you can materialize a model into a different database by setting `
 
 select * from {{ ref('my_model') }}
 ```
+
+Report incorrect code
 
 The following macros switch to `SHOW` commands when `datasharing: true`:
 
@@ -129,6 +135,8 @@ select *
 from source.data
 ```
 
+Report incorrect code
+
 To make all views late-binding, configure your `dbt_project.yml` file like this:
 
 dbt\_project.yml
@@ -139,6 +147,8 @@ models:
   project_name:
     ....
 ```
+
+Report incorrect code
 
 ## Materialized views
 
@@ -169,6 +179,8 @@ models:
     +backup: true | false
 ```
 
+Report incorrect code
+
 ### Properties YAML file
 
 models/properties.yml
@@ -187,6 +199,8 @@ models:
       backup: true | false
 ```
 
+Report incorrect code
+
 ### SQL file config
 
 models/\<model\_name>.sql
@@ -202,6 +216,8 @@ models/\<model\_name>.sql
     backup=true | false,
 ) }}
 ```
+
+Report incorrect code
 
 Many of these parameters correspond to their table counterparts and have been linked above. The parameters unique to materialized views are the [auto-refresh](#auto-refresh) and [backup](#backup) functionality, which are covered below.
 

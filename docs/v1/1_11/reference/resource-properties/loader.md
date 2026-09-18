@@ -12,6 +12,8 @@ sources:
       - ...
 ```
 
+Report incorrect code
+
 ## Definition
 
 Describe the tool that loads this source into your warehouse. Note that this property is for documentation purposes only — dbt does not meaningfully use this.
@@ -36,3 +38,5 @@ sources:
     tables:
       - name: payments
 ```
+
+Report incorrect code

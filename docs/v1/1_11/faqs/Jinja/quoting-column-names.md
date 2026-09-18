@@ -6,6 +6,8 @@ In the [macro example](../../docs/build/jinja-macros.md#macros) we passed the co
 {{ cents_to_dollars('amount') }} as amount_usd
 ```
 
+Report incorrect code
+
 We have to use quotes to pass the *string* `'amount'` to the macro.
 
 Without the quotes, the Jinja parser will look for a variable named `amount`. Since this doesn't exist, it will compile to nothing.

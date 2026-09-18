@@ -22,6 +22,8 @@ models:
     +materialized: view
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -29,6 +31,8 @@ models/\<model\_name>.sql
 ```jinja
 {{ config(materialized = "view") }}
 ```
+
+Report incorrect code
 
 ### Table Materialization
 
@@ -51,6 +55,8 @@ models:
     +properties: {<key>:<value>,...}
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -69,6 +75,8 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 #### Table Configuration
 
@@ -104,6 +112,8 @@ models:
     +properties: {<key>:<value>,...}
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -122,6 +132,8 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 #### Incremental Table Configuration
 

@@ -47,6 +47,8 @@ Next, [sign in](./sign-in-dbt-extension.md) to a dbt platform account if you wan
   dbt init --fusion-upgrade
   ```
 
+  Report incorrect code
+
 The upgrade tool guides you through a series of prompts:
 
  Do you have an existing dbt platform account?

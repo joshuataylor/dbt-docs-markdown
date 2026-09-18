@@ -161,6 +161,8 @@ models:
           - type: ...
 ```
 
+Report incorrect code
+
 Supported dbt-adapters use these fields when populated, to render out the foreign key constraint instead of `expression`.
 
 For more information on the adapters which support foreign key constraints, have a look at our guide on [Platform constraint support](../../docs/mesh/govern/model-contracts.md#platform-constraint-support).
@@ -195,6 +197,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -216,6 +220,8 @@ models:
       - name: first_transaction_date
         data_type: date
 ```
+
+Report incorrect code
 
 Expected DDL to enforce constraints:
 
@@ -243,6 +249,8 @@ select
 );
 ```
 
+Report incorrect code
+
 ### Redshift
 
 Redshift currently only enforces `not null` constraints; all other constraints are metadata only. Additionally, Redshift does not allow column checks at the time of table creation. See more in the Redshift documentation [here](https://docs.aws.amazon.com/redshift/latest/dg/t_Defining_constraints.html).
@@ -261,6 +269,8 @@ select
   'My Favorite Customer' as customer_name, 
   cast('2019-01-01' as date) as first_transaction_date
 ```
+
+Report incorrect code
 
 models/schema.yml
 
@@ -285,6 +295,8 @@ models:
       - name: first_transaction_date
         data_type: date
 ```
+
+Report incorrect code
 
 Note that Redshift limits the maximum length of the `varchar` values to 256 characters by default (or when specified without a length). This means that any string data exceeding 256 characters might get truncated *or* return a "value too long for character type" error. To allow the maximum length, use `varchar(max)`. For example, `data_type: varchar(max)`.
 
@@ -313,6 +325,8 @@ select
 ); 
 ```
 
+Report incorrect code
+
 ### Snowflake
 
 * Snowflake constraints documentation: [here](https://docs.snowflake.com/en/sql-reference/constraints-overview.html)
@@ -339,6 +353,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -364,6 +380,8 @@ models:
         data_type: date
 ```
 
+Report incorrect code
+
 Expected DDL to enforce constraints:
 
 target/run/.../constraints\_example.sql
@@ -383,6 +401,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 );
 ```
+
+Report incorrect code
 
 ### BigQuery
 
@@ -406,6 +426,8 @@ select
   'My Favorite Customer' as customer_name, 
   cast('2019-01-01' as date) as first_transaction_date
 ```
+
+Report incorrect code
 
 models/schema.yml
 
@@ -431,6 +453,8 @@ models:
         data_type: date
 ```
 
+Report incorrect code
+
 ### Column-level constraint on nested column:
 
 models/nested\_column\_constraints\_example.sql
@@ -450,6 +474,8 @@ select
     struct(2 as id, struct('test' as again, '2' as even_more) as another) as double_nested
   ) as b
 ```
+
+Report incorrect code
 
 models/nested\_fields.yml
 
@@ -480,6 +506,8 @@ models:
           - type: not_null
 ```
 
+Report incorrect code
+
 ### Expected DDL to enforce constraints:
 
 target/run/.../constraints\_example.sql
@@ -499,6 +527,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 );
 ```
+
+Report incorrect code
 
 ### Databricks
 
@@ -531,6 +561,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -555,6 +587,8 @@ models:
         data_type: date
 ```
 
+Report incorrect code
+
 Expected DDL to enforce constraints:
 
 target/run/.../constraints\_example.sql
@@ -569,12 +603,16 @@ target/run/.../constraints\_example.sql
       cast('2019-01-01' as date) as first_transaction_date
 ```
 
+Report incorrect code
+
 Followed by the statements
 
 ```sql
 alter table schema_name.my_model change column id set not null;
 alter table schema_name.my_model add constraint 472394792387497234 check (id > 0);
 ```
+
+Report incorrect code
 
 ## Custom constraints
 
@@ -610,6 +648,8 @@ models:
             expression: "tag (my_tag = 'my_value')" #  A custom SQL expression used to enforce a specific constraint on a column.
 ```
 
+Report incorrect code
+
 Using this syntax requires configuring all the columns and their types as it’s the only way to send a create or replace `<cols_info_with_masking> mytable as ...`. It’s not possible to do it with just a partial list of columns. This means making sure the columns and constraints fields are fully defined.
 
 To generate a YAML with all the columns, you can use `generate_model_yaml` from [dbt-codegen](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source).
@@ -635,3 +675,5 @@ models:
           - type: custom
             expression: "masking policy my_policy"
 ```
+
+Report incorrect code

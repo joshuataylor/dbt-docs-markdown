@@ -14,6 +14,8 @@ models:
     +event_time: my_time_field
 ```
 
+Report incorrect code
+
 models/properties.yml
 
 ```yml
@@ -23,6 +25,8 @@ models:
       event_time: my_time_field
 ```
 
+Report incorrect code
+
 models/modelname.sql
 
 ```sql
@@ -30,6 +34,8 @@ models/modelname.sql
     event_time='my_time_field'
 ) }}
 ```
+
+Report incorrect code
 
 ## Seeds
 
@@ -41,6 +47,8 @@ seeds:
     +event_time: my_time_field
 ```
 
+Report incorrect code
+
 seeds/properties.yml
 
 ```yml
@@ -49,6 +57,8 @@ seeds:
     config:
       event_time: my_time_field
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -59,6 +69,8 @@ snapshots:
   resource-path:
     +event_time: my_time_field
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -71,6 +83,8 @@ snapshots:
       event_time: my_time_field
 ```
 
+Report incorrect code
+
 ## Sources
 
 dbt\_project.yml
@@ -81,6 +95,8 @@ sources:
     +event_time: my_time_field
 ```
 
+Report incorrect code
+
 models/properties.yml
 
 ```yml
@@ -89,6 +105,8 @@ sources:
     config:
       event_time: my_time_field
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -137,6 +155,8 @@ models:
       +event_time: session_start_time
 ```
 
+Report incorrect code
+
 Example in a property file:
 
 models/properties.yml
@@ -148,6 +168,8 @@ models:
       event_time: session_start_time
 ```
 
+Report incorrect code
+
 Example in a config block for a model:
 
 models/user\_sessions.sql
@@ -157,6 +179,8 @@ models/user\_sessions.sql
     event_time='session_start_time'
 ) }}
 ```
+
+Report incorrect code
 
 This setup sets `session_start_time` as the `event_time` for the `user_sessions` model.
 
@@ -173,6 +197,8 @@ seeds:
       +event_time: record_timestamp
 ```
 
+Report incorrect code
+
 Example in a seed properties YAML:
 
 seeds/properties.yml
@@ -183,6 +209,8 @@ seeds:
     config:
       event_time: record_timestamp
 ```
+
+Report incorrect code
 
 This setup sets `record_timestamp` as the `event_time` for `my_seed`.
 
@@ -199,6 +227,8 @@ snapshots:
       +event_time: record_timestamp
 ```
 
+Report incorrect code
+
 Example in a snapshot properties YAML:
 
 my\_project/properties.yml
@@ -209,6 +239,8 @@ snapshots:
     config:
       event_time: record_timestamp
 ```
+
+Report incorrect code
 
 This setup sets `record_timestamp` as the `event_time` for `my_snapshot`.
 
@@ -226,5 +258,7 @@ sources:
         config:
           event_time: event_timestamp
 ```
+
+Report incorrect code
 
 This setup sets `event_timestamp` as the `event_time` for the specified source table.

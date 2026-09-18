@@ -128,6 +128,8 @@ The following are the essential steps from the [dbt v2](../docs/local/install-db
    python -m pip install dbt
    ```
 
+   Report incorrect code
+
 ### Verify the dbt v2 installation
 
 1. After installation, open a new command-line window to confirm that dbt v2 installed correctly by checking the version.
@@ -136,11 +138,15 @@ The following are the essential steps from the [dbt v2](../docs/local/install-db
    dbt --version
    ```
 
+   Report incorrect code
+
 2. You should see output similar to the following:
 
    ```bash
    dbt 2.0.0
    ```
+
+   Report incorrect code
 
 ### Install the dbt VS Code extension
 
@@ -170,6 +176,8 @@ Now let's create your first dbt project powered by dbt v2!
      dbt init --skip-profile-setup
      ```
 
+     Report incorrect code
+
    * If you created new credentials through the interactive prompts, `init` automatically runs `dbt debug` at the end. This ensures the newly created profile establishes a valid connection with the database.
 
 2. Change directories into your newly created project:
@@ -178,11 +186,15 @@ Now let's create your first dbt project powered by dbt v2!
    cd jaffle_shop
    ```
 
+   Report incorrect code
+
 3. Build your dbt project (which includes creating example data):
 
    ```bash
    dbt build
    ```
+
+   Report incorrect code
 
    #### Viewing metadata in Catalog
 
@@ -215,6 +227,8 @@ Now that your project works, open it in VS Code or Cursor and see dbt v2 in acti
    ```bash
        models/marts/orders.sql
    ```
+
+   Report incorrect code
 
 5. Locate **Lineage** and **Query Results** in the lower panel, and the **dbt icon** in the upper right corner next to your editor groups. If you see all of these, the extension is installed correctly and running!
 
@@ -317,6 +331,8 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
+Report incorrect code
+
 #### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
@@ -324,6 +340,8 @@ In your command line, use the move command. Assuming your file is in the Downloa
 ```bash
 move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
 ```
+
+Report incorrect code
 
  I can't see the lineage tab in Cursor
 
@@ -350,6 +368,8 @@ If you're a cloud-based dbt platform user who has the `dbt-cloud:` config in the
 dbt-cloud:
 project-id: 12345 # Required
 ```
+
+Report incorrect code
 
 If you don’t configure this correctly, cross-platform references will not resolve properly, and you will encounter errors executing dbt commands.
 
@@ -418,6 +438,8 @@ For standalone installations:
 ```shell
 dbt system update
 ```
+
+Report incorrect code
 
 The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](../docs/dbt-versions/dbt-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 

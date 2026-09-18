@@ -32,6 +32,8 @@ If the profile does not exist in `profiles.yml` or the command is run inside an 
 dbt init [PROJECT_NAME] [--profile PROFILE_NAME] [--skip-profile-setup]
 ```
 
+Report incorrect code
+
 For global command options that also apply to `dbt init`, refer to [Command line options](../global-configs/command-line-options.md).
 
 ## Existing project
@@ -72,6 +74,8 @@ prompts:
     default: 8
 ```
 
+Report incorrect code
+
 ```text
 $ dbt init
 Running with dbt=1.0.0
@@ -81,3 +85,5 @@ schema (usually dbt_<yourname>): dbt_summerintern
 threads (your favorite number, 1-10) [8]: 6
 Profile internal-snowflake written to /Users/intern/.dbt/profiles.yml using project's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
 ```
+
+Report incorrect code

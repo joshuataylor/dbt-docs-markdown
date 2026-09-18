@@ -89,6 +89,8 @@ Before enabling model query history, your `ACCOUNTADMIN` must run the following 
 GRANT DATABASE ROLE SNOWFLAKE.GOVERNANCE_VIEWER TO ROLE <YOUR_DBT_CLOUD_DEPLOYMENT_ROLE>;
 ```
 
+Report incorrect code
+
 Without this grant, model query history won't display any data. For more information, refer to the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/account-usage#enabling-other-roles-to-use-schemas-in-the-snowflake-database).
 
 ### BigQuery model query history
@@ -108,11 +110,15 @@ Model query history uses the `SYS_QUERY_HISTORY` and `SYS_QUERY_DETAIL` system v
   GRANT ROLE sys:monitor TO <YOUR_DBT_USER>;
   ```
 
+  Report incorrect code
+
 * Unrestricted syslog access on the user:
 
   ```sql
   ALTER USER <YOUR_DBT_USER> SYSLOG ACCESS UNRESTRICTED;
   ```
+
+  Report incorrect code
 
 Without one of these, model query history won't display data from other users. For more information, refer to the [Redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_system-tables.html#c_visibility-of-data).
 
@@ -145,6 +151,8 @@ GRANT USE SCHEMA ON SCHEMA system.query TO `<YOUR_SERVICE_PRINCIPAL>`;
 GRANT SELECT ON TABLE system.access.table_lineage TO `<YOUR_SERVICE_PRINCIPAL>`;
 GRANT SELECT ON TABLE system.query.history TO `<YOUR_SERVICE_PRINCIPAL>`;
 ```
+
+Report incorrect code
 
 note
 

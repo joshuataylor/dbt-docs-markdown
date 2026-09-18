@@ -50,4 +50,6 @@ flags:
   state_modified_compare_more_unrendered_values: false
 ```
 
+Report incorrect code
+
 Opting out is recommended during a production deploy freeze or if your project has heavy Jinja in YAML configs and the one-time rebuild would exceed your CI compute budget. Otherwise, enabling this flag is recommended.

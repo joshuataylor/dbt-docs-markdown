@@ -36,4 +36,6 @@ flags:
   require_yaml_configuration_for_mf_time_spines: false
 ```
 
+Report incorrect code
+
 To remove the deprecation warning permanently, migrate `metricflow_time_spine.sql` to a YAML `time_spine` block under a model entry in `models:`. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for the current syntax.

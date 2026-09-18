@@ -55,6 +55,8 @@ your_profile_name:
         - "/path/to/sqlean/crypto.so"
 ```
 
+Report incorrect code
+
 #### Description of SQLite Profile Fields
 
 | Field               | Description                                                                                                                                                                                                                                               |

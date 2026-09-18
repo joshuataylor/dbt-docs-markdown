@@ -47,6 +47,8 @@ external_oauth_snowflake_user_mapping_attribute = 'email_address'
 external_oauth_any_role_mode = 'ENABLE'
 ```
 
+Report incorrect code
+
 The `external_oauth_token_user_mapping_claim` and `external_oauth_snowflake_user_mapping_attribute` can be modified based on the your organizations needs. These values point to the claim in the users’ token. In the example, Snowflake will look up the Snowflake user whose `email` matches the value in the `sub` claim.
 
 **Notes:**
@@ -131,6 +133,8 @@ external_oauth_token_user_mapping_claim = 'sub'
 external_oauth_snowflake_user_mapping_attribute = 'email_address'
 external_oauth_any_role_mode = 'ENABLE'
 ```
+
+Report incorrect code
 
 2. Change `your_integration_name` to something appropriately descriptive. For example, `dev_OktaAccountNumber_okta`. Copy the `external_oauth_issuer` and `external_oauth_jws_keys_url` from the metadata URI in step 3.3. Use the same Snowflake URL you entered in step 3.2 as the `external_oauth_audience_list`.
 
@@ -255,6 +259,8 @@ create or replace security integration <whatever you want to name it>
    external_oauth_snowflake_user_mapping_attribute = 'login_name';
 ```
 
+Report incorrect code
+
 On the Entra ID site:
 
 1. From the Client ID app in Entra ID, click **Endpoints** and open the **Federation metadata document** in a new tab.
@@ -285,11 +291,15 @@ Receiving a \`Failed to connect to DB\` error when connecting to Snowflake
    Please specify another role, or contact your OAuth Authorization server administrator.
    ```
 
+   Report incorrect code
+
 2. Edit your OAuth Security integration and explicitly specify this scope mapping attribute:
 
    ```sql
    ALTER INTEGRATION <my_int_name> SET EXTERNAL_OAUTH_SCOPE_MAPPING_ATTRIBUTE = 'scp';
    ```
+
+   Report incorrect code
 
 You can read more about this error in [Snowflake's documentation](https://community.snowflake.com/s/article/external-custom-oauth-error-the-role-requested-in-the-connection-is-not-listed-in-the-access-token).
 
@@ -300,6 +310,8 @@ You can read more about this error in [Snowflake's documentation](https://commun
    ```text
    Failed to connect to DB: xxxxxxx.snowflakecomputing.com:443. Incorrect username or password was specified.
    ```
+
+   Report incorrect code
 
    * **Unique email addresses** — Each user in Snowflake must have a unique email address. You can't have multiple users (for example, a human user and a service account) using the same email, such as `alice@acme.com`, to authenticate to Snowflake.
    * **Match email addresses with identity provider** — The email address of your Snowflake user must exactly match the email address you use to authenticate with your Identity Provider (IdP). For example, if your Snowflake user's email is `alice@acme.com` but you log in to Entra or Okta with `alice_adm@acme.com`, this mismatch can cause an error.

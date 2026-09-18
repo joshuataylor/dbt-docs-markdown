@@ -26,6 +26,8 @@ bash
 dbt run --full-refresh
 ```
 
+Report incorrect code
+
 You can also supply the flag by its short name: `dbt run -f`.
 
 In the dbt compilation context, this flag will be available as [flags.FULL\_REFRESH](../dbt-jinja-functions/flags.md). Further, the `is_incremental()` macro will return `false` for *all* models in response when the `--full-refresh` flag is specified.
@@ -45,6 +47,8 @@ select * from all_events
 {% endif %}
 ```
 
+Report incorrect code
+
 ## Running specific models
 
 dbt will also allow you select which specific models you'd like to materialize. This can be useful during special scenarios where you may prefer running a different set of models at various intervals. This can also be helpful when you may want to limit the tables materialized while you develop and test new models.
@@ -63,11 +67,15 @@ Use `--generate-info-schema` to write the [dbt Information Schema](../../docs/bu
 dbt run --generate-info-schema
 ```
 
+Report incorrect code
+
 To populate column types and column-level lineage in `dbt.node_columns` and `dbt.column_lineage`, combine with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Without it, `dbt.node_columns` and `dbt.column_lineage` contain no column types and no lineage.
 
 ```shell
 dbt run --generate-info-schema --static-analysis strict
 ```
+
+Report incorrect code
 
 ## Treat warnings as errors
 

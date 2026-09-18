@@ -52,6 +52,8 @@ You can use both flags in a command; dbt first applies the positive filter (`--r
 dbt build --resource-type model test snapshot --exclude-resource-type snapshot
 ```
 
+Report incorrect code
+
 Note that the list of dbt resource types is mutually exclusive and collectively exhaustive (MECE). This means that any `--resource-type` selection can also be achieved by excluding the other resource types using `--exclude-resource-type`, and vice versa.
 
 ## Examples
@@ -72,6 +74,8 @@ Usage
 dbt build --resource-type test model
 ```
 
+Report incorrect code
+
 ### Include all snapshots
 
 Use the following command to only include snapshots in your dbt build process:
@@ -81,6 +85,8 @@ Usage
 ```text
 dbt build --resource-type snapshot
 ```
+
+Report incorrect code
 
 ### Include all saved queries
 
@@ -92,6 +98,8 @@ Usage
 dbt build --resource-type saved_query
 ```
 
+Report incorrect code
+
 ### Include all data tests
 
 Use the following command to only include data tests in your build process:
@@ -101,6 +109,8 @@ Usage
 ```text
 dbt build --resource-type test
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -115,6 +125,8 @@ dbt test --select test_type:data -- dbt v1 and dbt v2
 dbt test --resource-type test -- dbt v1 only
 ```
 
+Report incorrect code
+
  Exclude resource types
 
 ### Exclude multiple resource types
@@ -127,6 +139,8 @@ Usage
 dbt build --exclude-resource-type test model
 ```
 
+Report incorrect code
+
 ### Exclude all unit tests
 
 Use the following command to exclude unit tests from your dbt build process.
@@ -136,6 +150,8 @@ Usage
 ```text
 dbt build --exclude-resource-type unit_test
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -149,3 +165,5 @@ Usage
 dbt test --select test_type:data -- dbt v1 and dbt v2
 dbt test --exclude-resource-type unit_test -- dbt v1 only
 ```
+
+Report incorrect code

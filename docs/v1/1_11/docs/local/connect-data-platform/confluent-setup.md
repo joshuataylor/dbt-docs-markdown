@@ -44,6 +44,8 @@ Install `dbt-confluent` from PyPI:
 pip install dbt-confluent
 ```
 
+Report incorrect code
+
 ### Configuring your profile
 
 Add the following configuration to your `profiles.yml` file to define Confluent Cloud targets.
@@ -66,6 +68,8 @@ my_confluent_project:
       flink_api_secret: "{{ env_var('CONFLUENT_FLINK_API_SECRET') }}"
       threads: 1
 ```
+
+Report incorrect code
 
 #### Description of profile fields
 
@@ -105,9 +109,13 @@ export CONFLUENT_FLINK_API_KEY=your-api-key
 export CONFLUENT_FLINK_API_SECRET=your-api-secret
 ```
 
+Report incorrect code
+
 Then reference them in `profiles.yml` using the `env_var` Jinja function:
 
 ```yaml
 flink_api_key: "{{ env_var('CONFLUENT_FLINK_API_KEY') }}"
 flink_api_secret: "{{ env_var('CONFLUENT_FLINK_API_SECRET') }}"
 ```
+
+Report incorrect code

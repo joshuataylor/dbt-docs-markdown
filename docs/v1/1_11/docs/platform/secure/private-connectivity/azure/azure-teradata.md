@@ -28,6 +28,8 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
    teradata-pls.abc12345-6789-0def-1234-56789abcdef0.eastus.azure.privatelinkservice
    ```
 
+   Report incorrect code
+
    dbt Azure subscription ID
 
    If granting access to your Teradata endpoint service requires the dbt Azure subscription ID, [contact dbt Support](mailto:support@getdbt.com) to request it.
@@ -47,6 +49,8 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
    - Teradata Azure region:
    - dbt Azure multi-tenant environment (US or EMEA):
    ```
+
+   Report incorrect code
 
    dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 

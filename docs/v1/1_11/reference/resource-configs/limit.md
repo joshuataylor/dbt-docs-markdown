@@ -22,6 +22,8 @@ models:
                 limit: 1000  # will only include the first 1000 failures
 ```
 
+Report incorrect code
+
 ## One-off test
 
 Configure a one-off (data) test:
@@ -33,6 +35,8 @@ tests/\<filename>.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ## Generic test block
 
@@ -50,6 +54,8 @@ select ...
 {% endtest %}
 ```
 
+Report incorrect code
+
 ## Project level
 
 Set the default for all tests in a package or project:
@@ -63,3 +69,5 @@ data_tests:
   <package_name>:
     +limit: 50 # tests in <package_name>
 ```
+
+Report incorrect code

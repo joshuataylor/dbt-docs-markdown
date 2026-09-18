@@ -25,6 +25,8 @@ model = "gpt-4o"
 trust_level = "trusted"
 ```
 
+Report incorrect code
+
 This config sets the default AI model for all new sessions and applies to all future invocations across all projects. You can override the default AI model for a specific project by setting the `model` key in the `wizard_config.toml` file for that project or using the `/model` picker in the text-based user interface (TUI).
 
 | File                               | Controls                                                                     | When to use                                             |
@@ -96,12 +98,16 @@ Set `trust_level` per-project to allow dbt Wizard to use project-local config:
 trust_level = "trusted"
 ```
 
+Report incorrect code
+
 #### MCP servers
 
 ```toml
 [mcp_servers.dbt]
 command = "DBT_MCP_ENDPOINT"
 ```
+
+Report incorrect code
 
 ### AI model ID format
 
@@ -113,6 +119,8 @@ To list all available AI model IDs:
 wizard debug models
 ```
 
+Report incorrect code
+
 ### Environment variables
 
 Any key can be set as an environment variable using the `DBT_WIZARD_` prefix in `SCREAMING_SNAKE_CASE`:
@@ -123,6 +131,8 @@ export DBT_WIZARD_APPROVAL_POLICY=never
 export OPENAI_API_KEY=sk-...        # OpenAI (no prefix needed)
 export ANTHROPIC_API_KEY=sk-ant-... # Anthropic (no prefix needed)
 ```
+
+Report incorrect code
 
 `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` are read directly without the `DBT_WIZARD_` prefix, following each provider's convention.
 
@@ -141,6 +151,8 @@ trust_level = "trusted"
 [mcp_servers.dbt]
 command = "DBT_MCP_ENDPOINT"
 ```
+
+Report incorrect code
 
 ## wizard\_config.toml
 
@@ -195,6 +207,8 @@ target = "prod"
 favor_state = true
 ```
 
+Report incorrect code
+
 #### Deferral
 
 [Deferral](../../reference/node-selection/defer.md) lets dbt Wizard reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything when you're only working on part of a project, saving you time and warehouse cost.
@@ -221,6 +235,8 @@ state = "/Users/you/dbt-state/production"
 favor_state = true
 ```
 
+Report incorrect code
+
 **About [favor-state](../../reference/node-selection/defer.md?version=2.0#favor-state):** `favor_state` is configurable and defaults to `true`. When it is `true`, dbt Wizard passes `--favor-state` so deferred relations take precedence. Set it to `false` to use a relation that already exists in development and fall back to deferred state when it doesn't.
 
 You can also configure production snapshot and compile behavior with global `prod_parse_on_startup`, `prod_parse_args`, `prod_state_ttl_hours`, `prod_state_dir`, and `compile_extra_args` settings. Per-project `compile_extra_args` and `prod_parse_args` values let you override the global behavior for one project. Use a `profile_override` block to select a different profiles file, profile, or target for compilation.
@@ -246,6 +262,8 @@ To delete a file, run the command in your terminal (macOS/Linux). For example:
 ```bash
 rm ~/.dbt/wizard/auth.json
 ```
+
+Report incorrect code
 
 If you get a `No such file or directory` error, the file doesn't exist — which means that part of the setup hasn't run yet, or has already been reset. You can ignore the error.
 

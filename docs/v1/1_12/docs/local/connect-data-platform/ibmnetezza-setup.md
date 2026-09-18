@@ -50,6 +50,8 @@ my_project:
   target: dev
 ```
 
+Report incorrect code
+
 ### Setup external table options
 
 You also need to configure the `et_options.yml` file located in your project directory. Make sure the file is correctly setup before running the `dbt seed`. This ensures that data is inserted into your tables accurately as specified in the external data file.
@@ -63,6 +65,8 @@ You also need to configure the `et_options.yml` file located in your project dir
     DateDelim: "'-'"
     MaxErrors: " 0 "
 ```
+
+Report incorrect code
 
 Refer the [Netezza external tables option summary](https://www.ibm.com/docs/en/netezza?topic=eto-option-summary) for more options in the file.
 

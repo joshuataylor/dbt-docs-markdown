@@ -36,6 +36,8 @@ semantic_models:
     measures: ... # we'll define these later
 ```
 
+Report incorrect code
+
 * Next we'll point to the corresponding logical model by supplying a [`ref`](../../reference/dbt-jinja-functions/ref.md) in the `model:` property, and a `description` for documentation.
 
 models/marts/orders.yml
@@ -50,6 +52,8 @@ semantic_models:
     dimensions: ...
     measures: ...
 ```
+
+Report incorrect code
 
 ## Establishing our entities
 
@@ -86,6 +90,8 @@ renamed as (
     from source
 ```
 
+Report incorrect code
+
 * 👉 We add them with a **`name`, `type`, and optional `expr`** (expression). The expression can be any valid SQL expression on your platform.
 * 📛 If you **don't add an expression**, MetricFlow will **assume the name is equal to the column name** in the underlying logical model.
 * 👍 Our best practices pattern is to, whenever possible, provide a `name` that is the singular form of the subject or grain of the table, and use `expr` to specify the precise column name (with `_id` etc). This will let us write **more readable metrics** on top of these semantic models. For example, we'll use `location` instead of `location_id`.
@@ -112,6 +118,8 @@ semantic_models:
     measures:
       ...
 ```
+
+Report incorrect code
 
 ## Defining our dimensions
 
@@ -149,6 +157,8 @@ select
 from source
 ```
 
+Report incorrect code
+
 * ⏰ For now the only dimension to add is a **time dimension**: `ordered_at`.
 * 🕰️ At least one **primary time dimension** is **required** for any semantic models that **have measures**.
 * 1️⃣ We denote this with the `is_primary` property, or if there is only a one-time dimension supplied it is primary by default. Below we only have `ordered_at` as a timestamp so we don't need to specify anything except the *minimum granularity* we're bucketing to (in this case, day). By this we mean that we're not going to be looking at orders at a finer granularity than a day.
@@ -163,6 +173,8 @@ dimensions:
     type_params:
       time_granularity: day
 ```
+
+Report incorrect code
 
 tip
 
@@ -186,6 +198,8 @@ dimensions:
     type: categorical
     expr: case when order_total > 50 then true else false end
 ```
+
+Report incorrect code
 
 ## Making our measures
 
@@ -217,6 +231,8 @@ select
 from source
 ```
 
+Report incorrect code
+
 * ➕ Here `order_total` and `tax paid` are the **columns we want as measures**.
 * 📝 We can describe them via the code below, specifying a **name, description, aggregation, and expression**.
 * 👍 As before MetricFlow will default to the **name being the name of a column when no expression is supplied**.
@@ -234,6 +250,8 @@ measures:
     agg: sum
 ```
 
+Report incorrect code
+
 * 🆕 We can also **create new measures using expressions**, for instance adding a count of individual orders as below.
 
 models/marts/orders.yml
@@ -244,6 +262,8 @@ models/marts/orders.yml
   expr: 1
   agg: sum
 ```
+
+Report incorrect code
 
 ## Reviewing our work
 
@@ -297,6 +317,8 @@ semantic_models:
         agg: sum
 ```
 
+Report incorrect code
+
  Parallel sub-folder approach
 
 models/semantic\_models/sem\_orders.yml
@@ -344,6 +366,8 @@ semantic_models:
         description: The total tax paid on each order.
         agg: sum
 ```
+
+Report incorrect code
 
 As you can see, the content of the semantic model is identical in both approaches. The key differences are:
 

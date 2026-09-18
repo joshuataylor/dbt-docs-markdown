@@ -16,6 +16,8 @@ Usage
 dbt build --log-format otel
 ```
 
+Report incorrect code
+
 (Applies to dbt v2.0 and later)
 
 The `text` format is the default for console logs and prints plain text progress messages:
@@ -24,6 +26,8 @@ The `text` format is the default for console logs and prints plain text progress
 dbt 2.0.1
    Loading ~/.dbt/profiles.yml
 ```
+
+Report incorrect code
 
 The `json` format outputs fully structured logs in the JSON format:
 
@@ -34,6 +38,8 @@ The `json` format outputs fully structured logs in the JSON format:
 {"data": {"msg": "Loading ~/.dbt/profiles.yml"}, "info": {"category": "", "code": "", "extra": {}, "invocation_id": "019fb7d4-ce89-7712-8d06-5ad013a23be9", "level": "info", "msg": "Loading ~/.dbt/profiles.yml", "name": "Generic", "pid": 92554, "thread": "tokio-rt-worker", "ts": "2026-07-31T11:00:04.882928Z"}}
 ```
 
+Report incorrect code
+
 (Applies to dbt v2.0 and later)
 
 When the `LOG_FORMAT` is set explicitly to `text`, `json`, or `default`, it takes effect in both the console and log files. The `otel` value applies to console output only. Use `LOG_FORMAT_FILE` to set a different format for the log file (`text`, `json`, or `default`).
@@ -43,6 +49,8 @@ Usage
 ```text
 dbt run --log-format-file json
 ```
+
+Report incorrect code
 
 (Applies to dbt v2.0 and later)
 
@@ -56,6 +64,8 @@ For JSON-formatted log lines, use `--log-format json` with the `DEBUG` config:
 dbt build --debug --log-format json
 ```
 
+Report incorrect code
+
 ### Log Level
 
 The `LOG_LEVEL` config sets the minimum severity of events captured in the console and file logs. This is a more flexible alternative to the `--debug` flag. The available options for the log levels are `debug`, `info`, `warn`, `error`, or `none`.
@@ -66,11 +76,15 @@ The `LOG_LEVEL` config sets the minimum severity of events captured in the conso
   dbt run --log-level debug
   ```
 
+  Report incorrect code
+
 * Setting the `LOG_LEVEL` to `none` will disable information from being sent to either the console or file logs.
 
   ```text
   dbt run --log-level none
   ```
+
+  Report incorrect code
 
 * To set the file log level as a different value than the console, use the `--log-level-file` flag.
 
@@ -78,11 +92,15 @@ The `LOG_LEVEL` config sets the minimum severity of events captured in the conso
   dbt run --log-level-file error
   ```
 
+  Report incorrect code
+
 * To only disable writing to the logs file but keep console logs, set `LOG_LEVEL_FILE` config to none.
 
   ```text
   dbt run --log-level-file none
   ```
+
+  Report incorrect code
 
 ### Debug-level logging
 
@@ -95,6 +113,8 @@ Usage
 ```text
 dbt run --debug
 ```
+
+Report incorrect code
 
 ### Log and target paths
 
@@ -113,11 +133,15 @@ config:
   quiet: true
 ```
 
+Report incorrect code
+
 Supply the `-q` or `--quiet` flag to `dbt run` to show only error logs and suppress non-error logs.
 
 ```text
 dbt run --quiet
 ```
+
+Report incorrect code
 
 ### dbt list logging
 
@@ -136,6 +160,8 @@ The `LOG_CACHE_EVENTS` config allows detailed logging for [relational cache](htt
 dbt compile --log-cache-events
 ```
 
+Report incorrect code
+
 ### Color
 
 You can set the color preferences for the file logs only within `profiles.yml` or using the `--use-colors-file / --no-use-colors-file` flags.
@@ -147,7 +173,11 @@ config:
   use_colors_file: False
 ```
 
+Report incorrect code
+
 ```text
 dbt run --use-colors-file
 dbt run --no-use-colors-file
 ```
+
+Report incorrect code

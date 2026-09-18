@@ -34,6 +34,8 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
+Report incorrect code
+
 The SQL for each payment method amount is repetitive, which can be difficult to maintain for a number of reasons:
 
 * If the logic or field name were to change, the code would need to be updated in three places.
@@ -59,6 +61,8 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
+Report incorrect code
+
 ## Set variables at the top of a model
 
 We recommend setting variables at the top of a model, as it helps with readability, and enables you to reference the list in multiple places if required. This is a practice we've borrowed from many other programming languages.
@@ -77,6 +81,8 @@ sum(amount) as total_amount
 from {{ ref('raw_payments') }}
 group by 1
 ```
+
+Report incorrect code
 
 ## Use loop.last to avoid trailing commas
 
@@ -98,6 +104,8 @@ sum(case when payment_method = '{{payment_method}}' then amount end) as {{paymen
 from {{ ref('raw_payments') }}
 group by 1
 ```
+
+Report incorrect code
 
 An alternative way to write this is `{{ "," if not loop.last }}`.
 
@@ -126,6 +134,8 @@ from raw_jaffle_shop.payments
 group by 1
 ```
 
+Report incorrect code
+
 We can use [whitespace control](https://jinja.palletsprojects.com/page/templates/#whitespace-control) to tidy up our code:
 
 models/order\_payment\_method\_amounts.sql
@@ -142,6 +152,8 @@ sum(case when payment_method = '{{payment_method}}' then amount end) as {{paymen
 from {{ ref('raw_payments') }}
 group by 1
 ```
+
+Report incorrect code
 
 Getting whitespace control right is often a lot of trial and error! We recommend that you prioritize the readability of your model code over the readability of the compiled code, and only do this as an extra polish.
 
@@ -160,6 +172,8 @@ Our macro is simply going to return the list of payment methods:
 {{ return(["bank_transfer", "credit_card", "gift_card"]) }}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 There's a few things worth noting here:
 
@@ -183,6 +197,8 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
+Report incorrect code
+
 Note that we didn't use curly braces when calling the macro – we're already within a Jinja statement, so there's no need to use the brackets again.
 
 ## Dynamically retrieve the list of payment methods
@@ -197,6 +213,8 @@ payment_method
 from {{ ref('raw_payments') }}
 order by 1
 ```
+
+Report incorrect code
 
 [Statements](../reference/dbt-jinja-functions/statement-blocks.md) provide a way to run this query and return the results to your Jinja context. This means that the list of `payment_methods` can be set based on the data in your database rather than a hardcoded value.
 
@@ -223,6 +241,8 @@ order by 1
 {% endmacro %}
 ```
 
+Report incorrect code
+
 The command line gives us back the following:
 
 ```bash
@@ -230,6 +250,8 @@ The command line gives us back the following:
 | -------------- | --------- |
 | payment_method | Text      |
 ```
+
+Report incorrect code
 
 This is actually an [Agate table](https://agate.readthedocs.io/page/api/table.html). To get the payment methods back as a list, we need to do some further transformation.
 
@@ -256,6 +278,8 @@ order by 1
 
 {% endmacro %}
 ```
+
+Report incorrect code
 
 There's a few tricky pieces in here:
 
@@ -301,6 +325,8 @@ order by 1
 {% endmacro %}
 ```
 
+Report incorrect code
+
 ## Use a macro from a package
 
 Macros let analysts bring software engineering principles to the SQL they write. One of the features of macros that makes them even more powerful is their ability to be shared across projects.
@@ -326,5 +352,7 @@ sum(case when payment_method = '{{payment_method}}' then amount end) as {{paymen
 from {{ ref('raw_payments') }}
 group by 1
 ```
+
+Report incorrect code
 
 You can then remove the macros that we built in previous steps. Whenever you're trying to solve a problem that you think others may have solved previously, it's worth checking the [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) package to see if someone has shared their code!

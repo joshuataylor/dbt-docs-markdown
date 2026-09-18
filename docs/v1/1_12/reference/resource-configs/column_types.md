@@ -21,6 +21,8 @@ seeds:
         country_name: varchar(32)
 ```
 
+Report incorrect code
+
 Or:
 
 seeds/properties.yml
@@ -34,6 +36,8 @@ seeds:
         country_code: varchar(2)
         country_name: varchar(32)
 ```
+
+Report incorrect code
 
 If you have previously run `dbt seed`, you'll need to run `dbt seed --full-refresh` for the changes to take effect.
 
@@ -50,6 +54,8 @@ seeds:
           ...
 ```
 
+Report incorrect code
+
 ## Examples
 
 ### Use a varchar column type to preserve leading zeros in a zipcode
@@ -63,6 +69,8 @@ seeds:
       +column_types:
         zipcode: varchar(5)
 ```
+
+Report incorrect code
 
 ## Recommendation
 

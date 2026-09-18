@@ -37,6 +37,8 @@ models:
         +group: finance
 ```
 
+Report incorrect code
+
 Each model can only belong to one `group`, and groups cannot be nested. If you set a different `group` in that model's YAML or in-file config, it will override the `group` applied at the project level.
 
 #### Considerations
@@ -66,6 +68,8 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -107,6 +111,8 @@ models:
       access: protected # changed to config in v1.10
 ```
 
+Report incorrect code
+
 Models with `materialized` set to `ephemeral` cannot have the access property set to public.
 
 For example, if you have a model config set as:
@@ -117,6 +123,8 @@ models/my\_model.sql
 
 {{ config(materialized='ephemeral') }}
 ```
+
+Report incorrect code
 
 And the model access is defined:
 
@@ -130,6 +138,8 @@ models:
       access: public # changed to config in v1.10
 ```
 
+Report incorrect code
+
 It will lead to the following error:
 
 ```text
@@ -138,6 +148,8 @@ It will lead to the following error:
 Parsing Error
   Node model.jaffle_shop.my_model with 'ephemeral' materialization has an invalid value (public) for the access field
 ```
+
+Report incorrect code
 
 ## FAQs
 
@@ -184,3 +196,5 @@ dbt\_project.yml
 ```yml
 restrict-access: True  # default is False
 ```
+
+Report incorrect code

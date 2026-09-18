@@ -45,6 +45,8 @@ FROM {{ ref('raw_orders') }}
 WHERE status = 'completed'
 ```
 
+Report incorrect code
+
 #### `with` config
 
 | Config | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -77,6 +79,8 @@ WATERMARK FOR order_time AS order_time - INTERVAL '5' SECOND,
 PRIMARY KEY(order_id) NOT ENFORCED
 ```
 
+Report incorrect code
+
 #### `connector` config
 
 | Config      | Type     | Required | Description                                                                                                                             |
@@ -97,6 +101,8 @@ Use `--full-refresh` when you need to change a table's schema, modify `WITH` opt
 ```bash
 dbt run --full-refresh --select my_streaming_model
 ```
+
+Report incorrect code
 
 ## Known limitations
 

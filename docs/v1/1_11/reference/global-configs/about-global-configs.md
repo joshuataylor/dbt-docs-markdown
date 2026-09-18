@@ -33,6 +33,8 @@ flags:
   fail_fast: true
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.11 and later)
 
 ```bash
@@ -41,10 +43,14 @@ export DBT_ENGINE_FAIL_FAST=1
 dbt run
 ```
 
+Report incorrect code
+
 ```bash
 dbt run --fail-fast # set to True for this specific invocation
 dbt run --no-fail-fast # set to False
 ```
+
+Report incorrect code
 
 There are two categories of exceptions:
 
@@ -61,6 +67,8 @@ Custom user-defined logic, written in Jinja, can check the values of flags using
 on-run-start:
   - '{{ log("I will stop at the first sign of trouble", info = true) if flags.FAIL_FAST }}'
 ```
+
+Report incorrect code
 
 ## Available flags
 
@@ -140,5 +148,7 @@ dbt run --target dev
 dbt run --target prod
 dbt build --target staging
 ```
+
+Report incorrect code
 
 The `--target` flag allows you to run the same dbt project against different environments without modifying your configuration files. Define the target in your `profiles.yml` file. Learn more about [connection profiles and targets](../../docs/local/profiles.yml.md#understanding-targets-in-profiles).

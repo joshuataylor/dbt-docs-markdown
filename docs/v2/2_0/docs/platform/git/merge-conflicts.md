@@ -30,6 +30,8 @@ The Studio IDE will display:
 >>>>>> (some branch identifier)
 ```
 
+Report incorrect code
+
 * The file and path colored in red in the **File Catalog**, with a warning icon to highlight files that you need to resolve.
 * The file name colored in red in the **Changes** section, with a warning icon.
 * If you press commit without resolving the conflict, the Studio IDE will prompt a pop up box with a list which files need to be resolved.

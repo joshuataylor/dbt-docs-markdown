@@ -36,6 +36,8 @@ seeds:
         is_active: BOOLEAN
 ```
 
+Report incorrect code
+
 ### Supported Db2 data types
 
 | Db2 Data Type | Description                    | Example Usage                   |
@@ -73,6 +75,8 @@ Creates a physical table in the database. This is the default materialization if
 SELECT * FROM source_table
 ```
 
+Report incorrect code
+
 ### View materialization
 
 Creates a database view. Views are virtual tables that don't store data physically.
@@ -82,6 +86,8 @@ Creates a database view. Views are virtual tables that don't store data physical
 
 SELECT * FROM source_table
 ```
+
+Report incorrect code
 
 ### Incremental materialization
 
@@ -106,6 +112,8 @@ WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
 
+Report incorrect code
+
 #### Delete+insert strategy
 
 Deletes matching records then inserts new ones:
@@ -125,6 +133,8 @@ WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
 
+Report incorrect code
+
 ### Ephemeral materialization
 
 Creates a Common Table Expression (CTE) that exists only for the duration of a single dbt run:
@@ -134,6 +144,8 @@ Creates a Common Table Expression (CTE) that exists only for the duration of a s
 
 SELECT * FROM source_table
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -157,6 +169,8 @@ SELECT * FROM {{ source('raw', 'customers') }}
 
 {% endsnapshot %}
 ```
+
+Report incorrect code
 
 ## Constraints
 
@@ -187,6 +201,8 @@ SELECT
 FROM source_table
 ```
 
+Report incorrect code
+
 Define constraints in your schema YAML:
 
 ```yaml
@@ -201,6 +217,8 @@ models:
         constraints:
           - type: not_null
 ```
+
+Report incorrect code
 
 ## Performance optimization
 
@@ -222,6 +240,8 @@ While dbt doesn't directly manage indexes, you can create them using post-hooks:
 SELECT * FROM source_table
 ```
 
+Report incorrect code
+
 ### Table organization
 
 Db2 supports different table organization types. You can specify these using post-hooks:
@@ -238,6 +258,8 @@ Db2 supports different table organization types. You can specify these using pos
 
 SELECT * FROM source_table
 ```
+
+Report incorrect code
 
 ## Grants management
 
@@ -257,6 +279,8 @@ The `ibm-dbt-db2` adapter supports managing grants on database objects:
 
 SELECT * FROM source_table
 ```
+
+Report incorrect code
 
 ## Case sensitivity
 

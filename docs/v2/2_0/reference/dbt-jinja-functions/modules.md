@@ -19,6 +19,8 @@ It includes the modules contexts of `date`, `datetime`, `time`, `timedelta`, and
 {% set three_days_ago_iso = (now - modules.datetime.timedelta(3)).isoformat() %}
 ```
 
+Report incorrect code
+
 This module will return the current date and time on every Jinja evaluation. For the date and time of the start of the run, please see [run\_started\_at](./run_started_at.md).
 
 ## pytz
@@ -32,6 +34,8 @@ This variable is a pointer to the Python [`pytz`](https://pypi.org/project/pytz/
 {% set dt_local = modules.pytz.timezone('US/Eastern').localize(dt) %}
 {{ dt_local }}
 ```
+
+Report incorrect code
 
 ## re
 
@@ -51,6 +55,8 @@ This variable is a pointer to the Python [`re`](https://docs.python.org/3/librar
     ) -%}
 {% endif %}
 ```
+
+Report incorrect code
 
 ## itertools
 
@@ -89,6 +95,8 @@ The supported functions are:
 {%- endfor -%}
 ```
 
+Report incorrect code
+
 ```text
   (1, 'x')
   (1, 'y')
@@ -97,3 +105,5 @@ The supported functions are:
   (2, 'y')
   (2, 'z')
 ```
+
+Report incorrect code

@@ -19,6 +19,8 @@ from {{ ref('orders') }} --the table/view/model you want to select from
 limit 3
 ```
 
+Report incorrect code
+
 This basic query is selecting three columns from the [jaffle shop’s](https://github.com/dbt-labs/jaffle_shop/blob/main/models/orders.sql) `orders` table and returning three rows. If you execute this query in your data warehouse, it will return a result looking like this:
 
 | order\_id | customer\_id | order\_date |

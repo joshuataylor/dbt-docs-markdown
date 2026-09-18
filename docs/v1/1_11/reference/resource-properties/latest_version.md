@@ -11,6 +11,8 @@ models:
       - v: 1
 ```
 
+Report incorrect code
+
 ## Definition
 
 The latest version of this model. The "latest" version is relevant for:
@@ -43,6 +45,8 @@ models:
       - v: 1
 ```
 
+Report incorrect code
+
 If `latest_version` is not specified, the `latest_version` is `3`. Any unpinned references -- `ref('model_name')` -- will resolve to `model_name.v3`. Both `v1` and `v2` are considered "old" versions.
 
 models/\<schema>.yml
@@ -56,5 +60,7 @@ models:
       - v: 2
       - v: 1
 ```
+
+Report incorrect code
 
 In this case, the `latest_version` is explicitly set to `2`. Any unpinned references will resolve to `model_name.v2`. `v3` is considered "prerelease", and `v1` is considered "old".

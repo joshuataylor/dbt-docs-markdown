@@ -15,11 +15,15 @@ For example, to quickly compile a model that requires no database metadata or in
 dbt compile --no-populate-cache --select my_model_name
 ```
 
+Report incorrect code
+
 Or, to improve speed and performance while focused on developing Salesforce models, which are materialized into their own dedicated schema, you could select those models and pass the `cache-selected-only` flag:
 
 ```text
 dbt run --cache-selected-only --select salesforce
 ```
+
+Report incorrect code
 
 ### Logging relational cache events
 
@@ -28,3 +32,5 @@ The `LOG_CACHE_EVENTS` config allows detailed logging for relational cache, whic
 ```text
 dbt compile --log-cache-events
 ```
+
+Report incorrect code

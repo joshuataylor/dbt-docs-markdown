@@ -41,11 +41,15 @@ You'll have two commands for your dbt CI check to execute:
 dbt clone --select state:modified+,config.materialized:incremental,state:old
 ```
 
+Report incorrect code
+
 2. Build all of the models that have been modified and their downstream dependencies:
 
 ```shell
 dbt build --select state:modified+
 ```
+
+Report incorrect code
 
 Because of your first clone step, the incremental models selected in your `dbt build` on the second step will run in incremental mode.
 
@@ -67,6 +71,8 @@ Imagine you have an incremental model `my_incremental_model` with the following 
     )
 }}
 ```
+
+Report incorrect code
 
 Now, let’s say you open up a PR that adds a new column to `my_incremental_model`. In this case:
 

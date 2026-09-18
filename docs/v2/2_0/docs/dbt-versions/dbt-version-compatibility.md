@@ -32,11 +32,15 @@ To confirm your setup is within the supported range, check the version of dbt v2
 dbt --version
 ```
 
+Report incorrect code
+
 For a machine-readable summary you can paste into a bug report or parse in tooling, add the `--format json` flag:
 
 ```shell
 dbt --version --format json
 ```
+
+Report incorrect code
 
 For details on the full output, refer to [About dbt --version](../../reference/commands/version.md).
 
@@ -56,11 +60,15 @@ If you install dbt v2 manually in an air-gapped or firewall-restricted environme
    shasum -a 256 -c checksums-0.36.txt
    ```
 
+   Report incorrect code
+
    ### Windows (PowerShell)
 
    ```powershell
    Get-FileHash .\dbt.exe -Algorithm SHA256
    ```
+
+   Report incorrect code
 
    Compare the printed hash against the value in the checksum file.
 

@@ -14,6 +14,8 @@ models:
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -25,6 +27,8 @@ models:
       show: true | false
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
+
+Report incorrect code
 
 ## Sources
 
@@ -44,6 +48,8 @@ seeds:
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+Report incorrect code
+
 seeds/schema.yml
 
 ```yml
@@ -55,6 +61,8 @@ seeds:
         show: true | false
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -70,6 +78,8 @@ snapshots:
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+Report incorrect code
+
 snapshots/schema.yml
 
 ```yml
@@ -81,6 +91,8 @@ snapshots:
         show: true | false
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
+
+Report incorrect code
 
 ## Analyses
 
@@ -98,6 +110,8 @@ analyses:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+Report incorrect code
+
 ## Macros
 
 You can configure `docs` for macros in the `config` block under `macros:` in your YAML file. Refer to [Macro properties](../macro-properties.md) for more information.
@@ -111,6 +125,8 @@ macros:
       docs: # changed to config in v1.11
         show: true | false
 ```
+
+Report incorrect code
 
 Note that for backwards compatibility, `docs` is supported as a top-level key, but without the capabilities of config inheritance.
 
@@ -138,6 +154,8 @@ models:
       show: false
 ```
 
+Report incorrect code
+
 ### Mark a subfolder of models as hidden
 
 **Note:** This can also hide dbt packages.
@@ -158,6 +176,8 @@ models:
     +docs:
       show: false
 ```
+
+Report incorrect code
 
 ## Custom node colors
 
@@ -199,6 +219,8 @@ models:
           node_color: "gold"
 ```
 
+Report incorrect code
+
 marts/core/schema.yml
 
 ```yml
@@ -208,6 +230,8 @@ models:
     docs:
       node_color: '#000000'
 ```
+
+Report incorrect code
 
 marts/core/fct\_orders.sql
 
@@ -273,11 +297,15 @@ order by
     order_date
 ```
 
+Report incorrect code
+
 If a `node_color` is incompatible with dbt docs, you will see a compile error, as in the example below.
 
 ```shell
 Invalid color name for docs.node_color: aweioohafio23f. It is neither a valid HTML color name nor a valid HEX code.
 ```
+
+Report incorrect code
 
 dbt\_project.yml
 
@@ -290,3 +318,5 @@ models:
         +docs:
           node_color: "aweioohafio23f"
 ```
+
+Report incorrect code

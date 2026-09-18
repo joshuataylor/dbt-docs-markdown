@@ -21,11 +21,15 @@ For example, the following command sets both grouping limits:
 dbt compile --sqlparse '{"MAX_GROUPING_DEPTH": 200, "MAX_GROUPING_TOKENS": 20000}'
 ```
 
+Report incorrect code
+
 You can configure only one key to set a single limit. Any unspecified key defaults to `null`. In the following example, only the depth limit is raised to `500`; `MAX_GROUPING_TOKENS` is not set, so `sqlparse` does not apply a token limit for this run.
 
 ```bash
 dbt compile --sqlparse '{"MAX_GROUPING_DEPTH": 500}'
 ```
+
+Report incorrect code
 
 If no keys are provided, both limits remain unset (`null`), and `sqlparse` does not apply any grouping limits.
 

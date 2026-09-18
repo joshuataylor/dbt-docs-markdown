@@ -30,6 +30,8 @@ dimensions:
     expr: The column name or expression. If not provided the default is the dimension name # Optional
 ```
 
+Report incorrect code
+
 Refer to the following example to see how dimensions are used in a semantic model:
 
 (Applies to dbt v1.9 to v1.11)
@@ -67,6 +69,8 @@ semantic_models:
       type: categorical
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.11 and earlier)
 
 Dimensions are bound to the primary entity of the semantic model they are defined in. For example the dimension `type` is defined in a model that has `transaction` as a primary entity. `type` is scoped to the `transaction` entity, and to reference this dimension you would use the fully qualified dimension name i.e `transaction__type`.
@@ -86,6 +90,8 @@ semantic_model:
       create_metric: true
   primary_entity: booking_id
 ```
+
+Report incorrect code
 
 ## Dimensions types
 
@@ -122,6 +128,8 @@ dimensions:
         usage: "Filter to identify bulk transactions, like where quantity > 10."
 ```
 
+Report incorrect code
+
 ## Time
 
 (Applies to dbt v1.11 and earlier)
@@ -135,6 +143,8 @@ dbt sl query --metrics users_created,users_deleted --group-by metric_time__year 
 # dbt v1 users
 mf query --metrics users_created,users_deleted --group-by metric_time__year --order-by metric_time__year
 ```
+
+Report incorrect code
 
 You can set `is_partition` for time to define specific time spans. (Applies to dbt v1.11 and earlier) Additionally, use the `type_params` section to set `time_granularity` to adjust aggregation details (daily, weekly, and so on).
 
@@ -173,6 +183,8 @@ measures:
     expr: 1
     agg: sum
 ```
+
+Report incorrect code
 
 ### time\_granularity
 
@@ -222,6 +234,8 @@ measures:
     expr: 1
     agg: sum
 ```
+
+Report incorrect code
 
 ### SCD Type II
 
@@ -282,6 +296,8 @@ Here’s an example configuration:
       is_end: True # Indicates the end of the validity period.
 ```
 
+Report incorrect code
+
 SCD Type II tables have a specific dimension with a start and end date. To join tables:
 
 * Set the additional [entity `type`](./entities.md#entity-types) parameter to the `natural` key.
@@ -310,6 +326,8 @@ on
   and (a.metric_time < b. valid_to or b.valid_to is null)
 group by 1, 2
 ```
+
+Report incorrect code
 
 #### SCD examples
 
@@ -372,6 +390,8 @@ semantic_models:
         expr: sales_person_id
 ```
 
+Report incorrect code
+
 The following code represents a separate semantic model that holds a fact table for `transactions`:
 
 (Applies to dbt v1.11 and earlier)
@@ -423,6 +443,8 @@ semantic_models:
         type: categorical
 ```
 
+Report incorrect code
+
 You can now access the metrics in the `transactions` semantic model organized by the slowly changing dimension of `tier`.
 
 In the sales tier example, For instance, if a salesperson was Tier 1 from 2022-03-01 to 2022-03-12, and gets promoted to Tier 2 from 2022-03-12 onwards, all transactions from March would be categorized under Tier 1 since the dimensions value of Tier 1 comes earlier (and is the default starting point), even though the salesperson was promoted to Tier 2 on 2022-03-12.
@@ -450,3 +472,5 @@ dbt sl query --metrics transactions --group-by metric_time__month,sales_person__
 # dbt v1 users
 mf query --metrics transactions --group-by metric_time__month,sales_person__tier --order-by metric_time__month,sales_person__tier
 ```
+
+Report incorrect code

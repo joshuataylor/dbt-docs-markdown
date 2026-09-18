@@ -15,6 +15,8 @@ models:
         description: markdown_string
 ```
 
+Report incorrect code
+
 ## Sources
 
 models/schema.yml
@@ -34,6 +36,8 @@ sources:
             description: markdown_string
 ```
 
+Report incorrect code
+
 ## Seeds
 
 seeds/schema.yml
@@ -48,6 +52,8 @@ seeds:
       - name: column_name
         description: markdown_string
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -64,6 +70,8 @@ snapshots:
         description: markdown_string
 ```
 
+Report incorrect code
+
 ## Analyses
 
 analysis/schema.yml
@@ -79,6 +87,8 @@ analyses:
         description: markdown_string
 ```
 
+Report incorrect code
+
 ## Macros
 
 macros/schema.yml
@@ -93,6 +103,8 @@ macros:
       - name: argument_name
         description: markdown_string
 ```
+
+Report incorrect code
 
 ## Data tests
 
@@ -112,6 +124,8 @@ data_tests:
     description: markdown_string
 ```
 
+Report incorrect code
+
 tests/schema.yml
 
 ```yml
@@ -127,6 +141,8 @@ models:
           - unique:
               description: markdown_string
 ```
+
+Report incorrect code
 
 ## Unit tests
 
@@ -152,6 +168,8 @@ unit_tests:
       fixture: fixture_name
 ```
 
+Report incorrect code
+
 ## Groups
 
 models/schema.yml
@@ -164,6 +182,8 @@ groups:
     owner:
       email: owner@example.com
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -217,6 +237,8 @@ models:
         description: Primary key
 ```
 
+Report incorrect code
+
 ### Add a multiline description to a model
 
 You can use YAML [block notation](https://yaml-multiline.info/) to split a longer description over multiple lines:
@@ -238,6 +260,8 @@ models:
         description: Primary key.
 ```
 
+Report incorrect code
+
 ### Use some markdown in a description
 
 You can use markdown in your descriptions, but you may need to quote your description to ensure the YAML parser doesn't get confused by special characters!
@@ -255,6 +279,8 @@ models:
       - name: customer_id
         description: Primary key.
 ```
+
+Report incorrect code
 
 ### Use a docs block in a description
 
@@ -274,6 +300,8 @@ models:
         description: '{{ doc("orders_status") }}'
 ```
 
+Report incorrect code
+
 models/docs.md
 
 ```text
@@ -292,6 +320,8 @@ Orders can be one of the following statuses:
 
 {% enddocs %}
 ```
+
+Report incorrect code
 
 ### Link to another model in a description
 
@@ -316,6 +346,8 @@ models:
         description: Primary key
 ```
 
+Report incorrect code
+
 ### Include an image from your repo in your descriptions
 
 This section applies to dbt v1 users only. Including an image from your repository ensures your images are version-controlled.
@@ -333,6 +365,8 @@ dbt\_project.yml
 asset-paths: ["assets"]
 ```
 
+Report incorrect code
+
 2. Use a Markdown link to the image in your `description:`
 
 models/schema.yml
@@ -348,6 +382,8 @@ models:
       - name: customer_id
         description: Primary key
 ```
+
+Report incorrect code
 
 3. Run `dbt docs generate` — the `assets` directory will be copied to the `target` directory
 
@@ -375,6 +411,8 @@ models:
         description: Primary key
 ```
 
+Report incorrect code
+
 If mixing images and text, also consider using a docs block.
 
 ### Add a description to a data test
@@ -399,6 +437,8 @@ models:
               description: "The order_id is unique for every row in the orders model"
 ```
 
+Report incorrect code
+
 You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
 #### Singular data test
@@ -414,6 +454,8 @@ data_tests:
       Refunds have a negative amount, so the total amount should always be >= 0.
       Therefore return records where total amount < 0 to make the test fail.
 ```
+
+Report incorrect code
 
 Note that in order for the test to run, the `tests/assert_total_payment_amount_is_positive.sql` SQL file has to exist in the `tests` directory.
 
@@ -438,3 +480,5 @@ unit_tests:
         - {location_id: 1, location_name: "Rego Park", tax_rate: 0.2, opened_date: "2016-09-01"}
         - {location_id: 2, location_name: "Jamaica", tax_rate: 0.1, opened_date: "2079-10-27"}
 ```
+
+Report incorrect code

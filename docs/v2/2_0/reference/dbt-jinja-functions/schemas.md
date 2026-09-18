@@ -17,6 +17,8 @@ on-run-end:
   - "{% for schema in schemas %}alter default privileges in schema {{ schema }}  grant select on tables to group reporter;{% endfor %}"
 ```
 
+Report incorrect code
+
 Want more in-depth instructions on the recommended way to grant privileges?
 
 We've written a full discourse article [here](https://discourse.getdbt.com/t/the-exact-grant-statements-we-use-in-a-dbt-project/430)

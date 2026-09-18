@@ -10,4 +10,6 @@ dbt\_project.yml
 snapshot-paths: ["snapshots"]
 ```
 
+Report incorrect code
+
 Note that you cannot co-locate snapshots and models in the same directory.

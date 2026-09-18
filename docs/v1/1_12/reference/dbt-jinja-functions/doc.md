@@ -20,6 +20,8 @@ models:
         description: "Total order amount in cents. This value is always a positive integer and excludes taxes and shipping."
 ```
 
+Report incorrect code
+
 When you run `dbt docs generate` and view the docs site, this text appears exactly as written but only for the `order_total_cents` column of the `orders` model.
 
 ### Reusing descriptions with doc()
@@ -38,6 +40,8 @@ Total order amount in cents. This value is always a positive integer and exclude
 {% enddocs %}
 ```
 
+Report incorrect code
+
 This defines a docs block named `order_total_cents`. Reference it with `doc('order_total_cents')` in description fields wherever you need the same text.
 
 Next, reference this documentation in your properties YAML file:
@@ -51,6 +55,8 @@ models:
       - name: order_total_cents
         description: "{{ doc('order_total_cents') }}"
 ```
+
+Report incorrect code
 
 When you run `dbt docs generate`, dbt resolves the `doc()` reference by looking up the corresponding docs block and injecting its content into the generated documentation.
 
@@ -76,6 +82,8 @@ Total order amount in cents, excluding taxes and shipping fees.
 {% enddocs %}
 ```
 
+Report incorrect code
+
 ```shell
 dbt parse
 09:55:55  Running with dbt=1.11.8
@@ -91,3 +99,5 @@ Compilation Error
   - doc.orders.order_total_cents (models/docs/example.md)
   - doc.orders.order_total_cents (models/docs/example.md)
 ```
+
+Report incorrect code

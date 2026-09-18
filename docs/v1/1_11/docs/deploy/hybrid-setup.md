@@ -47,6 +47,8 @@ Before connecting your dbt v1 project to a dbt project, make sure models that yo
          +access: public
    ```
 
+   Report incorrect code
+
 2. After defining `access: public`, rerun a dbt execution in the dbt v1 command line interface (CLI) (like `dbt run`) to apply the change.
 
 3. For more details on how to set this up, see [access modifier](../mesh/govern/model-access.md#access-modifiers) and [`access` config](../../reference/resource-configs/access.md).
@@ -108,6 +110,8 @@ Once you have the values from the previous step, you can prepare your dbt v1 pro
       - latest:    1.9.3     - Ahead of latest version!
    ```
 
+   Report incorrect code
+
 2. If you don't have the latest version (1.10 or later), [upgrade](../local/install-dbt.md?version=1#change-dbt-core-versions) your dbt v1 project by running `python -m pip install --upgrade dbt-core`.
 
 3. Set the following environment variables in your dbt v1 project by running the following commands in the CLI. Replace the `your_account_id`, `your_environment_id`, and `your_token` with the actual values in the [previous step](#generate-service-token-and-artifact-upload-values).
@@ -120,6 +124,8 @@ Once you have the values from the previous step, you can prepare your dbt v1 pro
    export DBT_CLOUD_TOKEN=your_token
    export DBT_ENGINE_UPLOAD_TO_ARTIFACTS_INGEST_API=True
    ```
+
+   Report incorrect code
 
    * Set the environment variables in whatever way you use them in your project.
    * To unset an environment variable, run `unset environment_variable_name`, replacing `environment_variable_name` with the actual name of the environment variable.
@@ -138,17 +144,23 @@ Once you have the values from the previous step, you can prepare your dbt v1 pro
      tenant_hostname: cloud.getdbt.com # Replace with your Tenant URL
    ```
 
+   Report incorrect code
+
 5. Once you set the environment variables using the `export` command in the same dbt CLI session, you can execute a `dbt run` in the CLI.
 
    ```bash
     dbt run
    ```
 
+   Report incorrect code
+
    To override the environment variables set, execute a `dbt run` with the environment variable prefix. For example, to use a different account ID and environment ID:
 
    ```bash
     DBT_CLOUD_ACCOUNT_ID=1 DBT_CLOUD_ENVIRONMENT_ID=123 dbt run
    ```
+
+   Report incorrect code
 
 6. After the run completes, you should see a `Artifacts uploaded successfully to artifact ingestion API: command run completed successfully` message and a run in dbt under your production environment.
 

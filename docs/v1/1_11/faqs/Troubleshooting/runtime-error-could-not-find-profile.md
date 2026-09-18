@@ -11,6 +11,8 @@ Runtime Error
   Could not run dbt'
 ```
 
+Report incorrect code
+
 Usually this errors indicates that there is an issue with missing/stale credentials/authentication. No worries, we have a few workarounds for you to try:
 
 **In the Studio IDE:** Click your account name in the bottom left, select **Your profile**, then go to **Credentials**. Re-enter or re-authorize your credentials to resolve the error.

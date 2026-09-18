@@ -40,6 +40,8 @@ metrics:
       measure: order_total
 ```
 
+Report incorrect code
+
 ## Query your metric
 
 You can use the dbt platform CLI for metric validation or queries during development, via the `dbt sl` set of subcommands. Here are some useful examples:
@@ -48,6 +50,8 @@ You can use the dbt platform CLI for metric validation or queries during develop
 dbt sl query revenue --group-by metric_time__month
 dbt sl list dimensions --metrics revenue # list all dimensions available for the revenue metric
 ```
+
+Report incorrect code
 
 * It's best practice any time we're updating our Semantic Layer code to run `dbt parse` to update our development semantic manifest.
 * `dbt sl query` is not how you would typically use the tool in production, that's handled by the dbt Semantic Layer's features. It's available for testing results of various metric queries in development, exactly as we're using it now.

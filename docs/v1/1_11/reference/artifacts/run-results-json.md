@@ -53,11 +53,15 @@ models/my\_model.sql
 select {{ dbt.current_timestamp() }} as created_at
 ```
 
+Report incorrect code
+
 Compile the model:
 
 ```shell
 dbt compile -s my_model
 ```
+
+Report incorrect code
 
 Here's a printed snippet from the `run_results.json`:
 
@@ -88,6 +92,8 @@ Here's a printed snippet from the `run_results.json`:
     }
 ```
 
+Report incorrect code
+
 ### Run generic data tests
 
 Use the [`store_failures_as`](../resource-configs/store_failures_as.md) config to store failures for only one data test in the database:
@@ -108,11 +114,15 @@ models:
                 store_failures_as: ephemeral
 ```
 
+Report incorrect code
+
 Run the built-in `unique` test and store the failures as a table:
 
 ```shell
 dbt test -s my_model
 ```
+
+Report incorrect code
 
 Here's a printed snippet from the `run_results.json`:
 
@@ -176,3 +186,5 @@ Here's a printed snippet from the `run_results.json`:
     }
   ],
 ```
+
+Report incorrect code

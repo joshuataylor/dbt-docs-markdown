@@ -28,6 +28,8 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
    com.amazonaws.vpce.us-east-1.vpce-svc-0abc123def456ghi7
    ```
 
+   Report incorrect code
+
    dbt AWS account
 
    If granting access to your Teradata endpoint service requires the dbt AWS account ID, use **AWS account ID**: `346425330055` — *Note: This account ID only applies to AWS dbt multi-tenant environments. For AWS Virtual Private/Single-Tenant account IDs, contact [dbt Support](mailto:support@getdbt.com).*
@@ -47,6 +49,8 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
    - Teradata AWS Region (for example, us-east-1, eu-west-2):
    - dbt AWS multi-tenant environment (US, EMEA, AU, JP):
    ```
+
+   Report incorrect code
 
    dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 

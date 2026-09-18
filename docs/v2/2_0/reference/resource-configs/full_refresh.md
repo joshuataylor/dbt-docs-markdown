@@ -12,6 +12,8 @@ models:
     +full_refresh: false | true 
 ```
 
+Report incorrect code
+
 models/\<modelname>.sql
 
 ```sql
@@ -23,6 +25,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 ## Seeds
 
 dbt\_project.yml
@@ -32,6 +36,8 @@ seeds:
   <resource-path>:
     +full_refresh: false | true
 ```
+
+Report incorrect code
 
 ## Description
 
@@ -90,6 +96,8 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 #### Redshift
 
 ```shell
@@ -112,11 +120,15 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 In this case, you should rerun the command with a `--full-refresh` flag, like so:
 
 ```text
 dbt seed --full-refresh
 ```
+
+Report incorrect code
 
 **Why is this the case?**
 
@@ -138,6 +150,8 @@ The `--full-refresh` flag will force dbt to `drop cascade` the existing table be
       full_refresh = var("force_full_refresh", false)
   ) }}
   ```
+
+  Report incorrect code
 
   Then override the `full_refresh` config to `true` using the [`--vars` flag](../../docs/build/project-variables.md#defining-variables-on-the-command-line): `dbt run --vars '{"force_full_refresh": true}'`.
 

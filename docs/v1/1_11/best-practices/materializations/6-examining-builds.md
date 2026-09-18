@@ -42,6 +42,8 @@ If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you�
 20:24:51  5 of 10 OK created sql view model main.stg_products .... [OK in 0.13s]
 ```
 
+Report incorrect code
+
 * 5️⃣  On **both rows** we can see that our `stg_products` model is the 5th of 10 objects being built, the timestamp it started at, that it was defined in SQL (as opposed to python), and that it was a view.
 * 🆕  On the **first row** we can see the timestamp of when the model **started**.
 * ✅  On the **second row** — which does *not* necessarily come right after, thanks to threads other models can be starting and finishing as this model runs — we see the **completion** entry which adds the **status**, in this case `OK` , and the **time to build**, a lightning-fast 0.13s. That’s not unexpected considering what we know about views.

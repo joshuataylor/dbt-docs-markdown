@@ -16,6 +16,8 @@ snapshots:
       updated_at: column_name  # Required if strategy is 'timestamp'
 ```
 
+Report incorrect code
+
 ## Description
 
 The name of a snapshot, which is used when selecting from a snapshot using the [`ref` function](../dbt-jinja-functions/ref.md)
@@ -44,8 +46,12 @@ snapshots:
       updated_at: column_name  # Required if strategy is 'timestamp'
 ```
 
+Report incorrect code
+
 To select from this snapshot in a downstream model:
 
 ```sql
 select * from {{ ref('orders_snapshot') }}
 ```
+
+Report incorrect code

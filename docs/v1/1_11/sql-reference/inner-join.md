@@ -14,6 +14,8 @@ inner join <table_2> as t2
 on t1.id = t2.id 
 ```
 
+Report incorrect code
+
 In this example above, there’s only one field from each table being used to join the two together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
 
 As with any query, you can perform as many joins as you want in a singular query. A general word of advice: try to keep data models modular by performing regular DAG audits. If you join certain tables further upstream, are those individual tables needed again further downstream? If your query involves multiple joins and complex logic and is exposed to end business users, ensure that you leverage table or [incremental materializations](../docs/build/incremental-models.md).
@@ -45,6 +47,8 @@ from {{ ref('car_type') }} as car_type
 inner join {{ ref('car_color') }} as car_color
 on car_type.user_id = car_color.user_id
 ```
+
+Report incorrect code
 
 This simple query will return all rows that have the same `user_id` in both Table A and Table B:
 

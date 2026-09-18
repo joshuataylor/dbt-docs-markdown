@@ -26,6 +26,8 @@ packages:
     version: 0.13.0
 ```
 
+Report incorrect code
+
 ```txt
 Installing dbt-labs/dbt_utils@0.7.1
   Installed from version 0.7.1
@@ -54,6 +56,8 @@ Updates available for packages: ['tailsdotcom/dbt_artifacts', 'dbt-labs/snowplow
 Update your versions in packages.yml, then run dbt deps
 ```
 
+Report incorrect code
+
 ## Predictable package installs
 
 dbt generates a `package-lock.yml` file in the root of your project. This file records the exact resolved versions (including commit SHAs) of all packages defined in your `packages.yml` or `dependencies.yml` file. The `package-lock.yml` file ensures consistent and repeatable installs across all environments.
@@ -78,6 +82,8 @@ The `package-lock.yml` file includes a `sha1_hash` of your packages config. If y
 dbt deps --lock
 ```
 
+Report incorrect code
+
 ### Forcing package updates
 
 To update all packages, even if `packages.yml` hasn't changed, use the `--upgrade` flag:
@@ -85,6 +91,8 @@ To update all packages, even if `packages.yml` hasn't changed, use the `--upgrad
 ```shell
 dbt deps --upgrade
 ```
+
+Report incorrect code
 
 This is particularly useful for fetching the latest commits from the `main` branch of an internally maintained Git package.
 
@@ -107,6 +115,8 @@ dbt deps --add-package dbt-labs/dbt_utils@1.0.0
 dbt deps --add-package dbt-labs/snowplow@">=0.7.0,<0.8.0"
 ```
 
+Report incorrect code
+
 #### Non-Hub packages
 
 Use the `--source` flag to specify the type of package to be installed:
@@ -119,3 +129,5 @@ dbt deps --add-package https://github.com/fivetran/dbt_amplitude@v0.3.0 --source
 # Local package
 dbt deps --add-package /opt/dbt/redshift --source local
 ```
+
+Report incorrect code

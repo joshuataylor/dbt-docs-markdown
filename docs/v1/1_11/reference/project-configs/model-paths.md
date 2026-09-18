@@ -6,6 +6,8 @@ dbt\_project.yml
 model-paths: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories where [models](../../docs/build/models.md), [sources](../../docs/build/sources.md), and [unit tests](../../docs/build/unit-tests.md) are located.
@@ -24,6 +26,8 @@ Paths specified in `model-paths` must be relative to the location of your `dbt_p
     model-paths: ["models"]
     ```
 
+    Report incorrect code
+
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -31,6 +35,8 @@ Paths specified in `model-paths` must be relative to the location of your `dbt_p
     ```yml
     model-paths: ["/Users/username/project/models"]
     ```
+
+    Report incorrect code
 
 ## Examples
 
@@ -41,3 +47,5 @@ dbt\_project.yml
 ```yml
 model-paths: ["transformations"]
 ```
+
+Report incorrect code

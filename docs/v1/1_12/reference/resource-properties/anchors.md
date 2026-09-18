@@ -47,6 +47,8 @@ models:
       - name: unrelated_column_d
 ```
 
+Report incorrect code
+
 ![Behind the scenes, the alias is replaced with the object defined by the anchor.](/img/reference/resource-properties/anchor_example_expansion.png?v=2 "Behind the scenes, the alias is replaced with the object defined by the anchor.")Behind the scenes, the alias is replaced with the object defined by the anchor.
 
 ### Merge syntax
@@ -106,6 +108,8 @@ sources:
       - name: contacts
 ```
 
+Report incorrect code
+
 ## Usage notes
 
 * Old versions of dbt (v1.9 and earlier) do not have a dedicated `anchors:` key. If you need to define a standalone anchor, you can leave it at the top level of your file.
@@ -126,3 +130,5 @@ sources:
         - name: order_id
           data_tests: *customer_id_tests
   ```
+
+  Report incorrect code

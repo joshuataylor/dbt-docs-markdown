@@ -323,6 +323,8 @@ Here's an example of a v2 warning in the Studio IDE that says a package isn't 
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
+Report incorrect code
+
 ### Step 1: Review your current packages
 
 Identify which packages your project uses:
@@ -340,6 +342,8 @@ packages:
   - package: dbt-labs/codegen
     version: 0.9.0
 ```
+
+Report incorrect code
 
 ### Step 2: Check compatibility and find the latest package versions
 
@@ -365,6 +369,8 @@ packages:
     version: [">=1.0.0", "<3.0.0"]  # Gets latest 1.x or 2.x version
 ```
 
+Report incorrect code
+
 ### Step 3: Update your package versions
 
 Update your `packages.yml` or `dependencies.yml` file with the latest compatible versions:
@@ -385,6 +391,8 @@ Update your `packages.yml` or `dependencies.yml` file with the latest compatible
       version: 0.9.0
    ```
 
+   Report incorrect code
+
    After update:
 
    ```yaml
@@ -395,6 +403,8 @@ Update your `packages.yml` or `dependencies.yml` file with the latest compatible
       version: [">=0.12.0", "<1.0.0"]
    ```
 
+   Report incorrect code
+
 ### Step 4: Install updated packages
 
 After updating your package versions, install them:
@@ -404,6 +414,8 @@ After updating your package versions, install them:
    ```bash
    dbt deps --upgrade
    ```
+
+   Report incorrect code
 
 The `--upgrade` flag ensures dbt installs the latest versions within your specified ranges, updating the `package-lock.yml` file.
 
@@ -424,11 +436,15 @@ After upgrading packages, test your project to ensure everything works:
    dbt run --select tag:daily
    ```
 
+   Report incorrect code
+
 2. Run your tests to catch any breaking changes (exact command may vary):
 
    ```bash
    dbt test
    ```
+
+   Report incorrect code
 
 3. If you encounter issues:
 
@@ -515,6 +531,8 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
    ```text
    I need help fixing dbt v2 compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
    ```
+
+   Report incorrect code
 
 5. Review and approve dbt Wizard's permission requests so it can run the commands it needs.
 

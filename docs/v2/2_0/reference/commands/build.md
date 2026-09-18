@@ -22,11 +22,15 @@ In DAG order, for selected resources or an entire project.
 dbt build --generate-info-schema
 ```
 
+Report incorrect code
+
 To populate column types and column-level lineage in `dbt.node_columns` and `dbt.column_lineage`, combine with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Without it, `dbt.node_columns` and `dbt.column_lineage` contain no column types and no lineage.
 
 ```shell
 dbt build --generate-info-schema --static-analysis strict
 ```
+
+Report incorrect code
 
 **Skipping on failures:** Tests on upstream resources will block downstream resources from running, and a test failure will cause those downstream resources to skip entirely. E.g. If `model_b` depends on `model_a`, and a `unique` test on `model_a` fails, then `model_b` will `SKIP`.
 
@@ -64,6 +68,8 @@ The `build` command supports `--skip-checks` to bypass the [checks](../../docs/b
 dbt build --skip-checks
 ```
 
+Report incorrect code
+
 To disable a single check rather than the entire gate, set `enabled: false` on that check's config:
 
 ```yaml
@@ -72,6 +78,8 @@ checks:
     config:
       enabled: false
 ```
+
+Report incorrect code
 
 ### The `--empty` flag
 
@@ -94,6 +102,8 @@ models.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ## Tests
 
@@ -138,6 +148,8 @@ Completed successfully
 Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
 ```
 
+Report incorrect code
+
 ## Functions
 
 *Available from dbt v1.11 and up*
@@ -150,3 +162,5 @@ dbt-fusion 2.0.1
  Succeeded [  0.98s] function dbt_schema.whoami (function)
  Succeeded [  1.12s] function dbt_schema.area_of_circle (function)
 ```
+
+Report incorrect code

@@ -29,6 +29,8 @@ You can test to see if LibYAML is installed by running this command in the envir
 python -c "from yaml import CLoader"
 ```
 
+Report incorrect code
+
 ## Partial parsing
 
 After parsing your project, dbt stores an internal project manifest in a file called `partial_parse.msgpack`. When partial parsing is enabled, dbt will use that internal manifest to determine which files have been changed (if any) since it last parsed the project. Then, it will *only* parse the changed files, or files related to those changes.

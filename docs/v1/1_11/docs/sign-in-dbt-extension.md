@@ -54,6 +54,8 @@ Use this path if you prefer the terminal or want a single auth flow that works a
    dbt login
    ```
 
+   Report incorrect code
+
 2. Complete the sign-in or sign-up flow in your browser.
 
    * Refer to [First-time registration](./sign-in-dbt-extension.md?registration-path=first-time#first-time-registration) if you've never registered
@@ -235,6 +237,8 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
+Report incorrect code
+
 #### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
@@ -242,6 +246,8 @@ In your command line, use the move command. Assuming your file is in the Downloa
 ```bash
 move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
 ```
+
+Report incorrect code
 
  I can't see the lineage tab in Cursor
 
@@ -268,6 +274,8 @@ If you're a cloud-based dbt platform user who has the `dbt-cloud:` config in the
 dbt-cloud:
 project-id: 12345 # Required
 ```
+
+Report incorrect code
 
 If you don’t configure this correctly, cross-platform references will not resolve properly, and you will encounter errors executing dbt commands.
 
@@ -336,6 +344,8 @@ For standalone installations:
 ```shell
 dbt system update
 ```
+
+Report incorrect code
 
 The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](./dbt-versions/dbt-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 

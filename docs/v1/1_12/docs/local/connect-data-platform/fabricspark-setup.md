@@ -63,6 +63,8 @@ default:
       authentication: CLI
 ```
 
+Report incorrect code
+
 ### Service principal
 
 Use a Microsoft Entra ID service principal for CI/CD and other automated workloads. This method uses app registration credentials, not an active az login session. To use this method, set `authentication: SPN` in your `profiles.yml` file and provide the service principal's client ID, tenant ID, and client secret.
@@ -97,6 +99,8 @@ default:
       client_secret: SPN_CLIENT_SECRET
 ```
 
+Report incorrect code
+
 ### Fabric notebook
 
 You can authenticate through the Livy API from a Fabric notebook for production workloads and orchestration use cases within the Microsoft Fabric ecosystem. This method uses [`notebookutils.credentials`](https://learn.microsoft.com/en-us/fabric/data-engineering/notebookutils/notebookutils-credentials?tabs=python).
@@ -124,6 +128,8 @@ default:
       # Authentication (fabric_notebook for execution from a Fabric notebook)
       authentication: fabric_notebook
 ```
+
+Report incorrect code
 
 ### Custom TokenCredential
 
@@ -153,6 +159,8 @@ default:
       credential_kwargs:
         tenant_id: MICROSOFT_ENTRA_TENANT_ID
 ```
+
+Report incorrect code
 
 Replace `credential_class` and `credential_kwargs` with the class path and keyword arguments your custom credential implementation expects.
 
@@ -208,6 +216,8 @@ your_profile_name:
       retry_all: true
 ```
 
+Report incorrect code
+
 ## Optional configurations
 
 ### Retries
@@ -223,6 +233,8 @@ retry_all: true
 connect_timeout: 5
 connect_retries: 3
 ```
+
+Report incorrect code
 
 ### Spark configuration
 

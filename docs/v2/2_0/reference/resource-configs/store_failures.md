@@ -35,6 +35,8 @@ models:
                 store_failures: false  # never store failures
 ```
 
+Report incorrect code
+
 ### Singular test
 
 Configure a singular (data) test:
@@ -46,6 +48,8 @@ tests/\<filename>.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ### Generic test block
 
@@ -63,6 +67,8 @@ select ...
 {% endtest %}
 ```
 
+Report incorrect code
+
 ### Project level
 
 Set the default for all tests in a package or project:
@@ -77,6 +83,8 @@ data_tests:
     +store_failures: false # tests in <package_name>
 ```
 
+Report incorrect code
+
 ## FAQs
 
  Receiving a 'permissions denied for schema' error
@@ -88,6 +96,8 @@ To resolve this, you need proper authorization to create or access custom schema
 ```sql
 create schema if not exists dev_username_dbt_test__audit authorization username;
 ```
+
+Report incorrect code
 
 *Replace `dev_username` with your specific development schema name and `username` with the appropriate user who should have the permissions.*
 

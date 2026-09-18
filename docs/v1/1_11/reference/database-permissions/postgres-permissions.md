@@ -27,4 +27,6 @@ grant insert, update, delete, truncate on all tables in schema destination_schem
 alter default privileges in schema destination_schema grant insert, update, delete, truncate on tables to user_name;
 ```
 
+Report incorrect code
+
 Check out the [official documentation](https://www.postgresql.org/docs/current/sql-grant.html) for more information.

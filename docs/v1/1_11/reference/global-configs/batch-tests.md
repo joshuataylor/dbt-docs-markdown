@@ -42,6 +42,8 @@ CLI
 dbt build --batch-tests
 ```
 
+Report incorrect code
+
 With an environment variable:
 
 Env var
@@ -51,6 +53,8 @@ export DBT_ENGINE_BATCH_TESTS=true
 dbt build
 ```
 
+Report incorrect code
+
 In your `dbt_project.yml`:
 
 dbt\_project.yml
@@ -59,3 +63,5 @@ dbt\_project.yml
 flags:
   batch_tests: true
 ```
+
+Report incorrect code

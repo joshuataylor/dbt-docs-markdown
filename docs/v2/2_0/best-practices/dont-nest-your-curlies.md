@@ -26,6 +26,8 @@ When writing Jinja code in a dbt project, it may be tempting to nest expressions
   }}
 ```
 
+Report incorrect code
+
 To nest a Jinja expression inside of another Jinja expression, simply place the desired code (without curly brackets) directly into the expression.
 
 **Correct example** Here, the return value of the `var()` context method is supplied as the `start_date` argument to the `date_spine` macro. Great!
@@ -38,6 +40,8 @@ To nest a Jinja expression inside of another Jinja expression, simply place the 
   }}
 ```
 
+Report incorrect code
+
 **Incorrect example** Once we've denoted that we're inside a Jinja expression (using the `{{` syntax), no further curly brackets are required inside of the Jinja expression. This code will supply a literal string value, `"{{ var('start_date') }}"`, as the `start_date` argument to the `date_spine` macro. This is probably not what you actually want to do!
 
 ```text
@@ -49,6 +53,8 @@ To nest a Jinja expression inside of another Jinja expression, simply place the 
       )
   }}
 ```
+
+Report incorrect code
 
 Here's another example:
 
@@ -65,6 +71,8 @@ select * from {{ ref('my_model') }}
 {% set query_sql = "select * from {{ ref('my_model')}}" %}
 ```
 
+Report incorrect code
+
 ### An exception
 
 There is one exception to this rule: curlies inside of curlies are acceptable in hooks (ie. `on-run-start`, `on-run-end`, `pre-hook`, and `post-hook`).
@@ -74,5 +82,7 @@ Code like this is both valid, and encouraged:
 ```text
 {{ config(post_hook="grant select on {{ this }} to role bi_role") }}
 ```
+
+Report incorrect code
 
 So why are curlies inside of curlies allowed in this case? Here, we actually *want* the string literal `"grant select on {{ this }} ..."` to be saved as the configuration value for the post-hook in this model. This string will be re-rendered when the model runs, resulting in a sensible SQL expression like `grant select on "schema"."table"....` being executed against the database. These hooks are a special exception to the rule stated above.

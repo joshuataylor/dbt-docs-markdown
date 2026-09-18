@@ -82,11 +82,15 @@ Clone the [`fusion-jaffle-shop` project](https://github.com/matthewshaver/jaffle
 git clone https://github.com/matthewshaver/jaffle-shop-multi-adapter.git
 ```
 
+Report incorrect code
+
 Then navigate into the project directory:
 
 ```bash
 cd fusion-jaffle-shop
 ```
+
+Report incorrect code
 
 ## Part 1: Set up the Snowflake account
 
@@ -105,6 +109,8 @@ CREATE WAREHOUSE IF NOT EXISTS COMPUTE_WH
 CREATE DATABASE IF NOT EXISTS DBT_ICEBERG;
 CREATE SCHEMA IF NOT EXISTS DBT_ICEBERG.RAW;
 ```
+
+Report incorrect code
 
 ### 1.2 Create the `TRANSFORMER` role and grant it everything it needs
 
@@ -129,6 +135,8 @@ GRANT CREATE VIEW ON SCHEMA DBT_ICEBERG.RAW TO ROLE TRANSFORMER;
 GRANT ROLE TRANSFORMER TO USER <YOUR_USER>;
 ALTER USER <YOUR_USER> SET DEFAULT_ROLE = TRANSFORMER;
 ```
+
+Report incorrect code
 
 We'll grant `TRANSFORMER` access to the external volume in Part 3, after it exists.
 
@@ -172,6 +180,8 @@ In your AWS console:
 }
 ```
 
+Report incorrect code
+
 3. Click **Next**, name it `snowflake-iceberg-policy`, and **Create policy**.
 
 ### 2.3 Create the IAM role (with a placeholder trust)
@@ -208,11 +218,15 @@ CREATE OR REPLACE EXTERNAL VOLUME ICEBERG_EXT_VOL
   ALLOW_WRITES = TRUE;
 ```
 
+Report incorrect code
+
 ### 3.2 Get Snowflake's identity and finish the IAM trust
 
 ```sql
 DESCRIBE EXTERNAL VOLUME ICEBERG_EXT_VOL;
 ```
+
+Report incorrect code
 
 In the output, find the `STORAGE_LOCATION_1` row and read two values out of its JSON:
 
@@ -233,6 +247,8 @@ Now, go back to the AWS console **IAM → Roles → `snowflake-iceberg-role` →
 }
 ```
 
+Report incorrect code
+
 Click **Update policy**. Copy the external ID *exactly*, including any trailing `=` and internal `/`. It's case-sensitive.
 
 ### 3.3 Grant the volume and set it as the database default
@@ -250,6 +266,8 @@ ALTER DATABASE DBT_ICEBERG SET EXTERNAL_VOLUME = ICEBERG_EXT_VOL;
 ALTER DATABASE DBT_ICEBERG SET CATALOG = 'SNOWFLAKE';
 ```
 
+Report incorrect code
+
 ## Part 4: Create a Programmatic Access Token for DuckDB
 
 DuckDB authenticates to Horizon's REST catalog over OAuth2, using a Programmatic Access Token (PAT) as its credential. To add the PAT in Snowsight:
@@ -262,6 +280,8 @@ ALTER USER <YOUR_USER> ADD PROGRAMMATIC ACCESS TOKEN duckdb_pat
   DAYS_TO_EXPIRY = 90;
 ```
 
+Report incorrect code
+
 The result grid has two columns. Copy the long `token_secret` value (not `token_name`). You only see it once; save it somewhere safe for Part 6.
 
 **Verify the token works:** Before wiring it into dbt, in a terminal, run the OAuth2 exchange (this is exactly what DuckDB does under the hood). Note the **empty username** before the colon in `-u ":..."` — this is essential (see FAQ):
@@ -272,6 +292,8 @@ curl -s "https://<ACCOUNT_IDENTIFIER>.snowflakecomputing.com/polaris/api/catalog
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'scope=session:role:TRANSFORMER'
 ```
+
+Report incorrect code
 
 A JSON response containing `"access_token"` means you're good. If you see `Programmatic access token is invalid`, re-copy the token. **If you see an error mentioning a network policy, see the [FAQ](./iceberg.md?step=12#faq)**. Some Snowflake accounts require a network policy before a PAT can be created or used.
 
@@ -287,9 +309,13 @@ From the project root in your dbt CLI, install packages and seed the raw tables 
 dbt deps
 ```
 
+Report incorrect code
+
 ```bash
 dbt seed --target prod
 ```
+
+Report incorrect code
 
 ### 5.2 First seed
 
@@ -299,6 +325,8 @@ The project's `on-run-start` hook (`insert_freshness_heartbeat()`) queries a raw
 # on-run-start:
 #   - "{{ insert_freshness_heartbeat() }}"
 ```
+
+Report incorrect code
 
 Uncomment it once the seeds exist.
 
@@ -370,6 +398,8 @@ jaffle_shop:
           oauth2_scope: "session:role:TRANSFORMER"
 ```
 
+Report incorrect code
+
 The v2 project's `dbt_project.yml` sets `profile: default`. Either rename the profile key above to `default`, or set `profile: jaffle_shop`. Keep it consistent.
 
 If `externalbrowser` fails
@@ -380,6 +410,8 @@ For example `390190 (08004) ... SAML Identity Provider account parameter`, swap 
 # authenticator: externalbrowser
 password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 ```
+
+Report incorrect code
 
 ### 6.2 `catalogs.yml`
 
@@ -401,6 +433,8 @@ catalogs:
         access_delegation_mode: VENDED_CREDENTIALS # Horizon vends temp S3 creds; no AWS keys needed
 ```
 
+Report incorrect code
+
 ### 6.3 `dbt_project.yml`
 
 Add the behavior flag that enables `catalogs.yml`, and remove the project-level `marts` grants (they don't work on DuckDB — see 6.4 and the FAQ). Add near the top:
@@ -410,6 +444,8 @@ flags:
   use_catalogs_v2: true
 ```
 
+Report incorrect code
+
 Then, under `models: jaffle_shop: marts:`, **delete** the `+grants` block:
 
 ```yaml
@@ -417,6 +453,8 @@ Then, under `models: jaffle_shop: marts:`, **delete** the `+grants` block:
    +grants:
      select: ["ACCOUNTADMIN"]
 ```
+
+Report incorrect code
 
 ### 6.4 Model changes
 
@@ -428,17 +466,23 @@ These edits make the three models materialize as Iceberg and behave on both engi
   {{ config(materialized='table', catalog_name='horizon_catalog', alias='STG_ORDERS') }}
   ```
 
+  Report incorrect code
+
   ...and change the timestamp line to:
 
   ```sql
   cast({{ dbt.date_trunc('day','ordered_at') }} as timestamp_ntz(6)) as ordered_at
   ```
 
+  Report incorrect code
+
 * **`models/marts/order_items.sql`**: add at the very top:
 
   ```sql
   {{ config(materialized='table', catalog_name='horizon_catalog', alias='ORDER_ITEMS') }}
   ```
+
+  Report incorrect code
 
 * **`models/marts/orders.sql`**: replace its config header with:
 
@@ -452,6 +496,8 @@ These edits make the three models materialize as Iceberg and behave on both engi
   ) }}
   ```
 
+  Report incorrect code
+
 * **`models/marts/orders.yml`**: Turn off the enforced contract (a single contract can't hold both Snowflake and DuckDB type names):
 
   ```yaml
@@ -459,11 +505,15 @@ These edits make the three models materialize as Iceberg and behave on both engi
           enforced: false
   ```
 
+  Report incorrect code
+
 * **`macros/insert_freshness_heartbeat.sql`**: Exclude the `duckdb` target (the heartbeat writes to the raw Snowflake source, which isn't attached in a DuckDB session):
 
   ```jinja
   {% if target.name not in ('ci', 'dev', 'duckdb') %}
   ```
+
+  Report incorrect code
 
 * **Why uppercase `alias`?** Snowflake stores unquoted identifiers in UPPERCASE, and Iceberg catalogs are case-sensitive. DuckDB quotes model names in lowercase, so without the uppercase alias it would look for `"stg_orders"` and miss `STG_ORDERS`.
 
@@ -477,6 +527,8 @@ This is where it all comes together! Snowflake builds the raw and staging Iceber
 dbt run --target prod -s +orders --exclude orders
 ```
 
+Report incorrect code
+
 This builds `stg_orders` and `order_items` as Snowflake-managed Iceberg tables in `DBT_ICEBERG.RAW`, registered in Horizon. Because you run as `TRANSFORMER`, it owns those tables.
 
 ### 7.2 DuckDB pass: Read and write through Horizon
@@ -485,6 +537,8 @@ This builds `stg_orders` and `order_items` as Snowflake-managed Iceberg tables i
 dbt run --target duckdb -s orders
 ```
 
+Report incorrect code
+
 DuckDB attaches Horizon, reads `STG_ORDERS` + `ORDER_ITEMS` (fetching temp S3 credentials from Horizon), builds `orders` locally, and commits it back as an Iceberg table through Horizon's REST catalog without involving a Snowflake warehouse.
 
 ### 7.3 Verify
@@ -492,6 +546,8 @@ DuckDB attaches Horizon, reads `STG_ORDERS` + `ORDER_ITEMS` (fetching temp S3 cr
 ```bash
 dbt show --target duckdb --inline "select count(*) from {{ ref('orders') }}"
 ```
+
+Report incorrect code
 
 You should get a real row count (tens of thousands). You'll also see `ORDERS` listed as an **Iceberg table** in Snowsight under `DBT_ICEBERG.RAW` and written entirely by DuckDB.
 

@@ -13,6 +13,8 @@ functions:
       volatility: deterministic | stable | non-deterministic
 ```
 
+Report incorrect code
+
 ## Definition
 
 You can optionally use the [`volatility` config](./volatility.md) for SQL, Python, or JavaScript UDFs to describe how predictable the function output is by using `deterministic`, `stable`, or `non-deterministic`. Warehouses use this information to decide if results can be cached, reordered, or inlined. Setting the appropriate volatility helps prevent incorrect results when a function isn’t safe to cache or reorder.
@@ -67,6 +69,8 @@ functions:
     returns:
       data_type: boolean
 ```
+
+Report incorrect code
 
 ## Related documentation
 

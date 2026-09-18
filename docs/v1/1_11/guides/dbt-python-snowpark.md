@@ -76,6 +76,8 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
    create or replace warehouse COMPUTE_WH with warehouse_size=XSMALL
    ```
 
+   Report incorrect code
+
 3. Rename the worksheet to `data setup script` since we will be placing code in this worksheet to ingest the Formula 1 data. Make sure you are still logged in as the **ACCOUNTADMIN** and select the **COMPUTE\_WH** warehouse.
 
    ![Rename worksheet and select warehouse](/img/guides/dbt-ecosystem/dbt-python-snowpark/3-connect-to-data-source/1-rename-worksheet-and-select-warehouse.png?v=2 "Rename worksheet and select warehouse")Rename worksheet and select warehouse
@@ -228,6 +230,8 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
    on_error='continue';
    ```
 
+   Report incorrect code
+
 5. Ensure all the commands are selected before running the query — an easy way to do this is to use Ctrl-a to highlight all of the code in the worksheet. Select **run** (blue triangle icon). Notice how the dot next to your **COMPUTE\_WH** turns from gray to green as you run the query. The **status** table is the final table of all 8 tables loaded in.
 
    ![Load data from S3 bucket](/img/guides/dbt-ecosystem/dbt-python-snowpark/3-connect-to-data-source/2-load-data-from-s3.png?v=2 "Load data from S3 bucket")Load data from S3 bucket
@@ -253,6 +257,8 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
       ```sql
       select * from formula1.raw.circuits
       ```
+
+      Report incorrect code
 
    4. Run the query. From here on out, we’ll use the keyboard shortcuts Command-Enter or Control-Enter to run queries and won’t explicitly call out this step.
 
@@ -405,6 +411,8 @@ In this step, we’ll need to create a development branch and set up project lev
           node_color: "#36454f"
    ```
 
+   Report incorrect code
+
 4. The key configurations to point out in the file with relation to the work that we're going to do are in the `models` section.
 
    * `require-dbt-version` — Tells dbt which version of dbt to use for your project. We are requiring 1.3.0 and any newer version to run python models and node colors.
@@ -418,6 +426,8 @@ In this step, we’ll need to create a development branch and set up project lev
    marts:     
      +materialized: table
    ```
+
+   Report incorrect code
 
 ## Create folders and organize files
 
@@ -532,6 +542,8 @@ sources:
             - not_null
 ```
 
+Report incorrect code
+
 ### 2. Create staging models
 
 The next step is to set up the staging models for each of the 8 source tables. Given the one-to-one relationship between staging models and their corresponding source tables, we'll build 8 staging models here. We know it’s a lot and in the future, we will seek to update the workshop to make this step less repetitive and more efficient. This step is also a good representation of the real world of data, where you have multiple hierarchical tables that you will need to join together!
@@ -563,6 +575,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
    select * from renamed
    ```
 
+   Report incorrect code
+
    All we're doing here is pulling the source data into the model using the `source` function, renaming some columns, and omitting the column `url` with a commented note since we don’t need it for our analysis.
 
 2. Create `stg_f1_constructors.sql` with this file path `models/staging/formula1/stg_f1_constructors.sql`. Paste the following code into it before saving the file:
@@ -588,6 +602,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
 
    select * from renamed
    ```
+
+   Report incorrect code
 
    We have 6 other stages models to create. We can do this by creating new files, then copy and paste the code into our `staging` folder.
 
@@ -619,6 +635,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
    select * from renamed
    ```
 
+   Report incorrect code
+
 4. Create `stg_f1_lap_times.sql` with this file path `models/staging/formula1/stg_f1_lap_times.sql`:
 
    ```sql
@@ -643,6 +661,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
 
    select * from renamed
    ```
+
+   Report incorrect code
 
 5. Create `stg_f1_pit_stops.sql` with this file path `models/staging/formula1/stg_f1_pit_stops.sql`:
 
@@ -670,6 +690,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
    select * from renamed
    order by pit_stop_duration_seconds desc
    ```
+
+   Report incorrect code
 
 6. Create `stg_f1_races.sql` with this file path `models/staging/formula1/stg_f1_races.sql`:
 
@@ -708,6 +730,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
    select * from renamed
    ```
 
+   Report incorrect code
+
 7. Create `stg_f1_results.sql` with this file path `models/staging/formula1/stg_f1_results.sql`:
 
    ```sql
@@ -745,6 +769,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
    select * from renamed
    ```
 
+   Report incorrect code
+
 8. Last one! Create `stg_f1_status.sql` with this file path: `models/staging/formula1/stg_f1_status.sql`:
 
    ```sql
@@ -765,6 +791,8 @@ The next step is to set up the staging models for each of the 8 source tables. G
 
    select * from renamed
    ```
+
+   Report incorrect code
 
    After the source and all the staging models are complete for each of the 8 tables, your staging folder should look like this:
 
@@ -838,6 +866,8 @@ By now, we are pretty good at creating new files in the correct directories so w
    select * from expanded_lap_times_by_year
    ```
 
+   Report incorrect code
+
 2. Create a file called `in_pit_stops.sql`. Pit stops are a many-to-one (M:1) relationship with our races. We are creating a feature called `total_pit_stops_per_race` by partitioning over our `race_id` and `driver_id`, while preserving individual level pit stops for rolling average in our next section.
 
    ```sql
@@ -861,6 +891,8 @@ By now, we are pretty good at creating new files in the correct directories so w
 
    select * from pit_stops_per_race
    ```
+
+   Report incorrect code
 
 3. Create a file called `int_results.sql`. Here we are using 4 of our tables — `races`, `drivers`, `constructors`, and `status` — to give context to our `results` table. We are now able to calculate a new feature `drivers_age_years` by bringing the `date_of_birth` and `race_year` into the same table. We are also creating a column to indicate if the driver did not finish (dnf) the race, based upon if their `position` was null called, `dnf_flag`.
 
@@ -940,6 +972,8 @@ By now, we are pretty good at creating new files in the correct directories so w
    select * from int_results
    ```
 
+   Report incorrect code
+
 4. Create a *Markdown* file `intermediate.md` that we will go over in depth in the Test and Documentation sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](./dbt-python-snowpark.md) guide.
 
    ```markdown
@@ -955,6 +989,8 @@ By now, we are pretty good at creating new files in the correct directories so w
    {% docs int_lap_times_years %} Lap times are done per lap. We need to join them out to the race year to understand yearly lap time trends. {% enddocs %}
    ```
 
+   Report incorrect code
+
 5. Create a *YAML* file `intermediate.yml` that we will go over in depth during the Test and Document sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](./dbt-python-snowpark.md) guide.
 
    ```yaml
@@ -968,6 +1004,8 @@ By now, we are pretty good at creating new files in the correct directories so w
     - name: int_lap_times_years
       description: '{{ doc("int_lap_times_years") }}'
    ```
+
+   Report incorrect code
 
    That wraps up the intermediate models we need to create our core models!
 
@@ -1045,6 +1083,8 @@ By now, we are pretty good at creating new files in the correct directories so w
    select * from base_results
    ```
 
+   Report incorrect code
+
 2. Create the file `pit_stops_joined.sql`. Our results and pit stops are at different levels of dimensionality (also called grain). Simply put, we have multiple pit stops per a result. Since we are interested in understanding information at the pit stop level with information about race year and constructor, we will create a new table `pit_stops_joined.sql` where each row is per pit stop. Our new table tees up our aggregation in Python.
 
    ```sql
@@ -1079,6 +1119,8 @@ By now, we are pretty good at creating new files in the correct directories so w
    )
    select * from pit_stops_joined
    ```
+
+   Report incorrect code
 
 3. Enter in the command line and execute `dbt build` to build out our entire pipeline to up to this point. Don’t worry about “overriding” your previous models – dbt workflows are designed to be idempotent so we can run them again and expect the same results.
 
@@ -1125,6 +1167,8 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
        return fastest_pit_stops.round(2)
    ```
 
+   Report incorrect code
+
 3. Let’s break down what this code is doing step by step:
 
    * First, we are importing the Python libraries that we are using. A *library* is a reusable chunk of code that someone else wrote that you may want to include in your programs/projects. We are using `numpy` and `pandas`in this Python model. This is similar to a dbt *package*, but our Python libraries do *not* persist across the entire project.
@@ -1153,6 +1197,8 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
    dbt run --select fastest_pit_stops_by_constructor
    ```
 
+   Report incorrect code
+
    in the command bar.
 
    Let’s look at some details of our first Python model to see what our model executed. There two major differences we can see while running a Python model compared to an SQL model:
@@ -1175,6 +1221,8 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
    ```sql
    select * from {{ ref('fastest_pit_stops_by_constructor') }}
    ```
+
+   Report incorrect code
 
    and preview the output:
 
@@ -1208,6 +1256,8 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
        return lap_time_trends.round(1)
    ```
 
+   Report incorrect code
+
 10. Breaking down our code a bit:
 
     * We’re only using the `pandas` library for this model and casting it to a pandas data frame `.to_pandas()`.
@@ -1222,6 +1272,8 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
     ```bash
     dbt run --select lap_times_moving_avg
     ```
+
+    Report incorrect code
 
 in the command bar.
 
@@ -1260,6 +1312,8 @@ Let’s take a step back before starting machine learning to both review and go 
             # setting configuration
             dbt.config(materialized="table")
     ```
+
+    Report incorrect code
 
   * There's a limit to how complex you can get with the `dbt.config()` method. It accepts only literal values (strings, booleans, and numeric types). Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `.config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the config property in a [properties YAML file](../reference/resource-properties/config.md). Learn more about configurations [here](../reference/model-configs.md).
 
@@ -1343,6 +1397,8 @@ At a high level we’ll be:
        return data
    ```
 
+   Report incorrect code
+
 3. As usual, let’s break down what we are doing in this Python model:
 
    * We’re first referencing our upstream `fct_results` table and casting it to a pandas dataframe.
@@ -1357,6 +1413,8 @@ At a high level we’ll be:
    ```bash
    dbt run --select ml_data_prep
    ```
+
+   Report incorrect code
 
 5. There are more aspects we could consider for this project, such as normalizing the driver confidence by the number of races entered. Including this would help account for a driver’s history and consider whether they are a new or long-time driver. We’re going to keep it simple for now, but these are some of the ways we can expand and improve our machine learning dbt projects. Breaking down our machine learning prep model:
 
@@ -1426,11 +1484,15 @@ In this next part, we’ll be performing covariate encoding. Breaking down this 
        return encoded_data_grouped_target
    ```
 
+   Report incorrect code
+
 2. Execute the following in the command bar:
 
    ```bash
    dbt run --select covariate_encoding
    ```
+
+   Report incorrect code
 
 3. In this code, we are using a ton of functions from libraries! This is really cool, because we can utilize code other people have developed and bring it into our project simply by using the `import` function. [Scikit-learn](https://scikit-learn.org/stable/), “sklearn” for short, is an extremely popular data science library. Sklearn contains a wide range of machine learning techniques, including supervised and unsupervised learning algorithms, feature scaling and imputation, as well as tools model evaluation and selection. We’ll be using Sklearn for both preparing our covariates and creating models (our next section).
 
@@ -1487,6 +1549,8 @@ Now that we’ve cleaned and encoded our data, we are going to further split in 
        return train_test_dataset
    ```
 
+   Report incorrect code
+
 2. Create a file called `hold_out_dataset_for_prediction.py` copy and save the following code below. Now we’ll have a dataset with only the year 2020 that we’ll keep as a hold out set that we are going to use similar to a deployment use case.
 
    ```python
@@ -1508,11 +1572,15 @@ Now that we’ve cleaned and encoded our data, we are going to further split in 
        return hold_out_dataset
    ```
 
+   Report incorrect code
+
 3. Execute the following in the command bar:
 
    ```bash
    dbt run --select train_test_dataset hold_out_dataset_for_prediction
    ```
+
+   Report incorrect code
 
    To run our temporal data split models, we can use this syntax in the command line to run them both at once. Make sure you use a *space* [syntax](../reference/node-selection/syntax.md) between the model names to indicate you want to run both!
 
@@ -1609,11 +1677,15 @@ If you haven’t seen code like this before or use joblib files to save machine 
        return  snowpark_train_df.with_column("DATASET_TYPE", F.lit("train")).union(snowpark_test_df.with_column("DATASET_TYPE", F.lit("test")))
    ```
 
+   Report incorrect code
+
 3. Execute the following in the command bar:
 
    ```bash
    dbt run --select train_test_position
    ```
+
+   Report incorrect code
 
 4. Breaking down our Python script here:
 
@@ -1653,6 +1725,8 @@ If you haven’t seen code like this before or use joblib files to save machine 
    ```sql
    list @modelstage
    ```
+
+   Report incorrect code
 
 ![List the objects in our Snowflake stage to check for our logistic regression to predict driver position](/img/guides/dbt-ecosystem/dbt-python-snowpark/12-machine-learning-training-prediction/2-list-snowflake-stage.png?v=2 "List the objects in our Snowflake stage to check for our logistic regression to predict driver position")List the objects in our Snowflake stage to check for our logistic regression to predict driver position
 
@@ -1757,11 +1831,15 @@ If you haven’t seen code like this before or use joblib files to save machine 
        return new_predictions_df
    ```
 
+   Report incorrect code
+
 2. Execute the following in the command bar:
 
    ```bash
    dbt run --select predict_position
    ```
+
+   Report incorrect code
 
 3. **Commit and push** our changes to keep saving our work as we go using the commit message `logistic regression model training and application` before moving on.
 
@@ -1803,6 +1881,8 @@ If you haven’t seen code like this before or use joblib files to save machine 
    ```sql
    select * from {{ ref('predict_position') }} order by position_predicted
    ```
+
+   Report incorrect code
 
 7. We can see that we created predictions in our final dataset, we are ready to move on to testing!
 
@@ -1852,6 +1932,8 @@ models:
                     field: race_year
 ```
 
+Report incorrect code
+
 2. Let’s unpack the code we have here. We have both our aggregates models with the model name to know the object we are referencing and the description of the model that we’ll populate in our documentation. At the column level (a level below our model), we are providing the column name followed by our tests. We want to ensure our `constructor_name` is unique since we used a pandas `groupby` on `constructor_name` in the model `fastest_pit_stops_by_constructor`. Next, we want to ensure our `race_year` has referential integrity from the model we selected from `int_lap_times_years` into our subsequent `lap_times_moving_avg` model.
 3. Finally, if we want to see how tests were deployed on sources and SQL models, we can look at other files in our project such as the `f1_sources.yml` we created in our Sources and staging section.
 
@@ -1868,6 +1950,8 @@ select * from {{ ref(table) }} where {{ column }} < 0
 
 {% endmacro %}
 ```
+
+Report incorrect code
 
 2. Macros in Jinja are pieces of code that can be reused multiple times in our SQL models — they are analogous to "functions" in other programming languages, and are extremely useful if you find yourself repeating code across multiple models.
 3. We use the `{% macro %}` to indicate the start of the macro and `{% endmacro %}` for the end. The text after the beginning of the macro block is the name we are giving the macro to later call it. In this case, our macro is called `test_all_values_gte_zero`. Macros take in *arguments* to pass through, in this case the `table` and the `column`. In the body of the macro, we see an SQL statement that is using the `ref` function to dynamically select the table and then the column. You can always view macros without having to run them by using `dbt run-operation`. You can learn more [here](../reference/commands/run-operation.md).
@@ -1888,6 +1972,8 @@ select * from {{ ref(table) }} where {{ column }} < 0
 
    {{ test_all_values_gte_zero('fastest_pit_stops_by_constructor', 'mean') }}
    ```
+
+   Report incorrect code
 
 6. In our testing file, we are applying some configurations to the test including `enabled`, which is an optional configuration for disabling models, seeds, snapshots, and tests. Our severity is set to `warn` instead of `error`, which means our pipeline will still continue to run. We have tagged our test with `bi` since we are applying this test to one of our bi models.
 
@@ -1923,6 +2009,8 @@ Let’s add a custom test that asserts that the moving average of the lap time o
    where lap_moving_avg_5_years < 0 and lap_moving_avg_5_years is not null
    ```
 
+   Report incorrect code
+
 ### Putting all our tests together
 
 1. Time to run our tests! Altogether, we have created 4 tests for our 2 Python models:
@@ -1942,6 +2030,8 @@ Let’s add a custom test that asserts that the moving average of the lap time o
    ```bash
    dbt test --select fastest_pit_stops_by_constructor lap_times_moving_avg
    ```
+
+   Report incorrect code
 
    ![running tests on our python models](/img/guides/dbt-ecosystem/dbt-python-snowpark/13-testing/5-running-tests-on-python-models.png?v=2 "running tests on our python models")running tests on our python models
 
@@ -1967,6 +2057,8 @@ To start, let’s look back at our `intermediate.md` file. We can see that we pr
 ```bash
 dbt docs generate
 ```
+
+Report incorrect code
 
 This will generate the documentation for your project. Click the book button, as shown in the screenshot below to access the docs.
 

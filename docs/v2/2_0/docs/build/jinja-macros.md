@@ -56,6 +56,8 @@ from app_data.payments
 group by 1
 ```
 
+Report incorrect code
+
 This query will get compiled to:
 
 /models/order\_payment\_method\_amounts.sql
@@ -70,6 +72,8 @@ select
 from app_data.payments
 group by 1
 ```
+
+Report incorrect code
 
 You can recognize Jinja based on the delimiters the language uses, which we refer to as "curlies":
 
@@ -97,6 +101,8 @@ macros/cents\_to\_dollars.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 A model which uses this macro might look like:
 
 models/stg\_payments.sql
@@ -109,6 +115,8 @@ select
 from app_data.payments
 ```
 
+Report incorrect code
+
 This would be *compiled* to:
 
 target/compiled/models/stg\_payments.sql
@@ -120,6 +128,8 @@ select
   ...
 from app_data.payments
 ```
+
+Report incorrect code
 
 💡 Use Jinja's whitespace control to tidy your macros!
 
@@ -146,6 +156,8 @@ from my_table
 {{ dbt_utils.dimensions(5) }}
 ```
 
+Report incorrect code
+
 You can also qualify a macro in your own project by prefixing it with your [package name](../../reference/dbt-jinja-functions/project_name.md) (this is mainly useful for package authors).
 
 ## FAQs
@@ -169,6 +181,8 @@ In the [macro example](./jinja-macros.md#macros) we passed the column name `amou
 ```sql
 {{ cents_to_dollars('amount') }} as amount_usd
 ```
+
+Report incorrect code
 
 We have to use quotes to pass the *string* `'amount'` to the macro.
 
@@ -215,6 +229,8 @@ macros:
         description: Number of decimal places. Defaults to 2.
 ```
 
+Report incorrect code
+
 tip
 
 From dbt v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
@@ -233,6 +249,8 @@ When you create a [custom materialization](../../guides/create-new-materializati
 materialization_{materialization_name}_{adapter}
 ```
 
+Report incorrect code
+
 To document a custom materialization, use the previously mentioned format to determine the associated macro name(s) to document.
 
 macros/properties.yml
@@ -245,6 +263,8 @@ macros:
     description: A custom materialization to insert records into an append-only table and track when they were added.
 ```
 
+Report incorrect code
+
 Why does my dbt output have so many macros in it?
 
 The output of a dbt run counts over 100 macros in your project!
@@ -254,6 +274,8 @@ $ dbt run
 Running with dbt=1.7.0
 Found 1 model, 0 tests, 0 snapshots, 0 analyses, 138 macros, 0 operations, 0 seed files, 0 sources
 ```
+
+Report incorrect code
 
 This is because dbt ships with its own project, which also includes macros! You can learn more about this [here](https://discourse.getdbt.com/t/did-you-know-dbt-ships-with-its-own-project/764).
 
@@ -287,3 +309,5 @@ Writing a macro for the first time? Check whether we've open sourced one in [dbt
 ...
 {% endfor %}
 ```
+
+Report incorrect code

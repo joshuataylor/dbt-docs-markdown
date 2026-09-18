@@ -29,6 +29,8 @@ sources:
       key: value
 ```
 
+Report incorrect code
+
 #### Properties YAML file
 
 models/properties.yml
@@ -58,6 +60,8 @@ sources:
           meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 ## Configuring sources
 
 Sources can be configured via a `config:` block within their `.yml` definitions, or from the `dbt_project.yml` file under the `sources:` key. This configuration is most useful for configuring sources imported from [a package](../docs/build/packages.md).
@@ -80,6 +84,8 @@ You can disable sources imported from a package to prevent them from rendering i
             +event_time: my_time_field
   ```
 
+  Report incorrect code
+
 ### Examples
 
 The following examples show how to configure sources in your dbt project.
@@ -97,6 +103,8 @@ sources:
   events:
     +enabled: false
 ```
+
+Report incorrect code
 
 #### Conditionally enable a single source
 
@@ -119,6 +127,8 @@ sources:
           enabled: false
 ```
 
+Report incorrect code
+
 You can configure specific source tables, and use [variables](./dbt-jinja-functions/var.md) as the input to that configuration:
 
 models/sources.yml
@@ -133,6 +143,8 @@ sources:
           enabled: "{{ var('my_source_table_enabled', false) }}"
 ```
 
+Report incorrect code
+
 #### Disable a single source from a package
 
 To disable a specific source from another package, qualify the resource path for your configuration with both a package name and a source name. In this case, we're disabling the `clickstream` source from the `events` package.
@@ -146,6 +158,8 @@ sources:
       +enabled: false
 ```
 
+Report incorrect code
+
 Similarly, you can disable a specific table from a source by qualifying the resource path with a package name, source name, and table name:
 
 dbt\_project.yml
@@ -157,6 +171,8 @@ sources:
       pageviews:
         +enabled: false
 ```
+
+Report incorrect code
 
 #### Configure a source with an `event_time`
 
@@ -174,6 +190,8 @@ sources:
     clickstream:
       +event_time: event_timestamp
 ```
+
+Report incorrect code
 
 In this example, the `event_time` is set to `event_timestamp`, which has the exact time each clickstream event happened. Not only is this required for the [incremental microbatching strategy](../docs/build/incremental-microbatch.md), but when you compare data across [CI and production](../docs/deploy/advanced-ci.md#speeding-up-comparisons) environments, dbt will use `event_timestamp` to filter and match data by this event-based timeframe, ensuring that only overlapping timeframes are compared.
 
@@ -193,6 +211,8 @@ sources:
         source_system: "Google analytics"
         data_owner: "marketing_team"
 ```
+
+Report incorrect code
 
 #### Configure source freshness
 
@@ -214,6 +234,8 @@ sources:
         count: 4
         period: hour
 ```
+
+Report incorrect code
 
 ## Example source configuration
 
@@ -242,3 +264,5 @@ sources:
       link_clicks:
         +enabled: true
 ```
+
+Report incorrect code

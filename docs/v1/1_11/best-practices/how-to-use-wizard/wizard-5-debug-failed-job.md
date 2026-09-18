@@ -17,6 +17,8 @@ revision with my current branch, and show the evidence for the root cause before
 you propose any code or test changes.
 ```
 
+Report incorrect code
+
 You can also scope the prompt to a known job:
 
 ```text
@@ -24,6 +26,8 @@ Find the most recent failed run of the Production job. Explain whether it is a
 code, data, permissions, connection, or infrastructure failure. Don't change a
 test just to make it pass.
 ```
+
+Report incorrect code
 
 ## Give Wizard access to the evidence
 
@@ -73,6 +77,8 @@ when the failure came from transformation logic. Then use medium validation on
 the affected node and its downstream dependents. Keep the original job revision
 and the evidence in the summary.
 ```
+
+Report incorrect code
 
 Review the proposed diff, then confirm that validation covers the failure mode:
 

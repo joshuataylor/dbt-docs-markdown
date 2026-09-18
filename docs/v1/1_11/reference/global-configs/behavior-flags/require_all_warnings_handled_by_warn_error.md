@@ -40,6 +40,8 @@ flags:
       - SelectExcludeIgnoredWithSelectorWarning
 ```
 
+Report incorrect code
+
 You can also use the `warn` list to keep specific events as warnings even when `--warn-error` would otherwise escalate them to errors.
 
 To opt out of this behavior, set the flag to `false`:
@@ -50,3 +52,5 @@ dbt\_project.yml
 flags:
   require_all_warnings_handled_by_warn_error: false
 ```
+
+Report incorrect code

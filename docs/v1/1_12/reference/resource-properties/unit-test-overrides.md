@@ -29,6 +29,8 @@ models/schema.yml
         - {macro_call: override, var_call: var_override, env_var_call: env_var_override, invocation_id: 123}
 ```
 
+Report incorrect code
+
 ## Macros
 
 You can override the output of any macro referenced directly by the model being unit tested in your unit test definition. Overrides apply only to macros, variables, and environment variables that are referenced directly within the model being unit tested. If a macro, variable, or environment variable is only referenced indirectly (for example, inside a macro that your model calls), the override will not be applied.
@@ -51,6 +53,8 @@ unit_tests:
     ...
 ```
 
+Report incorrect code
+
 * [`dbt_utils.star`](https://docs.getdbt.com/blog/star-sql-love-letter): If you're unit testing a model that uses the `star` macro, you must explicitly set `star` to a list of columns. This is because the `star` only accepts a [relation](../dbt-classes.md#relation) for the `from` argument; the unit test mock input data is injected directly into the model SQL, replacing the `ref('')` or `source('')` function, causing the `star` macro to fail unless overridden.
 
 models/schema.yml
@@ -66,3 +70,5 @@ unit_tests:
         dbt_utils.star: col_a,col_b,col_c 
     ...
 ```
+
+Report incorrect code

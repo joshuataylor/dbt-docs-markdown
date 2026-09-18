@@ -15,6 +15,8 @@ from my_data_source
 limit <integer>
 ```
 
+Report incorrect code
+
 Let’s take a look at a practical example using LIMIT below.
 
 ### LIMIT example
@@ -28,6 +30,8 @@ from {{ ref('orders') }}
 order by 2
 limit 5
 ```
+
+Report incorrect code
 
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return these exact 5 rows:
 

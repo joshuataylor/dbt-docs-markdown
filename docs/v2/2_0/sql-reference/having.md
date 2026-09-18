@@ -21,6 +21,8 @@ having condition
 [optional order by]
 ```
 
+Report incorrect code
+
 That example syntax looks a little gibberish without some real fields, so let’s dive into a practical example using HAVING.
 
 ### SQL HAVING example
@@ -35,6 +37,8 @@ from {{ ref('orders') }}
 group by 1
 having num_orders > 1 --if you replace this with `where`, this query would not successfully run
 ```
+
+Report incorrect code
 
 #### CTE example
 
@@ -52,6 +56,8 @@ select
 from counts
 where num_orders > 1
 ```
+
+Report incorrect code
 
 This simple query using the sample dataset [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return customers who have had more than one order:
 

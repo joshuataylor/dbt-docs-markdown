@@ -14,6 +14,8 @@ models:
     +on_error: skip_children | continue
 ```
 
+Report incorrect code
+
 ## Property file
 
 models/properties.yml
@@ -25,6 +27,8 @@ models:
       on_error: skip_children | continue
 ```
 
+Report incorrect code
+
 ## SQL config
 
 models/\<model\_name>.sql
@@ -34,6 +38,8 @@ models/\<model\_name>.sql
     on_error="skip_children" | "continue"
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -58,6 +64,8 @@ models/my\_model.sql
 
 select 1 as id
 ```
+
+Report incorrect code
 
 When `on_error` is set to `continue` on a model that fails, dbt runs its downstream models rather than skipping them. The failed model still appears as an error in the run results, and the overall run still fails even if all downstream models succeed.
 

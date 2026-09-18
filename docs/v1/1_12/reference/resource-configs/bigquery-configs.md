@@ -30,6 +30,8 @@ The `partition_by` config can be supplied as a dictionary with the following for
 }
 ```
 
+Report incorrect code
+
 #### Partitioning by a date or timestamp
 
 When using a `datetime` or `timestamp` column to partition data, you can create partitions with a granularity of hour, day, month, or year. A `date` column supports granularity of day, month and year. Daily partitioning is the default for all column types.
@@ -58,6 +60,8 @@ select
 from {{ ref('events') }}
 ```
 
+Report incorrect code
+
 ##### Compiled code
 
 bigquery\_table.sql
@@ -76,6 +80,8 @@ as (
 
 )
 ```
+
+Report incorrect code
 
 #### Partitioning by an "ingestion" date or timestamp
 
@@ -108,6 +114,8 @@ select
 from {{ ref('events') }}
 ```
 
+Report incorrect code
+
 ##### Compiled code
 
 bigquery\_table.sql
@@ -128,6 +136,8 @@ select created_date as _partitiontime, * EXCEPT(created_date) from (
     from `projectname`.`analytics`.`events`
 );
 ```
+
+Report incorrect code
 
 #### Partitioning with integer buckets
 
@@ -159,6 +169,8 @@ select
 from {{ ref('events') }}
 ```
 
+Report incorrect code
+
 ##### Compiled code
 
 bigquery\_table.sql
@@ -180,6 +192,8 @@ as (
 
 )
 ```
+
+Report incorrect code
 
 #### Additional partition configs
 
@@ -204,6 +218,8 @@ bigquery\_table.sql
 )}}
 ```
 
+Report incorrect code
+
 ### Clustering clause
 
 BigQuery tables can be [clustered](https://cloud.google.com/bigquery/docs/clustered-tables) to colocate related data.
@@ -223,6 +239,8 @@ bigquery\_table.sql
 select * from ...
 ```
 
+Report incorrect code
+
 Clustering on multiple columns:
 
 bigquery\_table.sql
@@ -237,6 +255,8 @@ bigquery\_table.sql
 
 select * from ...
 ```
+
+Report incorrect code
 
 ## Using Reservations
 
@@ -256,6 +276,8 @@ models:
     +reservation: 'projects/abc-123/locations/US/reservations/my-reservation'
 ```
 
+Report incorrect code
+
 3. **Model level** (`{{ config(...) }}`) — overrides project and target settings for a single model.
 
 models/my\_model.sql
@@ -267,6 +289,8 @@ models/my\_model.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ## Managing KMS encryption
 
@@ -290,6 +314,8 @@ models:
     encrypted:
       +kms_key_name: 'projects/PROJECT_ID/locations/global/keyRings/test/cryptoKeys/quickstart'
 ```
+
+Report incorrect code
 
 ## Labels and tags
 
@@ -316,6 +342,8 @@ model.sql
 select * from {{ ref('another_model') }}
 ```
 
+Report incorrect code
+
 **Configuring labels in dbt\_project.yml**
 
 dbt\_project.yml
@@ -331,6 +359,8 @@ models:
       +labels:
         domain: finance
 ```
+
+Report incorrect code
 
 ![Viewing labels in the BigQuery console](/img/docs/building-a-dbt-project/building-models/73eaa8a-Screen_Shot_2020-01-20_at_12.12.54_PM.png?v=2 "Viewing labels in the BigQuery console")Viewing labels in the BigQuery console
 
@@ -363,6 +393,8 @@ Define the `query_comment` macro to add labels to your queries via the query com
 {% endmacro %}
 ```
 
+Report incorrect code
+
 This macro creates a JSON comment containing dbt metadata (app, version, profile, target) and merges in any model-specific labels you've configured.
 
 #### Step 2
@@ -384,6 +416,8 @@ query-comment:
   job-label: true
 ```
 
+Report incorrect code
+
 When enabled, BigQuery will parse the JSON comment and apply the key-value pairs as labels to each job. You can then filter and analyze jobs in the BigQuery console or via the INFORMATION\_SCHEMA.JOBS view using these labels.
 
 ### Specifying tags
@@ -402,6 +436,8 @@ model.sql
 
 select * from {{ ref('another_model') }}
 ```
+
+Report incorrect code
 
 You can create a new label with no value or remove a value from an existing label key.
 
@@ -443,6 +479,8 @@ model.sql
 select * from {{ ref('another_model') }}
 ```
 
+Report incorrect code
+
 #### Configuring tags in `dbt_project.yml`
 
 To configure tags in a `dbt_project.yml` file, refer to the following example:
@@ -461,6 +499,8 @@ models:
         my-project-id/environment: staging
         my-project-id/data_classification: internal
 ```
+
+Report incorrect code
 
 #### Using both dbt tags and BigQuery tags
 
@@ -483,6 +523,8 @@ model.sql
 select * from {{ ref('my_table') }}
 ```
 
+Report incorrect code
+
 For more information on setting up IAM conditional policies with BigQuery tags, see BigQuery's documentation on [tags](https://cloud.google.com/bigquery/docs/tags).
 
 ### Policy tags
@@ -502,6 +544,8 @@ models:
       policy_tags:
         - 'projects/<gcp-project>/locations/<location>/taxonomies/<taxonomy>/policyTags/<tag>'
 ```
+
+Report incorrect code
 
 Please note that in order for policy tags to take effect, [column-level `persist_docs`](./persist_docs.md) must be enabled for the model, seed, or snapshot. Consider using [variables](../../docs/build/project-variables.md) to manage taxonomies and make sure to add the required security [roles](https://cloud.google.com/bigquery/docs/column-level-security-intro#roles) to your BigQuery service account key.
 
@@ -539,6 +583,8 @@ on SRC.{{ unique_key }} = DEST.{{ unique_key }}
 when matched then update ...
 when not matched then insert ...
 ```
+
+Report incorrect code
 
 The 'merge' approach automatically updates new data in the destination incremental table but requires scanning all source tables referenced in the model SQL, as well as destination tables. This can be slow and expensive for large data volumes. [Partitioning and clustering](#using-table-partitioning-and-clustering) techniques mentioned earlier can help mitigate these issues.
 
@@ -581,6 +627,8 @@ then delete
 
 when not matched then insert ...
 ```
+
+Report incorrect code
 
 For a complete writeup on the mechanics of this approach, see [this explainer post](https://discourse.getdbt.com/t/bigquery-dbt-incremental-changes/982).
 
@@ -625,6 +673,8 @@ with events as (
 ... rest of model ...
 ```
 
+Report incorrect code
+
 This example model serves to replace the data in the destination table for both *today* and *yesterday* every day that it is run. It is the fastest and cheapest way to incrementally update a table using dbt. If we wanted this to run more dynamically— let’s say, always for the past 3 days—we could leverage dbt’s baked-in [datetime macros](https://github.com/dbt-labs/dbt/blob/dev/octavius-catto/core/dbt/include/global_project/macros/etc/datetime.sql) and write a few of our own.
 
 Think of this as "full control" mode. You must ensure that expressions or literal values in the `partitions` config have proper quoting when templated, and that they match the `partition_by.data_type` (`timestamp`, `datetime`, `date`, or `int64`). Otherwise, the filter in the incremental `merge` statement will raise an error.
@@ -667,6 +717,8 @@ with events as (
 ... rest of model ...
 ```
 
+Report incorrect code
+
 #### Copying partitions
 
 If you are replacing entire partitions in your incremental runs, you can opt to do so with the [copy table API](https://cloud.google.com/bigquery/docs/managing-tables#copy-table) and partition decorators rather than a `merge` statement. While this mechanism doesn't offer the same visibility and ease of debugging as the SQL `merge` statement, it can yield significant savings in time and cost for large datasets because the copy table API does not incur any costs for inserting the data - it's equivalent to the `bq cp` gcloud command line interface (CLI) command.
@@ -698,6 +750,8 @@ select
 from {{ ref('events') }}
 ```
 
+Report incorrect code
+
 logs/dbt.log
 
 ```text
@@ -705,6 +759,8 @@ logs/dbt.log
 [0m16:03:13.017641 [debug] [Thread-3 (]: BigQuery adapter: Copying table(s) "/projects/projectname/datasets/analytics/tables/bigquery_table__dbt_tmp$20230112" to "/projects/projectname/datasets/analytics/tables/bigquery_table$20230112" with disposition: "WRITE_TRUNCATE"
 ...
 ```
+
+Report incorrect code
 
 ## Controlling table expiration
 
@@ -718,6 +774,8 @@ models:
     +hours_to_expiration: 6
 ```
 
+Report incorrect code
+
 models/\<modelname>.sql
 
 ```sql
@@ -728,6 +786,8 @@ models/\<modelname>.sql
 
 select ...
 ```
+
+Report incorrect code
 
 The `hours_to_expiration` config only applies when the underlying table is first created. It doesn't reset on incremental runs.To work around this, call a macro in your +post-hook that resets the expiration timestamp manually. Update the hours argument to match your hours\_to\_expiration value.
 
@@ -744,6 +804,8 @@ The `hours_to_expiration` config only applies when the underlying table is first
 {% endmacro %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -752,6 +814,8 @@ models:
     +post-hook:
       - "{{ reset_expiration_for_incremental(hours=6) }}"
 ```
+
+Report incorrect code
 
 ## Authorized views
 
@@ -778,6 +842,8 @@ models:
         dataset: dataset_2
 ```
 
+Report incorrect code
+
 models/\<modelname>.sql
 
 ```sql
@@ -789,6 +855,8 @@ models/\<modelname>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 Views with this configuration will be able to select from objects in `project_1.dataset_1` and `project_2.dataset_2`, even when they are located elsewhere and queried by users who do not otherwise have access to `project_1.dataset_1` and `project_2.dataset_2`.
 
@@ -840,6 +908,8 @@ models:
     +kms_key_name: <path-to-key>
 ```
 
+Report incorrect code
+
 ### Property file
 
 models/properties.yml
@@ -871,6 +941,8 @@ models:
       hours_to_expiration: <integer>
       kms_key_name: <path-to-key>
 ```
+
+Report incorrect code
 
 ### SQL file config
 
@@ -913,6 +985,8 @@ models/\<model\_name>.sql
     kms_key_name="<path_to_key>",
 ) }}
 ```
+
+Report incorrect code
 
 Many of these parameters correspond to their table counterparts and have been linked above. The set of parameters unique to materialized views covers [auto-refresh functionality](#auto-refresh).
 
@@ -975,6 +1049,8 @@ gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} --member=serviceA
 gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} --member=serviceAccount:dbt-bigframes-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --role=roles/aiplatform.colabEnterpriseUser
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -982,6 +1058,8 @@ models:
   my_dbt_project:
     submission_method: bigframes
 ```
+
+Report incorrect code
 
 profiles.yml
 
@@ -1003,6 +1081,8 @@ my_dbt_project_sa:
       type: bigquery
   target: dev
 ```
+
+Report incorrect code
 
 ### Dataproc
 
@@ -1031,12 +1111,16 @@ def model(dbt, session):
     ...
 ```
 
+Report incorrect code
+
 ```yml
 models:
   - name: my_python_model
     config:
       submission_method: serverless
 ```
+
+Report incorrect code
 
 Python models running on Dataproc Serverless can be further configured in your [BigQuery profile](../../docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc).
 
@@ -1053,6 +1137,8 @@ storage.buckets.get
 storage.objects.create
 storage.objects.delete
 ```
+
+Report incorrect code
 
 For more information, refer to [Dataproc IAM roles and permissions](https://cloud.google.com/dataproc/docs/concepts/iam/iam).
 
@@ -1089,6 +1175,8 @@ Installation of third-party packages on Dataproc varies depending on whether it'
               runtime_config:
                   container_image: {HOSTNAME}/{PROJECT_ID}/{IMAGE}:{TAG}
   ```
+
+  Report incorrect code
 
 ![Adding packages to install via pip at cluster startup](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-pip-packages.png?v=2 "Adding packages to install via pip at cluster startup")Adding packages to install via pip at cluster startup
 

@@ -22,6 +22,8 @@ models:
     refresh_method: 'async' // only for materialized view default manual
 ```
 
+Report incorrect code
+
 ### Properties YAML file
 
 models/properties.yml
@@ -41,6 +43,8 @@ models:
       refresh_method: 'async' // only for materialized view default manual
 ```
 
+Report incorrect code
+
 ### SQL file config
 
 models/\<model\_name>.sql
@@ -56,6 +60,8 @@ models/\<model\_name>.sql
     ....
 ) }}
 ```
+
+Report incorrect code
 
 ### Configuration Description
 
@@ -83,6 +89,8 @@ PROPERTIES (
 );
 ```
 
+Report incorrect code
+
 How to add other types of catalogs can be found in the documentation. [Catalog Overview](https://docs.starrocks.io/en-us/latest/data_source/catalog/catalog_overview) Then write the sources.yaml file.
 
 ```yaml
@@ -93,8 +101,12 @@ sources:
       - name: hive_table_name
 ```
 
+Report incorrect code
+
 Finally, you might use below marco quote
 
 ```jinja
 {{ source('external_example', 'hive_table_name') }}
 ```
+
+Report incorrect code

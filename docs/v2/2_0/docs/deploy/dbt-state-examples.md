@@ -25,6 +25,8 @@ Every skipped model is a model you didn't pay to rebuild. dbt State tracks what'
 dbt run --target prod
 ```
 
+Report incorrect code
+
 With no prior state to compare against, dbt builds every model from scratch. dbt State captures metadata from this run for future comparisons.
 
 ### Without dbt State
@@ -67,6 +69,8 @@ Completed successfully
 
 Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=12
 ```
+
+Report incorrect code
 
 ### With dbt State
 
@@ -111,11 +115,15 @@ Completed successfully. Total cache hits: 0. Estimated time saved: 0.00s. Freshn
 Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=12
 ```
 
+Report incorrect code
+
 ## Second run
 
 ```shell
 dbt run --target prod
 ```
+
+Report incorrect code
 
 For each model, dbt State compares the current logic and upstream data against the previous run. If nothing has changed, dbt State skips the build or clones the result from another environment.
 
@@ -164,6 +172,8 @@ Completed successfully
 Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=12
 ```
 
+Report incorrect code
+
 ### With dbt State
 
 ```shell
@@ -208,11 +218,15 @@ Completed successfully. Total cache hits: 12. Estimated time saved: 17.77s. Fres
 Done. PASS=0 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=12 TOTAL=12
 ```
 
+Report incorrect code
+
 ## Selecting a model in a fresh dev environment after changing the customers model
 
 ```shell
 dbt run --target dev --select "customers"
 ```
+
+Report incorrect code
 
 Imagine you've made a small change to the `customers` model and run it in a fresh developer schema. Without dbt State, dbt v1 fails because upstream relations are missing. With dbt State, dbt [defers](./dbt-state-deferral.md) to prod for upstream models and runs only the updated `customers` model.
 
@@ -243,6 +257,8 @@ Completed with 1 error, 0 partial successes, and 0 warnings:
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
 ```
 
+Report incorrect code
+
 ### With dbt State
 
 ```shell
@@ -264,11 +280,15 @@ Completed successfully
 Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
 ```
 
+Report incorrect code
+
 ## Selecting a model in a new dev schema with no model changes
 
 ```shell
 dbt run --target dev --select "customers"
 ```
+
+Report incorrect code
 
 Suppose you create a fresh dev schema and run only the `customers` model. Without dbt State, dbt v1 fails because there is no data in the schema. With dbt State, dbt knows `customers` just ran in another schema: it defers to prod for upstream models and clones `customers` because the outcome is unchanged.
 
@@ -299,6 +319,8 @@ Completed with 1 error, 0 partial successes, and 0 warnings:
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
 ```
 
+Report incorrect code
+
 ### With dbt State
 
 ```shell
@@ -319,6 +341,8 @@ Completed successfully. Total cache hits: 1. Estimated time saved: 2.20s. Freshn
 
 Done. PASS=0 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=1 TOTAL=1
 ```
+
+Report incorrect code
 
 ## Related docs
 

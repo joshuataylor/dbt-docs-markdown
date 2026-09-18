@@ -169,6 +169,8 @@ Subject: New Multi-Tenant (Azure or AWS) PrivateLink Request
 - dbt AWS multi-tenant environment (US, EMEA, AU, JP):
 ```
 
+Report incorrect code
+
 *\*By default, dbt will be configured to use `privatelink-account-url` from the provided [SYSTEM$GET\_PRIVATELINK\_CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config.html) as the PrivateLink endpoint. Upon request, `regionless-privatelink-account-url` can be used instead.*
 
 *\*\* Internal Stage PrivateLink must be [enabled on the Snowflake account](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws#prerequisites) to use this feature*
@@ -198,6 +200,8 @@ If an Internal Stage PrivateLink endpoint has been provisioned, your dbt environ
 ```text
 s3_stage_vpce_dns_name: '*.vpce-012345678abcdefgh-4321dcba.s3.us-west-2.vpce.amazonaws.com'
 ```
+
+Report incorrect code
 
 4. Save the changes.
 
@@ -253,6 +257,8 @@ CREATE NETWORK RULE allow_dbt_cloud_access
   VALUE_LIST = ('<VPCE_ID>'); -- Replace '<VPCE_ID>' with the VPCE ID the actual value
 ```
 
+Report incorrect code
+
 2. Add the rule to a network policy with the following SQL:
 
 ```sql
@@ -260,3 +266,5 @@ CREATE NETWORK RULE allow_dbt_cloud_access
 ALTER NETWORK POLICY <network_policy_name>
   ADD ALLOWED_NETWORK_RULE_LIST =('allow_dbt_cloud_access');
 ```
+
+Report incorrect code

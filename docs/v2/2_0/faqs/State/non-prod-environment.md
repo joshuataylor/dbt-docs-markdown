@@ -10,4 +10,6 @@ my_project:
       defer_to_target: production
 ```
 
+Report incorrect code
+
 `defer_to_target` only applies to self-managed deployments. If you're using the dbt platform, deferral is configured through your environment settings in the UI. For more details, refer to [Configuring deferral](../../docs/deploy/dbt-state-deferral.md).

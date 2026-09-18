@@ -29,6 +29,8 @@ for r in res.result:
     print(f"{r.unique_id}: {r.status}")
 ```
 
+Report incorrect code
+
 For implementation details, refer to the [`dbt-python` crate](https://github.com/dbt-labs/dbt/tree/main/crates/dbt-python) in the dbt v1 repository.
 
 ## Supported arguments
@@ -44,6 +46,8 @@ dbt = dbtRunner()
 dbt.invoke(["run", "--select", "tag:my_tag"])
 dbt.invoke(["run"], select="tag:my_tag")
 ```
+
+Report incorrect code
 
 ## Parallel execution not supported
 
@@ -122,3 +126,5 @@ dbt = dbtRunner()
 dbt.invoke(["--fail-fast", "run", "--select", "tag:my_tag"])
 dbt.invoke(["run"], select=["tag:my_tag"], fail_fast=True)
 ```
+
+Report incorrect code

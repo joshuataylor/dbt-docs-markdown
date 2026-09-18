@@ -6,6 +6,8 @@ To run data tests on all sources, use the following command:
   dbt test --select "source:*"
 ```
 
+Report incorrect code
+
 (You can also use the `-s` shorthand here instead of `--select`)
 
 To run data tests on one source (and all of its tables):
@@ -14,8 +16,12 @@ To run data tests on one source (and all of its tables):
 $ dbt test --select source:jaffle_shop
 ```
 
+Report incorrect code
+
 And, to run data tests on one source table only:
 
 ```shell
 $ dbt test --select source:jaffle_shop.orders
 ```
+
+Report incorrect code

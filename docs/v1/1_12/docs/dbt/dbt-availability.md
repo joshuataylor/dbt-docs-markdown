@@ -14,6 +14,8 @@ You can get started right away with many dbt features, free forever! You can als
 dbt login
 ```
 
+Report incorrect code
+
 Creating an account also unlocks additional free-tier access to dbt services.
 
 | Feature                                               | Free forever (for real!) | Requires login<br />to any dbt platform account, free or paid |

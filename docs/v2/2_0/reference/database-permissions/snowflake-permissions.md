@@ -14,6 +14,8 @@ create database raw;
 create database analytics;
 ```
 
+Report incorrect code
+
 2. Set up warehouses
 
 ```text
@@ -36,6 +38,8 @@ create warehouse reporting
     initially_suspended = true;
 ```
 
+Report incorrect code
+
 3. Set up roles and warehouse permissions
 
 ```text
@@ -50,6 +54,8 @@ grant all on warehouse transforming to role transformer;
 create role reporter;
 grant all on warehouse reporting to role reporter;
 ```
+
+Report incorrect code
 
 4. Create users, assigning them to their roles
 
@@ -84,6 +90,8 @@ grant role transformer to user claire; -- or amy, jeremy
 grant role reporter to user looker_user; -- or mode_user, periscope_user
 ```
 
+Report incorrect code
+
 5. Let loader load data
 
 Give the role unilateral permission to operate on the raw database
@@ -92,6 +100,8 @@ Give the role unilateral permission to operate on the raw database
 use role sysadmin;
 grant all on database raw to role loader;
 ```
+
+Report incorrect code
 
 6. Let transformer transform data
 
@@ -106,6 +116,8 @@ grant select on future tables in database raw to role transformer;
 grant select on future views in database raw to role transformer;
 ```
 
+Report incorrect code
+
 If you already have data loaded in the raw database, make sure also you run the following to update the permissions
 
 ```text
@@ -114,11 +126,15 @@ grant select on all tables in database raw to role transformer;
 grant select on all views in database raw to role transformer;
 ```
 
+Report incorrect code
+
 transformer also needs to be able to create in the analytics database:
 
 ```text
 grant all on database analytics to role transformer;
 ```
+
+Report incorrect code
 
 7. Let reporter read the transformed data
 
@@ -131,6 +147,8 @@ grant select on future tables in database analytics to role reporter;
 grant select on future views in database analytics to role reporter;
 ```
 
+Report incorrect code
+
 Again, if you already have data in your analytics database, make sure you run:
 
 ```text
@@ -138,6 +156,8 @@ grant usage on all schemas in database analytics to role reporter;
 grant select on all tables in database analytics to role reporter;
 grant select on all views in database analytics to role reporter;
 ```
+
+Report incorrect code
 
 8. Maintain
 
@@ -168,3 +188,5 @@ grant monitor on all schemas in database database_name to role role_name;
 grant select on all tables in database database_name to role role_name;
 grant select on all views in database database_name to role role_name;
 ```
+
+Report incorrect code

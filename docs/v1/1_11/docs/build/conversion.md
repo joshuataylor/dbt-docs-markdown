@@ -71,6 +71,8 @@ metrics:
             conversion_property: DIMENSION or ENTITY # Same as base above, but to the semantic model of the conversion_measure
 ```
 
+Report incorrect code
+
 ## Conversion metric example
 
 The following example will measure conversions from website visits (`VISITS` table) to order completions (`BUYS` table) and calculate a conversion metric for this scenario step by step.
@@ -118,6 +120,8 @@ Next, define a conversion metric as follows:
       window: 7 days
 ```
 
+Report incorrect code
+
 To calculate the conversion, link the `BUYS` event to the nearest `VISITS` event (or closest base event). The following steps explain this process in more detail:
 
 ### Step 1: Join `VISITS` and `BUYS`
@@ -141,6 +145,8 @@ inner join (
 on
 v.user_id = b.user_id and v.ds <= b.ds and v.ds > b.ds - interval '7 days'
 ```
+
+Report incorrect code
 
 The dataset returns the following (note that there are two potential conversion events for the first visit):
 
@@ -170,6 +176,8 @@ inner join (
 on
 v.user_id = b.user_id and v.ds <= b.ds and v.ds > b.ds - interval '7 day'
 ```
+
+Report incorrect code
 
 The dataset returns the following:
 
@@ -203,6 +211,8 @@ inner join (
 on
 v.user_id = b.user_id and v.ds <= b.ds and v.ds > b.ds - interval '7 day';
 ```
+
+Report incorrect code
 
 The dataset returns the following:
 
@@ -256,6 +266,8 @@ group by
   metric_time__day
 ```
 
+Report incorrect code
+
 ### Additional settings
 
 Use the following additional settings to customize your conversion metrics:
@@ -287,6 +299,8 @@ To return zero in the final data set, you can set the value of a null conversion
       window: 7 days 
 ```
 
+Report incorrect code
+
 This will return the following results:
 
 ![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")Conversion metric with fill nulls with parameter
@@ -317,6 +331,8 @@ You can change the default to display the number of conversions by setting the `
         entity: user
         window: 1 week
 ```
+
+Report incorrect code
 
 #### Set constant property
 
@@ -353,6 +369,8 @@ In this case, you want to set `product_id` as the constant property. You can spe
           conversion_property: product
 ```
 
+Report incorrect code
+
 You will add an additional condition to the join to make sure the constant property is the same across conversions.
 
 ```sql
@@ -373,6 +391,8 @@ on
   and v.ds > buy_source.ds - interval '7 day'
   and buy_source.product_id = v.product_id --Joining on the constant property product_id
 ```
+
+Report incorrect code
 
 ## Related docs
 

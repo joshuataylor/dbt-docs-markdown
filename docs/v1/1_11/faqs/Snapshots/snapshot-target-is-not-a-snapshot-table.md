@@ -13,11 +13,15 @@ Double check that you haven't inadvertently caused your snapshot to behave like 
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 dbt is treating snapshots like tables (issuing `create or replace table ...` statements) **silently** instead of actually snapshotting data (SCD2 via `insert` / `merge` statements). When upgrading to dbt versions 1.4 and higher, dbt now raises a Parsing Error (instead of silently treating snapshots like tables) that reads:
 
 ```text
 A snapshot must have a materialized value of 'snapshot'
 ```
+
+Report incorrect code
 
 This tells you to change your `materialized` config to `snapshot`. But when you make that change, you might encounter an error message saying that certain fields like `dbt_scd_id` are missing. This error happens because, previously, when dbt treated snapshots as tables, it didn't include the necessary [snapshot meta-fields](../../docs/build/snapshots.md#snapshot-meta-fields) in your target table. Since those meta-fields don't exist, dbt correctly identifies that you're trying to create a snapshot in a table that isn't actually a snapshot.
 

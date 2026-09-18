@@ -25,6 +25,8 @@ select *
 from ...
 ```
 
+Report incorrect code
+
 #### Project config
 
 dbt\_project.yml
@@ -37,6 +39,8 @@ models:
       materialized: table
 ```
 
+Report incorrect code
+
 > **Limitation:** Nested CTE aren't supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
 
 ## Table Clone
@@ -47,6 +51,8 @@ The `table_clone` materialization creates a physical copy of an existing table u
 {{ config(materialized='table_clone', clone_from='staging_table') }}
 select * from staging_table
 ```
+
+Report incorrect code
 
 **Notes:**
 
@@ -67,6 +73,8 @@ vars:
   max_batch_size: 200 # Any integer less than or equal to 2100 will do.
 ```
 
+Report incorrect code
+
 ## Views
 
 You can create views using the `view` materialization:
@@ -76,6 +84,8 @@ You can create views using the `view` materialization:
 select * from source_data
 ```
 
+Report incorrect code
+
 You can set this globally as well:
 
 ```yaml
@@ -83,6 +93,8 @@ models:
   my_project:
     +materialized: view
 ```
+
+Report incorrect code
 
 > **Limitation:** Nested CTEs (Common Table Expressions) are not supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
 
@@ -119,6 +131,8 @@ select * from source_table
 {% endif %}
 ```
 
+Report incorrect code
+
 ### Append
 
 Appends new records to the existing dataset.
@@ -132,6 +146,8 @@ Appends new records to the existing dataset.
 }}
 select * from new_data
 ```
+
+Report incorrect code
 
 ### Delete+Insert
 
@@ -147,6 +163,8 @@ Deletes and re-inserts based on `unique_key`.
 }}
 select * from updated_data
 ```
+
+Report incorrect code
 
 ### Microbatch
 
@@ -164,6 +182,8 @@ The `microbatch` strategy processes data in bounded time intervals using an even
 
 select * from raw_events
 ```
+
+Report incorrect code
 
 #### Notes
 
@@ -187,6 +207,8 @@ union all
 select * from {{ ref('customer_dim') }}
 ```
 
+Report incorrect code
+
 Ensure that the corresponding model or source definitions specify the correct `database:` parameter to reference another Fabric Warehouse.
 
 Example `sources.yml`:
@@ -199,6 +221,8 @@ sources:
     tables:
       - name: transactions
 ```
+
+Report incorrect code
 
 > To use cross-warehouse references or warehouse snapshots, ensure the identity configured here has access to all referenced Fabric Warehouses.
 
@@ -238,3 +262,5 @@ For additional details:
 
 Not supported at this time. However, dbt-fabric offers some dbt-utils macros. Please check out the tsql-utils package.
 ```
+
+Report incorrect code

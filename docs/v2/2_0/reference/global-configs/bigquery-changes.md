@@ -35,6 +35,8 @@ You may opt into the new behavior sooner by setting
 `flags.bigquery_reject_wildcard_metadata_source_freshness` to `true` in `dbt_project.yml`.
 ```
 
+Report incorrect code
+
 When you set this flag to `true`, dbt raises a `DbtRuntimeError` when you run metadata-based source freshness checks with wildcard table identifiers. For example:
 
 ```text
@@ -43,6 +45,8 @@ Runtime Error in source my_* (models/schema.yml)
   '`dbt-test-env`.`dbt_username`.`events_*`'. Please set 'loaded_at_field' on
   this source to use a query-based freshness check instead.
 ```
+
+Report incorrect code
 
 To calculate freshness for wildcard tables, configure [`loaded_at_field`](../resource-configs/freshness.md) on the source to use query-based freshness checks instead.
 
@@ -64,6 +68,8 @@ sources:
             error_after: {count: 24, period: hour}
           loaded_at_field: _etl_loaded_at
 ```
+
+Report incorrect code
 
 ## The `bigquery_use_standard_sql_for_partitions` flag
 

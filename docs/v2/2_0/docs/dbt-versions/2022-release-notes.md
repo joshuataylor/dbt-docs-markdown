@@ -40,6 +40,8 @@ packages:
 - git: "https://{{env_var('DBT_ENV_SECRET_GIT_CREDENTIAL')}}@github.com/dbt-labs/awesome_repo.git"
 ```
 
+Report incorrect code
+
 ## November 2022
 
 ### The dbt Cloud + Databricks experience is getting even better

@@ -61,6 +61,8 @@ your_profile_name:
       
 ```
 
+Report incorrect code
+
 ### LDAP
 
 LDAP allows you to authenticate with a username & password when Impala is [configured with LDAP Auth](https://impala.apache.org/docs/build/html/topics/impala_ldap.html). LDAP is supported over Binary & HTTP connection mechanisms.
@@ -89,6 +91,8 @@ your_profile_name:
   
 ```
 
+Report incorrect code
+
 Note: When creating workload user in CDP ensure that the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If the user is required to execute GRANT statements, see for instance (/reference/resource-configs/grants) or (/reference/project-configs/on-run-start-on-run-end) appropriate GRANT permissions should be configured. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option.
 
 ### Kerberos
@@ -114,6 +118,8 @@ your_profile_name:
       retries: [retries] # number of times Impala attempts retry connection to warehouse, default value: 3
   
 ```
+
+Report incorrect code
 
 Note: A typical setup of Cloudera EDH will involve the following steps to setup Kerberos before one can execute dbt commands:
 

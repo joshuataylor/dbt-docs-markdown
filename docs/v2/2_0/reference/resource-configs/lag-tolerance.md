@@ -11,6 +11,8 @@ models:
       lag_tolerance: <duration_string>
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -23,6 +25,8 @@ models:
         lag_tolerance: <duration_string>
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -34,6 +38,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -64,6 +70,8 @@ This config accepts two value types:
   lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
   ```
 
+  Report incorrect code
+
 ### When does `lag_tolerance` apply
 
 `lag_tolerance` only applies to data freshness checks. A downstream model still rebuilds within its tolerance window if an upstream model's compiled SQL has changed since the last run, regardless of the `lag_tolerance` setting.
@@ -83,6 +91,8 @@ where id > (select max(id) from {{ this }})
 {% endif %}
 ```
 
+Report incorrect code
+
 models/agg\_orders\_daily.sql
 
 ```sql
@@ -92,6 +102,8 @@ select date_trunc('day', created_at) as day, sum(amount) as total
 from {{ ref('fct_orders') }}
 group by 1
 ```
+
+Report incorrect code
 
 When `fct_orders` transitions from a full load to an incremental run, its compiled SQL changes. `agg_orders_daily` rebuilds on that run despite its 3-hour `lag_tolerance`.
 
@@ -117,6 +129,8 @@ models:
     lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
 ```
 
+Report incorrect code
+
 In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
 
 ### Apply different tolerances per folder
@@ -136,6 +150,8 @@ models:
         lag_tolerance: 1h
 ```
 
+Report incorrect code
+
 ### Override for a specific model
 
 Override the project-level default for a single model:
@@ -149,6 +165,8 @@ models:
       state:
         lag_tolerance: 1h
 ```
+
+Report incorrect code
 
 ## Related docs
 

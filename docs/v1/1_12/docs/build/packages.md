@@ -100,6 +100,8 @@ packages:
   - local: /opt/dbt/redshift
 ```
 
+Report incorrect code
+
 The default [`packages-install-path`](../../reference/project-configs/packages-install-path.md) is `dbt_packages`.
 
 3. Run `dbt deps` to install the package(s). Packages get installed in the `dbt_packages` directory – by default this directory is ignored by git, to avoid duplicating the source code for the package.
@@ -122,6 +124,8 @@ packages:
     version: 0.7.3 # version number
 ```
 
+Report incorrect code
+
 Hub packages require a version to be specified – you can find the latest release number on dbt Hub. Since Hub packages use [semantic versioning](https://semver.org/), we recommend pinning your package to the latest patch version from a specific minor release, like so:
 
 ```yaml
@@ -129,6 +133,8 @@ packages:
   - package: dbt-labs/snowplow
     version: [">=0.7.0", "<0.8.0"]
 ```
+
+Report incorrect code
 
 `dbt deps` "pins" each package by default. See ["Pinning packages"](#pinning-packages) for details.
 
@@ -158,12 +164,16 @@ packages:
     version: 0.4.5-a2
 ```
 
+Report incorrect code
+
 ```yaml
 packages:
   - package: brooklyn-data/dbt_artifacts
     version: [">=0.4.4", "<0.4.6"]
     install_prerelease: true
 ```
+
+Report incorrect code
 
 ### Git packages
 
@@ -176,6 +186,8 @@ packages:
   - git: "https://github.com/dbt-labs/dbt-utils.git" # git URL
     revision: 0.9.2 # tag or branch name
 ```
+
+Report incorrect code
 
 Add the Git URL for the package, and optionally specify a revision. The revision can be:
 
@@ -191,6 +203,8 @@ packages:
     revision: 4e28d6da126e2940d17f697de783a717f2503188
 ```
 
+Report incorrect code
+
 By default, `dbt deps` "pins" each package. See ["Pinning packages"](#pinning-packages) for details.
 
 ### Internally hosted tarball URL
@@ -202,6 +216,8 @@ packages:
   - tarball: https://codeload.github.com/dbt-labs/dbt-utils/tar.gz/0.9.6
     name: 'dbt_utils'
 ```
+
+Report incorrect code
 
 Where `name: 'dbt_utils'` specifies the subfolder of `dbt_packages` that's created for the package source code to be installed within.
 
@@ -240,6 +256,8 @@ packages:
   [...]
 ```
 
+Report incorrect code
+
 dependencies.yml
 
 ```yaml
@@ -247,6 +265,8 @@ packages:
   - private: dbt-labs/awesome_repo # your-org/your-repo path
     provider: "github" # Supported values: "github", "gitlab", "ado"
 ```
+
+Report incorrect code
 
 Azure DevOps considerations and limitations
 
@@ -263,6 +283,8 @@ There are some considerations and limitations when using native private packages
      - private: my-org/my-project/my-repo
        provider: "ado"
    ```
+
+   Report incorrect code
 
 2. On dbt platform, native private packages from Azure DevOps can fail when the package is in a different Azure DevOps project than the job that installs it, especially if your account is connected to many Azure DevOps projects:
 
@@ -283,6 +305,8 @@ packages:
   
 ```
 
+Report incorrect code
+
 #### Using the `provider` key
 
 Add the `provider` key when:
@@ -296,6 +320,8 @@ packages:
   - private: dbt-labs/awesome_repo
     provider: "github" # Supported values: "github", "gitlab", "ado"
 ```
+
+Report incorrect code
 
 dbt v1 and dbt v2 use the `provider` value to construct the correct SSH URL for cloning, based on the provider:
 
@@ -323,6 +349,8 @@ packages.yml
 packages:
   - git: "git@github.com:dbt-labs/dbt-utils.git" # git SSH URL
 ```
+
+Report incorrect code
 
 If you're using the dbt platform, the SSH key method will not work, but you can use [native private packages](#native-private-packages) or the [HTTPS Git Token Method](./packages.md#git-token-method).
 
@@ -354,6 +382,8 @@ packages:
   - git: "https://GITHUB_USERNAME:{{env_var('DBT_ENV_SECRET_GIT_CREDENTIAL')}}@github.com/dbt-labs/awesome_repo.git" # git HTTPS URL
 ```
 
+Report incorrect code
+
 Read more about creating a GitHub Personal Access token [here](https://docs.github.com/en/enterprise-server@3.1/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token). You can also use a GitHub App installation [token](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app).
 
 In GitLab:
@@ -364,6 +394,8 @@ packages.yml
 packages:
   - git: "https://{{env_var('DBT_USER_NAME')}}:{{env_var('DBT_ENV_SECRET_DEPLOY_TOKEN')}}@gitlab.example.com/dbt-labs/awesome_project.git" # git HTTPS URL
 ```
+
+Report incorrect code
 
 Read more about creating a GitLab Deploy Token [here](https://docs.gitlab.com/ee/user/project/deploy_tokens/#creating-a-deploy-token) and how to properly construct your HTTPS URL [here](https://docs.gitlab.com/ee/user/project/deploy_tokens/#git-clone-a-repository). Deploy tokens can be managed by Maintainers only.
 
@@ -376,6 +408,8 @@ packages:
   - git: "https://{{env_var('DBT_ENV_SECRET_PERSONAL_ACCESS_TOKEN')}}@dev.azure.com/dbt-labs/awesome_project/_git/awesome_repo" # git HTTPS URL
 ```
 
+Report incorrect code
+
 Read more about creating a Personal Access Token [here](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops\&tabs=preview-page#create-a-pat).
 
 In Bitbucket:
@@ -386,6 +420,8 @@ packages.yml
 packages:
   - git: "https://{{env_var('DBT_USER_NAME')}}:{{env_var('DBT_ENV_SECRET_PERSONAL_ACCESS_TOKEN')}}@bitbucketserver.com/scm/awesome_project/awesome_repo.git" # for Bitbucket Server
 ```
+
+Report incorrect code
 
 Read more about creating a Personal Access Token [here](https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html).
 
@@ -401,6 +437,8 @@ packages:
     subdirectory: "materialized-views" # name of subdirectory containing `dbt_project.yml`
 ```
 
+Report incorrect code
+
 ### Local packages
 
 A "local" package is a dbt project accessible from your local file system. They're best suited for when there is a common collection of models and macros that you want to share across multiple downstream dbt projects (but each downstream project still has its own unique models, macros, etc).
@@ -414,6 +452,8 @@ packages:
   - local: relative/path/to/subdirectory
 ```
 
+Report incorrect code
+
 Other patterns may work in some cases, but not always. For example, if you install this project as a package elsewhere, or try running it on a different system, the relative and absolute paths will yield the same results.
 
 packages.yml
@@ -424,6 +464,8 @@ packages:
   - local: /../../redshift   # relative path to a parent directory
   - local: /opt/dbt/redshift # absolute path on the system
 ```
+
+Report incorrect code
 
 There are a few specific use cases where we recommend using a "local" package:
 
@@ -473,6 +515,8 @@ Here's an example of a v2 warning in the Studio IDE that says a package isn't 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
+
+Report incorrect code
 
 ## Advanced package configuration
 
@@ -525,6 +569,8 @@ seeds:
     +schema: snowplow_seeds
 ```
 
+Report incorrect code
+
 For example, when using a dataset specific package, you may need to configure variables for the names of the tables that contain your raw data.
 
 Configurations made in your project YAML file (`dbt_project.yml`) will override any configurations in a package (either in the project YAML file of the package, or in config blocks).
@@ -538,6 +584,8 @@ The git package "https://github.com/dbt-labs/dbt-utils.git" is not pinned.
 This can introduce breaking changes into your project without warning!
 ```
 
+Report incorrect code
+
 This warning can be silenced by setting `warn-unpinned: false` in the package specification. **Note:** This is not recommended.
 
 packages.yml
@@ -547,6 +595,8 @@ packages:
   - git: https://github.com/dbt-labs/dbt-utils.git
     warn-unpinned: false
 ```
+
+Report incorrect code
 
 ## Troubleshooting
 
@@ -564,6 +614,8 @@ Runtime Error
   Error encountered in dbt_utils/dbt_project.yml
 ```
 
+Report incorrect code
+
 Try updating the old version of the dbt\_utils package in your packages.yml to the latest version found in the [dbt hub](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/):
 
 ```shell
@@ -572,6 +624,8 @@ packages:
 
 version: xxx
 ```
+
+Report incorrect code
 
 If you've tried the workaround above and are still experiencing this behavior - reach out to the Support team at <support@getdbt.com> and we'll be happy to help!
 
@@ -583,6 +637,8 @@ If a package name is included in the `search_order` of a project-level `dispatch
 Compilation Error
   In dispatch: Could not find package 'my_project'
 ```
+
+Report incorrect code
 
 This does not mean the package or root project is missing—it means that any macros from it are missing, and so it is missing from the search spaces available to `dispatch`.
 

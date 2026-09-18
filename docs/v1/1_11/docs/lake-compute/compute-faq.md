@@ -20,6 +20,8 @@ Yes. dbt gates Lake Compute behind an experimental opt-in, so set `DBT_ENGINE_EX
 export DBT_ENGINE_EXPERIMENTAL_MULTI_ADAPTER=true
 ```
 
+Report incorrect code
+
 One variable covers `type: lakecompute` in `profiles.yml`, the `adapter` config on a node, and the `--adapter` flag, so you need it whether you run Lake Compute as a "sidecar" or as your default adapter. While it's off, dbt fails at parse time with a message naming the variable rather than silently building on your default adapter.
 
 `DBT_ALLOW_EXPERIMENTAL_ADAPTERS` doesn't lift this gate. Refer to [Required environment variable](../lake-compute.md#required-environment-variable) for the full behavior.

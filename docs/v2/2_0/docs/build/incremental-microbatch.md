@@ -78,6 +78,8 @@ models:
       event_time: page_view_start
 ```
 
+Report incorrect code
+
 We run the `sessions` model for October 1, 2024, and then again for October 2. It produces the following queries:
 
 ### Model definition
@@ -118,6 +120,8 @@ select
     on page_views.customer_id = customers.id
 ```
 
+Report incorrect code
+
 ### Compiled (Oct 1, 2024)
 
 target/compiled/sessions.sql
@@ -144,6 +148,8 @@ customers as (
 ...
 ```
 
+Report incorrect code
+
 ### Compiled (Oct 2, 2024)
 
 target/compiled/sessions.sql
@@ -169,6 +175,8 @@ customers as (
 
 ...
 ```
+
+Report incorrect code
 
 dbt will instruct the data platform to take the result of each batch query and [insert, update, or replace](#adapter-specific-behavior) the contents of the `analytics.sessions` table for the same day of data. To perform this operation, dbt will use the most efficient atomic mechanism for "full batch" replacement that is available on each data platform. For details, see [How microbatch works](#how-microbatch-works).
 
@@ -225,6 +233,8 @@ select
 from {{ source('sales', 'transactions') }}
 ```
 
+Report incorrect code
+
 In this example, `unique_key` is required because `dbt-postgres` microbatch uses the `merge` strategy, which needs a `unique_key` to identify which rows dbt should merge in the data warehouse. Without a `unique_key`, dbt can't match rows between the incoming batch and the existing table.
 
 ### Full refresh
@@ -238,6 +248,8 @@ If you need to reprocess historical data, we recommend using a targeted backfill
 ```bash
 dbt run --full-refresh --event-time-start "2024-01-01" --event-time-end "2024-02-01"
 ```
+
+Report incorrect code
 
 ## Usage
 
@@ -272,6 +284,8 @@ As always, dbt will process the batches between the start and end as independent
 ```bash
 dbt run --event-time-start "2024-09-01" --event-time-end "2024-09-04"
 ```
+
+Report incorrect code
 
 ![Configure a lookback to reprocess additional batches during standard incremental runs](/img/docs/building-a-dbt-project/microbatch/microbatch_backfill.png?v=2 "Configure a lookback to reprocess additional batches during standard incremental runs")Configure a lookback to reprocess additional batches during standard incremental runs
 
@@ -320,6 +334,8 @@ select * from {{ ref('stg_events') }}
     {% endif %}
 ```
 
+Report incorrect code
+
 For this incremental model:
 
 * "New" records are those with a `date_day` greater than the maximum `date_day` that has previously been loaded
@@ -346,6 +362,8 @@ models/staging/stg\_events.sql
 select * from {{ ref('stg_events') }} -- this ref will be auto-filtered
 ```
 
+Report incorrect code
+
 Where you’ve also set an `event_time` for the model’s direct parents - in this case, `stg_events`:
 
 models/staging/stg\_events.yml
@@ -356,6 +374,8 @@ models:
     config:
       event_time: my_time_field
 ```
+
+Report incorrect code
 
 And that’s it!
 
@@ -372,5 +392,7 @@ select * from (
       and my_time_field < '2024-10-02 00:00:00'
 )
 ```
+
+Report incorrect code
 
 Based on your data platform, dbt will choose the most efficient atomic mechanism to insert, update, or replace these four batches (`2024-09-28`, `2024-09-29`, `2024-09-30`, and `2024-10-01`) in the existing table.

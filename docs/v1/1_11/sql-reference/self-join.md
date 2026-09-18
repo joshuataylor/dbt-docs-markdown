@@ -20,6 +20,8 @@ from <table_1> as t1
 on t1.id = t2.id
 ```
 
+Report incorrect code
+
 Since you can choose the dialect of join for a self join, you can specify if you want to do a [left](./left-join.md), [outer](./outer-join.md), [inner](./inner-join.md), [cross](./cross-join.md), or [right join](./right-join.md) in the join statement.
 
 ### SQL self join example
@@ -45,6 +47,8 @@ from {{ ref('products') }} as products
 left join {{ ref('products') }} as parents
 on products.parent_id = parents.sku_id
 ```
+
+Report incorrect code
 
 This query utilizing a self join adds the `parent_name` of skus that have non-null `parent_ids`:
 

@@ -50,6 +50,8 @@ functions:
   - name: ... # declare properties of additional functions
 ```
 
+Report incorrect code
+
 ## Example
 
 functions/schema.yml
@@ -79,3 +81,5 @@ functions:
         returns:
           data_type: boolean
 ```
+
+Report incorrect code

@@ -22,6 +22,8 @@ select
 from {{ ref ('orders') }}
 ```
 
+Report incorrect code
+
 In practice, you’ll likely see SQL comments at the beginning of complex code logic, to help future developers or even advanced business users understand what specific blocks of code are accomplishing. Other times, you’ll see comments like the code above, that are commenting out lines no longer needed (or in existence) for that query or model. We’ll dive more into best practices around inline comments later on this page.
 
 For comments *on* database objects, such as views and tables, there’s a different syntax to add these explicit comments:
@@ -29,6 +31,8 @@ For comments *on* database objects, such as views and tables, there’s a differ
 ```sql
 comment on [database object type] <database object name> is 'comment text here';
 ```
+
+Report incorrect code
 
 These database object-level comments are more useful for adding additional context or metadata to these objects versus inline comments being useful for explaining code functionality. Alternatively, these table and view-level comments can be easily abstracted out and version-controlled using [model descriptions in dbt](../reference/resource-properties/description.md) and persisted in the objects using the [persist\_docs config](../reference/resource-configs/persist_docs.md) in dbt.
 

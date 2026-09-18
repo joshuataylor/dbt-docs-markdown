@@ -14,6 +14,8 @@ sudo yum install redhat-rpm-config gcc libffi-devel \
   python-devel openssl-devel
 ```
 
+Report incorrect code
+
 ### MacOS
 
 The MacOS requires Python 3.8 or higher to successfully install and run dbt v1.
@@ -24,6 +26,8 @@ To check the Python version:
 
 python --version
 ```
+
+Report incorrect code
 
 If you need a compatible version, you can download and install [Python version 3.9 or higher for MacOS](https://www.python.org/downloads/macos).
 
@@ -42,6 +46,8 @@ sudo apt-get remove python-cffi
 sudo pip install --upgrade cffi
 pip install cryptography~=3.4
 ```
+
+Report incorrect code
 
 ### Windows
 

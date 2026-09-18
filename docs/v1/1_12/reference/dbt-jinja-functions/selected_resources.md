@@ -18,6 +18,8 @@ For a given run it will look like:
 ["model.my_project.model1", "model.my_project.model2", "snapshot.my_project.my_snapshot"]
 ```
 
+Report incorrect code
+
 Each value corresponds to a key in the `nodes` object within the [graph](./graph.md) context variable.
 
 It can be used in macros in a `pre-hook`, `post-hook`, `on-run-start` or `on-run-end` to evaluate what nodes are selected and trigger different logic whether a particular node is selected or not.
@@ -55,3 +57,5 @@ check-node-selected.sql
   model1 is not included based on the current selection
 */
 ```
+
+Report incorrect code

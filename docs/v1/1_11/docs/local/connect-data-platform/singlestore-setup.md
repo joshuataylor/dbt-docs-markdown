@@ -46,6 +46,8 @@ singlestore:
       threads: [1 or more]  # optional, default 1
 ```
 
+Report incorrect code
+
 It is recommended to set optional parameters as well.
 
 ### Description of SingleStore Profile Fields
@@ -76,5 +78,7 @@ In order to support concurrent development, `schema` can be used to prefix table
     {%- endif -%}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 Therefore, if you set `schema=dev` in your `.dbt/profiles.yml` file and run the `customers` model with the corresponding profile, `dbt` will create a table named `dev__customers` in your database.

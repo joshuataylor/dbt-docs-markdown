@@ -49,6 +49,8 @@ profiles.yml
       compute_pool: [ <empty string> ] # Compute pool name to be used if any else use the default compute pool
 ```
 
+Report incorrect code
+
 ### Description of DeltaStream profile fields
 
 | Field             | Required | Description                                                                                                                    |
@@ -82,6 +84,8 @@ your_profile_name:
       schema: "{{ env_var('DELTASTREAM_SCHEMA') }}"
       organization_id: "{{ env_var('DELTASTREAM_ORG_ID') }}"
 ```
+
+Report incorrect code
 
 ## Troubleshooting connections
 

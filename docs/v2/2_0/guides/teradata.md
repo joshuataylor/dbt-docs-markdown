@@ -52,6 +52,8 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
    %connect local
    ```
 
+   Report incorrect code
+
 4. Use additional cells to type and run SQL statements.
 
 1) Use your preferred SQL IDE editor to create the database, `jaffle_shop`:
@@ -59,6 +61,8 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
    ```sql
    CREATE DATABASE jaffle_shop AS PERM = 1e9;
    ```
+
+   Report incorrect code
 
 2) In `jaffle_shop` database, create three foreign tables and reference the respective csv files located in object storage:
 
@@ -96,6 +100,8 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
    )
    NO PRIMARY INDEX;
    ```
+
+   Report incorrect code
 
 ## Connect dbt to Teradata
 
@@ -167,6 +173,8 @@ You can now delete the files that dbt created when you initialized the project:
          +materialized: view
    ```
 
+   Report incorrect code
+
    dbt\_project.yml
 
    ```yaml
@@ -175,6 +183,8 @@ You can now delete the files that dbt created when you initialized the project:
      my_new_project:
        +materialized: table
    ```
+
+   Report incorrect code
 
 3. Save your changes.
 
@@ -268,6 +278,8 @@ final as (
 select * from final
 ```
 
+Report incorrect code
+
 4. Enter `dbt run` in the command prompt at the bottom of the screen. You should get a successful run and see the three models.
 
 You can connect your business intelligence (BI) tools to these views and tables so they only read cleaned-up data rather than raw data in your BI tool.
@@ -288,6 +300,8 @@ By default, everything gets created as a view. You can override that at the dire
      name: 'jaffle_shop'
      ```
 
+     Report incorrect code
+
    * Configure `jaffle_shop` so everything in it will be materialized as a table; and configure `example` so everything in it will be materialized as a view. Update your `models` config in the project YAML file to:
 
      dbt\_project.yml
@@ -297,6 +311,8 @@ By default, everything gets created as a view. You can override that at the dire
        jaffle_shop:
          +materialized: table
      ```
+
+     Report incorrect code
 
    * Click **Save**.
 
@@ -325,6 +341,8 @@ By default, everything gets created as a view. You can override that at the dire
 
    )
    ```
+
+   Report incorrect code
 
 4. Enter the `dbt run` command. Your model, `bi_customers`, should now build as a view.
 
@@ -375,6 +393,8 @@ Now you can experiment by separating the logic out into separate models and usin
    from jaffle_shop.customers
    ```
 
+   Report incorrect code
+
 2. Create a second new SQL file, `models/stg_orders.sql`, with the SQL from the `orders` CTE in your original query.
 
    models/stg\_orders.sql
@@ -388,6 +408,8 @@ Now you can experiment by separating the logic out into separate models and usin
 
    from jaffle_shop.orders
    ```
+
+   Report incorrect code
 
 3. Edit the SQL in your `models/bi_customers.sql` file as follows:
 
@@ -440,6 +462,8 @@ Now you can experiment by separating the logic out into separate models and usin
    select * from final
    ```
 
+   Report incorrect code
+
 4. Execute `dbt run`.
 
    This time, when you performed a `dbt run`, it created separate views/tables for `stg_customers`, `stg_orders`, and `customers`. dbt inferred the order in which these models should run. Because `customers` depends on `stg_customers` and `stg_orders`, dbt builds `customers` last. You don’t need to define these dependencies explicitly.
@@ -453,6 +477,8 @@ To run one model, use the `--select` flag (or `-s` flag), followed by the name o
 ```shell
 $ dbt run --select customers
 ```
+
+Report incorrect code
 
 Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for more operators and examples.
 
@@ -499,6 +525,8 @@ Sources make it possible to name and describe the data loaded into your warehous
               description: One record per order. Includes canceled and deleted orders.
    ```
 
+   Report incorrect code
+
 3. Edit the `models/stg_customers.sql` file to select from the `customers` table in the `jaffle_shop` source.
 
    models/stg\_customers.sql
@@ -511,6 +539,8 @@ Sources make it possible to name and describe the data loaded into your warehous
 
    from {{ source('jaffle_shop', 'customers') }}
    ```
+
+   Report incorrect code
 
 4. Edit the `models/stg_orders.sql` file to select from the `orders` table in the `jaffle_shop` source.
 
@@ -525,6 +555,8 @@ Sources make it possible to name and describe the data loaded into your warehous
 
    from {{ source('jaffle_shop', 'orders') }}
    ```
+
+   Report incorrect code
 
 5. Execute `dbt run`.
 
@@ -580,6 +612,8 @@ To add data tests to your project:
                    field: customer_id
    ```
 
+   Report incorrect code
+
 3. Run `dbt test`, and confirm that all your tests passed.
 
 When you run `dbt test`, dbt iterates through your YAML files, and constructs a query for each data test. Each query will return the number of records that fail the test. If this number is 0, then the data test is successful.
@@ -606,6 +640,8 @@ Running tests on one model looks very similar to running a model: use the `--sel
 ```shell
 dbt test --select customers
 ```
+
+Report incorrect code
 
 Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for full syntax, and [test selection examples](../reference/node-selection/test-selection-examples.md) in particular.
 
@@ -710,6 +746,8 @@ Adding [documentation](../docs/build/documentation.md) to your project allows yo
                    field: customer_id
    ```
 
+   Report incorrect code
+
 2. Run `dbt docs generate` to generate the documentation for your project. dbt introspects your project and your warehouse to generate a JSON file with rich documentation about your project.
 
 3. Click the book icon in the Develop interface to launch documentation in a new tab.
@@ -732,6 +770,8 @@ models:
       consequat.
 ```
 
+Report incorrect code
+
 2. Split your description over multiple lines using `|`. Interior line breaks are maintained and Markdown can be used. This method is recommended for more complex descriptions:
 
 ```yml
@@ -743,6 +783,8 @@ models:
       * dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
+
+Report incorrect code
 
 3. Use a [docs block](../docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
 

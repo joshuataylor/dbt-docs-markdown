@@ -23,4 +23,6 @@ Database Error in model customers (models/customers.sql)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../Runs/checking-logs.md) to debug any errors.

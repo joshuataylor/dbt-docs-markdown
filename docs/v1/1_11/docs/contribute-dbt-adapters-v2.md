@@ -167,17 +167,23 @@ cd dbt
 cargo build --bin dbt
 ```
 
+Report incorrect code
+
 If you hit Z3 errors:
 
 ```bash
 brew install pkg-config z3
 ```
 
+Report incorrect code
+
 If disk fills during build:
 
 ```bash
 cargo clean  # frees old build artifacts — you'll do this often
 ```
+
+Report incorrect code
 
 ### Development workflow
 
@@ -244,6 +250,8 @@ error[E0004]: non-exhaustive patterns: `AdapterType::MyWarehouse` not covered
    |           ^^^^^^^^^^^^^^^^^^^ pattern `AdapterType::MyWarehouse` not covered
 ```
 
+Report incorrect code
+
 ### Layer stack
 
 The diagram below shows how a dbt project request flows through the crates at runtime — from configuration to SQL execution. Your adapter work lives in the middle layers: profile config, credential resolution, driver loading, relation logic, and macros. The bottom layer (SQL execution against the warehouse) is owned by dbt Labs.
@@ -269,6 +277,8 @@ profiles.yml / dbt_project.yml
   [dbt internal]     ← SQL execution against warehouse (dbt Labs)
 ```
 
+Report incorrect code
+
 ### Crate map
 
 In Rust, a **crate** is a package — the unit of compilation, roughly equivalent to a "library" or "module" in other languages. The `dbt-labs/dbt` monorepo has multiple crates, each responsible for one vertical slice of functionality across all warehouses. This is a quick-reference map of the six crates you'll touch to build your adapter, in the order you'll work through them in Step 4.
@@ -292,6 +302,8 @@ This step walks you through each crate you need to touch. Work through them in o
 cargo check -p <crate-name>
 ```
 
+Report incorrect code
+
 Replace `<crate-name>` with the crate you just edited — e.g. `dbt-adapter-core`, `dbt-xdbc`, `dbt-schemas`, `dbt-auth`, `dbt-adapter`, or `dbt-loader`. These match the names in the crate map.
 
 ### 4.1 — Register the adapter type
@@ -313,6 +325,8 @@ pub enum AdapterType {
 }
 ```
 
+Report incorrect code
+
 Also add a `quote_char` arm in the same file. Use double quotes `'"'` for most warehouses; BigQuery and Databricks use a backtick instead:
 
 ```rust
@@ -326,6 +340,8 @@ fn quote_char(&self) -> char {
     }
 }
 ```
+
+Report incorrect code
 
 ### 4.2 — Register the ADBC driver
 
@@ -369,6 +385,8 @@ pub struct ExasolDbConfig {
     pub threads: Option<StringOrInteger>,
 }
 ```
+
+Report incorrect code
 
 After adding the config struct, also add `DbConfig::MyWarehouse(Box<MyWarehouseDbConfig>)` as a new variant to the `DbConfig` enum. This registers your new config type so the rest of the codebase knows it exists. Once you do, the compiler will point you at every place that reads from `DbConfig` and needs a new case for your warehouse — follow those errors to wire it in.
 
@@ -433,6 +451,8 @@ Exasol => Box::new(Relation::new_with_policy(
 )) as Box<dyn BaseRelation>,
 ```
 
+Report incorrect code
+
 Decide up front whether your warehouse uses 2-part or 3-part names, and whether identifiers are case-sensitive. For example, Exasol uppercases unquoted identifiers by default — so all catalog lookup SQL uses `upper()` comparisons.
 
 **File:** `src/relation/factory.rs`
@@ -446,6 +466,8 @@ Databricks | Spark | Fabric | DuckDB | Exasol | Postgres | Redshift | Salesforce
 }
 ```
 
+Report incorrect code
+
 #### Catalog introspection
 
 **File:** `src/metadata/get_relation.rs`
@@ -457,6 +479,8 @@ AdapterType::Exasol => exasol_get_relation(
     adapter, state, ctx, conn, database, schema, identifier, token,
 ),
 ```
+
+Report incorrect code
 
 ```rust
 fn exasol_get_relation(
@@ -483,6 +507,8 @@ fn exasol_get_relation(
 }
 ```
 
+Report incorrect code
+
 Use `information_schema` if your warehouse supports standard SQL, or system catalog tables (`sys.*`, `information_schema.*`) as appropriate.
 
 #### Adapter match arms
@@ -502,6 +528,8 @@ Exasol => "name",
 AdapterType::Exasol => "DATA_TYPE",  // in src/sql_types.rs
 ```
 
+Report incorrect code
+
 For capabilities your adapter doesn't support yet (e.g. `valid_incremental_strategies`), return `unimplemented!()` — that's fine for an initial community adapter contribution. The reference PR has several of these.
 
 #### Column builder
@@ -513,6 +541,8 @@ Add a match arm for how your warehouse's Arrow record batches map to dbt column 
 ```rust
 Exasol => Ok(Self::build_postgres_like(field, type_ops)),
 ```
+
+Report incorrect code
 
 Only implement custom logic if your warehouse has unusual type handling.
 
@@ -559,6 +589,8 @@ v2 uses the same `adapter.dispatch()` pattern as v1. Your macros use the `<wareh
 {% endmacro %}
 ```
 
+Report incorrect code
+
 Note: `rename_relation` uses only `to_relation.identifier`, not the full relation — Exasol's `RENAME` syntax doesn't take a fully qualified target.
 
 For catalog introspection, use your warehouse's system catalog. For example, Exasol queries `sys.*` instead of `information_schema`:
@@ -590,6 +622,8 @@ For catalog introspection, use your warehouse's system catalog. For example, Exa
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 If your warehouse is similar to an existing one (e.g. Postgres-compatible), start by delegating to that dialect's macros and only override where behavior differs:
 
 ```sql
@@ -597,6 +631,8 @@ If your warehouse is similar to an existing one (e.g. Postgres-compatible), star
   {{ return(postgres__create_table_as(temporary, relation, sql)) }}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 ***
 
@@ -615,6 +651,8 @@ cargo build -p dbt-adapter
 cargo build -p dbt-loader
 ```
 
+Report incorrect code
+
 ### End-to-end test
 
 Run a real `dbt build` against your warehouse. At minimum, exercise table, view, incremental, and snapshot materializations. A clean `dbt build` on `jaffle-shop-classic` is the standard acceptance bar for a community adapter.
@@ -629,6 +667,8 @@ cargo build --bin dbt
 # Run against your warehouse
 ./target/debug/dbt build --project-dir <your-project>
 ```
+
+Report incorrect code
 
 ### CI testing
 
@@ -716,3 +756,5 @@ cargo build --bin dbt
 # Free disk space
 cargo clean
 ```
+
+Report incorrect code

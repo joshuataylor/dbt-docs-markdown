@@ -16,6 +16,8 @@ Usage
 dbt run --log-format json
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.99 and earlier)
 
 The `text` format is the default for console logs and has plain text messages prefixed with a simple timestamp:
@@ -24,6 +26,8 @@ The `text` format is the default for console logs and has plain text messages pr
 23:30:16  Running with dbt=1.8.0
 23:30:17  Registered adapter: postgres=1.8.0
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.99 and earlier)
 
@@ -35,6 +39,8 @@ The `debug` format is the default for the log file and is the same as the `text`
 16:12:08.751069 [info ] [MainThread]: Registered adapter: postgres=1.8.0
 ```
 
+Report incorrect code
+
 The `json` format outputs fully structured logs in the JSON format:
 
 (Applies to dbt v1.99 and earlier)
@@ -43,6 +49,8 @@ The `json` format outputs fully structured logs in the JSON format:
 {"data": {"log_version": 3, "version": "=1.8.0"}, "info": {"category": "", "code": "A001", "extra": {}, "invocation_id": "82131fa0-d2b4-4a77-9436-019834e22746", "level": "info", "msg": "Running with dbt=1.8.0", "name": "MainReportVersion", "pid": 7875, "thread": "MainThread", "ts": "2024-05-29T23:32:54.993336Z"}}
 {"data": {"adapter_name": "postgres", "adapter_version": "=1.8.0"}, "info": {"category": "", "code": "E034", "extra": {}, "invocation_id": "82131fa0-d2b4-4a77-9436-019834e22746", "level": "info", "msg": "Registered adapter: postgres=1.8.0", "name": "AdapterRegistered", "pid": 7875, "thread": "MainThread", "ts": "2024-05-29T23:32:56.437986Z"}}
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.99 and earlier)
 
@@ -54,6 +62,8 @@ Usage
 dbt run --log-format-file json
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.99 and earlier)
 
 Tip: verbose structured logs
@@ -63,6 +73,8 @@ Use `json` formatting value in conjunction with the `DEBUG` config to produce ri
 ```text
 dbt run --debug --log-format json
 ```
+
+Report incorrect code
 
 Refer to [structured logging](../events-logging.md#structured-logging) for more details.
 
@@ -76,11 +88,15 @@ The `LOG_LEVEL` config sets the minimum severity of events captured in the conso
   dbt run --log-level debug
   ```
 
+  Report incorrect code
+
 * Setting the `LOG_LEVEL` to `none` will disable information from being sent to either the console or file logs.
 
   ```text
   dbt run --log-level none
   ```
+
+  Report incorrect code
 
 * To set the file log level as a different value than the console, use the `--log-level-file` flag.
 
@@ -88,11 +104,15 @@ The `LOG_LEVEL` config sets the minimum severity of events captured in the conso
   dbt run --log-level-file error
   ```
 
+  Report incorrect code
+
 * To only disable writing to the logs file but keep console logs, set `LOG_LEVEL_FILE` config to none.
 
   ```text
   dbt run --log-level-file none
   ```
+
+  Report incorrect code
 
 ### Debug-level logging
 
@@ -105,6 +125,8 @@ Usage
 ```text
 dbt run --debug
 ```
+
+Report incorrect code
 
 ### Log and target paths
 
@@ -123,11 +145,15 @@ config:
   quiet: true
 ```
 
+Report incorrect code
+
 Supply the `-q` or `--quiet` flag to `dbt run` to show only error logs and suppress non-error logs.
 
 ```text
 dbt run --quiet
 ```
+
+Report incorrect code
 
 ### dbt list logging
 
@@ -146,6 +172,8 @@ The `LOG_CACHE_EVENTS` config allows detailed logging for [relational cache](htt
 dbt compile --log-cache-events
 ```
 
+Report incorrect code
+
 ### Color
 
 You can set the color preferences for the file logs only within `profiles.yml` or using the `--use-colors-file / --no-use-colors-file` flags.
@@ -157,7 +185,11 @@ config:
   use_colors_file: False
 ```
 
+Report incorrect code
+
 ```text
 dbt run --use-colors-file
 dbt run --no-use-colors-file
 ```
+
+Report incorrect code

@@ -68,6 +68,8 @@ Usage
 dbt test --indirect-selection cautious
 ```
 
+Report incorrect code
+
 Or you can run tests that only refer to selected nodes using an environment variable:
 
 Env var
@@ -80,6 +82,8 @@ $ export DBT_ENGINE_INDIRECT_SELECTION=cautious
 dbt run
 ```
 
+Report incorrect code
+
 You can also run tests that only refer to selected nodes using `dbt_project.yml` project-level flags:
 
 dbt\_project.yml
@@ -89,3 +93,5 @@ dbt\_project.yml
 flags:
   indirect_selection: cautious
 ```
+
+Report incorrect code

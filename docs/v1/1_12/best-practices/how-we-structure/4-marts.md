@@ -26,6 +26,8 @@ models/marts
 └── supplies.yml
 ```
 
+Report incorrect code
+
 ✅ **Group by department or area of concern.** If you have fewer than 10 or so marts you may not have much need for subfolders, so as with the intermediate layer, don't over-optimize too early. If you do find yourself needing to insert more structure and grouping though, use useful business concepts here. In our marts layer, we're no longer worried about source-conformed data, so grouping by departments (marketing, finance, etc.) is the most common structure at this stage.
 
 ✅ **Name by entity.** Use plain English to name the file based on the concept that forms the grain of the mart's `customers`, `orders`. Marts that don't include any time-based rollups (pure marts) should not have a time dimension (`orders_per_day`) here, typically best captured via metrics.
@@ -104,6 +106,8 @@ compute_booleans as (
 select * from compute_booleans
 ```
 
+Report incorrect code
+
 ```sql
 -- customers.sql
 
@@ -166,6 +170,8 @@ joined as (
 
 select * from joined
 ```
+
+Report incorrect code
 
 * ✅ **Materialized as tables or incremental models.** Once we reach the marts layer, it's time to start building not just our logic into the warehouse, but the data itself. This gives end users much faster performance for these later models that are actually designed for their use, and saves us costs recomputing these entire chains of models every time somebody refreshes a dashboard or runs a regression in python. A good general rule of thumb regarding materialization is to always start with a view (as it takes up essentially no storage and always gives you up-to-date results), once that view takes too long to practically *query*, build it into a table, and finally once that table takes too long to *build* and is slowing down your runs, [configure it as an incremental model](../../docs/build/incremental-models.md). As always, start simple and only add complexity as necessary. The models with the most data and compute-intensive transformations should absolutely take advantage of dbt's excellent incremental materialization options, but rushing to make all your marts models incremental by default will introduce superfluous difficulty. We recommend reading this [classic post from Tristan on the limits of incremental modeling](https://discourse.getdbt.com/t/on-the-limits-of-incrementality/303).
 * ✅ **Wide and denormalized.** Unlike old school warehousing, in the modern data stack storage is cheap and it's compute that is expensive and must be prioritized as such, packing these into very wide denormalized concepts that can provide everything somebody needs about a concept as a goal.

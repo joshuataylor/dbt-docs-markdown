@@ -44,6 +44,8 @@ models:
         select: ['reporter', 'bi']
 ```
 
+Report incorrect code
+
 The `grants` config can also be defined:
 
 * under the `models` config in the project file (`dbt_project.yml`)
@@ -63,6 +65,8 @@ seeds:
         select: ['reporter', 'bi']
 ```
 
+Report incorrect code
+
 The `grants` config can also be defined under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
 ### Snapshots
@@ -76,6 +80,8 @@ snapshots:
       grants:
         select: ['reporter', 'bi']
 ```
+
+Report incorrect code
 
 The `grants` config can be defined:
 
@@ -99,11 +105,15 @@ models:
     select: ['user_a', 'user_b']
 ```
 
+Report incorrect code
+
 models/specific\_model.sql
 
 ```sql
 {{ config(grants = {'select': ['user_c']}) }}
 ```
+
+Report incorrect code
 
 As a result of this configuration, `specific_model` will be configured to grant the `select` privilege to `user_c` *only*. After you run `specific_model`, that is the only granted privilege you would see in the database, and the only `grant` statement you would find in dbt's logs.
 
@@ -114,6 +124,8 @@ models/specific\_model.sql
 ```sql
 {{ config(grants = {'+select': ['user_c']}) }}
 ```
+
+Report incorrect code
 
 Now, the model will grant select to `user_a`, `user_b`, AND `user_c`!
 
@@ -135,6 +147,8 @@ models:
     select: "{{ ['user_a', 'user_b'] if target.name == 'prod' else ['user_c'] }}"
 ```
 
+Report incorrect code
+
 ## Revoking grants
 
 dbt only modifies grants on a node (including revocation) when a `grants` configuration is attached to that node. For example, imagine you had originally specified the following grants in `dbt_project.yml`:
@@ -146,6 +160,8 @@ models:
   +grants:
     select: ['user_a', 'user_b']
 ```
+
+Report incorrect code
 
 If you delete the entire `+grants` section, dbt assumes you no longer want it to manage grants and doesn't change anything. To have dbt revoke all existing grants from a node, provide an empty list of grantees.
 
@@ -159,6 +175,8 @@ models:
     select: ['user_b']
 ```
 
+Report incorrect code
+
 ### Revoke from all users
 
 dbt\_project.yml
@@ -169,6 +187,8 @@ models:
     select: []
 ```
 
+Report incorrect code
+
 ### Stop dbt from managing grants
 
 dbt\_project.yml
@@ -178,6 +198,8 @@ models:
 
   # this section intentionally left blank
 ```
+
+Report incorrect code
 
 ## General examples
 
@@ -191,11 +213,15 @@ models/table\_model.sql
 }) }}
 ```
 
+Report incorrect code
+
 When dbt runs this model for the first time, it will create the table, and then run code like:
 
 ```sql
 grant select on schema_name.table_model to bi_user;
 ```
+
+Report incorrect code
 
 In this case, we're creating an incremental model, and granting the `select` privilege to two recipients: `bi_user` and `reporter`.
 
@@ -207,11 +233,15 @@ models/incremental\_model.sql
 }) }}
 ```
 
+Report incorrect code
+
 When dbt runs this model for the first time, it will create the table, and then run code like:
 
 ```sql
 grant select on schema_name.incremental_model to bi_user, reporter;
 ```
+
+Report incorrect code
 
 In subsequent runs, dbt will use database-specific SQL to show the grants already on `incremental_model`, and then determine if any `revoke` or `grant` statements are needed.
 
@@ -249,6 +279,8 @@ Granting permission using SQL and BigQuery:
 {{ config(grants = {'roles/bigquery.dataViewer': ['user:someone@yourcompany.com']}) }}
 ```
 
+Report incorrect code
+
 Granting permission in a model schema using BigQuery:
 
 models/schema.yml
@@ -260,6 +292,8 @@ models:
       grants:
         roles/bigquery.dataViewer: ['user:someone@yourcompany.com']
 ```
+
+Report incorrect code
 
 ### Databricks
 
@@ -281,6 +315,8 @@ models:
   +grants:
     select: ["user1", "user:user2", "group:analysts", "role:reporter"]
 ```
+
+Report incorrect code
 
 ### Snowflake
 

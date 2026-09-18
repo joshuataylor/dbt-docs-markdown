@@ -13,6 +13,8 @@ sources:
       - ...
 ```
 
+Report incorrect code
+
 ## Definition
 
 The schema name as stored in the database.
@@ -42,14 +44,20 @@ sources:
       - name: orders
 ```
 
+Report incorrect code
+
 In a downstream model:
 
 ```sql
 select * from {{ source('jaffle_shop', 'orders') }}
 ```
 
+Report incorrect code
+
 Will get compiled to:
 
 ```sql
 select * from postgres_backend_public_schema.orders
 ```
+
+Report incorrect code

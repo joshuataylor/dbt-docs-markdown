@@ -14,6 +14,8 @@ The syntax for using the CAST function looks like the following:
 cast(<column_name> as <new_data_type>)
 ```
 
+Report incorrect code
+
 Executing this function in a SELECT statement will return the column you specified as the newly specified data type. Analytics engineers will typically be casting fields to more appropriate or useful numeric, strings, and date types. You may additionally use the CAST function in WHERE clauses and in joins.
 
 Below, we’ll walk through a practical example using the CAST function.
@@ -30,6 +32,8 @@ select
 	status
 from {{ ref('orders') }}
 ```
+
+Report incorrect code
 
 After running this query, the `orders` table will look a little something like this:
 

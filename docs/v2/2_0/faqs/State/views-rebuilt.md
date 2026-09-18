@@ -22,6 +22,8 @@ For example, this view will be rebuilt even if `stg_orders` hasn't changed becau
 select * from {{ ref('stg_orders') }}
 ```
 
+Report incorrect code
+
 However, if you use `select *` on a CTE, dbt can resolve the columns from the CTE definition and safely reuse the view:
 
 ```sql
@@ -31,6 +33,8 @@ with renamed as (
 
 select * from renamed
 ```
+
+Report incorrect code
 
 If a CTE explicitly names its columns, a `select *` that reads from that CTE won't force a rebuild even if an earlier CTE used `select *` on a `ref()` or `source()`. The typical staging pattern is reused:
 
@@ -50,6 +54,8 @@ renamed as (
 select * from renamed
 ```
 
+Report incorrect code
+
 tip
 
 To avoid forced rebuilds, use explicit column names when selecting directly from a `ref()` or `source()`. You can also exclude views from execution using `--exclude config.materialized:view`.
@@ -62,6 +68,8 @@ Some macros and environment variables can cause unexpected rebuilds. For example
 select '{{ env_var("AIRFLOW_RUN_ID") }}' as airflow_run_id, ...
 ```
 
+Report incorrect code
+
 Because the query result order or the environment variable's value changes, the rendered SQL differs from the stored hash on every run. dbt State treats this as a code change and rebuilds the model, even though the underlying project logic hasn't changed. This pattern can affect any model type, not just views; if a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
 
 To avoid these unnecessary rebuilds, enable [`compare_unrendered_code`](../../reference/resource-configs/compare-unrendered-code.md). When enabled, dbt State checks both the Jinja template and rendered SQL; non-deterministic values that don't change the template don't trigger a rebuild. For example:
@@ -71,6 +79,8 @@ To avoid these unnecessary rebuilds, enable [`compare_unrendered_code`](../../re
 
 select '{{ env_var("AIRFLOW_RUN_ID") }}' as airflow_run_id, ...
 ```
+
+Report incorrect code
 
 ## Models with external sources on BigQuery
 
@@ -97,5 +107,7 @@ The command name differs by version: dbt v2 uses `dbt state explain` (with a spa
 ```bash
 dbt state explain --verbose -s my_model_name
 ```
+
+Report incorrect code
 
 If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.

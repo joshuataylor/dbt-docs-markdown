@@ -21,6 +21,8 @@ At the start of every session, dbt Wizard scans for project-level skills in `.ag
       SKILL.md
 ```
 
+Report incorrect code
+
 The CLI also discovers user-level skills in `~/.agents/skills/`, user-level Claude Code skills under `~/.claude/skills/`, and project-level Claude Code skills under `.claude/skills/`.
 
 ```text
@@ -29,6 +31,8 @@ The CLI also discovers user-level skills in `~/.agents/skills/`, user-level Clau
     your-skill-name/
       SKILL.md
 ```
+
+Report incorrect code
 
 Custom skills use the [Agent Skills](https://agentskills.io/specification) format, the same format used by [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) on GitHub. A skill file contains YAML frontmatter (`name`, `description`) and a Markdown body with instructions.
 
@@ -60,6 +64,8 @@ From your terminal, use the following commands to create a skill folder and file
 mkdir -p .agents/skills/my-team-style
 touch .agents/skills/my-team-style/SKILL.md
 ```
+
+Report incorrect code
 
 Then write your skill file. Refer to [Skill file format](#skill-file-format) in the next section for more information. Start a new `wizard` session to apply the changes. Skills are discovered at session start and changes made mid-session won't be picked up until you restart.
 
@@ -98,6 +104,8 @@ Use this skill whenever you are changing SQL or YAML under `models/` and the use
 For edge cases, read `references/naming-conventions.md` in this skill folder before proposing renames.
 ```
 
+Report incorrect code
+
 For a full production-style example, refer to dbt's [`adding-dbt-unit-test` skill](https://github.com/dbt-labs/dbt-agent-skills/blob/main/skills/dbt/skills/adding-dbt-unit-test/SKILL.md).
 
 ## Folder layout
@@ -112,6 +120,8 @@ For a full production-style example, refer to dbt's [`adding-dbt-unit-test` skil
         sql-patterns.md
 ```
 
+Report incorrect code
+
 The `references/` subfolder is for supporting material that would make `SKILL.md` too long. dbt Wizard reads reference files when the skill is active and the task is relevant.
 
 ## Use a skill
@@ -124,11 +134,15 @@ Reference the skill by name in your prompt:
 Use my-team-style to refactor fct_orders.
 ```
 
+Report incorrect code
+
 Or point to the file directly with `@`:
 
 ```text
 @.agents/skills/my-team-style/SKILL.md — apply these conventions to the new model.
 ```
+
+Report incorrect code
 
 ## Global skills (CLI only)
 
@@ -140,6 +154,8 @@ If you use the CLI, you can store skills in `~/.agents/skills/` to make them ava
 personal-defaults/
 SKILL.md
 ```
+
+Report incorrect code
 
 If a project skill and a global skill use the same name, the project skill takes precedence.
 

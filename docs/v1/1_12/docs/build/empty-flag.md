@@ -14,10 +14,14 @@ Run all models in a project while building only the schemas in your development 
 dbt run --empty
 ```
 
+Report incorrect code
+
 Run a specific model:
 
 ```text
 dbt run --select path/to/your_model --empty
 ```
+
+Report incorrect code
 
 dbt will build and execute the SQL, resulting in an empty schema in the data warehouse.

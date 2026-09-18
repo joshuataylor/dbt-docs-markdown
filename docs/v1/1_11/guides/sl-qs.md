@@ -73,6 +73,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
    create schema raw.stripe;
    ```
 
+   Report incorrect code
+
 2. In the `raw` database and `jaffle_shop` and `stripe` schemas, create three tables and load relevant data into them:
 
    * First, delete all contents (empty) in the Editor of the Snowflake SQL file. Then, run this SQL command to create the `customer` table:
@@ -84,6 +86,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
        last_name varchar
      );
      ```
+
+     Report incorrect code
 
    * Delete all contents in the Editor, then run this command to load data into the `customer` table:
 
@@ -97,6 +101,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
          ); 
      ```
 
+     Report incorrect code
+
    * Delete all contents in the Editor (empty), then run this command to create the `orders` table:
 
      ```sql
@@ -109,6 +115,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
      );
      ```
 
+     Report incorrect code
+
    * Delete all contents in the Editor, then run this command to load data into the `orders` table:
 
      ```sql
@@ -120,6 +128,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
          skip_header = 1
          );
      ```
+
+     Report incorrect code
 
    * Delete all contents in the Editor (empty), then run this command to create the `payment` table:
 
@@ -135,6 +145,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
      );
      ```
 
+     Report incorrect code
+
    * Delete all contents in the Editor, then run this command to load data into the `payment` table:
 
      ```sql
@@ -147,6 +159,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
          );
      ```
 
+     Report incorrect code
+
 3. Verify that the data is loaded by running these SQL queries. Confirm that you can see output for each one.
 
    ```sql
@@ -154,6 +168,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
    select * from raw.jaffle_shop.orders;
    select * from raw.stripe.payment;   
    ```
+
+   Report incorrect code
 
 ![The image displays Snowflake's confirmation output when data loaded correctly in the Editor.](/img/docs/dbt-platform/semantic-layer/sl-snowflake-confirm.jpg?v=2 "The image displays Snowflake's confirmation output when data loaded correctly in the Editor.")The image displays Snowflake's confirmation output when data loaded correctly in the Editor.
 
@@ -324,11 +340,15 @@ Now that you have a repository configured, you can initialize your project and s
 select * from raw.jaffle_shop.customers
 ```
 
+Report incorrect code
+
 #### BigQuery
 
 ```sql
 select * from `dbt-tutorial.jaffle_shop.customers`
 ```
+
+Report incorrect code
 
 #### Databricks
 
@@ -336,17 +356,23 @@ select * from `dbt-tutorial.jaffle_shop.customers`
 select * from default.jaffle_shop_customers
 ```
 
+Report incorrect code
+
 #### Redshift
 
 ```sql
 select * from jaffle_shop.customers
 ```
 
+Report incorrect code
+
 #### Starburst Galaxy
 
 ```sql
 select * from dbt_quickstart.jaffle_shop.jaffle_shop_customers
 ```
+
+Report incorrect code
 
 * In the command line bar at the bottom, enter dbt run and click Enter. You should see a dbt run succeeded message.
 
@@ -383,6 +409,8 @@ sources:
       - name: orders
 ```
 
+Report incorrect code
+
 #### BigQuery
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
@@ -397,6 +425,8 @@ sources:
       - name: orders
 ```
 
+Report incorrect code
+
 #### Redshift
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
@@ -409,6 +439,8 @@ sources:
       - name: customers
       - name: orders
 ```
+
+Report incorrect code
 
 #### Databricks
 
@@ -425,6 +457,8 @@ sources:
         identifier: jaffle_shop_orders
 ```
 
+Report incorrect code
+
 #### Starburst Galaxy
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
@@ -440,6 +474,8 @@ sources:
       - name: orders
         identifier: jaffle_shop_orders
 ```
+
+Report incorrect code
 
 tip
 
@@ -462,6 +498,8 @@ sources:
       - name: payment
 ```
 
+Report incorrect code
+
 ##### BigQuery
 
 models/staging/stripe/src\_stripe.yml
@@ -475,6 +513,8 @@ sources:
       - name: payment
 ```
 
+Report incorrect code
+
 ##### Redshift
 
 models/staging/stripe/src\_stripe.yml
@@ -486,6 +526,8 @@ sources:
     tables:
       - name: payment
 ```
+
+Report incorrect code
 
 ##### Databricks
 
@@ -500,6 +542,8 @@ sources:
         identifier: stripe_payments
 ```
 
+Report incorrect code
+
 ##### Starburst Galaxy
 
 models/staging/stripe/src\_stripe.yml
@@ -513,6 +557,8 @@ sources:
       - name: payment
         identifier: stripe_payments
 ```
+
+Report incorrect code
 
 ### Add staging models
 
@@ -535,6 +581,8 @@ models/staging/jaffle\_shop/stg\_customers.sql
   from {{ source('jaffle_shop', 'customers') }}
 ```
 
+Report incorrect code
+
 3. In the same `jaffle_shop` sub-directory, create the file `stg_orders.sql`
 4. Copy the following query into the file and click **Save**.
 
@@ -548,6 +596,8 @@ models/staging/jaffle\_shop/stg\_orders.sql
     status
   from {{ source('jaffle_shop', 'orders') }}
 ```
+
+Report incorrect code
 
 5. In the `stripe` sub-directory, create the file `stg_payments.sql`.
 6. Copy the following query into the file and click **Save**.
@@ -568,6 +618,8 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
+Report incorrect code
+
 #### BigQuery
 
 models/staging/stripe/stg\_payments.sql
@@ -583,6 +635,8 @@ select
    created as created_at
 from {{ source('stripe', 'payment') }}
 ```
+
+Report incorrect code
 
 #### Redshift
 
@@ -600,6 +654,8 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
+Report incorrect code
+
 #### Databricks
 
 models/staging/stripe/stg\_payments.sql
@@ -616,6 +672,8 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
+Report incorrect code
+
 #### Starburst Galaxy
 
 models/staging/stripe/stg\_payments.sql
@@ -631,6 +689,8 @@ select
    created as created_at
 from {{ source('stripe', 'payment') }}
 ```
+
+Report incorrect code
 
 7. Enter `dbt run` in the command prompt at the bottom of the screen. You should get a successful run and see the three models.
 
@@ -685,6 +745,8 @@ final as (
 select * from final
 ```
 
+Report incorrect code
+
 3. In the `models/marts` directory, create the file `dim_customers.sql`.
 4. Copy the following query into the file and click **Save**.
 
@@ -721,6 +783,8 @@ final as (
 )
 select * from final
 ```
+
+Report incorrect code
 
 5. Create a MetricFlow time spine model by following the [MetricFlow time spine guide](./mf-time-spine.md?step=1). This guide walks you through creating both the SQL model and YAML configuration required for time-based metric calculations.
 
@@ -763,6 +827,8 @@ semantic_models:
     model: ref('fct_orders')
 ```
 
+Report incorrect code
+
 ### Semantic model components
 
 (Applies to dbt v1.11 and earlier)
@@ -800,6 +866,8 @@ semantic_models:
         type: foreign
 ```
 
+Report incorrect code
+
 ### Dimensions
 
 [Dimensions](../docs/build/semantic-models.md#dimensions) are a way to group or filter information based on categories or time.
@@ -831,6 +899,8 @@ semantic_models:
         type_params:
           time_granularity: day
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.11 and earlier)
 
@@ -882,6 +952,8 @@ semantic_models:
           use_discrete_percentile: True
           use_approximate_percentile: False
 ```
+
+Report incorrect code
 
 ### Configure a time spine
 
@@ -1013,6 +1085,8 @@ metrics:
         - name: order_count
 ```
 
+Report incorrect code
+
 ### Add second semantic model to your project
 
 (Applies to dbt v1.11 and earlier)
@@ -1077,6 +1151,8 @@ metrics:
         name: customers
 ```
 
+Report incorrect code
+
 This semantic model uses simple metrics to focus on customer metrics and emphasizes customer dimensions like name, type, and order dates. It uniquely analyzes customer behavior, lifetime value, and order patterns.
 
 ## Test and query metrics
@@ -1118,6 +1194,8 @@ When you make changes to metrics, make sure to run `dbt parse` at a minimum to u
    ```sql
    dbt sl query --metrics order_total,order_count --group-by order_id__order_date
    ```
+
+   Report incorrect code
 
 6. Verify that the metric values are what you expect. To further understand how the metric is being generated, you can view the generated SQL if you type `--compile` in the command line.
 
@@ -1526,6 +1604,8 @@ select * from
     [Dimension('metric_time').grain('day') ]
 ) }}
 ```
+
+Report incorrect code
 
 ## What's next
 

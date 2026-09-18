@@ -28,11 +28,15 @@ Write JSONL to a file (saves to the `logs/` directory):
 dbtf build --otel-file-name telemetry.jsonl
 ```
 
+Report incorrect code
+
 Stream JSONL to stdout:
 
 ```bash
 dbtf build --log-format otel
 ```
+
+Report incorrect code
 
 Write a Parquet file (saves to `target/metadata/` directory):
 
@@ -40,17 +44,23 @@ Write a Parquet file (saves to `target/metadata/` directory):
 dbtf build --otel-parquet-file-name telemetry.parquet
 ```
 
+Report incorrect code
+
 Write a Parquet file with full trace-level logs (recommended for debugging):
 
 ```bash
 dbtf build --log-level-file trace --otel-parquet-file-name telemetry.parquet
 ```
 
+Report incorrect code
+
 Export to an OpenTelemetry collector:
 
 ```bash
 OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" dbtf build --export-to-otlp
 ```
+
+Report incorrect code
 
 ### Download telemetry from platform job runs
 
@@ -68,6 +78,8 @@ You can use the Retrieve Run Artifact endpoint to fetch this artifact:
 GET https://YOUR_ACCESS_URL/api/v2/accounts/ACCOUNT_ID/runs/RUN_ID/artifacts/metadata/telemetry-STEP_NUMBER-otel.parquet?step=STEP_NUMBER
 ```
 
+Report incorrect code
+
 Replace `YOUR_ACCESS_URL` with the [Access URL](../docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan, and `ACCOUNT_ID`, `RUN_ID`, `STEP_NUMBER` with your values. Authenticate with a [service account token](../docs/dbt-apis/service-tokens.md) or [personal access token](../docs/dbt-apis/user-tokens.md).
 
 For example, you can do this with `curl`:
@@ -79,11 +91,15 @@ curl --request GET \
   --output telemetry-4-otel.parquet
 ```
 
+Report incorrect code
+
 To find which step produced the telemetry artifact you want, list the run's steps by including `run_steps` in the run details request:
 
 ```bash
 GET https://YOUR_ACCESS_URL/api/v2/accounts/ACCOUNT_ID/runs/RUN_ID/?include_related=["run_steps"]
 ```
+
+Report incorrect code
 
 You can only retrieve this artifact for dbt v2 steps that emitted an OTel log.
 
@@ -108,6 +124,8 @@ Invocation (dbtf build)
     ├── Node (model.project.customers)
     └── Node (model.project.orders)
 ```
+
+Report incorrect code
 
 The `trace_id` (also known as `invocation_id`) remains consistent across all telemetry records for a single dbt command, making it easy to correlate events.
 
@@ -163,11 +181,15 @@ Watch for errors in real-time:
 tail -f telemetry.jsonl | jq 'select(.severity_text == "ERROR")'
 ```
 
+Report incorrect code
+
 List skipped nodes, reasons, and upstream details:
 
 ```bash
 cat telemetry.jsonl | jq 'select(.attributes.node_outcome == "NODE_OUTCOME_SKIPPED") | {node: .attributes.unique_id, reason: .attributes.node_skip_reason, upstream: .attributes.node_skip_upstream_detail.upstream_unique_id }'
 ```
+
+Report incorrect code
 
 ### Downloading telemetry from the dbt platform
 
@@ -194,6 +216,8 @@ duckdb.sql("""
 """).show()
 ```
 
+Report incorrect code
+
 Choose the right timing metric
 
 Telemetry provides several ways to measure node performance:
@@ -218,6 +242,8 @@ duckdb.sql("""
 """).show()
 ```
 
+Report incorrect code
+
 Count outcomes by type:
 
 ```python
@@ -230,6 +256,8 @@ duckdb.sql("""
     GROUP BY attributes.node_outcome
 """).show()
 ```
+
+Report incorrect code
 
 ### Web-based Parquet viewers
 
@@ -254,6 +282,8 @@ The following example configures the OTLP export:
 export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
 dbtf build --export-to-otlp
 ```
+
+Report incorrect code
 
 ## Mapping to dbt v1 concepts
 
@@ -309,6 +339,8 @@ Each telemetry record contains envelope fields plus event-specific `attributes`:
   }
 }
 ```
+
+Report incorrect code
 
 | Field                        | Description                                                                                                                       |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |

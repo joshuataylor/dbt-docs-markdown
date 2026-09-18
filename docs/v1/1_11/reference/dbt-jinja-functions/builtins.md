@@ -50,6 +50,8 @@ Note that the `ref`, `source`, and `config` functions can't be overridden with a
 {% endmacro %}
 ```
 
+Report incorrect code
+
 ### Render identifiers without a database
 
 Logic within the ref macro can also be used to control which elements of the model path are rendered when run, for example the following logic renders only the schema and object identifier, but not the database reference i.e. `my_schema.my_model` rather than `my_database.my_schema.my_model`. This is especially useful when using snowflake as a warehouse, if you intend to change the name of the database post-build and wish the references to remain accurate.
@@ -59,3 +61,5 @@ Logic within the ref macro can also be used to control which elements of the mod
   -- render identifiers without a database
   {% do return(rel.include(database=false)) %}
 ```
+
+Report incorrect code

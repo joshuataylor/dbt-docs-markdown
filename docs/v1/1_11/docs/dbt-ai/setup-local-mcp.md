@@ -82,6 +82,8 @@ When you use only the dbt platform, the CLI tools are automatically disabled. Yo
 }
 ```
 
+Report incorrect code
+
 **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
 ##### dbt platform + CLI
@@ -105,6 +107,8 @@ The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can
   }
 }
 ```
+
+Report incorrect code
 
 **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
@@ -137,6 +141,8 @@ Add this configuration to your MCP client (refer to the specific [integration gu
 }
 ```
 
+Report incorrect code
+
 #### Locating your paths
 
 Follow the appropriate instructions for your OS to locate your path:
@@ -154,6 +160,8 @@ Follow the appropriate instructions for your OS to locate your path:
   which dbt
   ```
 
+  Report incorrect code
+
   * Example output: `/opt/homebrew/bin/dbt`
   * Use this exact path in your configuration.
 
@@ -170,6 +178,8 @@ Follow the appropriate instructions for your OS to locate your path:
   ```bash
   where dbt
   ```
+
+  Report incorrect code
 
   * Example output: `C:\Python39\Scripts\dbt.exe`
   * Use forward slashes or escaped backslashes: `C:/Python39/Scripts/dbt.exe`
@@ -195,6 +205,8 @@ DBT_PROJECT_DIR=/path/to/your/dbt/project
 DBT_PATH=/path/to/your/dbt/executable
 ```
 
+Report incorrect code
+
 #### dbt platform only
 
 Use this if you only need dbt platform features and won't run dbt commands:
@@ -204,6 +216,8 @@ DBT_HOST=cloud.getdbt.com
 DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
+
+Report incorrect code
 
 #### CLI and dbt platform (most common)
 
@@ -216,6 +230,8 @@ DBT_HOST=cloud.getdbt.com
 DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
+
+Report incorrect code
 
 #### All variables
 
@@ -231,6 +247,8 @@ DBT_TOKEN=your-service-token
 DBT_PROJECT_DIR=/path/to/your/dbt/project
 DBT_PATH=/path/to/your/dbt/executable
 ```
+
+Report incorrect code
 
 #### How to pass environment variables to dbt-mcp
 
@@ -256,6 +274,8 @@ Reference the file using an absolute path in your MCP client config:
   }
 }
 ```
+
+Report incorrect code
 
 Replace `/absolute/path/to/your-dbt-project` with the full path to the folder containing your `dbt_project.yml`.
 
@@ -283,6 +303,8 @@ Pass variables directly in the `env` field, replacing the values with your actua
 }
 ```
 
+Report incorrect code
+
 ##### Shell environment variables
 
 **3. Shell environment variables**
@@ -295,6 +317,8 @@ export DBT_TOKEN=your-token-here
 export DBT_PROJECT_DIR=/path/to/project
 uvx dbt-mcp
 ```
+
+Report incorrect code
 
 ## API and SQL tool settings
 
@@ -322,6 +346,8 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
+Report incorrect code
+
 **Subdomain prefix configuration example:**
 
 ✅ **Correct configuration:**
@@ -330,6 +356,8 @@ DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 DBT_HOST=abc123.us1.dbt.com  # Use the full hostname including the prefix
 DBT_ACCOUNT_ID=12345          # Required when using PAT-based auth
 ```
+
+Report incorrect code
 
 You don't need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`.
 
@@ -355,6 +383,8 @@ Run this command in your Terminal:
 which dbt
 ```
 
+Report incorrect code
+
 Example output: `/opt/homebrew/bin/dbt`
 
  Windows
@@ -364,6 +394,8 @@ Run this command in Command Prompt or PowerShell:
 ```bash
 where dbt
 ```
+
+Report incorrect code
 
 Example output: `C:\Python39\Scripts\dbt.exe`
 
@@ -442,11 +474,15 @@ export DBT_PATH=/path/to/dbt
 uvx dbt-mcp
 ```
 
+Report incorrect code
+
 **If using an `.env` file:** (use an absolute path, for example to `.env` in your dbt project root)
 
 ```bash
 uvx --env-file /absolute/path/to/your-dbt-project/.env dbt-mcp
 ```
+
+Report incorrect code
 
 If there are no errors, your configuration is correct.
 
@@ -498,6 +534,8 @@ To see more detail about what’s happening inside the MCP server and help debug
   }
 }
 ```
+
+Report incorrect code
 
 Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 

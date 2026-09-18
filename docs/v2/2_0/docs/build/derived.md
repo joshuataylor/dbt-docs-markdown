@@ -39,6 +39,8 @@ metrics:
         offset_window: 1 week # Allowed for derived metrics
 ```
 
+Report incorrect code
+
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Derived metrics example
@@ -91,6 +93,8 @@ models:
             offset_window: 1 month
 ```
 
+Report incorrect code
+
 ## Derived metric offset
 
 To perform calculations using a metric's value from a previous time period, you can add an offset parameter to a derived metric. For example, if you want to calculate period-over-period growth or track user retention, you can use this metric offset.
@@ -123,6 +127,8 @@ models:
             offset_window: 1 month
 ```
 
+Report incorrect code
+
 ### Offset windows and granularity
 
 You can query any granularity and offset window combination. The following example queries a metric with a 7-day offset and a monthly grain:
@@ -151,6 +157,8 @@ models:
             offset_window: 7 days
             alias: bookings_7_days_ago
 ```
+
+Report incorrect code
 
 When you run the query `dbt sl query --metrics d7_booking_change --group-by metric_time__month` for the metric, here's how it's calculated. For dbt v1, you can use the `mf query` prefix.
 
@@ -182,6 +190,8 @@ When you run the query `dbt sl query --metrics d7_booking_change --group-by metr
 ```bash
 bookings - bookings_7_days_ago would be compile as 7438 - 7252 = 186. 
 ```
+
+Report incorrect code
 
 | d7\_booking\_change | metric\_time\_\_month |
 | ------------------- | --------------------- |

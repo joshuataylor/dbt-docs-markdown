@@ -16,6 +16,8 @@ $ dbt parse
 13:02:53  Performance info: target/perf_info.json
 ```
 
+Report incorrect code
+
 target/perf\_info.json
 
 ```json
@@ -82,6 +84,8 @@ target/perf\_info.json
 }
 ```
 
+Report incorrect code
+
 (Applies to dbt v2.0 and later)
 
 ## dbt Information Schema
@@ -91,5 +95,7 @@ Use `--generate-info-schema` to write the [dbt Information Schema](../../docs/bu
 ```shell
 dbt parse --generate-info-schema
 ```
+
+Report incorrect code
 
 Because `dbt parse` doesn't connect to your warehouse, the Information Schema it produces contains no column types, no column-level lineage, and no runtime results.

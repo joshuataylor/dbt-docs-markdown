@@ -7,6 +7,8 @@ select * from {{ source('backend_db', 'orders') }}
 where status != 'employee_order'
 ```
 
+Report incorrect code
+
 What happens one day if there’s an additional `status` that needs to be filtered out? Well, that’s where the handy IN operator comes into play.
 
 The IN operator ultimately allows you to specify multiple values in a WHERE clause, so you can easily filter your query on multiple options. Using the IN operator is a more refined version of using multiple OR conditions in a WHERE clause.
@@ -20,6 +22,8 @@ select * from {{ source('backend_db', 'orders') }}
 where status not in ('employee_order', 'influencer_order') --list of order statuses to filter out
 ```
 
+Report incorrect code
+
 Woah woah woah, what is a `not in`? This is exactly what it sounds like: return all rows where the status is not `employee_order` or `influencer_order`. If you wanted to just use the IN operator, you can specify all other statuses that are appropriate (ex. `where status in ('regular_order', 'temp_order')`).
 
 You can additionally use the IN/NOT IN operator for a subquery, to remove/include rows from a subquery’s result:
@@ -27,6 +31,8 @@ You can additionally use the IN/NOT IN operator for a subquery, to remove/includ
 ```sql
 where status in (select …)
 ```
+
+Report incorrect code
 
 Compare columns against appropriate data types
 

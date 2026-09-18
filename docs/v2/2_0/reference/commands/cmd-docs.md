@@ -18,6 +18,8 @@ Instead of loading a static `manifest.json` in the browser, v2 produces Parquet 
 dbt docs generate
 ```
 
+Report incorrect code
+
 By default, dbt writes the site into your `target/` directory (`target/index.html`, `target/assets/`, and the index under `target/index/`), matching the layout of dbt v1. You can serve `index.html` from `target/` the same way you did in v1, so an existing pipeline that runs `dbt docs generate && mv target public` keeps working.
 
 Use `--output-dir` to write a self-contained copy of the site to a different directory:
@@ -25,6 +27,8 @@ Use `--output-dir` to write a self-contained copy of the site to a different dir
 ```shell
 dbt docs generate --output-dir site
 ```
+
+Report incorrect code
 
 This writes a `site/` directory (the app, hashed assets, and a copy of the index) that you can host on S3, GitHub Pages, Netlify, GitLab Pages, or any similar static file host.
 
@@ -34,6 +38,8 @@ To skip compilation and export whatever index is already on disk, use `--no-comp
 dbt docs generate --no-compile
 ```
 
+Report incorrect code
+
 #### Column lineage and richer metadata
 
 Column-level lineage and richer column metadata require an index built with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Because `dbt docs generate` runs a standard compile by default, build the index with strict static analysis first when you want column lineage, then export it:
@@ -42,6 +48,8 @@ Column-level lineage and richer column metadata require an index built with [`--
 dbt build --write-index --static-analysis strict
 dbt docs generate --no-compile
 ```
+
+Report incorrect code
 
 If you generate the site without column lineage, dbt Docs v2 hides those features instead of showing empty data.
 
@@ -53,17 +61,23 @@ To preview the site locally, run:
 dbt docs serve
 ```
 
+Report incorrect code
+
 `dbt docs serve` generates the site if it's missing or older than the index, then serves the static files. The server starts on port `8580` by default and opens in your browser. Use `--port` to change the port:
 
 ```shell
 dbt docs serve --port 8081
 ```
 
+Report incorrect code
+
 Use the `--target-path` flag to change the path where dbt reads artifacts from:
 
 ```shell
 dbt docs serve --target-path ~/Developer/internal-analytics/target
 ```
+
+Report incorrect code
 
 Because the generated site is a set of static files, you can also host it on any static file host — such as cloud object storage or a static site host — instead of serving it locally.
 
@@ -88,6 +102,8 @@ For dbt v2 jobs running in dbt platform, dbt automatically runs `write-catalog` 
 dbt build --write-catalog
 ```
 
+Report incorrect code
+
 ### Platform behavior
 
 In dbt platform jobs running on dbt v2, you don't need to change anything to hydrate catalog metadata. dbt runs `write-catalog` automatically with `build` and `run`, so you don't need to run a separate command. You can optionally include it when running `dbt parse` or `dbt compile`.
@@ -101,6 +117,8 @@ When running dbt v2 locally, add the `--write-catalog` flag to your command to g
 ```shell
 dbt build --write-catalog
 ```
+
+Report incorrect code
 
 ### What's different from docs generate
 

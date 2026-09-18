@@ -30,6 +30,8 @@ Once you install the dbt platform CLI, you need to configure it to connect to a 
    cd ~/dbt-projects/jaffle_shop
    ```
 
+   Report incorrect code
+
 4. In your `dbt_project.yml` file, ensure you have or include a [`dbt-cloud` block](../../reference/dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml) with a `project-id` field that points to your dbt project.
 
    ```yaml
@@ -37,6 +39,8 @@ Once you install the dbt platform CLI, you need to configure it to connect to a 
    dbt-cloud:
        project-id: PROJECT_ID
    ```
+
+   Report incorrect code
 
 5. You should now be able to [use the dbt platform CLI](#use-the-dbt-cli) and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
 
@@ -83,6 +87,8 @@ To lint SQL files, run the command as follows:
 dbt sqlfluff lint [PATHS]... [flags]
 ```
 
+Report incorrect code
+
 When you don't specify a path, dbt lints all SQL files in the current project. To lint a specific SQL file or a directory, set `PATHS` to the path of the SQL file(s) or directory of files. To lint multiple files or directories, pass multiple `PATHS` flags.
 
 To show detailed information on all the dbt supported commands and flags, run the `dbt sqlfluff -h` command.
@@ -107,6 +113,8 @@ Here's an example of a [local package](../build/packages.md#local-packages) conf
 packages:
   - local: ../shared_macros
 ```
+
+Report incorrect code
 
 In this example, `../shared_macros` is a relative path that tells dbt to look for:
 
@@ -148,6 +156,8 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
+Report incorrect code
+
 #### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
@@ -155,6 +165,8 @@ In your command line, use the move command. Assuming your file is in the Downloa
 ```bash
 move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
 ```
+
+Report incorrect code
 
  How to skip artifacts from being downloaded
 

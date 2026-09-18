@@ -16,6 +16,8 @@ models:
       alias: <string>
 ```
 
+Report incorrect code
+
 ## Property file
 
 models/schema.yml
@@ -29,6 +31,8 @@ models:
         alias: <string>
 ```
 
+Report incorrect code
+
 ## SQL config
 
 models/\<model\_name>.sql
@@ -41,6 +45,8 @@ models/\<model\_name>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -58,6 +64,8 @@ dbt\_project.yml
 flags:
   latest_version_pointer_enabled_by_default: true
 ```
+
+Report incorrect code
 
 `latest_version_pointer` accepts two optional sub-keys for per-model control:
 
@@ -83,6 +91,8 @@ For example, the following configuration would raise `dbt1005` because both `dim
 dbt1005 (Cannot create latest version pointer: the latest version of 'dim_customers' is already aliased to 'dim_customers')
 ```
 
+Report incorrect code
+
 ```yaml
 models:
   - name: dim_customers
@@ -95,6 +105,8 @@ models:
       latest_version_pointer:
         enabled: true
 ```
+
+Report incorrect code
 
 To fix this, select one of the following options:
 
@@ -112,6 +124,8 @@ config:
   alias: dim_customers
 ```
 
+Report incorrect code
+
 #### Disable the latest version pointer for that model
 
 This approach is immediately backward-compatible for pre-existing `alias` configs:
@@ -124,12 +138,16 @@ This approach is immediately backward-compatible for pre-existing `alias` config
         enabled: false
 ```
 
+Report incorrect code
+
 #### Set a unique `alias`
 
 ```yaml
         config:
           alias: dim_customers_latest
 ```
+
+Report incorrect code
 
 #### Override the `generate_latest_version_pointer_alias` macro
 
@@ -142,6 +160,8 @@ macros/generate\_latest\_version\_pointer\_alias.sql
     {{ node.name ~ "_latest" }}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 ## Related documentation
 

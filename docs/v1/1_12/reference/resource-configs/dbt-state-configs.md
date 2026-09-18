@@ -23,6 +23,8 @@ models:
     execute_hooks_on_any_reuse: true | false
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/schema.yml
@@ -40,6 +42,8 @@ models:
         execute_hooks_on_any_reuse: true | false
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -56,6 +60,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 Profile-level settings are configured in `profiles.yml` and apply to a specific target environment:
 
@@ -75,6 +81,8 @@ my_project:
       metadata_warehouse: <warehouse_name>  # Snowflake only
   target: dev
 ```
+
+Report incorrect code
 
 | Config                                                                                                           | Default             | Scope                                           | Description                                                                                                                                                                                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

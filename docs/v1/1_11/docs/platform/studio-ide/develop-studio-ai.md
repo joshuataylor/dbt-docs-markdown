@@ -111,6 +111,8 @@ To validate or run models during a session, the agent may request to run dbt com
 dbt compile --select model_name
 ```
 
+Report incorrect code
+
 You can select one of the following options:
 
 | Option                                                | Behavior                                                                                         |
@@ -166,6 +168,8 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
    ```text
    I need help fixing dbt v2 compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
    ```
+
+   Report incorrect code
 
 5. Review and approve dbt Wizard's permission requests so it can run the commands it needs.
 

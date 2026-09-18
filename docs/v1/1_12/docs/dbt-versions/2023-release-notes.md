@@ -337,6 +337,8 @@ Archived release notes for dbt from 2023
   }
   ```
 
+  Report incorrect code
+
   Example of query after deprecation:
 
   ```graphql
@@ -349,6 +351,8 @@ Archived release notes for dbt from 2023
   }
   }
   ```
+
+  Report incorrect code
 
   ## modelByEnvironment queries
 
@@ -367,6 +371,8 @@ Archived release notes for dbt from 2023
   }
   ```
 
+  Report incorrect code
+
   Example of query after deprecation:
 
   ```graphql
@@ -383,6 +389,8 @@ Archived release notes for dbt from 2023
   }
   }
   ```
+
+  Report incorrect code
 
   ## Environment and account queries
 
@@ -410,6 +418,8 @@ Archived release notes for dbt from 2023
   }
   ```
 
+  Report incorrect code
+
   Example of query after deprecation:
 
   ```graphql
@@ -431,6 +441,8 @@ Archived release notes for dbt from 2023
   }
   }
   ```
+
+  Report incorrect code
 
 *  dbt Cloud IDE v1.2
 

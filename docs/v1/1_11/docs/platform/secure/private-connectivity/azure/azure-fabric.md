@@ -97,6 +97,8 @@ Fabric workspace-level Private Link uses a dedicated Azure resource (`Microsoft.
    }
    ```
 
+   Report incorrect code
+
 5. Select your **Subscription** and **Resource group**, then click **Review + create** → **Create**.
 
 6. Once the deployment completes, navigate to your **resource group** and select **Manage view** → **Show hidden types** to reveal the Private Link Service resource. Click the resource to open it and copy the **Resource ID** from the overview page. You will need the Resource ID to submit your Private Link request.
@@ -120,6 +122,8 @@ Subject: New Azure Multi-Tenant Private Link Request
 - dbt Azure multi-tenant environment (EMEA):
 - Azure region of your Fabric workspace (for example, centralus, westeurope):
 ```
+
+Report incorrect code
 
 Make sure you replace `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, and `NAME` with your values.
 

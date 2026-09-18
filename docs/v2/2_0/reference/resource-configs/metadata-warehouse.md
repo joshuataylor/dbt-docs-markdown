@@ -17,6 +17,8 @@ my_project:
   target: prod
 ```
 
+Report incorrect code
+
 ## Definition
 
 dbt State performs metadata introspection queries to determine whether models need to be rebuilt. On Snowflake, these queries run against your configured `warehouse` by default, which can cause queuing when your primary warehouse is under heavy load.
@@ -53,6 +55,8 @@ my_project:
       metadata_warehouse: METADATA_XS  # used for dbt State introspection
   target: prod
 ```
+
+Report incorrect code
 
 ## Related docs
 

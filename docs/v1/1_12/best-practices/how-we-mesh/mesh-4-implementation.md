@@ -46,6 +46,8 @@ groups:
         email: ben.jaffleck@jaffleshop.com
 ```
 
+Report incorrect code
+
 * Then, we can add models to that group using the `group:` key in the model's YAML entry.
 
 ```yml
@@ -59,6 +61,8 @@ models:
     config:
       group: marketing # changed to config in v1.10
 ```
+
+Report incorrect code
 
 * Once you've added models to the group, you can **add [access](../../docs/mesh/govern/model-access.md) settings to the models** based on their connections between groups, *opting for the most private access that will maintain current functionality*. This means that any model that has *only* relationships to other models in the same group should be `private` , and any model that has cross-group relationships, or is a terminal node in the group DAG should be `protected` so that other parts of the DAG can continue to reference it.
 
@@ -75,6 +79,8 @@ models:
       group: marketing # changed to config in v1.10
       access: private # changed to config in v1.10
 ```
+
+Report incorrect code
 
 * **Validate these groups by incrementally migrating your jobs** to execute these groups specifically via selection syntax. We would recommend doing this in parallel to your production jobs until you’re sure about them. This will help you feel out if you’ve drawn the lines in the right place.
 * If you find yourself **consistently making changes across multiple groups** when you update logic, that’s a sign that **you may want to rethink your groups**.
@@ -104,6 +110,8 @@ models:
 projects:
   - name: jaffle_shop
 ```
+
+Report incorrect code
 
 ### Best practices
 

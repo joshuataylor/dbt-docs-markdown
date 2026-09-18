@@ -112,6 +112,8 @@ target/semantic\_manifest.json
 }
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.12 and later)
 
 ## Apache Ossie document

@@ -49,6 +49,8 @@ metrics:
       alias: my_metric_name_a_week_ago_in_another_semantic_model
 ```
 
+Report incorrect code
+
 ## Cumulative metrics example
 
 Cumulative metrics measure data over a given window and consider the window infinite when no window parameter is passed, accumulating the data over all time.
@@ -88,6 +90,8 @@ metrics:
     input_metric: order_total
 ```
 
+Report incorrect code
+
 ### Granularity options
 
 (Applies to dbt v1.12 and later)
@@ -111,6 +115,8 @@ metrics:
     input_metric: revenue
     period_agg: first # Optional. Defaults to first. Accepted values: first|last|average
 ```
+
+Report incorrect code
 
 In this example, `period_agg` is set to `first`, which chooses the first value for the selected granularity window. To query `cumulative_revenue` by week, use the following query syntax:
 
@@ -176,6 +182,8 @@ group by
   revenue_all_time
 ```
 
+Report incorrect code
+
 ### Window options
 
 This section details examples of when to specify and not to specify window options.
@@ -209,6 +217,8 @@ models:
         expr: customer_id
 ```
 
+Report incorrect code
+
 We can write a cumulative metric `weekly_customers` as such:
 
 models/marts/customers.yml
@@ -223,6 +233,8 @@ metrics:
     window: 7 days
     period_agg: first # When using non-default granularity with cumulative metrics, re-aggregation is required. period_agg: first selects the first value in each granularity window during re-aggregation.
 ```
+
+Report incorrect code
 
 From the sample YAML example, note the following:
 
@@ -265,6 +277,8 @@ metrics:
     input_metric: subscription_count
 ```
 
+Report incorrect code
+
 ### Grain to date
 
 You can choose to specify a grain to date in your cumulative metric configuration to accumulate a metric from the start of a grain (such as week, month, or year). When using a window, such as a month, MetricFlow will go back one full calendar month. However, grain to date will always start accumulating from the beginning of the grain, regardless of the latest date of data.
@@ -288,6 +302,8 @@ models:
         expr: order_total
 ```
 
+Report incorrect code
+
 We can compare the difference between a 1-month window and a monthly grain to date.
 
 * The cumulative metric in a window approach applies a sliding window of 1 month
@@ -308,6 +324,8 @@ metrics:
     input_metric: order_total
 ```
 
+Report incorrect code
+
 Cumulative metric with grain to date:
 
 (Applies to dbt v1.12 and later)
@@ -324,6 +342,8 @@ metrics:
     grain_to_date: month
     input_metric: order_count
 ```
+
+Report incorrect code
 
  Expand toggle to view how the SQL compiles
 
@@ -366,6 +386,8 @@ order by
     metric_time__week
     1
 ```
+
+Report incorrect code
 
 ## SQL implementation example
 
@@ -419,6 +441,8 @@ group by
 limit 100;
 ```
 
+Report incorrect code
+
 ## Limitations
 
 If you specify a `window` in your cumulative metric definition, you must include `metric_time` as a dimension in the SQL query. This is because the accumulation window is based on metric time. For example,
@@ -434,6 +458,8 @@ from (
 group by
   subq_3.metric_time
 ```
+
+Report incorrect code
 
 ## Related docs
 

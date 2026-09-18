@@ -132,6 +132,8 @@ Create an app in Entra where dbt will request access tokens when authenticating 
      'https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token'
    ```
 
+   Report incorrect code
+
    The response will include an `access_token`. You can decode this token using [jwt.io](https://jwt.io) to view the `sub` claim value.
 
 Workload Identity Federation utilizes a machine-to-machine OAuth flow that is unattended by the user; as such, a redirect URI won't need to be set for the application. Step 3 in this section is crucial because it determines the audience for tokens issued from the app and informs the workpool in GCP whether the calling application has permission to access the resources guarded by the workpool.
@@ -200,6 +202,8 @@ Once you've created the service account, navigate back to the workpool you creat
      &grant_type=client_credentials' \
      'https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token'
    ```
+
+   Report incorrect code
 
    The response will include an `access_token`. You can decode this token using [jwt.io](https://jwt.io) to view the `sub` claim value.
 

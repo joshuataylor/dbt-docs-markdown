@@ -16,6 +16,8 @@ full outer join <table_1> as t2
 on t1.id = t2.id 
 ```
 
+Report incorrect code
+
 In this example above, there’s only one field being used to join the table together; if you’re joining between database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
 
 A note on full outer joins: it may sound obvious, but because full outer joins can return all rows between two tables, they therefore can return *many* rows, which is not necessarily a recipe for efficiency. When you use full outer joins, you often can find alternatives using different joins or unions to potentially bypass major inefficiencies caused by a full outer join.
@@ -48,6 +50,8 @@ full outer join {{ ref('car_color') }} as car_color
 on car_type.user_id = car_color.user_id
 order by 1
 ```
+
+Report incorrect code
 
 This simple query will return all rows from tables A and B, regardless of `user_id` match success between the two tables:
 

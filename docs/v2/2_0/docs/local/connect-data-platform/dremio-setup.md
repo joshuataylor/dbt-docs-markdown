@@ -87,6 +87,8 @@ For descriptions of the configurations in these profiles, see [Configurations](#
   target: dev
 ```
 
+Report incorrect code
+
 ### Software (Username/Password)
 
 ```yaml
@@ -107,6 +109,8 @@ For descriptions of the configurations in these profiles, see [Configurations](#
   target: dev
 ```
 
+Report incorrect code
+
 ### Software (Personal Access Token)
 
 ```yaml
@@ -126,6 +130,8 @@ For descriptions of the configurations in these profiles, see [Configurations](#
       user: [username]
   target: dev
 ```
+
+Report incorrect code
 
 ## Configurations Common to Profiles for Dremio Cloud and Dremio Software
 

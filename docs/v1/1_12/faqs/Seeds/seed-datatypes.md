@@ -13,3 +13,5 @@ seeds:
       +column_types:
         zipcode: varchar(5)
 ```
+
+Report incorrect code

@@ -55,6 +55,8 @@ Let's say you run a neighborhood café and folks get a free drink after 10 visit
 I need a query using customers, subscriptions, and activity tables to see weekly regulars.
 ```
 
+Report incorrect code
+
 **With rich context** (specific):
 
 ```text
@@ -75,6 +77,8 @@ and compare conversion rates: do high-frequency punch-card users convert to our
 'beans of the month' subscription at a higher rate than casual visitors?
 ```
 
+Report incorrect code
+
 **Why it works:** The AI now knows exact data types, how tables relate, what values to expect, and the specific business logic (3+ visits/week defines "regulars").
 
 ### Break complex logic into smaller steps
@@ -92,6 +96,8 @@ For multi-part tasks, write them as a sequence of clear instructions. dbt Wizard
 2. Calculate their average session duration.
 3. Join to subscription data and group by plan tier.
 ```
+
+Report incorrect code
 
 **Why this works:** Each step is clear and actionable. You can always iterate on your prompt to refine results — start simple, then build complexity.
 
@@ -112,6 +118,8 @@ Show me weekly conversion rates: browsers who became buyers, segmented by whethe
 they used the 3D preview. If preview users convert 20%+ higher, we'll add 3D 
 to all products. If not, we'll improve the feature before expanding.
 ```
+
+Report incorrect code
 
 **Why it works:** You've described the feature, the behavior you're measuring, specific success criteria (20%+ lift), and the decision you'll make based on results.
 
@@ -137,6 +145,8 @@ and an 'upgrade rate' as a percentage.
 Each week, show active challengers and total workouts. By challenge start week, 
 show how many upgraded to paid within 30 days and what their average workouts looked like.
 ```
+
+Report incorrect code
 
 **Why it works:** Specific metrics that are ready to present.
 
@@ -164,6 +174,8 @@ Output:
 Sort by total_spent descending, limit to 10 rows.
 ```
 
+Report incorrect code
+
 **What dbt Wizard generates:**
 
 ```sql
@@ -180,6 +192,8 @@ group by c.customer_id, c.name
 order by total_spent desc
 limit 10
 ```
+
+Report incorrect code
 
 **Why it works:**
 
@@ -206,6 +220,8 @@ Active customer = at least one paid purchase in the last 90 days, excluding refu
 Net revenue = gross sales minus discounts and returns
 ```
 
+Report incorrect code
+
 **Pull from:** Metrics glossaries, KPI catalogs, product requirement docs, data dictionaries
 
 ### Show sample values
@@ -219,6 +235,8 @@ Order statuses:
 - `customer_id: C-13, created_at: 2020-01-02T06:40:00Z, status: 'pending'`
 ```
 
+Report incorrect code
+
 **Pull from:** Data profiling reports, QA test datasets, BI dashboard filters
 
 ### Start with a draft, refine later
@@ -230,6 +248,8 @@ From stg_orders and dim_customers, draft a minimal model with order_id, customer
 order_date, net_revenue = gross - coalesce(discount, 0), and join to dim_customers 
 on customer_id. Filter to the last 30 days for preview only.
 ```
+
+Report incorrect code
 
 **Pull from:** Source-to-target mapping sheets (join keys and transformations), data dictionaries (primary and foreign keys)
 
@@ -290,6 +310,8 @@ Macro requirements:
 - Handle null values by returning 'unknown'
 ```
 
+Report incorrect code
+
 **Why it works:** Clear input (the CASE statement), clear requirements, clear output expectations.
 
 ### Lower the barrier to entry
@@ -308,6 +330,8 @@ Parameters:
 
 Include a docstring explaining how to use it.
 ```
+
+Report incorrect code
 
 **Outcome:** dbt Wizard generates proper Jinja syntax, handles parameters, and includes documentation. You learn Jinja patterns while getting working code.
 
@@ -329,6 +353,8 @@ Parameters:
 Include defaults and guardrails for empty lists.
 Add a docstring with parameter descriptions and usage example.
 ```
+
+Report incorrect code
 
 **Why this works:** You've outlined the interface (parameters) and edge cases (empty lists), letting dbt Wizard handle the Jinja boilerplate while you focus on design. This approach accelerates iteration so you can refine the structure without getting stuck in syntax details.
 
@@ -361,6 +387,8 @@ Warehouse: Snowflake
 Expected: Group by product and show product name. What's wrong and how do I fix it?
 ```
 
+Report incorrect code
+
 **Example: Macro not working**
 
 ```text
@@ -373,6 +401,8 @@ This macro should calculate discount but returns wrong values:
 When I call {{ calculate_discount(100, 0.1) }} I expect 10 but get an error.
 Show me the rendered SQL from target/compiled and explain what's wrong.
 ```
+
+Report incorrect code
 
 **Tip:** Include your warehouse type (Snowflake, BigQuery, Databricks and so on.) — this is because the syntax can vary across data platforms.
 

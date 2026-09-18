@@ -77,6 +77,8 @@ store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with webhook secret
 store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your dbt API token
 ```
 
+Report incorrect code
+
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
 ## Add a code action
@@ -171,6 +173,8 @@ for step in run_data_results['run_steps']:
 # Zapier looks for the `output` dictionary for use in subsequent steps
 output = {'outcome_message': outcome_message}
 ````
+
+Report incorrect code
 
 ## Add the Microsoft Teams action
 

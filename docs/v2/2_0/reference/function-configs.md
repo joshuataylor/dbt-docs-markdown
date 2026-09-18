@@ -23,6 +23,8 @@ functions:
     # See functions/schema.yml examples below
 ```
 
+Report incorrect code
+
 #### Properties YAML file
 
 functions/schema.yml
@@ -47,6 +49,8 @@ functions:
       meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 ### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
@@ -70,6 +74,8 @@ functions:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 #### Properties YAML file
 
 functions/schema.yml
@@ -86,6 +92,8 @@ functions:
       alias: <string>
       meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 ## Configuring functions
 
@@ -109,6 +117,8 @@ functions:
   +schema: udf_schema
 ```
 
+Report incorrect code
+
 #### Apply the `schema` configuration to all functions in your project
 
 To apply a configuration to all functions in your project only (i.e. *excluding* any functions in installed packages), provide your [project name](./project-configs/name.md) as part of the resource path.
@@ -123,6 +133,8 @@ functions:
   jaffle_shop:
     +schema: udf_schema
 ```
+
+Report incorrect code
 
 Similarly, you can use the name of an installed package to configure functions in that package.
 
@@ -140,6 +152,8 @@ functions:
       schema: udf_schema
 ```
 
+Report incorrect code
+
 To apply a configuration to one function only in `dbt_project.yml`, provide the full resource path (including the project name and subdirectories). For a project named `jaffle_shop`, with a function file at `functions/is_positive_int.sql`:
 
 dbt\_project.yml
@@ -150,6 +164,8 @@ functions:
     is_positive_int:
       +schema: udf_schema
 ```
+
+Report incorrect code
 
 ## Example function configuration
 
@@ -174,6 +190,8 @@ functions:
       +schema: marketing_udfs # this will take precedence
 ```
 
+Report incorrect code
+
 functions/schema.yml
 
 ```yml
@@ -194,3 +212,5 @@ functions:
       data_type: boolean
       description: Returns true if the string represents a positive integer
 ```
+
+Report incorrect code

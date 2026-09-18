@@ -156,11 +156,15 @@ This macro yields the database-specific data type for a `BIGINT`.
 {{ dbt.type_bigint() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 bigint
 ```
+
+Report incorrect code
 
 ### type\_boolean
 
@@ -176,11 +180,15 @@ This macro yields the database-specific data type for a `BOOLEAN`.
 {{ dbt.type_boolean() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 BOOLEAN
 ```
+
+Report incorrect code
 
 ### type\_float
 
@@ -196,11 +204,15 @@ This macro yields the database-specific data type for a `FLOAT`.
 {{ dbt.type_float() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 FLOAT
 ```
+
+Report incorrect code
 
 ### type\_int
 
@@ -216,11 +228,15 @@ This macro yields the database-specific data type for an `INT`.
 {{ dbt.type_int() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 INT
 ```
+
+Report incorrect code
 
 ### type\_numeric
 
@@ -236,11 +252,15 @@ This macro yields the database-specific data type for a `NUMERIC`.
 {{ dbt.type_numeric() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 numeric(28,6)
 ```
+
+Report incorrect code
 
 ### type\_string
 
@@ -256,11 +276,15 @@ This macro yields the database-specific data type for `TEXT`.
 {{ dbt.type_string() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 TEXT
 ```
+
+Report incorrect code
 
 ### type\_timestamp
 
@@ -276,11 +300,15 @@ This macro yields the database-specific data type for a `TIMESTAMP` (which may o
 {{ dbt.type_timestamp() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 TIMESTAMP
 ```
+
+Report incorrect code
 
 ### current\_timestamp
 
@@ -301,11 +329,15 @@ This macro returns the current date and time for the system. Depending on the ad
 {{ dbt.current_timestamp() }}
 ```
 
+Report incorrect code
+
 **Sample output (PostgreSQL)**
 
 ```sql
 now()
 ```
+
+Report incorrect code
 
 ## Set functions
 
@@ -323,11 +355,15 @@ now()
 {{ dbt.except() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 except
 ```
+
+Report incorrect code
 
 ### intersect
 
@@ -343,11 +379,15 @@ except
 {{ dbt.intersect() }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 intersect
 ```
+
+Report incorrect code
 
 ## Array functions
 
@@ -368,6 +408,8 @@ This macro appends an element to the end of an array and returns the appended ar
 {{ dbt.array_append("array_column", "'blue'") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -375,6 +417,8 @@ array_append(array_column, element_column)
 array_append(array_column, 5)
 array_append(array_column, 'blue')
 ```
+
+Report incorrect code
 
 ### array\_concat
 
@@ -391,11 +435,15 @@ This macro returns the concatenation of two arrays.
 {{ dbt.array_concat("array_column_1", "array_column_2") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 array_cat(array_column_1, array_column_2)
 ```
+
+Report incorrect code
 
 ### array\_construct
 
@@ -415,6 +463,8 @@ This macro returns an array constructed from a set of inputs.
 {{ dbt.array_construct(["'blue'", "'green'"]) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -423,6 +473,8 @@ array[]::integer[]
 array[ 1 , 2 , 3 , 4 ]
 array[ 'blue' , 'green' ]
 ```
+
+Report incorrect code
 
 ## String functions
 
@@ -443,6 +495,8 @@ This macro combines a list of strings together.
 {{ dbt.concat(["first_part_column", "','" , "second_part_column"]) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -451,6 +505,8 @@ year_column || '-' || month_column || '-' || day_column
 first_part_column || '.' || second_part_column
 first_part_column || ',' || second_part_column
 ```
+
+Report incorrect code
 
 ### hash
 
@@ -467,6 +523,8 @@ This macro provides a hash (such as [MD5](https://en.wikipedia.org/wiki/MD5)) of
 {{ dbt.hash("'Pennsylvania'") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -477,6 +535,8 @@ md5(cast('Pennsylvania' as
     varchar
 ))
 ```
+
+Report incorrect code
 
 ### length
 
@@ -492,6 +552,8 @@ This macro calculates the number of characters in a string.
 {{ dbt.length("column") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -499,6 +561,8 @@ This macro calculates the number of characters in a string.
         column
     )
 ```
+
+Report incorrect code
 
 ### position
 
@@ -516,6 +580,8 @@ This macro searches for the first occurrence of `substring_text` within `string_
 {{ dbt.position("'-'", "text_column") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -527,6 +593,8 @@ This macro searches for the first occurrence of `substring_text` within `string_
         '-' in text_column
     )
 ```
+
+Report incorrect code
 
 ### replace
 
@@ -545,6 +613,8 @@ This macro updates a string and replaces all occurrences of one substring with a
 {{ dbt.replace("string_text_column", "'-'", "'_'") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -560,6 +630,8 @@ This macro updates a string and replaces all occurrences of one substring with a
         '_'
     )
 ```
+
+Report incorrect code
 
 ### right
 
@@ -577,6 +649,8 @@ This macro returns the N rightmost characters from a string.
 {{ dbt.right("string_text_column", "3") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -590,6 +664,8 @@ This macro returns the N rightmost characters from a string.
         3
     )
 ```
+
+Report incorrect code
 
 ### split\_part
 
@@ -610,6 +686,8 @@ When referencing a column, use one pair of quotes. When referencing a string, us
 {{ dbt.split_part(string_text="'1|2|3'", delimiter_text="'|'", part_number=1) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -625,6 +703,8 @@ When referencing a column, use one pair of quotes. When referencing a string, us
         1
         )
 ```
+
+Report incorrect code
 
 ## String literal functions
 
@@ -645,12 +725,16 @@ To escape quotes for column values, consider a macro like [replace](#replace) or
 {{ dbt.escape_single_quotes("ain't ain't a word") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 they''re
 ain''t ain''t a word
 ```
+
+Report incorrect code
 
 ### string\_literal
 
@@ -668,11 +752,15 @@ To cast column values to a string, consider a macro like [safe\_cast](#safe_cast
 select {{ dbt.string_literal("Pennsylvania") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 select 'Pennsylvania'
 ```
+
+Report incorrect code
 
 ## Aggregate and window functions
 
@@ -690,11 +778,15 @@ This macro returns some value of the expression from the group. The selected val
 {{ dbt.any_value("column_name") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
 any(column_name)
 ```
+
+Report incorrect code
 
 ### bool\_or
 
@@ -713,6 +805,8 @@ This macro returns the logical `OR` of all non-`NULL` expressions -- `true` if a
 {{ dbt.bool_or("column1 = column2") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -721,6 +815,8 @@ bool_or(integer_column = 3)
 bool_or(string_column = 'Pennsylvania')
 bool_or(column1 = column2)
 ```
+
+Report incorrect code
 
 ### listagg
 
@@ -741,6 +837,8 @@ Note: If there are instances of `delimiter_text` within your `measure`, you cann
 {{ dbt.listagg(measure="column_to_agg", delimiter_text="','", order_by_clause="order by order_by_column", limit_num=10) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -752,6 +850,8 @@ array_to_string(
         ','
         )
 ```
+
+Report incorrect code
 
 ## Cast functions
 
@@ -774,6 +874,8 @@ This macro casts a value to the specified data type. Unlike [safe\_cast](#safe_c
 {{ dbt.cast("'2016-03-09'", api.Column.translate_type("date")) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -781,6 +883,8 @@ This macro casts a value to the specified data type. Unlike [safe\_cast](#safe_c
     cast(column_2 as INT)
     cast('2016-03-09' as date)
 ```
+
+Report incorrect code
 
 ### cast\_bool\_to\_text
 
@@ -800,6 +904,8 @@ This macro casts a boolean value to a string.
 {{ dbt.cast_bool_to_text("1 = 1") }}
 {{ dbt.cast_bool_to_text("null") }}
 ```
+
+Report incorrect code
 
 **Sample Output (PostgreSQL)**:
 
@@ -829,6 +935,8 @@ This macro casts a boolean value to a string.
 )
 ```
 
+Report incorrect code
+
 ### safe\_cast
 
 **Args**:
@@ -846,6 +954,8 @@ For databases that support it, this macro will return `NULL` when the cast fails
 {{ dbt.safe_cast("'2016-03-09'", api.Column.translate_type("date")) }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -853,6 +963,8 @@ For databases that support it, this macro will return `NULL` when the cast fails
     cast(column_2 as INT)
     cast('2016-03-09' as date)
 ```
+
+Report incorrect code
 
 ## Comparison functions
 
@@ -878,12 +990,16 @@ When the [`enable_truthy_nulls_equals_macro`](../global-configs/behavior-flags/e
 {{ dbt.equals("id", "previous_id") }}
 ```
 
+Report incorrect code
+
 **Sample output (PostgreSQL with [`enable_truthy_nulls_equals_macro`](../global-configs/behavior-flags/enable_truthy_nulls_equals_macro.md) enabled)**:
 
 ```sql
 (column_a IS NOT DISTINCT FROM column_b)
 (id IS NOT DISTINCT FROM previous_id)
 ```
+
+Report incorrect code
 
 ## Date and time functions
 
@@ -905,11 +1021,15 @@ This macro converts the `year`, `month`, and `day` into an SQL `DATE` type.
 {{ dbt.date(2023, 10, 4) }}
 ```
 
+Report incorrect code
+
 **Sample output (PostgreSQL)**:
 
 ```sql
 to_date('2023-10-04', 'YYYY-MM-DD')
 ```
+
+Report incorrect code
 
 ### dateadd
 
@@ -928,12 +1048,16 @@ This macro adds a time/day interval to the supplied date/timestamp. Note: The `d
 {{ dbt.dateadd(datepart="month", interval=-2, from_date_or_timestamp="'2016-03-09'") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
     '2016-03-09' + ((interval '10 day') * (1))
     '2016-03-09' + ((interval '10 month') * (-2))
 ```
+
+Report incorrect code
 
 ### datediff
 
@@ -953,6 +1077,8 @@ This macro calculates the difference between two dates.
 {{ dbt.datediff("'2016-03-09'", "column", "year") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -963,6 +1089,8 @@ This macro calculates the difference between two dates.
 
         (date_part('year', (column)::date) - date_part('year', ('2016-03-09')::date))
 ```
+
+Report incorrect code
 
 ### date\_trunc
 
@@ -981,6 +1109,8 @@ This macro truncates / rounds a timestamp to the first instant for the given [da
 {{ dbt.date_trunc("year", "'2016-03-09'") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -988,6 +1118,8 @@ date_trunc('day', updated_at)
 date_trunc('month', updated_at)
 date_trunc('year', '2016-03-09')
 ```
+
+Report incorrect code
 
 ### last\_day
 
@@ -1008,6 +1140,8 @@ This macro gets the last day for a given date and datepart.
 {{ dbt.last_day("'2016-03-09'", "year") }}
 ```
 
+Report incorrect code
+
 **Sample Output (PostgreSQL)**:
 
 ```sql
@@ -1021,6 +1155,8 @@ cast(
  + ((interval '10 day') * (-1))
         as date)
 ```
+
+Report incorrect code
 
 ## Date and time parts
 
@@ -1063,6 +1199,8 @@ select
     NULL as expression_null,
 from orders
 ```
+
+Report incorrect code
 
 Note that the string literal example includes single quotes. (Note: the string literal character may vary per database. For this example, we suppose a single quote.) To refer to a SQL string literal in Jinja, surrounding double quotes are required.
 

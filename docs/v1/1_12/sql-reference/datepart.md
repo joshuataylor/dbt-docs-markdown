@@ -22,6 +22,8 @@ from {{ ref('orders') }}
 group by 1
 ```
 
+Report incorrect code
+
 This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return the rounded order amount per each order month (represented as a numeric value):
 
 | order\_month | avg\_order\_amount |

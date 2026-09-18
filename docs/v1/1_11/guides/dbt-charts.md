@@ -44,6 +44,8 @@ dbt Charts queries tables that already exist in your data platform, so build the
    cd fusion-jaffle-shop
    ```
 
+   Report incorrect code
+
 2. Add a `profiles.yml` for your data platform. The project's `dbt_project.yml` sets `profile: default`, so name your profile `default` and give it a `dev` target. dbt reads a `profiles.yml` in the project root, or falls back to `~/.dbt/profiles.yml`. For platform-specific fields, refer to [Connection profiles](../docs/local/connect-data-platform/about-dbt-connections.md).
 
 3. Install the project's packages:
@@ -52,11 +54,15 @@ dbt Charts queries tables that already exist in your data platform, so build the
    dbt deps
    ```
 
+   Report incorrect code
+
 4. Seed the raw CSVs and build the models and tests in one command:
 
    ```bash
    dbt build
    ```
+
+   Report incorrect code
 
    The `dbt build` command runs seeds, models, snapshots, and tests in dependency order, so you don't need a separate `dbt seed` step. For the full list of commands, refer to [dbt commands](../reference/dbt-commands.md).
 
@@ -65,6 +71,8 @@ dbt Charts queries tables that already exist in your data platform, so build the
    ```bash
    dbt show --inline "select count(*) from {{ ref('order_items') }}"
    ```
+
+   Report incorrect code
 
 note
 
@@ -80,6 +88,8 @@ The sample project doesn't ship any dbt Charts files, so you create them yoursel
    mkdir charts
    ```
 
+   Report incorrect code
+
    Every `.yaml`, `.yml`, and `.md` file under `charts/` becomes a served page, and nested directories become nested paths.
 
 2. Create `dbt_charts.yml` in the project root. Locally, dbt Charts reuses your dbt connection — there's no separate credential setup. Declare a source that points at a dbt profile and target, and boards reference it by name:
@@ -94,6 +104,8 @@ The sample project doesn't ship any dbt Charts files, so you create them yoursel
        target: dev
    ```
 
+   Report incorrect code
+
    The `profile` and `target` match your `profiles.yml` (`default` and `dev` in this project). Credentials stay in `profiles.yml`, including Snowflake key-pair auth through `private_key_path` if your account requires it.
 
 3. Create an empty board file at `charts/analytics.yml` and give it a title and a source:
@@ -104,6 +116,8 @@ The sample project doesn't ship any dbt Charts files, so you create them yoursel
    title: "Jaffle Shop overview"
    source: analytics
    ```
+
+   Report incorrect code
 
 Over the next two steps, you add the queries and charts to this file, then the layout that positions them.
 
@@ -138,6 +152,8 @@ charts:
     title: "Revenue by month"
 ```
 
+Report incorrect code
+
 ### 2. Bar chart: revenue by location
 
 Bar charts compare a value across categories. This query reads pre-aggregated revenue per store from the `location_performance` mart.
@@ -159,6 +175,8 @@ charts:
     y: revenue
     title: "Revenue by location"
 ```
+
+Report incorrect code
 
 ### 3. Area chart: cumulative revenue
 
@@ -187,6 +205,8 @@ charts:
     title: "Cumulative revenue"
 ```
 
+Report incorrect code
+
 ### 4. Pie chart: revenue by product type
 
 Pie (sector) charts show part-to-whole comparisons. This query splits revenue into food and drink. A sector chart uses `theta` for the wedge size and `color` for the category.
@@ -210,6 +230,8 @@ charts:
     title: "Revenue by product type"
 ```
 
+Report incorrect code
+
 ### 5. Table: location KPIs
 
 Tables show detailed values. This query lists several columns per location for a scannable KPI table.
@@ -231,6 +253,8 @@ charts:
     query: location_kpis
     title: "Location KPIs"
 ```
+
+Report incorrect code
 
 ## Lay out your board
 
@@ -329,6 +353,8 @@ rows:
       - location_kpis_table
 ```
 
+Report incorrect code
+
 Your project root should now contain:
 
 ```shell
@@ -342,6 +368,8 @@ fusion-jaffle-shop/
 └── seeds/
 ```
 
+Report incorrect code
+
 ## Install dbt Charts and view your board
 
 dbt Charts ships as a Python package with a command-line tool named `dct`.
@@ -352,17 +380,23 @@ dbt Charts ships as a Python package with a command-line tool named `dct`.
    uv tool install dbt-charts
    ```
 
+   Report incorrect code
+
    Or, with `pip`:
 
    ```bash
    pip install dbt-charts
    ```
 
+   Report incorrect code
+
 2. From the project root, validate the board to catch YAML, reference, and SQL errors before it renders:
 
    ```bash
    dct validate
    ```
+
+   Report incorrect code
 
    With no arguments, `dct validate` checks every board under `charts/`. Pass a path — `dct validate charts/analytics.yml` — to check one.
 
@@ -371,6 +405,8 @@ dbt Charts ships as a Python package with a command-line tool named `dct`.
    ```bash
    dct serve
    ```
+
+   Report incorrect code
 
    `dct` walks up from the current directory to find `dbt_charts.yml` or `dbt_project.yml`, infers the SQL dialect from your profile target, and picks a port derived from the project directory.
 
@@ -383,6 +419,8 @@ dbt Charts ships as a Python package with a command-line tool named `dct`.
    ```bash
    dct render charts/analytics.yml --format html
    ```
+
+   Report incorrect code
 
 ## Troubleshooting
 

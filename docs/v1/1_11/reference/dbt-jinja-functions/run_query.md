@@ -36,6 +36,8 @@ models/my\_model.sql
 {# do something with `results` here... #}
 ```
 
+Report incorrect code
+
 macros/run\_grants.sql
 
 ```jinja2
@@ -48,6 +50,8 @@ macros/run\_grants.sql
   {% do run_query(query) %}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 Here's an example of using this (though if you're using `run_query` to return the values of a column, check out the [get\_column\_values](https://github.com/dbt-labs/dbt-utils#get_column_values-source) macro in the dbt-utils package).
 
@@ -79,6 +83,8 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
+Report incorrect code
+
 You can also use `run_query` to perform SQL queries that aren't select statements.
 
 macros/run\_vacuum.sql
@@ -94,6 +100,8 @@ macros/run\_vacuum.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 Use the `length` filter to verify whether `run_query` returned any rows or not. Wrap the logic in an [if execute](./execute.md) block so `run_query` does not run during parsing, when [`execute`](./execute.md) is `False`.
 
 ```sql
@@ -106,6 +114,8 @@ Use the `length` filter to verify whether `run_query` returned any rows or not. 
 {% endif %}
 {% endif %}
 ```
+
+Report incorrect code
 
 ## How `run_query` runs during compilation and `dbt docs generate`
 
@@ -128,5 +138,7 @@ Combine [`execute`](./execute.md) with [`flags.WHICH`](./flags.md#flagswhich) so
   {% do run_query('delete from my_scratch_table where session_id = ...') %}
 {% endif %}
 ```
+
+Report incorrect code
 
 Adjust the list of commands to match where your macro should run.

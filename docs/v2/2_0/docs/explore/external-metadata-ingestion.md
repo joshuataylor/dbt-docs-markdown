@@ -72,11 +72,15 @@ This section sets up the foundational access for dbt in Snowflake. It creates a 
 CREATE OR REPLACE ROLE dbt_metadata_role;
 ```
 
+Report incorrect code
+
 2. Grant access to a warehouse to run queries to view metadata:
 
 ```sql
 GRANT USAGE ON WAREHOUSE "<your-warehouse>" TO ROLE dbt_metadata_role;
 ```
+
+Report incorrect code
 
 If your warehouse needs to be restarted for metadata ingestion (doesn't have auto-resume enabled), you may need to grant `OPERATE` permissions to the role as well. If you do not already have a user, create a dbt-specific user for metadata access. Replace `<your-password>` with a strong password and `<your-warehouse>` with the warehouse name used above:
 
@@ -89,11 +93,15 @@ CREATE USER dbt_metadata_user
   DEFAULT_WAREHOUSE = '<your-warehouse>';
 ```
 
+Report incorrect code
+
 3. Grant the role to the user:
 
 ```sql
 GRANT ROLE dbt_metadata_role TO USER dbt_metadata_user;
 ```
+
+Report incorrect code
 
 Note: Use read-only service accounts for least privilege and better auditing.
 
@@ -134,6 +142,8 @@ GRANT MONITOR ON ALL DYNAMIC TABLES IN DATABASE IDENTIFIER($db_var) TO ROLE dbt_
 GRANT MONITOR ON FUTURE DYNAMIC TABLES IN DATABASE IDENTIFIER($db_var) TO ROLE dbt_metadata_role;
 ```
 
+Report incorrect code
+
 ## Grant access to Snowflake metadata
 
 This step grants the dbt role (`dbt_metadata_role`) access to Snowflake’s system-level database, enabling it to read usage statistics, query histories, and lineage information required for comprehensive metadata insights.
@@ -143,6 +153,8 @@ Grant privileges to read usage stats and lineage from Snowflake’s system-level
 ```sql
 GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE dbt_metadata_role;
 ```
+
+Report incorrect code
 
 ## Important considerations
 

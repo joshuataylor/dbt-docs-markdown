@@ -33,6 +33,8 @@ sudo yum install redhat-rpm-config gcc libffi-devel \
   python-devel openssl-devel
 ```
 
+Report incorrect code
+
 ### MacOS
 
 The MacOS requires Python 3.8 or higher to successfully install and run dbt v1.
@@ -43,6 +45,8 @@ To check the Python version:
 
 python --version
 ```
+
+Report incorrect code
 
 If you need a compatible version, you can download and install [Python version 3.9 or higher for MacOS](https://www.python.org/downloads/macos).
 
@@ -61,6 +65,8 @@ sudo apt-get remove python-cffi
 sudo pip install --upgrade cffi
 pip install cryptography~=3.4
 ```
+
+Report incorrect code
 
 ### Windows
 
@@ -99,6 +105,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+Report incorrect code
+
 #### Windows
 
 ```shell
@@ -106,11 +114,15 @@ py -m venv .venv
 .venv\Scripts\activate
 ```
 
+Report incorrect code
+
 To deactivate, run `deactivate`. To auto-activate in your new shell sessions, add an alias to your `~/.bashrc` or `~/.zshrc`:
 
 ```shell
 alias env_dbt='source <PATH_TO_VIRTUAL_ENV_CONFIG>/bin/activate'
 ```
+
+Report incorrect code
 
 ### Install your adapter
 
@@ -120,11 +132,15 @@ Installing an adapter automatically installs `dbt-core`. Choose your adapter fro
 python -m pip install dbt-ADAPTER_NAME
 ```
 
+Report incorrect code
+
 To install `dbt-core` without an adapter (for tool integrations only):
 
 ```shell
 python -m pip install dbt-core
 ```
+
+Report incorrect code
 
 ### Upgrade
 
@@ -136,6 +152,8 @@ python -m pip install --upgrade dbt-ADAPTER_NAME
 python -m pip install --upgrade dbt-core==1.11
 ```
 
+Report incorrect code
+
 ### Install a prerelease
 
 Use `--pre` to install prerelease versions. This may also install prerelease versions of other dependencies.
@@ -143,6 +161,8 @@ Use `--pre` to install prerelease versions. This may also install prerelease ver
 ```shell
 python3 -m pip install --pre dbt
 ```
+
+Report incorrect code
 
  Docker
 
@@ -164,6 +184,8 @@ Images follow the pattern `ghcr.io/dbt-labs/<db_adapter_name>:<version_tag>`. Av
 docker pull ghcr.io/dbt-labs/<db_adapter_name>:<version_tag>
 ```
 
+Report incorrect code
+
 ### Run dbt in a container
 
 Bind-mount your project and profiles, then run any dbt command:
@@ -176,6 +198,8 @@ docker run \
 <dbt_image_name> \
 <dbt_command>
 ```
+
+Report incorrect code
 
 Note: bind-mount sources must be absolute paths. You may need to adjust `--network` settings depending on your warehouse host.
 
@@ -193,11 +217,15 @@ cd dbt
 python -m pip install -r requirements.txt
 ```
 
+Report incorrect code
+
 For editable mode (changes take effect immediately):
 
 ```shell
 python -m pip install -e editable-requirements.txt
 ```
+
+Report incorrect code
 
 ### Install an adapter from source
 
@@ -208,6 +236,8 @@ git clone https://github.com/dbt-labs/dbt-redshift.git
 cd dbt-redshift
 python -m pip install .
 ```
+
+Report incorrect code
 
 For editable mode: `python -m pip install -e .`
 
@@ -227,9 +257,13 @@ Most command-line tools, including dbt, support a `--help` flag that shows avail
   python -m pip uninstall dbt-core dbt-ADAPTER_NAME
   ```
 
+  Report incorrect code
+
   ```shell
   brew uninstall dbt
   ```
+
+  Report incorrect code
 
   If `dbt --version` still finds a version after uninstalling, another install of dbt v1 or dbt platform CLI may exist elsewhere on your `$PATH` (for example, a global or pipx install alongside a virtual environment). Check `which dbt` to confirm which install is being used, then uninstall that one too.
 

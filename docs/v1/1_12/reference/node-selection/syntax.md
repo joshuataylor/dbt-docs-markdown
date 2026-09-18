@@ -72,6 +72,8 @@ dbt run --select "path/to/my_model.sql"  # run a specific model by its path
 dbt run --select "selector:my_selector"  # run the node set defined by the named selector in selectors.yml; available starting v1.12
 ```
 
+Report incorrect code
+
 #### Examples of subsets of nodes
 
 dbt supports a shorthand language for defining subsets of nodes. This language uses the following characters:
@@ -103,6 +105,8 @@ dbt run --select "path:marts/finance,tag:nightly,config.materialized:table"
 dbt run --select "selector:staging,tag:nightly"
 ```
 
+Report incorrect code
+
 As your selection logic gets more complex, and becomes unwieldly to type out as command-line arguments, consider using a [yaml selector](./yaml-selectors.md).
 
 (Applies to dbt v1.12 and later)
@@ -119,3 +123,5 @@ dbt ls --select "source_status:fresher+" # Shows sources updated since the last 
 dbt ls --select state:modified+ # Displays nodes modified in comparison to a previous state.
 dbt ls --select "result:<status>+" state:modified+ --state ./<dbt-artifact-path> # Lists nodes that match certain result statuses and are modified.
 ```
+
+Report incorrect code

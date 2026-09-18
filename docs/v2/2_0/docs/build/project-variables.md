@@ -42,6 +42,8 @@ vars:
     app_ids: ['marketing', 'app', 'landing-page']
 ```
 
+Report incorrect code
+
 You cannot define variables in both `vars.yml` and `dbt_project.yml`. If both files contain a `vars` block with definitions, dbt raises an error.
 
 If `vars.yml` is empty or doesn't exist, variables defined in `dbt_project.yml` are used instead.
@@ -60,6 +62,8 @@ vars:
   materialization: table
 ```
 
+Report incorrect code
+
 You can reference them in `dbt_project.yml`:
 
 dbt\_project.yml
@@ -70,6 +74,8 @@ models:
     +schema: "{{ var('schema_name') }}"
     +materialized: "{{ var('materialization') }}"
 ```
+
+Report incorrect code
 
 ### Defining variables in `dbt_project.yml`
 
@@ -103,6 +109,8 @@ models:
     ...
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.12 and later)
 
 You cannot define variables in both `vars.yml` and `dbt_project.yml`. If both files contain a `vars` block with definitions, dbt raises an error.
@@ -121,17 +129,23 @@ For example:
 $ dbt run --vars '{"event_type": "signup"}'
 ```
 
+Report incorrect code
+
 You can use the same `--vars` syntax with other dbt commands, such as `dbt snapshot`:
 
 ```shell
 $ dbt snapshot --select my_snapshot --vars '{"cutoff_date": "2026-01-01"}'
 ```
 
+Report incorrect code
+
 Inside a model, snapshot, or macro, access the value using the `var()` function:
 
 ```shell
 select '{{ var("event_type") }}' as event_type
 ```
+
+Report incorrect code
 
 When you pass variables using `--vars`, you can access them anywhere you use the `var()` function in your project.
 
@@ -141,11 +155,15 @@ You can pass multiple variables at once:
 $ dbt run --vars '{event_type: signup, region: us}'
 ```
 
+Report incorrect code
+
 If only one variable is being set, the brackets are optional:
 
 ```shell
 $ dbt run --vars 'event_type: signup'
 ```
+
+Report incorrect code
 
 The `--vars` argument accepts a YAML dictionary as a string on the command line. YAML is convenient because it does not require strict quoting as with JSON.
 
@@ -155,6 +173,8 @@ Both of the following are valid and equivalent:
 $ dbt run --vars '{"key": "value", "date": 20180101}'
 $ dbt run --vars '{key: value, date: 20180101}'
 ```
+
+Report incorrect code
 
 Variables defined using `--var`, override values defined in `dbt_project.yml`. This makes `--vars` useful for temporarily overriding configuration without changing your committed project files. For the complete order of precedence (including package-scoped variables and default values defined in `var()`), see [Variable precedence](./project-variables.md#variable-precedence).
 

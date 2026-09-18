@@ -50,6 +50,8 @@ Runtime Error
   fatal: Not a dbt project (or any of the parent directories). Missing dbt_project.yml file
 ```
 
+Report incorrect code
+
 Debugging
 
 * Use `pwd` to check that you're in the right directory. If not, `cd` your way there!
@@ -66,6 +68,8 @@ Runtime Error
   Could not find profile named 'jaffle_shops'
 ```
 
+Report incorrect code
+
 Debugging
 
 * Check the `profile:` key in your `dbt_project.yml`. For example, this project uses the `jaffle_shops` (note plural) profile:
@@ -75,6 +79,8 @@ dbt\_project.yml
 ```yml
 profile: jaffle_shops # note the plural
 ```
+
+Report incorrect code
 
 * Check the profiles you have in your `profiles.yml` file. For example, this profile is named `jaffle_shop` (note singular).
 
@@ -91,6 +97,8 @@ jaffle_shop: # this does not match the profile: key
       ... # other connection details
 ```
 
+Report incorrect code
+
 * Update these so that they match.
 * If you can't find your `profiles.yml` file, run `dbt debug --config-dir` for help:
 
@@ -101,6 +109,8 @@ To view your profiles.yml file, run:
 
 open /Users/alice/.dbt
 ```
+
+Report incorrect code
 
 * Then execute `open /Users/alice/.dbt` (adjusting accordingly), and check that you have a `profiles.yml` file. If you do not have one, set one up using [these docs](../docs/local/profiles.yml.md)
 
@@ -113,6 +123,8 @@ Runtime Error
   Database Error
     250001 (08001): Failed to connect to DB: your_db.snowflakecomputing.com:443. Incorrect username or password was specified.
 ```
+
+Report incorrect code
 
 Debugging
 
@@ -138,6 +150,8 @@ Connection:
   Connection test: OK connection ok
 ```
 
+Report incorrect code
+
 ### Invalid `dbt_project.yml` file
 
 ```text
@@ -151,6 +165,8 @@ Runtime Error
   Could not run dbt
 ```
 
+Report incorrect code
+
 Debugging
 
 * Open your `dbt_project.yml` file.
@@ -162,6 +178,8 @@ dbt\_project.yml
 name: jaffle_shop
 hello: world # this is not allowed
 ```
+
+Report incorrect code
 
 * Use the reference section for [`dbt_project.yml` files](../reference/dbt_project.yml.md) to correct this issue.
 * If you're using a key that is valid according to the documentation, check that you're using the latest version of dbt with `dbt --version`.
@@ -181,6 +199,8 @@ Compilation Error in model customers (models/customers.sql)
   Model 'model.jaffle_shop.customers' (models/customers.sql) depends on a node named 'stg_customer' which was not found
 ```
 
+Report incorrect code
+
 Debugging
 
 * Open the `models/customers.sql` file.
@@ -195,6 +215,8 @@ Running with dbt=1.7.1
 Compilation Error in macro (macros/cents_to_dollars.sql)
   Reached EOF without finding a close tag for macro (searched from line 1)
 ```
+
+Report incorrect code
 
 Debugging
 
@@ -241,6 +263,8 @@ Compilation Error
       in "<unicode string>", line 5, column 12
 ```
 
+Report incorrect code
+
 Debugging
 
 Usually, it's to do with indentation — here's the offending YAML that caused this error:
@@ -255,6 +279,8 @@ models:
           - unique
           - not_null
 ```
+
+Report incorrect code
 
 To fix this:
 
@@ -280,6 +306,8 @@ Compilation Error
   Invalid models config given in models/schema.yml @ models: {'name': 'customers', 'hello': 'world', 'columns': [{'name': 'customer_id', 'tests': ['unique', 'not_null']}], 'original_file_path': 'models/schema.yml', 'yaml_key': 'models', 'package_name': 'jaffle_shop'} - at path []: Additional properties are not allowed ('hello' was unexpected)
 ```
 
+Report incorrect code
+
 Debugging
 
 * Open the file (e.g. `models/schema.yml`) as per the error message
@@ -296,6 +324,8 @@ Running with dbt=1.7.1-rc
 Encountered an error:
 Found a cycle: model.jaffle_shop.customers --> model.jaffle_shop.stg_customers --> model.jaffle_shop.customers
 ```
+
+Report incorrect code
 
 Your dbt DAG is not acyclic, and needs to be fixed!
 
@@ -316,6 +346,8 @@ Database Error in model customers (models/customers.sql)
   syntax error line 14 at position 4 unexpected 'from'.
   compiled SQL at target/run/jaffle_shop/models/customers.sql
 ```
+
+Report incorrect code
 
 90% of the time, there's a mistake in the SQL of your model. To fix this:
 
@@ -488,6 +520,8 @@ Here are some useful FAQs to help you debug your dbt project:
   dbt_modules/
   ```
 
+  Report incorrect code
+
   2. Save your changes but *don't commit*
   3. Restart the Studio IDE by clicking on the three dots next to the **Studio IDE Status button** on the lower right of the Studio IDE.
 
@@ -543,6 +577,8 @@ Here are some useful FAQs to help you debug your dbt project:
     Error encountered in dbt_utils/dbt_project.yml
   ```
 
+  Report incorrect code
+
   Try updating the old version of the dbt\_utils package in your packages.yml to the latest version found in the [dbt hub](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/):
 
   ```shell
@@ -551,6 +587,8 @@ Here are some useful FAQs to help you debug your dbt project:
 
   version: xxx
   ```
+
+  Report incorrect code
 
   If you've tried the workaround above and are still experiencing this behavior - reach out to the Support team at <support@getdbt.com> and we'll be happy to help!
 
@@ -562,6 +600,8 @@ Here are some useful FAQs to help you debug your dbt project:
   Compilation Error
     In dispatch: Could not find package 'my_project'
   ```
+
+  Report incorrect code
 
   This does not mean the package or root project is missing—it means that any macros from it are missing, and so it is missing from the search spaces available to `dispatch`.
 
@@ -591,5 +631,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
   Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
   ```
+
+  Report incorrect code
 
   Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.

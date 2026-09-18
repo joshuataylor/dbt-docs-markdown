@@ -20,3 +20,5 @@ seeds:
           - unique
           - not_null
 ```
+
+Report incorrect code

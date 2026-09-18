@@ -23,6 +23,8 @@ models:
       +batch_size: day
 ```
 
+Report incorrect code
+
 Example in a property file:
 
 models/properties.yml
@@ -34,6 +36,8 @@ models:
       batch_size: day
 ```
 
+Report incorrect code
+
 Example in a config block for a model:
 
 models/user\_sessions.sql
@@ -44,3 +48,5 @@ models/user\_sessions.sql
     batch_size='day'
 ) }}
 ```
+
+Report incorrect code

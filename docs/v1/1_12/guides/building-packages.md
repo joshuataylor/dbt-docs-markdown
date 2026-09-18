@@ -39,6 +39,8 @@ We tend to use the command line interface for package development. The developme
 $ dbt init [package_name]
 ```
 
+Report incorrect code
+
 2. Create a public GitHub¹ repo, named `dbt-<package-name>`, e.g. `dbt-mailchimp`. Follow the GitHub instructions to link this to the dbt project you just created.
 3. Update the `name:` of the project in `dbt_project.yml` to your package name, e.g. `mailchimp`.
 4. Define the allowed dbt versions by using the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md).
@@ -84,6 +86,8 @@ packages:
   - package: dbt-labs/dbt_utils
     version: [">0.6.5", "0.7.0"]
 ```
+
+Report incorrect code
 
 When packages are installed from hub.getdbt.com, dbt is able to handle duplicate dependencies.
 
@@ -151,6 +155,8 @@ packages.yml
 packages:
     - local: ../ # this means "one directory above the current directory"
 ```
+
+Report incorrect code
 
 4. Add resources to the package (seeds, models, tests) so that you can successfully run your project, and compare the output with what you expect. The exact approach here will vary depending on your packages. In general you will find that you need to:
 

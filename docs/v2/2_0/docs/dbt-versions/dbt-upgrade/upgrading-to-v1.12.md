@@ -44,6 +44,8 @@ packages:
     provider: "github"  # Supported values: "github", "gitlab", "ado"
 ```
 
+Report incorrect code
+
 ### Extensions to UDFs
 
 * dbt v1.12 adds support for JavaScript user-defined functions (UDFs) on Snowflake and BigQuery. Define a JavaScript UDF by creating a `.js` file in your `functions/` directory and a corresponding YAML file with the function's arguments and return type. For more information, refer to [User-defined functions](../../build/udfs.md).

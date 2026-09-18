@@ -14,6 +14,8 @@ dbt run --select "+my_model"         # select my_model and all ancestors
 dbt run --select "+my_model+"        # select my_model, and all of its ancestors and descendants
 ```
 
+Report incorrect code
+
 You can use it with selectors for a more specific scope in your commands. You can also combine it with [`--exclude`](./exclude.md) flag for even more finer control over what gets included in your command.
 
 ### The "n-plus" operator
@@ -26,6 +28,8 @@ dbt run --select "2+my_model"        # select my_model, its first-degree ancesto
 dbt run --select "3+my_model+4"      # select my_model, its ancestors up to the 3rd degree, and its descendants down to the 4th degree
 ```
 
+Report incorrect code
+
 ### The "at" operator
 
 The `@` operator is similar to `+`, but will also include *all ancestors of all descendants of the selected model*. This is useful in continuous integration environments where you want to build a model and all of its descendants, but the *ancestors* of those descendants might not exist in the schema yet. The `@` operator (which can only be placed at the front of the model name) will select as many degrees of ancestors ("parents," "grandparents," and so on) as is needed to successfully build all descendants of the specified model.
@@ -37,3 +41,5 @@ The selector `@snowplow_web_page_context` will build all three models shown in t
 ```bash
 dbt run --select "@my_model"         # select my_model, its descendants, and the ancestors of its descendants
 ```
+
+Report incorrect code

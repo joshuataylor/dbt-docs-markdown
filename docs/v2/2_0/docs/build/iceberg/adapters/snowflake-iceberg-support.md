@@ -35,6 +35,8 @@ models/MODEL\_NAME.sql
 select * from {{ ref('raw_orders') }}
 ```
 
+Report incorrect code
+
 The following configurations are supported.
 
 For more information, check out the Snowflake reference for [`CREATE ICEBERG TABLE` (Snowflake as the catalog)](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-snowflake).
@@ -78,6 +80,8 @@ catalogs:
         iceberg_version: 3  # available in v1.12+
 ```
 
+Report incorrect code
+
 ##### Old spec
 
 catalogs.yml
@@ -96,6 +100,8 @@ catalogs:
           iceberg_version: 3  # available in v1.12+
 ```
 
+Report incorrect code
+
 Next, configure a dbt model with the name of your Horizon catalog.
 
 models/my\_iceberg\_model.sql
@@ -112,6 +118,8 @@ models/my\_iceberg\_model.sql
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
+
+Report incorrect code
 
 Finally, run the model: `dbt run -s my_iceberg_model`. Because dbt understands that `type: horizon` refers to Snowflake's managed catalog, dbt templates the appropriate Snowflake DDL/DML for creating and updating managed Iceberg tables.
 
@@ -149,6 +157,8 @@ catalogs:
         catalog_database: catalog_linked_db_glue  # name of catalog-linked database in Snowflake
 ```
 
+Report incorrect code
+
 #### Old spec
 
 catalogs.yml
@@ -165,6 +175,8 @@ catalogs:
           catalog_linked_database: catalog_linked_db_glue  # name of catalog-linked database in Snowflake
           catalog_linked_database_type: glue
 ```
+
+Report incorrect code
 
 ## Snowflake-specific configs for Iceberg catalogs
 
@@ -246,6 +258,8 @@ iceberg\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
+Report incorrect code
+
 note
 
 While you can customize paths with `base_location_root` and `base_location_subpath`, we don't recommend relying on them for environment isolation (such as separating development and production environments). Anyone with repository access can easily modify these configuration values. For true environment isolation, use separate `external_volume` values with infrastructure-level access controls.
@@ -277,5 +291,7 @@ To maintain best practices, dbt enforces an input and, by default, writes your t
   and all_tables.table_schema = all_objects."schema_name"
   and all_tables.table_catalog = all_objects."database_name"
   ```
+
+  Report incorrect code
 
   This query may be relatively inefficient and potentially expensive, depending on the size of your Snowflake warehouse. Thus, the ability to run Iceberg models is gated behind the `enable_iceberg_materializations` flag.

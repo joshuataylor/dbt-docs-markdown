@@ -88,6 +88,8 @@ CREATE API INTEGRATION IF NOT EXISTS INTEGRATION_NAME
   ENABLED = TRUE;
 ```
 
+Report incorrect code
+
 The `OAUTH_TOKEN_ENDPOINT` and `OAUTH_AUTHORIZATION_ENDPOINT` use the same host as your MCP URL. The `user_access` and `offline_access` scopes let the agent act on your behalf and refresh its session without you re-authenticating each time.
 
 ### Step 2: Create the external MCP server
@@ -103,6 +105,8 @@ CREATE EXTERNAL MCP SERVER IF NOT EXISTS TARGET_DATABASE.TARGET_SCHEMA.MCP_SERVE
   URL = 'https://YOUR_DBT_HOST_URL/api/ai/v1/mcp'
   API_INTEGRATION = INTEGRATION_NAME;
 ```
+
+Report incorrect code
 
 ### Step 3: Create the Cortex agent
 
@@ -136,6 +140,8 @@ CREATE AGENT IF NOT EXISTS TARGET_DATABASE.TARGET_SCHEMA.AGENT_NAME
         name: "TARGET_DATABASE.TARGET_SCHEMA.MCP_SERVER_NAME"
   $$;
 ```
+
+Report incorrect code
 
 Update the `instructions` and `sample_questions` to match the metrics and dimensions in your own Semantic Layer. The `orchestration` instruction steers the agent toward the dbt Semantic Layer tools (like `list_metrics`, `get_dimensions`, and `query_metrics`) instead of writing raw SQL.
 

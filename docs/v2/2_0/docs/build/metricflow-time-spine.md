@@ -86,6 +86,8 @@ models:
         granularity: day # set granularity at column-level for standard_granularity_column
 ```
 
+Report incorrect code
+
 * This example configuration shows a time spine model called `time_spine_hourly` and `time_spine_daily`. It sets the time spine configurations under the `time_spine` key.
 
 * The `standard_granularity_column` is the column that maps to one of our [standard granularities](./dimensions.md?dimension=time_gran). This column must be set under the `columns` key and should have a grain that is finer or equal to any custom granularity columns defined in the same model.
@@ -118,6 +120,8 @@ models:
       - name: date_day
         granularity: day  # Set the granularity of the column
 ```
+
+Report incorrect code
 
 2. After adding the YAML configuration and ensuring you have a SQL model that defines the time spine, you can delete the existing `metricflow_time_spine.sql` file from your project to avoid any deprecation warnings or errors.
 
@@ -171,6 +175,8 @@ final as (
 select * from final
 ```
 
+Report incorrect code
+
 ### Minutes
 
 metricflow\_time\_spine.sql
@@ -197,6 +203,8 @@ final as (
 
 select * from final
 ```
+
+Report incorrect code
 
 ### Daily
 
@@ -231,6 +239,8 @@ where date_day > dateadd(year, -4, current_timestamp())
 and date_day < dateadd(day, 30, current_timestamp())
 ```
 
+Report incorrect code
+
 ### Daily (BigQuery)
 
 Use this model if you're using BigQuery. BigQuery supports `DATE()` instead of `TO_DATE()`:
@@ -260,6 +270,8 @@ from final
 where date_day > date_add(DATE(current_timestamp()), INTERVAL -4 YEAR)
 and date_day < date_add(DATE(current_timestamp()), INTERVAL 30 DAY)
 ```
+
+Report incorrect code
 
 ### Hourly
 
@@ -294,6 +306,8 @@ select * from final
 where date_day > dateadd(year, -4, current_timestamp()) 
 and date_hour < dateadd(day, 30, current_timestamp())
 ```
+
+Report incorrect code
 
 ## Custom calendar [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -339,6 +353,8 @@ models:
         - name: fiscal_year
           column_name: fiscal_year_column # must refer to a column defined in the model
 ```
+
+Report incorrect code
 
 #### Coming soon
 

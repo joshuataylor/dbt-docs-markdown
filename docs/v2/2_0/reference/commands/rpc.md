@@ -30,6 +30,8 @@ Serving RPC server at 0.0.0.0:8580
 Send requests to http://localhost:8580/jsonrpc
 ```
 
+Report incorrect code
+
 **Configuring the server**
 
 * `--host`: Specify the host to listen on (default=`0.0.0.0`)
@@ -50,6 +52,8 @@ rpc-spec.json
 }
 ```
 
+Report incorrect code
+
 ## Built-in Methods
 
 ### status
@@ -66,6 +70,8 @@ The `status` method will return the status of the rpc server. This method respon
 }
 ```
 
+Report incorrect code
+
 **Example response**
 
 ```json
@@ -81,6 +87,8 @@ The `status` method will return the status of the rpc server. This method respon
     "jsonrpc": "2.0"
 }
 ```
+
+Report incorrect code
 
 ### poll
 
@@ -107,6 +115,8 @@ The `poll` endpoint will return the status, logs, and results (if available) for
 }
 ```
 
+Report incorrect code
+
 **Example Response**
 
 ```json
@@ -126,6 +136,8 @@ The `poll` endpoint will return the status, logs, and results (if available) for
     "jsonrpc": "2.0"
 }
 ```
+
+Report incorrect code
 
 ### ps
 
@@ -147,6 +159,8 @@ The `ps` methods lists running and completed processes executed by the RPC serve
     }
 }
 ```
+
+Report incorrect code
 
 **Example response:**
 
@@ -176,6 +190,8 @@ The `ps` methods lists running and completed processes executed by the RPC serve
 }
 ```
 
+Report incorrect code
+
 ### kill
 
 The `kill` method will terminate a running task. You can find a `task_id` for a running task either in the original response which invoked that task, or in the results of the `ps` method.
@@ -192,6 +208,8 @@ The `kill` method will terminate a running task. You can find a `task_id` for a 
     }
 }
 ```
+
+Report incorrect code
 
 ## Running dbt projects
 
@@ -225,6 +243,8 @@ All RPC requests accept the following parameters in addition to the parameters l
 }
 ```
 
+Report incorrect code
+
 Several of the following request types accept these additional parameters:
 
 * `threads`: The number of [threads](../../docs/local/profiles.yml.md#understanding-threads) to use when compiling (optional)
@@ -250,6 +270,8 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
+Report incorrect code
+
 ### Run models ([docs](./run.md))
 
 **Additional parameters:**
@@ -271,6 +293,8 @@ Several of the following request types accept these additional parameters:
         }
 }
 ```
+
+Report incorrect code
 
 ### Run tests ([docs](./test.md))
 
@@ -296,6 +320,8 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
+Report incorrect code
+
 ### Run seeds ([docs](./seed.md))
 
 **Parameters:**
@@ -318,6 +344,8 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
+Report incorrect code
+
 ### Run snapshots ([docs](../../docs/build/snapshots.md))
 
 ```json
@@ -334,6 +362,8 @@ Several of the following request types accept these additional parameters:
         }
 }
 ```
+
+Report incorrect code
 
 ### Build ([docs](./build.md))
 
@@ -352,6 +382,8 @@ Several of the following request types accept these additional parameters:
         }
 }
 ```
+
+Report incorrect code
 
 ### List project resources ([docs](./cmd-docs.md#dbt-docs-generate))
 
@@ -375,6 +407,8 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
+Report incorrect code
+
 ### Generate docs ([docs](./cmd-docs.md#dbt-docs-generate))
 
 **Additional parameters:**
@@ -392,6 +426,8 @@ Several of the following request types accept these additional parameters:
         }
 }
 ```
+
+Report incorrect code
 
 ## Compiling and running SQL statements
 
@@ -414,6 +450,8 @@ rpc-spec.json
 }
 ```
 
+Report incorrect code
+
 The resulting response will include a key called `compiled_sql` with a value of `'select 2'`.
 
 ### Executing a query
@@ -435,6 +473,8 @@ rpc-run.json
 }
 ```
 
+Report incorrect code
+
 The resulting response will include a key called `table` with a value of `{'column_names': ['?column?'], 'rows': [[2.0]]}`
 
 ## Reloading the RPC Server
@@ -450,10 +490,14 @@ To find the server PID, either fetch the `.result.pid` value from the `status` m
 ps aux | grep 'dbt-rpc serve' | grep -v grep
 ```
 
+Report incorrect code
+
 After finding the PID for the process (eg. 12345), send a signal to the running server using the `kill` command:
 
 ```text
 kill -HUP 12345
 ```
+
+Report incorrect code
 
 When the server receives the HUP (hangup) signal, it will re-parse the files on disk and use the updated project code when handling subsequent requests.

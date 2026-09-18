@@ -115,3 +115,5 @@ For more information about why we use so many CTEs, read this glossary entry.
 - CTEs with confusing or noteable logic should be commented with SQL comments as you would with any complex functions and should be located above the CTE.
 - CTEs duplicated across models should be pulled out and created as their own models.
 ```
+
+Report incorrect code

@@ -20,6 +20,8 @@ seeds:
     +delimiter: <string>
 ```
 
+Report incorrect code
+
 #### Property file
 
 seeds/properties.yml
@@ -33,6 +35,8 @@ seeds:
       column_types: {column_name: datatype}
       delimiter: <string>
 ```
+
+Report incorrect code
 
 ### General configurations
 
@@ -61,6 +65,8 @@ seeds:
     +event_time: my_time_field
 ```
 
+Report incorrect code
+
 #### Property file
 
 seeds/properties.yml
@@ -86,6 +92,8 @@ seeds:
       event_time: my_time_field
 ```
 
+Report incorrect code
+
 ## Configuring seeds
 
 Seeds can only be configured from YAML files, either in `dbt_project.yml` or within an individual seed's YAML properties. It is not possible to configure a seed from within its CSV file.
@@ -106,6 +114,8 @@ seeds:
   +schema: seed_data
 ```
 
+Report incorrect code
+
 #### Apply the `schema` configuration to all seeds in your project
 
 To apply a configuration to all seeds in your project only (i.e. *excluding* any seeds in installed packages), provide your [project name](./project-configs/name.md) as part of the resource path.
@@ -120,6 +130,8 @@ seeds:
   jaffle_shop:
     +schema: seed_data
 ```
+
+Report incorrect code
 
 Similarly, you can use the name of an installed package to configure seeds in that package.
 
@@ -137,6 +149,8 @@ seeds:
       schema: seed_data
 ```
 
+Report incorrect code
+
 In older versions of dbt, you must define configurations in `dbt_project.yml` and include the full resource path (including the project name, and subdirectories). For a project named `jaffle_shop`, with a seed file at `seeds/marketing/utm_parameters.csv`, this would look like:
 
 dbt\_project.yml
@@ -148,6 +162,8 @@ seeds:
       utm_parameters:
         +schema: seed_data
 ```
+
+Report incorrect code
 
 ## Example seed configuration
 
@@ -175,3 +191,5 @@ seeds:
     marketing:
       +schema: marketing # this will take precedence
 ```
+
+Report incorrect code

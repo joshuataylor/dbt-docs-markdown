@@ -13,6 +13,8 @@ snapshots:
       updated_at: column_name
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -21,6 +23,8 @@ snapshots:
     +strategy: timestamp
     +updated_at: column_name
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -57,6 +61,8 @@ snapshots:
       updated_at: updated_at
 ```
 
+Report incorrect code
+
 ### Coalesce two columns to create a reliable `updated_at` column
 
 Consider a data source that only has an `updated_at` column filled in when a record is updated (so a `null` value indicates that the record hasn't been updated after it was created).
@@ -74,6 +80,8 @@ Since the `updated_at` configuration only takes a column name, rather than an ex
    from {{ source('jaffle_shop', 'orders') }}
    ```
 
+   Report incorrect code
+
 2. Define the snapshot configuration in a YAML file. In your `snapshots/` directory, create a YAML file that defines your snapshot and references the `updated_at_for_snapshot` staging model you just created.
 
    snapshots/orders\_snapshot.yml
@@ -88,6 +96,8 @@ Since the `updated_at` configuration only takes a column name, rather than an ex
          strategy: timestamp
          updated_at: updated_at_for_snapshot
    ```
+
+   Report incorrect code
 
 3. Run `dbt snapshot` to execute the snapshot.
 

@@ -57,9 +57,13 @@ Use the `--target` flag when running dbt commands to set the active target and i
 dbt run --target dev
 ```
 
+Report incorrect code
+
 ```bash
 dbt run --target prod
 ```
+
+Report incorrect code
 
 You can use the `--target` flag with any dbt command to override the default target specified in your `profiles.yml` file. This is useful for running the same dbt project against different environments (like dev, staging, or prod) without changing your configuration files.
 
@@ -78,6 +82,8 @@ where created_at >= dateadd('day', -3, current_date)
 {% endif %}
 ```
 
+Report incorrect code
+
 ### Use `target.name` to change your source database
 
 If you have specific Snowflake databases configured for your dev/qa/prod environments, you can set up your sources to compile to different databases depending on your environment.
@@ -94,3 +100,5 @@ sources:
       {%- endif -%}
     schema: source_schema
 ```
+
+Report incorrect code

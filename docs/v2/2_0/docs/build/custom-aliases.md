@@ -34,6 +34,8 @@ models/google\_analytics/ga\_sessions.sql
 select * from ...
 ```
 
+Report incorrect code
+
 Or in a `schema.yml` file.
 
 models/google\_analytics/schema.yml
@@ -44,6 +46,8 @@ models:
     config:
       alias: sessions
 ```
+
+Report incorrect code
 
 When referencing the `ga_sessions` model above from a different model, use the `ref()` function with the model's *filename* as usual. For example:
 
@@ -57,6 +61,8 @@ select * from {{ ref('ga_sessions') }}
 union all
 select * from {{ ref('snowplow_sessions') }}
 ```
+
+Report incorrect code
 
 ### generate\_alias\_name
 
@@ -91,6 +97,8 @@ get\_custom\_alias.sql
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 💡 Use Jinja's whitespace control to tidy your macros!
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
@@ -121,6 +129,8 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 To override the default, create a macro named `generate_latest_version_pointer_alias` in your project. For example, to use a `_latest` suffix instead of the base name:
 
 macros/get\_latest\_version\_pointer\_alias.sql
@@ -134,6 +144,8 @@ macros/get\_latest\_version\_pointer\_alias.sql
     {%- endif -%}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 ### Dispatch macro - SQL alias management for databases and dbt packages
 
@@ -153,11 +165,15 @@ models/snowplow\_sessions.sql
 select * from ...
 ```
 
+Report incorrect code
+
 models/sessions.sql
 
 ```sql
 select * from ...
 ```
+
+Report incorrect code
 
 Whichever one of these models runs second would "win", and generally, the output of dbt would not be what you would expect. To avoid this failure mode, dbt will check if your model names and aliases are ambiguous in nature. If they are, you will be presented with an error message like this:
 
@@ -171,6 +187,8 @@ Compilation Error
   - model.my_project.snowplow_sessions (models/snowplow_sessions.sql)
   - model.my_project.sessions (models/sessions.sql)
 ```
+
+Report incorrect code
 
 If these models should indeed have the same database identifier, you can work around this error by configuring a [custom schema](./custom-schemas.md) for one of the models.
 

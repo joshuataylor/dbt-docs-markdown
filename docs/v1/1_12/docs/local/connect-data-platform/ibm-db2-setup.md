@@ -51,6 +51,8 @@ my_db2_project:
   target: dev
 ```
 
+Report incorrect code
+
 ### Connection with SSL/TLS
 
 For secure connections, you can configure SSL/TLS parameters:
@@ -78,6 +80,8 @@ my_db2_project:
   target: prod
 ```
 
+Report incorrect code
+
 ### Connection using DSN
 
 Alternatively, you can use a Data Source Name (DSN) configured in your Db2 client:
@@ -95,6 +99,8 @@ my_db2_project:
 
   target: dev
 ```
+
+Report incorrect code
 
 ## Host parameters
 
@@ -186,6 +192,8 @@ SELECT * FROM source_table
 WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
+
+Report incorrect code
 
 ## Case sensitivity
 

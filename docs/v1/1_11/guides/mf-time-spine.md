@@ -68,6 +68,8 @@ The time spine is a dbt model that generates a series of dates (or timestamps) a
      and date_day < dateadd(day, 30, current_date())
    ```
 
+   Report incorrect code
+
    This generates a model of daily dates ranging from 5 years in the past to 30 days into the future.
 
 3. Run and preview the model to create the model:
@@ -76,6 +78,8 @@ The time spine is a dbt model that generates a series of dates (or timestamps) a
    dbt run --select time_spine_daily 
    dbt show --select time_spine_daily # Use this command to preview the model if developing locally
    ```
+
+   Report incorrect code
 
 4. If developing in the Studio IDE, you can preview the model by clicking the **Preview** button:
 
@@ -102,6 +106,8 @@ Now that you've created the SQL file, configure it in YAML so MetricFlow can rec
            description: The base date column for daily granularity
            granularity: day
    ```
+
+   Report incorrect code
 
 This time spine YAML file:
 
@@ -135,6 +141,8 @@ If your project already includes a `dim_date` or similar model, you can configur
            granularity: day
    ```
 
+   Report incorrect code
+
    This time spine YAML file configures the `time_spine` property so MetricFlow can use the model.
 
 ## Run and preview the time spine
@@ -147,6 +155,8 @@ For the time spine you created, let's run it and preview the output if you haven
    dbt run --select time_spine_daily
    dbt show --select time_spine_daily # Use this command to preview the model if developing locally
    ```
+
+   Report incorrect code
 
 2. If developing in the Studio IDE, you can preview the model by clicking the **Preview** button:
 
@@ -164,6 +174,8 @@ For the time spine you created, let's run it and preview the output if you haven
    ```bash
    dbt sl query --metrics revenue --group-by metric_time
    ```
+
+   Report incorrect code
 
    This will output results similar to the following in the Studio IDE:
 
@@ -216,6 +228,8 @@ To support multiple granularities (like hourly, yearly, monthly), create additio
      and date_year < date_trunc('year', dateadd(year, 1, current_timestamp()))
    ```
 
+   Report incorrect code
+
 2. Then update the `_models.yml` file and add the yearly time spine (below the daily time spine config):
 
    \_models.yml
@@ -234,6 +248,8 @@ To support multiple granularities (like hourly, yearly, monthly), create additio
            granularity: year
    ```
 
+   Report incorrect code
+
 3. Run or preview the model to create the model:
 
    ```bash
@@ -241,11 +257,15 @@ To support multiple granularities (like hourly, yearly, monthly), create additio
    dbt show --select time_spine_yearly # Use this command to preview the model if developing locally
    ```
 
+   Report incorrect code
+
 4. Validate the output by querying the generated model:
 
    ```bash
    dbt sl query --metrics orders --group-by metric_time__year
    ```
+
+   Report incorrect code
 
 If you're developing in the Studio IDE, you can preview the model by clicking the **Preview** button.
 
@@ -300,6 +320,8 @@ To support custom calendars (like fiscal years, fiscal quarters, and so on), cre
    select * from fiscal_calendar
    ```
 
+   Report incorrect code
+
 2. Then update `_models.yml` file and add the fiscal calendar time spine (below the yearly time spine config):
 
    \_models.yml
@@ -327,12 +349,16 @@ To support custom calendars (like fiscal years, fiscal quarters, and so on), cre
            description: "Fiscal week, shifted by 1 week from standard calendar"
    ```
 
+   Report incorrect code
+
 3. Run or preview the model to create the model:
 
    ```bash
    dbt run --select fiscal_calendar
    dbt show --select fiscal_calendar # Use this command to preview the model if developing locally
    ```
+
+   Report incorrect code
 
    If you're developing in the Studio IDE, you can preview the model by clicking the **Preview** button.
 
@@ -341,6 +367,8 @@ To support custom calendars (like fiscal years, fiscal quarters, and so on), cre
    ```bash
    dbt sl query --metrics orders --group-by metric_time__fiscal_year
    ```
+
+   Report incorrect code
 
    ![Validate the custom calendar metrics and time spine output in the Studio IDE](/img/mf-guide-fiscal-preview.png?v=2 "Validate the custom calendar metrics and time spine output in the Studio IDE")Validate the custom calendar metrics and time spine output in the Studio IDE
 

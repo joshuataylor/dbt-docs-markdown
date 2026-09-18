@@ -25,4 +25,6 @@ analyses:
   +enabled: true | false
 ```
 
+Report incorrect code
+
 For more information, refer to [Analyses](../../../docs/build/analyses.md) and [Analysis properties](../../analysis-properties.md).

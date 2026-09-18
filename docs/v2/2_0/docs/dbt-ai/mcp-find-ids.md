@@ -17,6 +17,8 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
+Report incorrect code
+
 ## DBT\_HOST (account hostname)
 
 Your hostname is the domain you use to access dbt platform. Both `cloud.getdbt.com` and `https://cloud.getdbt.com` are accepted.

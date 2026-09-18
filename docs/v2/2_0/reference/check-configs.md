@@ -24,6 +24,8 @@ checks:
     +meta: {dictionary}
 ```
 
+Report incorrect code
+
 ### Properties YAML file
 
 checks/\_checks.yml
@@ -40,6 +42,8 @@ checks:
       tags: string | [string]
       meta: {dictionary}
 ```
+
+Report incorrect code
 
 ### SQL config
 
@@ -59,6 +63,8 @@ from {{ info_schema('models') }}
 where ...
 ```
 
+Report incorrect code
+
 ## Examples
 
 The following examples show common ways to configure checks.
@@ -76,6 +82,8 @@ checks:
       severity: warn  # default is error
 ```
 
+Report incorrect code
+
 ### Filter by a specific column
 
 The `edges` table has no `unique_id` column, so checks that query it won't return one. When you use `--select`, dbt looks for a `unique_id` column to scope results and finds none, so the check runs against the whole project regardless of the selector. Set `selection_filter_on` to the columns that contain resource IDs so `--select` scopes rows by those columns. For example, the `multiple_sources_joined` check aggregates by `child_unique_id`, so only that column needs to be set:
@@ -88,3 +96,5 @@ checks:
     config:
       selection_filter_on: child_unique_id
 ```
+
+Report incorrect code

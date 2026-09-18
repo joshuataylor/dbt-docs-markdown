@@ -19,6 +19,8 @@ from {{ ref('orders') }} --the table/view/model you want to select from
 limit 3
 ```
 
+Report incorrect code
+
 Woah woah woah! That is not the typical FROM statement you’re probably used to seeing!
 
 Most FROM statements in the non-dbt world, such as when you’re running ad-hoc queries directly in your data warehouse, will follow the `FROM database.schema.table_name` syntax. In dbt projects, analytics engineers leverage [the ref statement](../reference/dbt-jinja-functions/ref.md) to refer to other data models and sources to automatically build a dependency graph and avoid having to hard-code schema names. This flexibility is valuable as analytics engineers develop in their own development environments (schemas) without having to rename tables in their FROM statements.

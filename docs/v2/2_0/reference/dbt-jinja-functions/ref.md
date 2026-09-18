@@ -4,6 +4,8 @@
 select * from {{ ref("node_name") }}
 ```
 
+Report incorrect code
+
 ## Definition
 
 This function:
@@ -21,12 +23,16 @@ select *
 from public.raw_data
 ```
 
+Report incorrect code
+
 model\_b.sql
 
 ```sql
 select *
 from {{ref('model_a')}}
 ```
+
+Report incorrect code
 
 `ref()` is, under the hood, actually doing two important things. First, it is interpolating the schema into your model file to allow you to change your deployment schema via configuration. Second, it is using these references between models to automatically build the dependency graph. This will enable dbt to deploy models in the correct order when using `dbt run`.
 
@@ -56,15 +62,21 @@ models:
       - v: 1
 ```
 
+Report incorrect code
+
 ```sql
  -- returns the `Relation` object corresponding to version 1 of model_name
 select * from {{ ref('model_name', version=1) }}
 ```
 
+Report incorrect code
+
 ```sql
  -- returns the `Relation` object corresponding to version 2 (the latest version) of model_name
 select * from {{ ref('model_name') }}
 ```
+
+Report incorrect code
 
 ### Ref project-specific models
 
@@ -77,6 +89,8 @@ The following syntax demonstrates how to reference a model from a specific proje
 ```sql
 select * from {{ ref('project_or_package', 'model_name') }}
 ```
+
+Report incorrect code
 
 We recommend using two-argument `ref` any time you are referencing a model defined in a different package or project. While not required in all cases, it's more explicit for you, for dbt, and future readers of your code.
 
@@ -116,6 +130,8 @@ select
 from {{ ref('users') }}
 ```
 
+Report incorrect code
+
 * In this case, dbt doesn't know that `processed_orders` is a dependency because `execute` is false during parsing.
 * To address this, use a SQL comment along with the `ref` function — dbt will understand the dependency and the compiled query will still be valid:
 
@@ -140,6 +156,8 @@ select
 
 from {{ ref('users') }}
 ```
+
+Report incorrect code
 
 tip
 

@@ -59,6 +59,8 @@ Follow these steps to define UDFs in dbt:
    SELECT REGEXP_INSTR(a_string, '^[0-9]+$')
    ```
 
+   Report incorrect code
+
    ### Python
 
    Define a Python UDF in a Python file.
@@ -71,6 +73,8 @@ Follow these steps to define UDFs in dbt:
    def main(a_string):
        return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
    ```
+
+   Report incorrect code
 
    For Databricks, the contents of the `.py` file become the UDF body verbatim, and Databricks evaluates that body directly instead of calling a named entry point. Write the body so its last statement is a top-level `return` that produces the result. Because of that top-level `return`, the Databricks source is a function *body*, not a runnable `.py` module. For example:
 
@@ -85,6 +89,8 @@ Follow these steps to define UDFs in dbt:
    return main(a_string)
    ```
 
+   Report incorrect code
+
    **Note:** Python UDFs on Databricks require [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/).
 
    ### JavaScript
@@ -96,6 +102,8 @@ Follow these steps to define UDFs in dbt:
    ```js
    return /^[0-9]+$/.test(a_string) ? 1 : 0;
    ```
+
+   Report incorrect code
 
    **Note**: You can specify configs in a config block in the SQL file or in the corresponding properties YAML file in step 2.
 
@@ -121,6 +129,8 @@ Follow these steps to define UDFs in dbt:
        returns:                    # required
          data_type: integer        # required
    ```
+
+   Report incorrect code
 
    #### Python
 
@@ -163,6 +173,8 @@ Follow these steps to define UDFs in dbt:
            data_type: integer         # required
    ```
 
+   Report incorrect code
+
    #### JavaScript
 
    You can optionally set [`snowflake.quote_args`](../../reference/resource-configs/quote_args.md) to control whether argument names are quoted when creating a JavaScript UDF on Snowflake.
@@ -184,6 +196,8 @@ Follow these steps to define UDFs in dbt:
          data_type: integer                     # required
    ```
 
+   Report incorrect code
+
    volatility warehouse-specific
 
    `volatility` is accepted in dbt for SQL, Python, and JavaScript UDFs, but the handling of it is warehouse-specific. For SQL and Python UDFs on BigQuery, `volatility` is ignored and dbt displays a warning. For JavaScript UDFs on BigQuery, `deterministic` and `non-deterministic` are applied when creating the UDF; `stable` is not supported. In Snowflake, all supported volatility values are applied when creating the UDF. Refer to [volatility](../../reference/resource-configs/volatility.md) for more information.
@@ -196,11 +210,15 @@ Follow these steps to define UDFs in dbt:
    dbt build --select "resource_type:function"
    ```
 
+   Report incorrect code
+
    Or build a specific UDF:
 
    ```bash
    dbt build --select is_positive_int
    ```
+
+   Report incorrect code
 
    When you run `dbt build`, the property file (`functions/is_positive_int.yml`) and the corresponding SQL, Python, or JavaScript file work together to generate the `CREATE FUNCTION` statement.
 
@@ -220,6 +238,8 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
+   Report incorrect code
+
    ###### Redshift
 
    ```sql
@@ -231,6 +251,8 @@ Follow these steps to define UDFs in dbt:
    $$ LANGUAGE SQL;
    ```
 
+   Report incorrect code
+
    ###### BigQuery
 
    ```sql
@@ -241,6 +263,8 @@ Follow these steps to define UDFs in dbt:
    );
    ```
 
+   Report incorrect code
+
    ###### Databricks
 
    ```sql
@@ -249,6 +273,8 @@ Follow these steps to define UDFs in dbt:
    DETERMINISTIC
    RETURN REGEXP_INSTR(a_string, '^[0-9]+$');
    ```
+
+   Report incorrect code
 
    ###### Postgres
 
@@ -261,6 +287,8 @@ Follow these steps to define UDFs in dbt:
      SELECT regexp_instr(a_string, '^[0-9]+$')
    $$;
    ```
+
+   Report incorrect code
 
    ##### Python
 
@@ -280,6 +308,8 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
+   Report incorrect code
+
    ###### BigQuery
 
    ```sql
@@ -298,6 +328,8 @@ Follow these steps to define UDFs in dbt:
    ''';
    ```
 
+   Report incorrect code
+
    ###### Databricks
 
    ```sql
@@ -311,6 +343,8 @@ Follow these steps to define UDFs in dbt:
      return main(a_string)
    $$;
    ```
+
+   Report incorrect code
 
    Databricks omits the `RUNTIME_VERSION` and `HANDLER` clauses. The runtime is managed internally, and the contents of your `.py` file become the function body verbatim — including the trailing `return main(a_string)` that produces the result.
 
@@ -327,6 +361,8 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
+   Report incorrect code
+
    ###### BigQuery
 
    ```sql
@@ -338,6 +374,8 @@ Follow these steps to define UDFs in dbt:
    ''';
    ```
 
+   Report incorrect code
+
 4. Reference the UDF in a model using the `{{ function(...) }}` macro. For example:
 
    models/my\_model.sql
@@ -348,6 +386,8 @@ Follow these steps to define UDFs in dbt:
        {{ function('is_positive_int') }}(maybe_positive_int_column) as is_positive_int
    from {{ ref('a_model_i_like') }}
    ```
+
+   Report incorrect code
 
    When using [`--defer`](../../reference/node-selection/defer.md), `function()` resolves to the existing UDF in the deferred environment (for example, production) if the function is not selected or not yet built in your target environment. This requires a state manifest specified using `--state` or an equivalent environment variable (such as `DBT_ENGINE_STATE`), which dbt uses to determine where to defer. This allows models that depend on UDFs to run successfully in [continuous integration](../deploy/continuous-integration.md) and development workflows. For more information, refer to [Configure state selection](../../reference/node-selection/configure-state.md).
 
@@ -361,6 +401,8 @@ Follow these steps to define UDFs in dbt:
        udf_db.udf_schema.is_positive_int(maybe_positive_int_column) as is_positive
    from analytics.dbt_schema.a_model_i_like
    ```
+
+   Report incorrect code
 
    In your DAG, a UDF node is created from the SQL/Python and YAML definitions, and there will be a dependency between `is_positive_int` → `my_model`.
 
@@ -401,6 +443,8 @@ To define overloaded UDFs:
              data_type: integer
    ```
 
+   Report incorrect code
+
 2. Create a separate file for each overload body.
 
    For example, the body for the root function, which accepts a `string` argument:
@@ -412,6 +456,8 @@ To define overloaded UDFs:
    REGEXP_INSTR(a_string, '^[0-9]+$')
    ```
 
+   Report incorrect code
+
    And the body for the overload, which accepts a `numeric` argument:
 
    functions/is\_positive\_int\_numeric.sql
@@ -420,6 +466,8 @@ To define overloaded UDFs:
    # Snowflake syntax
    CASE WHEN a_num > 0 THEN 1 ELSE 0 END
    ```
+
+   Report incorrect code
 
 All overloads are grouped into one DAG node (the root function), so they're built and selected together. On retry, dbt skips overloads that succeeded and reruns only those that failed. When dbt builds the function, it renders a separate `CREATE FUNCTION` statement for each overload using the same function name but different argument types.
 
@@ -432,6 +480,8 @@ You can use [unit tests](./unit-tests.md) to validate models that reference UDFs
 ```bash
 dbt build --select "+my_model_to_test" --empty
 ```
+
+Report incorrect code
 
 Following the example in [Defining UDFs in dbt](#defining-udfs-in-dbt), here's an example of a unit test that validates a model that calls a UDF:
 
@@ -456,6 +506,8 @@ unit_tests:
         - { maybe_positive_int_column: +8,  is_positive: true }
         - { maybe_positive_int_column: 1.0, is_positive: true }
 ```
+
+Report incorrect code
 
 ## Listing and building UDFs
 
@@ -557,6 +609,8 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
   {{ function('cents_to_dollars') }}({{ column_name }}, {{scale}})
 {% endmacro %}
 ```
+
+Report incorrect code
 
 #### Related documentation
 

@@ -25,6 +25,8 @@ from {{ ref('orders') }}
 where order_date between '2018-01-01' and '2018-01-31'
 ```
 
+Report incorrect code
+
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return all rows where the `order_date` falls during January 2018:
 
 | **customer\_id** | **order\_id** | **order\_date** |
@@ -65,5 +67,7 @@ case when time_engaged between 0 and 9 then 'low_engagement'
      when time_engaged between 10 and 29 then 'medium_engagement'
      else 'high_engagement' end as engagement
 ```
+
+Report incorrect code
 
 This isn’t an extensive list of where your team may be using the BETWEEN condition throughout your dbt models or ad hoc analyses, but contains some common scenarios analytics engineers may encounter.

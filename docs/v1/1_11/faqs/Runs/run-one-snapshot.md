@@ -6,4 +6,6 @@ To run one snapshot, use the `--select` flag, followed by the name of the snapsh
 $ dbt snapshot --select order_snapshot
 ```
 
+Report incorrect code
+
 Check out the [model selection syntax documentation](../../reference/node-selection/syntax.md) for more operators and examples.

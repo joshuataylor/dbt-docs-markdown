@@ -20,11 +20,15 @@ Run a single prompt and exit:
 wizard exec "list all models with no tests"
 ```
 
+Report incorrect code
+
 Pipe input via stdin:
 
 ```bash
 echo "which sources have stale freshness?" | wizard exec -
 ```
+
+Report incorrect code
 
 Use `exec` in CI to gate on quality checks:
 
@@ -33,6 +37,8 @@ Use `exec` in CI to gate on quality checks:
 wizard exec "are there any models in models/marts/ with no tests?"
 ```
 
+Report incorrect code
+
 ### JSON output
 
 For downstream processing, emit a structured JSON event stream:
@@ -40,6 +46,8 @@ For downstream processing, emit a structured JSON event stream:
 ```bash
 wizard exec --json "summarize test coverage by schema" > coverage.json
 ```
+
+Report incorrect code
 
 With a JSON Schema to constrain the response shape:
 
@@ -50,6 +58,8 @@ wizard exec \
   "summarize test coverage by schema"
 ```
 
+Report incorrect code
+
 Write the final message to a file:
 
 ```bash
@@ -57,6 +67,8 @@ wizard exec \
   --output-last-message ./review-output.md \
   "review the changes in this branch for correctness"
 ```
+
+Report incorrect code
 
 ## `review` — automated code review
 
@@ -66,17 +78,23 @@ Review uncommitted changes:
 wizard review --uncommitted
 ```
 
+Report incorrect code
+
 Review a branch diff in CI:
 
 ```bash
 wizard review --base main
 ```
 
+Report incorrect code
+
 Review a specific commit:
 
 ```bash
 wizard review --commit abc1234
 ```
+
+Report incorrect code
 
 ### Example: GitHub Actions code review
 
@@ -88,6 +106,8 @@ wizard review --commit abc1234
   env:
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 ```
+
+Report incorrect code
 
 ## Permissions in headless mode
 
@@ -103,6 +123,8 @@ wizard exec -s workspace-write "add not_null tests to all primary keys in stagin
 # Allow shell commands like dbt compile
 wizard exec -s workspace-write "compile and validate fct_orders"
 ```
+
+Report incorrect code
 
 For read-only analysis tasks (coverage checks, impact queries, documentation gaps), the default permissions are sufficient. For tasks that write files or run dbt commands, pass the appropriate flags explicitly.
 

@@ -270,6 +270,8 @@ curl --request GET \
   --header 'Authorization: Bearer YOUR_TOKEN'
 ```
 
+Report incorrect code
+
 The response includes a `data` array of events with details such as `event_type`, `event_label`, `actor`, `created_at`, and `event_context`. Use `logged_at_start` and `logged_at_end` to filter by date range, and `limit` and `offset` to paginate through results. For more options, refer to [List Recent Audit Log Events](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/List%20Recent%20Audit%20Log%20Events) in the API reference.
 
 ### Download a CSV
@@ -282,6 +284,8 @@ curl --request GET \
   --header 'Authorization: Bearer YOUR_TOKEN' \
   --output audit-log.csv
 ```
+
+Report incorrect code
 
 You can use the same `logged_at_start` and `logged_at_end` query parameters as the list endpoint.
 
@@ -297,6 +301,8 @@ curl --request POST \
   --header 'Authorization: Bearer YOUR_TOKEN'
 ```
 
+Report incorrect code
+
 2. Check the export status with `GET` on `/api/v3/accounts/ACCOUNT_ID/audit-logs/export/`. Repeat this request until `is_running` in the `data` object is `false`.
 
 ```shell
@@ -305,6 +311,8 @@ curl --request GET \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer YOUR_TOKEN'
 ```
+
+Report incorrect code
 
 3. Get a download URL with `GET` on `/api/v3/accounts/ACCOUNT_ID/audit-logs/export/JOB_ID/download/`. The response includes a `download_url` in the `data` object (`data.download_url`). Use the `job_id` from step 1 as `JOB_ID` in the URL.
 
@@ -315,6 +323,8 @@ curl --request GET \
   --header 'Authorization: Bearer YOUR_TOKEN'
 ```
 
+Report incorrect code
+
 4. Download the CSV file from the `download_url` returned in step 3 (`data.download_url`):
 
 ```shell
@@ -322,6 +332,8 @@ curl --request GET \
   --url 'DOWNLOAD_URL' \
   --output audit-log-full.csv
 ```
+
+Report incorrect code
 
 ### Common automation patterns
 

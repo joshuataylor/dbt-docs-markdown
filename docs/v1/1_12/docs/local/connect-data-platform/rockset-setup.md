@@ -42,6 +42,8 @@ rockset:
       api_server: [api_server] # (Default is api.rs2.usw2.rockset.com)
 ```
 
+Report incorrect code
+
 ### Materializations
 
 | Type        | Supported? | Details                                                                                                                                |

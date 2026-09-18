@@ -59,6 +59,8 @@ snapshots:
       hard_deletes: ignore | invalidate | new_record 
 ```
 
+Report incorrect code
+
 The following table outlines the configurations available for snapshots:
 
 | Config                                                                                                            | Description                                                                                                                                                                                                                                                                  | Required?                              | Example                          |
@@ -101,6 +103,8 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
          dbt_valid_to_current: "to_date('9999-12-31')" # Specifies that current records should have `dbt_valid_to` set to `'9999-12-31'` instead of `NULL`.
    ```
 
+   Report incorrect code
+
 2. (Optional) Apply transformations using an ephemeral model. By default, snapshots reference a source directly (as shown in the YAML in the previous step). If you need to apply transformations (such as filtering or deduplication), define an ephemeral model first to apply those transformations, and reference it in the snapshot relation field instead of calling `source()` directly.
 
    For example, here's an ephemeral model:
@@ -113,6 +117,8 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
    select * from {{ source('jaffle_shop', 'orders') }}
    ```
 
+   Report incorrect code
+
    This is how to reference the ephemeral model in the `relation` field:
 
    snapshots/orders\_snapshot.yml
@@ -123,6 +129,8 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
          relation: ref('ephemeral_orders')
          ... rest of config...
    ```
+
+   Report incorrect code
 
 3. Check whether the result set of your query includes a reliable timestamp column that indicates when a record was last updated. For our example, the `updated_at` column reliably indicates record changes, so we can use the `timestamp` strategy. If your query result set does not have a reliable timestamp, you'll need to instead use the `check` strategy — more details on this below.
 
@@ -144,6 +152,8 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
    Done. PASS=2 ERROR=0 SKIP=0 TOTAL=1
    ```
 
+   Report incorrect code
+
    Compiled SQL for snapshots
 
    Starting dbt v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](../../reference/commands/compile.md) or `dbt compile --select orders_snapshot`.
@@ -161,6 +171,8 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
    ```sql
    select * from {{ ref('orders_snapshot') }}
    ```
+
+   Report incorrect code
 
 8. Snapshots are only useful if you run them frequently — schedule the `dbt snapshot` command to run regularly.
 
@@ -263,6 +275,8 @@ snapshots:
       updated_at: updated_at
 ```
 
+Report incorrect code
+
 ### Check strategy
 
 The `check` strategy is useful for tables which do not have a reliable `updated_at` column. This strategy works by comparing a list of columns between their current and historical values. If any of these columns have changed, then dbt will invalidate the old record and record the new one. If the column values are identical, then dbt will not take any action.
@@ -296,6 +310,8 @@ snapshots:
         - is_cancelled
 ```
 
+Report incorrect code
+
 #### Example usage with `updated_at`
 
 When using the `check` strategy, dbt tracks changes by comparing values in `check_cols`. By default, dbt uses the timestamp to update `dbt_updated_at`, `dbt_valid_from` and `dbt_valid_to` fields. Optionally you can set an `updated_at` column:
@@ -318,6 +334,8 @@ snapshots:
         - is_cancelled
       updated_at: updated_at
 ```
+
+Report incorrect code
 
 In this example:
 
@@ -368,6 +386,8 @@ snapshots:
       updated_at: updated_at
       hard_deletes: new_record  # options are: 'ignore', 'invalidate', or 'new_record'
 ```
+
+Report incorrect code
 
 In this example, the `hard_deletes: new_record` config will add a new row for deleted records with the `dbt_is_deleted` column set to `True`. Any restored records are added as new rows with the `dbt_is_deleted` field set to `False`.
 
@@ -490,6 +510,8 @@ To run one snapshot, use the `--select` flag, followed by the name of the snapsh
 $ dbt snapshot --select order_snapshot
 ```
 
+Report incorrect code
+
 Check out the [model selection syntax documentation](../../reference/node-selection/syntax.md) for more operators and examples.
 
 How often should I run the snapshot command?
@@ -526,6 +548,8 @@ dbt\_project.yml
 snapshot-paths: ["snapshots"]
 ```
 
+Report incorrect code
+
 Note that you cannot co-locate snapshots and models in the same directory.
 
 Debug Snapshot target is not a snapshot table errors
@@ -543,11 +567,15 @@ Double check that you haven't inadvertently caused your snapshot to behave like 
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 dbt is treating snapshots like tables (issuing `create or replace table ...` statements) **silently** instead of actually snapshotting data (SCD2 via `insert` / `merge` statements). When upgrading to dbt versions 1.4 and higher, dbt now raises a Parsing Error (instead of silently treating snapshots like tables) that reads:
 
 ```text
 A snapshot must have a materialized value of 'snapshot'
 ```
+
+Report incorrect code
 
 This tells you to change your `materialized` config to `snapshot`. But when you make that change, you might encounter an error message saying that certain fields like `dbt_scd_id` are missing. This error happens because, previously, when dbt treated snapshots as tables, it didn't include the necessary [snapshot meta-fields](./snapshots.md#snapshot-meta-fields) in your target table. Since those meta-fields don't exist, dbt correctly identifies that you're trying to create a snapshot in a table that isn't actually a snapshot.
 

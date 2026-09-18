@@ -20,6 +20,8 @@ models:
     +static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 models/filename.yml
 
 ```yml
@@ -29,11 +31,15 @@ models:
       static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 models/model\_name.sql
 
 ```sql
 {{ config(static_analysis='strict' | 'baseline' | 'off') }}
 ```
+
+Report incorrect code
 
 ## Tests
 
@@ -43,6 +49,8 @@ dbt\_project.yml
 data_tests:
   +static_analysis: strict | baseline | off
 ```
+
+Report incorrect code
 
 models/filename.yml
 
@@ -57,6 +65,8 @@ models:
             static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 ## Seeds
 
 dbt\_project.yml
@@ -67,6 +77,8 @@ seeds:
     +static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 seeds/filename.yml
 
 ```yml
@@ -75,6 +87,8 @@ seeds:
     config:
       static_analysis: strict | baseline | off
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -86,6 +100,8 @@ snapshots:
     +static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 snapshots/filename.yml
 
 ```yml
@@ -94,6 +110,8 @@ snapshots:
     config:
       static_analysis: strict | baseline | off
 ```
+
+Report incorrect code
 
 ## Unit tests
 
@@ -105,6 +123,8 @@ unit_tests:
     +static_analysis: strict | baseline | off
 ```
 
+Report incorrect code
+
 models/filename.yml
 
 ```yml
@@ -114,6 +134,8 @@ unit_tests:
     config:
       static_analysis: strict | baseline | off
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -189,6 +211,8 @@ dbt run --static-analysis off # disable static analysis for all models
 dbt run --static-analysis baseline # use baseline analysis for all models
 ```
 
+Report incorrect code
+
 ## Examples
 
 The following examples show how to disable or configure `static_analysis` for different scenarios:
@@ -220,6 +244,8 @@ models:
       +materialized: table
 ```
 
+Report incorrect code
+
 You can set individual subdirectories or models to `baseline` or `off` where needed (for example, models that use unsupported UDFs). Individual models can use less strict settings than the project-level config, but you can't set them to stricter settings. The project default is `baseline`.
 
 In this example, strict static analysis applies only to Jaffle Shop models. Installed packages keep the default `baseline` setting unless you explicitly configure them.
@@ -242,6 +268,8 @@ models:
     +static_analysis: off
 ```
 
+Report incorrect code
+
 ### Disable static analysis in YAML for a single model
 
 This example shows how to disable static analysis for a single model in YAML.
@@ -254,6 +282,8 @@ models:
     config:
       static_analysis: off
 ```
+
+Report incorrect code
 
 ### Disable static analysis in SQL for a model using a custom UDF
 
@@ -270,6 +300,8 @@ select
 from {{ ref('my_model') }}
 ```
 
+Report incorrect code
+
 ### Configure static analysis for data tests
 
 This example shows how to set static analysis for all tests in a project using `dbt_project.yml`.
@@ -281,6 +313,8 @@ dbt\_project.yml
 data_tests:
   +static_analysis: baseline
 ```
+
+Report incorrect code
 
 To configure static analysis for a specific data test on a model:
 
@@ -298,6 +332,8 @@ models:
             static_analysis: off
 ```
 
+Report incorrect code
+
 ### Configure static analysis for seeds
 
 This example shows how to set static analysis for all seeds in a project.
@@ -311,6 +347,8 @@ seeds:
     +static_analysis: baseline
 ```
 
+Report incorrect code
+
 To configure a single seed in a properties file:
 
 seeds/filename.yml
@@ -322,6 +360,8 @@ seeds:
     config:
       static_analysis: off
 ```
+
+Report incorrect code
 
 ### Configure static analysis for snapshots
 
@@ -336,6 +376,8 @@ snapshots:
     +static_analysis: baseline
 ```
 
+Report incorrect code
+
 To configure a single snapshot in a properties file:
 
 snapshots/filename.yml
@@ -347,6 +389,8 @@ snapshots:
     config:
       static_analysis: off
 ```
+
+Report incorrect code
 
 ## Considerations
 

@@ -31,11 +31,15 @@ Use the [`--static-analysis`](../reference/global-configs/static-analysis-flag.m
 dbt compile --static-analysis strict
 ```
 
+Report incorrect code
+
 **Deployment:**
 
 ```bash
 dbt compile --static-analysis baseline
 ```
+
+Report incorrect code
 
 You can use the same flag with `dbt run` or `dbt build`. If you already have dbt v1 or the platform CLI installed alongside dbt v2, use `dbtf` as the unambiguous dbt v2 command.
 
@@ -52,6 +56,8 @@ models:
   my_project:
     +static_analysis: "{{ env_var('DBT_ENV_STATIC_ANALYSIS', 'baseline') }}"
 ```
+
+Report incorrect code
 
 Then set the variable per environment:
 

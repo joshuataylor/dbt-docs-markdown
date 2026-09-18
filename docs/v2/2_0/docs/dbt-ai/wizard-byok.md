@@ -69,6 +69,8 @@ wizard providers configure PROVIDER_NAME
 wizard providers enable PROVIDER_NAME
 ```
 
+Report incorrect code
+
 Replace `PROVIDER_NAME` with the name of a supported provider, such as `openai`, `anthropic`, `bedrock`, `azure`, `gemini`, `snowflake`, or `databricks`. Then, follow the prompts to enter your credentials.
 
 The `wizard providers list` command shows you the currently configured providers and their status:
@@ -86,6 +88,8 @@ snowflake             false    local      missing      3
 gemini                false    local      missing      3
 ```
 
+Report incorrect code
+
 The `configure` command prompts you to enter credentials for the selected provider. To use environment variables or set a key without echoing it in your shell history, refer to [Set your API key](#set-your-api-key).
 
 So for example, if you're using OpenAI, you would run and follow the prompts to configure it:
@@ -95,11 +99,15 @@ wizard providers configure openai
 wizard providers enable openai
 ```
 
+Report incorrect code
+
 To store an API key without echoing it in your shell history:
 
 ```bash
 printf '%s' 'sk-...' | wizard providers set-key PROVIDER_NAME
 ```
+
+Report incorrect code
 
 Credentials are stored in `~/.dbt/wizard/provider-auth.json`. Provider settings are stored in `~/.dbt/wizard/providers.json`.
 
@@ -110,6 +118,8 @@ You can configure providers from an active CLI TUI session with the `/providers`
 ```bash
 /providers
 ```
+
+Report incorrect code
 
 From the provider menu, you can:
 
@@ -135,6 +145,8 @@ Example provider menu:
   7. snowflake            disabled; 3/3 models selected; missing credentials; needs setup
   8. gemini               disabled; 3/3 models selected; missing credentials; needs setup
 ```
+
+Report incorrect code
 
 ## Set your API key
 
@@ -165,11 +177,15 @@ Set the key as an environment variable if you want to:
 export OPENAI_API_KEY="sk-..."
 ```
 
+Report incorrect code
+
 #### Anthropic
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
+
+Report incorrect code
 
 #### Amazon Bedrock
 
@@ -177,11 +193,15 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 export AWS_BEARER_TOKEN_BEDROCK="ABSK..."
 ```
 
+Report incorrect code
+
 #### Azure AI Foundry
 
 ```bash
 export AZURE_API_KEY="..."
 ```
+
+Report incorrect code
 
 #### Google Gemini
 
@@ -189,11 +209,15 @@ export AZURE_API_KEY="..."
 export GOOGLE_API_KEY="..."
 ```
 
+Report incorrect code
+
 #### Snowflake Cortex
 
 ```bash
 export SNOWFLAKE_API_KEY="..."
 ```
+
+Report incorrect code
 
 #### Databricks
 
@@ -201,6 +225,8 @@ export SNOWFLAKE_API_KEY="..."
 export DATABRICKS_API_KEY="dapi..."
 export DATABRICKS_API_BASE="https://adb-1234567890.azuredatabricks.net"
 ```
+
+Report incorrect code
 
 To make an environment variable available across terminal sessions, add it to your shell profile, such as `.zshrc`, `.bashrc`, or equivalent.
 
@@ -240,11 +266,15 @@ wizard providers list
 wizard debug models
 ```
 
+Report incorrect code
+
 To set a default Bedrock model, add the model ID to `~/.dbt/wizard/config.toml`:
 
 ```toml
 model = "BEDROCK_MODEL_ID"
 ```
+
+Report incorrect code
 
 ### Snowflake Cortex [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -260,6 +290,8 @@ wizard providers list
 wizard debug models
 ```
 
+Report incorrect code
+
 The `wizard providers configure snowflake` command walks you through the following prompts:
 
 ```text
@@ -269,6 +301,8 @@ Snowflake account ID:
 Snowflake API base override (optional):
 Paste API key/token, or press enter to configure it later:
 ```
+
+Report incorrect code
 
 | Prompt                                     | What to enter                                                                                              |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
@@ -290,6 +324,8 @@ To set a default Snowflake Cortex model, add the model ID to `~/.dbt/wizard/conf
 model = "SNOWFLAKE_CORTEX_MODEL_ID"
 ```
 
+Report incorrect code
+
 ### Databricks Unity AI Gateway [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt Wizard connects to Databricks through the [Unity Catalog AI Gateway](https://docs.databricks.com/aws/en/ai-gateway/), so you bring your own models served from your Databricks workspace. Make sure the [serving endpoints](https://docs.databricks.com/en/machine-learning/model-serving/index.html) you plan to use are deployed and that your Databricks token has permission to query them.
@@ -302,6 +338,8 @@ wizard providers list
 wizard debug models
 ```
 
+Report incorrect code
+
 The `wizard providers configure databricks` command first asks for your workspace URL, then for the serving endpoint name behind each model you enable:
 
 ```text
@@ -311,6 +349,8 @@ Databricks workspace URL (e.g. https://adb-1234567890.azuredatabricks.net):
 Endpoint name for databricks/claude-sonnet-4-6:
 Paste API key/token, or press enter to configure it later:
 ```
+
+Report incorrect code
 
 | Prompt                       | What to enter                                                                                                                                      |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -334,6 +374,8 @@ To set a default Databricks model, add the model ID to `~/.dbt/wizard/config.tom
 ```toml
 model = "databricks/claude-sonnet-4-6"
 ```
+
+Report incorrect code
 
 ## Related docs
 

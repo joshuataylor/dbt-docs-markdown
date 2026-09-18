@@ -57,6 +57,8 @@ logs/
 target/
 ```
 
+Report incorrect code
+
 This inclusion uses a trailing slash, making these lines in the `.gitignore` file act as 'folder wildcards' that prevent any files or folders within them from being tracked by git. You can also specify additional exclusions as needed for your project.
 
 However, this global `.gitignore` *does not* apply to dbt v1 and dbt platform CLI users directly. Therefore, if you're working with dbt v1 or dbt platform CLI, you need to manually add the three lines mentioned previously to your project's `.gitignore` file.

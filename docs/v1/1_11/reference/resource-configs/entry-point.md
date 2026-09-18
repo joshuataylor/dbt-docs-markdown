@@ -13,6 +13,8 @@ functions:
       entry_point: <string> # required for Snowflake and BigQuery; optional and ignored on Databricks
 ```
 
+Report incorrect code
+
 ## Definition
 
 When creating Python UDFs, specify the Python function to be called in `entry_point`.
@@ -49,6 +51,8 @@ def main(a_string: str) -> int:
     return _to_flag(_digits_only(a_string))
 ```
 
+Report incorrect code
+
 After defining the UDF, you can specify `main` as the `entry_point` in the YAML file. `entry_point: main` points to the `main` function as the entry point for the UDF, while `_digits_only` and `_to_flag` are helper functions.
 
 functions/schema.yml
@@ -66,6 +70,8 @@ functions:
     returns:
       data_type: integer
 ```
+
+Report incorrect code
 
 ## Related documentation
 

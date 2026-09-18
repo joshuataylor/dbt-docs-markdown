@@ -15,6 +15,8 @@ snapshots:
     updated_at: column_name
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -23,6 +25,8 @@ snapshots:
     +strategy: timestamp
     +updated_at: column_name
 ```
+
+Report incorrect code
 
 ## check
 
@@ -39,6 +43,8 @@ snapshots:
     check_cols: [column_name] | "all"
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -47,6 +53,8 @@ snapshots:
     +strategy: check
     +check_cols: [column_name] | all
 ```
+
+Report incorrect code
 
 ## Description
 
@@ -75,6 +83,8 @@ snapshots:
       updated_at: updated_at
 ```
 
+Report incorrect code
+
 ### Use the check strategy
 
 (Applies to dbt v1.9 and later)
@@ -93,6 +103,8 @@ snapshots:
         - status
         - is_cancelled
 ```
+
+Report incorrect code
 
 ### Advanced: define and use custom snapshot strategy
 
@@ -119,3 +131,5 @@ snapshots:
       updated_at: updated_at_column
       unique_key: id
 ```
+
+Report incorrect code

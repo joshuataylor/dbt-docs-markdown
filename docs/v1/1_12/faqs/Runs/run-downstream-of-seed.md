@@ -7,3 +7,5 @@ For example, the following would run all models downstream of a seed named `coun
 ```shell
 $ dbt run --select country_codes+
 ```
+
+Report incorrect code

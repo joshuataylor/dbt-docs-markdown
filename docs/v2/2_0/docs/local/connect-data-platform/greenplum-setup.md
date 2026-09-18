@@ -49,6 +49,8 @@ company-name:
       sslmode: [optional, set the sslmode used to connect to the database]
 ```
 
+Report incorrect code
+
 ### Notes
 
 This adapter strongly depends on dbt-postgres, so you can read more about configurations here [Profile Setup](./postgres-setup.md)

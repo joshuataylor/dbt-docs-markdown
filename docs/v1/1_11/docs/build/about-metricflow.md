@@ -118,6 +118,8 @@ on
 group by 1, 2
 ```
 
+Report incorrect code
+
 #### Calculate with MetricFlow
 
 In the following three example tabs, use MetricFlow to define a semantic model that uses `order_total` as a metric and a sample schema to create consistent and accurate results — eliminating confusion, code duplication, and streamlining your workflow.
@@ -174,6 +176,8 @@ semantic_models:
           time_granularity: day
 ```
 
+Report incorrect code
+
 ##### More dimensions example
 
 Similarly, you can add additional dimensions like `is_food_order` to your semantic models to incorporate even more dimensions to slice and dice your revenue `order_total`.
@@ -207,6 +211,8 @@ semantic_models:
         type: categorical
 ```
 
+Report incorrect code
+
 ##### Advanced example
 
 Imagine an even more complex metric is needed, such as the amount of money earned each day from food orders from returning customers. Without MetricFlow, the data practitioner's original SQL might look like this:
@@ -228,6 +234,8 @@ where
 group by 1
 ```
 
+Report incorrect code
+
 MetricFlow simplifies the SQL process through metric YAML configurations as shown below. You can also commit them to your git repository to ensure everyone on the data and business teams can see and approve them as the true and only source of information.
 
 (Applies to dbt v1.11 and earlier)
@@ -244,6 +252,8 @@ metrics:
     filter: |
       {{ Dimension('customer__is_new_customer') }} = false
 ```
+
+Report incorrect code
 
 ## FAQs
 

@@ -112,6 +112,8 @@ access_key_id: '{{ env_var(''DBT_ENV_ACCESS_KEY_ID'') }}'
 secret_access_key: '{{ env_var(''DBT_ENV_SECRET_ACCESS_KEY'') }}'
 ```
 
+Report incorrect code
+
 Both `DBT_ENV_ACCESS_KEY_ID` and `DBT_ENV_SECRET_ACCESS_KEY` will need [to be assigned](../../build/environment-variables.md) for every environment leveraging extended attributes as such.
 
 ### Connecting using an SSH Tunnel
@@ -162,6 +164,8 @@ To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of yo
    touch ~/.ssh/authorized_keys
    chmod 600 ~/.ssh/authorized_keys
    ```
+
+   Report incorrect code
 
 3. Copy and paste the dbt generated public key, into the authorized\_keys file.
 

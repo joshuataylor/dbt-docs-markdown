@@ -20,6 +20,8 @@ models:
     lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
 ```
 
+Report incorrect code
+
 In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
 
 For more details, refer to the [`lag_tolerance` config reference](../../../reference/resource-configs/lag-tolerance.md).
@@ -74,6 +76,8 @@ Running tests for views in every job run can help keep data quality intact and s
             - method: resource_type
               value: test
    ```
+
+   Report incorrect code
 
 4. Save the file and commit it to your project.
 

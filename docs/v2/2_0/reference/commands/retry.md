@@ -41,9 +41,13 @@ Unlike `dbt retry` with dbt v1, dbt v2 lets you narrow what gets retried using [
 dbt retry --select my_model+
 ```
 
+Report incorrect code
+
 ```shell
 dbt retry --exclude package:analytics --selector nightly_models
 ```
+
+Report incorrect code
 
 ## Supported commands
 
@@ -76,6 +80,8 @@ Found 5 models, 3 seeds, 20 tests, 0 sources, 0 exposures, 0 metrics, 348 macros
 Nothing to do. Try checking your model configs and model specification args
 ```
 
+Report incorrect code
+
 Example of when `dbt run` encounters a syntax error in a model:
 
 ```shell
@@ -106,6 +112,8 @@ Runtime Error in model customers (models/customers.sql)
 Done. PASS=4 WARN=0 ERROR=1 SKIP=0 TOTAL=5
 ```
 
+Report incorrect code
+
 Example of a subsequent failed `dbt retry` run without fixing the error(s):
 
 ```shell
@@ -120,6 +128,8 @@ Concurrency: 24 threads (target='dev')
 
 Done. PASS=4 WARN=0 ERROR=1 SKIP=0 TOTAL=5
 ```
+
+Report incorrect code
 
 Example of a successful `dbt retry` run after fixing error(s):
 
@@ -139,5 +149,7 @@ Completed successfully
   
 Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 ```
+
+Report incorrect code
 
 In each scenario `dbt retry` picks up from the error rather than running all of the upstream dependencies again.

@@ -36,6 +36,8 @@ select
 from {{ ref('payments') }}
 ```
 
+Report incorrect code
+
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `payments` table is creating a new column to determine if a payment used a type of card (ex. debit card, credit card, gift card) payment based on if the `payment_method` value ends in `card`:
 
 | **payment\_id** | **order\_id** | **payment\_method** | **was\_card**      |

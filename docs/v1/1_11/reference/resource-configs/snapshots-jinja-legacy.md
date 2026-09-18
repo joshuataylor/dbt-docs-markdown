@@ -60,6 +60,8 @@ select * from {{ source('jaffle_shop', 'orders') }}
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 ### General configuration
 
 Use general configurations for broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project YAML file, properties YAML files, or within resource-specific files using a config block.
@@ -77,6 +79,8 @@ snapshots/snapshot.sql
     grants={<dict>}
 ) }}
 ```
+
+Report incorrect code
 
 ### Snapshot strategies
 
@@ -110,6 +114,8 @@ snapshots/timestamp\_example.sql
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 #### Check
 
 The check strategy is useful for tables which do not have a reliable `updated_at` column. It requires the `check_cols` parameter, which is a list of columns within the results of your snapshot query to check for changes. Alternatively, use all columns using the all value (however this may be less performant).
@@ -134,6 +140,8 @@ snapshots/check\_example.sql
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 #### Examples
 
  Check a list of columns for changes
@@ -156,6 +164,8 @@ snapshots/check\_example.sql
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
  Check all columns for changes
 
 snapshots/check\_example.sql
@@ -175,6 +185,8 @@ snapshots/check\_example.sql
 
 {% endsnapshot %}
 ```
+
+Report incorrect code
 
 ## Configuration reference
 
@@ -214,6 +226,8 @@ snapshots/orders\_snapshot.sql
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 3. Write a `select` statement within the snapshot block (tips for writing a good snapshot query are below). This select statement defines the results that you want to snapshot over time. You can use `sources` or `refs` here.
 
 snapshots/orders\_snapshot.sql
@@ -225,6 +239,8 @@ select * from {{ source('jaffle_shop', 'orders') }}
 
 {% endsnapshot %}
 ```
+
+Report incorrect code
 
 4. Check whether the result set of your query includes a reliable timestamp column that indicates when a record was last updated. For our example, the `updated_at` column reliably indicates record changes, so we can use the `timestamp` strategy. If your query result set does not have a reliable timestamp, you'll need to instead use the `check` strategy — more details on this in the next step.
 
@@ -253,6 +269,8 @@ select * from {{ source('jaffle_shop', 'orders') }}
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 6. Run the `dbt snapshot` [command](../commands/snapshot.md). For our example, a new table will be created at `analytics.snapshots.orders_snapshot`. You can change the `target_database` configuration, the `target_schema` configuration and the name of the snapshot (as defined in `{% snapshot .. %}`) will change how dbt names this table.
 
 ```dbt
@@ -270,6 +288,8 @@ Completed successfully
 Done. PASS=2 ERROR=0 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 1. Inspect the results by selecting from the table dbt created. After the first run, you should see the results of your query, plus the [snapshot meta fields](../../docs/build/snapshots.md#snapshot-meta-fields) as described earlier.
 
 2. Run the `dbt snapshot` command again, and inspect the results. If any records have been updated, the snapshot should reflect this.
@@ -281,6 +301,8 @@ models/changed\_orders.sql
 ```sql
 select * from {{ ref('orders_snapshot') }}
 ```
+
+Report incorrect code
 
 10. Snapshots are only useful if you run them frequently — schedule the `snapshot` command to run regularly.
 
@@ -308,6 +330,8 @@ snapshots/postgres\_app/orders\_snapshot.sql
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
  Using the updated\_at parameter
 
 The `updated_at` parameter is required if using the timestamp strategy. The `updated_at` parameter is a column within the results of your snapshot query that represents when the record row was last updated.
@@ -320,6 +344,8 @@ snapshots/orders.sql
   updated_at="column_name"
 ) }}
 ```
+
+Report incorrect code
 
 #### Examples
 
@@ -346,6 +372,8 @@ snapshots/orders.sql
 
   {% endsnapshot %}
   ```
+
+  Report incorrect code
 
 * #### Coalescing two columns to create a reliable `updated_at` column:
 
@@ -379,6 +407,8 @@ snapshots/orders.sql
   {% endsnapshot %}
   ```
 
+  Report incorrect code
+
  Using the unique\_key parameter
 
 The `unique_key` is a column name or expression that is unique for the inputs of a snapshot. dbt uses [`unique_key`](./unique_key.md) to match records between a result set and an existing snapshot, so that changes can be captured correctly.
@@ -390,6 +420,8 @@ snapshots/orders.sql
   unique_key="column_name"
 ) }}
 ```
+
+Report incorrect code
 
 #### Examples
 
@@ -404,6 +436,8 @@ snapshots/orders.sql
       )
   }}
   ```
+
+  Report incorrect code
 
   You can also write this in YAML. This might be a good idea if multiple snapshots share the same `unique_key` (though we prefer to apply this configuration in a config block, as above).
 
@@ -431,6 +465,8 @@ snapshots/orders.sql
   {% endsnapshot %}
   ```
 
+  Report incorrect code
+
   Though, it's probably a better idea to construct this column in your query and use that as the `unique_key`:
 
   snapshots/transaction\_items\_snapshot.sql
@@ -452,3 +488,5 @@ snapshots/orders.sql
 
   {% endsnapshot %}
   ```
+
+  Report incorrect code

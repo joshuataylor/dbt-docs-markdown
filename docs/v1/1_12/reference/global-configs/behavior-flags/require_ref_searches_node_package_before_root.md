@@ -18,6 +18,8 @@ my\_package/model\_downstream.sql
 select * from {{ ref('model_upstream') }}
 ```
 
+Report incorrect code
+
 By default, dbt searches for `model_upstream` in this order:
 
 1. First in `my_project` (root project)

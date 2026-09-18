@@ -6,6 +6,8 @@ If you're seeing the below error when you try to query a dataset from a Google D
 Access denied: BigQuery BigQuery: Permission denied while getting Drive credentials
 ```
 
+Report incorrect code
+
 Usually, this error indicates that you haven't granted the BigQuery service account access to the specific Google Drive document. If you're seeing this error, try giving the service account (Client email field seen [here](../../docs/platform/connect-data-platform/connect-bigquery.md)) you are using for your BigQuery connection in dbt, permission to your Google Drive or Google Sheet. You'll want to do this directly in your Google Document, click the **Share** button, and enter the client email.
 
 If you are experiencing this error when using OAuth, and you have verified your access to the Google Sheet, you may need to grant permissions for gcloud to access Google Drive:
@@ -14,6 +16,8 @@ If you are experiencing this error when using OAuth, and you have verified your 
 gcloud auth application-default login --disable-quota-project
 ```
 
+Report incorrect code
+
 For more info see the [gcloud auth application-default documentation](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login)
 
 If you've tried the earlier steps and are still experiencing this behavior, try using the following command to log into Google Cloud and enable access to Google Drive. It also updates the Application Default Credentials (ADC) file, which many Google Cloud libraries use to authenticate API calls.
@@ -21,6 +25,8 @@ If you've tried the earlier steps and are still experiencing this behavior, try 
 ```text
 gcloud auth login --enable-gdrive-access --update-adc
 ```
+
+Report incorrect code
 
 For more info, refer to [gcloud auth login documentation](https://cloud.google.com/sdk/gcloud/reference/auth/login#--enable-gdrive-access).
 

@@ -50,6 +50,8 @@ materialize:
       retries: 1 # default: 1, retry on error/timeout when opening connections
 ```
 
+Report incorrect code
+
 ### Configurations
 
 `cluster`: The default [cluster](https://materialize.com/docs/overview/key-concepts/#clusters) is used to maintain materialized views or indexes. A [`default` cluster](https://materialize.com/docs/sql/show-clusters/#default-cluster) is pre-installed in every environment, but we recommend creating dedicated clusters to isolate the workloads in your dbt project (for example, `staging` and `data_mart`).
@@ -61,6 +63,8 @@ To test the connection to Materialize, run:
 ```text
 dbt debug
 ```
+
+Report incorrect code
 
 If the output reads "All checks passed!", you’re good to go! Check the [dbt and Materialize guide](https://materialize.com/docs/guides/dbt/) to learn more and get started.
 

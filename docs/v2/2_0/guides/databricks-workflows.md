@@ -35,6 +35,8 @@ databricks secrets create-scope --scope <YOUR_SECRET_SCOPE>
 databricks secrets put --scope  <YOUR_SECRET_SCOPE> --key  <YOUR_SECRET_KEY> --string-value "<YOUR_DBT_CLOUD_API_KEY>"
 ```
 
+Report incorrect code
+
 4. Replace **`<YOUR_SECRET_SCOPE>`** and **`<YOUR_SECRET_KEY>`** with your own unique identifiers. Click [here](https://docs.databricks.com/security/secrets/index.html) for more information on secrets.
 
 5. Replace **`<YOUR_DBT_CLOUD_API_KEY>`** with the actual API key value that you copied from dbt in step 1.
@@ -116,6 +118,8 @@ if __name__ == '__main__':
     run()
 ```
 
+Report incorrect code
+
 3. Replace **`<YOUR_SECRET_SCOPE>`** and **`<YOUR_SECRET_KEY>`** with the values you used [previously](#set-up-a-databricks-secret-scope)
 
 4. Replace **`<YOUR_BASE_URL>`** and **`<YOUR_ACCOUNT_ID>`** with the correct values of your environment and [Access URL](../docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
@@ -146,6 +150,8 @@ DbtJobRunStatus.RUNNING
 DbtJobRunStatus.RUNNING
 DbtJobRunStatus.SUCCESS
 ```
+
+Report incorrect code
 
 You can cancel the job from dbt if necessary.
 

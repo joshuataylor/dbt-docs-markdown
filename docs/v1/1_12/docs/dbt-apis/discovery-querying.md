@@ -52,6 +52,8 @@ You can run queries by sending a `POST` request to the Discovery API, making sur
     --data QUERY_BODY
   ```
 
+  Report incorrect code
+
 Python example:
 
 ```python
@@ -63,6 +65,8 @@ response = requests.post(
 
 metadata = response.json()['data'][ENDPOINT]
 ```
+
+Report incorrect code
 
 Every query will require an environment ID or job ID. You can get the ID from a dbt URL or using the Admin API.
 
@@ -166,6 +170,8 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
+Report incorrect code
+
 ### Pagination
 
 Querying large datasets can impact performance on multiple functions in the API pipeline. Pagination eases the burden by returning smaller data sets one page at a time. This is useful for returning a particular portion of the dataset or the entire dataset piece-by-piece to enhance performance. dbt utilizes cursor-based pagination, which makes it easy to return pages of constantly changing data.
@@ -195,6 +201,8 @@ pageInfo {
 }
 totalCount # Total number of records across all pages
 ```
+
+Report incorrect code
 
 The previously described `PageInfo` and `totalCount` pattern applies to the `environment` endpoints, which return results as a connection of `edges` and `nodes`.
 
@@ -238,6 +246,8 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
 }
 ```
 
+Report incorrect code
+
 First page variables:
 
 ```json
@@ -249,6 +259,8 @@ First page variables:
 }
 ```
 
+Report incorrect code
+
 For the next page, set `after` to the `paginationCursor` from the *last* row of the previous page. The cursor is an opaque encoded string, not the `uniqueId`. Repeat until a page returns fewer rows than `first` (or fewer than the default page size).
 
 ```json
@@ -259,6 +271,8 @@ For the next page, set `after` to the `paginationCursor` from the *last* row of 
   "after": "Y3Vyc29yOm1vZGVsLm15X3Byb2plY3QuZGltX2N1c3RvbWVycw=="
 }
 ```
+
+Report incorrect code
 
 ### Filters
 
@@ -298,6 +312,8 @@ query ModelsAndTests($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+
+Report incorrect code
 
 ## Related content
 

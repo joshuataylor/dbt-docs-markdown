@@ -67,6 +67,8 @@ default:
   target: dev
 ```
 
+Report incorrect code
+
 ### Local file
 
 To persist data between runs, set `path` to a `.duckdb` file on your local filesystem. DuckDB creates the file automatically if it doesn't exist.
@@ -83,6 +85,8 @@ your_profile_name:
       schema: main   # optional; defaults to main
       threads: 4     # optional
 ```
+
+Report incorrect code
 
 You can use a relative path (resolved relative to your `profiles.yml` file) or an absolute path. `dbt-duckdb` automatically sets the `database` property to the basename of the file with the suffix removed (for example, `/tmp/a/dbfile.duckdb` sets `database` to `dbfile`).
 
@@ -101,6 +105,8 @@ your_profile_name:
       path: "md:my_db?motherduck_token={{ env_var('MOTHERDUCK_TOKEN') }}"
       threads: 4
 ```
+
+Report incorrect code
 
 MotherDuck databases generally work the same way as local DuckDB databases, with a few differences described in [MotherDuck's documentation](https://motherduck.com/docs/architecture-and-capabilities#considerations-and-limitations). MotherDuck preloads common DuckDB extensions but does not support loading custom extensions or user-defined functions.
 
@@ -129,6 +135,8 @@ default:
   target: dev
 ```
 
+Report incorrect code
+
 You can refer to attached databases by the basename of the file (without its suffix) or by an `alias` you specify. The `type` argument supports `duckdb`, `sqlite`, and `postgres`. You can also pass arbitrary options using the `options` dictionary — refer to [Arbitrary ATTACH options](../../../reference/resource-configs/duckdb-configs.md#arbitrary-attach-options) for details.
 
 For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](../../../reference/resource-configs/duckdb-configs.md#ducklake) section for details.
@@ -155,6 +163,8 @@ your_profile_name:
         s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
 ```
 
+Report incorrect code
+
 You can also configure extensions from outside the core extension repository (such as a community extension) by specifying a `name`/`repo` pair:
 
 ```yml
@@ -166,6 +176,8 @@ extensions:
   - name: uc_catalog
     repo: core_nightly
 ```
+
+Report incorrect code
 
 For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](../../../reference/resource-configs/duckdb-configs.md) page.
 

@@ -46,6 +46,8 @@ Connections are used to provide Upsolver with the proper credentials to bring yo
 }}
 ```
 
+Report incorrect code
+
 Running this model will compile CREATE CONNECTION(or ALTER CONNECTION if exists) SQL and send it to Upsolver engine. Name of the connection will be name of the model.
 
 ## SQL copy job
@@ -66,6 +68,8 @@ As a dbt model copy job is model with materialized='incremental'
 }}
 SELECT * FROM {{ ref(<model>) }}
 ```
+
+Report incorrect code
 
 Running this model will compile CREATE TABLE SQL for target type Data lake (or ALTER TABLE if exists) and CREATE COPY JOB(or ALTER COPY JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
@@ -93,6 +97,8 @@ GROUP BY ...
 HAVING COUNT(DISTINCT orderid::string) ...
 ```
 
+Report incorrect code
+
 Running this model will compile CREATE TABLE SQL for target type Data lake(or ALTER TABLE if exists) and CREATE INSERT JOB(or ALTER INSERT JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
 ## SQL merge job
@@ -119,6 +125,8 @@ GROUP BY ...
 HAVING COUNT ...
 ```
 
+Report incorrect code
+
 Running this model will compile CREATE TABLE SQL for target type Data lake(or ALTER TABLE if exists) and CREATE MERGE JOB(or ALTER MERGE JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
 ## SQL materialized views
@@ -139,6 +147,8 @@ WHERE ...
 GROUP BY ...
 ```
 
+Report incorrect code
+
 Running this model will compile CREATE MATERIALIZED VIEW SQL(or ALTER MATERIALIZED VIEW if exists) and send it to Upsolver engine. Name of the materializedview will be name of the model.
 
 ## Expectations/constraints
@@ -149,6 +159,8 @@ Data quality conditions can be added to your job to drop a row or trigger a warn
 WITH EXPECTATION <expectation_name> EXPECT <sql_predicate>
 ON VIOLATION WARN
 ```
+
+Report incorrect code
 
 Expectations can be implemented with dbt constraints Supported constraints: check and not\_null
 
@@ -180,6 +192,8 @@ models:
             expression: "REGEXP_LIKE(<column3>, '^[0-9]{4}[a-z]{5}$')"
             name: <constraint_name>
 ```
+
+Report incorrect code
 
 ## Projects examples
 

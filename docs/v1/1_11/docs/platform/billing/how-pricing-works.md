@@ -52,11 +52,15 @@ Examples of queried metrics include:
   dbt sl query --metrics revenue --group-by metric_time
   ```
 
+  Report incorrect code
+
 * Querying two metrics, grouping by two dimensions → 2 queried metrics
 
   ```shell
   dbt sl query --metrics revenue,gross_sales --group-by metric_time,user__country
   ```
+
+  Report incorrect code
 
 Compiling metrics counts the same way — one queried metric per metric compiled (for example, `dbt sl query --metrics revenue --compile` → 1 queried metric).
 

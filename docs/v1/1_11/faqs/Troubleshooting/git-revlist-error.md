@@ -9,6 +9,8 @@ Use '--' to separate paths from revisions, like this:
 'git <command> [<revision>...] -- [<file>...]'
 ```
 
+Report incorrect code
+
 Usually this error indicates that the "main" branch name has changed or it is possible that dbt was unable to determine what your primary branch was. No worries, we have a few workarounds for you to try:
 
 **Workaround 1** Take a look at your Environment Settings - If you **do not** have a custom branch filled in your Environment Settings:

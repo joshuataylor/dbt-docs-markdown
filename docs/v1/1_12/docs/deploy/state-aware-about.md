@@ -148,6 +148,8 @@ joined as (
 select * from joined
 ```
 
+Report incorrect code
+
 * `not_null` test: A `left join` can introduce null values for customers without orders. Even if upstream tests verified `not_null(order_id)` in orders, the join can create null values downstream. dbt must always run a `not_null` test on `order_id` in this joined result.
 
 * `unique` test: If `orders.order_id` and `customers.customer_id` are unique upstream, uniqueness of `order_id` is preserved and the upstream result can be reused.
@@ -168,6 +170,8 @@ The following section lists some considerations when using Efficient testing in 
     store_failures: true | false
     where: <string>
   ```
+
+  Report incorrect code
 
 * **Efficient testing is available only in deploy jobs**. CI and merge jobs currently do not have the option to enable this feature.
 

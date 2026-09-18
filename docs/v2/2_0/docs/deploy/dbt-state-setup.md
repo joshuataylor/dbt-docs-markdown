@@ -87,11 +87,15 @@ For next steps, see:
    cd to/your/project
    ```
 
+   Report incorrect code
+
 2. Log in to dbt platform:
 
    ```bash
    dbt login
    ```
+
+   Report incorrect code
 
    This opens a browser window where you can log in to or create a dbt platform account.
 
@@ -114,6 +118,8 @@ flags:
   manage_state: true
 ```
 
+Report incorrect code
+
 ### dbt v1.7-1.12
 
 dbt State is available as a plugin for dbt v1.7+. If you are running on dbt v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](../dbt-versions.md#latest-releases).
@@ -126,6 +132,8 @@ To install the plugin:
    cd to/your/project
    ```
 
+   Report incorrect code
+
 2. Create and activate a virtual environment:
 
    ```bash
@@ -133,11 +141,15 @@ To install the plugin:
    source .venv/bin/activate
    ```
 
+   Report incorrect code
+
 3. Install the dbt State plugin:
 
    ```bash
    pip install dbt-state
    ```
+
+   Report incorrect code
 
 4. Run `dbt run` or `dbt build`
 
@@ -167,6 +179,8 @@ models:
     lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
 ```
 
+Report incorrect code
+
 In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
 
 For more details, refer to the [`lag_tolerance` config reference](../../reference/resource-configs/lag-tolerance.md).
@@ -189,6 +203,8 @@ If dbt State is behaving unexpectedly, you can prepend your run command with the
 ```bash
 DBT_ENGINE_MANAGE_STATE=0 dbt run --target dev --select "customers"
 ```
+
+Report incorrect code
 
 To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v2.0 and later) [`dbt state explain`](../../reference/commands/state-explain.md) command. If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](./run-visibility.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
 

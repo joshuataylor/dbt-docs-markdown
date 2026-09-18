@@ -75,6 +75,8 @@ models:
         expr: optional_expr
 ```
 
+Report incorrect code
+
 ### Example with boolean instead of mapping
 
 Same layout as previous example, but with a boolean instead of a `semantic_model:` mapping (semantic model name defaults to the model name):
@@ -99,5 +101,7 @@ models:
         type: simple
         agg: count
 ```
+
+Report incorrect code
 
 For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](../docs/build/semantic-models.md).

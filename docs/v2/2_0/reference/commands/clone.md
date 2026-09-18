@@ -28,6 +28,8 @@ dbt clone --state path/to/artifacts --full-refresh
 dbt clone --state path/to/artifacts --threads 50
 ```
 
+Report incorrect code
+
 ### When to use `dbt clone` instead of [deferral](../node-selection/defer.md)?
 
 Unlike deferral, `dbt clone` requires some compute and creation of additional objects in your data warehouse. In many cases, deferral is a cheaper and simpler alternative to `dbt clone`. However, `dbt clone` covers additional use cases where deferral may not be possible.

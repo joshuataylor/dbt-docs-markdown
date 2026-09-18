@@ -8,6 +8,8 @@ flags:
   <global_config>: <value>
 ```
 
+Report incorrect code
+
 Reference the [table of all flags](./about-global-configs.md#available-flags) to see which global configs are available for setting in [`dbt_project.yml`](../dbt_project.yml.md).
 
 The `flags` dictionary is the *only* place you can opt out of [behavior changes](./behavior-changes.md), while the legacy behavior is still supported.
@@ -32,6 +34,8 @@ flags:
   fail_fast: true
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.11 and later)
 
 ```bash
@@ -40,10 +44,14 @@ export DBT_ENGINE_FAIL_FAST=1
 dbt run
 ```
 
+Report incorrect code
+
 ```bash
 dbt run --fail-fast # set to True for this specific invocation
 dbt run --no-fail-fast # set to False
 ```
+
+Report incorrect code
 
 There are two categories of exceptions:
 

@@ -11,6 +11,8 @@ models:
       evaluate_volatile_sql: true | false
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -23,6 +25,8 @@ models:
         evaluate_volatile_sql: true | false
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -34,6 +38,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -65,6 +71,8 @@ select
 from {{ ref('dim_customers') }}
 ```
 
+Report incorrect code
+
 With this config enabled, dbt State stores the result of `current_date()` after each build. On the next run after midnight, the stored value no longer matches and the node is rebuilt, even if `dim_customers` hasn't changed.
 
 ### Default behavior
@@ -79,6 +87,8 @@ select
   getdate() as _dbt_built_at
 from {{ ref('dim_customers') }}
 ```
+
+Report incorrect code
 
 dbt State treats `getdate()` as static code. The node remains reusable as long as its parents haven't changed.
 

@@ -50,4 +50,6 @@ To use temporary credentials:
    aws_session_token: '{{ env_var(''DBT_ENV_AWS_SESSION_TOKEN'') }}'
    ```
 
+   Report incorrect code
+
 3. [Assign](../../build/environment-variables.md#setting-environment-variables) `DBT_ENV_AWS_SESSION_TOKEN` for each environment. Since temporary credentials expire, you need to refresh your STS credentials and update the environment (or the variable value) before expiration.

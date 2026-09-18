@@ -34,6 +34,8 @@ models:
                 <test_config>: <config-value>
 ```
 
+Report incorrect code
+
 ### Sources
 
 models/\<filename>.yml
@@ -63,6 +65,8 @@ sources:
                   <test_config>: <config-value>
 ```
 
+Report incorrect code
+
 ### Seeds
 
 seeds/\<filename>.yml
@@ -89,6 +93,8 @@ seeds:
               config:
                 <test_config>: <config-value>
 ```
+
+Report incorrect code
 
 ### Snapshots
 
@@ -117,6 +123,8 @@ snapshots:
                 <test_config>: <config-value>
 ```
 
+Report incorrect code
+
 ### Analyses
 
 This feature is not implemented for analyses.
@@ -142,6 +150,8 @@ models:
       ...
 ```
 
+Report incorrect code
+
 You can add an arguments block for test inputs and a config block for options like `severity` or `where`. Refer to [Data test configurations](../data-test-configs.md?version=2.0#data-test-specific-configurations) for the full list. If you see a deprecation warning about test arguments, refer to [Deprecations](../deprecations.md?version=2.0) for test-related warnings.
 
 ### `unique`
@@ -163,6 +173,8 @@ models:
               config:
                 where: "order_id > 21"
 ```
+
+Report incorrect code
 
 ### `accepted_values`
 
@@ -191,6 +203,8 @@ models:
                 quote: false
 ```
 
+Report incorrect code
+
 ### `relationships`
 
 This data test validates that all of the records in a child table have a corresponding record in a parent table. This property is referred to as "referential integrity". This test automatically excludes `NULL` values from validation, consistent with how database foreign key constraints work. Use the `not_null` test separately if `NULL` values should cause failures.
@@ -211,6 +225,8 @@ models:
                 to: ref('customers')
                 field: id
 ```
+
+Report incorrect code
 
 The `to` argument accepts a [Relation](../dbt-classes.md#relation) – this means you can pass it a `ref` to a model (e.g. `ref('customers')`), or a `source` (e.g. `source('jaffle_shop', 'customers')`).
 
@@ -237,6 +253,8 @@ models:
             expression: "order_total = subtotal + tax_paid"
 ```
 
+Report incorrect code
+
 This example focuses on testing expressions to ensure that `order_items_subtotal` equals `subtotal` and `order_total` correctly sums `subtotal` and `tax_paid`.
 
 ### Use custom generic data test
@@ -254,6 +272,8 @@ models:
         data_tests:
           - primary_key  # name of my custom generic test
 ```
+
+Report incorrect code
 
 Check out the guide on writing a [custom generic data test](../../best-practices/writing-custom-generic-tests.md) for more information.
 
@@ -289,6 +309,8 @@ models:
                 where: "order_date = current_date"
 ```
 
+Report incorrect code
+
 ```sh
 $ dbt test --select unexpected_order_status_today
 12:43:41  Running with dbt=1.1.0
@@ -305,6 +327,8 @@ $ dbt test --select unexpected_order_status_today
 12:43:41
 12:43:41  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 ```
+
+Report incorrect code
 
 A data test's name must be unique for all tests defined on a given model-column combination. If you give the same name to data tests defined on several different columns, or across several different models, then `dbt test --select <repeated_custom_name>` will select them all.
 
@@ -332,6 +356,8 @@ models:
                 where: "order_date = (current_date - interval '1 day')" # PostgreSQL syntax
 ```
 
+Report incorrect code
+
 ```sh
 Compilation Error
   dbt found two tests with the name "accepted_values_orders_status__placed__shipped__completed__returned" defined on column "status" in "models.orders".
@@ -343,6 +369,8 @@ Compilation Error
   - test.testy.accepted_values_orders_status__placed__shipped__completed__returned.69dce9e5d5 (models/one_file.yml)
   - test.testy.accepted_values_orders_status__placed__shipped__completed__returned.69dce9e5d5 (models/one_file.yml)
 ```
+
+Report incorrect code
 
 By providing a custom name, you help dbt differentiate data tests:
 
@@ -369,6 +397,8 @@ models:
                 where: "order_date = (current_date - interval '1 day')" # PostgreSQL
 ```
 
+Report incorrect code
+
 ```sh
 $ dbt test
 12:48:03  Running with dbt=1.1.0-b1
@@ -387,6 +417,8 @@ $ dbt test
 12:48:04
 12:48:04  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
+
+Report incorrect code
 
 **If using [`store_failures`](../resource-configs/store_failures.md):** dbt uses each data test's name as the name of the table in which to store any failing records. If you have defined a custom name for one data test, that custom name will also be used for its table of failures. You may optionally configure an [`alias`](../resource-configs/alias.md) for the data test, to separately control both the name of the data test (for metadata) and the name of its database table (for storing failures).
 
@@ -416,6 +448,8 @@ models:
             config:
               where: "order_date = current_date"
 ```
+
+Report incorrect code
 
 ## Related documentation
 

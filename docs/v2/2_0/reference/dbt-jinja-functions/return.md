@@ -21,6 +21,8 @@ macros/get\_data.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 Alternatively, you can use a statement with a [do](https://jinja.palletsprojects.com/en/3.0.x/extensions/#expression-statement) tag (or expression-statements) to execute the return function without generating an output string.
 
 In the following example ,`{% do return([1,2,3]) %}` acts as a *statement* that executes the return action but does not output a string:
@@ -35,6 +37,8 @@ macros/get\_data.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 models/my\_model.sql
 
 ```sql
@@ -46,3 +50,5 @@ select
     {%- if not loop.last %},{% endif -%}
   {% endfor %}
 ```
+
+Report incorrect code

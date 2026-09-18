@@ -45,6 +45,8 @@ To create a predictor, create a dbt model with a "predictor" materialization. Th
       select * from stores
 ```
 
+Report incorrect code
+
 To apply predictor add dbt model with "table" materialization. It creates or replaces table in selected integration with results of predictor. Name of the model is used as name of the table to store prediction results. If you need to specify schema you can do it with dot separator: schema\_name.table\_name.sql
 
 #### Parameters
@@ -56,3 +58,5 @@ To apply predictor add dbt model with "table" materialization. It creates or rep
     {{ config(materialized='table', predictor_name='TEST_PREDICTOR_NAME', integration='photorep') }}
         select a, bc from ddd where name > latest
 ```
+
+Report incorrect code

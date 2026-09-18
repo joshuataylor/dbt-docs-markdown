@@ -38,6 +38,8 @@ Found 2 models, 3 tests, 0 archives, 0 analyses, 53 macros, 0 operations, 2 seed
 14:46:16 | Finished running 1 seed in 0.14s.
 ```
 
+Report incorrect code
+
 Examples of common `dbt seed` invocations:
 
 ```shell
@@ -51,6 +53,8 @@ dbt seed --select "country_codes"
 dbt seed --select "country_codes state_codes" --full-refresh
 ```
 
+Report incorrect code
+
 ## The --full-refresh flag
 
 Use `--full-refresh` to force a full reload of seed data (rather than an incremental update) when you need to rebuild seed tables from scratch. This is useful when:
@@ -61,17 +65,23 @@ Use `--full-refresh` to force a full reload of seed data (rather than an increme
   dbt seed --full-refresh
   ```
 
+  Report incorrect code
+
 * You have changed the seed structure (for example, column names or types):
 
   ```shell
   dbt seed --select "country_codes" --full-refresh
   ```
 
+  Report incorrect code
+
 * You need consistent behavior across environments after a seed change:
 
   ```shell
   dbt seed --select "country_codes state_codes" --full-refresh
   ```
+
+  Report incorrect code
 
 For information about configuring seeds (for example, column types and quoting behavior), refer to [Seed configurations](../seed-configs.md).
 
@@ -87,11 +97,15 @@ Use `--empty` to create seed tables with the correct schema but without loading 
   dbt seed --empty
   ```
 
+  Report incorrect code
+
 * Target a specific seed when you only need one table's structure:
 
   ```shell
   dbt seed --select "country_codes" --empty
   ```
+
+  Report incorrect code
 
 For more information, refer to [The empty flag](../../docs/build/empty-flag.md).
 

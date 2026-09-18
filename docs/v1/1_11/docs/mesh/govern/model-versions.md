@@ -118,6 +118,8 @@ selectors:
           value: old
 ```
 
+Report incorrect code
+
 Because dbt knows that these models are *actually the same model*, it can notify downstream consumers as new versions become available, and as older versions are slated for deprecation.
 
 ```bash
@@ -129,6 +131,8 @@ When that happens, this reference will resolve to my_model.v3 instead.
   Try out v3: {{ ref('my_dbt_project', 'my_model', v='3') }}
   Pin to  v2: {{ ref('my_dbt_project', 'my_model', v='2') }}
 ```
+
+Report incorrect code
 
 ## How to create a new version of a model
 
@@ -151,6 +155,8 @@ final as (
 select * from final
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yaml
@@ -168,6 +174,8 @@ models:
         description: Where this customer lives
         data_type: varchar
 ```
+
+Report incorrect code
 
 Let's say you need to make a breaking change to the model: Removing the `country_name` column, which is no longer reliable. First, create a new model file (SQL or Python) encompassing those breaking changes.
 
@@ -189,6 +197,8 @@ final as (
 
 select * from final
 ```
+
+Report incorrect code
 
 Now, you could define properties and configuration for `dim_customers_v2` as a new standalone model, with no actual relation to `dim_customers` save a striking resemblance. Instead, we're going to declare that these are versions of the same model, both named `dim_customers`. We can define their properties in common, and then **just** highlight the diffs between them. (Or, you can choose to define each model version with full specifications, and repeat the values they have in common.)
 
@@ -226,6 +236,8 @@ models:
       
 ```
 
+Report incorrect code
+
 ### Fully specified
 
 models/schema.yml
@@ -260,6 +272,8 @@ models:
             data_type: varchar
 ```
 
+Report incorrect code
+
 Note: If none of your model versions specify columns, you don't need to define columns at all and can omit the `columns/include`/`exclude` keys from the versioned model. In this case, dbt will automatically use all top-level columns for all versions.
 
 The configuration above says: Instead of two unrelated models, I have two versioned definitions of the same model: `dim_customers_v1` and `dim_customers_v2`.
@@ -286,6 +300,8 @@ versions:
       materialized: view
 ```
 
+Report incorrect code
+
 Like with all config inheritance, any configs set *within* the versioned model's definition (`.sql` or `.py` file) will take precedence over the configs set in YAML.
 
 ### Configuring database location with `alias`
@@ -301,6 +317,8 @@ models/schema.yml
         config:
           alias: dim_customers   # keep v1 in its original database location
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.11 and earlier)
 
@@ -345,6 +363,8 @@ macros/create\_latest\_version\_view\.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -353,6 +373,8 @@ models:
   post-hook:
     - "{{ create_latest_version_view() }}"
 ```
+
+Report incorrect code
 
 info
 
@@ -369,6 +391,8 @@ dbt.exceptions.AmbiguousAliasError: Compilation Error
   - model.project_name.model_name.v2 (models/.../model_name_v2.sql)
 ```
 
+Report incorrect code
+
 We opted to use `generate_alias_name` for this functionality so that the logic remains accessible to end users, and could be reimplemented with custom logic.
 
 ### Run a model with multiple versions
@@ -381,6 +405,8 @@ To run a model with multiple versions, you can use the [`--select` flag](../../.
   dbt run --select dim_customers # Run all versions of the model
   ```
 
+  Report incorrect code
+
 * Run only version 2 of `dim_customers`:
 
   You can use either of the following commands (both achieve the same result):
@@ -390,11 +416,15 @@ To run a model with multiple versions, you can use the [`--select` flag](../../.
     dbt run --select dim_customers_v2 # Alternative syntax for the specific version
   ```
 
+  Report incorrect code
+
 * Run the latest version of `dim_customers` using the `--select` flag shorthand:
 
   ```bash
   dbt run -s dim_customers,version:latest # Run the latest version of the model
   ```
+
+  Report incorrect code
 
 These commands provide flexibility in managing and executing different versions of a dbt model.
 
@@ -415,6 +445,8 @@ select
 {{ dbt_utils.star(from=dim_customers_v1, except=["country_name"]) }}
 from {{ dim_customers_v1 }}
 ```
+
+Report incorrect code
 
 Of course, if one model version makes meaningful and substantive changes to logic in another, it may not be possible to optimize it in this way. At that point, the cost of human intuition and legibility is more important than the cost of recomputing similar transformations.
 

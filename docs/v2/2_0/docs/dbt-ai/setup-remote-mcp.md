@@ -162,6 +162,8 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
+Report incorrect code
+
 #### Cursor
 
 ```json
@@ -173,6 +175,8 @@ The MCP protocol is programming language and framework agnostic, so use whatever
   }
 }
 ```
+
+Report incorrect code
 
 ### Token-based
 
@@ -195,6 +199,8 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
+Report incorrect code
+
 #### Cursor
 
 ```json
@@ -212,6 +218,8 @@ The MCP protocol is programming language and framework agnostic, so use whatever
   }
 }
 ```
+
+Report incorrect code
 
 #### Gemini
 
@@ -231,6 +239,8 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
+Report incorrect code
+
 Use numeric IDs, not full URLs
 
 Header values like `x-dbt-prod-environment-id` and `x-dbt-user-id` expect numeric IDs, not full URLs. The host in the `url` field should include `https://`, but ID headers must be integers only:
@@ -245,6 +255,8 @@ Header values like `x-dbt-prod-environment-id` and `x-dbt-user-id` expect numeri
 "x-dbt-prod-environment-id": "https://cloud.getdbt.com/deploy/12345/projects/67890/environments/54321"
 "x-dbt-user-id": "https://cloud.getdbt.com/settings/profile"
 ```
+
+Report incorrect code
 
 For other MCP clients (Codex, Windsurf, and so on), refer to your client's MCP configuration docs for the correct key format.
 

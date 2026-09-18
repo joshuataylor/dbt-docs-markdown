@@ -42,6 +42,8 @@ The following steps walk you through creating your first check.
      version: 1
    ```
 
+   Report incorrect code
+
 2. Write a check under `checks/`:
 
    Use [`{{ info_schema() }}`](../../reference/dbt-jinja-functions/info-schema-macro.md) to query project metadata. A check passes if the query returns zero rows. For available views and columns, refer to [Columns available for checks](../../reference/info-schema.md#columns-available-for-checks).
@@ -53,6 +55,8 @@ The following steps walk you through creating your first check.
    from {{ info_schema('models') }}
    where description = ''
    ```
+
+   Report incorrect code
 
 3. Configure the check in a properties YAML file in your `checks/` directory.
 
@@ -67,11 +71,15 @@ The following steps walk you through creating your first check.
          severity: warn   # default is error; 'warn' logs issues but does not fail the execution
    ```
 
+   Report incorrect code
+
 4. Run your checks:
 
    ```shell
    dbt check
    ```
+
+   Report incorrect code
 
 ## Example checks
 
@@ -88,6 +96,8 @@ The following examples show common project quality rules, each defined as a SQL 
     and description = ''
   ```
 
+  Report incorrect code
+
 * Flag sources that aren't referenced by models. An unreferenced source has no downstream models, and is either unused or missing a model that should reference it:
 
   checks/unused\_sources.sql
@@ -98,6 +108,8 @@ The following examples show common project quality rules, each defined as a SQL 
   left join {{ info_schema('edges') }} as e on e.parent_unique_id = s.unique_id
   where e.child_unique_id is null
   ```
+
+  Report incorrect code
 
 * Flag `public` models with no group owner:
 
@@ -117,6 +129,8 @@ The following examples show common project quality rules, each defined as a SQL 
     )
   ```
 
+  Report incorrect code
+
 ## Commands
 
 Checks run with `dbt check` and `dbt build`.
@@ -135,6 +149,8 @@ To skip all checks, pass the [`--skip-checks` flag](../../reference/commands/bui
 dbt build --skip-checks
 ```
 
+Report incorrect code
+
 To skip a specific check, set `enabled: false` in its config block in the YAML file. The check still appears in the manifest but does not run.
 
 ```yaml
@@ -143,6 +159,8 @@ checks:
     config:
       enabled: false
 ```
+
+Report incorrect code
 
 Disabling at the project level
 
@@ -187,6 +205,8 @@ group by child_unique_id
 having count(*) > 1
 ```
 
+Report incorrect code
+
 checks/\_checks.yml
 
 ```yaml
@@ -196,6 +216,8 @@ checks:
     config:
       selection_filter_on: child_unique_id
 ```
+
+Report incorrect code
 
 ## Related documentation
 

@@ -11,6 +11,8 @@ models:
       compare_unrendered_code: true | false
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -23,6 +25,8 @@ models:
         compare_unrendered_code: true | false
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -34,6 +38,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -74,6 +80,8 @@ select
 from {{ ref('stg_events') }}
 ```
 
+Report incorrect code
+
 ### Model with dbt run metadata columns
 
 A model that records which dbt run produced each row using [`invocation_id()`](../dbt-jinja-functions/invocation_id.md) or [`run_started_at`](../dbt-jinja-functions/run_started_at.md) is reused as long as the template hasn't changed, even though those values resolve differently on every run:
@@ -89,6 +97,8 @@ select
   '{{ run_started_at }}' as dbt_run_started_at
 from {{ ref('stg_orders') }}
 ```
+
+Report incorrect code
 
 ## Related docs
 

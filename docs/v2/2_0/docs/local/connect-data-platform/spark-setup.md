@@ -47,6 +47,8 @@ your_profile_name:
         livy.server.session.ttl: SESSION_TTL_SECONDS # optional when using method: livy
 ```
 
+Report incorrect code
+
 | Profile field            | Required | Description                                                                                                                                                                                                                                                                                                                                                                                           | Example                                         |
 | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | `method`                 | Yes      | Connection method. Accepted values: `thrift`, `http`, or `livy`.                                                                                                                                                                                                                                                                                                                                      | `thrift`                                        |
@@ -76,6 +78,8 @@ spark-local-thrift-binary:
       schema: my_schema
 ```
 
+Report incorrect code
+
 #### Thrift (HTTP)
 
 \~/.dbt/profiles.yml
@@ -93,6 +97,8 @@ spark-local-thrift-http:
       host: localhost
       schema: my_schema
 ```
+
+Report incorrect code
 
 #### AWS EMR Serverless
 
@@ -119,6 +125,8 @@ spark-emr-serverless:
         "emr-serverless.session.executionRoleArn": "arn:aws:iam::YOUR_AWS_ACCOUNT:role/YOUR_ROLE"
 ```
 
+Report incorrect code
+
 #### AWS EMR on EKS
 
 \~/.dbt/profiles.yml
@@ -143,5 +151,7 @@ spark-emr-eks:
         "spark.executor.memory": "8g"
         "spark.executor.cores": 4
 ```
+
+Report incorrect code
 
 For detailed configuration options, refer to the [Spark configuration](../../../reference/resource-configs/spark-configs.md) page.

@@ -33,4 +33,6 @@ dbt test --select "one_specific_model,test_type:data"
 dbt test --select "one_specific_model,test_type:unit"
 ```
 
+Report incorrect code
+
 For more information on writing tests, read the [data testing](../../docs/build/data-tests.md) and [unit testing](../../docs/build/unit-tests.md) documentation.

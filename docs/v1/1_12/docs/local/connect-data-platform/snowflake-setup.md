@@ -46,6 +46,8 @@ To check whether this change affects your project, run the following [list](../.
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
+Report incorrect code
+
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
@@ -94,6 +96,8 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
+Report incorrect code
+
 ### User / Password + DUO MFA authentication
 
 Snowflake integrates the DUO Mobile app to add 2-Factor authentication to basic user/password as seen below.
@@ -126,6 +130,8 @@ my-snowflake-db:
       retry_all: False  # default: false
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
+
+Report incorrect code
 
 **Note:** To avoid receiving Duo push notifications for every model build, enable [MFA token caching](https://docs.snowflake.com/en/user-guide/security-mfa#label-mfa-token-caching) in your Snowflake warehouse by running `alter account set allow_client_mfa_caching = true;` with the ACCOUNTADMIN role.
 
@@ -170,6 +176,8 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
+Report incorrect code
+
 #### dbt v2 key formats
 
 dbt v2 requires modern key formats and doesn't support legacy 3DES encryption or headerless keys. We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with dbt v2. Using older key formats may cause authentication failures.
@@ -183,6 +191,8 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 aes-256-cbc -inform PEM -out rsa_key.p8
   ```
 
+  Report incorrect code
+
 * (Temporary workaround) Add the `BEGIN` header and `END` footer to your PEM body:
 
   ```bash
@@ -190,6 +200,8 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   < your existing encrypted private key contents >
   -----END ENCRYPTED PRIVATE KEY-----
   ```
+
+  Report incorrect code
 
 ### SSO authentication
 
@@ -227,6 +239,8 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
+Report incorrect code
+
 **Note**: To avoid authentication prompts for every dbt connection (which can result in dozens of SSO tabs opening), enable [connection caching](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use#using-connection-caching-to-minimize-the-number-of-prompts-for-authentication-optional) in your Snowflake warehouse by running `alter account set allow_id_token = true;` with the ACCOUNTADMIN role.
 
 ### OAuth authorization
@@ -252,6 +266,8 @@ my-snowflake-db:
       oauth_client_secret: [OAuth client secret]
       token: [OAuth refresh token]
 ```
+
+Report incorrect code
 
 ## Configurations
 

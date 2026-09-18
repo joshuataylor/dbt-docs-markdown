@@ -20,6 +20,8 @@ from {{ ref('customers') }}
 limit 3
 ```
 
+Report incorrect code
+
 This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `customers` table will return results like this with a new column of the combined `first_name` and `last_name` field with a space between them:
 
 | user\_id | first\_name | last\_name | full\_name  |

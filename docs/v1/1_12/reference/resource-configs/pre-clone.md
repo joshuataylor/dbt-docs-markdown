@@ -11,6 +11,8 @@ models:
       pre_clone: never | if_missing | always
 ```
 
+Report incorrect code
+
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -23,6 +25,8 @@ models:
         pre_clone: never | if_missing | always
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/\<filename>.sql
@@ -34,6 +38,8 @@ models/\<filename>.sql
     }
 ) }}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -65,6 +71,8 @@ models:
         pre_clone: always
 ```
 
+Report incorrect code
+
 ### Isolate dev state from production
 
 Use `never` when you want development to be fully independent from production:
@@ -76,6 +84,8 @@ models:
   +state:
     pre_clone: never
 ```
+
+Report incorrect code
 
 ## Related docs
 

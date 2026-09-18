@@ -57,6 +57,8 @@ dbt gates Lake Compute behind an experimental opt-in. dbt refuses to run any Lak
 export DBT_ENGINE_EXPERIMENTAL_MULTI_ADAPTER=true
 ```
 
+Report incorrect code
+
 One variable gates every surface that selects an adapter:
 
 | Gated                                 | Notes                                                                                                                                             |

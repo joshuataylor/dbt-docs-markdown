@@ -74,6 +74,8 @@ company-name:
       username: [username on the Data 360 Instance]
 ```
 
+Report incorrect code
+
 | Profile field      | Required | Description                                                    | Example                                                       |
 | ------------------ | -------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
 | `method`           | Yes      | Authentication Method. Currently, only `jwt_bearer` supported. | `jwt_bearer`                                                  |

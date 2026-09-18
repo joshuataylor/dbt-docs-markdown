@@ -17,6 +17,8 @@
 {% endmacro %}
 ```
 
+Report incorrect code
+
 ```sql
 select
     entity_id,
@@ -32,3 +34,5 @@ select
     {% endif %}
     {{ make_cool('uncool_id') }} as cool_id
 ```
+
+Report incorrect code

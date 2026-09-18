@@ -35,6 +35,8 @@ The example query below uses the `parentsModels` and `parentsSources` fields to 
 }
 ```
 
+Report incorrect code
+
 ### Example query for model timing
 
 The example query below could be useful if you want to understand information around execution timing on a given model (start, end, completion).
@@ -55,6 +57,8 @@ The example query below could be useful if you want to understand information ar
   }
 }
 ```
+
+Report incorrect code
 
 ### Example query for column-level information
 
@@ -77,6 +81,8 @@ You can use the following example query to understand more about the columns of 
   }
 }
 ```
+
+Report incorrect code
 
 ### Fields
 

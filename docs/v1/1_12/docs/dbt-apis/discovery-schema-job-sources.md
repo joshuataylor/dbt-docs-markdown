@@ -40,6 +40,8 @@ The example query below finds a source by its unique database, schema, and ident
 }
 ```
 
+Report incorrect code
+
 #### Finding sources by their schema
 
 The example query below finds all sources in this schema and their respective states (pass, error, fail).
@@ -55,6 +57,8 @@ The example query below finds all sources in this schema and their respective st
   }
 }
 ```
+
+Report incorrect code
 
 ### Fields
 

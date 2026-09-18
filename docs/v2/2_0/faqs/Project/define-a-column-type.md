@@ -11,6 +11,8 @@ select
 from {{ ref('stg_orders') }}
 ```
 
+Report incorrect code
+
 Many modern data warehouses now support `::` syntax as a shorthand for `cast( as )`.
 
 models/orders\_prices\_colon\_syntax.sql
@@ -21,6 +23,8 @@ select
     order_price::numeric(6,2) -- you might find this in Redshift, Snowflake, and Postgres
 from {{ ref('stg_orders') }}
 ```
+
+Report incorrect code
 
 Be warned, reading in data and casting that data may not always yield expected results, and every warehouse has its own subtleties. Certain casts may not be allowed (e.g. on Bigquery, you can't cast a `boolean`-type value to a `float64`). Casts that involve a loss in precision loss (e.g. `float` to `integer`) rely on your SQL engine to make a best guess or follow a specific schema not used by competing services. When performing casts, it's imperative that you are familiar with your warehouse's casting rules to best label fields in your sources and models.
 

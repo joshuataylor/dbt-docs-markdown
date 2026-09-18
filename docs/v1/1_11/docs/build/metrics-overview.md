@@ -58,6 +58,8 @@ metrics:
       null and {{ Metric('metric_name', group_by=['entity_name']) }} > 5
 ```
 
+Report incorrect code
+
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
 Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer) to learn how to define and query metrics in your dbt project.
@@ -101,6 +103,8 @@ metrics:
     time_granularity: month -- Optional, defaults to day
 ```
 
+Report incorrect code
+
 ## Conversion metrics
 
 [Conversion metrics](./conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
@@ -133,6 +137,8 @@ metrics:
             conversion_property: DIMENSION or ENTITY
 ```
 
+Report incorrect code
+
 ## Cumulative metrics
 
 (Applies to dbt v1.11 and earlier)
@@ -156,6 +162,8 @@ metrics:
         window: 7 days
 ```
 
+Report incorrect code
+
 ## Derived metrics
 
 [Derived metrics](./derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
@@ -178,6 +186,8 @@ metrics:
         - name: order_cost
           alias: cost
 ```
+
+Report incorrect code
 
 ## Ratio metrics
 
@@ -208,6 +218,8 @@ metrics:
       {{ Dimension('customer__country') }} = 'MX' 
 ```
 
+Report incorrect code
+
 ## Simple metrics
 
 (Applies to dbt v1.11 and earlier)
@@ -235,6 +247,8 @@ metrics:
       {{ Dimension('order__value')}} > 100 and {{Dimension('user__acquisition')}} is not null
 ```
 
+Report incorrect code
+
 ## Filters
 
 Configure a filter using Jinja templating and the following syntax to reference entities, dimensions, time dimensions, or metrics in filters.
@@ -257,12 +271,16 @@ filter: |
  {{ Metric('metric_name', group_by=['entity_name']) }}
 ```
 
+Report incorrect code
+
 For example, if you want to filter for the order date dimension grouped by month, use the following syntax:
 
 ```yaml
 filter: |
   {{ TimeDimension('order_date', 'month') }}
 ```
+
+Report incorrect code
 
 ## Related docs
 

@@ -40,6 +40,8 @@ To define semantic models with Ossie documents:
    }
    ```
 
+   Report incorrect code
+
    This example defines a semantic model only. To add metrics, include a `metrics` array on the semantic model per the [Ossie specification](https://github.com/apache/ossie).
 
 3. Run any command that triggers compilation, such as `dbt compile` or `dbt run`. dbt automatically discovers and parses Ossie files.

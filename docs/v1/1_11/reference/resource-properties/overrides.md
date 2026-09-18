@@ -16,6 +16,8 @@ sources:
     schema: ...
 ```
 
+Report incorrect code
+
 ## Definition
 
 Override a source defined in an included package. The properties defined in the overriding source will be applied on top of the base properties of the overridden source.
@@ -50,6 +52,8 @@ sources:
     schema: github_data
 ```
 
+Report incorrect code
+
 ### Configure your own source freshness for a source table in a package
 
 You can override configurations at both the source and the table level
@@ -81,3 +85,5 @@ sources:
               count: 4
               period: day
 ```
+
+Report incorrect code

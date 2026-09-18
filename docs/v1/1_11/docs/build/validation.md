@@ -16,6 +16,8 @@ You can run validations from the dbt platform or the command line with the follo
   dbt sl validate
   ```
 
+  Report incorrect code
+
   This runs parsing, semantic, and (where supported) data platform validations.
 
   When using `dbt sl validate` locally, the command validates your local semantic manifest, and not the platform's manifest. This means your uncommitted local changes are included in the validation.
@@ -25,6 +27,8 @@ You can run validations from the dbt platform or the command line with the follo
   ```bash
   mf validate-configs
   ```
+
+  Report incorrect code
 
   This runs parsing and semantic validations.
 

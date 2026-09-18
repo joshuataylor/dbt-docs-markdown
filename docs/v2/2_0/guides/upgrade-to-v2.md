@@ -186,6 +186,8 @@ Confirm your development environment is running dbt v2:
    dbt compile
    ```
 
+   Report incorrect code
+
 4. Check the command output for significantly faster performance.
 
 ### Step 7: Test your workflows
@@ -454,6 +456,8 @@ dbt lint --fix
 # Lint only files changed in your working tree
 dbt lint --changed
 ```
+
+Report incorrect code
 
 See the [`dbt lint` reference](../reference/commands/lint.md?version=2.0) for the full list of flags, supported dialects, and suppression syntax.
 

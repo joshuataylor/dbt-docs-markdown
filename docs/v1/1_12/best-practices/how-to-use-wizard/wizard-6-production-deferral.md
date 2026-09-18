@@ -39,6 +39,8 @@ target = "prod"
 favor_state = true
 ```
 
+Report incorrect code
+
 At startup, dbt Wizard parses the production target and stores a snapshot under `target/prod-state` by default. The default snapshot time to live is 24 hours.
 
 Configure the refresh behavior globally when your project needs different parse arguments or a different snapshot location:
@@ -52,6 +54,8 @@ prod_parse_args = ["parse", "--target", "prod"]
 prod_state_ttl_hours = 12
 prod_state_dir = "/Users/you/.cache/dbt/prod-state"
 ```
+
+Report incorrect code
 
 If you set `global.prod_parse_args` explicitly, those arguments take precedence over the per-project `deferral.target` value.
 
@@ -67,6 +71,8 @@ mode = "manual"
 state = "/Users/you/dbt-state/production"
 favor_state = true
 ```
+
+Report incorrect code
 
 The `state` directory must contain a compatible production `manifest.json`. Keep the artifacts current enough for the code and packages in your working branch.
 
@@ -90,6 +96,8 @@ I am changing fct_orders. Use the configured production deferral state for
 unchanged upstream models. Before running any dbt command, show me the selector,
 target, state directory, and whether favor-state will be applied.
 ```
+
+Report incorrect code
 
 Before approving a command, verify that:
 

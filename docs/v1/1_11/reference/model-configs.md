@@ -29,6 +29,8 @@ models:
     +freshness: <dict>
 ```
 
+Report incorrect code
+
 #### Property file
 
 (Applies to dbt v1.10 to v1.11)
@@ -51,6 +53,8 @@ models:
         build_after: <dict>
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -67,6 +71,8 @@ models/\<model\_name>.sql
     freshness=<dict>
 ) }}
 ```
+
+Report incorrect code
 
 ### General configurations
 
@@ -96,6 +102,8 @@ models:
     +event_time: my_time_field
 ```
 
+Report incorrect code
+
 #### Property file
 
 models/properties.yml
@@ -122,6 +130,8 @@ models:
       event_time: my_time_field
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -146,6 +156,8 @@ models/\<model\_name>.sql
 
 ) }}
 ```
+
+Report incorrect code
 
 ### Warehouse-specific configurations
 
@@ -197,6 +209,8 @@ models:
       ...
 ```
 
+Report incorrect code
+
 ### Apply configurations to one model only
 
 Some types of configurations are specific to a particular model. In these cases, placing configurations in the `dbt_project.yml` file can be unwieldy. Instead, you can specify these configurations at the top of a model `.sql` file, or in its individual YAML properties.
@@ -215,6 +229,8 @@ models/events/base/base\_events.sql
 select * from {{ ref('raw_events') }}
 ```
 
+Report incorrect code
+
 models/events/base/properties.yml
 
 ```yaml
@@ -231,6 +247,8 @@ models:
       - name: event_type
         description: "Type of event recorded (click, purchase, etc.)"
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.10 to v1.99)
 
@@ -254,3 +272,5 @@ models:
           period: minute | hour | day
           updates_on: any | all # optional config
 ```
+
+Report incorrect code

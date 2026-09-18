@@ -39,6 +39,8 @@ On Debian/Ubuntu make sure you have the ODBC header files before installing
 sudo apt install unixodbc-dev
 ```
 
+Report incorrect code
+
 Download and install the [Microsoft ODBC Driver 18 for SQL Server](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15). If you already have ODBC Driver 17 installed, then that one will work as well.
 
 Default settings change in dbt-synapse v1.2 / ODBC Driver 18
@@ -69,5 +71,7 @@ your_profile_name:
       user: username
       password: password
 ```
+
+Report incorrect code
 
 You can find all the available options and the documentation and how to configure them on [the documentation page for the dbt-sqlserver adapter](./mssql-setup.md).

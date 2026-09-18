@@ -25,3 +25,5 @@ jaffle_shop:
       schema: dbt_dbanin
       threads: 4
 ```
+
+Report incorrect code

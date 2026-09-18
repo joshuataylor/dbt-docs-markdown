@@ -37,6 +37,8 @@ To check whether this change affects your project, run the following [list](../.
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
+Report incorrect code
+
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
@@ -61,6 +63,8 @@ dbt test --select "test_type:unit"           # run all unit tests
 dbt test --select "test_type:data"           # run all data tests
 ```
 
+Report incorrect code
+
 Unit tests are defined in YML files in your `models/` directory and are currently only supported on SQL models. To distinguish between the two, the `tests:` config has been renamed to `data_tests:`. Both are currently supported for backward compatibility.
 
 #### New `data_tests:` syntax
@@ -77,6 +81,8 @@ models:
           - unique
           - not_null
 ```
+
+Report incorrect code
 
 #### The `--empty` flag
 
@@ -105,6 +111,8 @@ The ability for installed packages to override built-in materializations without
   {{ return(my_cool_package.materialization_view_default()) }}
   {% endmaterialization %}
   ```
+
+  Report incorrect code
 
 ### Managing changes to legacy behaviors
 

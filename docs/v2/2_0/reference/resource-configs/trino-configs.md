@@ -20,6 +20,8 @@ However, to temporaily adjust these session properties for a specific dbt model 
 }}
 ```
 
+Report incorrect code
+
 ## Connector properties
 
 You can use Starburst/Trino table properties to configure how you want your data to be represented.
@@ -34,6 +36,8 @@ At target catalog that uses the Hive connector and a metastore service (HMS) is 
 hive.metastore-cache-ttl=0s
 hive.metastore-refresh-interval=5s
 ```
+
+Report incorrect code
 
 ## File format configuration
 
@@ -52,6 +56,8 @@ The below configures the table to be materializes as a set of partitioned [Parqu
   )
 }}
 ```
+
+Report incorrect code
 
 ## Seeds and prepared statements
 
@@ -80,6 +86,8 @@ macros/YOUR\_MACRO\_NAME.sql
   {{ return(10000) }} -- Adjust this number as you see fit
 {% endmacro %}
 ```
+
+Report incorrect code
 
 Another way to avoid the header line length limit is to set `prepared_statements_enabled` to `true` in your dbt profile; however, this is considered legacy behavior and can be removed in a future release.
 
@@ -112,6 +120,8 @@ models/YOUR\_MODEL\_NAME.sql
 }}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -121,11 +131,15 @@ models:
     +on_table_exists: drop
 ```
 
+Report incorrect code
+
 If you use `table` materialization and `on_table_exists = 'rename'` with AWS Glue, you might encounter this error message. You can overcome the table rename limitation by using `drop`:
 
 ```sh
 TrinoUserError(type=USER_ERROR, name=NOT_SUPPORTED, message="Table rename is not yet supported by Glue service")
 ```
+
+Report incorrect code
 
 ### View
 
@@ -154,6 +168,8 @@ models/YOUR\_MODEL\_NAME.sql
 }}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -162,6 +178,8 @@ models:
     materialized: view
     +view_security: invoker
 ```
+
+Report incorrect code
 
 ### Incremental
 
@@ -179,6 +197,8 @@ select * from {{ ref('events') }}
   where event_ts > (select max(event_ts) from {{ this }})
 {% endif %}
 ```
+
+Report incorrect code
 
 Use the `+on_schema_change` property to define how dbt-trino should handle column changes. For more details about this property, see [column changes](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
 
@@ -201,6 +221,8 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
+Report incorrect code
+
 #### delete+insert strategy
 
 With the `delete+insert` incremental strategy, you can instruct dbt to use a two-step incremental approach. First, it deletes the records detected through the configured `is_incremental()` block, then re-inserts them.
@@ -218,6 +240,8 @@ select * from {{ ref('users') }}
   where updated_ts > (select max(updated_ts) from {{ this }})
 {% endif %}
 ```
+
+Report incorrect code
 
 #### merge strategy
 
@@ -239,6 +263,8 @@ select * from {{ ref('users') }}
 {% endif %}
 ```
 
+Report incorrect code
+
 Be aware that there are some Trino connectors that don't support `MERGE` or have limited support.
 
 #### Incremental overwrite on Hive models
@@ -248,6 +274,8 @@ If there's a [Hive connector](https://trino.io/docs/current/connector/hive.html)
 ```ini
 <hive-catalog-name>.insert-existing-partitions-behavior=OVERWRITE
 ```
+
+Report incorrect code
 
 Below is an example Hive configuration that sets the `OVERWRITE` functionality for a Hive connector called `minio`:
 
@@ -270,6 +298,8 @@ trino-incremental-hive:
       threads: 1
 ```
 
+Report incorrect code
+
 `dbt-trino` overwrites existing partitions in the target model that match the staged data. It appends the remaining partitions to the target model. This functionality works on incremental models that use partitioning. For example:
 
 ```sql
@@ -283,6 +313,8 @@ trino-incremental-hive:
     )
 }}
 ```
+
+Report incorrect code
 
 ### Materialized view
 
@@ -312,6 +344,8 @@ models/YOUR\_MODEL\_NAME.sql
 }}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -321,6 +355,8 @@ models:
     properties:
       format: "'PARQUET'"
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -335,6 +371,8 @@ macros/YOUR\_MACRO\_NAME.sql
     current_timestamp(6)
 {% endmacro %}
 ```
+
+Report incorrect code
 
 ## Grants
 
@@ -351,6 +389,8 @@ models:
       grants:
         select: ['reporter', 'bi']
 ```
+
+Report incorrect code
 
 ## persist\_docs
 

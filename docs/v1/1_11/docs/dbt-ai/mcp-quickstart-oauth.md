@@ -73,6 +73,8 @@ Multi-cell and DBT\_HOST format
 }
 ```
 
+Report incorrect code
+
 3. Save and restart Claude Desktop.
 
 Config file location:
@@ -90,6 +92,8 @@ claude mcp add dbt \
 -- uvx dbt-mcp
 ```
 
+Report incorrect code
+
 For example, if your Access URL is `abc123.us1.dbt.com`:
 
 ```shell
@@ -97,6 +101,8 @@ claude mcp add dbt \
 -e DBT_HOST=abc123.us1.dbt.com \
 -- uvx dbt-mcp
 ```
+
+Report incorrect code
 
 ##### Cursor
 
@@ -129,6 +135,8 @@ VS Code uses `"servers"`, not `"mcpServers"`
 }
 ```
 
+Report incorrect code
+
 Replace `YOUR-ACCESS-URL` with your Access URL (for example, `abc123.us1.dbt.com`) and save.
 
 #### Optional: Add self-hosted dbt CLI commands
@@ -139,6 +147,8 @@ To also run dbt platform CLI commands (`dbt run`, `dbt build`, `dbt test`, and m
 "DBT_PROJECT_DIR": "/path/to/your/dbt/project",
 "DBT_PATH": "/path/to/your/dbt/executable"
 ```
+
+Report incorrect code
 
 Find `DBT_PATH` by running `which dbt` (macOS/Linux) or `where dbt` (Windows). `DBT_PROJECT_DIR` is the folder containing your `dbt_project.yml`.
 
@@ -181,6 +191,8 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
+Report incorrect code
+
 Multi-cell accounts
 
 If your Access URL is `abc123.us1.dbt.com`, split it into two variables:
@@ -218,6 +230,8 @@ Use the configuration below, replacing the placeholder values with your IDs from
 }
 ```
 
+Report incorrect code
+
 3. Save and restart Claude Desktop.
 
 Config file location:
@@ -236,6 +250,8 @@ claude mcp add dbt \
 -e DBT_PROD_ENV_ID=12345 \
 -- uvx dbt-mcp
 ```
+
+Report incorrect code
 
 Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; add `-e DBT_ACCOUNT_ID=...` for Admin API.
 
@@ -262,6 +278,8 @@ Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; a
   }
 }
 ```
+
+Report incorrect code
 
 3. Save the configuration.
 
@@ -292,6 +310,8 @@ VS Code uses `"servers"`, not `"mcpServers"`
 }
 ```
 
+Report incorrect code
+
 4. Save `mcp.json` and restart VS Code.
 
  Optional: add self-hosted dbt CLI commands
@@ -302,6 +322,8 @@ To also run dbt commands (`dbt run`, `dbt build`, `dbt test`, and more), add the
 "DBT_PROJECT_DIR": "/path/to/your/dbt/project",
 "DBT_PATH": "/path/to/your/dbt/executable"
 ```
+
+Report incorrect code
 
 Find `DBT_PATH` by running `which dbt` (macOS/Linux) or `where dbt` (Windows). `DBT_PROJECT_DIR` is the folder containing your `dbt_project.yml`.
 
@@ -372,6 +394,8 @@ If you only need to run dbt commands locally (with or without a dbt platform acc
   }
 }
 ```
+
+Report incorrect code
 
 Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 
@@ -471,6 +495,8 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
+Report incorrect code
+
 See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
  Multi-cell account connection issues
@@ -486,6 +512,8 @@ See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 DBT_HOST=abc123.us1.dbt.com
 DBT_ACCOUNT_ID=12345  # required for PAT-based auth
 ```
+
+Report incorrect code
 
 You no longer need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. If you have these set from an older configuration, remove them.
 

@@ -32,6 +32,8 @@ If you have two jobs, whereby one job compares or defers to artifacts produced b
 Expected a schema version of "https://schemas.getdbt.com/dbt/manifest/v5.json" in <state-path>/manifest.json, but found "https://schemas.getdbt.com/dbt/manifest/v4.json". Are you running with a different version of dbt?
 ```
 
+Report incorrect code
+
 ## New and changed documentation
 
 [**Incremental models**](../../../build/incremental-models.md) can now accept a list of multiple columns as their `unique_key`, for models that need a combination of columns to uniquely identify each row. This is supported by the most common data warehouses, for incremental strategies that make use of the `unique_key` config (`merge` and `delete+insert`).

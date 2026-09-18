@@ -16,14 +16,20 @@ sources:
         identifier: api_orders
 ```
 
+Report incorrect code
+
 In a downstream model:
 
 ```sql
 select * from {{ source('jaffle_shop', 'orders') }}
 ```
 
+Report incorrect code
+
 Will get compiled to:
 
 ```sql
 select * from raw.postgres_backend_public_schema.api_orders
 ```
+
+Report incorrect code

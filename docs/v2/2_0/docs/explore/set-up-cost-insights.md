@@ -106,11 +106,15 @@ For more information on how to assign permissions to users, refer to [About user
         GRANT ROLE sys:monitor TO <user>;
         ```
 
+        Report incorrect code
+
       * **Unrestricted syslog access**:
 
         ```sql
         ALTER USER <user> SYSLOG ACCESS UNRESTRICTED;
         ```
+
+        Report incorrect code
 
       For more information, refer to the [Amazon Redshift documentation on enhanced query monitoring permissions](https://docs.aws.amazon.com/redshift/latest/mgmt/metrics-enhanced-query-monitoring.html#metrics-enhanced-query-monitoring-permissions).
 

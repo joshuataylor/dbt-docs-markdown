@@ -64,6 +64,8 @@ models:
     config: ...
 ```
 
+Report incorrect code
+
 Some options that could previously be specified *after* a subcommand can now only be specified *before*. This includes the inverse of the option, `--write-json` and `--no-write-json`, for example. The list of affected options are:
 
 List of affected options
@@ -101,6 +103,8 @@ List of affected options
 --write-json | --no-write-json
 ```
 
+Report incorrect code
+
 Additionally, some options that could be previously specified *before* a subcommand can now only be specified *after*. Any option *not* in the above list must appear *after* the subcommand from v1.5 and later. For example, `--profiles-dir`.
 
 The built-in [collect\_freshness](https://github.com/dbt-labs/dbt/blob/1.5.latest/core/dbt/include/global_project/macros/adapters/freshness.sql) macro now returns the entire `response` object, instead of just the `table` result. If you're using a custom override for `collect_freshness`, make sure you're also returning the `response` object; otherwise, some of your dbt commands will never finish. For example:
@@ -108,6 +112,8 @@ The built-in [collect\_freshness](https://github.com/dbt-labs/dbt/blob/1.5.lates
 ```sql
 {{ return(load_result('collect_freshness')) }}
 ```
+
+Report incorrect code
 
 Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/dbt/blob/1.5.latest/core/dbt/include/global_project/macros/get_custom_name/get_custom_alias.sql) now includes logic to handle versioned models. If your project has reimplemented the `generate_alias_name` macro with custom logic, and you want to start using [model versions](../../../mesh/govern/model-versions.md), you will need to update the logic in your macro. Note that, while this is **not** a prerequisite for upgrading to v1.5—only for using the new feature—we recommend that you do this during your upgrade, whether you're planning to use model versions tomorrow or far in the future.
 
@@ -145,6 +151,8 @@ Compile and preview dbt models and `--inline` dbt-SQL queries on the CLI using:
 ```text
 dbt ls --select "tag:team_*"
 ```
+
+Report incorrect code
 
 And (!): a first-ever entry point for [programmatic invocations](../../../../reference/programmatic-invocations.md), at parity with CLI commands.
 

@@ -35,17 +35,23 @@ Let's say you want to run your `stg_customers` model and build the table in your
 dbt run --select path/to/stg_customers --sample="3 days"
 ```
 
+Report incorrect code
+
 If you have an even larger model, for example, `stg_orders` you can set sample mode to hours:
 
 ```text
 dbt run --select path/to/stg_customers --sample="6 hours"
 ```
 
+Report incorrect code
+
 Next, let's say you want to validate data for your entire business from a sample size further in the past - your busiest week in July, from the first until closing time on the eighth. You can run the following:
 
 ```text
 dbt run --sample="{'start': '2024-07-01', 'end': '2024-07-08 18:00:00'}"
 ```
+
+Report incorrect code
 
 To prevent a `ref` from being sampled, append `.render()` to it:
 
@@ -61,5 +67,7 @@ source as (
 
 ...
 ```
+
+Report incorrect code
 
 dbt will then execute the model SQL against the target data warehouse and build the tables with data from the sample sizes.

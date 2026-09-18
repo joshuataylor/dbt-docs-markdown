@@ -19,6 +19,8 @@ case when [scenario 1] then [result 1]
 end as <new_field_name>
 ```
 
+Report incorrect code
+
 Some notes on case statement functionality:
 
 * Scenarios in case statements are *evaluated in the order they’re listed*. What does this mean? It means that if multiple scenarios evaluate to true, the earliest listed true scenario is the one whose result is returned.
@@ -41,6 +43,8 @@ select
     end as order_value_bucket
 from {{ ref('orders') }}
 ```
+
+Report incorrect code
 
 This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return a new field that buckets order amount based on criteria:
 

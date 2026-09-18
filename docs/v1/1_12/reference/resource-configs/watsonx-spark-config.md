@@ -23,6 +23,8 @@ To temporarily adjust session properties for a specific dbt model or a group of 
 }}
 ```
 
+Report incorrect code
+
 ## Connector properties
 
 IBM watsonx.data SaaS/Software supports various Spark-specific connector properties to control data representation, execution performance, and storage format.
@@ -59,6 +61,8 @@ project_name:
         apikey: [apikey]
 ```
 
+Report incorrect code
+
 ***
 
 ### File format configuration
@@ -82,6 +86,8 @@ By specifying file format dbt models. For example:
   )
 }}
 ```
+
+Report incorrect code
 
 **For more details**, refer to the [documentation.](https://spark.apache.org/docs/3.5.3/sql-ref-syntax.html#sql-syntax)
 

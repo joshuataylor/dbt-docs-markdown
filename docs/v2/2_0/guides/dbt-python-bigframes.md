@@ -81,6 +81,8 @@ The dbt BigFrames submission method supports both service account and OAuth cred
    gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} --member=serviceAccount:dbt-bigframes-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --role=roles/aiplatform.colabEnterpriseUser
    ```
 
+   Report incorrect code
+
    When using a Shared VPC
 
    When using Colab Enterprise in a Shared VPC environment, additional roles are required for the following service accounts on the Shared VPC host project:
@@ -97,6 +99,8 @@ The dbt BigFrames submission method supports both service account and OAuth cred
    bq mk --location=${REGION} echo "${GOOGLE_CLOUD_PROJECT}" | tr '-' '_'_dataset
    ```
 
+   Report incorrect code
+
 4. **Create a GCS bucket to stage the python code, and store logs**
 
    For temporary log and code storage, please create a GCS bucket and assign the required permissions:
@@ -108,6 +112,8 @@ The dbt BigFrames submission method supports both service account and OAuth cred
 
    gcloud storage buckets add-iam-policy-binding gs://${GOOGLE_CLOUD_PROJECT}-bucket --member=serviceAccount:dbt-bigframes-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --role=roles/storage.admin
    ```
+
+   Report incorrect code
 
 ### Configure BigQuery in the dbt platform
 
@@ -142,6 +148,8 @@ Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bi
       2 as bar
    ```
 
+   Report incorrect code
+
 3. Now create a new model file in the models directory, named `my_first_python_model.py`.
 
 4. In the `my_first_python_model.py` file, add this code:
@@ -152,6 +160,8 @@ Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bi
       bdf = dbt.ref("my_sql_model") #loading from prev step
       return bdf
    ```
+
+   Report incorrect code
 
 5. Configure the BigFrames submission method by using either:
 
@@ -165,6 +175,8 @@ Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bi
          +materialized: view
    ```
 
+   Report incorrect code
+
    or
 
    b. The Python code via dbt.config in the my\_first\_python\_model.py file
@@ -174,6 +186,8 @@ Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bi
       dbt.config(submission_method="bigframes")
       # rest of the python code...
    ```
+
+   Report incorrect code
 
 6. Run `dbt run`
 

@@ -13,6 +13,8 @@ profile: 'jaffle_shop'
 ...
 ```
 
+Report incorrect code
+
 dbt then checks your `profiles.yml` file for a profile with the same name. A profile contains all the details required to connect to your data warehouse.
 
 dbt will search the current working directory for the `profiles.yml` file and will default to the `~/.dbt/` directory if not found.
@@ -47,6 +49,8 @@ jaffle_shop:
       threads: 8
 ```
 
+Report incorrect code
+
 To add an additional target (like `prod`) to your existing `profiles.yml`, you can add another entry under the `outputs` key.
 
 ## The `env_var` function
@@ -69,6 +73,8 @@ profile:
       password: "{{ env_var('DBT_PASSWORD') }}"
       ....
 ```
+
+Report incorrect code
 
 ## About the `profiles.yml` file
 
@@ -119,6 +125,8 @@ For example, to run against your `prod` target instead of the default `dev` targ
 dbt run --target prod
 ```
 
+Report incorrect code
+
 You can use the `--target` flag with any dbt command, such as:
 
 ```bash
@@ -126,6 +134,8 @@ dbt build --target prod
 dbt test --target dev
 dbt compile --target qa
 ```
+
+Report incorrect code
 
 ### Overriding profiles and targets
 
@@ -141,6 +151,8 @@ These flags help when you're working with multiple profiles and targets and want
 ```bash
 dbt run --profile my-profile-name --target dev
 ```
+
+Report incorrect code
 
 In this example, the `dbt run` command will use the `my-profile-name` profile and the `dev` target.
 
@@ -210,6 +222,8 @@ To view your profiles.yml file, run:
 open /Users/alice/.dbt
 ```
 
+Report incorrect code
+
 You may want to have your `profiles.yml` file stored in a different directory than `~/.dbt/` – for example, if you are [using environment variables](#advanced-using-environment-variables) to load your credentials, you might choose to include this file in the root directory of your dbt project.
 
 Note that the file always needs to be called `profiles.yml`, regardless of which directory it is in.
@@ -224,6 +238,8 @@ This option can be used as follows:
 $ dbt run --profiles-dir path/to/directory
 ```
 
+Report incorrect code
+
 If using this method, the `--profiles-dir` option needs to be provided every time you run a dbt command.
 
 ### 2. Use the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable to change the default location (dbt v1 only)
@@ -235,6 +251,8 @@ Setting this environment variable tells dbt v1 to look for your `profiles.yml` f
 ```text
 $ export DBT_ENGINE_PROFILES_DIR=path/to/directory
 ```
+
+Report incorrect code
 
 Note: This environment variable isn't supported in dbt v2.
 

@@ -6,6 +6,8 @@ dbt\_project.yml
 clean-targets: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories to be removed by the `dbt clean` [command](../commands/clean.md). As such, you should only include directories containing artifacts (e.g. compiled files, logs, installed packages) in this list.
@@ -28,6 +30,8 @@ clean-targets:
     - dbt_packages
 ```
 
+Report incorrect code
+
 Now, run `dbt clean`.
 
 Both the `target` and `dbt_packages` directory will be removed.
@@ -41,3 +45,5 @@ dbt\_project.yml
 ```yml
 clean-targets: [target, dbt_packages, logs]
 ```
+
+Report incorrect code

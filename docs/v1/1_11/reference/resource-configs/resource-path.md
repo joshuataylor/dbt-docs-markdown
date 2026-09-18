@@ -13,6 +13,8 @@ resource_type:
           ...
 ```
 
+Report incorrect code
+
 ## Example
 
 The following examples are mostly for models and a source, but the same concepts apply for seeds, snapshots, tests, sources, and other resource types.
@@ -28,6 +30,8 @@ models:
   +enabled: false # this will disable all models (not a thing you probably want to do)
 ```
 
+Report incorrect code
+
 ### Apply config to all models in your project
 
 To apply a configuration to all models in *your* project only, use your [project name](../project-configs/name.md) as the `<resource-path>`:
@@ -41,6 +45,8 @@ models:
   jaffle_shop:
     +enabled: false # this will apply to all models in your project, but not any installed packages
 ```
+
+Report incorrect code
 
 ### Apply config to all models in a subdirectory
 
@@ -57,6 +63,8 @@ models:
       +enabled: false # this will apply to all models in the `staging/` directory of your project
 ```
 
+Report incorrect code
+
 In the following project, this would apply to models in the `staging/` directory, but not the `marts/` directory:
 
 ```text
@@ -66,6 +74,8 @@ In the following project, this would apply to models in the `staging/` directory
     ├── marts
     └── staging
 ```
+
+Report incorrect code
 
 ### Apply config to a specific model
 
@@ -83,6 +93,8 @@ models:
         payments:
           +enabled: false # this will apply to only one model
 ```
+
+Report incorrect code
 
 In the following project, this would only apply to the `payments` model:
 
@@ -102,6 +114,8 @@ In the following project, this would only apply to the `payments` model:
             └── payments.sql
 ```
 
+Report incorrect code
+
 ### Apply config to a source nested in a subfolder
 
 To disable a source table nested in a YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that YAML file, as well as the source name and the table name in the `dbt_project.yml` file. The following example shows how to disable a source table nested in a YAML file in a subfolder:
@@ -116,3 +130,5 @@ sources:
         source_table_name:
           +enabled: false
 ```
+
+Report incorrect code

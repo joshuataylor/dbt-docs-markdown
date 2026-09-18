@@ -64,6 +64,8 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
+Report incorrect code
+
 #### OAuth client-based authentication (M2M)
 
 \~/.dbt/profiles.yml
@@ -84,6 +86,8 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
+Report incorrect code
+
 #### OAuth client-based authentication (U2M)
 
 \~/.dbt/profiles.yml
@@ -101,6 +105,8 @@ your_profile_name:
       auth_type: oauth # Required if using OAuth-based authentication
       threads: 1_OR_MORE  # Optional, default 1
 ```
+
+Report incorrect code
 
 ## Host parameters
 

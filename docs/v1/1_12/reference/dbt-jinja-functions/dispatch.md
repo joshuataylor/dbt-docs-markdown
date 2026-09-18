@@ -17,6 +17,8 @@ dbt can extend functionality across [Supported Data Platforms](../../docs/suppor
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 dbt uses two criteria when searching for the right candidate macro:
 
 * Adapter prefix
@@ -64,6 +66,8 @@ macros/concat.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 The top `concat` macro follows a special, rigid formula: It is named with the macro's "primary name," `concat`, which is how the macro will be called elsewhere. It accepts one argument, named `fields`. This macro's *only* function is to dispatch—that is, look for and return—using the primary macro name (`concat`) as its search term. It also wants to pass through, to its eventual implementation, all the keyword arguments that were passed into it. In this case, there's only one argument, named `fields`.
 
 Below that macro, I've defined three possible implementations of the `concat` macro: one for Redshift, one for Snowflake, and one for use by default on all other adapters. Depending on the adapter I'm running against, one of these macros will be selected, it will be passed the specified arguments as inputs, it will operate on those arguments, and it will pass back the result to the original dispatching macro.
@@ -90,6 +94,8 @@ macros/concat.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 If I'm running on Redshift, dbt will use my version; if I'm running on any other database, the `concat()` macro will shell out to the version defined in `dbt_utils`.
 
 ## For package maintainers
@@ -103,6 +109,8 @@ Here we have the definition of the `dbt_utils.concat` macro, which specifies bot
   {{ return(adapter.dispatch('concat', 'dbt_utils')(fields)) }}
 {%- endmacro %}
 ```
+
+Report incorrect code
 
 ### Overriding package macros
 
@@ -119,6 +127,8 @@ dispatch:
   - macro_namespace: dbt_utils
     search_order: ['my_project', 'dbt_utils']
 ```
+
+Report incorrect code
 
 Note that this config *must* be specified in the user's root `dbt_project.yml`. dbt will ignore any `dispatch` configs defined in the project files of installed packages.
 
@@ -152,6 +162,8 @@ dispatch:
   - macro_namespace: dbt
     search_order: ['my_project', 'my_org_dbt_helpers', 'dbt']
 ```
+
+Report incorrect code
 
 ### Managing different global overrides across packages
 
@@ -187,6 +199,8 @@ packages:
     version: ...
 ```
 
+Report incorrect code
+
 I then include `spark_utils` in the search order for dispatched macros in the `dbt_utils` namespace. (I still include my own project first, just in case I want to reimplement any macros with my own custom logic.)
 
 dbt\_project.yml
@@ -196,6 +210,8 @@ dispatch:
   - macro_namespace: dbt_utils
     search_order: ['my_project', 'spark_utils', 'dbt_utils']
 ```
+
+Report incorrect code
 
 When dispatching `dbt_utils.concat`, dbt will search for:
 
@@ -246,6 +262,8 @@ In rare cases, the child adapter may prefer the default implementation to its pa
 {% endmacro %}
 ```
 
+Report incorrect code
+
 ## FAQs
 
 \[Error] Could not find my\_project package
@@ -256,6 +274,8 @@ If a package name is included in the `search_order` of a project-level `dispatch
 Compilation Error
   In dispatch: Could not find package 'my_project'
 ```
+
+Report incorrect code
 
 This does not mean the package or root project is missing—it means that any macros from it are missing, and so it is missing from the search spaces available to `dispatch`.
 

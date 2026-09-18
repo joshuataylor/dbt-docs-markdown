@@ -20,6 +20,8 @@ It's simpler, easier to understand, and suitable for smaller tasks or when your 
 pip install "dbt-sl-sdk[sync]"
 ```
 
+Report incorrect code
+
 If you're using async frameworks like [FastAPI](https://fastapi.tiangolo.com/) or [Strawberry](https://github.com/strawberry-graphql/strawberry), installing the sync version of the SDK will block your event loop and can significantly slow down your program. In this case, we strongly recommend using async installation.
 
 ### Async installation
@@ -31,6 +33,8 @@ For more details, refer to [asyncio](https://docs.python.org/3/library/asyncio.h
 ```bash
 pip install "dbt-sl-sdk[async]"
 ```
+
+Report incorrect code
 
 Since the [Python ADBC driver](https://github.com/apache/arrow-adbc/tree/main/python/adbc_driver_manager) doesn't yet support asyncio natively, `dbt-sl-sdk` uses a [`ThreadPoolExecutor`](https://github.com/dbt-labs/semantic-layer-sdk-python/blob/5e52e1ca840d20a143b226ae33d194a4a9bc008f/dbtsl/api/adbc/client/asyncio.py#L62) to run `query` and `list dimension-values` (all operations that are done with ADBC). This is why you might see multiple Python threads spawning.
 
@@ -62,6 +66,8 @@ def main():
 main()
 ```
 
+Report incorrect code
+
 **Note**: All method calls that reach out to the APIs need to be within a `client.session()` context manager. This allows the client to establish a connection to the APIs only once and reuse the same connection between API calls.
 
 We recommend creating an application-wide session and reusing the same session throughout the application for optimal performance. Creating a session per request is discouraged and inefficient.
@@ -91,6 +97,8 @@ async def main():
 
 asyncio.run(main())
 ```
+
+Report incorrect code
 
 ### Lazy loading for large fields
 
@@ -158,6 +166,8 @@ if __name__ == "__main__":
     main()
 ```
 
+Report incorrect code
+
 Refer to the [lazy loading example](https://github.com/dbt-labs/semantic-layer-sdk-python/blob/main/examples/list_metrics_lazy_sync.py) for more details.
 
 ## Integrate with dataframe libraries
@@ -177,6 +187,8 @@ arrow_table = client.query(...)
 pandas_df = arrow_table.to_pandas()
 ```
 
+Report incorrect code
+
 #### If you're using polars
 
 ```python
@@ -187,6 +199,8 @@ import polars as pl
 arrow_table = client.query(...)
 polars_df = pl.from_arrow(arrow_table)
 ```
+
+Report incorrect code
 
 ## Usage examples
 
@@ -206,6 +220,8 @@ PLATFORM.anonymous = True
 
 # ... initialize client
 ```
+
+Report incorrect code
 
 ## Contribute
 

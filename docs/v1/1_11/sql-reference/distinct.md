@@ -16,6 +16,8 @@ select
 from my_data_source
 ```
 
+Report incorrect code
+
 Let’s take a look at a practical example using DISTINCT below.
 
 ### SQL DISTINCT example
@@ -26,6 +28,8 @@ select
 	count(distinct customer_id) as cnt_distinct_customers
 from {{ ref('orders') }}
 ```
+
+Report incorrect code
 
 This simple query is something you may do while doing initial exploration of your data; it will return the count of `customer_ids` and count of distinct `customer_ids` that appear in the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table:
 

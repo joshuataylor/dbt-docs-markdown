@@ -63,11 +63,15 @@ If you're ready to get started, let's begin!
    git checkout -b fusion-compat
    ```
 
+   Report incorrect code
+
 3. Run `dbt-autofix deprecations` in your package directory so it automatically updates your package code and rewrites YAML to conform to the latest JSON schema:
 
    ```bash
    dbt-autofix deprecations
    ```
+
+   Report incorrect code
 
 ## Test package with dbt v2
 
@@ -101,6 +105,8 @@ Only update the [`require-dbt-version` config](../reference/project-configs/requ
    ```yaml
    require-dbt-version: [">=1.10.0,<3.0.0"] 
    ```
+
+   Report incorrect code
 
    This signals that your package supports both dbt v1 and dbt v2. dbt Labs uses this release metadata to mark your package with a dbt v2-compatible badge in the [dbt package hub](https://hub.getdbt.com/). Packages without this metadata don't display the dbt v2-compatible badge.
 

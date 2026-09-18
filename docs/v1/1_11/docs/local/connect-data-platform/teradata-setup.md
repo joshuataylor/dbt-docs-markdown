@@ -77,6 +77,8 @@ profiles.yml
       <field-name: <field-value>
 ```
 
+Report incorrect code
+
 #### Description of Teradata Profile Fields
 
 The following fields are required:
@@ -232,6 +234,8 @@ If not specified the code defaults to using `GLOBAL_FUNCTIONS.hash_md5`. See the
    CREATE DATABASE GLOBAL_FUNCTIONS AS PERMANENT = 60e6, SPOOL = 120e6;
    ```
 
+   Report incorrect code
+
 5. Create the UDF. Replace `<CURRENT_USER>` with your current database user:
 
    ```sql
@@ -240,11 +244,15 @@ If not specified the code defaults to using `GLOBAL_FUNCTIONS.hash_md5`. See the
    .run file = hash_md5.btq
    ```
 
+   Report incorrect code
+
 6. Grant permissions to run the UDF with grant option.
 
    ```sql
    GRANT EXECUTE FUNCTION ON GLOBAL_FUNCTIONS TO PUBLIC WITH GRANT OPTION;
    ```
+
+   Report incorrect code
 
 Instruction on how to add md5\_udf variable in dbt\_project.yml for custom hash function:
 
@@ -252,6 +260,8 @@ Instruction on how to add md5\_udf variable in dbt\_project.yml for custom hash 
 vars:
   md5_udf: Custom_database_name.hash_method_function
 ```
+
+Report incorrect code
 
 ##### last\_day
 

@@ -39,6 +39,8 @@ dbt-teradata==1.11.0
 dbt-trino==1.10.3
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.12.0](https://github.com/dbt-labs/dbt/blob/1.12.latest/CHANGELOG.md)
@@ -97,6 +99,8 @@ dbt-teradata==1.10.3
 dbt-trino==1.10.2
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.11.12](https://github.com/dbt-labs/dbt/blob/1.11.latest/CHANGELOG.md)
@@ -145,6 +149,8 @@ dbt-synapse==1.8.5
 dbt-teradata==1.10.2
 dbt-trino==1.10.2
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -200,6 +206,8 @@ dbt-synapse==1.8.4
 dbt-teradata==1.10.2
 dbt-trino==1.10.1
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -264,6 +272,8 @@ dbt-teradata==1.10.1
 dbt-trino==1.10.1
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.11.6](https://github.com/dbt-labs/dbt/blob/1.11.latest/CHANGELOG.md#dbt-core-1116---february-17-2026)
@@ -318,6 +328,8 @@ dbt-teradata==1.10.1
 dbt-trino==1.10.1
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.10.19](https://github.com/dbt-labs/dbt/blob/1.10.latest/CHANGELOG.md#dbt-core-11019---january-20-2026)
@@ -366,6 +378,8 @@ dbt-synapse==1.8.4
 dbt-teradata==1.10.0
 dbt-trino==1.9.3
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -423,6 +437,8 @@ dbt-teradata==1.10.0
 dbt-trino==1.9.3
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.10.15](https://github.com/dbt-labs/dbt/blob/1.10.latest/CHANGELOG.md#dbt-core-11015---november-12-2025)
@@ -476,6 +492,8 @@ dbt-teradata==1.10.0
 dbt-trino==1.9.3
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.10.13](https://github.com/dbt-labs/dbt/blob/1.10.latest/CHANGELOG.md#dbt-core-11013---september-25-2025)
@@ -523,6 +541,8 @@ dbt-synapse==1.8.4
 dbt-teradata==1.10.0
 dbt-trino==1.9.3
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -594,6 +614,8 @@ dbt-teradata==1.9.3
 dbt-trino==1.9.3
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.10.8](https://github.com/dbt-labs/dbt/blob/1.10.latest/CHANGELOG.md#dbt-core-1108---august-12-2025)
@@ -648,6 +670,8 @@ dbt-synapse==1.8.2
 dbt-teradata==1.9.2
 dbt-trino==1.9.2
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -706,6 +730,8 @@ dbt-teradata==1.9.2
 dbt-trino==1.9.1
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.9.4](https://github.com/dbt-labs/dbt/blob/1.9.latest/CHANGELOG.md#dbt-core-194---april-02-2025)
@@ -759,6 +785,8 @@ dbt-teradata==1.9.2
 dbt-trino==1.9.1
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt-core 1.9.4](https://github.com/dbt-labs/dbt/blob/1.9.latest/CHANGELOG.md#dbt-core-194---april-02-2025)
@@ -803,6 +831,8 @@ dbt-synapse==1.8.2
 dbt-teradata==1.9.1
 dbt-trino==1.9.0
 ```
+
+Report incorrect code
 
 Changelogs:
 
@@ -863,6 +893,8 @@ dbt-teradata==1.9.1
 dbt-trino==1.9.0
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt 1.9.2](https://github.com/dbt-labs/dbt/blob/1.9.latest/CHANGELOG.md#dbt-core-192---january-29-2025)
@@ -919,6 +951,8 @@ dbt-teradata==1.9.0
 dbt-trino==1.9.0
 ```
 
+Report incorrect code
+
 Changelogs:
 
 * [dbt 1.9.1](https://github.com/dbt-labs/dbt/blob/1.9.latest/CHANGELOG.md#dbt-core-191---december-16-2024)
@@ -962,6 +996,8 @@ dbt-synapse==1.8.2
 dbt-teradata==1.8.2
 dbt-trino==1.8.5
 ```
+
+Report incorrect code
 
 Changelogs:
 

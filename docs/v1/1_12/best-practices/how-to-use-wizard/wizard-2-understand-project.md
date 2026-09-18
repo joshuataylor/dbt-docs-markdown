@@ -23,6 +23,8 @@ three areas that deserve careful review. Cite the files and metadata you used.
 Do not edit anything.
 ```
 
+Report incorrect code
+
 This gives you a starting hypothesis, not a complete project specification. Ask follow-up questions about any labels or architectural claims that aren't supported by code, configuration, or metadata.
 
 ## Investigate one model
@@ -34,6 +36,8 @@ Explain fct_orders to me. Describe its grain, inputs, important transformations,
 tests, materialization, and direct downstream consumers. Point out anything the
 code does not make clear.
 ```
+
+Report incorrect code
 
 For a thorough investigation, dbt Wizard can:
 
@@ -50,6 +54,8 @@ For each conclusion, label it as code, metadata, warehouse evidence, or an
 inference. List the business questions I still need to ask the model owner.
 ```
 
+Report incorrect code
+
 ## Trace a business concept
 
 You don't need to know the model name before you begin. Describe the concept and let dbt Wizard search for likely resources:
@@ -59,6 +65,8 @@ Trace how recurring revenue is calculated from source to final mart. Include
 the models, columns, macros, tests, and metrics involved. Call out where the
 definition changes or where multiple definitions exist.
 ```
+
+Report incorrect code
 
 When several candidates match, ask dbt Wizard to show the candidates and explain why each one might be relevant before continuing.
 
@@ -72,6 +80,8 @@ row per payment attempt? Identify direct and indirect downstream resources,
 grain-dependent joins, tests, metrics, and exposures. Do not make changes.
 ```
 
+Report incorrect code
+
 Use the result to define the scope of a change plan. High fan-out models, contracts, metrics, exposures, and joins on the changed grain deserve closer review.
 
 ## Confirm assumptions with data
@@ -84,6 +94,8 @@ or duplicates in its key columns. Use the smallest reasonable query and show
 me the query before running it.
 ```
 
+Report incorrect code
+
 Treat current data as evidence about the present state, not a permanent guarantee. Sampling, filters, stale relations, and environment differences can all affect the result.
 
 ## Turn findings into a plan
@@ -95,6 +107,8 @@ Summarize what we learned, unresolved business questions, affected resources,
 and a safe implementation and validation plan. Keep facts separate from
 recommendations. Do not edit files yet.
 ```
+
+Report incorrect code
 
 The summary should include relevant file paths, model names, lineage scope, supporting evidence, and explicit unknowns.
 

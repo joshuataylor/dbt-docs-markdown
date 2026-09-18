@@ -65,6 +65,8 @@ Let's use an example to illustrate how to run queries in Insights:
   order by 1
   ```
 
+  Report incorrect code
+
 ### Use dbt Copilot
 
 To make things easier, [use dbt Copilot in Insights](./navigate-dbt-insights.md) to save time and explore other ways to analyze the data. dbt Copilot can help you quickly update the query or generate a new one based on your prompt.

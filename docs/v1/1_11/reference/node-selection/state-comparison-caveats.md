@@ -36,6 +36,8 @@ dbt run -s "state:modified"
 dbt test -s "state:modified"
 ```
 
+Report incorrect code
+
 This can get complicated, however. If you add a new test without modifying its underlying model, or add a test that selects from a new model and an old unmodified one, you may need to test a model without having first run it.
 
 You can defer upstream references when testing. For example, if a test selects from a model that doesn't exist as a database object in your current environment, dbt will look to the other environment instead—the one defined in your state manifest. This enables you to use "simple" state selection without risk of query failure, but it may have some surprising consequences for tests with multiple parents. For instance, if you have a `relationships` test that depends on one modified model and one unmodified model, the test query will select from data "across" two different environments. If you limit or sample your data in development and CI, it may not make much sense to test for referential integrity, knowing there's a good chance of mismatch.
@@ -46,6 +48,8 @@ If you're a frequent user of `relationships` tests or data tests, or frequently 
 dbt run -s "state:modified"
 dbt test -s "state:modified" --exclude "test_name:relationships"
 ```
+
+Report incorrect code
 
 ### Overwrites the `manifest.json`
 

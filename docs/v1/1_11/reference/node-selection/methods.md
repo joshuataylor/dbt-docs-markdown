@@ -22,6 +22,8 @@ dbt list --select "*.folder_name.*"
 dbt list --select "package:*_source"
 ```
 
+Report incorrect code
+
 ### access
 
 The `access` method selects models based on their [access](../resource-configs/access.md) property.
@@ -32,6 +34,8 @@ dbt list --select "access:private"       # list all private models
 dbt list --select "access:protected"       # list all protected models
 ```
 
+Report incorrect code
+
 ### config
 
 The `config` method is used to select models that match a specified [node config](../configs-and-properties.md).
@@ -41,6 +45,8 @@ dbt run --select "config.materialized:incremental"    # run all models that are 
 dbt run --select "config.schema:audit"              # run all models that are created in the `audit` schema
 dbt run --select "config.cluster_by:geo_country"      # run all models clustered by `geo_country`
 ```
+
+Report incorrect code
 
 While most config values are strings, you can also use the `config` method to match boolean configs, dictionary keys, and values in lists.
 
@@ -58,6 +64,8 @@ For example, given a model with the following configurations:
 select ...
 ```
 
+Report incorrect code
+
 You can select using any of the following:
 
 ```bash
@@ -68,6 +76,8 @@ dbt ls -s config.meta.contains_pii:true
 dbt ls -s config.transient:true
 ```
 
+Report incorrect code
+
 ### exposure
 
 The `exposure` method is used to select parent resources of a specified [exposure](../../docs/build/exposures.md). Use in conjunction with the `+` operator.
@@ -77,6 +87,8 @@ dbt run --select "+exposure:weekly_kpis"                # run all models that fe
 dbt test --select "+exposure:*"                         # test all resources upstream of all exposures
 dbt ls --select "+exposure:*" --resource-type source    # list all source tables upstream of all exposures
 ```
+
+Report incorrect code
 
 ### file
 
@@ -99,6 +111,8 @@ dbt build --select "my_function"
 dbt build --select "my_function+"
 ```
 
+Report incorrect code
+
 ### fqn
 
 The `fqn` method is used to select nodes based off their "fully qualified names" (FQN) within the dbt graph. The default output of [`dbt list`](../commands/list.md) is a listing of FQN. The default FQN format is composed of the project name, subdirectories within the path, and the file name (without extension) separated by periods.
@@ -111,6 +125,8 @@ dbt run --select "fqn:some_path.some_model"
 dbt run --select "fqn:your_project.some_path.some_model"
 ```
 
+Report incorrect code
+
 ### group
 
 The `group` method is used to select models defined within a [group](../resource-configs/group.md).
@@ -118,6 +134,8 @@ The `group` method is used to select models defined within a [group](../resource
 ```bash
 dbt run --select "group:finance" # run all models that belong to the finance group.
 ```
+
+Report incorrect code
 
 ### metric
 
@@ -127,6 +145,8 @@ The `metric` method is used to select parent resources of a specified [metric](.
 dbt build --select "+metric:weekly_active_users"       # build all resources upstream of weekly_active_users metric
 dbt ls    --select "+metric:*" --resource-type source  # list all source tables upstream of all metrics
 ```
+
+Report incorrect code
 
 ### package
 
@@ -138,6 +158,8 @@ dbt run --select "package:snowplow"
 dbt run --select "snowplow"
 dbt run --select "snowplow.*"
 ```
+
+Report incorrect code
 
 Use the `this` package to select nodes from the current project. From the example, running `dbt run --select "package:this"` from the `snowplow` project runs the exact same set of models as the other three selectors.
 
@@ -163,6 +185,8 @@ dbt build --select "path:functions/my_function.sql"
 dbt build --select "functions/my_function.sql"
 ```
 
+Report incorrect code
+
 ### resource\_type
 
 (Applies to dbt v1.11 and later)
@@ -175,6 +199,8 @@ dbt build --select "resource_type:function"    # build all functions in your pro
 dbt list --select "resource_type:test"         # list all tests in your project
 dbt list --select "resource_type:source"       # list all sources in your project
 ```
+
+Report incorrect code
 
 ### result
 
@@ -196,6 +222,8 @@ dbt build --select "1+result:fail" --state path/to/artifacts
 dbt seed --select "result:error" --state path/to/artifacts 
 ```
 
+Report incorrect code
+
 * Only use `result:fail` when you want to re-run tests that failed during the last invocation. This selector is specific to test nodes. Tests don't have downstream nodes in the DAG, so using the `result:fail+` selector will only return the failed test itself and not the model or anything built on top of it.
 
 * On the other hand, `result:error` selects any resource (models, tests, snapshots, and more) that returned an error.
@@ -210,6 +238,8 @@ dbt seed --select "result:error" --state path/to/artifacts
   dbt build --select "1+result:fail+" --state path/to/artifacts
   ```
 
+  Report incorrect code
+
 ### saved\_query
 
 The `saved_query` method selects [saved queries](../../docs/build/saved-queries.md).
@@ -218,6 +248,8 @@ The `saved_query` method selects [saved queries](../../docs/build/saved-queries.
 dbt list --select "saved_query:*"                    # list all saved queries 
 dbt list --select "+saved_query:orders_saved_query"  # list your saved query named "orders_saved_query" and all upstream resources
 ```
+
+Report incorrect code
 
 ### semantic\_model
 
@@ -228,6 +260,8 @@ dbt list --select "semantic_model:*"        # list all semantic models
 dbt list --select "+semantic_model:orders"  # list your semantic model named "orders" and all upstream resources
 ```
 
+Report incorrect code
+
 ### source
 
 The `source` method is used to select models that select from a specified [source](../../docs/build/sources.md#using-sources). Use in conjunction with the `+` operator.
@@ -236,6 +270,8 @@ The `source` method is used to select models that select from a specified [sourc
 dbt run --select "source:snowplow+"    # run all models that select from Snowplow sources
 dbt run --select "source:snowplow.events+"    # run all models downstream of the events table in the Snowplow source
 ```
+
+Report incorrect code
 
 Refer to [source FAQs](../../docs/build/sources.md#faqs) for more info.
 
@@ -257,6 +293,8 @@ dbt source freshness # must be run again to compare current to previous state
 dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 ### state
 
 **N.B.** [State-based selection](./state-selection.md) is a powerful, complex feature. Read about [known caveats and limitations](./state-comparison-caveats.md) to state comparison.
@@ -272,6 +310,8 @@ dbt test --select "state:new" --state path/to/artifacts      # run all tests on 
 dbt run --select "state:modified" --state path/to/artifacts  # run all models that have been modified
 dbt ls --select "state:modified" --state path/to/artifacts   # list all modified nodes (not just models)
 ```
+
+Report incorrect code
 
 Because state comparison is complex, and everyone's project is different, dbt supports subselectors that include a subset of the full `modified` criteria:
 
@@ -354,6 +394,8 @@ The `tag:` method is used to select models that match a specified [tag](../resou
 dbt run --select "tag:nightly"    # run all models with the `nightly` tag
 ```
 
+Report incorrect code
+
 ### test\_name
 
 The `test_name` method is used to select tests based on the name of the generic test that defines it. For more information about how generic tests are defined, read about [data tests](../../docs/build/data-tests.md).
@@ -363,6 +405,8 @@ dbt test --select "test_name:unique"            # run all instances of the `uniq
 dbt test --select "test_name:equality"          # run all instances of the `dbt_utils.equality` test
 dbt test --select "test_name:range_min_max"     # run all instances of a custom schema test defined in the local project, `range_min_max`
 ```
+
+Report incorrect code
 
 ### The test\_type
 
@@ -382,6 +426,8 @@ dbt test --select "test_type:generic"        # run all generic data tests
 dbt test --select "test_type:singular"       # run all singular data tests
 ```
 
+Report incorrect code
+
 ### unit\_test
 
 The `unit_test` method selects [unit tests](../../docs/build/unit-tests.md).
@@ -390,6 +436,8 @@ The `unit_test` method selects [unit tests](../../docs/build/unit-tests.md).
 dbt list --select "unit_test:*"                        # list all unit tests 
 dbt list --select "+unit_test:orders_with_zero_items"  # list your unit test named "orders_with_zero_items" and all upstream resources
 ```
+
+Report incorrect code
 
 ### version
 
@@ -402,3 +450,5 @@ dbt list --select "version:old"         # versions older than the 'latest' versi
 
 dbt list --select "version:none"        # models that are *not* versioned
 ```
+
+Report incorrect code

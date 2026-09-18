@@ -76,6 +76,8 @@ To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of yo
    chmod 600 ~/.ssh/authorized_keys
    ```
 
+   Report incorrect code
+
 3. Copy and paste the dbt generated public key, into the authorized\_keys file.
 
 The bastion server should now be ready for dbt to use as a tunnel into the Postgres environment.

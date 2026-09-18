@@ -12,6 +12,8 @@ Get dbt running on your machine in a few minutes. Installing dbt gives you dbt v
 python -m pip install dbt
 ```
 
+Report incorrect code
+
 To upgrade later, run `python -m pip install --upgrade dbt`.
 
 ### Homebrew (macOS)
@@ -21,6 +23,8 @@ brew tap dbt-labs/dbt
 brew install dbt-labs/dbt/dbt
 ```
 
+Report incorrect code
+
 To upgrade later, run `brew upgrade dbt`.
 
 ### curl (macOS/Linux)
@@ -28,6 +32,8 @@ To upgrade later, run `brew upgrade dbt`.
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
 ```
+
+Report incorrect code
 
 This installs the dbt binary to `~/.local/bin/dbt` and adds that directory to your `$PATH`. See [uninstalling a curl install](#faqs) if you ever need to remove it.
 
@@ -41,6 +47,8 @@ To upgrade later, run `dbt system update`.
 winget install --id dbtLabs.dbt --exact
 ```
 
+Report incorrect code
+
 To install a specific version, run `winget install --id dbtLabs.dbt --exact --version <version>`.
 
 ### Windows (PowerShell)
@@ -48,6 +56,8 @@ To install a specific version, run `winget install --id dbtLabs.dbt --exact --ve
 ```powershell
 irm https://public.cdn.getdbt.com/fs/install/install.ps1 | iex
 ```
+
+Report incorrect code
 
 Close and reopen your shell (or run `Start-Process powershell`) so the new `Path` is recognized.
 
@@ -59,6 +69,8 @@ To upgrade later, run `dbt system update`.
   dbt --version
   ```
 
+  Report incorrect code
+
 * With dbt v2, you can start using it right away. For the best v2 editor experience, install the dbt VS Code extension to use features like autocomplete, inline errors, and lineage.
 
   For full LSP features and other richer dbt v2 capabilities, run `dbt login` to sign in with a free dbt platform account:
@@ -66,6 +78,8 @@ To upgrade later, run `dbt system update`.
   ```shell
   dbt login
   ```
+
+  Report incorrect code
 
 Refer to the [dbt VS Code extension docs](../about-dbt-extension.md) for more info.
 
@@ -99,6 +113,8 @@ Common issues and resolutions:
      dbt system uninstall
      ```
 
+     Report incorrect code
+
   2. **Clean up your shell profile.** The installer adds a `$PATH` export and a `dbtf` alias to `~/.zshrc` or `~/.bashrc`, each under its own comment. Open that file and delete these lines:
 
      ```shell
@@ -109,11 +125,15 @@ Common issues and resolutions:
      alias dbtf=$HOME/.local/bin/dbt
      ```
 
+     Report incorrect code
+
      Then reload your profile:
 
      ```shell
      source ~/.zshrc   # or source ~/.bashrc
      ```
+
+     Report incorrect code
 
 ## More information about dbt v2
 

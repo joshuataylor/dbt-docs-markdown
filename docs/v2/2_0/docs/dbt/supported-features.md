@@ -136,6 +136,8 @@ Here's an example of a v2 warning in the Studio IDE that says a package isn't 
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
+Report incorrect code
+
 ## More information about dbt v2
 
 * [About the dbt extension](../about-dbt-extension.md)

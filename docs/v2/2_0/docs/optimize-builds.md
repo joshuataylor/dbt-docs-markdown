@@ -21,12 +21,16 @@ To enable dbt State:
   pip install dbt-state
   ```
 
+  Report incorrect code
+
 * **dbt v2**:
 
   ```bash
   cd path/to/your/project
   dbt login
   ```
+
+  Report incorrect code
 
 Authentication requires a dbt platform account with a [30-day free trial](./deploy/dbt-state-trial.md). dbt State pricing is usage-based — you're billed per target table that dbt State reuses each day, not per dbt platform seat. For full setup instructions, refer to [Setting up dbt State](./deploy/dbt-state-setup.md).
 
@@ -40,6 +44,8 @@ This is useful in development and CI environments, where you want to test one or
 dbt build --select my_model --defer --state path/to/prod/artifacts
 ```
 
+Report incorrect code
+
 ## dbt clone
 
 [`dbt clone`](../reference/commands/clone.md) creates copies of selected nodes in a target schema. On warehouses that support zero-copy cloning (for example, Snowflake), it creates lightweight database clones without duplicating the underlying data. On other warehouses, it creates views pointing at the upstream relations.
@@ -50,6 +56,8 @@ This is useful in development when you want to quickly populate a dev environmen
 dbt clone --select my_model
 ```
 
+Report incorrect code
+
 ## dbt's selection syntax
 
 dbt has a [variety of selectors](../reference/node-selection/syntax.md) you can use to target specific parts of your project instead of building everything every time. For example, `+my_model` selects `my_model` and all of its upstream dependencies, while `my_model+2` selects `my_model` and two levels of downstream dependents. This lets you test your changes in isolation without running your entire project.
@@ -57,3 +65,5 @@ dbt has a [variety of selectors](../reference/node-selection/syntax.md) you can 
 ```bash
 dbt build --select +my_model
 ```
+
+Report incorrect code

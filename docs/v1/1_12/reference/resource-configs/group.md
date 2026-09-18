@@ -11,6 +11,8 @@ models:
     +group: GROUP_NAME
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -20,6 +22,8 @@ models:
     config:
       group: GROUP # changed to config in v1.10
 ```
+
+Report incorrect code
 
 models/\<modelname>.sql
 
@@ -32,6 +36,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 ## Seeds
 
 dbt\_project.yml
@@ -42,6 +48,8 @@ models:
     +group: GROUP_NAME
 ```
 
+Report incorrect code
+
 seeds/properties.yml
 
 ```yml
@@ -50,6 +58,8 @@ seeds:
     config:
       group: GROUP_NAME # changed to config in v1.10
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -60,6 +70,8 @@ snapshots:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -72,6 +84,8 @@ snapshots:
     config:
       group: GROUP_NAME
 ```
+
+Report incorrect code
 
 snapshots/\<filename>.sql
 
@@ -87,6 +101,8 @@ select ...
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 ## Tests
 
 dbt\_project.yml
@@ -96,6 +112,8 @@ data_tests:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+Report incorrect code
 
 tests/properties.yml
 
@@ -108,6 +126,8 @@ tests/properties.yml
           config:
             group: GROUP_NAME
 ```
+
+Report incorrect code
 
 tests/\<filename>.sql
 
@@ -123,6 +143,8 @@ select ...
 {% endtest %}
 ```
 
+Report incorrect code
+
 tests/\<filename>.sql
 
 ```sql
@@ -130,6 +152,8 @@ tests/\<filename>.sql
   group='GROUP_NAME'
 ) }}
 ```
+
+Report incorrect code
 
 ## Analyses
 
@@ -143,6 +167,8 @@ analyses:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
+Report incorrect code
+
 ## Metrics
 
 dbt\_project.yml
@@ -152,6 +178,8 @@ metrics:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+Report incorrect code
 
 models/metrics.yml
 
@@ -163,6 +191,8 @@ metrics:
       group: GROUP_NAME
 ```
 
+Report incorrect code
+
 ## Semantic models
 
 dbt\_project.yml
@@ -172,6 +202,8 @@ semantic-models:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -185,6 +217,8 @@ models:
       group: group_name
 ```
 
+Report incorrect code
+
 ## Saved queries
 
 dbt\_project.yml
@@ -195,6 +229,8 @@ saved-queries:
     +group: GROUP_NAME
 ```
 
+Report incorrect code
+
 models/semantic\_models.yml
 
 ```yaml
@@ -203,6 +239,8 @@ saved_queries:
     config:
       group: GROUP_NAME
 ```
+
+Report incorrect code
 
 Note that for backwards compatibility, `group` is supported as a top-level key, but without the capabilities of config inheritance.
 
@@ -231,11 +269,15 @@ models:
       group: marketing # changed to config in v1.10
 ```
 
+Report incorrect code
+
 models/marketing\_model.sql
 
 ```sql
 select * from {{ ref('finance_model') }}
 ```
+
+Report incorrect code
 
 ```shell
 $ dbt run -s marketing_model
@@ -244,6 +286,8 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
+
+Report incorrect code
 
 ## Related docs
 

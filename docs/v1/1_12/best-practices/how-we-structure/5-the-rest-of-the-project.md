@@ -23,6 +23,8 @@ models
     └── ...
 ```
 
+Report incorrect code
+
 ### YAML in-depth
 
 When structuring your YAML configuration files in a dbt project, you want to balance centralization and file size to make specific configs as easy to find as possible. It’s important to note that while the top-level YAML files (`dbt_project.yml`, `packages.yml`) need to be specifically named and in specific locations, the files containing your `sources` and `models` dictionaries can be named, located, and organized however you want. It’s the internal contents that matter here. As such, we’ll lay out our primary recommendation, as well as the pros and cons of a popular alternative. Like many other aspects of structuring your dbt project, what’s most important here is consistency, clear intention, and thorough documentation on how and why you do what you do.
@@ -50,6 +52,8 @@ models:
     marts:
       +materialized: table
 ```
+
+Report incorrect code
 
 Define your defaults.
 
@@ -79,6 +83,8 @@ groups:
         data_classification: sensitive
 ```
 
+Report incorrect code
+
 For more information about using groups, see [Add groups to your DAG](../../docs/build/groups.md).
 
 ### How we use the other folders
@@ -96,6 +102,8 @@ jaffle_shop
 │       └── ...
 └── snapshots
 ```
+
+Report incorrect code
 
 We’ve focused heavily thus far on the primary area of action in our dbt project, the `models` folder. As you’ve probably observed though, there are several other folders in our project. While these are, by design, very flexible to your needs, we’ll discuss the most common use cases for these other folders to help get you started.
 

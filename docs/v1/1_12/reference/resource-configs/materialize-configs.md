@@ -16,6 +16,8 @@ my\_view\_cluster.sql
 select ...
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -24,6 +26,8 @@ models:
     +materialized: materializedview
     +cluster: not_default
 ```
+
+Report incorrect code
 
 ### Incremental models: Materialized Views
 
@@ -52,6 +56,8 @@ my\_view\_index.sql
 select ...
 ```
 
+Report incorrect code
+
 my\_view\_default\_index.sql
 
 ```sql
@@ -60,6 +66,8 @@ my\_view\_default\_index.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ### Data tests
 
@@ -73,3 +81,5 @@ data_tests:
     +store_failures: true
     +schema: test
 ```
+
+Report incorrect code

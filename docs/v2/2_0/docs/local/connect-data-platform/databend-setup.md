@@ -48,6 +48,8 @@ dbt-databend-cloud:
       pass: password
 ```
 
+Report incorrect code
+
 #### Description of Profile Fields
 
 | Option | Description                                        | Required? | Example                     |

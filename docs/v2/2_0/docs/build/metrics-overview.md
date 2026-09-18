@@ -81,6 +81,8 @@ metrics:
       alias: my_metric_name_a_week_ago_in_another_semantic_model
 ```
 
+Report incorrect code
+
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
 Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer) to learn how to define and query metrics in your dbt project.
@@ -139,6 +141,8 @@ models:
         agg_time_dimension: created_at  # Use an alternate time dimension for this metric
 ```
 
+Report incorrect code
+
 ## Conversion metrics
 
 [Conversion metrics](./conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
@@ -190,6 +194,8 @@ metrics:
         conversion_property: another_semantic_model_categorical_dimension
 ```
 
+Report incorrect code
+
 ## Cumulative metrics
 
 (Applies to dbt v1.12 and later)
@@ -234,6 +240,8 @@ metrics:
     # grain_to_date: month  # Alternative to window
     # period_agg: first  # Optional: first | last | average
 ```
+
+Report incorrect code
 
 ## Derived metrics
 
@@ -288,6 +296,8 @@ metrics:
       - name: metric_c
         offset_to_grain: month  # Only allowed for derived metrics
 ```
+
+Report incorrect code
 
 ## Ratio metrics
 
@@ -348,6 +358,8 @@ metrics:
       name: metric_from_model_b
       filter: "{{ Dimension('entity__dimension') }} < 100"
 ```
+
+Report incorrect code
 
 ## Simple metrics
 
@@ -410,6 +422,8 @@ models:
             team: "Revenue analytics"
 ```
 
+Report incorrect code
+
 ## Filters
 
 Configure a filter using Jinja templating and the following syntax to reference entities, dimensions, time dimensions, or metrics in filters.
@@ -432,12 +446,16 @@ filter: |
  {{ Metric('metric_name', group_by=['entity_name']) }}
 ```
 
+Report incorrect code
+
 For example, if you want to filter for the order date dimension grouped by month, use the following syntax:
 
 ```yaml
 filter: |
   {{ TimeDimension('order_date', 'month') }}
 ```
+
+Report incorrect code
 
 ## Related docs
 

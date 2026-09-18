@@ -49,6 +49,8 @@ sources:
           
 ```
 
+Report incorrect code
+
 This helps to monitor the data pipeline health.
 
 You can also configure source freshness in the **Execution settings** section in your dbt platform job **Settings** page. For more information, refer to [Enabling source freshness checks](../../docs/deploy/source-freshness.md#enabling-source-freshness-checks).
@@ -66,6 +68,8 @@ $ dbt freshness --select "source:snowplow"
 # Evaluate freshness for a particular source table:
 $ dbt freshness --select "source:snowplow.event"
 ```
+
+Report incorrect code
 
 (Applies to dbt v2.0 and later)
 

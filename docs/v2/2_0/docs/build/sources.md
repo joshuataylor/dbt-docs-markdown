@@ -39,6 +39,8 @@ sources:
       - name: payments
 ```
 
+Report incorrect code
+
 \*By default, `schema` will be the same as `name`. Add `schema` only if you want to use a source name that differs from the existing schema.
 
 If you're not already familiar with these files, be sure to check out [the documentation on properties.yml files](../../reference/configs-and-properties.md) before proceeding.
@@ -58,6 +60,8 @@ from {{ source('jaffle_shop', 'orders') }}
 left join {{ source('jaffle_shop', 'customers') }} using (customer_id)
 ```
 
+Report incorrect code
+
 dbt will compile this to the full table name:
 
 target/compiled/jaffle\_shop/models/my\_model.sql
@@ -71,6 +75,8 @@ from raw.jaffle_shop.orders
 
 left join raw.jaffle_shop.customers using (customer_id)
 ```
+
+Report incorrect code
 
 Using the `{{ source () }}` function also creates a dependency between the model and the source table.
 
@@ -111,6 +117,8 @@ sources:
   - name: ...
 ```
 
+Report incorrect code
+
 You can find more details on the available properties for sources in the [reference section](../../reference/source-properties.md).
 
 ### FAQs
@@ -133,17 +141,23 @@ sources:
         identifier: api_orders
 ```
 
+Report incorrect code
+
 In a downstream model:
 
 ```sql
 select * from {{ source('jaffle_shop', 'orders') }}
 ```
 
+Report incorrect code
+
 Will get compiled to:
 
 ```sql
 select * from raw.postgres_backend_public_schema.api_orders
 ```
+
+Report incorrect code
 
 What if my source is in a different database to my target database?
 
@@ -160,6 +174,8 @@ sources:
       - name: orders
       - name: customers
 ```
+
+Report incorrect code
 
 I need to use quotes to select from my source, what should I do?
 
@@ -189,6 +205,8 @@ sources:
           identifier: false
 ```
 
+Report incorrect code
+
 How do I run data tests on just my sources?
 
 To run data tests on all sources, use the following command:
@@ -196,6 +214,8 @@ To run data tests on all sources, use the following command:
 ```shell
   dbt test --select "source:*"
 ```
+
+Report incorrect code
 
 (You can also use the `-s` shorthand here instead of `--select`)
 
@@ -205,11 +225,15 @@ To run data tests on one source (and all of its tables):
 $ dbt test --select source:jaffle_shop
 ```
 
+Report incorrect code
+
 And, to run data tests on one source table only:
 
 ```shell
 $ dbt test --select source:jaffle_shop.orders
 ```
+
+Report incorrect code
 
 How do I run models downstream of one source?
 
@@ -219,6 +243,8 @@ To run models downstream of a source, use the `source:` selector:
 $ dbt run --select source:jaffle_shop+
 ```
 
+Report incorrect code
+
 (You can also use the `-s` shorthand here instead of `--select`)
 
 To run models downstream of one source table:
@@ -226,6 +252,8 @@ To run models downstream of one source table:
 ```shell
 $ dbt run --select source:jaffle_shop.orders+
 ```
+
+Report incorrect code
 
 Check out the [model selection syntax](../../reference/node-selection/syntax.md) for more examples!
 
@@ -284,6 +312,8 @@ sources:
           freshness: null # do not check freshness for this table
 ```
 
+Report incorrect code
+
 In the `freshness` block, one or both of `warn_after` and `error_after` can be provided. If neither is provided, then dbt will not calculate freshness for the tables in this source.
 
 Additionally, the `loaded_at_field` is required to calculate freshness for a table (except for cases where dbt can leverage warehouse metadata to calculate freshness). If a `loaded_at_field`, or viable alternative, is not provided, then dbt will not calculate freshness for the table.
@@ -300,6 +330,8 @@ To evaluate freshness for your sources, use [`dbt freshness`](../../reference/co
 dbt freshness --resource-type source
 ```
 
+Report incorrect code
+
 Running `dbt freshness` without a resource type evaluates every source *and* model that has a `freshness` config.
 
 Behind the scenes, dbt uses the freshness properties to construct a `select` query, shown below. You can find this query in the [query logs](../../faqs/Runs/checking-logs.md).
@@ -310,6 +342,8 @@ select
   convert_timezone('UTC', current_timestamp()) as calculated_at
 from raw.jaffle_shop.orders
 ```
+
+Report incorrect code
 
 The results of this query are used to determine whether the source is fresh or not:
 
@@ -324,6 +358,8 @@ $ dbt freshness --resource-type source
 [error] [StaleSource (dbt1063)]: Stale source source.jaffle_shop.jaffle_shop.customers
   --> models/<filename>.yml
 ```
+
+Report incorrect code
 
 ### Build models based on source freshness
 
@@ -354,6 +390,8 @@ from raw.jaffle_shop.orders
 where _etl_loaded_at >= date_sub(current_date(), interval 1 day)
 ```
 
+Report incorrect code
+
 ### FAQs
 
 How do I exclude a table from a freshness snapshot?
@@ -382,6 +420,8 @@ sources:
           freshness: null # do not check freshness for this table
 ```
 
+Report incorrect code
+
 How do I snapshot freshness for one source only?
 
 Use the `--select` flag to snapshot freshness for specific sources. Eg:
@@ -396,6 +436,8 @@ $ dbt source freshness --select source:jaffle_shop.orders
 # Snapshot freshness for multiple particular source tables:
 $ dbt source freshness --select source:jaffle_shop.orders source:jaffle_shop.customers
 ```
+
+Report incorrect code
 
 See the [`source freshness` command reference](../../reference/commands/source.md) for more information.
 

@@ -44,6 +44,8 @@ DBT_CLOUD_ACCOUNT_HOST=YOUR_ACCOUNT_HOST
 DBT_CLOUD_ACCOUNT_ID=YOUR_ACCOUNT_ID
 ```
 
+Report incorrect code
+
 Replace `YOUR_SERVICE_TOKEN` with your service token, `YOUR_ACCOUNT_HOST` with your [account host](../platform/about-platform/access-regions-ip-addresses.md) (for example, `abc123.us1.dbt.com`), and `YOUR_ACCOUNT_ID` with your numeric account ID. Go to **Account settings** > **Account** to find your account ID and account host (the hostname from the **Access URL** field).
 
 ## OAuth client credentials
@@ -97,6 +99,8 @@ DBT_ENGINE_STATE_OAUTH_CLIENT_ID=YOUR_CLIENT_ID
 DBT_ENV_SECRET_STATE_OAUTH_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
+Report incorrect code
+
 Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with the values from your OAuth client.
 
 ## Verifying dbt State is active
@@ -108,6 +112,8 @@ Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with the values from your OAut
    ```text
    dbt State adapter: dbt-state v2.10.1 is enabled
    ```
+
+   Report incorrect code
 
 ## Related docs
 

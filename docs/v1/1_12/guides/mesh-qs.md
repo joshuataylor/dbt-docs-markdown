@@ -151,6 +151,8 @@ sources:
         description: One record per order. Includes cancelled and deleted orders.
 ```
 
+Report incorrect code
+
 3. Create a `models/staging/stg_customers.sql` file to select from the `customers` table in the `jaffle_shop` source.
 
 models/staging/stg\_customers.sql
@@ -163,6 +165,8 @@ select
 
 from {{ source('jaffle_shop', 'customers') }}
 ```
+
+Report incorrect code
 
 4. Create a `models/staging/stg_orders.sql` file to select from the `orders` table in the `jaffle_shop` source.
 
@@ -177,6 +181,8 @@ select
 
 from {{ source('jaffle_shop', 'orders') }}
 ```
+
+Report incorrect code
 
 5. Create a `models/core/fct_orders.sql` file to build a fact table with customer and order details.
 
@@ -219,6 +225,8 @@ final as (
 
 select * from final
 ```
+
+Report incorrect code
 
 6. Navigate to the **Command bar** and execute `dbt build`.
 
@@ -281,6 +289,8 @@ models:
         description: "Days between this purchase and customer's first purchase"
 ```
 
+Report incorrect code
+
 Note: By default, model access is set to "protected", which means they can only be referenced within the same project. Learn more about access types and model groups [here](../docs/mesh/govern/model-access.md#access-modifiers).
 
 2. Navigate to the Studio IDE **Lineage** tab to see the model noted as **Public**, below the model name.
@@ -332,6 +342,8 @@ projects:
   - name: analytics
 ```
 
+Report incorrect code
+
 ### Staging layer
 
 Now that you've set up the foundational project, let's start building the data assets. Set up the staging layer as follows:
@@ -349,6 +361,8 @@ Now that you've set up the foundational project, let's start building the data a
        tables:
          - name: payment
    ```
+
+   Report incorrect code
 
 2. Create `models/staging/stg_payments.sql` to select from the `payment` table in the `stripe` source.
 
@@ -372,6 +386,8 @@ Now that you've set up the foundational project, let's start building the data a
 
    select * from final
    ```
+
+   Report incorrect code
 
 ### Reference the public model
 
@@ -412,6 +428,8 @@ You're now set to add a model that explores how payment types vary throughout a 
    select * from final
    ```
 
+   Report incorrect code
+
 2. Notice the cross-project ref at work! When you add the `ref`, the Studio IDE's auto-complete feature recognizes the public model as available.
 
 ![Cross-project ref autocomplete in the Studio IDE](/img/guides/dbt-mesh/cross_proj_ref_autocomplete.png?v=2 "Cross-project ref autocomplete in the Studio IDE")Cross-project ref autocomplete in the Studio IDE
@@ -449,6 +467,8 @@ models:
       - name: order_id
         .....
 ```
+
+Report incorrect code
 
 2. Test what would happen if this contract were violated. In `models/core/fct_orders.sql`, comment out the `orders.status` column and click **Build** to try building the model.
 
@@ -543,6 +563,8 @@ models:
             exclude: [status]
 ```
 
+Report incorrect code
+
 5. Verify how dbt compiles the `ref` statement based on the updates. Open a new file, add the following select statements, and click **Compile**. Note how each ref is compiled to the specified version (or the latest version if not specified).
 
 ```sql
@@ -550,6 +572,8 @@ select * from {{ ref('fct_orders', v=1) }}
 select * from {{ ref('fct_orders', v=2) }}
 select * from {{ ref('fct_orders') }}
 ```
+
+Report incorrect code
 
 ## Add a dbt job in the downstream project
 
@@ -609,6 +633,8 @@ final as (
 
 select * from final
 ```
+
+Report incorrect code
 
 3. In the Studio IDE, go to **Version control** to commit and merge the changes.
 4. Go to the **Deploy** and then **Jobs** page.

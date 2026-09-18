@@ -27,6 +27,8 @@ create catalog if not exists dev;
 create catalog if not exists prod;
 ```
 
+Report incorrect code
+
 As long as your developer is given write access to the dev data catalog, there is no need to create the sandbox schemas ahead of time.
 
 ## Setting up Service Principals

@@ -26,6 +26,8 @@ packages:
     version: "{% if builtins is defined %}0.14.0{% else %}0.13.1{% endif %}"
 ```
 
+Report incorrect code
+
 Use `env_var` in your `packages.yml`:
 
 ```text
@@ -33,6 +35,8 @@ packages:
   - package: dbt-labs/dbt_utils
     version: "{{ env_var('DBT_UTILS_VERSION') }}"
 ```
+
+Report incorrect code
 
 Use `dbt_version` in your `packages.yml`:
 
@@ -42,6 +46,8 @@ packages:
     version: "{% if dbt_version is defined %}0.14.0{% else %}0.13.1{% endif %}"
 ```
 
+Report incorrect code
+
 Use `target` in your `packages.yml`:
 
 ```text
@@ -50,6 +56,8 @@ packages:
   - package: dbt-labs/dbt_utils
     version: "{% if target.name == 'prod' %}0.14.0{% else %}0.13.1{% endif %}"
 ```
+
+Report incorrect code
 
 ## Related docs
 

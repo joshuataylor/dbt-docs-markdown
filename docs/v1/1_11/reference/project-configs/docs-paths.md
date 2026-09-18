@@ -6,6 +6,8 @@ dbt\_project.yml
 docs-paths: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories where [docs blocks](../../docs/build/documentation.md#docs-blocks) are located.
@@ -26,6 +28,8 @@ Paths specified in `docs-paths` must be relative to the location of your `dbt_pr
     docs-paths: ["docs"]
     ```
 
+    Report incorrect code
+
 * ❌ **Don't**
 
   * Avoid absolute paths:
@@ -33,6 +37,8 @@ Paths specified in `docs-paths` must be relative to the location of your `dbt_pr
     ```yml
     docs-paths: ["/Users/username/project/docs"]
     ```
+
+    Report incorrect code
 
 ## Example
 
@@ -43,5 +49,7 @@ dbt\_project.yml
 ```yml
 docs-paths: ["docs"]
 ```
+
+Report incorrect code
 
 **Note:** We typically omit this configuration as we prefer dbt's default behavior.

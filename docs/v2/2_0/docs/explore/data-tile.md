@@ -112,6 +112,8 @@ Follow these steps to embed the data health tile in [Omni](https://omni.co/):
     <iframe src='https://YOUR_ACCOUNT_PREFIX.metadata.REGION.dbt.com/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=production&environmentId=ENV_ID_NUMBER&token=<YOUR_METADATA_TOKEN>' title='Exposure Status Tile'></iframe>
    ```
 
+   Report incorrect code
+
 4. Save the tile and your Omni dashboard should now have a dbt platform hosted data health tile that is automatically updated based on the state of your dbt environment.
 
 ### PowerBI example
@@ -136,6 +138,8 @@ Follow these steps to embed the data health tile in PowerBI:
    ```html/text
    <iframe src='https://1234.metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=staging&environmentId=123456789&token=YOUR_METADATA_TOKEN' title='Exposure status tile' height='400'></iframe>
    ```
+
+   Report incorrect code
 
    ![In the 'Measure tools' tab, replace your values with the iFrame code.](/img/docs/collaborate/dbt-explorer/power-bi-measure-tools.png?v=2 "In the 'Measure tools' tab, replace your values with the iFrame code.")In the 'Measure tools' tab, replace your values with the iFrame code.
 
@@ -173,6 +177,8 @@ Follow these steps to embed the data health tile in Tableau:
    https://metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=production&environmentId=220370&token=<YOUR_METADATA_TOKEN>
    ```
 
+   Report incorrect code
+
 5. You should now see the data health tile embedded in your Tableau dashboard.
 
 ### Sigma example
@@ -190,6 +196,8 @@ Follow these steps to embed the data health tile in Sigma:
    ```html/text
    https://metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=production&environmentId=ENV_ID_NUMBER&token=<YOUR_METADATA_TOKEN>
    ```
+
+   Report incorrect code
 
    *Note, replace the placeholders with your actual values.*
 
@@ -235,6 +243,8 @@ You can insert these three fields into the following iFrame, and then embed it *
 <iframe src='https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>' title='Exposure Status Tile'></iframe>
 ```
 
+Report incorrect code
+
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
 dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the EMEA region, you would use the following iFrame code:
@@ -242,6 +252,8 @@ dbt is hosted in multiple regions in the world and each region has a different a
 ```html/text
 <iframe src='https://metadata.emea.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>' title='Exposure Status Tile'></iframe>
 ```
+
+Report incorrect code
 
 #### Embedding with BI tools
 
@@ -279,6 +291,8 @@ Tableau does not require you to embed an iFrame. You only need to use a Web Page
 https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
 
+Report incorrect code
+
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
 dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the North American region, you would use the following code:
@@ -286,6 +300,8 @@ dbt is hosted in multiple regions in the world and each region has a different a
 ```html/text
 https://metadata.cloud.getdbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
+
+Report incorrect code
 
 ![Configure Tableau by using a Web page object.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/tableau-object.png?v=2 "Configure Tableau by using a Web page object.")Configure Tableau by using a Web page object.
 
@@ -299,6 +315,8 @@ Sigma does not require you to embed an iFrame. Add a new embedded UI element in 
 https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
 
+Report incorrect code
+
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
 dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the APAC region, you would use the following code:
@@ -306,5 +324,7 @@ dbt is hosted in multiple regions in the world and each region has a different a
 ```html/text
 https://metadata.au.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
+
+Report incorrect code
 
 ![Configure Sigma by using an embedded UI element.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/sigma-embed.gif?v=2 "Configure Sigma by using an embedded UI element.")Configure Sigma by using an embedded UI element.

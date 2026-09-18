@@ -42,6 +42,8 @@ sources:
               - unique
 ```
 
+Report incorrect code
+
 ### Table materialization
 
 dbt v2 supports Table materialization on Salesforce Data 360. Execution of the materialization results in the creation of a [batch data transform](https://help.salesforce.com/s/articleView?id=data.c360_a_batch_transform_overview.htm\&language=en_US\&type=5) and a [Data Lake Object (DLO)](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_concepts_data_cloud_objects.htm) for querying.
@@ -64,6 +66,8 @@ Currently, only the `profile` type DLO is supported. Support for `engagement` DL
 
     from {{ source('default', 'raw_customers__dll') }}
 ```
+
+Report incorrect code
 
 ## Naming rules and required configs
 

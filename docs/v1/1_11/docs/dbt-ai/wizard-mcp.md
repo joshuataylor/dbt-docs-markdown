@@ -67,6 +67,8 @@ Use the `wizard mcp add` command, or edit `~/.dbt/wizard/config.toml` directly. 
 wizard mcp add SERVER_NAME --env VAR1=value1 -- COMMAND ARGS
 ```
 
+Report incorrect code
+
 Where:
 
 * `SERVER_NAME` is a name you choose for the server (for example, `filesystem`).
@@ -79,6 +81,8 @@ For example, add a filesystem MCP server that runs locally through `npx`. This s
 wizard mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /Users/you/my-project
 ```
 
+Report incorrect code
+
 To connect the [dbt MCP server](./about-mcp.md), use the streamable HTTP form below — refer to [dbt MCP server](#dbt-mcp-server) under Examples.
 
 ### Add a streamable HTTP server
@@ -86,6 +90,8 @@ To connect the [dbt MCP server](./about-mcp.md), use the streamable HTTP form be
 ```bash
 wizard mcp add SERVER_NAME --url https://example.com/mcp --bearer-token-env-var MY_TOKEN
 ```
+
+Report incorrect code
 
 To see all MCP subcommands, run `wizard mcp --help`. For the full list of flags, refer to the [CLI command reference](./wizard-cli-reference.md).
 
@@ -107,6 +113,8 @@ url = "https://api.githubcopilot.com/mcp/"
 bearer_token_env_var = "GITHUB_MCP_TOKEN"
 http_headers = { "X-Region" = "us-east-1" }
 ```
+
+Report incorrect code
 
 Restart `wizard` after editing `config.toml` — MCP servers are loaded at session start. For how settings resolve, refer to [Config precedence](./wizard-config.md#config-precedence).
 
@@ -142,6 +150,8 @@ Set per-tool approvals with a `[mcp_servers.NAME.tools.TOOL_NAME]` block and an 
 approval_mode = "approve"
 ```
 
+Report incorrect code
+
 ## Authenticate a server
 
 If a streamable HTTP server uses OAuth, you must authenticate from the CLI before dbt Wizard can use it. Run:
@@ -151,11 +161,15 @@ wizard mcp login SERVER_NAME
 wizard mcp logout SERVER_NAME
 ```
 
+Report incorrect code
+
 To request specific scopes at login, pass the `--scopes` CLI flag with a comma-separated list. This requests the same scopes as the `scopes` key in `config.toml`, but only for that login:
 
 ```bash
 wizard mcp login SERVER_NAME --scopes read,write
 ```
+
+Report incorrect code
 
 For servers that use a static token, set `bearer_token_env_var` to the name of an environment variable holding the token, and export that variable before starting `wizard`.
 
@@ -192,6 +206,8 @@ Runs on your machine through `uvx` and works with or without a dbt platform acco
 wizard mcp add dbt -- uvx dbt-mcp
 ```
 
+Report incorrect code
+
 The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](./mcp-quickstart-cli.md) and [Set up self-hosted MCP](./setup-local-mcp.md).
 
 #### Remote (dbt platform account)
@@ -203,6 +219,8 @@ wizard mcp add dbt --url https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/
 wizard mcp login dbt
 ```
 
+Report incorrect code
+
 For finding your host and token, refer to [Connect to the remote dbt MCP server](./mcp-quickstart-remote.md) and [Connections and authentication (MCP)](./wizard-how-it-works.md#connections-and-authentication-mcp).
 
 Then prompt dbt Wizard:
@@ -211,6 +229,8 @@ Then prompt dbt Wizard:
 Use the dbt MCP server to find the most recent failed run for the
 nightly job and summarize the error.
 ```
+
+Report incorrect code
 
 ### GitHub MCP server for pull request review
 
@@ -226,11 +246,15 @@ url = "https://api.githubcopilot.com/mcp/"
 bearer_token_env_var = "GITHUB_MCP_TOKEN"
 ```
 
+Report incorrect code
+
 Then set that environment variable to your actual token before starting dbt Wizard:
 
 ```bash
 export GITHUB_MCP_TOKEN="your-real-token-here"
 ```
+
+Report incorrect code
 
 At runtime, dbt Wizard reads the token from the environment and sends it as `Authorization: Bearer <the token>`. Store only the variable name in `config.toml` to keep the secret out of your committed config.
 
@@ -238,6 +262,8 @@ At runtime, dbt Wizard reads the token from the environment and sends it as `Aut
 Review the dbt model changes in PR #482 — check for missing tests on
 new columns and confirm downstream refs still resolve.
 ```
+
+Report incorrect code
 
 ## Related docs
 

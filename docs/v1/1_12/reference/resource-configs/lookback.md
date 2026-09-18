@@ -25,6 +25,8 @@ models:
       +lookback: 2
 ```
 
+Report incorrect code
+
 Example in a property file:
 
 models/properties.yml
@@ -36,6 +38,8 @@ models:
       lookback: 2
 ```
 
+Report incorrect code
+
 Example in SQL config block:
 
 models/user\_sessions.sql
@@ -45,3 +49,5 @@ models/user\_sessions.sql
     lookback=2
 ) }}
 ```
+
+Report incorrect code

@@ -25,6 +25,8 @@ seeds:
       +delimiter: "," # delimiter for seeds in seed_subdirectory will be ","
 ```
 
+Report incorrect code
+
 Or use a custom delimiter to override the values for a specific seed:
 
 seeds/properties.yml
@@ -36,6 +38,8 @@ seeds:
     config: 
       delimiter: "|"
 ```
+
+Report incorrect code
 
 ## Examples
 
@@ -58,6 +62,8 @@ seeds:
       +delimiter: "," # delimiter for seed_a will be ","
 ```
 
+Report incorrect code
+
 Your corresponding seed files would be formatted like this:
 
 seeds/my\_seed.csv
@@ -69,6 +75,8 @@ col_a|col_b|col_c
 ...
 ```
 
+Report incorrect code
+
 seeds/seed\_a.csv
 
 ```text
@@ -77,6 +85,8 @@ luna,1
 doug,2
 ...
 ```
+
+Report incorrect code
 
 Or you can configure custom behavior for one seed. The `country_codes` uses the ";" delimiter:
 
@@ -90,6 +100,8 @@ seeds:
       delimiter: ";"
 ```
 
+Report incorrect code
+
 The `country_codes` seed file would be formatted like this:
 
 seeds/country\_codes.csv
@@ -101,3 +113,5 @@ CA;Canada
 GB;United Kingdom
 ...
 ```
+
+Report incorrect code

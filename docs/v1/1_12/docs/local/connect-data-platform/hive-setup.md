@@ -57,6 +57,8 @@ your_profile_name:
       
 ```
 
+Report incorrect code
+
 ### LDAP
 
 LDAP allows you to authenticate with a username and password when Hive is [configured with LDAP Auth](https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2). LDAP is supported over Binary & HTTP connection mechanisms.
@@ -82,6 +84,8 @@ your_profile_name:
      schema: SCHEMA_NAME
 ```
 
+Report incorrect code
+
 Note: When creating workload user in CDP, make sure the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If you need the user to execute GRANT statements, you should also configure the appropriate GRANT permissions for them. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option. For more information, see [`grants`](../../../reference/resource-configs/grants.md) and [on-run-start & on-run-end](../../../reference/project-configs/on-run-start-on-run-end.md).
 
 ### Kerberos
@@ -104,6 +108,8 @@ your_profile_name:
       use_ssl: BOOLEAN # TLS should always be used to ensure secure transmission of credentials, default value: true
       schema: SCHEMA_NAME
 ```
+
+Report incorrect code
 
 Note: A typical setup of Cloudera Private Cloud will involve the following steps to setup Kerberos before one can execute dbt commands:
 
@@ -129,6 +135,8 @@ The following commands will install the latest version of `dbt-hive` as well as 
 ```text
 python -m pip install dbt-hive
 ```
+
+Report incorrect code
 
 ### Supported Functionality
 

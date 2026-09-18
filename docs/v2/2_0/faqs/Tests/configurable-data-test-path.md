@@ -10,4 +10,6 @@ dbt\_project.yml
 test-paths: ["my_cool_tests"]
 ```
 
+Report incorrect code
+
 Then, you can define generic data tests in `my_cool_tests/generic/`, and singular data tests everywhere else in `my_cool_tests/`.

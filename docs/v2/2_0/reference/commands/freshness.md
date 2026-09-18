@@ -10,11 +10,15 @@ The `dbt freshness` command evaluates whether sources and models with [freshness
 dbt freshness [--select SELECTOR] [--resource-type RESOURCE_TYPE] [--exclude-resource-type RESOURCE_TYPE]
 ```
 
+Report incorrect code
+
 ### Run freshness for all sources and models
 
 ```bash
 dbt freshness
 ```
+
+Report incorrect code
 
 ### Include or exclude resource types
 
@@ -31,6 +35,8 @@ dbt freshness --resource-type model
 dbt freshness --exclude-resource-type source
 ```
 
+Report incorrect code
+
 ### Select specific model or source
 
 Use `--select` to specify which model or source you want to include when running the command:
@@ -45,6 +51,8 @@ dbt freshness --select "source:jaffle_shop"
 # Select a specific source table
 dbt freshness --select "source:jaffle_shop.orders"
 ```
+
+Report incorrect code
 
 ## How freshness is evaluated
 
@@ -101,6 +109,8 @@ For the full schema, refer to: [`freshness.json`](../artifacts/freshness-json.md
   ]
 }
 ```
+
+Report incorrect code
 
 ### sources.json (legacy)
 

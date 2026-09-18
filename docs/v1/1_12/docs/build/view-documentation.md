@@ -55,6 +55,8 @@ dbt compile --write-index --static-analysis strict   # or: dbt build --write-ind
 dbt docs generate --no-compile
 ```
 
+Report incorrect code
+
 Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage.
 
 #### Self-hosting dbt Docs v2
@@ -66,6 +68,8 @@ Generate a self-contained directory and publish it to your host of choice:
 ```shell
 dbt docs generate --output-dir site
 ```
+
+Report incorrect code
 
 This writes a `site/` directory (the app, hashed assets, and a copy of the index) that you can host on S3, GitHub Pages, Netlify, GitLab Pages, or any similar static file host. To refresh the docs, regenerate the site and re-publish.
 

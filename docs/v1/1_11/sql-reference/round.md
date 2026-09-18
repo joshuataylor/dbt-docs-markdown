@@ -12,6 +12,8 @@ The syntax for using ROUND function looks like the following:
 round(<numeric column or data>, [optional] <number of decimal places>)
 ```
 
+Report incorrect code
+
 In this function, you’ll need to input the *numeric* field or data you want rounded and pass in an optional number to round your field by. For most data warehouses, the number of decimal places is defaulted to 0 or 1, meaning if you rounded 20.00 using `round(20.00)`, it would return 20 or 20.0 (depending on your data warehouse).
 
 ### SQL ROUND function example
@@ -26,6 +28,8 @@ select
 	round(amount, 1) as rounded_amount
 from {{ ref('orders') }}
 ```
+
+Report incorrect code
 
 After running this query, the resulting `orders` table will look a little something like this:
 

@@ -51,6 +51,8 @@ from validation_errors
 {% endtest %}
 ```
 
+Report incorrect code
+
 If this `select` statement returns zero records, then every record in the supplied `model` argument is even! If a nonzero number of records is returned instead, then at least one record in `model` is odd, and the test has failed.
 
 To use this generic test, specify it by name in the `data_tests` property of a model, source, snapshot, or seed:
@@ -68,6 +70,8 @@ models:
       	  - is_even:
             description: "This is a test"
 ```
+
+Report incorrect code
 
 With one line of code, you've just created a test! In this example, `users` will be passed to the `is_even` test as the `model` argument, and `favorite_number` will be passed in as the `column_name` argument. You could add the same line for other columns, other models—each will add a new test to your project, *using the same generic test definition*.
 
@@ -91,6 +95,8 @@ macros:
         type: string
         description: Column name that should not be an empty string
 ```
+
+Report incorrect code
 
 In this example:
 
@@ -133,6 +139,8 @@ where id is not null
 {% endtest %}
 ```
 
+Report incorrect code
+
 When calling this test from a `.yml` file, supply the arguments to the test in a dictionary. Note that the standard arguments (`model` and `column_name`) are provided by the context, so you do not need to define them again.
 
 (Applies to dbt v1.9 and later)
@@ -154,6 +162,8 @@ models:
                 field: id
 ```
 
+Report incorrect code
+
 ### Generic tests with default config values
 
 It is possible to include a `config()` block in a generic test definition. Values set there will set defaults for all specific instances of that generic test, unless overridden within the specific instance's `.yml` properties.
@@ -171,6 +181,8 @@ tests/generic/warn\_if\_odd.sql
 
 {% endtest %}
 ```
+
+Report incorrect code
 
 Any time the `warn_if_odd` test is used, it will *always* have warning-level severity, unless the specific test overrides that value:
 
@@ -194,6 +206,8 @@ models:
                 severity: error   # overrides
 ```
 
+Report incorrect code
+
 ### Customizing dbt's built-in tests
 
 To change the way a built-in generic test works—whether to add additional parameters, re-write the SQL, or for any other reason—you simply add a test block named `<test_name>` to your own project. dbt will favor your version over the global implementation!
@@ -207,6 +221,8 @@ tests/generic/\<filename>.sql
 
 {% endtest %}
 ```
+
+Report incorrect code
 
 ### Examples
 

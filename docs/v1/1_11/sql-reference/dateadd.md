@@ -26,6 +26,8 @@ The *functions themselves* are named slightly differently, which is common acros
 dateadd( {{ datepart }}, {{ interval }}, {{ from_date }} )
 ```
 
+Report incorrect code
+
 *Hour, minute and second are supported!*
 
 ### The DATEADD function in Databricks
@@ -34,11 +36,15 @@ dateadd( {{ datepart }}, {{ interval }}, {{ from_date }} )
 date_add( {{ startDate }}, {{ numDays }} )
 ```
 
+Report incorrect code
+
 ### The DATEADD function in BigQuery…
 
 ```sql
 date_add( {{ from_date }}, INTERVAL {{ interval }} {{ datepart }} )
 ```
+
+Report incorrect code
 
 *Dateparts of less than a day (hour / minute / second) are not supported.*
 
@@ -49,6 +55,8 @@ Postgres doesn’t provide a dateadd function out of the box, so you’ve got to
 ```sql
 {{ from_date }} + (interval '{{ interval }} {{ datepart }}')
 ```
+
+Report incorrect code
 
 Switching back and forth between those SQL syntaxes usually requires a quick scan through the warehouse’s docs to get back on the horse.
 
@@ -64,8 +72,12 @@ Instead of looking up the syntax each time you use it, you can just write it the
 {{ dateadd(datepart, interval, from_date_or_timestamp) }}
 ```
 
+Report incorrect code
+
 Adding 1 month to a specific date would look like…
 
 ```text
 {{ dateadd(datepart="month", interval=1, from_date_or_timestamp="'2021-08-12'") }}
 ```
+
+Report incorrect code

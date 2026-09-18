@@ -31,6 +31,8 @@ The example query below pulls relevant information about a given seed. For insta
 }
 ```
 
+Report incorrect code
+
 ### Fields
 
 When querying for a `seed`, the following fields are available:

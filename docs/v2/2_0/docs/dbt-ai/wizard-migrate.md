@@ -40,6 +40,8 @@ mkdir -p .agents/skills/my-team-style
 touch .agents/skills/my-team-style/SKILL.md
 ```
 
+Report incorrect code
+
 Then add frontmatter and instructions:
 
 ```markdown
@@ -53,6 +55,8 @@ description: Apply team-specific dbt modeling conventions when creating, editing
 (add your reusable instructions here)
 ```
 
+Report incorrect code
+
 Write a specific `description:` because dbt Wizard uses it to decide when to load the skill.
 
 ## Configure model settings
@@ -65,6 +69,8 @@ To set a default model across sessions, add this to `~/.dbt/wizard/config.toml`:
 model = "claude-sonnet-4-6"   # use a model ID from `wizard debug models`
 ```
 
+Report incorrect code
+
 You can also pick a model in the TUI with `/model` without editing config or the `--config` flag. Run `wizard --help` to see all available flags.
 
 ## Verify the migration
@@ -75,11 +81,15 @@ From your dbt project root, start a new session:
 wizard
 ```
 
+Report incorrect code
+
 Ask dbt Wizard to do something that should use your migrated skill, such as:
 
 ```text
 create a new staging model for raw_invoices
 ```
+
+Report incorrect code
 
 And if your conventions aren't applied, check:
 

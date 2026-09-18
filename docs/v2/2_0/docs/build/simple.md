@@ -51,6 +51,8 @@ models:
         agg_time_dimension: my_other_time_dimension_column # Optional, if not using the default time dimension
 ```
 
+Report incorrect code
+
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Simple metrics example
@@ -79,6 +81,8 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
       expr: orders 
       filter: "{{ Dimension('customer__order_total_dim') }} >= 20"
 ```
+
+Report incorrect code
 
 ## Related docs
 

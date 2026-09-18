@@ -116,6 +116,8 @@ wizard mcp add MCP_NAME --url https://YOUR_MCP_URL
 wizard mcp login MCP_NAME
 ```
 
+Report incorrect code
+
 You can see more options by running `wizard mcp --help`.
 
 For example, to connect to the dbt MCP server, replace `DBT_MCP_ENDPOINT` with your endpoint and run:
@@ -124,11 +126,15 @@ For example, to connect to the dbt MCP server, replace `DBT_MCP_ENDPOINT` with y
 wizard mcp add dbt --url DBT_MCP_ENDPOINT
 ```
 
+Report incorrect code
+
 You should see output similar to `Added global MCP server 'dbt'.` Then authenticate:
 
 ```bash
 wizard mcp login dbt
 ```
+
+Report incorrect code
 
 The dbt MCP server reads its connection settings — such as `DBT_HOST`, `DBT_TOKEN`, `DBT_PROJECT_DIR`, `DBT_PATH`, `DBT_PROD_ENV_ID`, and `DBT_ACCOUNT_ID` — from environment variables, typically a `.env` file in your dbt project root.
 
@@ -182,6 +188,8 @@ wizard --ask-for-approval never
 wizard --sandbox workspace-write
 ```
 
+Report incorrect code
+
 Use relaxed settings when you want dbt Wizard to move faster on a scoped task you trust, such as a large refactor, generating documentation, or applying repetitive test updates. The tradeoff is that dbt Wizard has more freedom to act before you review each step, so use these settings in a clean working tree or feature branch.
 
 Approval settings apply to the current session. They are not scoped per action type in the command line flags shown above; for example, `--ask-for-approval never` relaxes prompts broadly for that session. To set defaults that persist across sessions or apply only to a specific project, use the [configuration file](./wizard-config.md).
@@ -191,6 +199,8 @@ You can view more options by running:
 ```bash
 wizard --help
 ```
+
+Report incorrect code
 
 ### Sessions
 
@@ -208,6 +218,8 @@ Resume a previous session with:
 wizard resume        # choose from a list of saved sessions
 wizard resume --last # resume the most recent session
 ```
+
+Report incorrect code
 
 Local sessions are saved on your machine, in the CLI and in Wizard Desktop alike. This is separate from platform conversations, which are stored in your dbt platform account.
 

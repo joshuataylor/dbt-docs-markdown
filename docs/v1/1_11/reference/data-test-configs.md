@@ -38,6 +38,8 @@ data_tests:
     +where: <string>
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 ```jinja
@@ -52,6 +54,8 @@ data_tests:
     where = "<string>"
 ) }}
 ```
+
+Report incorrect code
 
 #### Property file
 
@@ -95,6 +99,8 @@ data_tests:
                 sql_header: <string> 
 ```
 
+Report incorrect code
+
 This configuration mechanism is supported for specific instances of generic tests only. To configure a specific singular test, you should use the `config()` macro in its SQL definition.
 
 Starting in dbt v1.12, you can set [`sql_header`](./resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](./global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `config.sql_header` in your data tests.
@@ -119,6 +125,8 @@ data_tests:
     +alias: <string>
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 ```jinja
@@ -132,6 +140,8 @@ data_tests:
     alias="<string>",
 ) }}
 ```
+
+Report incorrect code
 
 #### Property file
 
@@ -172,6 +182,8 @@ data_tests:
                 alias: <string>
 ```
 
+Report incorrect code
+
 This configuration mechanism is supported for specific instances of generic data tests only. To configure a specific singular test, you should use the `config()` macro in its SQL definition.
 
 ### Examples
@@ -193,6 +205,8 @@ models:
                 tags: ['my_tag'] # changed to config in v1.10
 ```
 
+Report incorrect code
+
 If a singular data test:
 
 tests/\<filename>.sql
@@ -202,6 +216,8 @@ tests/\<filename>.sql
 
 select ...
 ```
+
+Report incorrect code
 
 #### Set the default severity for all instances of a generic data test
 
@@ -217,6 +233,8 @@ macros/\<filename>.sql
 {% endtest %}
 ```
 
+Report incorrect code
+
 #### Disable all data tests from a package
 
 dbt\_project.yml
@@ -226,6 +244,8 @@ data_tests:
   package_name:
     +enabled: false
 ```
+
+Report incorrect code
 
 #### Specify custom configurations for generic data tests
 
@@ -245,6 +265,8 @@ models:
                 severity: warn
                 snowflake_warehouse: my_warehouse
 ```
+
+Report incorrect code
 
 Given the config, the data test runs on a different Snowflake virtual warehouse than the one in your default connection to enable better price-performance with a different warehouse size or more granular cost allocation and visibility.
 
@@ -269,6 +291,8 @@ models:
               description: "This test checks whether there are unexpected delivery statuses. If it fails, check with logistics team"
 ```
 
+Report incorrect code
+
 You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
 For a singular test, define it in the test's directory:
@@ -281,5 +305,7 @@ data_tests:
   - name: my_custom_test
     description: "This test checks whether the rolling average of returns is inside of expected bounds. If it isn't, flag to customer success team"
 ```
+
+Report incorrect code
 
 For more information refer to [Add a description to a data test](./resource-properties/description.md#add-a-description-to-a-data-test).

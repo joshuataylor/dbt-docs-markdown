@@ -35,6 +35,8 @@ sources:
         period: minute | hour | day
 ```
 
+Report incorrect code
+
 ### Property file
 
 models/\<filename>.yml
@@ -71,6 +73,8 @@ sources:
           loaded_at_field: <column_name_or_expression>
           loaded_at_query: <sql_expression>
 ```
+
+Report incorrect code
 
 Freshness blocks are applied hierarchically:
 
@@ -122,6 +126,8 @@ sources:
             warn_after: {count: 12, period: hour}
 ```
 
+Report incorrect code
+
 #### Using `loaded_at_query`
 
 (Applies to dbt v1.10 and later)
@@ -141,6 +147,8 @@ sources:
           freshness:
             warn_after: {count: 12, period: hour}
 ```
+
+Report incorrect code
 
 #### Complete example
 
@@ -171,6 +179,8 @@ sources:
           freshness: null # do not check freshness for this table
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.99 and earlier)
 
 When running [`dbt source freshness`](../commands/source.md), the following query will be run against the `orders` table:
@@ -185,6 +195,8 @@ from raw.jaffle_shop.orders
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
 
+Report incorrect code
+
 ##### Jinja SQL
 
 ```sql
@@ -196,5 +208,7 @@ from {{ source }}
 where {{ filter }}
 {% endif %}
 ```
+
+Report incorrect code
 
 *[Source code](https://github.com/dbt-labs/dbt-adapters/blob/main/dbt-adapters/src/dbt/include/global_project/macros/adapters/freshness.sql#L5-L16)*

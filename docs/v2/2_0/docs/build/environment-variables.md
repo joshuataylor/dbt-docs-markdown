@@ -196,6 +196,8 @@ select *,
 from users_aggregated
 ```
 
+Report incorrect code
+
  Configure Semantic Layer credentials
 
 Use [Extended Attributes](../dbt-platform-environments.md#extended-attributes) and [Environment Variables](./environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.

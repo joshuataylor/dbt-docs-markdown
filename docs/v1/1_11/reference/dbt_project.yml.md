@@ -117,6 +117,8 @@ functions:
   <function-configs>
 ```
 
+Report incorrect code
+
 ## The `+` prefix
 
 dbt demarcates between a folder name and a configuration by using a `+` prefix before the configuration name. The `+` prefix is used for configs *only* and applies to `dbt_project.yml` under the corresponding resource key. It doesn't apply to:
@@ -141,6 +143,8 @@ It's important to follow the correct YAML naming conventions for the configs in 
         enabled: true
   ```
 
+  Report incorrect code
+
 * Use underscore (`_`) when configuring resource types with multiple words for YAML files other than the `dbt_project.yml` file. For example, here's the same saved queries resource in the `semantic_models.yml` file:
 
   models/semantic\_models.yml
@@ -153,3 +157,5 @@ It's important to follow the correct YAML naming conventions for the configs in 
         cache:
           enabled: true
   ```
+
+  Report incorrect code

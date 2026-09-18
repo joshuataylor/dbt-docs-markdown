@@ -26,6 +26,8 @@ macros/get\_custom\_schema.sql
 {%- endmacro %}
 ```
 
+Report incorrect code
+
 With the default behavior, dbt raises a deprecation warning. When `require_valid_schema_from_generate_schema_name` is set to `true`, dbt raises an error.
 
 To resolve this, update your macro to return a valid schema name (`target.schema` in this example):
@@ -41,3 +43,5 @@ macros/get\_custom\_schema.sql
     {%- endif -%}
 {%- endmacro %}
 ```
+
+Report incorrect code

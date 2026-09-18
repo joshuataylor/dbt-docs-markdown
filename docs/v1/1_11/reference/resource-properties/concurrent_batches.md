@@ -13,6 +13,8 @@ models:
   +concurrent_batches: true
 ```
 
+Report incorrect code
+
 ## SQL file config
 
 models/my\_model.sql
@@ -28,6 +30,8 @@ models/my\_model.sql
 }}
 select ...
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -53,6 +57,8 @@ models:
       +concurrent_batches: false
 ```
 
+Report incorrect code
+
 models/my\_model.sql
 
 ```sql
@@ -65,3 +71,5 @@ models/my\_model.sql
 }}
 select ...
 ```
+
+Report incorrect code

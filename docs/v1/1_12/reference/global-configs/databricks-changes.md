@@ -49,6 +49,8 @@ flags:
   use_user_folder_for_python: false
 ```
 
+Report incorrect code
+
 ## Use restructured materializations
 
 The `use_materialization_v2` flag is `false` by default and guards significant rewrites of the core materializations in `dbt-databricks` while they are still in an experimental stage.
@@ -90,6 +92,8 @@ models:
 ...
 ```
 
+Report incorrect code
+
 There is currently no support for altering the comment on a view via Databricks SQL.
 
 As such, we must replace the view whenever you change its description
@@ -113,6 +117,8 @@ models:
           - not_null
 ...
 ```
+
+Report incorrect code
 
 This configuration option may increase costs and disrupt Unity Catalog history.
 
@@ -171,6 +177,8 @@ models:
       incremental_apply_config_changes: false
 ...
 ```
+
+Report incorrect code
 
 ## Use managed Iceberg
 

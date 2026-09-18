@@ -20,11 +20,15 @@ Add a marketplace from a GitHub repository:
 wizard plugin marketplace add OWNER/REPOSITORY --ref main
 ```
 
+Report incorrect code
+
 You can also add a local marketplace while developing or evaluating it:
 
 ```bash
 wizard plugin marketplace add ./path/to/marketplace
 ```
+
+Report incorrect code
 
 For a repository that contains a marketplace in a subdirectory, use a sparse checkout path:
 
@@ -34,11 +38,15 @@ wizard plugin marketplace add \
   --sparse path/to/plugins
 ```
 
+Report incorrect code
+
 List the configured sources and their local snapshot locations:
 
 ```bash
 wizard plugin marketplace list
 ```
+
+Report incorrect code
 
 Before installing a plugin, inspect the marketplace snapshot and the plugin's `.dbt-wizard-plugin/plugin.json`. Review any referenced skills, MCP server configuration, apps, hook files, and executable scripts.
 
@@ -52,17 +60,23 @@ List the available plugins and their installation state:
 wizard plugin list
 ```
 
+Report incorrect code
+
 Install a plugin by its `PLUGIN@MARKETPLACE` identifier:
 
 ```bash
 wizard plugin add PLUGIN_NAME@MARKETPLACE_NAME
 ```
 
+Report incorrect code
+
 The equivalent long form is:
 
 ```bash
 wizard plugin add PLUGIN_NAME --marketplace MARKETPLACE_NAME
 ```
+
+Report incorrect code
 
 Start a new interactive session after installation. Use `/plugins` to browse loaded plugins. If the plugin declares hooks, use `/hooks` to inspect the handlers and their trust status before allowing them to run.
 
@@ -90,11 +104,15 @@ Refresh one configured Git marketplace:
 wizard plugin marketplace upgrade MARKETPLACE_NAME
 ```
 
+Report incorrect code
+
 Omit the name to refresh all configured Git marketplaces:
 
 ```bash
 wizard plugin marketplace upgrade
 ```
+
+Report incorrect code
 
 Review the updated source before starting a session that allows its hooks to run.
 
@@ -104,11 +122,15 @@ Remove a plugin when you no longer need it:
 wizard plugin remove PLUGIN_NAME@MARKETPLACE_NAME
 ```
 
+Report incorrect code
+
 Remove the marketplace source separately:
 
 ```bash
 wizard plugin marketplace remove MARKETPLACE_NAME
 ```
+
+Report incorrect code
 
 Removing a marketplace and removing an installed plugin are separate operations. List both after cleanup to confirm the intended state.
 

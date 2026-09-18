@@ -44,3 +44,5 @@ cratedb_analytics:
       dbname: crate         # Do not change this value. CrateDB's only catalog is `crate`.
       schema: doc           # Define the schema name. CrateDB's default schema is `doc`.
 ```
+
+Report incorrect code

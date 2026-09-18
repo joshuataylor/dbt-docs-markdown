@@ -15,6 +15,8 @@ from <table_1> as t1
 cross join <table_2> as t2
 ```
 
+Report incorrect code
+
 Cross joins are one of those SQL concepts that is easier to understand with a tangible example, so let’s jump into it.
 
 ### SQL cross join example
@@ -43,6 +45,8 @@ from {{ ref('users') }} as users
 cross join {{ ref('date_spine') }} as date
 order by 1
 ```
+
+Report incorrect code
 
 This simple query will return a cartesian cross of all users and dates, essentially creating a unique combination of user per date per row:
 

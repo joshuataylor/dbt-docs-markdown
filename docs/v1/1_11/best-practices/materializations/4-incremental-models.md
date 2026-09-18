@@ -49,6 +49,8 @@ where
   updated_at > (select max(updated_at) from {{ this }})
 ```
 
+Report incorrect code
+
 Let’s break down that `where` clause a bit, because this is where the action is with incremental models. Stepping through the code ***right-to-left*** we:
 
 1. Get our **cutoff.**
@@ -96,6 +98,8 @@ First, let's look at a config block for incremental materialization:
 select ...
 ```
 
+Report incorrect code
+
 * 📚 The **`materialized` config** works just like tables and views, we just pass it the value `'incremental'`.
 * 🔑 We’ve **added a new config option `unique_key`,** that tells dbt that if it finds a record in our previous run — the data in the warehouse already — with the same unique id (in our case `order_id` for our `orders` table) that exists in the new data we’re adding incrementally, to **update that record instead of adding it as a separate row**.
 * 👯 This **hugely broadens the types of data we can build incrementally** from just immutable tables (data where rows only ever get added, never updated) to mutable records (where rows might change over time). As long as we’ve got a column that specifies when records were updated (such as `updated_at` in our example), we can handle almost anything.
@@ -137,6 +141,8 @@ where
 {% endif %}
 ```
 
+Report incorrect code
+
 Fantastic! We’ve got a working incremental model. On our first run, when there is no corresponding table in the warehouse, `is_incremental` will evaluate to false and we’ll capture the entire table. On subsequent runs it will evaluate to true and we’ll apply our filter logic, capturing only the newer data.
 
 ### Late-arriving facts
@@ -166,6 +172,8 @@ models:
         pre_clone: always
 ```
 
+Report incorrect code
+
 The default for `pre_clone` is `if_missing`, which clones production only if the table doesn't already exist locally.
 
 **Late-arriving records:** Late-arriving records may have an earlier event timestamp (for example, `event_date`) than their ingestion timestamp. dbt State may not detect them as new data and skip rebuilding the incremental model, even though your lookback window would normally pick up those records. To ensure late-arriving data is detected, configure a `loaded_at_query` on the source that aligns with the same lookback window used in your incremental filter:
@@ -181,6 +189,8 @@ sources:
             from {{ this }}
             where ingested_at >= current_timestamp - interval '3 days'
 ```
+
+Report incorrect code
 
 For more details, refer to [dbt State configurations](../../reference/resource-configs/dbt-state-configs.md) and [freshness](../../reference/resource-configs/freshness.md).
 

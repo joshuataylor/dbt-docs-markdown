@@ -33,6 +33,8 @@ Upgrading to v2 is an install step. Install dbt using `pip` to get dbt v2 for v2
 python -m pip install dbt
 ```
 
+Report incorrect code
+
 For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](../../local/install-dbt.md).
 
 ## What to know before upgrading
@@ -202,6 +204,8 @@ models:
     +static_analysis: baseline
 ```
 
+Report incorrect code
+
 Or pass `--static-analysis baseline` on the CLI. For details, refer to [About static analysis](../../build/about-static-analysis.md).
 
 #### Strict static analysis
@@ -217,6 +221,8 @@ models:
     +static_analysis: strict
 ```
 
+Report incorrect code
+
 Or pass `--static-analysis strict` on the CLI (or set `DBT_STATIC_ANALYSIS=strict`). For details, refer to [static\_analysis](../../../reference/resource-configs/static-analysis.md).
 
 Deprecated values
@@ -230,6 +236,8 @@ v2 tracks which source columns flow into which output columns across your entire
 ```shell
 dbt build --static-analysis strict
 ```
+
+Report incorrect code
 
 The lineage is then visible in [dbt-docs](../../build/view-documentation.md#dbt-docs-v2). No additional configuration is needed; the site detects the presence of the lineage artifact automatically. For details, refer to [Column-level lineage](../../explore/column-level-lineage.md).
 
@@ -268,6 +276,8 @@ v2 supports running a single project against multiple adapters simultaneously as
 export DBT_ENGINE_EXPERIMENTAL_MULTI_ADAPTER=true
 ```
 
+Report incorrect code
+
 Without this flag, dbt fails at parse time if any node in the project has an `adapter` config, even for runs that don't select that node. The gate reads config as written, not as selected, so the entire project needs the env var to parse once any model uses a non-default adapter.
 
 ### Changed functionality
@@ -302,6 +312,8 @@ identifier='a'
 {{ print('relation_via_api: ' ~ relation_via_api) }}
 ```
 
+Report incorrect code
+
 The output after `dbt parse` in dbt v1:
 
 ```text
@@ -309,12 +321,16 @@ relation: None
 relation_via_api: my_db.my_schema.my_table
 ```
 
+Report incorrect code
+
 The output after `dbt parse` in v2:
 
 ```text
 relation: my_db.my_schema.my_table
 relation_via_api: my_db.my_schema.my_table
 ```
+
+Report incorrect code
 
 #### Deprecated flags
 
@@ -373,6 +389,8 @@ v2 will present an error:
 error: dbt8999: Cannot combine non-exact versions: =0.8.3 and =1.1.1
 ```
 
+Report incorrect code
+
 #### Parse will fail on nonexistent macro invocations and adapter methods
 
 When you call a nonexistent macro in dbt:
@@ -385,11 +403,15 @@ select
 from app_data.payments
 ```
 
+Report incorrect code
+
 Or a nonexistent adapter method:
 
 ```sql
 {{ adapter.does_not_exist() }}
 ```
+
+Report incorrect code
 
 In v1, `dbt parse` passes, but `dbt compile` fails.
 
@@ -407,6 +429,8 @@ models:
       - does_not_exist
 ```
 
+Report incorrect code
+
 In v1, `dbt parse` passes, but `dbt compile` fails.
 
 In v2, dbt will error out during `parse`.
@@ -419,6 +443,8 @@ When you have an undefined variable in your project:
 
 select {{ var('does_not_exist') }} as my_column
 ```
+
+Report incorrect code
 
 In v1, `dbt parse` passes, but `dbt compile` fails.
 
@@ -433,6 +459,8 @@ v2 adds stricter evaluation of names of docs blocks to prevent such ambiguity. I
 ```bash
 dbt found two docs with the same name: 'docs_block_title' in files: 'models/crm/_crm.md' and 'docs/crm/business_class_marketing.md'
 ```
+
+Report incorrect code
 
 To resolve this error, rename any duplicate docs blocks.
 
@@ -485,6 +513,8 @@ cat,
 bear,  
 ```
 
+Report incorrect code
+
 Will produce this table when `dbt seed` is executed:
 
 | animal | b |
@@ -530,6 +560,8 @@ models:
       - *id_column_alias
 ```
 
+Report incorrect code
+
 Move the anchor under the `anchors:` key instead:
 
 models/\_models.yml
@@ -555,6 +587,8 @@ models:
       - *id_column_alias
 ```
 
+Report incorrect code
+
 This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](../../../reference/resource-properties/anchors.md).
 
 #### Self-referential (recursive) YAML anchors are not supported
@@ -570,6 +604,8 @@ sources:
       - <<: *tables
         name: merged_item
 ```
+
+Report incorrect code
 
 This parsed successfully in v1 only because PyYAML (the YAML library dbt v1 depends on) incidentally allows self-referential anchors, a side effect of Python's own support for cyclic data structures, not an intentional YAML feature. No other major YAML implementation allows this pattern.
 
@@ -588,6 +624,8 @@ sources:
         name: merged_item
 ```
 
+Report incorrect code
+
 #### Algebraic operations in Jinja macros
 
 In v1, you can set algebraic functions in the return function of a Jinja macro:
@@ -600,6 +638,8 @@ return('xyz') + 'abc'
 {% endmacro %}
 ```
 
+Report incorrect code
+
 This is no longer supported in v2 and will emit a warning:
 
 ```bash
@@ -607,6 +647,8 @@ This is no longer supported in v2 and will emit a warning:
 Its value is final and cannot be modified by surrounding expressions.
 Example: return(0) + 1. The + 1 is ignored and the macro returns 0.
 ```
+
+Report incorrect code
 
 This is not a common use case and there is no deprecation warning for this behavior in v1. The supported format is:
 
@@ -618,6 +660,8 @@ return('xyzabc')
 {% endmacro %}
 ```
 
+Report incorrect code
+
 #### Accessing custom configurations in meta
 
 `config.get()` and `config.require()` don't return values from the `meta` dictionary. If you try to access a key that only exists in `meta`, dbt emits a warning:
@@ -627,6 +671,8 @@ warning: The key 'my_key' was not found using config.get('my_key'), but was
 detected as a custom config under 'meta'. Please use config.meta_get('my_key') 
 or config.meta_require('my_key') instead.
 ```
+
+Report incorrect code
 
 Behavior when a key exists only in meta:
 
@@ -641,6 +687,8 @@ To access custom configurations stored under meta, use the explicit methods:
 {% set owner = config.meta_get('owner') %}
 {% set has_pii = config.meta_require('pii') %}
 ```
+
+Report incorrect code
 
 For more information, see [config.meta\_get()](../../../reference/dbt-jinja-functions/config.md#configmeta_get) and [config.meta\_require()](../../../reference/dbt-jinja-functions/config.md#configmeta_require).
 
@@ -688,6 +736,8 @@ Here's an example of a v2 warning in the Studio IDE that says a package isn't 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
+
+Report incorrect code
 
 ## Distributions
 

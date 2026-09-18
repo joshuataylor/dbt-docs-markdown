@@ -25,6 +25,8 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 ## Redshift
 
 ```shell
@@ -47,11 +49,15 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+Report incorrect code
+
 In this case, you should rerun the command with a `--full-refresh` flag, like so:
 
 ```text
 dbt seed --full-refresh
 ```
+
+Report incorrect code
 
 **Why is this the case?**
 

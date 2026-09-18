@@ -113,6 +113,8 @@ To check whether this change affects your project, run the following [list](../.
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
+Report incorrect code
+
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:

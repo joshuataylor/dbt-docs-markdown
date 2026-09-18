@@ -48,6 +48,8 @@ Authentication uses either a dbt [service account token](./service-tokens.md) or
 {"Authorization": "Bearer <AUTHENTICATION TOKEN>"}
 ```
 
+Report incorrect code
+
 Each GQL request also requires a dbt `environmentId`. The API uses both the service or personal token in the header and `environmentId` for authentication.
 
 ### Metadata calls
@@ -65,6 +67,8 @@ The GraphQL API has an easy way to fetch this with the following query:
   }
 }
 ```
+
+Report incorrect code
 
 #### Fetch available metrics
 
@@ -84,6 +88,8 @@ metricsPaginated(
 }
 ```
 
+Report incorrect code
+
 #### Fetch available dimensions for metrics
 
 ```graphql
@@ -102,6 +108,8 @@ dimensionsPaginated(
 }
 ```
 
+Report incorrect code
+
 #### Fetch available granularities given metrics
 
 Note: This call for `queryableGranularities` returns only queryable granularities for metric time - the primary time dimension across all metrics selected.
@@ -112,6 +120,8 @@ queryableGranularities(
   metrics: [MetricInput!]!
 ): [TimeGranularity!]!
 ```
+
+Report incorrect code
 
 You can also get queryable granularities for all other dimensions using the `dimensions` call:
 
@@ -125,6 +135,8 @@ You can also get queryable granularities for all other dimensions using the `dim
   }
 }
 ```
+
+Report incorrect code
 
 You can also optionally access it from the metrics endpoint:
 
@@ -141,6 +153,8 @@ You can also optionally access it from the metrics endpoint:
   }
 }
 ```
+
+Report incorrect code
 
 #### Fetch entities
 
@@ -160,6 +174,8 @@ entitiesPaginated(
 }
 ```
 
+Report incorrect code
+
 #### Fetch entities and dimensions to group metrics
 
 ```graphql
@@ -178,6 +194,8 @@ groupBysPaginated(
 }
 ```
 
+Report incorrect code
+
 #### Metric types
 
 ```graphql
@@ -192,9 +210,13 @@ Metric {
 }
 ```
 
+Report incorrect code
+
 ```text
 MetricType = [SIMPLE, RATIO, CUMULATIVE, DERIVED]
 ```
+
+Report incorrect code
 
 #### Metric type parameters
 
@@ -212,9 +234,13 @@ Dimension {
 }
 ```
 
+Report incorrect code
+
 ```text
 DimensionType = [CATEGORICAL, TIME]
 ```
+
+Report incorrect code
 
 #### List saved queries
 
@@ -234,6 +260,8 @@ savedQueriesPaginated(
     totalPages: Int!
 }
 ```
+
+Report incorrect code
 
 #### List a saved query
 
@@ -263,6 +291,8 @@ savedQuery(environmentId: "123", savedQueryName: "query_name") {
 }
 ```
 
+Report incorrect code
+
 ### Querying
 
 When querying for data, *either* a `groupBy` *or* a `metrics` selection is required. The following section provides examples of how to query metrics:
@@ -282,6 +312,8 @@ createQuery(
   order: [OrderByInput!] = null
 ): CreateQueryResult
 ```
+
+Report incorrect code
 
 ```graphql
 MetricInput {
@@ -305,6 +337,8 @@ OrderByinput { # -- pass one and only one of metric or groupBy
 }
 ```
 
+Report incorrect code
+
 #### Fetch query result
 
 ```graphql
@@ -313,6 +347,8 @@ query(
   queryId: String!
 ): QueryResult!
 ```
+
+Report incorrect code
 
 The GraphQL API uses a polling process for querying since queries can be long-running in some cases. It works by first creating a query with a mutation, \`createQuery, which returns a query ID. This ID is then used to continuously check (poll) for the results and status of your query. The typical flow would look as follows:
 
@@ -330,6 +366,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 2. Poll for results
 
 ```graphql
@@ -344,6 +382,8 @@ mutation {
   }
 }
 ```
+
+Report incorrect code
 
 3. Keep querying 2. at an appropriate interval until status is `FAILED` or `SUCCESSFUL`
 
@@ -365,6 +405,8 @@ By default, the output is in Arrow format. You can switch to JSON format using t
   }
 }
 ```
+
+Report incorrect code
 
 The results default to the table but you can change it to any [pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html) supported value.
 
@@ -437,6 +479,8 @@ order_total  ordered_at
 """
 ```
 
+Report incorrect code
+
 ### Additional create query examples
 
 The following section provides query examples for the GraphQL API, such as how to query metrics, dimensions, where filters, and more:
@@ -465,6 +509,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 #### Query with a time grain
 
 ```graphql
@@ -478,6 +524,8 @@ mutation {
   }
 }
 ```
+
+Report incorrect code
 
 Note that when using granularity in the query, the output of a time dimension with a time grain applied to it always takes the form of a dimension name appended with a double underscore and the granularity level - `{time_dimension_name}__{DAY|WEEK|MONTH|QUARTER|YEAR}`. Even if no granularity is specified, it will also always have a granularity appended to it and will default to the lowest available (usually daily for most data sources). It is encouraged to specify a granularity when using time dimensions so that there won't be any unexpected results with the output data.
 
@@ -495,6 +543,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 #### Query a categorical dimension on its own
 
 ```graphql
@@ -507,6 +557,8 @@ mutation {
   }
 }
 ```
+
+Report incorrect code
 
 #### Query with a where filter
 
@@ -531,6 +583,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 #### Multi-hop joins
 
 In cases where you need to query across multiple related tables (multi-hop joins), use the `entity_path` argument to specify the path between related entities. The following are examples of how you can define these joins:
@@ -541,11 +595,15 @@ In cases where you need to query across multiple related tables (multi-hop joins
   {{Dimension('location__location_name', entity_path=['order_id'])}}
   ```
 
+  Report incorrect code
+
 * In this example, the `salesforce_account_owner` dimension is joined to the `region` field, with the path going through `salesforce_account`.
 
   ```sql
   {{ Dimension('salesforce_account_owner__region',['salesforce_account']) }}
   ```
+
+  Report incorrect code
 
 #### Query with order
 
@@ -562,6 +620,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 #### Query with limit
 
 ```graphql
@@ -577,6 +637,8 @@ mutation {
 }
 ```
 
+Report incorrect code
+
 #### Query saved queries
 
 This takes the same inputs as the `createQuery` mutation, but includes the field `savedQuery`. You can use this for frequently used queries.
@@ -591,6 +653,8 @@ mutation {
   }
 }
 ```
+
+Report incorrect code
 
 A note on querying saved queries
 
@@ -611,6 +675,8 @@ mutation {
   }
 }
 ```
+
+Report incorrect code
 
 #### Query records
 
@@ -673,3 +739,5 @@ Use this endpoint to view all the queries made in your project. This covers both
   }
 }
 ```
+
+Report incorrect code

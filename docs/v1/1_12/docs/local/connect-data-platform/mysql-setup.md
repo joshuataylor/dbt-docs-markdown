@@ -63,6 +63,8 @@ your_profile_name:
       ssl_disabled: True
 ```
 
+Report incorrect code
+
 #### Description of MySQL Profile Fields
 
 | Option        | Description                                           | Required? | Example                        |
@@ -102,5 +104,7 @@ your_profile_name:
   explicit_defaults_for_timestamp = true
   sql_mode = "ALLOW_INVALID_DATES,{other_sql_modes}"
   ```
+
+  Report incorrect code
 
   * Where `{other_sql_modes}` is the rest of the modes from the `SHOW VARIABLES LIKE 'sql_mode'` output.

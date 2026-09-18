@@ -13,6 +13,8 @@ For example:
 {% endif %}
 ```
 
+Report incorrect code
+
 To view the contents of `model` for a given model:
 
 ## Command line interface
@@ -23,6 +25,8 @@ If you're using the command line interface (CLI), use [log()](./log.md) to print
 {{ log(model, info=True) }}
 ```
 
+Report incorrect code
+
 ## Studio IDE
 
 If you're using the Studio IDE, compile the following to print the full contents:
@@ -30,6 +34,8 @@ If you're using the Studio IDE, compile the following to print the full contents
 ```jinja
 {{ model | tojson(indent = 4) }}
 ```
+
+Report incorrect code
 
 ## Batch properties for microbatch models
 
@@ -59,6 +65,8 @@ We recommend to always check if `model.batch` is populated before accessing its 
 {% endif %}
 ```
 
+Report incorrect code
+
 In this example, the `if model.batch` statement makes sure that the code only runs during a batch execution. `log()` is used to print the `batch` properties for debugging.
 
 #### Example of log batch details
@@ -71,6 +79,8 @@ This is a practical example of how you might use `model.batch` in a microbatch m
   {{ log("Batch event time range: " ~ model.batch.event_time_start ~ " to " ~ model.batch.event_time_end, info=True) }}
 {% endif %}
 ```
+
+Report incorrect code
 
 In this example, the `if model.batch` statement makes sure that the code only runs during a batch execution. `log()` is used to print the `batch` properties for debugging.
 

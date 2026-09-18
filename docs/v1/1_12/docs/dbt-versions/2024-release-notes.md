@@ -26,6 +26,8 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
         +tags: order_metrics
   ```
 
+  Report incorrect code
+
 * **New**: [Dimensions](../../reference/resource-configs/meta.md) now support the `meta` config property in [dbt Cloud **Latest** release track](./dbt-release-tracks.md) and from dbt Core 1.9. You can add metadata to your dimensions to provide additional context and information about the dimension. Refer to [meta](../../reference/resource-configs/meta.md) for more information.
 
 * **New**: [Downstream exposures](../platform-integrations/downstream-exposures-tableau.md) are now generally available to dbt Enterprise plans. Downstream exposures integrate natively with Tableau (Power BI coming soon) and auto-generate downstream lineage in dbt Explorer for a richer experience.

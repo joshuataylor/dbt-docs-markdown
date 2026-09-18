@@ -8,6 +8,8 @@
 dbt-state explain
 ```
 
+Report incorrect code
+
 The output shows all nodes from the last run with a summary of the State decision for each:
 
 ```shell
@@ -23,6 +25,8 @@ not_null_stg_locations_location_id
 └── [Execute] data test was executed because it has no prior execution or its query changed
 ```
 
+Report incorrect code
+
 If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
 
 ## Specifying a log file
@@ -35,6 +39,8 @@ By default, (Applies to dbt v1.99 and earlier) `dbt-state explain` reads from th
 dbt-state explain --log-file 'logs/state/responses_2026_08_25_11_00_15_667.jsonl'
 ```
 
+Report incorrect code
+
 ## Using verbose mode
 
 Use the `--verbose` flag to see the full step-by-step analysis for each node and add a run configuration summary. Use `-s` to filter the output to a specific node.
@@ -44,6 +50,8 @@ Use the `--verbose` flag to see the full step-by-step analysis for each node and
 ```bash
 dbt-state explain --verbose -s my_node_name
 ```
+
+Report incorrect code
 
 The verbose output shows the full step-by-step analysis and adds a run configuration summary:
 
@@ -80,6 +88,8 @@ Last run: 2026-08-19 20:19:00 PST (10 minutes ago)
       └── ✓ upstream data is outdated (within tolerance)
   decision: [No-op] model was a no-op because its query is up to date and its upstream data is within freshness tolerance
 ```
+
+Report incorrect code
 
 The `--verbose` flag produces a decision breakdown that may include the following analyses, depending on the node type:
 

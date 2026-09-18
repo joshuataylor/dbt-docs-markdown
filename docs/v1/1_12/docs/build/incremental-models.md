@@ -19,6 +19,8 @@ To check whether this change affects your project, run the following [list](../.
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
+Report incorrect code
+
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
@@ -48,6 +50,8 @@ Like the other materializations built into dbt, incremental models are defined w
 
 select ...
 ```
+
+Report incorrect code
 
 To use incremental models, you also need to tell dbt:
 
@@ -99,6 +103,8 @@ where event_time >= (select coalesce(max(event_time),'1900-01-01') from {{ this 
 {% endif %}
 ```
 
+Report incorrect code
+
 Optimizing your incremental model
 
 For more complex incremental models that make use of Common Table Expressions (CTEs), you should consider the impact of the position of the `is_incremental()` macro on query performance. In some warehouses, filtering your records early can vastly improve the run time of your query!
@@ -125,6 +131,8 @@ models:
       # `DBT_INTERNAL_DEST` and `DBT_INTERNAL_SOURCE` are the standard aliases for the target table and temporary table, respectively, during an incremental run using the merge strategy. 
 ```
 
+Report incorrect code
+
 Alternatively, here are the same configurations configured within a model file:
 
 ```sql
@@ -145,6 +153,8 @@ Alternatively, here are the same configurations configured within a model file:
 ...
 ```
 
+Report incorrect code
+
 This will template (in the `dbt.log` file) a `merge` statement like:
 
 ```sql
@@ -160,6 +170,8 @@ merge into <existing_table> DBT_INTERNAL_DEST
     when not matched then insert ...
 ```
 
+Report incorrect code
+
 Limit the data scan of *upstream* tables within the body of their incremental model SQL, which will limit the amount of "new" data processed/transformed.
 
 ```sql
@@ -174,6 +186,8 @@ with large_source_table as (
 
 ...
 ```
+
+Report incorrect code
 
 ### Defining a unique key
 
@@ -238,6 +252,8 @@ from {{ ref('app_data_events') }}
 group by 1
 ```
 
+Report incorrect code
+
 Building this model incrementally without the `unique_key` parameter would result in multiple rows in the target table for a single day – one row for each time dbt runs on that day. Instead, the inclusion of the `unique_key` parameter ensures the existing row is updated instead.
 
 ## How do I rebuild an incremental model?
@@ -249,6 +265,8 @@ To force dbt to rebuild the entire incremental model from scratch, use the `--fu
 ```bash
 $ dbt run --full-refresh --select my_incremental_model+
 ```
+
+Report incorrect code
 
 The trailing `+` in the command above will also run all downstream models that depend on `my_incremental_model`. If any of those downstream dependencies are also incremental models, they will be fully refreshed as well.
 
@@ -269,6 +287,8 @@ models:
   +on_schema_change: "sync_all_columns"
 ```
 
+Report incorrect code
+
 models/staging/fct\_daily\_active\_users.sql
 
 ```sql
@@ -280,6 +300,8 @@ models/staging/fct\_daily\_active\_users.sql
     )
 }}
 ```
+
+Report incorrect code
 
 The possible values for `on_schema_change` are:
 

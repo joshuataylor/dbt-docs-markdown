@@ -12,11 +12,15 @@ Install the dbt OSS with `pip`:
 python -m pip install dbt-oss
 ```
 
+Report incorrect code
+
 Confirm the installed version begins with `2.`:
 
 ```shell
 dbt --version
 ```
+
+Report incorrect code
 
 For adapter install details, refer to the [`dbt` repository](https://github.com/dbt-labs/dbt).
 

@@ -48,6 +48,8 @@ query {
 }
 ```
 
+Report incorrect code
+
 ### Fields
 
 When querying for `resources`, you can use the following fields:

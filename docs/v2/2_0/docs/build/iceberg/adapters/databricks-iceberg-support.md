@@ -57,6 +57,8 @@ models/my\_iceberg\_model.sql
 select * from {{ ref('raw_orders') }}
 ```
 
+Report incorrect code
+
 To create an Iceberg-enabled Delta table instead, set `use_uniform` to `true`:
 
 models/my\_uniform\_model.sql
@@ -72,6 +74,8 @@ models/my\_uniform\_model.sql
 
 select * from {{ ref('raw_orders') }}
 ```
+
+Report incorrect code
 
 ### External tables
 
@@ -114,6 +118,8 @@ catalogs:
         location_root: s3://cloud-storage-uri
 ```
 
+Report incorrect code
+
 ### Old spec
 
 catalogs.yml
@@ -132,6 +138,8 @@ catalogs:
           location_root: s3://cloud-storage-uri
 ```
 
+Report incorrect code
+
 2. Add the `catalog_name` config parameter in either a config block (inside the .sql model file), properties YAML file (model folder), or your project YAML file (`dbt_project.yml`).
 
 An example of `iceberg_model.sql`:
@@ -148,5 +156,7 @@ An example of `iceberg_model.sql`:
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
+
+Report incorrect code
 
 3. Execute the dbt model with a `dbt run -s iceberg_model`.

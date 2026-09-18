@@ -32,6 +32,8 @@ The syntax for using the DATEDIFF function in Snowflake and Amazon Redshift, and
 datediff(<date part>, <start date/time>, <end date/time>)
 ```
 
+Report incorrect code
+
 A note on Databricks: Databricks additionally supports a separate [DATEDIFF function](https://docs.databricks.com/sql/language-manual/functions/datediff.html) that takes only two arguments: a start date and an end date. The function will always return the difference between two dates in days.
 
 ### DATEDIFF in Google BigQuery
@@ -60,6 +62,8 @@ select
    {{ datediff("order_date", "'2022-06-09'", "day") }}
 from {{ ref('orders') }}
 ```
+
+Report incorrect code
 
 This would return all fields from the orders table and the difference in days between order dates and June 9, 2022.
 

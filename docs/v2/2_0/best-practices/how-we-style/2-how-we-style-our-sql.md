@@ -64,6 +64,8 @@ orders as (
 )
 ```
 
+Report incorrect code
+
 ## 'Functional' CTEs
 
 * ☝🏻 Where performance permits, CTEs should perform a single, logical unit of work.
@@ -87,6 +89,8 @@ orders as (
 }}
 ```
 
+Report incorrect code
+
 ## Example SQL
 
 ```sql
@@ -107,6 +111,8 @@ filtered_events as (
 
 select * from filtered_events
 ```
+
+Report incorrect code
 
 ### Example SQL
 
@@ -188,3 +194,5 @@ joined as (
 
 select * from joined
 ```
+
+Report incorrect code

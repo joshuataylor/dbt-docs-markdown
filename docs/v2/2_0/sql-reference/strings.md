@@ -35,6 +35,8 @@ where status not in ('returned', 'return_pending')
 group by 1
 ```
 
+Report incorrect code
+
 This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table will return the order month as a string and rounded order amount for only orders with statuses not equal to `returned` or `pending` string values:
 
 | order\_month | avg\_order\_amount |

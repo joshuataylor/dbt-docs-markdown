@@ -30,6 +30,8 @@ tests and downstream importance, validate candidate assumptions against current
 data, and propose only high-signal tests. Do not change model SQL.
 ```
 
+Report incorrect code
+
 You can also ask dbt Wizard to find a starting point:
 
 ```text
@@ -37,6 +39,8 @@ Use test_writer to find three important models with weak test coverage. Prioriti
 high fan-out models and models that define a business grain. Explain the ranking
 before writing tests.
 ```
+
+Report incorrect code
 
 State constraints in the prompt. For example, name columns that must not be queried, limit the number of models, or ask dbt Wizard to avoid custom generic tests.
 
@@ -77,6 +81,8 @@ Validate the proposed grain without selecting customer attributes. Query only
 customer_id and aggregate counts, and explain any sampling or date filter.
 ```
 
+Report incorrect code
+
 ## Review the proposed tests
 
 For each proposed YAML change, confirm that:
@@ -100,6 +106,8 @@ check whether the intended grain uses another column, and tell me whether this
 is a model defect, a source-data issue, or a bad test assumption. Do not modify
 the test until you explain the evidence.
 ```
+
+Report incorrect code
 
 Possible outcomes include fixing a model defect, documenting a source limitation, selecting the correct compound grain, or rejecting the candidate test.
 

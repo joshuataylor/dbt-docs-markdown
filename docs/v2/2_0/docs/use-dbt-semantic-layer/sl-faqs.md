@@ -270,6 +270,8 @@ semantic_models:
       ...rest of configuration...
 ```
 
+Report incorrect code
+
 Notice that in the `model` parameter, we're using the `ref` function with two arguments to reference the public model `fct_orders` defined in the `jaffle_finance` project.
 
  Which ‘staging layer’ should the dbt Semantic Layer talk to? Raw, staging, or marts?

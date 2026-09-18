@@ -55,6 +55,8 @@ catalogs:
         file_format: parquet
 ```
 
+Report incorrect code
+
 #### Old spec
 
 catalogs.yml
@@ -70,6 +72,8 @@ catalogs:
         file_format: parquet
         catalog_type: biglake_metastore
 ```
+
+Report incorrect code
 
 2. Apply the catalog configuration at either the model, folder, or project level:
 
@@ -87,6 +91,8 @@ iceberg\_model.sql
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
+
+Report incorrect code
 
 3. Finally, run the model: `dbt run -s my_iceberg_model`.
 
@@ -128,6 +134,8 @@ iceberg\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
+Report incorrect code
+
 #### New spec (beta)
 
 catalogs.yml
@@ -143,6 +151,8 @@ catalogs:
         file_format: parquet
         base_location_root: foo
 ```
+
+Report incorrect code
 
 #### Old spec
 
@@ -161,6 +171,8 @@ catalogs:
         adapter_properties:
           base_location_root: foo
 ```
+
+Report incorrect code
 
 #### Rationale
 
@@ -190,11 +202,15 @@ flags:
   use_catalogs_v2: true
 ```
 
+Report incorrect code
+
 BigQuery's [Lakehouse Runtime Catalog](https://cloud.google.com/bigquery/docs/blms-rest-catalog) (LRC) addresses a table with four parts — project, catalog, namespace, and table — but BigQuery SQL accepts only three quoted segments. dbt handles this by quoting the catalog and namespace together as the middle segment:
 
 ```sql
 `{project}`.`{catalog}.{namespace}`.`{table}`
 ```
+
+Report incorrect code
 
 Set `lakehouse_catalog` on a `biglake_metastore` catalog to tell dbt that its tables live in an LRC. dbt then uses the four-part name and omits the connection clause and the `table_format` option, neither of which BigQuery accepts for LRC tables.
 
@@ -209,6 +225,8 @@ Because of this, dbt attempts to create the namespace on every run against an LR
 'my_project' in remote for model.my_project.my_lrc_model: [BigQuery] googleapi: Error 400:
 Invalid project ID 'my_project.sales_catalog'.
 ```
+
+Report incorrect code
 
 Expect this warning — it doesn't fail the run. As long as the catalog and namespace exist, dbt creates the table.
 
@@ -228,6 +246,8 @@ catalogs:
         lakehouse_catalog: sales_catalog
 ```
 
+Report incorrect code
+
 2. Configure a model with `catalog_name`:
 
 my\_lrc\_model.sql
@@ -244,6 +264,8 @@ my\_lrc\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
+Report incorrect code
+
 3. Run the model: `dbt run -s my_lrc_model`. dbt generates the following DDL:
 
 ```sql
@@ -253,6 +275,8 @@ create or replace table `my_project`.`sales_catalog.analytics`.`my_lrc_model`
     select * from `my_project`.`analytics`.`jaffle_shop_customers`
   )
 ```
+
+Report incorrect code
 
 ### LRC limitations
 

@@ -41,6 +41,8 @@ semantic_models:
           meta:  {<dictionary>} Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes. ## Optional
 ```
 
+Report incorrect code
+
 ### Name
 
 When you create a measure, you can either give it a custom name or use the `name` of the data platform column directly. If the measure's `name` differs from the column name, you need to add an `expr` to specify the column name. The `name` of the measure is used when creating a metric.
@@ -81,6 +83,8 @@ agg_params:
   percentile: .99
   use_discrete_percentile: False  # False calculates the continuous percentile, True calculates the discrete percentile.
 ```
+
+Report incorrect code
 
 #### Percentile across supported engine types
 
@@ -193,6 +197,8 @@ semantic_models:
         expr: case when quantity > 10 then true else false end
 ```
 
+Report incorrect code
+
 ### Non-additive dimensions
 
 Some measures cannot be aggregated over certain dimensions, like time, because it could result in incorrect outcomes. Examples include bank account balances where it does not make sense to carry over balances month-to-month, and monthly recurring revenue where daily recurring revenue cannot be summed up to achieve monthly recurring revenue. You can specify non-additive dimensions to handle this, where certain dimensions are excluded from aggregation.
@@ -264,6 +270,8 @@ metrics:
         measure: mrr
 ```
 
+Report incorrect code
+
 We can query the semi-additive metrics using the following syntax:
 
 For dbt:
@@ -273,12 +281,16 @@ dbt sl query --metrics mrr_by_end_of_month --group-by subscription__subscription
 dbt sl query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__week --order subscription__subscription_date__week 
 ```
 
+Report incorrect code
+
 For dbt v1:
 
 ```bash
 mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__month --order subscription__subscription_date__month 
 mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__week --order subscription__subscription_date__week 
 ```
+
+Report incorrect code
 
 ## Dependencies
 

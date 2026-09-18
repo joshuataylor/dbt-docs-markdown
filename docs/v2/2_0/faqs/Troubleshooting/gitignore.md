@@ -16,6 +16,8 @@ logs/
 dbt_modules/
 ```
 
+Report incorrect code
+
 2. Save your changes but *don't commit*
 3. Restart the Studio IDE by clicking on the three dots next to the **Studio IDE Status button** on the lower right of the Studio IDE.
 

@@ -47,6 +47,8 @@ $ dbt --version
 dbt v2 2.0.0
 ```
 
+Report incorrect code
+
 ### Further reading
 
 * [Install dbt v2](./local/install-dbt.md?version=2): Install or update dbt v2.
@@ -119,11 +121,15 @@ Plugins:
   - snowflake: 1.9.0 - Up to date!
 ```
 
+Report incorrect code
+
 You can also find the registered adapter version in [logs](../reference/global-configs/logs.md). For example, in `logs/dbt.log`:
 
 ```text
 [0m13:13:48.572182 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
 ```
+
+Report incorrect code
 
 Refer to [Supported data platforms](./supported-data-platforms.md) for the full list of adapters.
 

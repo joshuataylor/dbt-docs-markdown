@@ -18,6 +18,8 @@ on-run-end:
  - "{% for schema in schemas %}grant usage on schema {{ schema }} to db_reader;{% endfor %}"
 ```
 
+Report incorrect code
+
 In practice, it might not be a bad idea to put this code into a macro:
 
 macros/grants.sql
@@ -31,6 +33,8 @@ macros/grants.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -38,6 +42,8 @@ dbt\_project.yml
 on-run-end:
  - "{{ grant_usage_to_schemas(schemas, 'user') }}"
 ```
+
+Report incorrect code
 
 ## database\_schemas
 
@@ -56,6 +62,8 @@ macros/grants.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -63,6 +71,8 @@ dbt\_project.yml
 on-run-end:
  - "{{ grant_usage_to_schemas(database_schemas, user) }}"
 ```
+
+Report incorrect code
 
 ## Results
 
@@ -90,12 +100,16 @@ macros/log\_results.sql
 {% endmacro %}
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
 
 on-run-end: "{{ log_results(results) }}"
 ```
+
+Report incorrect code
 
 Results:
 
@@ -120,3 +134,5 @@ node: model.testy.def; status: error (message: Database Error in model def (mode
 12:48:17 |
 12:48:17 | Finished running 1 view model, 1 table model, 1 hook in 1.94s.
 ```
+
+Report incorrect code

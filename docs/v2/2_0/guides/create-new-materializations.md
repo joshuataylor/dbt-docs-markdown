@@ -32,6 +32,8 @@ Materialization blocks make it possible for dbt to load custom materializations 
 {% endmaterialization %}
 ```
 
+Report incorrect code
+
 Materializations can be given a name, and they can be tied to a specific adapter. dbt will pick the materialization tied to the currently-in-use adapter if one exists, or it will fall back to the `default` adapter. In practice, this looks like:
 
 macros/my\_materialization.sql
@@ -46,6 +48,8 @@ macros/my\_materialization.sql
 -- override the materialization for Redshift
 {% endmaterialization %}
 ```
+
+Report incorrect code
 
 info
 
@@ -77,6 +81,8 @@ Materializations are responsible for creating new tables or views in the databas
 {% endif %}
 ```
 
+Report incorrect code
+
 In this example, the `get_relation` method is used to fetch the state of the currently-executing model from the database. If the model exists as a view, then the view is dropped to make room for the table that will be built later in the materialization.
 
 This is a simplified example, and the setup phase for a materialization can become quite complicated indeed! When building a materialization, be sure to consider the state of the database and any supplied [flags](../reference/dbt-jinja-functions/flags.md) (ie. `--full-refresh`) to ensure that the materialization code behaves correctly in different scenarios.
@@ -90,6 +96,8 @@ Pre- and post-hooks can be specified for any model -- be sure that your material
 {{ run_hooks(pre_hooks) }}
 ....
 ```
+
+Report incorrect code
 
 ### Executing SQL
 
@@ -106,6 +114,8 @@ The "cleanup" phase of the materialization typically renames or drops relations 
 ```text
 {{ drop_relation_if_exists(backup_relation) }}
 ```
+
+Report incorrect code
 
 Be sure to `commit` the transaction in the `cleanup` phase of the materialization with `{{ adapter.commit() }}`. If you do not commit this transaction, it will be rolled back by dbt and the transformations applied in your materialization will be discarded.
 
@@ -139,6 +149,8 @@ macros/my\_view\_materialization.sql
 {%- endmaterialization -%}
 ```
 
+Report incorrect code
+
 If a materialization solely creates a single relation, then returning that relation at the end of the materialization is sufficient to synchronize the dbt Relation cache. If the materialization *renames* or *drops* Relations other than the relation returned by the materialization, then additional work is required to keep the cache in sync with the database.
 
 To explicitly remove a relation from the cache, use [adapter.drop\_relation](../reference/dbt-jinja-functions/adapter.md). To explicitly rename a relation in the cache, use [adapter.rename\_relation](../reference/dbt-jinja-functions/adapter.md). Calling these methods is preferable to executing the corresponding SQL directly, as they will mutate the cache as required. If you do need to execute the SQL to drop or rename relations directly, use the `adapter.cache_dropped` and `adapter.cache_renamed` methods to synchronize the cache.
@@ -157,6 +169,8 @@ config.get('optional_config_name', default="the default")
 # required
 config.require('required_config_name')
 ```
+
+Report incorrect code
 
 For more information on the `config` dbt Jinja function, see the [config](../reference/dbt-jinja-functions/config.md) reference.
 

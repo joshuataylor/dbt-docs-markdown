@@ -63,6 +63,8 @@ semantic_models:
       if the semantic model has no primary entity, then this property is required. #Optional if a primary entity exists, otherwise Required
 ```
 
+Report incorrect code
+
 You can refer to the [best practices guide](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
 
 The following example displays a complete configuration and detailed descriptions of each field:
@@ -124,6 +126,8 @@ semantic_models:
         type: categorical
 ```
 
+Report incorrect code
+
 (Applies to dbt v1.11 and earlier)
 
 Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) [`config`](../../reference/resource-properties/config.md) property in either the schema file or at the project level:
@@ -140,6 +144,8 @@ Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`gr
           some_key: some_value
   ```
 
+  Report incorrect code
+
 * Semantic model config in `dbt_project.yml`:
 
   ```yml
@@ -150,6 +156,8 @@ Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`gr
       +meta:
         some_key: some_value
   ```
+
+  Report incorrect code
 
 For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](../../reference/dbt_project.yml.md#naming-convention).
 
@@ -205,6 +213,8 @@ semantic_model:
   primary_entity: booking_id
 ```
 
+Report incorrect code
+
 #### Entity types
 
 Here are the types of keys:
@@ -231,6 +241,8 @@ entity:
     type: foreign
     expr: substring(id_order FROM 2)
 ```
+
+Report incorrect code
 
 You can refer to entities (join keys) in a semantic model using the `name` parameter. Entity names must be unique within a semantic model, and identifier names can be non-unique across semantic models since MetricFlow uses them for [joins](./join-logic.md).
 

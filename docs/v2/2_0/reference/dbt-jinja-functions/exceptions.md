@@ -33,6 +33,8 @@ exceptions.sql
 {% endif %}
 ```
 
+Report incorrect code
+
 ## raise\_fail\_fast\_error
 
 Use `exceptions.raise_fail_fast_error` to stop dbt immediately when it should not continue running.
@@ -53,6 +55,8 @@ macros/materialized\_view\.sql
 {% endif %}
 ```
 
+Report incorrect code
+
 ## raise\_not\_implemented
 
 Use `exceptions.raise_not_implemented` to stop a dbt run when a macro or feature isn't supported by the current adapter.
@@ -71,6 +75,8 @@ macros/get\_columns\_in\_relation.sql
     'get_columns_in_relation macro not implemented for adapter ' ~ adapter.type()) }}
 {% endmacro %}
 ```
+
+Report incorrect code
 
 ## warn
 
@@ -92,3 +98,5 @@ warn.sql
   {% endif %}
 {% endif %}
 ```
+
+Report incorrect code

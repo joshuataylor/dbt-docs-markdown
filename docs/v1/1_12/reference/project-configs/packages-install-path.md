@@ -6,6 +6,8 @@ dbt\_project.yml
 packages-install-path: directorypath
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom directory where [packages](../../docs/build/packages.md) are installed when you run the `dbt deps` [command](../commands/deps.md). Note that this directory is usually git-ignored.
@@ -23,3 +25,5 @@ dbt\_project.yml
 ```yml
 packages-install-path: packages
 ```
+
+Report incorrect code

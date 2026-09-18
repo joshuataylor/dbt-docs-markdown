@@ -45,6 +45,8 @@ dbt-exasol:
       schema: SCHEMA
 ```
 
+Report incorrect code
+
 #### OpenID authentication (Exasol SaaS)
 
 For Exasol SaaS environments, you can authenticate using OpenID tokens instead of username and password:
@@ -65,6 +67,8 @@ dbt-exasol:
       schema: SCHEMA
       encryption: True  # required for SaaS
 ```
+
+Report incorrect code
 
 * **`access_token`** — Personal access token for OpenID authentication
 * **`refresh_token`** — Refresh token for OpenID authentication (alternative to `access_token`)

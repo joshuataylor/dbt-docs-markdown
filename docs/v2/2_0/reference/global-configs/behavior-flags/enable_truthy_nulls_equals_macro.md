@@ -20,3 +20,5 @@ dbt\_project.yml
 flags:
   enable_truthy_nulls_equals_macro: true
 ```
+
+Report incorrect code

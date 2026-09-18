@@ -21,6 +21,8 @@ join <table_b> on
 <a_id_1> = <b_id_1> and <a_id_2> = <b_id_2>
 ```
 
+Report incorrect code
+
 Surrogate keys > joins with AND
 
 Using surrogate keys, hashed values of multiple columns, is a great way to avoid using AND operators in joins. Typically, having AND or [OR operators](./or.md) in a join can cause the query or model to be potentially inefficient, especially at considerable data volume, so creating surrogate keys earlier in your upstream tables ([using the surrogate key macro](https://docs.getdbt.com/blog/sql-surrogate-keys)) can potentially improve performance in downstream models.
@@ -36,6 +38,8 @@ from {{ ref('orders') }}
 where status = 'shipped' and amount > 20
 limit 3
 ```
+
+Report incorrect code
 
 This query using the sample dataset Jaffle Shop’s `orders` table will return results where the order status is shipped and the order amount is greater than $20:
 

@@ -106,6 +106,8 @@ default:
       threads: 16
 ```
 
+Report incorrect code
+
 ### IAM profile
 
 Specify the IAM profile to use to connect your v2 sessions. You will need to provide the following information:
@@ -137,6 +139,8 @@ default:
       region: us-east-1
       threads: 16
 ```
+
+Report incorrect code
 
 ## More information
 

@@ -12,11 +12,15 @@ dbt run --select "@source:snowplow"   # build all models that select from snowpl
 dbt test --select "config.incremental_strategy:insert_overwrite,test_name:unique"   # execute all `unique` tests that select from models using the `insert_overwrite` incremental strategy
 ```
 
+Report incorrect code
+
 This can get complex! Let's say I want a nightly run of models that build off snowplow data and feed exports, while *excluding* the biggest incremental models (and one other model, to boot).
 
 ```bash
 dbt run --select "@source:snowplow,tag:nightly models/export" --exclude "package:snowplow,config.materialized:incremental export_performance_timing"
 ```
+
+Report incorrect code
 
 This command selects all models that:
 

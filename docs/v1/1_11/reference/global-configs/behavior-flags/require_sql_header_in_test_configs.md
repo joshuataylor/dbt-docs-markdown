@@ -24,4 +24,6 @@ models:
                 sql_header: "-- SQL_HEADER_TEST_MARKER"
 ```
 
+Report incorrect code
+
 For more information, refer to [Data test configurations](../../data-test-configs.md).

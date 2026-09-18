@@ -34,6 +34,8 @@ groups by `month` and `customer_id`, and materializes as a table. Add `not_null`
 to the primary key and a unique test on the grain.
 ```
 
+Report incorrect code
+
 **What dbt Wizard does:**
 
 1. Reads `stg_orders` and `stg_payments` from your project index to understand the available columns
@@ -56,6 +58,8 @@ A full-refresh mart is getting slow. You want to switch it to incremental withou
 Refactor `fct_orders` to use incremental materialization with a `unique_key` on `order_id`
 and an updated_at filter. Keep all existing tests and don't change the output schema.
 ```
+
+Report incorrect code
 
 **What dbt Wizard does:**
 
@@ -81,6 +85,8 @@ customer_id, not_null on email, and accepted_values on customer_status with valu
 active, churned, and prospect. Write a column description for each.
 ```
 
+Report incorrect code
+
 **What dbt Wizard does:**
 
 1. Reads `dim_customers.sql` and any existing YAML
@@ -103,6 +109,8 @@ A dbt platform job failed overnight. You want to understand why without digging 
 ```text
 The nightly job failed. What's the root cause and how do I fix it?
 ```
+
+Report incorrect code
 
 **What dbt Wizard does:**
 
@@ -129,6 +137,8 @@ If I change the grain of stg_payments from one row per payment to one row per
 payment attempt, which downstream models break?
 ```
 
+Report incorrect code
+
 **What dbt Wizard does:**
 
 1. Runs a lineage and impact query against your project to find all downstream dependents of `stg_payments`
@@ -152,6 +162,8 @@ The source column user_id in raw_customers has been renamed to customer_id.
 Update stg_customers and find any downstream models that reference user_id directly.
 ```
 
+Report incorrect code
+
 **What dbt Wizard does:**
 
 1. Updates the column alias in `stg_customers.sql`
@@ -174,6 +186,8 @@ You need to make a change that touches multiple files at once — a model rename
 Rename dim_users to dim_customers. Update the model file, its YAML, every
 downstream ref(), the tests, the documentation, and any exposures that point to it.
 ```
+
+Report incorrect code
 
 **What dbt Wizard does:**
 
@@ -200,6 +214,8 @@ Add not_null and unique tests to the primary key of dim_customers. Use heavy
 validation, investigate any failures, and summarize skipped checks.
 ```
 
+Report incorrect code
+
 **What dbt Wizard does:**
 
 1. Generates the YAML for the new tests
@@ -225,6 +241,8 @@ Create a semantic model for fct_orders. Include a revenue metric that sums
 order_total, a count of orders, and time dimensions on order_date at day,
 week, and month granularity.
 ```
+
+Report incorrect code
 
 **What dbt Wizard does:**
 

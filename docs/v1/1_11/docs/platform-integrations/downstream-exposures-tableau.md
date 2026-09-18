@@ -80,6 +80,8 @@ Configuring automatic downstream exposures with Tableau have the following consi
        }
      ```
 
+     Report incorrect code
+
   3. Compare database FQNs between `manifest.json` and the GraphiQL response. Make sure that `{database}.{schema}.{name}` matches in both. The following images are examples of FQNs that *match* in both `manifest.json` and the GraphiQL response and aren't case-sensitive:
 
   ![manifest.json example with lowercase FQNs.](/img/docs/platform-integrations/auto-exposures/manifest-json-example.png?v=2 "manifest.json example with lowercase FQNs.")manifest.json example with lowercase FQNs.

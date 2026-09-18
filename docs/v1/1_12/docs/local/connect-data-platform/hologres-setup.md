@@ -44,6 +44,8 @@ dbt-alibaba-cloud-hologres: # this needs to match the profile in your dbt_projec
       threads: 4
 ```
 
+Report incorrect code
+
 ### Connection parameters
 
 Currently it supports the following parameters:
@@ -88,6 +90,8 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       sslmode: disable
 ```
 
+Report incorrect code
+
 ### Important notes
 
 1. **Case sensitivity**: Hologres usernames and passwords are case-sensitive. Make sure to enter them exactly as configured.
@@ -103,6 +107,8 @@ After configuring your `profiles.yml`, you can verify your connection by running
 ```bash
 dbt debug
 ```
+
+Report incorrect code
 
 This [command](../../../reference/commands/debug.md) will test the connection to your Hologres instance and report any configuration issues.
 
@@ -120,6 +126,8 @@ models:
     auto_refresh_mode: auto
     computing_resource: serverless
 ```
+
+Report incorrect code
 
 Supported configurations for Dynamic tables:
 

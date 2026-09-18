@@ -31,6 +31,8 @@ group by 1
 order by 1
 ```
 
+Report incorrect code
+
 This simple query using the sample dataset [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` table is returning a new column of distinct order statuses by order month:
 
 | order\_month | status\_array                                   |

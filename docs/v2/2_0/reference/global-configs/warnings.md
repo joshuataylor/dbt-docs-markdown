@@ -12,6 +12,8 @@ Usage
 dbt run --warn-error
 ```
 
+Report incorrect code
+
 Proceed with caution in production environments
 
 Using the `--warn-error` flag or `--warn-error-options '{"error": "all"}'` will treat *all* current and future warnings as errors.
@@ -79,6 +81,8 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
+Report incorrect code
+
 ### Examples
 
 Here are some examples that show you how to configure `warn_error_options` using flags or file-based configuration.
@@ -93,17 +97,23 @@ Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warn
   dbt run --warn-error-options '{"error": "all", "warn": ["NoNodesForSelectionCriteria"]}'
   ```
 
+  Report incorrect code
+
 * This command promotes all warnings to errors, except for deprecation warnings:
 
   ```text
   dbt run --warn-error-options '{"error": "all", "warn": ["Deprecations"]}'
   ```
 
+  Report incorrect code
+
 * This command promotes only `NoNodesForSelectionCriteria` as an error:
 
   ```text
   dbt run --warn-error-options '{"error": ["NoNodesForSelectionCriteria"]}'
   ```
+
+  Report incorrect code
 
 * This promotes only `NoNodesForSelectionCriteria` as an error, using an environment variable:
 
@@ -112,6 +122,8 @@ Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warn
   ```text
   DBT_ENGINE_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}' dbt run
   ```
+
+  Report incorrect code
 
 Values for `error`, `warn`, and/or `silence` should be passed on as arrays. For example, `dbt run --warn-error-options '{"error": "all", "warn": ["NoNodesForSelectionCriteria"]}'` not `dbt run --warn-error-options '{"error": "all", "warn": "NoNodesForSelectionCriteria"}'`.
 
@@ -130,6 +142,8 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
+Report incorrect code
+
 #### Promote all warnings to errors
 
 Some examples of how to promote all warnings to errors:
@@ -142,6 +156,8 @@ dbt run --warn-error-options '{"error": "all"}'
 dbt run --warn-error-options '{"error": "*"}'
 ```
 
+Report incorrect code
+
 ##### using environment variables
 
 (Applies to dbt v1.11 and later)
@@ -151,6 +167,8 @@ WARN_ERROR=true dbt run
 DBT_ENGINE_WARN_ERROR_OPTIONS='{"error": "all"}' dbt run 
 DBT_ENGINE_WARN_ERROR_OPTIONS='{"error": "*"}' dbt run 
 ```
+
+Report incorrect code
 
 caution
 
@@ -182,6 +200,8 @@ flags:
     silence:
       - FreshnessConfigProblem   # by name
 ```
+
+Report incorrect code
 
 Any value that isn't a supported legacy event name, v2-native name, or supported group (`all`, `*`) causes dbt v2 to exit with an error at startup, including numeric codes. For example, `{error: [1092]}` fails, but `{error: [NoNodesForSelectionCriteria]}` works.
 
@@ -290,3 +310,5 @@ flags:
     warn:
       - NoNodesForSelectionCriteria
 ```
+
+Report incorrect code

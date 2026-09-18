@@ -26,6 +26,8 @@ macros:
   - name: ... # declare properties of additional macros
 ```
 
+Report incorrect code
+
 ## Example
 
 macros/schema.yml
@@ -47,3 +49,5 @@ macros:
         type: integer
         description: Number of decimal places. Defaults to 2.
 ```
+
+Report incorrect code

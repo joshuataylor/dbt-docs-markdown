@@ -25,6 +25,8 @@ models/marts/order\_items.yml
     measure: food_revenue
 ```
 
+Report incorrect code
+
 * 📝 Now we can set up our ratio metric.
 
 models/marts/order\_items.yml
@@ -38,6 +40,8 @@ models/marts/order\_items.yml
     numerator: food_revenue
     denominator: revenue
 ```
+
+Report incorrect code
 
 ## Derived metrics
 
@@ -67,6 +71,8 @@ models/marts/order\_items.yml
         alias: revenue_prev_month
 ```
 
+Report incorrect code
+
 ## Cumulative metrics
 
 * ➕ Lastly, lets build a **cumulative metric**. In keeping with our theme of business priorities, let's continue with revenue and build an **all-time revenue metric** for any given time window.
@@ -82,3 +88,5 @@ models/marts/order\_items.yml
   type_params:
     measure: revenue
 ```
+
+Report incorrect code

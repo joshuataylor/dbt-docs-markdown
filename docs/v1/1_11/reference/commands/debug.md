@@ -231,6 +231,8 @@ Options:
                 Show this message and exit.
 ```
 
+Report incorrect code
+
 ## Example usage
 
 Only test the connection to the data platform and skip the other checks `dbt debug` looks for:
@@ -238,6 +240,8 @@ Only test the connection to the data platform and skip the other checks `dbt deb
 ```shell
 dbt debug --connection
 ```
+
+Report incorrect code
 
 Show the configured location for the `profiles.yml` file and exit:
 
@@ -248,10 +252,14 @@ To view your profiles.yml file, run:
 open /Users/alice/.dbt
 ```
 
+Report incorrect code
+
 Test the connection in the Studio IDE:
 
 ```text
 dbt debug --connection
 ```
+
+Report incorrect code
 
 ![Test the connection in the Studio IDE](/img/reference/dbt-debug-ide.png?v=2 "Test the connection in the Studio IDE")Test the connection in the Studio IDE

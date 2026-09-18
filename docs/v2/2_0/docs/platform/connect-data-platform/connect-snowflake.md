@@ -19,6 +19,8 @@ To check whether this change affects your project, run the following [list](../.
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
+Report incorrect code
+
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
@@ -132,6 +134,8 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
    alter user jsmith set rsa_public_key='MIIBIjANBgkqh...';   
    ```
 
+   Report incorrect code
+
 2. Finally, set the **Private Key** and **Private Key Passphrase** fields in the **Credentials** page to finish configuring dbt to authenticate with Snowflake using a key pair.
 
    * **Note:** Unencrypted private keys are permitted. Use a passphrase only if needed. dbt can specify a `private_key` directly as a string instead of a `private_key_path`. This `private_key` string can be in either Base64-encoded DER format, representing the key bytes, or in plain-text PEM format. Refer to [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth) for more info on how they generate the key.
@@ -149,6 +153,8 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
 -----END ENCRYPTED PRIVATE KEY-----
 ```
 
+Report incorrect code
+
 ![Snowflake keypair authentication](/img/docs/dbt-platform/snowflake-keypair-auth.png?v=2 "Snowflake keypair authentication")Snowflake keypair authentication
 
 #### dbt v2 key pair
@@ -164,6 +170,8 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 aes-256-cbc -inform PEM -out rsa_key.p8
   ```
 
+  Report incorrect code
+
 * (Temporary workaround) Add the `BEGIN` header and `END` footer to your PEM body:
 
   ```text
@@ -171,6 +179,8 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   < Your existing encrypted private key contents >
   -----END ENCRYPTED PRIVATE KEY-----
   ```
+
+  Report incorrect code
 
 ### Snowflake OAuth
 
@@ -200,6 +210,8 @@ If you are still on username and password while you plan your migration, [MFA](h
   authenticator: username_password_mfa
   ```
 
+  Report incorrect code
+
 * To reduce the number of user prompts when connecting to Snowflake with MFA, [enable token caching](https://docs.snowflake.com/en/user-guide/security-mfa#using-mfa-token-caching-to-minimize-the-number-of-prompts-during-authentication-optional) in Snowflake.
 
 * Optionally, if users miss prompts and their Snowflake accounts get locked, you can prevent automatic retries by adding the following in the same **Extended attributes** section:
@@ -207,6 +219,8 @@ If you are still on username and password while you plan your migration, [MFA](h
   ```yaml
   connect_retries: 0
   ```
+
+  Report incorrect code
 
 ![Configure the MFA username and password, and connect\_retries in the development environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/extended-attributes-mfa.png?v=2 "Configure the MFA username and password, and connect_retries in the development environment settings.")Configure the MFA username and password, and connect\_retries in the development environment settings.
 
@@ -221,6 +235,8 @@ To connect to Snowflake through a custom domain (vanity URL) instead of the acco
 ```yaml
 host: https://custom_domain_to_snowflake.com
 ```
+
+Report incorrect code
 
 This configuration may conflict with Snowflake OAuth when used with PrivateLink. IF users can't reach Snowflake authentication servers from a networking standpoint, please [contact dbt Support](mailto:support@getdbt.com) to find a workaround with this architecture.
 

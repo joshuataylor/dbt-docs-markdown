@@ -8,6 +8,8 @@
 dbt clean
 ```
 
+Report incorrect code
+
 ## Supported flags
 
 This section will briefly explain the following flags:
@@ -20,6 +22,8 @@ To view the list of all supported flags for the `dbt clean` command in the termi
 ```shell
 dbt clean --help
 ```
+
+Report incorrect code
 
 ### --clean-project-files-only
 
@@ -35,6 +39,8 @@ Avoid using paths outside the dbt project; otherwise, you will see an error.
 dbt clean --clean-project-files-only
 ```
 
+Report incorrect code
+
 ### --no-clean-project-files-only
 
 Deletes all the paths specified in the `clean-targets` list of `dbt_project.yml`, including those outside the current dbt project.
@@ -42,6 +48,8 @@ Deletes all the paths specified in the `clean-targets` list of `dbt_project.yml`
 ```shell
 dbt clean --no-clean-project-files-only
 ```
+
+Report incorrect code
 
 (Applies to dbt v2.0 and later)
 
@@ -53,6 +61,8 @@ If you set the [`ai_provider`](../../docs/dbt-ai/package-skills.md#set-the-ai_pr
   Removing add-a-data-test -> .claude/skills
   Removing naming-conventions -> .claude/skills
 ```
+
+Report incorrect code
 
 dbt removes only the skills it installed, which it recognizes by the record it writes into each installed `SKILL.md`. Skills you wrote by hand stay in place, even when they sit in the same directory.
 

@@ -104,4 +104,6 @@ The deeplink below configures **token-based** authentication (URL and headers). 
    DBT_HOST=ab123.us1.dbt.com
    ```
 
+   Report incorrect code
+
 3. Save, and now you have access to the dbt MCP server!

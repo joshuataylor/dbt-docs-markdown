@@ -148,17 +148,23 @@ sandbox_mode = "workspace-write"
 nickname_candidates = ["UDF helper", "UDF queen"]
 ```
 
+Report incorrect code
+
 Then ask dbt Wizard to use the agent by name:
 
 ```text
 Use udf_helper to create a UDF model that checks whether customer IDs are positive integers.
 ```
 
+Report incorrect code
+
 You can also let dbt Wizard choose the agent automatically by describing the task:
 
 ```text
 Create a dbt UDF that checks whether customer IDs are positive integers, then add a small model that uses it.
 ```
+
+Report incorrect code
 
 ### Display nicknames
 
@@ -191,11 +197,15 @@ command = "uvx"
 args = ["dbt-mcp"]
 ```
 
+Report incorrect code
+
 This setup works well for prompts like:
 
 ```text
 Have udf_helper design the UDF change and dbt_docs_helper verify the dbt function configuration.
 ```
+
+Report incorrect code
 
 ### Global settings
 
@@ -209,6 +219,8 @@ max_depth = 2
 job_max_runtime_seconds = 1800
 interrupt_message = true
 ```
+
+Report incorrect code
 
 | Key                       | Description                                                                                      |
 | ------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -247,6 +259,8 @@ sandbox_mode = "workspace-write"
 nickname_candidates = ["UDF helper", "UDF queen"]
 ```
 
+Report incorrect code
+
 Optionally, configure global subagent settings in your main `config.toml`:
 
 \~/.dbt/wizard/config.toml
@@ -256,11 +270,15 @@ Optionally, configure global subagent settings in your main `config.toml`:
 max_depth = 2
 ```
 
+Report incorrect code
+
 Then prompt dbt Wizard:
 
 ```text
 Use udf_helper to create a UDF that checks whether customer IDs are positive integers, then add a small model that uses it.
 ```
+
+Report incorrect code
 
 dbt Wizard starts the requested agent, lets it work on the UDF implementation, and consolidates the result into your session.
 
@@ -273,6 +291,8 @@ The nightly job failed. Use one agent to pull the run error and logs,
 one to trace the failing model's lineage and find the root cause, and
 one to propose a fix. Summarize what each found.
 ```
+
+Report incorrect code
 
 dbt Wizard spawns the agents, each one works on its part of your connected project, and dbt Wizard consolidates the diagnosis and proposed fix into one response.
 

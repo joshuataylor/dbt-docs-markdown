@@ -30,6 +30,8 @@ Verify Git is installed:
 git --version
 ```
 
+Report incorrect code
+
 ## Clone the repository
 
 ### GitHub
@@ -40,17 +42,23 @@ git --version
    cd ~/Documents/Github
    ```
 
+   Report incorrect code
+
 2. Clone the repository:
 
    ```bash
    git clone https://github.com/dbt-labs/jaffle-shop.git
    ```
 
+   Report incorrect code
+
 3. Change into the project directory:
 
    ```bash
    cd jaffle-shop
    ```
+
+   Report incorrect code
 
 ### GitLab
 
@@ -62,17 +70,23 @@ If your organization hosts Jaffle Shop on GitLab, or you've forked the repo ther
    cd ~/Documents/Github
    ```
 
+   Report incorrect code
+
 2. Clone the repository (replace `YOUR_USERNAME` with your GitLab username or group):
 
    ```bash
    git clone https://gitlab.com/YOUR_USERNAME/jaffle-shop.git
    ```
 
+   Report incorrect code
+
 3. Change into the project directory:
 
    ```bash
    cd jaffle-shop
    ```
+
+   Report incorrect code
 
 ### Other platforms
 
@@ -84,17 +98,23 @@ If your organization has mirrored or forked Jaffle Shop on Bitbucket, Azure DevO
    cd ~/Documents/Github
    ```
 
+   Report incorrect code
+
 2. Clone the repository:
 
    ```bash
    git clone <your-repo-clone-url>
    ```
 
+   Report incorrect code
+
 3. Change into the project directory:
 
    ```bash
    cd jaffle-shop
    ```
+
+   Report incorrect code
 
 ## Verify the clone
 
@@ -103,6 +123,8 @@ Confirm the project files are present:
 ```bash
 ls
 ```
+
+Report incorrect code
 
 You should see files and folders including:
 
@@ -154,6 +176,8 @@ jaffle-shop/
 └── data-tests/
 ```
 
+Report incorrect code
+
 Staging models sit closest to the raw seed data. Marts models join and shape that data into the tables you use for analysis. You don't need to read every file yet. This layout follows a standard [dbt project](../docs/build/projects.md) pattern that appears in many real-world projects.
 
 ## Next steps
@@ -185,5 +209,7 @@ If you cloned the repo only to test these steps and don't need the project anymo
 ```bash
 rm -rf ~/Documents/Github/jaffle-shop
 ```
+
+Report incorrect code
 
 This deletes the cloned project from your machine. It doesn't affect the GitHub or GitLab repository.

@@ -45,6 +45,8 @@ exposures:
   - name: ... # declare properties of additional exposures
 ```
 
+Report incorrect code
+
 ## Example
 
 models/jaffle/exposures.yml
@@ -95,6 +97,8 @@ exposures:
     owner: { email: summer-intern@jaffleshop.com }
 ```
 
+Report incorrect code
+
 #### Project-level configs
 
 You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](./resource-configs/enabled.md) is supported:
@@ -109,3 +113,5 @@ name: 'project_name'
 exposures:
   +enabled: true
 ```
+
+Report incorrect code

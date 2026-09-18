@@ -10,6 +10,8 @@ models:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 models/schema.yml
 
 ```yml
@@ -24,6 +26,8 @@ models:
         config:
           meta: {<dictionary>} # changed to config in v1.10 and backported to 1.9
 ```
+
+Report incorrect code
 
 The `meta` config can be defined:
 
@@ -42,6 +46,8 @@ sources:
   <resource-path>:
     +meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 models/schema.yml
 
@@ -63,6 +69,8 @@ sources:
               meta: {<dictionary>} # changed to config in v1.10 and backported to 1.9
 ```
 
+Report incorrect code
+
 ## Seeds
 
 dbt\_project.yml
@@ -72,6 +80,8 @@ seeds:
   <resource-path>:
     +meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 seeds/schema.yml
 
@@ -88,6 +98,8 @@ seeds:
           meta: {<dictionary>} # changed to config in v1.10 and backported to 1.9
 ```
 
+Report incorrect code
+
 The `meta` config can be defined:
 
 * Under the `seeds` config in the property file (shown in in previous 'seeds/schema.yml' example)
@@ -103,6 +115,8 @@ snapshots:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 snapshots/schema.yml
 
 ```yml
@@ -117,6 +131,8 @@ snapshots:
         config:
           meta: {<dictionary>} # changed to config in v1.10 and backported to 1.9
 ```
+
+Report incorrect code
 
 The `meta` config can be defined:
 
@@ -148,6 +164,8 @@ models:
                   owner: "docs team"
 ```
 
+Report incorrect code
+
 Or set defaults in `dbt_project.yml`:
 
 dbt\_project.yml
@@ -158,6 +176,8 @@ data_tests:
     +meta:
       owner: "docs team"
 ```
+
+Report incorrect code
 
 **Singular data tests**
 
@@ -172,6 +192,8 @@ select * from {{ ref('my_model') }}
 where my_column is null
 ```
 
+Report incorrect code
+
 Or document in `tests/properties.yml`:
 
 tests/properties.yml
@@ -183,6 +205,8 @@ data_tests:
       meta:
         owner: "analytics_team"
 ```
+
+Report incorrect code
 
 ## Unit tests
 
@@ -198,6 +222,8 @@ unit_tests:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 models/\<filename>.yml
 
 ```yml
@@ -206,6 +232,8 @@ unit_tests:
     config:
       meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 ## Analyses
 
@@ -221,6 +249,8 @@ macros:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 macros/schema.yml
 
 ```yml
@@ -232,6 +262,8 @@ macros:
       - name: argument_name
 ```
 
+Report incorrect code
+
 ## Exposures
 
 dbt\_project.yml
@@ -242,6 +274,8 @@ exposures:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 models/exposures.yml
 
 ```yml
@@ -251,6 +285,8 @@ exposures:
     config:
       meta: {<dictionary>} # changed to config in v1.10
 ```
+
+Report incorrect code
 
 ## Semantic models
 
@@ -266,6 +302,8 @@ semantic-models:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 models/file\_name.yml
 
 ```yml
@@ -276,6 +314,8 @@ models:
       config:
         meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -318,6 +358,8 @@ models:
           meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 The `meta` config can be defined:
 
 * Under the `semantic-models` config in the properties file (as showin in previous `models/semantic_models.yml` example)
@@ -332,6 +374,8 @@ metrics:
   <resource-path>:
     +meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -359,6 +403,8 @@ models:
             my_meta_config: 'config_value'
 ```
 
+Report incorrect code
+
 ## Saved queries
 
 dbt\_project.yml
@@ -369,6 +415,8 @@ saved-queries:
     +meta: {<dictionary>}
 ```
 
+Report incorrect code
+
 models/semantic\_models.yml
 
 ```yml
@@ -377,6 +425,8 @@ saved_queries:
     config:
       meta: {<dictionary>}
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -418,6 +468,8 @@ models:
         model_maturity: in dev
 ```
 
+Report incorrect code
+
 ### Designate a source column as containing PII
 
 models/schema.yml
@@ -438,6 +490,8 @@ sources:
                 contains_pii: true
 ```
 
+Report incorrect code
+
 ### Configure one meta attribute for all seeds
 
 dbt\_project.yml
@@ -447,6 +501,8 @@ seeds:
   +meta:
     favorite_color: red
 ```
+
+Report incorrect code
 
 ### Override one meta attribute for a single model
 
@@ -460,6 +516,8 @@ models/my\_model.sql
 select 1 as id
 ```
 
+Report incorrect code
+
 ### Assign owner and favorite\_color in the dbt\_project.yml as a config property
 
 dbt\_project.yml
@@ -471,6 +529,8 @@ models:
       owner: "@alice"
       favorite_color: red
 ```
+
+Report incorrect code
 
 ### Assign meta to semantic model
 
@@ -495,6 +555,8 @@ models:
     agg_time_dimension: transaction_date
 ```
 
+Report incorrect code
+
 #### dbt\_project.yml
 
 ```yaml
@@ -503,6 +565,8 @@ semantic-models:
     +meta:
       used_in_reporting: true
 ```
+
+Report incorrect code
 
 ### Assign meta to dimensions, measures, entities
 
@@ -551,6 +615,8 @@ models:
             used_in_reporting: true
 ```
 
+Report incorrect code
+
 #### dbt\_project.yml
 
 This second example shows how to assign a `data_owner` and additional metadata value to a dimension in the `dbt_project.yml` file using the `+meta` syntax. The similar syntax can be used for entities and simple metrics.
@@ -568,6 +634,8 @@ semantic-models:
             data_owner: "Finance team"
             used_in_reporting: true
 ```
+
+Report incorrect code
 
 ### Add meta to generic and singular data tests
 
@@ -589,6 +657,8 @@ models:
                   owner: "@data_team"
 ```
 
+Report incorrect code
+
 #### Singular data test
 
 tests/assert\_order\_ids.sql
@@ -600,6 +670,8 @@ select *
 from {{ ref('orders') }}
 where order_id is null
 ```
+
+Report incorrect code
 
 ### Access meta values in Python models
 
@@ -618,6 +690,8 @@ models:
         processing_mode: "incremental"
 ```
 
+Report incorrect code
+
 models/my\_python\_model.py
 
 ```python
@@ -634,3 +708,5 @@ def model(dbt, session):
     
     return df
 ```
+
+Report incorrect code

@@ -47,10 +47,14 @@ $ python -m pip install "dbt-spark[ODBC]"
 $ python -m pip install "dbt-spark[PyHive]"
 ```
 
+Report incorrect code
+
 ```zsh
 # session connections
 $ python -m pip install "dbt-spark[session]"
 ```
+
+Report incorrect code
 
 ## Configuring dbt-spark
 
@@ -104,6 +108,8 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
+Report incorrect code
+
 ### Thrift
 
 Use the `thrift` connection method if you are connecting to a Thrift server sitting in front of a Spark cluster, for example, a cluster running locally or on Amazon EMR.
@@ -129,6 +135,8 @@ your_profile_name:
       server_side_parameters:
         "spark.driver.memory": "4g" 
 ```
+
+Report incorrect code
 
 ### HTTP
 
@@ -158,6 +166,8 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
+Report incorrect code
+
 Databricks interactive clusters can take several minutes to start up. You may include the optional profile configs `connect_timeout` and `connect_retries`, and dbt will periodically retry the connection.
 
 ### Session
@@ -179,6 +189,8 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
+Report incorrect code
+
 ## Optional configurations
 
 ### Retries
@@ -194,6 +206,8 @@ retry_all: true
 connect_timeout: 5
 connect_retries: 3
 ```
+
+Report incorrect code
 
 ### Server side configuration
 

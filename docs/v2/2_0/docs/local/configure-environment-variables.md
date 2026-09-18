@@ -14,6 +14,8 @@ dbt v2 automatically loads environment variables from a `.env` file in your curr
    DBT_SECRET_KEY=my_secret_value
    ```
 
+   Report incorrect code
+
 2. Reference these variables in your `profiles.yml` using the [`env_var` Jinja function](../../reference/dbt-jinja-functions/env_var.md):
 
    ```yaml
@@ -27,6 +29,8 @@ dbt v2 automatically loads environment variables from a `.env` file in your curr
          schema: "{{ env_var('DBT_MY_SCHEMA') }}"
    ```
 
+   Report incorrect code
+
 3. Run dbt commands normally. dbt v2 will automatically load the variables from the `.env` file. For example, running `dbtf debug` will show your connection using the values from `.env`:
 
    ```shell
@@ -39,6 +43,8 @@ dbt v2 automatically loads environment variables from a `.env` file in your curr
    "database": "my_database",        # Loaded from DBT_MY_DATABASE in .env
    "schema": "my_schema",            # Loaded from DBT_MY_SCHEMA in .env
    ```
+
+   Report incorrect code
 
 note
 

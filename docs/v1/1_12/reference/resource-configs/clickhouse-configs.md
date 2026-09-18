@@ -16,6 +16,8 @@ models:
     +materialized: view
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -23,6 +25,8 @@ models/\<model\_name>.sql
 ```jinja
 {{ config(materialized = "view") }}
 ```
+
+Report incorrect code
 
 ### Table materialization
 
@@ -41,6 +45,8 @@ models:
     +partition_by: [ <column-name>, ... ]
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -55,6 +61,8 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 #### Table configuration
 
@@ -86,6 +94,8 @@ models:
     +inserts_only: [ True|False ]
 ```
 
+Report incorrect code
+
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -102,6 +112,8 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
+
+Report incorrect code
 
 #### Incremental table configuration
 
@@ -136,6 +148,8 @@ snapshots/\<model\_name>.sql
    )
 }}
 ```
+
+Report incorrect code
 
 For more information on configuration, check out the [snapshot configs](../snapshot-configs.md) reference page.
 

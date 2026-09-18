@@ -27,6 +27,8 @@ Plugins:
   - snowflake: 1.7.1 - Up to date!
 ```
 
+Report incorrect code
+
 dbt CLI example:
 
 dbt platform CLI
@@ -36,6 +38,8 @@ $ dbt --version
 Cloud CLI - 0.35.7 (fae78a6f5f6f2d7dff3cab3305fe7f99bd2a36f3 2024-01-18T22:34:52Z)
 ```
 
+Report incorrect code
+
 dbt v2 example:
 
 ```shell
@@ -43,14 +47,20 @@ $ dbt --version
 dbt 2.0.1
 ```
 
+Report incorrect code
+
 For a machine-readable version, add the `--format json` flag. This is useful when filing a bug report or when tooling needs to parse the installed version:
 
 ```shell
 dbt --version --format json
 ```
 
+Report incorrect code
+
 ```json
 {
   "version": "2.0.1"
 }
 ```
+
+Report incorrect code

@@ -6,6 +6,8 @@ dbt\_project.yml
 macro-paths: [directorypath]
 ```
 
+Report incorrect code
+
 ## Definition
 
 Optionally specify a custom list of directories where [macros](../../docs/build/jinja-macros.md#macros) are located. Note that you cannot co-locate models and macros.
@@ -24,6 +26,8 @@ Paths specified in `macro-paths` must be relative to the location of your `dbt_p
     macro-paths: ["macros"]
     ```
 
+    Report incorrect code
+
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -31,6 +35,8 @@ Paths specified in `macro-paths` must be relative to the location of your `dbt_p
     ```yml
     macro-paths: ["/Users/username/project/macros"]
     ```
+
+    Report incorrect code
 
 ## Examples
 
@@ -41,3 +47,5 @@ dbt\_project.yml
 ```yml
 macro-paths: ["custom_macros"]
 ```
+
+Report incorrect code

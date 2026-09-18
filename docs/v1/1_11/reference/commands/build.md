@@ -54,6 +54,8 @@ models.sql
 select ...
 ```
 
+Report incorrect code
+
 ## Tests
 
 When `dbt build` is executed with unit tests applied, the models will be processed according to their lineage and dependencies. The tests will be executed as follows:
@@ -97,6 +99,8 @@ Completed successfully
 Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
 ```
 
+Report incorrect code
+
 ## Functions
 
 *Available from dbt v1.11 and up*
@@ -109,3 +113,5 @@ dbt-fusion 2.0.1
  Succeeded [  0.98s] function dbt_schema.whoami (function)
  Succeeded [  1.12s] function dbt_schema.area_of_circle (function)
 ```
+
+Report incorrect code

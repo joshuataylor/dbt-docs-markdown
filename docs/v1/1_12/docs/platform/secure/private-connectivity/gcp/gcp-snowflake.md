@@ -41,6 +41,8 @@ Subject: New Multi-Tenant GCP PSC Request
 - dbt GCP multi-tenant environment:
 ```
 
+Report incorrect code
+
 *\*By default, dbt will be configured to use `privatelink-account-url` from the provided [SYSTEM$GET\_PRIVATELINK\_CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config.html) as the PrivateLink endpoint. Upon request, `regionless-privatelink-account-url` can be used instead.*
 
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
@@ -92,6 +94,8 @@ CREATE NETWORK RULE allow_dbt_cloud_access
   VALUE_LIST = ('<PSC_CONNECTION_ID>'); -- Replace with the PSC connection ID from dbt Support
 ```
 
+Report incorrect code
+
 2. Add the rule to a network policy with the following SQL:
 
 ```sql
@@ -99,3 +103,5 @@ CREATE NETWORK RULE allow_dbt_cloud_access
 ALTER NETWORK POLICY <network_policy_name>
   ADD ALLOWED_NETWORK_RULE_LIST =('allow_dbt_cloud_access');
 ```
+
+Report incorrect code

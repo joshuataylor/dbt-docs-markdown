@@ -53,6 +53,8 @@ Here is an example of dbt-extrica profiles. At a minimum, you need to specify `t
   target: dev
 ```
 
+Report incorrect code
+
 #### Description of Extrica Profile Fields
 
 | Parameter | Type    | Description                                                                                                          |

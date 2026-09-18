@@ -18,6 +18,8 @@ group by 1 --grouped by my_first_field
 order by 1 desc
 ```
 
+Report incorrect code
+
 A few things to note about the GROUP BY implementation:
 
 * It’s usually listed as one of the last rows in a query, after any joins or where statements; typically you’ll only see [HAVING](./having.md), [ORDER BY](./order-by.md), or [LIMIT](./limit.md) statements following it in a query
@@ -39,6 +41,8 @@ group by 1
 order by 1
 limit 5
 ```
+
+Report incorrect code
 
 This simple query using the sample dataset [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `order` table will return customers and the count of orders they’ve placed:
 

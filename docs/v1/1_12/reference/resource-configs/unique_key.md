@@ -17,6 +17,8 @@ models/my\_incremental\_model.sql
 }}
 ```
 
+Report incorrect code
+
 models/properties.yml
 
 ```yaml
@@ -28,6 +30,8 @@ models:
       unique_key: id
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yaml
@@ -38,6 +42,8 @@ models:
     staging:
       +unique_key: id
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -55,6 +61,8 @@ snapshots:
       unique_key: order_id
 ```
 
+Report incorrect code
+
 dbt\_project.yml
 
 ```yml
@@ -62,6 +70,8 @@ snapshots:
   <resource-path>:
     +unique_key: column_name_or_expression
 ```
+
+Report incorrect code
 
 ## Description
 
@@ -108,6 +118,8 @@ models/my\_incremental\_model.sql
 select * from ..
 ```
 
+Report incorrect code
+
 #### Snapshots
 
 In this example, the `id` column is used as a unique key for a snapshot.
@@ -127,6 +139,8 @@ snapshots:
       updated_at: updated_at
 ```
 
+Report incorrect code
+
 You can also specify configurations in your `dbt_project.yml` file if multiple snapshots share the same `unique_key`:
 
 dbt\_project.yml
@@ -136,6 +150,8 @@ snapshots:
   <resource-path>:
     +unique_key: id
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -158,6 +174,8 @@ models/my\_incremental\_model.sql
 with...
 ```
 
+Report incorrect code
+
 #### Snapshots
 
 You can configure snapshots to use multiple unique keys for `primary_key` columns.
@@ -177,3 +195,5 @@ snapshots:
       updated_at: updated_at
       
 ```
+
+Report incorrect code

@@ -23,6 +23,8 @@ Find the best models to build on, explain your choices, and propose the Semantic
 Layer definitions before editing files.
 ```
 
+Report incorrect code
+
 ## Ask Wizard to plan the definitions
 
 Give dbt Wizard a specific model when you know the starting point:
@@ -33,6 +35,8 @@ and inspect the model grain, columns, lineage, and existing YAML. Propose the
 entities, dimensions, and metrics before making changes. Include total revenue,
 order count, and a monthly time dimension.
 ```
+
+Report incorrect code
 
 dbt Wizard should complete these planning steps before editing:
 
@@ -90,6 +94,8 @@ models:
         expr: order_id
 ```
 
+Report incorrect code
+
 For dbt 1.6 through 1.11, expect the top-level semantic model pattern:
 
 ```yaml
@@ -120,6 +126,8 @@ metrics:
       measure: total_revenue
 ```
 
+Report incorrect code
+
 Confirm that every generated definition has a clear business meaning. A numeric column isn't automatically a useful metric, and an ID isn't automatically the correct primary entity.
 
 ## Validate the definitions
@@ -132,6 +140,8 @@ Semantic Layer validation for this environment, and report errors, warnings,
 and any checks you couldn't complete. Don't change the definitions to silence
 an error without explaining the root cause.
 ```
+
+Report incorrect code
 
 At minimum, validation should confirm that:
 
@@ -153,10 +163,14 @@ count metrics. Explain how the metric joins and time grain will behave before
 editing the YAML.
 ```
 
+Report incorrect code
+
 ```text
 Create a saved query for monthly revenue and order count grouped by customer
 segment. Reuse existing entities and dimensions, and validate every reference.
 ```
+
+Report incorrect code
 
 ## Related docs
 

@@ -22,6 +22,8 @@ rowstore\_model.sql
 select ...
 ```
 
+Report incorrect code
+
 ### Reference tables
 
 SingleStore supports **REFERENCE** tables (available starting from \[dbt-singlestore 1.10.0] (<https://pypi.org/project/dbt-singlestore/1.10.0/>)), which are replicated across the cluster and are useful for small/dimension tables that are frequently joined.
@@ -38,6 +40,8 @@ To create a **REFERENCE** table from a dbt model, set `reference=true` on a `tab
 
 select ...
 ```
+
+Report incorrect code
 
 When `reference=true` (default `false`), the adapter generates `CREATE REFERENCE TABLE ...` rather than a regular `CREATE TABLE ...`
 
@@ -56,6 +60,8 @@ If you want a rowstore reference table, set `storage_type='rowstore'`:
 
 select ...
 ```
+
+Report incorrect code
 
 This maps to `CREATE ROWSTORE REFERENCE TABLE ...`
 
@@ -89,6 +95,8 @@ primary\_and\_shard\_model.sql
 select ...
 ```
 
+Report incorrect code
+
 unique\_and\_sort\_model.sql
 
 ```sql
@@ -102,6 +110,8 @@ unique\_and\_sort\_model.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ### Indexes
 
@@ -127,6 +137,8 @@ indexes\_model.sql
 select ...
 ```
 
+Report incorrect code
+
 ### Other options
 
 You can specify the character set and collation for the table using `charset` and/or `collation` options. Supported values for `charset` are `binary`, `utf8`, and `utf8mb4`. Supported values for `collation` can be viewed as the output of `SHOW COLLATION` SQL query. Default collations for the corresponding charcter sets are `binary`, `utf8_general_ci`, and `utf8mb4_general_ci`.
@@ -143,6 +155,8 @@ utf8mb4\_model.sql
 
 select ...
 ```
+
+Report incorrect code
 
 ## Model contracts
 
@@ -187,6 +201,8 @@ models:
         data_type: text
 ```
 
+Report incorrect code
+
 Let's say your model is defined as:
 
 dim\_customers.sql
@@ -197,6 +213,8 @@ select
   'My Best Customer' as customer_name
 ```
 
+Report incorrect code
+
 When using constants, you must specify the data types directly. If not, SingleStoreDB will automatically choose what it thinks is the most appropriate data type.
 
 dim\_customers.sql
@@ -206,6 +224,8 @@ select
   ('abc123' :> int) as customer_id,
   ('My Best Customer' :> text) as customer_name
 ```
+
+Report incorrect code
 
 ### Misleading datatypes
 
@@ -221,6 +241,8 @@ select
   ('My Best Customer' :> text) as customer_name
 ```
 
+Report incorrect code
+
 will result in
 
 ```sql
@@ -228,6 +250,8 @@ Please ensure the name, data_type, and number of columns in your contract match 
 | column_name | definition_type | contract_type | mismatch_reason       |
 | customer_id | LONGBLOB        | LONG          | data type mismatch    |
 ```
+
+Report incorrect code
 
 It's important to note that certain data type mappings might show up differently in error messages, but this doesn't affect how they work. Here's a quick list of what you might see:
 

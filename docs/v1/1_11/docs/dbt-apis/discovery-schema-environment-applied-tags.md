@@ -22,6 +22,8 @@ query {
 }
 ```
 
+Report incorrect code
+
 ### Fields
 
 When querying for `tags`, you can use the following fields:

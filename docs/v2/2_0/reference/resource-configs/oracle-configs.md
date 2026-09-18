@@ -13,6 +13,8 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
+Report incorrect code
+
 ## Use `table_compression_clause`
 
 Table materialization supports different compression clauses as shown below
@@ -28,6 +30,8 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
+Report incorrect code
+
 ### Hybrid Columnar Compression
 
 #### Querying
@@ -40,6 +44,8 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
+Report incorrect code
+
 or
 
 ```sql
@@ -47,6 +53,8 @@ or
 SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
+
+Report incorrect code
 
 #### Archival
 
@@ -58,6 +66,8 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
+Report incorrect code
+
 or
 
 ```sql
@@ -65,6 +75,8 @@ or
 SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
+
+Report incorrect code
 
 ## Partitioning
 
@@ -82,6 +94,8 @@ Table and Incremental materialization configuration supports adding a partitioni
 SELECT *
 FROM {{ source('sh_database', 'sales') }}
 ```
+
+Report incorrect code
 
 ## Session info in `v$session`
 
@@ -105,5 +119,7 @@ dbt_test:
             client_info: "dbt Python3.9 thin driver"
             module: "dbt-oracle-1.8.x"
 ```
+
+Report incorrect code
 
 This helps to track dbt sessions in the Database view [V$SESSION](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SESSION.html)

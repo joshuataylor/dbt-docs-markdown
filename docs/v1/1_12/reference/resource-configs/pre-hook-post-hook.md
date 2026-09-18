@@ -14,6 +14,8 @@ models:
     +post-hook: SQL-statement | [SQL-statement]
 ```
 
+Report incorrect code
+
 models/\<model\_name>.sql
 
 ```sql
@@ -26,6 +28,8 @@ models/\<model\_name>.sql
 select ...
 ```
 
+Report incorrect code
+
 models/properties.yml
 
 ```yml
@@ -35,6 +39,8 @@ models:
       pre_hook: <sql-statement> | [<sql-statement>]
       post_hook: <sql-statement> | [<sql-statement>]
 ```
+
+Report incorrect code
 
 ## Seeds
 
@@ -50,6 +56,8 @@ seeds:
     +post-hook: SQL-statement | [SQL-statement]
 ```
 
+Report incorrect code
+
 seeds/properties.yml
 
 ```yml
@@ -59,6 +67,8 @@ seeds:
       pre_hook: <sql-statement> | [<sql-statement>]
       post_hook: <sql-statement> | [<sql-statement>]
 ```
+
+Report incorrect code
 
 ## Snapshots
 
@@ -74,6 +84,8 @@ snapshots:
     +post-hook: SQL-statement | [SQL-statement]
 ```
 
+Report incorrect code
+
 snapshots/snapshot.yml
 
 ```yml
@@ -83,6 +95,8 @@ snapshots:
       pre_hook: <sql-statement> | [<sql-statement>]
       post_hook: <sql-statement> | [<sql-statement>]
 ```
+
+Report incorrect code
 
 ## Definition
 
@@ -112,6 +126,8 @@ models.sql
 select ...
 ```
 
+Report incorrect code
+
 ## Examples
 
 ### \[Redshift] Unload one model to S3
@@ -125,6 +141,8 @@ model.sql
 
 select ...
 ```
+
+Report incorrect code
 
 See: [Redshift docs on `UNLOAD`](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html)
 
@@ -144,6 +162,8 @@ models:
           # or call a macro instead
           - "{{ analyze_table() }}"
 ```
+
+Report incorrect code
 
 See: [Apache Spark docs on `ANALYZE TABLE`](https://spark.apache.org/docs/latest/sql-ref-syntax-aux-analyze-table.html)
 
@@ -195,6 +215,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 #### Use a dictionary
 
 #### Config block: use a dictionary
@@ -218,6 +240,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 #### Use dbt\_project.yml
 
 #### `dbt_project.yml`: Use a dictionary
@@ -234,3 +258,5 @@ models:
     sql: "SQL-statement"
     transaction: false
 ```
+
+Report incorrect code

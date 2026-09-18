@@ -25,6 +25,8 @@ models:
       +begin: "2024-01-01 00:00:00"
 ```
 
+Report incorrect code
+
 #### Example in a property YAML file
 
 models/properties.yml
@@ -36,6 +38,8 @@ models:
       begin: "2024-01-01 00:00:00"
 ```
 
+Report incorrect code
+
 #### Example in a SQL config block for a model
 
 models/user\_sessions.sql
@@ -45,6 +49,8 @@ models/user\_sessions.sql
     begin='2024-01-01 00:00:00'
 ) }}
 ```
+
+Report incorrect code
 
 #### Set `begin` to use relative dates
 
@@ -64,3 +70,5 @@ For example, to set `begin` to yesterday's date:
     )
 }}
 ```
+
+Report incorrect code

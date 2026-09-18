@@ -74,6 +74,8 @@ semantic_models:
         agg: average
 ```
 
+Report incorrect code
+
 ## Semantic and logical interaction
 
 Now, let's tackle a thornier situation. Products and supplies both have dimensions and measures but no time dimension. Products has a one-to-one relationship with `order_items`, enriching that table, which is itself just a mapping table of products to orders. Additionally, products have a one-to-many relationship with supplies. The high-level ERD looks like the diagram below.
@@ -155,6 +157,8 @@ joined as (
 select * from joined
 ```
 
+Report incorrect code
+
 2. 🏗️ Now we've got a table that looks more like what we want to feed into the Semantic Layer. Next, we'll **build a semantic model on top of this new mart** in `models/marts/order_items.yml`. Again, we'll identify our **entities, then dimensions, then measures**.
 
 models/marts/order\_items.yml
@@ -206,6 +210,8 @@ semantic_models:
            expr: product_price
 ```
 
+Report incorrect code
+
 3. 📏 Finally, Let's **build a simple revenue metric** on top of our semantic model now.
 
 models/marts/order\_items.yml
@@ -220,6 +226,8 @@ metrics:
       measure: revenue
 ```
 
+Report incorrect code
+
 ## Checking our work
 
 * 🔍 We always start our **auditing** with a `dbt parse` to **ensure our code works** before we examine its output.
@@ -232,6 +240,8 @@ metrics:
 dbt sl query --metrics revenue --group-by metric_time__month
 ```
 
+Report incorrect code
+
 ### Example query results
 
 ```shell
@@ -243,5 +253,7 @@ dbt sl query --metrics revenue --group-by metric_time__month
 | 2016-11-01 00:00:00  |  26338.00 |
 | 2016-12-01 00:00:00  |  10685.00 |
 ```
+
+Report incorrect code
 
 * Try introducing some other dimensions from the semantic models into the `group-by` arguments to get a feel for this command.

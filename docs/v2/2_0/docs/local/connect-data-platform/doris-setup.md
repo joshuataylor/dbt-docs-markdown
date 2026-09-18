@@ -44,6 +44,8 @@ dbt-doris:
       password: password
 ```
 
+Report incorrect code
+
 #### Description of Profile Fields
 
 | Option   | Description                                                                                                                      | Required? | Example     |

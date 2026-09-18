@@ -10,6 +10,8 @@ models:
     +enabled: true | false
 ```
 
+Report incorrect code
+
 models/\<modelname>.sql
 
 ```sql
@@ -21,6 +23,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+Report incorrect code
+
 ## Seeds
 
 dbt\_project.yml
@@ -31,6 +35,8 @@ seeds:
     +enabled: true | false
 ```
 
+Report incorrect code
+
 ## Snapshots
 
 dbt\_project.yml
@@ -40,6 +46,8 @@ snapshots:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -52,6 +60,8 @@ snapshots:
     config:
       enabled: true | false
 ```
+
+Report incorrect code
 
 snapshots/\<filename>.sql
 
@@ -69,6 +79,8 @@ select ...
 {% endsnapshot %}
 ```
 
+Report incorrect code
+
 ## Tests
 
 dbt\_project.yml
@@ -78,6 +90,8 @@ data_tests:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 tests/\<filename>.sql
 
@@ -93,6 +107,8 @@ select ...
 {% endtest %}
 ```
 
+Report incorrect code
+
 tests/\<filename>.sql
 
 ```sql
@@ -100,6 +116,8 @@ tests/\<filename>.sql
   enabled=true | false
 ) }}
 ```
+
+Report incorrect code
 
 ## Unit tests
 
@@ -115,6 +133,8 @@ unit_tests:
     +enabled: true | false
 ```
 
+Report incorrect code
+
 models/\<filename>.yml
 
 ```yaml
@@ -123,6 +143,8 @@ unit_tests:
     config:
       enabled: true | false
 ```
+
+Report incorrect code
 
 ## Sources
 
@@ -133,6 +155,8 @@ sources:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 models/properties.yml
 
@@ -148,6 +172,8 @@ sources:
           enabled: true | false
 ```
 
+Report incorrect code
+
 ## Analyses
 
 analyses/\<filename>.yml
@@ -158,6 +184,8 @@ analyses:
     config:
       enabled: true | false
 ```
+
+Report incorrect code
 
 To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](../global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` in your `dbt_project.yml`.
 
@@ -171,6 +199,8 @@ analyses:
   +enabled: true | false
 ```
 
+Report incorrect code
+
 ## Metrics
 
 dbt\_project.yml
@@ -180,6 +210,8 @@ metrics:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 models/metrics.yml
 
@@ -191,6 +223,8 @@ metrics:
       enabled: true | false
 ```
 
+Report incorrect code
+
 ## Exposures
 
 dbt\_project.yml
@@ -200,6 +234,8 @@ exposures:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 models/exposures.yml
 
@@ -211,6 +247,8 @@ exposures:
       enabled: true | false
 ```
 
+Report incorrect code
+
 ## Semantic models
 
 dbt\_project.yml
@@ -220,6 +258,8 @@ semantic-models:
   <resource-path>:
     +enabled: true | false
 ```
+
+Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -232,6 +272,8 @@ models:
       enabled: true | false # Required under 'semantic_model'
 ```
 
+Report incorrect code
+
 ## Saved queries
 
 dbt\_project.yml
@@ -242,6 +284,8 @@ saved-queries:
     +enabled: true | false
 ```
 
+Report incorrect code
+
 models/semantic\_models.yml
 
 ```yaml
@@ -250,6 +294,8 @@ saved_queries:
     config:
       enabled: true | false
 ```
+
+Report incorrect code
 
 ## Skills
 
@@ -283,3 +329,5 @@ models:
       segment_web_page_views:
         +enabled: false
 ```
+
+Report incorrect code

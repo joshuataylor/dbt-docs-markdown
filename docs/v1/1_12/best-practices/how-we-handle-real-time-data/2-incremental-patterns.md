@@ -89,6 +89,8 @@ select
 from deduped;
 ```
 
+Report incorrect code
+
 To ensure the best results:
 
 * Use clustering keys wisely for better `MERGE` performance.
@@ -117,6 +119,8 @@ To use this pattern, set up the stream in your data warehouse and then create a 
 create or replace stream RAW.EVENTS_STREAM
 on table RAW.EVENTS;
 ```
+
+Report incorrect code
 
 2. Create a model consuming the stream:
 
@@ -164,6 +168,8 @@ select
     payload
 from filtered;
 ```
+
+Report incorrect code
 
 ### Pattern distinctions
 
@@ -215,6 +221,8 @@ select
     payload
 from {{ ref('stg_events') }};
 ```
+
+Report incorrect code
 
 ### Key behavior
 
