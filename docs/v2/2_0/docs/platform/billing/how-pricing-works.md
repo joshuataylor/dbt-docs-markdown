@@ -35,6 +35,8 @@ When a dynamic table is initially created, the model is counted (if the creation
 | Seeds                                       | ❌ |
 | Snapshots                                   | ❌ |
 
+When [dbt State](../../deploy/dbt-state-about.md) is enabled, a reused model (skipped or cloned) doesn't count as a Successful Model Built. They're billed separately as daily active target tables (DATTs). For more information, refer to [dbt State usage](./dbt-state-usage.md).
+
 ### What counts as a Queried Metric?
 
 The Semantic Layer, powered by MetricFlow, measures usage in distinct Queried Metrics.
