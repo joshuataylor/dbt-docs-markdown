@@ -68,15 +68,15 @@ Report incorrect code
 
 #### Latest
 
-[`v2.0.5`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this version in the dbt v2 changelog")
+[`v2.0.6`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#206 "View this version in the dbt v2 changelog")
 
-2026-09-17
+2026-09-19
 
 ### All releases
 
-[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
 
-Released by: **HannanNaeem**Sep 19, 2026, 09:17 AM
+Released by: **HannanNaeem**Sep 19, 2026, 01:16 PM
 
 Bug fix for INC-8117
 
