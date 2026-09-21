@@ -58,13 +58,13 @@ The remote MCP server is available on all dbt platform [plans](https://www.getdb
 
 Remote MCP uses the same default global API rate limit as other dbt APIs (5,000 requests per minute per IP). Self-hosted MCP is subject to the public Administrative and Discovery API limits. Refer to [API rate limits](../dbt-apis/rate-limits.md) for details.
 
-info
+Remote MCP doesn't require AI features
 
-Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
+You don't need [AI features](../platform/manage-dbt-ai.md) enabled to use remote MCP. If an admin turns AI features off, [`text_to_sql`](./mcp-available-tools.md#tools-that-require-ai-features) is the only tool hidden and every other tool keeps working.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
+`text_to_sql` is also the only tool that consumes your dbt Copilot action allotment. Other MCP tools don't.
 
-If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
+If your account runs out of dbt Copilot actions, `text_to_sql` will not work until the limit resets. Other remote MCP tools keep working. If you need help, contact your account manager.
 
 ### Supported tools by MCP server type
 

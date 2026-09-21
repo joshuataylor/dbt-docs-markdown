@@ -255,7 +255,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [POW](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#pow)                                                         | Built-in | ✓               |
 | [POWER](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#power)                                                     | Built-in | ✓               |
 | [RAND](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#rand)                                                       | Built-in | ✓               |
-| [RANGE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/range-functions#range)                                                            | Built-in | —               |
+| [RANGE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/range-functions#range)                                                            | Built-in | ✓               |
 | [RANGE\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#range_bucket)                                      | Built-in | ✓               |
 | [RANGE\_CONTAINS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/range-functions#range_contains)                                         | Built-in | —               |
 | [RANGE\_END](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/range-functions#range_end)                                                   | Built-in | —               |

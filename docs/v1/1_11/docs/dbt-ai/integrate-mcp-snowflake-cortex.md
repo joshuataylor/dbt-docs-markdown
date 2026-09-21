@@ -16,7 +16,6 @@ Make sure the following are set up before connecting from Snowflake:
 
 * **Account setup**
 
-  * Have [AI features](../platform/manage-dbt-ai.md) enabled.
   * [Remote MCP OAuth enabled](./setup-remote-mcp.md). The remote MCP server is generally available, but the OAuth connection method is in public beta for Starter and Enterprise-tiered accounts.
   * A [static subdomain](../platform/about-platform/access-regions-ip-addresses.md) configured, for example `abc123` in `abc123.us1.dbt.com`. If your account doesn't have a subdomain, contact support.
 
@@ -162,13 +161,13 @@ In dbt platform, admins can review and audit the connected client, and manage se
 
 Open your agent in Snowflake Intelligence and ask one of its sample questions, such as *"What are the top 10 products by revenue this quarter?"* If the connection is working, the agent calls the dbt Semantic Layer tools and returns an answer grounded in your metrics.
 
-info
+Remote MCP doesn't require AI features
 
-Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
+You don't need [AI features](../platform/manage-dbt-ai.md) enabled to use remote MCP. If an admin turns AI features off, [`text_to_sql`](./mcp-available-tools.md#tools-that-require-ai-features) is the only tool hidden and every other tool keeps working.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
+`text_to_sql` is also the only tool that consumes your dbt Copilot action allotment. Other MCP tools don't.
 
-If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
+If your account runs out of dbt Copilot actions, `text_to_sql` will not work until the limit resets. Other remote MCP tools keep working. If you need help, contact your account manager.
 
 ## Troubleshooting
 

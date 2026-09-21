@@ -22,9 +22,11 @@ Self-hosted development and agentic workflows (for example, running dbt commands
 
 Follow these steps to set up the remote MCP server.
 
-### 1. Manage AI features
+### 1. Manage AI features (optional)
 
 AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md).
+
+Remote MCP works without AI features enabled. Only `text_to_sql` requires them; when disabled, this tool is hidden and all other tools work as usual.
 
 ### 2. Get your credentials
 
@@ -62,13 +64,13 @@ Depending on your auth method, you may also need:
 * **Token** — PAT or service token with Semantic Layer and Developer permissions (token-based setup only).
 * **If you use `execute_sql` with token-based auth:** You must use a PAT, plus your development environment ID and user ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md) for details. With OAuth, you only need your MCP URL.
 
-info
+Remote MCP doesn't require AI features
 
-Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
+You don't need [AI features](../platform/manage-dbt-ai.md) enabled to use remote MCP. If an admin turns AI features off, [`text_to_sql`](./mcp-available-tools.md#tools-that-require-ai-features) is the only tool hidden and every other tool keeps working.
 
-When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote dbt v2 tools.
+`text_to_sql` is also the only tool that consumes your dbt Copilot action allotment. Other MCP tools don't.
 
-If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
+If your account runs out of dbt Copilot actions, `text_to_sql` will not work until the limit resets. Other remote MCP tools keep working. If you need help, contact your account manager.
 
 ### 5. Configure your MCP client
 
