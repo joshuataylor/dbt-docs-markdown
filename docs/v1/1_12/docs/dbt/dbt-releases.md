@@ -74,11 +74,11 @@ Report incorrect code
 
 ### All releases
 
-[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
+[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stable
 
-Released by: **HannanNaeem**Sep 19, 2026, 01:16 PM
+Released by: **johnchappelledbt**Sep 21, 2026, 06:25 PM
 
-Bug fix for INC-8117
+Automated ST snapshot
 
 [v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#205 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
 
@@ -166,7 +166,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **johnchappelledbt**Sep 9, 2026, 10:19 PM
+Released by: **johnchappelledbt**Sep 21, 2026, 06:25 PM
 
 Automated ST snapshot
 
@@ -214,7 +214,7 @@ Planned Promotion
 
 [v2.0.0-preview.203](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **johnchappelledbt**Sep 9, 2026, 10:19 PM
+Released by: **johnchappelledbt**Sep 21, 2026, 06:25 PM
 
 Automated ST snapshot
 
