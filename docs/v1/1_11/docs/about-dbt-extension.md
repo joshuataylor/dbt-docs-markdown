@@ -153,7 +153,7 @@ Refer to the [Hybrid development with dbt platform and dbt v2](../guides/dbt-pla
 
 ## More information about dbt v2
 
-* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md)
 * [Install dbt v2](./local/install-dbt.md)
 * [dbt v2 quickstart guide](../guides/dbt.md?step=1)
 * [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)

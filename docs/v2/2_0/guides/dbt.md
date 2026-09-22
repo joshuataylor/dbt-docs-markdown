@@ -468,7 +468,7 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 
 ## More information about dbt v2
 
-* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md)
 * [About the dbt extension](../docs/about-dbt-extension.md)
 * [Install dbt v2](../docs/local/install-dbt.md)
 * [Upgrade guide](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)

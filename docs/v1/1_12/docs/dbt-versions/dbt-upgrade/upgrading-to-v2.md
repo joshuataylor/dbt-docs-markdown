@@ -18,7 +18,7 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 
 ## More information about dbt v2
 
-* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md)
 * [About the dbt extension](../../about-dbt-extension.md)
 * [Install dbt v2](../../local/install-dbt.md)
 * [dbt v2 quickstart guide](../../../guides/dbt.md?step=1)
