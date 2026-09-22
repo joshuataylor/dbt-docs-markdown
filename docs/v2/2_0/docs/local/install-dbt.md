@@ -137,13 +137,11 @@ Common issues and resolutions:
 
 ## More information about dbt v2
 
-* [About the dbt extension](../about-dbt-extension.md)
-* [Supported features matrix](../dbt/supported-features.md)
-* [Install dbt](./install-dbt.md)
-* [Quickstart for dbt v2](../../guides/dbt.md?step=1)
-* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 * [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-fusion.md)
+* [About the dbt extension](../about-dbt-extension.md)
+* [dbt v2 quickstart guide](../../guides/dbt.md?step=1)
 * [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
 ## Next steps
 
