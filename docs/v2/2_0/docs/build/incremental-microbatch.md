@@ -182,7 +182,7 @@ dbt will instruct the data platform to take the result of each batch query and [
 
 It does not matter whether the table already contains data for that day. Given the same input data, the resulting table is the same no matter how many times a batch is reprocessed.
 
-![Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.](/img/docs/building-a-dbt-project/microbatch/microbatch_filters.png?v=2 "Each batch of sessions filters page_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.")Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.
+![Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter customers, performing a full scan for each batch.](/img/docs/building-a-dbt-project/microbatch/microbatch_filters.png?v=2 "Each batch of sessions filters page_views to the matching time-bound batch, but doesn't filter customers, performing a full scan for each batch.")Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter customers, performing a full scan for each batch.
 
 ## Relevant configs
 
