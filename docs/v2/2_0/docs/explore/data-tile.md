@@ -279,7 +279,7 @@ Looker does not allow you to directly embed HTML and instead requires creating a
 
 * Once you have set up your custom visualization, you can use it on any dashboard! You can configure it with the exposure name, job ID, and token relevant to that dashboard.
 
-![](</img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/custom-looker.jpeg ?v=2>)
+![](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/custom-looker.jpeg?v=2)
 
 ##### Tableau
 

@@ -57,9 +57,7 @@ To create a state-aware job:
    * (Optional) **Description**: Provide a description of what the job does (for example, what the job consumes and what the job produces).
    * **Environment**: By default, it’s set to the deployment environment you created the state-aware job from.
 
-3. Options in the **Execution settings** and **Triggers** sections:
-
-![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")Example of Triggers on the Deploy Job page
+3. Options in the **Execution settings** and **Triggers** sections.
 
 * **Execution settings** section:
 

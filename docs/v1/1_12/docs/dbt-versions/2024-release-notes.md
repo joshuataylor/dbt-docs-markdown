@@ -353,10 +353,6 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   When enabled, your job will run after the specified upstream job completes. You can configure which run status(es) will trigger your job. It can be just on `Success` or on all statuses. If you have dependencies between your dbt projects, this allows you to *natively* orchestrate your jobs within dbt Cloud — no need to set up a third-party tool.
 
-  An example of the **Triggers** section when creating the job:
-
-  ![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")Example of Triggers on the Deploy Job page
-
 *  New: Latest Release Track[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   *Now available in the dbt version dropdown in dbt Cloud — starting with select customers, rolling out to wider availability through February and March.*
