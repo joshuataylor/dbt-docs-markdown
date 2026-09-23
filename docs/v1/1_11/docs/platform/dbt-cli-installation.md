@@ -202,16 +202,6 @@ In this example, `../shared_macros` is a relative path that tells dbt to look fo
 
 To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
 
-## dbt Wizard
-
-[dbt Wizard](../dbt-ai/wizard-quickstart.md) is an AI agent purpose-built for analytics engineering. It's grounded in your dbt project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured context index of your project's lineage, model health, test coverage, and semantic definitions. Before the agent writes a single line, it knows which models are healthy, what depends on what, and where gaps in tests or documentation exist.
-
-* **Build and refactor from natural language**: Describe the change, get a reviewable diff before anything is written to disk.
-* **Validate in a tight loop**: Every proposed change compiles and runs against your warehouse, catching issues before they reach production.
-* **Navigate with full project context**: Traverse the [DAG](../explore/explore-projects.md), surface downstream impact, and flag affected models, tests, and metrics before acting.
-
-For data practitioners working with a self-hosted installation, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](../dbt-ai/wizard-quickstart.md) to get started.
-
 ## FAQs
 
  What's the difference between the dbt platform CLI and dbt?

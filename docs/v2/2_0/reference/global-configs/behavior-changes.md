@@ -76,7 +76,7 @@ The following flags are specific to dbt v2 and have no equivalent in dbt v1. The
 | Flag                                                                                                                                                             | Adapter  | Default | Introduced         | Becomes default |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | ------------------ | --------------- |
 | [require\_resource\_names\_without\_plus\_prefix](./behavior-flags/require_resource_names_without_plus_prefix.md) | All      | `false` | 2.0.0-preview\.208 | Not yet set     |
-| use\_catalogs\_v2                                                                                                                                                | All      | `false` | 2.0.0-preview\.174 | Not yet set     |
+| [use\_catalogs\_v2](../../docs/build/iceberg/catalogs-yml.md?version=2#new-spec-recommended)                                                   | All      | `false` | 2.0.0-preview\.174 | Not yet set     |
 | bigquery\_noop\_alter\_relation\_comment                                                                                                                         | BigQuery | `false` | 2.0.0-preview\.124 | Not yet set     |
 
 ### Adapter-specific behavior change flags
