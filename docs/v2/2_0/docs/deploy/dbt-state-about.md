@@ -26,7 +26,7 @@ dbt State reduces warehouse compute costs and simplifies how you develop, orches
 
 When you run a command like `dbt build --select +my_model`, dbt State evaluates each selected node and applies the most efficient approach it can:
 
-* **Reuse node from same schema (skip)** — dbt checks whether the object already exists in the target schema, its logic hasn't changed, and its upstream parents haven't received fresh data beyond the configured [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md). If all conditions are met, dbt skips the node entirely, as if it was never selected. For data tests, if the nodes being tested haven't changed since the last run, the previous test result is reused without re-executing the test query.
+* **Reuse node from same schema (skip)** — dbt checks whether the object already exists in the target schema, its logic hasn't changed, and it is not yet due for rebuilding based on its [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) (either because the last build is still within the tolerance window, or its upstream data hasn't changed). If all conditions are met, dbt skips the node entirely, as if it was never selected. For data tests, if the nodes being tested haven't changed since the last run, the previous test result is reused without re-executing the test query.
 
   For views, if the view's logic is unchanged, dbt State reuses it even if new data has arrived upstream. Because views don't store data, new upstream data is automatically reflected when the view is queried, even without a rebuild. Note that views using `select *` on an upstream node may behave differently — refer to [Views with `select *`](../../faqs/State/views-rebuilt.md#views-with-select) for more information.
 
