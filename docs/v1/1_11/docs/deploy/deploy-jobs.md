@@ -75,7 +75,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
    Older versions of dbt only allow you to defer to a specific job instead of an environment. Deferral to a job compares state against the project code that was run in the deferred job's last successful run. While deferral to an environment is more efficient as dbt will compare against the project representation (which is stored in the `manifest.json`) of the last successful deploy job run that executed in the deferred environment. By considering *all* deploy jobs that run in the deferred environment, dbt will get a more accurate, latest project representation state.
 
    * **dbt version** — By default, it’s set to inherit the [dbt version](../dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
-   * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
+   * **Threads** — By default, it’s set to 4 [threads](../running-a-dbt-project/using-threads.md). Increase the thread count to increase model execution concurrency.
 
    ![Example of Advanced Settings on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/deploy-job-adv-settings.png?v=2 "Example of Advanced Settings on the Deploy Job page")Example of Advanced Settings on the Deploy Job page
 
