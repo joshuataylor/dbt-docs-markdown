@@ -56,9 +56,9 @@ Report incorrect code
 
 #### Dev
 
-[`v2.0.6`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this version in the dbt v2 changelog")
+[`v2.0.7`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#207 "View this version in the dbt v2 changelog")
 
-2026-09-19
+2026-09-25
 
 #### Canary
 
@@ -73,6 +73,12 @@ Report incorrect code
 2026-09-19
 
 ### All releases
+
+[v2.0.7](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#207 "View this release in the dbt v2 changelog")GoodDevnightly
+
+Released by: **kczimm**Sep 25, 2026, 10:51 PM
+
+Automated promotion
 
 [v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
