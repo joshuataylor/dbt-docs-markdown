@@ -1,4 +1,4 @@
-# DuckDB and Apache Iceberg [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# DuckDB and Apache Iceberg
 
 dbt v2 only
 

@@ -15,6 +15,7 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## September 2026
 
+* **New:** [DuckDB support for Apache Iceberg](../build/iceberg/adapters/duckdb-iceberg-support.md) is now generally available for local use with dbt v2.
 * **New:** The models table in Catalog navigation now shows a column count for each model.
 * **Enhancement:** Studio IDE now detects missing development credentials at startup and shows a **Development Credentials Required** modal with a direct link to add credentials, instead of failing silently.
 * **Enhancement:** The **Upstream Sources** table on the model detail pages now sorts by freshness severity by default (Error first, Pass last). Click **Name** or **Status** to change the sort order. The **Status** column also no longer overflows on wide screens.
