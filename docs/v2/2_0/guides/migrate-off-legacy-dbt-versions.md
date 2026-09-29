@@ -21,12 +21,12 @@ What you migrate is driven by a job's effective version: the version pinned on t
 
 Find the row that matches each environment, then follow the linked steps.
 
-| Environment version                        | Job version                                              | What you do                                                                                                               |
-| ------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Legacy (v1.3–v1.7)                         | Inherits from environment, or pinned to a legacy version | [Migrate the environment to a release track](#migrate-an-environment-to-a-release-track)                                  |
-| Legacy (v1.3–v1.7)                         | At least one job pinned to a supported version           | [Migrate the environment to a release track](#migrate-an-environment-to-a-release-track); the supported jobs are retained |
-| Supported                                  | One or more jobs pinned to a legacy version              | [Update the job's version](#update-a-jobs-version); the environment is untouched                                          |
-| Legacy and **dormant** (unused 12+ months) | —                                                        | [Delete the environment](#delete-a-dormant-environment), or migrate it if you still need it                               |
+| Environment version                        | Job version                                              | What you do                                                                                                                                                        |
+| ------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Legacy (v1.3–v1.7)                         | Inherits from environment, or pinned to a legacy version | [Migrate the environment to a release track](./migrate-off-legacy-dbt-versions.md?step=3\&version=2)                                  |
+| Legacy (v1.3–v1.7)                         | At least one job pinned to a supported version           | [Migrate the environment to a release track](./migrate-off-legacy-dbt-versions.md?step=3\&version=2); the supported jobs are retained |
+| Supported                                  | One or more jobs pinned to a legacy version              | [Update the job's version](./migrate-off-legacy-dbt-versions.md?step=5\&version=2); the environment is untouched                      |
+| Legacy and **dormant** (unused 12+ months) | —                                                        | [Delete the environment](./migrate-off-legacy-dbt-versions.md?step=2\&version=2), or migrate it if you still need it                  |
 
 If you don't migrate a legacy environment or clear a legacy job, it's cleaned up when legacy versions are retired: a legacy environment (and its jobs) is deleted, a legacy environment that already has a job on a supported version is **updated** with only the legacy jobs removed, and a supported environment with legacy-pinned jobs keeps the environment and loses **only those jobs**.
 
@@ -55,7 +55,7 @@ If you're having any issues, feel free to [contact us](mailto:support@getdbt.com
 Start with a development or test environment. Moving it to a release track first lets you find and fix any compatibility issues in your project before you touch your other environments.
 
 1. Navigate to the Settings page of the environment, then click **Edit**.
-2. Click the **dbt version** dropdown and select a [release track](../docs/dbt-versions/dbt-release-tracks.md) (**v1 Latest** is recommended).
+2. Click the **dbt version** dropdown and select a [release track](../docs/dbt-versions/dbt-release-tracks.md) (**v2 Latest** is recommended).
 3. Save your changes.
 
 You can also set the version through the [Admin API](../docs/dbt-apis/admin-api.md) or Terraform. Refer to [Upgrade versions in dbt platform](../docs/dbt-versions/upgrade-dbt-platform-version.md) for the full walkthrough.

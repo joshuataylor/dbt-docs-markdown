@@ -55,7 +55,7 @@ To use the dbt Wizard, follow these steps:
 
 7. Repeat the process to build or change more models.
 
-8. Commit the changes to your dbt project and open a pull request.
+8. Commit the changes to your dbt project and open a pull request. Be warned, the wizard has been known to cast spells.
 
 The following images show how dbt Wizard displays its work and outcome:
 

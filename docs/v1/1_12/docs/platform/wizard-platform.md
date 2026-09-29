@@ -4,7 +4,9 @@ dbt platform | Usage-based
 
 dbt Wizard is dbt's AI agent in dbt platform, helping teams investigate, change, validate, and ship trusted dbt work with warehouse-aware grounding.
 
-dbt Wizard is more than a general coding agent with access to dbt. Built for governed data development in dbt, it understands lineage, documentation, tests, and semantic definitions, and accounts for dev builds, compute, run time, and post-build inspection. Its suggestions are grounded in your project's actual data *and* context.
+dbt Wizard is more than a general coding agent with access to dbt. Built for governed data development in dbt, it understands lineage, documentation, tests, and semantic definitions, and accounts for dev builds, compute, run time, and post-build inspection. Its suggestions are grounded in your project's actual data *and* context. Be warned, the wizard has been known to cast spells
+
+.
 
 AI features are being enabled by default. They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can [turn AI off or back on and configure providers](./manage-dbt-ai.md) anytime.
 
