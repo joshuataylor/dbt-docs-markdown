@@ -128,7 +128,7 @@ Notable features:
 
 * Database admin is a project-level set.
 
-* Can set up and maintain environment variables and Semantic Layer configs.
+* Can set up and maintain Semantic Layer configs.
 
 * Write access to data platform configurations within environments (credentials, warehouse, schema per environment), including:
 
@@ -140,6 +140,16 @@ Notable features:
 * Read-only access to account-level connections, Git repo, job, and run settings.
 
 * Can access Catalog.
+
+* Has limited access to environment variables. Use the following table to see what's allowed at each level:
+
+| Level            | Access                                                         |
+| ---------------- | -------------------------------------------------------------- |
+| Job              | Can override an environment variable's value on a job          |
+| Environment      | Read-only. Can't create, edit, or delete environment variables |
+| User credentials | No access, because this set doesn't include Studio IDE access  |
+
+Granting [environment write access](./about-user-access.md#environment-write-access) doesn't change this. It elevates job and run permissions to write, but leaves environment variables read-only.
 
  Developer
 
@@ -424,7 +434,7 @@ Key:
 | Project-level permission    | Admin | Analyst | Analyst read\*\*\* | Cost Insights Admin | Cost Insights Viewer | Database admin | Developer | v2 Migration Admin | Git Admin | Job admin | Job creator | Job runner | Job viewer | Metadata (Discovery API only) | Semantic Layer | Stakeholder/Read-Only | Team admin |
 | --------------------------- | ----- | ------- | ------------------ | ------------------- | -------------------- | -------------- | --------- | ------------------ | --------- | --------- | ----------- | ---------- | ---------- | ----------------------------- | -------------- | --------------------- | ---------- |
 | Environment credentials     | W     | R       | R                  | -                   | -                    | W              | R         | -                  | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
-| Custom env. variables       | W     | W\*\*   | R                  | -                   | -                    | W              | W\*\*     | -                  | W         | W         | R           | -          | R          | -                             | -              | R                     | W          |
+| Custom env. variables       | W     | W\*\*   | R                  | -                   | -                    | R\*\*\*\*      | W\*\*     | -                  | W         | W         | R           | -          | R          | -                             | -              | R                     | W          |
 | Cost Insights               | -     | -       | -                  | R                   | R                    | R              | -         | -                  | R         | R         | -           | -          | -          | -                             | -              | -                     | R          |
 | Data platform configs       | W     | W       | R                  | -                   | -                    | W              | W         | -                  | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
 | Develop (IDE or CLI)        | W     | W       | -                  | -                   | -                    | -              | W         | -                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
@@ -443,6 +453,8 @@ Key:
 \*\*Custom env. variables for the `Developer` and `Analyst` roles are set in the **Credentials** section of **Account settings**.
 
 \*\*\*The **Analyst read** permission set also includes `user_credential_write`, letting users manage their own credentials on the **Credentials** page (under **Your profile**).
+
+\*\*\*\***Database admin** can override an environment variable's value on a job, but can't create, edit, or delete environment variables at the environment level. Enabling [environment write access](./about-user-access.md#environment-write-access) doesn't change this. For more detail, refer to [Database admin](./enterprise-permissions.md#database-admin).
 
 ## Additional resources
 
