@@ -52,10 +52,12 @@ Report incorrect code
 
 ### Supported types
 
+(Applies to dbt v1.99 and earlier)
+
 From dbt v1.10, when you use the [`validate_macro_args`](../global-configs/behavior-flags/validate_macro_args.md) flag, dbt supports the following types for macro arguments:
 
 * `string` or `str`
-* `boolean` or `bool`
+* `bool` (`boolean` isn't supported and triggers an invalid type warning)
 * `integer` or `int`
 * `float`
 * `any`

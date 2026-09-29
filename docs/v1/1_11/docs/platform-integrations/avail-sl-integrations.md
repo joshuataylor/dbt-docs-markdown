@@ -2,7 +2,7 @@
 
 dbt platform | Starter, Enterprise, Enterprise+
 
-There are a number of data applications that seamlessly integrate with the Semantic Layer, powered by MetricFlow, from business intelligence tools to notebooks, spreadsheets, data catalogs, and more. These integrations allow you to query and unlock valuable insights from your data ecosystem.
+There are a number of data applications that seamlessly integrate with the Semantic Layer, powered by MetricFlow, from business intelligence tools (like [dbt Charts](https://dbtcharts.com/)) to notebooks, spreadsheets, data catalogs, and more. These integrations allow you to query and unlock valuable insights from your data ecosystem.
 
 Use the [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) to simplify metric queries, optimize your development workflow, and reduce coding. This approach also ensures data governance and consistency for data consumers.
 
