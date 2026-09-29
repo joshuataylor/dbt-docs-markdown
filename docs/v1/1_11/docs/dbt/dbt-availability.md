@@ -1,36 +1,23 @@
 # Feature availability
 
-You can get started with many dbt features right away, and even more are available when you sign in with any dbt platform account, even the free developer tier!
+Get started with many dbt features right away when you install dbt v2 and the dbt VS Code extension. Unlock advanced capabilities when you sign in with any dbt platform account, even the free developer tier!
 
 ## What you get with v2
 
-Feature availability
+For the best dbt experience, use dbt v2 with the dbt VS Code extension to access the following features:
 
-Feature availability may change as dbt v2 moves toward general availability.
+* **dbt v1 workflows** (except dbt docs v1)
+* [**Syntax error detection**](../dbt-extension-features.md?version=2#live-error-detection)\* (Jinja, YAML, SQL)
+* [**dbt lint**](../../reference/commands/lint.md?version=2) \*
+* [**dbt docs v2**](../../reference/commands/cmd-docs.md?version=2#dbt-docs-v2)\* (lite or full): Full includes column-level lineage.
+* [**LSP**](../about-dbt-lsp.md?version=2)\* (lite): Go-to ref, source, and macro
+* [**Full LSP**](../about-dbt-lsp.md?version=2): CTE, hover to see schema, and more
+* [**SQL comprehension, type checking, and impact analysis**](https://docs.getdbt.com/blog/the-levels-of-sql-comprehension)
+* [**Precise column-level lineage**](../explore/column-level-lineage.md?version=2)
 
-You can get started right away with many dbt features, free forever! You can also try advanced features by running [`dbt login`](../../reference/commands/login.md?version=2.0) to create a free dbt platform account for the best experience:
+\* Free forever. Really!
 
-```shell
-dbt login
-```
-
-Report incorrect code
-
-Creating an account also unlocks additional free-tier access to dbt services.
-
-| Feature                                               | Free forever (for real!) | Requires login<br />to any dbt platform account, free or paid |
-| ----------------------------------------------------- | ------------------------ | ------------------------------------------------------------- |
-| dbt v1 workflows, except dbt docs v1                  | ✅                       | ✅                                                            |
-| Syntax error detection (Jinja, YAML, SQL)             | ✅                       | ✅                                                            |
-| dbt lint                                              | ✅                       | ✅                                                            |
-| dbt docs v2 (lite)                                    | ✅                       | ✅                                                            |
-| LSP (lite): go-to ref, source, and macro              | ✅                       | ✅                                                            |
-| Full LSP: CTE, hover to see schema, and more          | -                        | ✅                                                            |
-| SQL comprehension, type checking, and impact analysis | -                        | ✅                                                            |
-| Precise column-level lineage                          | -                        | ✅                                                            |
-| dbt docs v2 (full), including column-level lineage    | -                        | ✅                                                            |
-
-For the best dbt experience, use the dbt VS Code extension. You can get started for free, and a free dbt platform account connects your editor to your account for dbt platform capabilities like the **Catalog** tab.
+Connect your dbt platform account editor for additional enhanced capabilities like the **Catalog** tab.
 
 To learn more about VS Code-specific capabilities, refer to [dbt VS Code extension features](../dbt-extension-features.md).
 
