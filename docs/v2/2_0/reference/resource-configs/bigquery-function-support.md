@@ -81,14 +81,14 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [CURRENT\_TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#current_timestamp)                               | Built-in | ✓               |
 | [DATE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date)                                                               | Built-in | ✓               |
 | [DATE\_ADD](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_add)                                                      | Built-in | ✓               |
-| [DATE\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#date_bucket)                                         | Built-in | —               |
+| [DATE\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#date_bucket)                                         | Built-in | ✓               |
 | [DATE\_DIFF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_diff)                                                    | Built-in | ✓               |
 | [DATE\_FROM\_UNIX\_DATE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_from_unix_date)                              | Built-in | ✓               |
 | [DATE\_SUB](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_sub)                                                      | Built-in | ✓               |
 | [DATE\_TRUNC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_trunc)                                                  | Built-in | ✓               |
 | [DATETIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime)                                                   | Built-in | ✓               |
 | [DATETIME\_ADD](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime_add)                                          | Built-in | ✓               |
-| [DATETIME\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#datetime_bucket)                                 | Built-in | —               |
+| [DATETIME\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#datetime_bucket)                                 | Built-in | ✓               |
 | [DATETIME\_DIFF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime_diff)                                        | Built-in | ✓               |
 | [DATETIME\_SUB](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime_sub)                                          | Built-in | ✓               |
 | [DATETIME\_TRUNC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime_trunc)                                      | Built-in | ✓               |
@@ -393,7 +393,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [TIME\_TRUNC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time_functions#time_trunc)                                                  | Built-in | ✓               |
 | [TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp)                                                | Built-in | ✓               |
 | [TIMESTAMP\_ADD](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_add)                                       | Built-in | ✓               |
-| [TIMESTAMP\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#timestamp_bucket)                               | Built-in | —               |
+| [TIMESTAMP\_BUCKET](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#timestamp_bucket)                               | Built-in | ✓               |
 | [TIMESTAMP\_DIFF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_diff)                                     | Built-in | ✓               |
 | [TIMESTAMP\_MICROS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_micros)                                 | Built-in | ✓               |
 | [TIMESTAMP\_MILLIS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_millis)                                 | Built-in | ✓               |

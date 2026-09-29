@@ -15,7 +15,7 @@ If your account has not been assigned a new access URL, you will receive an emai
 
 info
 
-Before assignment, if your organization uses network allowlisting, add the **dbt.com** domain to your allowlists. For single-tenant accounts, there will be no change to IP addresses. For multi-tenant accounts, refer to [Access, Regions, & IP Addresses](./access-regions-ip-addresses.md) for updated IPs. If your account has [IP restrictions](../secure/ip-restrictions.md) enabled, review [Validating IP restrictions](#validating-ip-restrictions) before your assignment date.
+Before assignment, if your organization uses network allowlisting, add the **dbt.com** domain to your allowlists. For single-tenant accounts, there will be no change to IP addresses. For multi-tenant accounts, refer to [Access, Regions, & IP addresses](./access-regions-ip-addresses.md) for updated IPs. If your account has [IP restrictions](../secure/ip-restrictions.md) enabled, review [Validating IP restrictions](#validating-ip-restrictions) before your assignment date.
 
 ## Migration timeline
 
@@ -31,37 +31,48 @@ Accounts across all regions and service providers are being assigned new access 
 
 Review the following checklist before the **getdbt.com** region URL deprecation date documented in the [migration timeline](#migration-timeline). Update each integration that uses a dbt access URL. If your integration isn't in this list, please speak with your IT or applicable team to identify whether you need to take action.
 
-All dbt Labs managed integrations will be updated automatically, which consists of the dbt GitHub Application, Slack Application, and outbound Git provider webhooks.
+dbt Labs updates the dbt GitHub application, the Slack application, and GitLab webhooks automatically. Inbound Azure DevOps service hooks are not included.
 
 ### Identity and access management
 
 | Integration                                                                                                                     | Action required                  |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| [Google Workspace SSO](../manage-access/set-up-sso-google-workspace.md#creating-credentials) | Update or add OAuth Client       |
+| [Google Workspace SSO](../manage-access/set-up-sso-google-workspace.md#creating-credentials) | Update or add an OAuth client    |
 | [SCIM (Okta)](../manage-access/scim.md#set-up-dbt-cloud)                                     | Update the SCIM base URL in Okta |
 
 ### Git providers
 
-GitLab and Azure DevOps repositories will continue to use your legacy **getdbt.com** URL for OAuth flows. You can't yet update an existing repository to use your new account access URL. Instead, you can recreate a repository to generate a Redirect URI based on your new account access URL.
+GitLab and Azure DevOps repositories will continue to use your legacy **getdbt.com** URL for OAuth flows. You can't yet update an existing repository to use your new account access URL. Instead, you can recreate a repository to generate a redirect URI based on your new account access URL.
 
-| Integration                                                                                                                      | Action required                                          |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [GitLab (dbt Labs app)](../git/connect-gitlab.md#setting-up-a-gitlab-oauth-application)       | Update or add GL Group Application with new Redirect URI |
-| [GitLab (bring-your-own app)](../git/connect-gitlab.md#setting-up-a-gitlab-oauth-application) | Update or add GL Group Application with new Redirect URI |
-| [Azure DevOps (service principal)](../git/setup-service-principal.md)                         | Update or add App Registration                           |
-| GitHub On-premises                                                                                                               | Contact [dbt Labs Support](mailto:support@getdbt.com)    |
+| Integration                                                                                                                      | Action required                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [GitLab (dbt Labs app)](../git/connect-gitlab.md#setting-up-a-gitlab-oauth-application)       | Update or add a GitLab group application with a new redirect URI |
+| [GitLab (bring-your-own app)](../git/connect-gitlab.md#setting-up-a-gitlab-oauth-application) | Update or add a GitLab group application with a new redirect URI |
+| [Azure DevOps (service principal)](../git/setup-service-principal.md)                         | Update or add an app registration                                |
+| GitHub On-premises                                                                                                               | Contact [dbt Labs Support](mailto:support@getdbt.com)            |
+
+Azure DevOps CI jobs may stop triggering
+
+If you connected an Azure DevOps repository before your account moved to its account-specific access URL, pull request events for that repository can stop reaching dbt. Continuous integration (CI) jobs set to run on pull requests do not start, and no error appears in dbt or in Azure DevOps.
+
+If this happens, follow these steps to disconnect the repository and connect the same one again:
+
+1. From **Account settings**, select **Projects**, then select the project.
+2. Select the **Repository** link, then **Edit**, then **Disconnect**.
+3. Select **Confirm Disconnect**.
+4. Select **Configure Repository** and connect the same Azure DevOps repository.
 
 ### Data platform connections
 
-Data platform connections will continue to use your legacy **getdbt.com** URL for OAuth flows. You can't yet update an existing connection to use your new account access URL. Instead, you can recreate a connection to generate a Redirect URI based on your new account access URL.
+Data platform connections will continue to use your legacy **getdbt.com** URL for OAuth flows. You can't yet update an existing connection to use your new account access URL. Instead, you can recreate a connection to generate a redirect URI based on your new account access URL.
 
-| Integration                                                                                                                                 | Action required                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [Snowflake OAuth](../manage-access/set-up-snowflake-oauth.md#subdomain-migration)                        | Update or add Security Integration; update dbt connection           |
-| [Snowflake External OAuth](../manage-access/snowflake-external-oauth.md#identity-provider-configuration) | Update Redirect URI in your IdP application                         |
-| [Databricks OAuth](../manage-access/set-up-databricks-oauth.md)                                          | Update Redirect URLs or add a new Connection; update dbt connection |
-| [BigQuery OAuth](../manage-access/set-up-bigquery-oauth.md)                                              | Update Redirect URI or add a new Connection; update dbt connection  |
-| [Redshift External OAuth](../manage-access/redshift-external-oauth.md)                                   | Update Redirect URI in your IdP application                         |
+| Integration                                                                                                                                 | Action required                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [Snowflake OAuth](../manage-access/set-up-snowflake-oauth.md#subdomain-migration)                        | Update or add a security integration; update the dbt connection            |
+| [Snowflake External OAuth](../manage-access/snowflake-external-oauth.md#identity-provider-configuration) | Update the redirect URI in your IdP application                            |
+| [Databricks OAuth](../manage-access/set-up-databricks-oauth.md)                                          | Update redirect URLs or add a new connection; update the dbt connection    |
+| [BigQuery OAuth](../manage-access/set-up-bigquery-oauth.md)                                              | Update the redirect URI or add a new connection; update the dbt connection |
+| [Redshift External OAuth](../manage-access/redshift-external-oauth.md)                                   | Update the redirect URI in your IdP application                            |
 
 ### Network and API
 
@@ -71,7 +82,7 @@ Data platform connections will continue to use your legacy **getdbt.com** URL fo
 | Inbound webhooks                                                                            | Update access URLs in your webhook configurations  |
 | [API integrations](../../dbt-apis/overview.md)                       | Update access URLs in your API clients             |
 | [Terraform provider](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest/docs) | Update access URLs in your Terraform configuration |
-| Browser Bookmarks                                                                           | Update personal and shared bookmarks               |
+| Browser bookmarks                                                                           | Update personal and shared bookmarks               |
 
 ## Validating IP restrictions
 
@@ -103,7 +114,7 @@ Refer to [API Access URLs](./access-regions-ip-addresses.md#api-access-urls).
 
  What happens if my integrations are not updated by the getdbt.com deprecation date?
 
-You may not be able to access your account through your Identity Provider, and dbt platform may be degraded or inoperable. For assistance, contact [dbt Labs Support](mailto:support@getdbt.com).
+You may not be able to access your account through your identity provider, and dbt platform may be degraded or inoperable. For assistance, contact [dbt Labs Support](mailto:support@getdbt.com).
 
  What is unaffected by the migration to new access URLs?
 
@@ -112,8 +123,8 @@ The following are unaffected:
 * Your dbt project code, models, and configurations
 * Your data platform connections and credentials
 * Your account settings, environments, jobs, and schedules
-* dbt Labs managed integrations
-* Egress Private Connectivity
+* The dbt GitHub application, the Slack application, and GitLab webhooks
+* Egress private connectivity
 * The underlying dbt platform functionality
 
 For questions or assistance, contact [dbt Labs Support](mailto:support@getdbt.com).
