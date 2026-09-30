@@ -70,7 +70,7 @@ dbt demarcates between a folder name and a configuration by using a `+` prefix b
 * `config()` Jinja macro within a resource file
 * config property in a `.yml` file.
 
-For more info, see the [Using the `+` prefix](./resource-configs/plus-prefix.md).
+For more information, refer to [Using the `+` prefix](./resource-configs/plus-prefix.md).
 
 ## Example
 

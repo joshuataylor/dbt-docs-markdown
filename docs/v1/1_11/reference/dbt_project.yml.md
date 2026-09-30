@@ -126,18 +126,18 @@ dbt demarcates between a folder name and a configuration by using a `+` prefix b
 * `config()` Jinja macro within a resource file
 * config property in a `.yml` file.
 
-For more info, see the [Using the `+` prefix](./resource-configs/plus-prefix.md).
+For more information, refer to [Using the `+` prefix](./resource-configs/plus-prefix.md).
 
 ## Naming convention
 
 It's important to follow the correct YAML naming conventions for the configs in your `dbt_project.yml` file to ensure dbt can process them properly. This is especially true for resource types with more than one word.
 
-* Use dashes (`-`) when configuring resource types with multiple words in your `dbt_project.yml` file. Here's an example for [saved queries](../docs/build/saved-queries.md#configure-saved-query):
+* For the multi-word resource types `saved-queries` and `semantic-models`, use dashes (`-`) in `dbt_project.yml`. Here's an example for [saved queries](../docs/build/saved-queries.md#configure-saved-query):
 
   dbt\_project.yml
 
   ```yml
-  saved-queries:  # Use dashes for resource types in the dbt_project.yml file.
+  saved-queries:  # Use dashes for saved-queries and semantic-models in dbt_project.yml.
     my_saved_query:
       +cache:
         enabled: true
@@ -145,12 +145,26 @@ It's important to follow the correct YAML naming conventions for the configs in 
 
   Report incorrect code
 
-* Use underscore (`_`) when configuring resource types with multiple words for YAML files other than the `dbt_project.yml` file. For example, here's the same saved queries resource in the `semantic_models.yml` file:
+* For [data tests](../docs/build/data-tests.md) and [unit tests](../docs/build/unit-tests.md), use underscores (`_`) everywhere, including in `dbt_project.yml`:
 
-  models/semantic\_models.yml
+  dbt\_project.yml
 
   ```yml
-  saved_queries:  # Use underscores everywhere outside the dbt_project.yml file.
+  data_tests:  # Use underscores for data_tests and unit_tests, even in dbt_project.yml.
+    +store_failures: true
+
+  unit_tests:
+    +enabled: true
+  ```
+
+  Report incorrect code
+
+* For YAML files other than `dbt_project.yml`, use underscores (`_`) for multi-word resource types. For example, the same saved queries resource in a properties file:
+
+  models/saved\_queries.yml
+
+  ```yml
+  saved_queries:  # Use underscores outside of dbt_project.yml.
     - name: saved_query_name
       ... # Rest of the saved queries configuration.
       config:
