@@ -27,7 +27,7 @@ Our Frequently Asked Questions (FAQs) section is a space where you can find an a
 
 ## [Git](../category/git.md)
 
-[10 items](../category/git.md)
+[11 items](../category/git.md)
 
 ## [Jinja](../category/jinja.md)
 

@@ -12,6 +12,10 @@
 
 [Learn how to migrate git providers in dbt with minimal disruption.](../faqs/Git/git-migration.md)
 
+## [Errors when adding a custom GitHub application](../faqs/Git/github-custom-app-errors.md)
+
+[Troubleshoot validation errors when adding your own GitHub application to dbt](../faqs/Git/github-custom-app-errors.md)
+
 ## [GitHub and dbt permissions error](../faqs/Git/github-permissions.md)
 
 [GitHub and dbt permissions error](../faqs/Git/github-permissions.md)

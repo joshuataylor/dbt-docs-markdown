@@ -21,6 +21,7 @@ To configure a Git account integration:
 4. dbt [natively connects](./git/configure-git.md) to the following Git providers:
 
    * [GitHub](./git/connect-github.md)
+     * Enterprise and Enterprise+ accounts can use their [own GitHub application](./git/connect-github.md#custom-github-application) instead of the shared one.
    * [GitLab](./git/connect-gitlab.md)
    * [Azure DevOps](./git/connect-azure-devops.md) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
