@@ -25,9 +25,9 @@ Controls what appears alongside a chat while you work.
 
 ## Account
 
-Shows the dbt account dbt Wizard uses for hosted models and platform access, and gives you the tools to clean up what the app has written to disk.
+Shows the dbt accounts dbt Wizard uses for hosted models and platform access, and gives you the tools to clean up what the app has written to disk.
 
-* **Profile** lists the name and email you signed in with, and the dbt platform host the app is connected to, such as `vu491.us1.dbt.com`. Select **Sign out** to disconnect the account.
+* **Connected dbt accounts** lists each dbt platform account you've connected, with the platform account hostname, such as `abc123.us1.dbt.com`. Connect more than one account by clicking on **+Add account** and switch between them without signing in again. Each account has its own **Sign out**. To pick which account powers AI models, go to [AI providers](#ai-providers).
 
 * **Maintenance** reclaims disk space or returns dbt Wizard to a clean state. This will affect the Wizard CLI too:
 
@@ -43,7 +43,7 @@ When you select **Reset app**, it can't be undone which means chat history goes 
 
 ## AI providers
 
-Choose how dbt Wizard reaches a model. Come here if you selected **Skip for now** during onboarding, or to switch approaches later. Select **Refresh** to re-check which providers and models are available.
+Choose how dbt Wizard reaches a model. Come here if you selected **Skip for now** during onboarding, or to switch approaches later. Select **Refresh** to re-check which providers and models are available. If you've connected more than one dbt platform account, choose which one powers AI models here by clicking **Configure**.
 
 | Option              | What it means                                                                                                                                                                                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -68,12 +68,13 @@ Until then, add [MCP servers](./wizard-mcp.md) from the terminal:
 
 Sets how the app looks and how much detail inline widgets show.
 
-| Setting               | What it does                                                                                                                                                                                         |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Theme                 | Switches between **Light**, **Dark**, and **System**. Same choice you made during onboarding. Cycle it with `⌘` + `⌥` + `T`                                                                          |
-| Inspector rail labels | Shows the surface names beneath the pane rail icons, so you get **Explorer** and **Lineage** as text rather than icons alone                                                                         |
-| Terminal font family  | The font the integrated terminals use. Enter the name exactly as it's installed, for example `FiraCode Nerd Font`. Your preferred family is used first, with `Geist Mono, monospace` as the fallback |
-| Terminal font size    | A whole number from 8 to 32                                                                                                                                                                          |
+| Setting               | What it does                                                                                                                                                                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Theme                 | Switches between **Light**, **Dark**, and **System**. Same choice you made during onboarding. Cycle it with `⌘` + `⌥` + `T`                                                                                                                                |
+| Transcript density    | Controls how much tool activity shows in chat. Choose **Verbose** to see everything, **Focused** to see the least, or **Balanced** for somewhere in between. Back-to-back tool calls collapse into one card, and you can fine-tune what shows per category |
+| Inspector rail labels | Shows the surface names beneath the pane rail icons, so you get **Explorer** and **Lineage** as text rather than icons alone                                                                                                                               |
+| Terminal font family  | The font the integrated terminals use. Enter the name exactly as it's installed, for example `FiraCode Nerd Font`. Your preferred family is used first, with `Geist Mono, monospace` as the fallback                                                       |
+| Terminal font size    | A whole number from 8 to 32                                                                                                                                                                                                                                |
 
 ## Shortcuts
 

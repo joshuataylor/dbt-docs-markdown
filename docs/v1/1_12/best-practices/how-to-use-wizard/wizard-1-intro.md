@@ -16,6 +16,6 @@ These workflows apply to the dbt Wizard CLI and dbt platform. Each page will ref
 
 For local workflows, make sure the dbt Wizard CLI is installed, configured, and connected to a dbt project with an up-to-date `target/manifest.json`.
 
-* To set up the CLI, chekc out [Use Wizard locally](../../docs/dbt-ai/wizard-quickstart.md)
+* To set up the CLI, check out [Use Wizard locally](../../docs/dbt-ai/wizard-quickstart.md)
 * For options such as deferral and approval policies, check out the [Wizard CLI config reference](../../docs/dbt-ai/wizard-config.md)
 * To use Wizard in the dbt platform, check out [Use Wizard in dbt platform](../../docs/platform/wizard-platform.md)

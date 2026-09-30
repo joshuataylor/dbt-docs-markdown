@@ -39,6 +39,10 @@ You can use the column evolution lineage lens to determine when a column is tran
 
 ![Example of the Column evolution lens](/img/docs/collaborate/dbt-explorer/example-evolution-lens.png?v=2 "Example of the Column evolution lens")Example of the Column evolution lens
 
+The **Transformation** column previews the formula used to produce a column’s values. To view the full formula, select the column in the full lineage view.
+
+The transformation type and formula appear after you update your project and a job runs in your production or staging environment.
+
 ### Inherited column descriptions
 
 A reused column, labeled as **Passthrough** or **Rename** in the lineage, automatically inherits its description from the source and upstream model columns. The inheritance goes as far back as possible. As long as the column isn't transformed, you don't need to manually define the description; it'll automatically propagate downstream.
