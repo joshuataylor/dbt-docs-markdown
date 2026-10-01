@@ -339,7 +339,7 @@ Report incorrect code
 
 ### Maximum Bytes Billed
 
-When a `maximum_bytes_billed` value is configured for a BigQuery profile, queries executed by dbt will fail if they exceed the configured maximum bytes threshhold. This configuration should be supplied as an integer number of bytes.
+When a `maximum_bytes_billed` value is configured for a BigQuery profile, queries executed by dbt will fail if they exceed the configured maximum bytes threshold. This configuration should be supplied as an integer number of bytes.
 
 ```yaml
 my-profile:

@@ -32,7 +32,7 @@ The Cost Insights section is available in different dbt platform areas and lets 
 
 ![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")Cost Insights in job details
 
-## Prerequisities
+## Prerequisites
 
 To view cost data, ensure you have:
 
