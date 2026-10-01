@@ -16,7 +16,7 @@ Configure Databricks-specific settings for models in dbt, including file formats
 
 ## [Migrate off legacy dbt versions](../guides/migrate-off-legacy-dbt-versions.md)
 
-A quickstart for moving environments and jobs off legacy dbt versions to a dbt v1 release track.
+A quickstart for moving environments and jobs off legacy dbt versions to a dbt v1 or v2 release track.
 
 ## [Redshift configurations](../reference/resource-configs/redshift-configs.md)
 

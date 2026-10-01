@@ -4,11 +4,14 @@
 
 
 
-Legacy dbt versions v1.3–v1.7 are being deprecated on January 31, 2027. To keep your work running and supported, move your environments and jobs to a [dbt v1 release track](../docs/dbt-versions/dbt-release-tracks.md) now. A release track keeps you on a supported version automatically and prepares your project for [dbt v2](../docs/introduction.md) later.
+Legacy dbt versions v1.3–v1.7 are being deprecated on January 31, 2027. To keep your work running and supported, move your environments and jobs to a [dbt release track](../docs/dbt-versions/dbt-release-tracks.md) (v1 or v2) now. A release track keeps you on a supported version automatically.
 
-The single-hop path
+Which release track to choose
 
-Move to a dbt v1 release track now; move to dbt v2 later. Migrating first to a supported release track lowers your migration risk and gets you on a supported version faster.
+When migrating off a legacy version:
+
+* **v2 (recommended)**: [dbt v2](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2) is generally available. Since you're already upgrading, move directly to v2 to get all the powerful features and capabilities it has to offer.
+* **v1 (minimum requirement)**: To keep your environments and jobs running after January 31, 2027, move to a v1 release track to stay supported.
 
 Your project code, connections, and history stay accessible throughout.
 
@@ -55,7 +58,7 @@ If you're having any issues, feel free to [contact us](mailto:support@getdbt.com
 Start with a development or test environment. Moving it to a release track first lets you find and fix any compatibility issues in your project before you touch your other environments.
 
 1. Navigate to the Settings page of the environment, then click **Edit**.
-2. Click the **dbt version** dropdown and select a [release track](../docs/dbt-versions/dbt-release-tracks.md) (**v2 Latest** is recommended).
+2. Click the **dbt version** dropdown and select the recommend **V2 Stable** [release track](../docs/dbt-versions/dbt-release-tracks.md). If you need to stay on v1, select the **v1 Latest** release track.
 3. Save your changes.
 
 You can also set the version through the [Admin API](../docs/dbt-apis/admin-api.md) or Terraform. Refer to [Upgrade versions in dbt platform](../docs/dbt-versions/upgrade-dbt-platform-version.md) for the full walkthrough.
@@ -80,7 +83,7 @@ Autofix runs the [dbt-autofix](https://github.com/dbt-labs/dbt-autofix) script t
 
 1. In the [dbt VS Code extension](../docs/about-dbt-extension.md), run `dbt parse` against the updated environment to surface any deprecation warnings. The **Problems** tab will also surface useful information.
 2. Resolve them with the [dbt-autofix](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation) tool, either from the command line or by following the prompts in the extension's upgrade assistant.
-3. We recommend upgrading from a deprecated version to **v1 Latest** first, but if you intend on moving this project to dbt v2, use the extension's [agentic migration](../docs/upgrade-to-dbt-extension.md#agentic-migration) flow instead, which runs autofix as part of the full v1-to-v2 upgrade.
+3. If you're moving this project to dbt v2 (recommended), use the extension's [agentic migration](../docs/upgrade-to-dbt-extension.md#agentic-migration) flow instead, which runs autofix as part of the full v1-to-v2 upgrade.
 
 ### Manually fix
 

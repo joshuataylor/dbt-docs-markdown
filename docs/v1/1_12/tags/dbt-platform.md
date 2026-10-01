@@ -32,7 +32,7 @@ Learn how to migrate from dbt-spark to dbt-databricks.
 
 ## [Migrate off legacy dbt versions](../guides/migrate-off-legacy-dbt-versions.md)
 
-A quickstart for moving environments and jobs off legacy dbt versions to a dbt v1 release track.
+A quickstart for moving environments and jobs off legacy dbt versions to a dbt v1 or v2 release track.
 
 ## [Move to the dbt platform: Get started](../guides/dbt-migration-1.md)
 
