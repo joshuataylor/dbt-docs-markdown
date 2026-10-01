@@ -56,9 +56,9 @@ Report incorrect code
 
 #### Dev
 
-[`v2.0.6`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this version in the dbt v2 changelog")
+[`v2.0.8`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this version in the dbt v2 changelog")
 
-2026-09-28
+2026-10-01
 
 #### Canary
 
@@ -73,6 +73,12 @@ Report incorrect code
 2026-09-19
 
 ### All releases
+
+[v2.0.8](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this release in the dbt v2 changelog")GoodDevnightly
+
+Released by: **mach-kernel**Oct 1, 2026, 01:42 AM
+
+Automated promotion
 
 [v2.0.7](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#207 "View this release in the dbt v2 changelog")Known BadDevnightly
 
