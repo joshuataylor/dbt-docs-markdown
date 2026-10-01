@@ -106,17 +106,15 @@ Once you have the values from the previous step, you can prepare your dbt v1 pro
 
    ```bash
       Core:
-      - installed: 1.10.0-b1
-      - latest:    1.9.3     - Ahead of latest version!
+      - installed: 1.11.0
+      - latest:    1.11.0 - Up to date!
    ```
 
    Report incorrect code
 
-2. If you don't have the latest version (1.10 or later), [upgrade](../local/install-dbt.md?version=1#change-dbt-core-versions) your dbt v1 project by running `python -m pip install --upgrade dbt-core`.
+2. If you don't have the [latest supported version](../dbt-versions.md), [upgrade](../local/install-dbt.md?version=1#change-dbt-core-versions) your dbt v1 project by running `python -m pip install --upgrade dbt-core`.
 
 3. Set the following environment variables in your dbt v1 project by running the following commands in the CLI. Replace the `your_account_id`, `your_environment_id`, and `your_token` with the actual values in the [previous step](#generate-service-token-and-artifact-upload-values).
-
-   (Applies to dbt v1.11 and later)
 
    ```bash
    export DBT_CLOUD_ACCOUNT_ID=your_account_id

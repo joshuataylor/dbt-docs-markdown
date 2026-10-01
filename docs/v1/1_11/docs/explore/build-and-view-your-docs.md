@@ -8,13 +8,13 @@ The default documentation experience in dbt is [Catalog](./explore-projects.md),
 
 Refer to [documentation](../build/documentation.md) for more configuration details.
 
+(Applies to dbt v1.99 and earlier)
+
 This shift makes [dbt Docs](#dbt-docs) a legacy documentation feature in dbt. dbt Docs is still accessible and offers basic documentation, but it doesn't offer the same speed, metadata, or visibility as Catalog. dbt Docs is available to dbt developer plans or dbt v1 users.
 
 ## Set up a documentation job
 
-Upcoming change for dbt v2 jobs
-
-In a future update, this setup will no longer be applicable for dbt v2 jobs in the dbt platform. Execution commands (`run`, `build`, `seed`, `snapshot`) will automatically trigger metadata generation, so you won't need to add a `dbt docs generate` step or select the **Generate docs on run** option in **Execution settings**.
+(Applies to dbt v1.99 and earlier)
 
 Catalog uses the [metadata](./explore-projects.md#generate-metadata) generated after each job run in the production or staging environment, ensuring it always has the latest project results. To view richer metadata, you can set up documentation for a job in dbt when you edit your job settings or create a new job.
 

@@ -27,17 +27,16 @@ Every job invocation automatically includes the [`dbt deps`](../../reference/com
 
 ![A failed job that had an error during the dbt deps run step.](/img/docs/dbt-platform/using-dbt-platform/fail-dbtdeps.png?v=2 "A failed job that had an error during the dbt deps run step.")A failed job that had an error during the dbt deps run step.
 
-### Checkbox commands
-
-For every job, you have the option to select the [Generate docs on run](../explore/build-and-view-your-docs.md) or [Run source freshness](./source-freshness.md) checkboxes, enabling you to run the commands automatically.
-
-**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command (dbt v1 only), *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. For jobs running on dbt v2, manually configuring `dbt docs generate` using the checkbox will no longer be required in the future. Read [Set up a documentation job](../explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
-
-**Run source freshness** checkbox — dbt executes the `dbt source freshness` command as the first run step in your job. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. Read [Source freshness](./source-freshness.md) for more information.
-
 ### Command list
 
 You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt v1" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt v1 or dbt CLI, and not in Studio IDE.
+
+(Applies to dbt v2.0 and later)
+
+For v2 jobs:
+
+* You don't need to add a docs command. Every job run refreshes [Catalog](../explore/explore-projects.md) metadata automatically. Read [Set up a documentation job](../explore/build-and-view-your-docs.md?version=2#set-up-a-documentation-job) for more information.
+* To validate that your source data is up to date before your models are built, add `dbt source freshness` to the **Commands** list or select the **Run source freshness** checkbox. Read [Source freshness](./source-freshness.md) for more information.
 
 Using selectors
 

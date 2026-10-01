@@ -156,6 +156,8 @@ v2 introduces [dbt Docs v2](../../build/view-documentation.md#dbt-docs-v2), a fa
 
 `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and exports a static site in a single command. `dbt docs serve` previews that site locally. Because the browser queries those artifacts directly with DuckDB-WASM, you can also host the generated files on any static file host. Column-level lineage is visible when you build with `--static-analysis strict`.
 
+dbt Docs v2 runs locally only. If you use dbt platform, your jobs refresh Catalog metadata automatically, so explore your project in [Catalog](../../explore/build-and-view-your-docs.md) instead.
+
 To hydrate catalog metadata (`catalog.json`) for Catalog without building the site, use the [`--write-catalog` flag](../../../reference/commands/cmd-docs.md#--write-catalog-flag) instead.
 
 For full usage, refer to [About dbt docs commands](../../../reference/commands/cmd-docs.md?version=2).

@@ -7,7 +7,7 @@ You can view documentation in three complementary ways, depending on your needs:
 | Option                                                                  | Description                                                                                                                                                                                                                                                                                            | Availability                                  |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
 | [**dbt Docs (Legacy)**](#dbt-docs)                                      | Generates a static website with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify).                                                                                                                                                                 | dbt v1 or dbt Developer plans                 |
-| [**dbt Docs v2**](#dbt-docs-v2)                                         | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, and column-level lineage (dbt v2), served as a static site you can host anywhere.                                                                     | dbt v2                                        |
+| [**dbt Docs v2**](#dbt-docs-v2)                                         | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, and column-level lineage (dbt v2), served as a static site you can host anywhere.                                                                     | dbt v2 (local only)                           |
 | [**Catalog**](../explore/explore-projects.md) | The premier documentation experience in dbt. Builds on dbt Docs to provide a dynamic, real-time interface with rich [metadata](../explore/explore-projects.md#generate-metadata), customizable views, deep insight into your project and resources, and collaborative tools. | dbt Starter, Enterprise, or Enterprise+ plans |
 
 ## Navigating your documentation
@@ -32,11 +32,19 @@ Catalog offers users a comprehensive suite of features to enhance data project n
 * Model query history to track consumption queries on your models to gain deeper insights into data usage.
 * Downstream exposures to automatically expose relevant data models from tools like Tableau to enhance visibility.
 
+Sharing docs with stakeholders?
+
+Anyone with a developer or read-only seat can explore your project(s) in Catalog. Add as many read-only seats as you need to share docs with stakeholders, no separate docs site required.
+
 For additional details and instructions on how to explore your lineage, navigate your resources, view model query history and data health signals, feature availability, and more — refer to [Discover data with Catalog](../explore/explore-projects.md).
 
 ### dbt Docs v2
 
 dbt Docs v2 is the next-generation open-source catalog experience, available when using dbt v2. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
+
+dbt Docs v2 availability
+
+dbt Docs v2 is available on [self-hosted dbt v2 installations](../local/install-dbt.md?version=2) only. In dbt platform, jobs on dbt v2 refresh Catalog metadata automatically, so use [Catalog](../explore/build-and-view-your-docs.md) to explore your project, and give all your applicable users read-only access to it without restrictions. Refer to [platform behavior](../../reference/commands/cmd-docs.md?version=2#platform-behavior) for more info.
 
 Key improvements over dbt Docs:
 

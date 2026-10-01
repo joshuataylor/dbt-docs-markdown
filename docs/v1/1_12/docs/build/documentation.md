@@ -124,21 +124,33 @@ Yes! You can document almost everything in your project using the `description:`
 
 ## Generating documentation
 
+dbt provides both self-hosted and cloud-hosted solutions to [view documentation](./view-documentation.md) for your project. Which one you use depends on your dbt version and where you run dbt.
+
 (Applies to dbt v1.99 and earlier)
 
-Generate documentation for your project by following these steps:
+Use dbt Docs v2 locally!
 
-1. Run the `dbt docs generate` [command](../../reference/commands/cmd-docs.md#dbt-docs-generate) to compile relevant information about your dbt project and warehouse into `manifest.json` and `catalog.json` files, respectively. Before generating docs, save your YAML description updates for models, sources, and columns. Use the same project context you use for development, including any selectors or exclusions, so `manifest.json` and `catalog.json` match the resources dbt parses for that run.
-2. Ensure you've created the models with `dbt run` or `dbt build` to view the documentation for all columns, not just those described in your project.
-3. Run the `dbt docs serve` [command](../../reference/commands/cmd-docs.md#dbt-docs-serve) if you're developing locally to use these `.json` files to populate a local website.
+dbt Docs v2, built on top of the powerful dbt v2 capabilities, is a sleek, open-source docs site with Semantic Layer metadata and column-level lineage that you can host anywhere. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2) and refer to [dbt Docs v2](./view-documentation.md?version=2#dbt-docs-v2) for more information.
 
-dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
+| Option                                                                               | What it is                                                                                                                   | Where you use it                                                                         | How to generate it                                                                          |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [**dbt Docs v1**](./view-documentation.md#dbt-docs) | A static site with model lineage, metadata, and documentation that you can host on your own web server (like S3 or Netlify)  | dbt v1 or dbt Developer plans                                                            | Run `dbt docs generate`. Refer to [generate docs locally](#generate-docs-locally) for steps |
+| [**dbt Catalog**](../explore/explore-projects.md)          | A dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. | dbt platform [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing) | Populated automatically when your jobs run with dbt v2. No extra step required!             |
 
-* [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt v1 or dbt Developer plans.
-* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and [column-level lineage](../explore/column-level-lineage.md), served as a static site you can host anywhere. Available with dbt v2.
-* [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
+Sharing docs with stakeholders?
 
-Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.
+Anyone with a developer or read-only seat can explore your project(s) in Catalog. Add as many read-only seats as you need to share docs with stakeholders, no separate docs site required.
+
+### Generate docs locally
+
+(Applies to dbt v1.99 and earlier)
+
+1. Save your YAML description updates for models, sources, and columns. Use the same project context you use for development, including any selectors or exclusions, so the generated artifacts match the resources dbt parses for that run.
+2. Build your models with `dbt run` or `dbt build` so the docs include all columns, not just the ones described in your project.
+3. Run [`dbt docs generate`](../../reference/commands/cmd-docs.md#dbt-docs-generate) to compile your project and warehouse information into `manifest.json` and `catalog.json`.
+4. Run [`dbt docs serve`](../../reference/commands/cmd-docs.md#dbt-docs-serve) to use those files to populate a local website.
+
+Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage details, and [View documentation](./view-documentation.md) to get the most out of your project's documentation.
 
 ## Using docs blocks
 

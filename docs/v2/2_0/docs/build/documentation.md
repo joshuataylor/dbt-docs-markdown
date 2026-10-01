@@ -124,22 +124,35 @@ Yes! You can document almost everything in your project using the `description:`
 
 ## Generating documentation
 
+dbt provides both self-hosted and cloud-hosted solutions to [view documentation](./view-documentation.md) for your project. Which one you use depends on your dbt version and where you run dbt.
+
 (Applies to dbt v2.0 and later)
 
-Using dbt v2, dbt Docs v2 replaces the v1 static site with a modern, performant catalog. `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and writes a static site that the browser queries directly with DuckDB-WASM (WebAssembly), so you don't need a server to view it. To generate and serve documentation:
+| Option                                                                                  | What it is                                                                                                                                                                                    | Where you use it                                                                         | How to generate it                                                                                  |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) | A redesigned, open-source documentation site with Semantic Layer metadata and [column-level lineage](../explore/column-level-lineage.md) that you can host anywhere | Locally with dbt v2. Not available in dbt platform                                       | Run `dbt docs generate` locally. Refer to [generate docs locally](#generate-docs-locally) for steps |
+| [**dbt Catalog**](../explore/explore-projects.md)             | A dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools.                                                                  | dbt platform [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing) | Populated automatically when your jobs run with dbt v2. No extra step required!                     |
 
-1. Run `dbt docs generate` to compile your project, write the index, and export the documentation site in a single command.
-2. Run `dbt docs serve` to preview the site locally.
+Sharing docs with stakeholders?
 
-Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage details.
+Anyone with a developer or read-only seat can explore your project(s) in Catalog. Add as many read-only seats as you need to share docs with stakeholders, no separate docs site required.
 
-dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
+### Generate docs locally
 
-* [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt v1 or dbt Developer plans.
-* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and [column-level lineage](../explore/column-level-lineage.md), served as a static site you can host anywhere. Available with dbt v2.
-* [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
+(Applies to dbt v2.0 and later)
 
-Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.
+Using dbt v2, dbt Docs v2 enhances the original v1 static site with a modern, performant catalog. dbt docs generate compiles your project, produces the v2 Parquet artifacts, and writes a static site that the browser queries directly with DuckDB-WASM (WebAssembly), so you don't need a server to view it.
+
+To generate and serve documentation locally:
+
+* Run `dbt docs generate` to compile your project, write the index, and export the documentation site in a single command.
+* Run `dbt docs serve` to preview the site locally.
+
+dbt Docs v2 availability
+
+dbt Docs v2 only works self-hosted installations of dbt v2. If you're on the dbt platform, use [Catalog](../explore/explore-projects.md) which is populated automatically when your jobs run with v2. Adding a `dbt docs generate` step to a job won't produce a static site in dbt platform.
+
+Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage details, and [View documentation](./view-documentation.md) to get the most out of your project's documentation.
 
 ## Using docs blocks
 

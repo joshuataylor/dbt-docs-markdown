@@ -2,11 +2,15 @@
 
 (Applies to dbt v2.0 and later)
 
-With dbt v2, [dbt Docs v2](../../docs/build/view-documentation.md#dbt-docs-v2) is the recommended way to generate and view your project's documentation. Use `dbt docs generate` to build the documentation site and `dbt docs serve` to preview it locally.
+With dbt v2, use [dbt Docs v2](../../docs/build/view-documentation.md#dbt-docs-v2) to generate and view your project's documentation locally. Run `dbt docs generate` to build the site, then `dbt docs serve` to preview it.
 
-If you only need to hydrate catalog metadata (`catalog.json`) for Catalog in dbt platform, without building the documentation site, use the [`--write-catalog` flag](#--write-catalog-flag) instead.
+To generate catalog metadata (`catalog.json`) without building the documentation site, use the [`--write-catalog` flag](#--write-catalog-flag).
+
+dbt Docs v2 is built for local and self-hosted workflows. In dbt platform, use [Catalog](../../docs/explore/build-and-view-your-docs.md) instead, a hosted, always-up-to-date view of your docs that your jobs refresh automatically. Refer to [Platform behavior](#platform-behavior) for details.
 
 ## dbt Docs v2
+
+dbt Docs v2 is a self-hosted documentation site generated on your local machine or your own pipeline (like GitHub Actions). It isn't available in the dbt platform, where you use [Catalog](../../docs/explore/build-and-view-your-docs.md) instead. Refer to [dbt platform behavior](#dbt-platform-behavior) for details.
 
 Instead of loading a static `manifest.json` in the browser, v2 produces Parquet artifacts when you compile or build your project. `dbt docs generate` exports a documentation site made of plain static files (a single-page app plus those artifacts) that any file host can serve. The browser reads the Parquet directly using DuckDB-WASM (WebAssembly), so you don't need to run a stateful server to view your docs. This keeps the experience fast even for large projects.
 
@@ -20,7 +24,7 @@ dbt docs generate
 
 Report incorrect code
 
-By default, dbt writes the site into your `target/` directory (`target/index.html`, `target/assets/`, and the index under `target/index/`), matching the layout of dbt v1. You can serve `index.html` from `target/` the same way you did in v1, so an existing pipeline that runs `dbt docs generate && mv target public` keeps working.
+By default, dbt writes the site into your `target/` directory (`target/index.html`, `target/assets/`, and the index under `target/index/`), matching the layout of dbt v1. You can serve `index.html` from `target/` the same way you did in v1, so a self-hosted pipeline that runs `dbt docs generate && mv target public` keeps working.
 
 Use `--output-dir` to write a self-contained copy of the site to a different directory:
 
@@ -63,6 +67,8 @@ dbt docs serve
 
 Report incorrect code
 
+Use `dbt docs serve` to view your documentation locally on your own machine. In dbt platform, use Catalog to explore your project. Refer to [platform behavior](#platform-behavior) for details.
+
 `dbt docs serve` generates the site if it's missing or older than the index, then serves the static files. The server starts on port `8580` by default and opens in your browser. Use `--port` to change the port:
 
 ```shell
@@ -89,7 +95,7 @@ dbt Docs v2 renders your project's `__overview__` doc block as the landing page,
 
 The `--write-catalog` flag generates the [`catalog.json`](../artifacts/catalog-json.md) artifact, which contains metadata about the tables and views produced by the models in your project. It focuses solely on metadata hydration and does not build the documentation site — use [dbt Docs v2](#dbt-docs-v2) for that.
 
-For dbt v2 jobs running in dbt platform, dbt automatically runs `write-catalog` with `build` and `run` and hydrates your Catalog, so you don't need to include it manually. You can use this flag with the following commands:
+When you run dbt locally, add the flag yourself. You can use it with the following commands:
 
 * `dbt build`
 * `dbt run`
@@ -104,11 +110,9 @@ dbt build --write-catalog
 
 Report incorrect code
 
-### Platform behavior
+dbt platform jobs
 
-In dbt platform jobs running on dbt v2, you don't need to change anything to hydrate catalog metadata. dbt runs `write-catalog` automatically with `build` and `run`, so you don't need to run a separate command. You can optionally include it when running `dbt parse` or `dbt compile`.
-
-To produce the [dbt Docs v2](#dbt-docs-v2) static site in a job, run `dbt docs generate` as a job step or enable documentation generation in your job settings. Otherwise, the job hydrates catalog metadata but doesn't produce the static site.
+dbt v2 jobs in dbt platform refresh Catalog metadata automatically on every run, so you don't need to add the `--write-catalog` flag there. Refer to [Platform behavior](#platform-behavior) for more info.
 
 ### Local usage
 
@@ -122,4 +126,18 @@ Report incorrect code
 
 ### What's different from docs generate
 
-The `--write-catalog` flag focuses solely on metadata hydration, generating the `catalog.json` file that powers [Catalog](../../docs/explore/build-and-view-your-docs.md) and metadata APIs. It does not generate the static documentation website files (`index.html`).
+Both write artifacts, but only `dbt docs generate` builds a documentation site you can view in a browser.
+
+|                  | `--write-catalog` flag                                                                                         | `dbt docs generate` command                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| What it produces | `catalog.json`, plus the artifacts the command already generates                                               | `index.html`, `assets/`, and the index files                                        |
+| What it's for    | Metadata for [Catalog](../../docs/explore/build-and-view-your-docs.md) and the metadata APIs | A static site you can preview with `dbt docs serve` or host anywhere                |
+| Where it works   | Locally and in dbt platform. The command is added automatically in dbt platform jobs on dbt v2.                | Locally only in v2. dbt platform job runs use `dbt compile --write-catalog` instead |
+
+## dbt platform behavior
+
+dbt Docs v2 is built for local and self-hosted workflows. In dbt platform, use [Catalog](../../docs/explore/build-and-view-your-docs.md), which gives you a cloud-hosted, always-up-to-date view of your project:
+
+* In dbt platform jobs running v2, every job run automatically refreshes Catalog metadata, so you don't need a separate docs step.
+* If you add `dbt docs generate` as a job step, dbt automatically runs `dbt compile --write-catalog` instead and directs you to Catalog. The job doesn't produce the static site or `index.html`.
+* To share your project with stakeholders who don't develop in dbt, add as many [read-only seats](../../docs/platform/manage-access/seats-and-users.md) as you need. Developer and read-only seats both include access to Catalog

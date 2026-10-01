@@ -20,7 +20,7 @@ To upload artifacts, make sure you meet these prerequisites:
 
 * Your organization is on a [dbt Enterprise+ plan](https://www.getdbt.com/pricing)
 
-* You're on [dbt's release tracks](../dbt-versions/dbt-release-tracks.md) and your dbt v1 project is on dbt v1.10 or higher
+* Your dbt platform account is on [release tracks](../dbt-versions/dbt-release-tracks.md) and your project is configured for the [latest supported version](../dbt-versions.md) dbt.
 
 * [Configured](./hybrid-setup.md#connect-project-in-dbt-cloud) a hybrid project in dbt.
 
