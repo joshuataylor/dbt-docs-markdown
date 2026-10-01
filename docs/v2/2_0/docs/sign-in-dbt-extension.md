@@ -14,7 +14,7 @@ Run [`dbt login status`](../reference/commands/login.md?version=2.0#dbt-login-st
 
 ## Key points
 
-* The extension is free for organizations for up to 15 users. Refer to the [acceptable use policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup).
+* The extension is available to all users. Refer to the the [dbt Product License Agreement](https://www.getdbt.com/dbt-product-license-agreement) for more information.
 * Signing in links your editor to your dbt platform account so the extension can use dbt platform capabilities.
 * You can authenticate with `dbt login` or sign in from inside the extension. If you don't have a dbt platform account, you can create a free account during authentication.
 * If a valid [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file exists on your machine, the extension can use it automatically.

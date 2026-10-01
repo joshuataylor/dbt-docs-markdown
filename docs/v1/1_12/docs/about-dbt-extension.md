@@ -141,11 +141,11 @@ For data practitioners, combining the extension's dbt-powered editor experience 
 
 dbt platform customers can contact dbt Labs support at <support@getdbt.com>. You can also get in touch with us by reaching out to your Account Manager directly.
 
-For organizations that are not customers of the dbt platform, the best place for questions and discussion is the [dbt Community Slack](https://www.getdbt.com/community/join-the-community).
+For organizations that aren't customers of the dbt platform, the best place for questions and discussion is the [dbt Community Slack](https://www.getdbt.com/community/join-the-community).
 
 We welcome feedback as we work to continuously improve the extension, and would love to hear from you!
 
-For more information regarding support and acceptable use of the dbt VS Code extension, refer to our [Acceptable Use Policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup).
+The extension is available to all users and for more information, refer to the the [dbt Product License Agreement](https://www.getdbt.com/dbt-product-license-agreement).
 
 Developing locally as a dbt platform user?
 
