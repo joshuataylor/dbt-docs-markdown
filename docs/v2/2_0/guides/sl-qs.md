@@ -16,6 +16,10 @@ Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/cours
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
+Connect your AI to your metrics
+
+AI tools like Claude and ChatGPT can connect to the Semantic Layer through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=sl-connect-ai), so their answers use your governed metrics instead of guessing at raw tables.
+
 This quickstart is for dbt users on the dbt platform. You will build and define metrics, set up the Semantic Layer in a dbt project, and query those metrics in Google Sheets.
 
 The guide works on any supported data platform. Use the tabs in [Set up your warehouse](#set-up-your-warehouse) to create an account, load the sample data, and connect dbt. Later steps include a tab when the SQL or YAML is different for your platform.

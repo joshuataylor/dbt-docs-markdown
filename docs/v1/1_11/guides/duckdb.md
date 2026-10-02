@@ -26,6 +26,7 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 * [Create a GitHub repository](./manual-install.md?step=2)
 * [Build your first models](./manual-install.md?step=3)
 * [Test and document your project](./manual-install.md?step=4)
+* [Use dbt Wizard locally](../docs/dbt-ai/wizard-quickstart.md) to build models with AI instead of by hand
 
 ## Prerequisites
 
@@ -310,3 +311,7 @@ Report incorrect code
 5. Use your chosen scheduler to run the script at your desired frequency.
 
 Congratulations on making it through the guide 🎉!
+
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.

@@ -21,3 +21,7 @@ To begin configuring dbt now, select the option that is right for you.
 #### [Self-hosted dbt setup](./local/install-dbt.md)
 
 [Learn how to set up self-hosted dbt using the dbt VS Code extension or CLI.](./local/install-dbt.md)
+
+Pair your setup with AI
+
+Whichever option you choose, you can pair it with dbt Wizard to build models faster. [Get started with dbt Wizard](./dbt-ai/wizard-quickstart.md).

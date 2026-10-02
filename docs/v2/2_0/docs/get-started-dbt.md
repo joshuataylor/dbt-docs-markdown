@@ -93,21 +93,13 @@ You can use self-hosted tools with or without a dbt platform account. With an ac
 
 [Learn how to connect dbt to DuckDB.](../guides/duckdb.md?step=1)
 
-## dbt Wizard
+## Connect your AI to your data
 
-[dbt Wizard](./platform/wizard-overview.md) is an AI agent purpose-built for analytics engineering. It uses dbt's [native metadata engine](./dbt-ai/about-dbt-ai.md) — a structured index of your project's lineage, model health, tests, and semantic definitions — to build, refactor, validate, and document your project grounded in full project context.
+You don't have to choose between learning dbt and using AI — you can absolutely pair them from day one:
 
-[![](/img/icons/dbt-copilot.svg)](./dbt-ai/wizard-ide.md)
-
-#### [dbt Wizard in the dbt platform](./dbt-ai/wizard-ide.md)
-
-[Use dbt Wizard in the Studio IDE or home app to build and refactor models from natural language, generate tests and docs, and validate changes against your warehouse.](./dbt-ai/wizard-ide.md)
-
-[![](/img/icons/dbt-copilot.svg)](./dbt-ai/wizard-quickstart.md)
-
-#### [dbt Wizard from your terminal](./dbt-ai/wizard-quickstart.md)
-
-[Install the dbt Wizard CLI to run the agent locally against any dbt project — with or without a dbt platform plan. Start with a free trial using dbt managed AI, or bring your own provider key.](./dbt-ai/wizard-quickstart.md)
+* Use the dbt Wizard and ask it to build, refactor, or document a model in natural language, grounded in your project's real lineage and tests. [Get started with dbt Wizard](./dbt-ai/wizard-quickstart.md).
+* Set up the dbt MCP server to connect to Claude, Cursor, or another AI tool to query your project, run dbt commands, and pull metrics directly. [Connect the dbt MCP server](./dbt-ai/about-mcp.md).
+* Connect to the Fivetran context layer to give any AI tool richer context about your data, so its answers are grounded in what your data actually means. [Explore the context layer](https://fivetran.com/docs/context-layer).
 
 ## Related docs
 

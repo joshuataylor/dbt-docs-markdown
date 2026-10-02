@@ -290,6 +290,8 @@ Now that you have a repository configured, you can initialize your project and s
 
 ## Build your first model
 
+If you'd like to use AI to build your first model, check out the [build it with dbt Wizard](#build-it-with-ai-using-dbt-wizard) in the next section.
+
 You have two options for working with files in the Studio IDE:
 
 * Create a new branch (recommended) — Create a new branch to edit and commit your changes. Navigate to **Version Control** on the left sidebar and click **Create branch**.
@@ -422,6 +424,22 @@ Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 Report incorrect code
 
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
+
+### Build it with AI using dbt Wizard
+
+Prefer not to write the SQL by hand? dbt Wizard can build the same model for you, right in the Studio IDE or [home tab](../docs/platform/wizard-home.md?version=2\&section=qs-build-with-ai), grounded in your project's actual schema and lineage. Be warned, the wizard has been known to cast spells
+
+.
+
+1. Open dbt Wizard from the Studio IDE.
+
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+
+2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
+3. Review the SQL dbt Wizard generates, then accept it to save the model.
+4. Type `dbt run` to build it.
+
+Either way, you end up with the same working model. Learn more about [dbt Wizard in dbt platform](../docs/dbt-ai/wizard-ide.md?section=qs-build-with-ai).
 
 ## Change the way your model is materialized
 
@@ -1021,3 +1039,7 @@ If you're using dbt, we recommend setting up email and Slack notifications (`Acc
 This quickstart focuses on using dbt to run models against a data lake (S3) by using Starburst Galaxy as the query engine. In most real world scenarios, the data that is needed for running models is actually spread across multiple data sources and is stored in a variety of formats. With Starburst Galaxy, Starburst Enterprise, and Trino, you can run your models on any of the data you need, no matter where it is stored.
 
 If you want to try this out, you can refer to the [Starburst Galaxy docs](https://docs.starburst.io/starburst-galaxy/catalogs/) to add more data sources and load the Jaffle Shop data into the source you select. Then, extend your models to query the new data source and the data source you created in this quickstart.
+
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.

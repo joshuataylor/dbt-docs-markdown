@@ -296,6 +296,10 @@ Try choosing some of them and see what they do 😎
 
 This is just the start. There is so much more available and so much more coming. Be sure to check out our resources for all the information about dbt v2 and the dbt VS Code extension!
 
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.
+
 ## Troubleshooting
 
 If you run into any issues, check out the troubleshooting section below.

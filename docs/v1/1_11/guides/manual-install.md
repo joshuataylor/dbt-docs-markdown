@@ -214,6 +214,8 @@ Report incorrect code
 
 ## Build your first model
 
+If you'd like to use AI to build your first model, check out the [build it with dbt Wizard](#build-it-with-ai-using-dbt-wizard) in the next section.
+
 1. Open your project in your favorite code editor.
 2. Create a new SQL file in the `models` directory, named `models/customers.sql`.
 3. Paste the following query into the `models/customers.sql` file.
@@ -536,6 +538,40 @@ Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 Report incorrect code
 
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
+
+### Build it with AI using dbt Wizard
+
+Prefer not to write the SQL by hand? The [dbt Wizard CLI](../docs/dbt-ai/wizard-cli.md?section=qs-build-with-ai-cli) can build the same model for you from your terminal, grounded in your project's actual schema and lineage. Be warned, the wizard has been known to cast spells
+
+.
+
+1. Install the dbt Wizard CLI:
+
+#### macOS/Linux
+
+```shell
+curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
+```
+
+Report incorrect code
+
+#### Windows (PowerShell)
+
+```powershell
+irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
+```
+
+Report incorrect code
+
+2. Run `wizard` in your project directory to start a session and then go through the onboarding (if you haven't already).
+
+![A dbt Wizard session running in the terminal](/img/docs/wizard-cli-intro.png?v=2 "A dbt Wizard session running in the terminal")A dbt Wizard session running in the terminal
+
+3. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
+4. Review the SQL dbt Wizard generates, then accept it to save the model.
+5. Type `dbt run` to build it.
+
+Either way, you end up with the same working model. For full setup details, refer to [Use dbt Wizard locally](../docs/dbt-ai/wizard-quickstart.md?section=qs-build-with-ai-cli).
 
 ## Change the way your model is materialized
 
@@ -1171,3 +1207,7 @@ For more info on how to get started, refer to [create and schedule jobs](../docs
 ![Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.](/img/docs/dbt-platform/deployment/run-overview.png?v=2 "Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.")Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.
 
 To schedule jobs yourself with an orchestrator like Airflow, refer to the [dbt and Airflow](https://docs.getdbt.com/blog/dbt-airflow-spiritual-alignment) blog post.
+
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.

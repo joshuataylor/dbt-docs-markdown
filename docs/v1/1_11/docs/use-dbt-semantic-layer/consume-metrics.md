@@ -4,6 +4,10 @@ dbt platform | Starter, Enterprise, Enterprise+
 
 After [deploying](./deploy-sl.md) your Semantic Layer, the next important (and fun!) step is querying and consuming the metrics you’ve defined. This page links to key resources that guide you through the process of consuming metrics across different integrations, APIs, and tools, using various different [query syntaxes](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata).
 
+Connect your AI to your metrics
+
+AI tools like Claude and ChatGPT can connect to the Semantic Layer through the [dbt MCP server](../dbt-ai/about-mcp.md?section=sl-connect-ai), so their answers use your governed metrics instead of guessing at raw tables.
+
 Once your Semantic Layer is deployed, you can start querying your metrics using a variety of tools and APIs. Here are the main resources to get you started:
 
 ### Available integrations

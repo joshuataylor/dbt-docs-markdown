@@ -141,6 +141,8 @@ Now that you have a repository configured, you can initialize your project and s
 
 ## Build your first model
 
+If you'd like to use AI to build your first model, check out the [build it with dbt Wizard](#build-it-with-ai-using-dbt-wizard) in the next section.
+
 1. Under **Version Control** on the left, click **Create branch**. You can name it `add-customers-model`. You need to create a new branch since the main branch is set to read-only mode.
 
 2. Click the three dot menu (**...**) next to the `models` directory, then select **Create file**.
@@ -275,6 +277,22 @@ Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 Report incorrect code
 
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
+
+### Build it with AI using dbt Wizard
+
+Prefer not to write the SQL by hand? dbt Wizard can build the same model for you, right in the Studio IDE or [home tab](../docs/platform/wizard-home.md?version=2\&section=qs-build-with-ai), grounded in your project's actual schema and lineage. Be warned, the wizard has been known to cast spells
+
+.
+
+1. Open dbt Wizard from the Studio IDE.
+
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+
+2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
+3. Review the SQL dbt Wizard generates, then accept it to save the model.
+4. Type `dbt run` to build it.
+
+Either way, you end up with the same working model. Learn more about [dbt Wizard in dbt platform](../docs/dbt-ai/wizard-ide.md?section=qs-build-with-ai).
 
 ## Change the way your model is materialized
 
@@ -868,3 +886,7 @@ Congratulations 🎉! You've just deployed your first dbt project!
 What happens if one of my runs fails?
 
 If you're using dbt, we recommend setting up email and Slack notifications (`Account Settings > Notifications`) for any failed runs. Then, debug these runs the same way you would debug any runs in development.
+
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.
