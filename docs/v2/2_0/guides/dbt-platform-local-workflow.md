@@ -12,14 +12,14 @@ These paths are fully supported for dbt platform users. Keeping the environments
 
 This guide walks through command routing, credentials, environment variables, dbt v2 versions, and Mesh or deferral, with concrete, copy-paste-ready steps to keep everything aligned.
 
-If you run both the dbt platform CLI and a local dbt v2 build from the same project, start with [Choosing which dbt runs](./dbt-platform-local-workflow.md?step=3#1-choosing-which-dbt-runs). Both tools are invoked as `dbt`, and the rest of this guide assumes you can tell them apart.
+If you run both the dbt platform CLI and a local dbt v2 build from the same project, start with [Choosing which dbt runs](./dbt-platform-local-workflow.md?step=3#choosing-which-dbt-runs). Both tools are invoked as `dbt`, and the rest of this guide assumes you can tell them apart.
 
 ## Prerequisites
 
 * You have a dbt platform account with at least one project using dbt v2.
 * You have either the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](../docs/local/install-dbt.md) installed.
 
-## 1. Choosing which dbt runs
+## Choosing which dbt runs
 
 If you install both the dbt platform CLI and a local dbt v2 build, you have two separate programs on your machine that are both invoked by typing `dbt`. Before you configure credentials, environment variables, or versions, make it unambiguous which one you're calling.
 
@@ -153,7 +153,7 @@ Report incorrect code
 
 Use absolute paths in agent instructions rather than the `dbtf` and `dbt-cli` aliases, because the agent's shell may not load your shell profile. Discover the real paths on the machine the agent runs on with `which -a dbt`, and update the instructions file when they change. On a remote agent virtual machine, confirm the paths inside a fresh session, because tools installed ad hoc in an earlier session may not persist.
 
-## 2. Managing credentials
+## Managing credentials
 
 How you authenticate to your data warehouse locally depends on which self-hosted tool you use:
 
@@ -196,7 +196,7 @@ Coming soon
 
 We're working on a solution that lets you develop locally in the dbt VS Code extension while you manage credentials entirely in dbt platform, without a local `profiles.yml`. We'll update this page when that ships.
 
-## 3. Managing environment variables
+## Managing environment variables
 
 Environment variables you set in dbt platform apply to production runs and the Studio IDE sessions. For local development, you manage environment variables separately.
 
@@ -275,7 +275,7 @@ For teams with strict security requirements
 
 Consider a script that fetches variables from your secrets manager (for example, AWS Secrets Manager or 1Password) and writes them to `.env` at the start of a session, instead of storing values in a file long term.
 
-## 4. Managing dbt v2 versions
+## Managing dbt v2 versions
 
 The **v2 Stable** release track on dbt platform updates continuously as dbt v2 ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
 
@@ -378,7 +378,7 @@ You can also document this convention in your project's `CONTRIBUTING.md` so it'
 
 ***
 
-## 5. dbt Mesh and deferral
+## dbt Mesh and deferral
 
 If your project uses [dbt Mesh](../docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, dbt v2 handles this automatically during development when a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present.
 
