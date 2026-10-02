@@ -10,19 +10,155 @@ Hybrid dbt deployments are becoming increasingly common. dbt v2 adopters are fre
 
 These paths are fully supported for dbt platform users. Keeping the environments in sync across credentials, environment variables, and engine versions is one of the first operational challenges teams encounter.
 
-This guide walks through credentials, environment variables, dbt v2 versions, and Mesh or deferral, with concrete, copy-paste-ready steps to keep everything aligned.
+This guide walks through command routing, credentials, environment variables, dbt v2 versions, and Mesh or deferral, with concrete, copy-paste-ready steps to keep everything aligned.
+
+If you run both the dbt platform CLI and a local dbt v2 build from the same project, start with [Choosing which dbt runs](./dbt-platform-local-workflow.md?step=3#1-choosing-which-dbt-runs). Both tools are invoked as `dbt`, and the rest of this guide assumes you can tell them apart.
 
 ## Prerequisites
 
 * You have a dbt platform account with at least one project using dbt v2.
 * You have either the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](../docs/local/install-dbt.md) installed.
 
-## 1. Managing credentials
+## 1. Choosing which dbt runs
+
+If you install both the dbt platform CLI and a local dbt v2 build, you have two separate programs on your machine that are both invoked by typing `dbt`. Before you configure credentials, environment variables, or versions, make it unambiguous which one you're calling.
+
+Skip this section if you only ever install one of the two.
+
+### The two execution paths
+
+Both the dbt platform CLI and the local dbt v2 execution paths read the same project files — one clone of your repository, one `dbt_project.yml`, one set of models, macros, and tests. What differs is where the work happens and where the connection details come from.
+
+| Area               | dbt platform CLI                                 | Local dbt v2                                    |
+| ------------------ | ------------------------------------------------ | ----------------------------------------------- |
+| **What it is**     | A client that sends your command to dbt platform | A dbt executable that runs on your machine      |
+| **Where dbt runs** | On dbt platform infrastructure                   | Locally, or inside your agent's virtual machine |
+
+### Give each tool its own command
+
+Because both programs are installed as `dbt`, whichever one appears first in your `$PATH` opens when you use `dbt`. To avoid relying on `$PATH` order, you can assign at least one of them an alias that you can use on the command line to call each one explicitly.
+
+The dbt v2 [installation script](../docs/local/install-dbt.md) already provides `dbtf` as an alias and points to the local dbt v2 binary, or executable program. You can also add a `dbt-cli` alias for the dbt platform CLI so each command calls exactly what it says, for example:
+
+```shell
+dbtf build --select my_model      # Runs locally, on your installed v2 binary
+dbt-cli build --select my_model   # Runs on dbt platform, on your environment's release track
+```
+
+Report incorrect code
+
+Follow these steps to set up an alias:
+
+1. Find out what `dbt` resolves to today, and whether more than one is installed:
+
+   ```shell
+   which -a dbt
+   ```
+
+   Report incorrect code
+
+2. Install the tools you need:
+
+   * Install dbt v2 using the [installation script](../docs/local/install-dbt.md), which puts it in `$HOME/.local/bin/dbt` on macOS and Linux, or `C:\Users\USERNAME\.local\bin\dbt.exe` on Windows, and adds the `dbtf` alias.
+   * Install the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) separately.
+
+3. Using the path you identified in Step 1 for your dbt platform CLI install, add an alias to your shell profile that points to its installed program.
+
+   For example, on macOS with Homebrew you can create an alias for the executable at `/opt/homebrew/bin/dbt`:
+
+   ```shell
+   # ~/.zshrc or ~/.bashrc
+   alias dbt-cli="/opt/homebrew/bin/dbt"
+   ```
+
+   Report incorrect code
+
+   Reload your shell profile:
+
+   ```shell
+   source ~/.zshrc   # or source ~/.bashrc
+   ```
+
+   Report incorrect code
+
+4. Confirm each command resolves to the tool you expect and the two version strings differ:
+
+   ```shell
+   dbtf --version
+   dbt-cli --version
+   ```
+
+   Report incorrect code
+
+5. Decide which program opens when you run bare `dbt` on your machine and create a best practice for your team. Regardless, `dbtf` and `dbt-cli` clearly run the named program.
+
+Shell aliases don't apply everywhere
+
+`dbtf` and `dbt-cli` are shell aliases. They're available in your interactive terminal, but not in `Makefile` recipes, shell scripts, CI jobs, or commands an AI agent runs in a non-interactive shell. In those contexts, use the absolute path to the binary, or control `$PATH` ordering so that bare `dbt` resolves to the tool you want.
+
+### Commands that mean different things in each tool
+
+Most commands (`build`, `run`, `test`, `compile`) behave equivalently, but the run happens in a different place. A few are specific to one tool, and running them against the other either fails or does something you didn't intend:
+
+* `dbt system update` and `dbt system uninstall` manage a local dbt v2 install. They have no meaning for the dbt platform CLI and no effect on dbt platform.
+* `dbt init` hydrates a local `profiles.yml`. You need it for the local dbt v2 path, not for the dbt platform CLI, which doesn't use `profiles.yml`.
+* `dbt debug` inspects a local profile, target, and connection. Use [`dbt environment`](../reference/commands/dbt-environment.md) for dbt platform CLI environment and connection details.
+
+When both tools are installed, write these as `dbtf system update`, `dbtf init`, and `dbtf debug` so they can't be misread.
+
+### How each editor and agent picks a dbt
+
+Each tool in your workflow resolves `dbt` on its own terms. Configuring one does not configure the others.
+
+| Where you run dbt                                           | How it picks a dbt                                                                     | What to configure                                                                                                                                                           |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **dbt VS Code extension**                                   | The `dbt.fusionPath` setting, or a v2 build the extension downloads and manages itself | Leave `dbt.fusionPath` unset to let the extension manage v2. If you install v2 yourself, set it to the absolute path of the v2 binary                                       |
+| **VS Code or Cursor integrated terminal**                   | Your shell `$PATH` and shell profile aliases                                           | The `dbtf` and `dbt-cli` aliases described earlier                                                                                                                          |
+| **Coding agents, such as Claude Code or Cursor agent mode** | A non-interactive shell — `$PATH` applies, shell aliases usually don't                 | Absolute binary paths, plus a written command-routing rule in the agent's instructions file                                                                                 |
+| **Remote agent virtual machines**                           | The virtual machine's own `$PATH`, not your workstation's                              | Install both tools in the virtual machine, persist them in its setup configuration so they survive fresh sessions, and store credentials in that platform's secrets manager |
+
+`dbt.fusionPath` is not a terminal setting
+
+`dbt.fusionPath` tells the dbt VS Code extension which binary to start the LSP and the extension's own menu actions from. It has no effect on commands you type in an integrated terminal, and no effect on commands an agent runs. It must point to a valid dbt v2 binary — an absolute filesystem path, not an alias name and not the dbt platform CLI.
+
+Find the path to pass it with:
+
+```shell
+command -v dbtf
+```
+
+Report incorrect code
+
+Keep machine-specific absolute paths in your user settings rather than committing them to workspace settings, so the setting doesn't break for teammates whose paths differ.
+
+### Tell your coding agent which command to use
+
+Agents run shell commands the same way a script does, so they inherit `$PATH` but not your interactive aliases, and they have no way to guess which execution path you intended. State the convention in the instructions file the agent reads — `CLAUDE.md`, `AGENTS.md`, `.cursor/rules/`, or the equivalent for your tool:
+
+```markdown
+## dbt command routing
+
+Replace the paths below with the output of `which -a dbt` on this machine.
+
+- Use `$HOME/.local/bin/dbt` for local dbt v2 commands. It runs on this machine
+  against `profiles.yml`.
+- Use `/opt/homebrew/bin/dbt` for dbt platform CLI commands. It runs on
+  dbt platform against the environment's release track.
+- Never substitute one for the other.
+- Run dbt commands from the repository root.
+- Ask before running any command that creates or modifies warehouse objects.
+```
+
+Report incorrect code
+
+Use absolute paths in agent instructions rather than the `dbtf` and `dbt-cli` aliases, because the agent's shell may not load your shell profile. Discover the real paths on the machine the agent runs on with `which -a dbt`, and update the instructions file when they change. On a remote agent virtual machine, confirm the paths inside a fresh session, because tools installed ad hoc in an earlier session may not persist.
+
+## 2. Managing credentials
 
 How you authenticate to your data warehouse locally depends on which self-hosted tool you use:
 
-* [dbt platform CLI](./dbt-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with dbt v2 set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
-* [dbt VS Code extension](./dbt-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs dbt v2 and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
+* [dbt platform CLI](./dbt-platform-local-workflow.md?step=4#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with dbt v2 set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
+* [dbt VS Code extension](./dbt-platform-local-workflow.md?step=4#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs dbt v2 and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
 
 ### dbt platform CLI
 
@@ -60,7 +196,7 @@ Coming soon
 
 We're working on a solution that lets you develop locally in the dbt VS Code extension while you manage credentials entirely in dbt platform, without a local `profiles.yml`. We'll update this page when that ships.
 
-## 2. Managing environment variables
+## 3. Managing environment variables
 
 Environment variables you set in dbt platform apply to production runs and the Studio IDE sessions. For local development, you manage environment variables separately.
 
@@ -139,9 +275,17 @@ For teams with strict security requirements
 
 Consider a script that fetches variables from your secrets manager (for example, AWS Secrets Manager or 1Password) and writes them to `.env` at the start of a session, instead of storing values in a file long term.
 
-## 3. Managing dbt v2 versions
+## 4. Managing dbt v2 versions
 
 The **v2 Stable** release track on dbt platform updates continuously as dbt v2 ships new releases. If your local version falls behind, you might see inconsistent behavior. The same query could compile differently locally than in production, or a feature might exist in dbt platform but not in your local binary. Stay current to avoid these mismatches.
+
+A v2 release track does not change your local dbt
+
+Moving a dbt platform environment to a v2 release track changes the engine that dbt platform uses for that environment. It does not install, update, replace, or select the dbt v2 executable on your machine, and it does not turn the dbt platform CLI into dbt v2.
+
+The reverse is also true: running `dbt system update` locally updates your local install only. It has no effect on which build your dbt platform environments run.
+
+Treat the two version settings as independent, and keep them aligned yourself using the steps in this section.
 
 ### Versions on the dbt platform
 
@@ -234,7 +378,7 @@ You can also document this convention in your project's `CONTRIBUTING.md` so it'
 
 ***
 
-## 4. dbt Mesh and deferral
+## 5. dbt Mesh and deferral
 
 If your project uses [dbt Mesh](../docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, dbt v2 handles this automatically during development when a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present.
 
@@ -274,17 +418,20 @@ Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_c
 
 The following table summarizes the key differences between the two development paths covered in this guide:
 
-| Area                      | dbt platform CLI                                                                                                         | dbt VS Code extension                                                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| **Credentials**           | Managed through your dbt platform session, no `profiles.yml` needed                                                      | `profiles.yml` required; use `dbt init` to hydrate from dbt platform                                                              |
-| **Environment variables** | Same env vars as in dbt platform automatically                                                                           | Use a `.env` file at the project root                                                                                             |
-| **Version management**    | `dbt system update` to stay current                                                                                      | Dev container recommended for automatic sync                                                                                      |
-| **dbt Mesh / deferral**   | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; `--no-defer` to disable | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; toggle off in extension settings |
+| Area                                | dbt platform CLI                                                                                                         | dbt VS Code extension                                                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Command when both are installed** | `dbt-cli` (alias you add)                                                                                                | `dbtf` (alias the installer adds)                                                                                                 |
+| **Credentials**                     | Managed through your dbt platform session, no `profiles.yml` needed                                                      | `profiles.yml` required; use `dbt init` to hydrate from dbt platform                                                              |
+| **Environment variables**           | Same env vars as in dbt platform automatically                                                                           | Use a `.env` file at the project root                                                                                             |
+| **Version management**              | `dbt system update` to stay current                                                                                      | Dev container recommended for automatic sync                                                                                      |
+| **dbt Mesh / deferral**             | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; `--no-defer` to disable | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; toggle off in extension settings |
 
 ## Related docs
 
 * [Install dbt v2](../docs/local/install-dbt.md)
 * [dbt platform CLI installation](../docs/platform/dbt-cli-installation.md)
+* [dbt extension settings, including `dbt.fusionPath`](../docs/configure-dbt-extension.md#dbt-extension-settings)
+* [`dbt environment` command](../reference/commands/dbt-environment.md)
 * [dbt v2 releases and release channels](../docs/dbt/dbt-releases.md)
 * [About profiles.yml](../docs/local/profiles.yml.md)
 * [Environment variables (local)](../docs/local/configure-environment-variables.md)
