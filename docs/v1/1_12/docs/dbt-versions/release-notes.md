@@ -15,7 +15,7 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## September 2026
 
-* **New:** The job run details page now shows an [**Explain** tab](../deploy/run-visibility.md#explain-tab) for every dbt State run. The tab is available while a run is in progress and updates as resources finish.
+* **Private beta:** Snowflake users can now configure [custom relation overrides](../explore/set-up-cost-insights.md#custom-relation-overrides) when setting up Cost Insights. If your credentials don't have access to the `SNOWFLAKE` system database, you can use your own tables or views in place of the default Snowflake system tables. Contact your account representative for access.
 * **Enhancement:** The [column lineage](../explore/column-level-lineage.md#column-lens) panel now shows SQL transformation expressions for all users. You can see how columns are derived across your lineage without any additional configuration.
 * **Enhancement:** The "last run finished at" column in the account Insights table now displays times in UTC, giving you a consistent reference regardless of your local timezone.
 * **Enhancement:** Per-query Snowflake Adaptive warehouse costs are now tracked automatically for all accounts in [Cost Insights](../explore/cost-insights.md) when `QUERY_METERING_HISTORY` is accessible, with no additional configuration required.
@@ -85,8 +85,6 @@ Two other things moved:
 
 * **New:** The Snowflake adapter now supports the `interactive_table` materialization in beta on dbt v2 (dbt-snowflake v1.13+), covering both static and dynamic (auto-refreshing) interactive tables. For more information, see [Interactive tables](../../reference/resource-configs/snowflake-configs.md).
 
-* **Enhancement:** The [Analyst Read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now available to all accounts without requiring a feature flag. You can assign it to groups so read-only users can view Catalog and project configuration such as connections, environments, and Semantic Layer settings.
-
 * **Enhancement:** When you connect to Snowflake through the Semantic Layer, authentication failures and permission errors now return distinct messages prefixed with `[WAREHOUSE_AUTHENTICATION_FAILED]` or `[WAREHOUSE_PERMISSION_DENIED]`, so you can tell credential issues apart from missing grants.
 
 * **Fix:** Saving a job with an invalid day-of-month value such as `*,L` now shows a validation error and prevents the broken schedule from being saved. Use either `*` or `L` in the day-of-month field, not both.
@@ -122,7 +120,7 @@ Two other things moved:
 
 ## August 2026
 
-* **New:** A new "State explain" tab on the run details page shows dbt State's decision for each model in a run (rebuilt, reused, or cloned), with expandable details, search, and Comma-Separated Values (CSV) download. You can use this tab to investigate why each model was rebuilt or reused. Contact your account manager to enable.
+* **New:** A new **Explain** tab on the run details page shows dbt State's decision for each model in a run (rebuilt, reused, or cloned), with expandable details, search, and Comma-Separated Values (CSV) download. You can use this tab to investigate why each model was rebuilt or reused. Contact your account manager to enable.
 * **Enhancement:** Non-admin users now see an "Ask an admin to enable" message on the dbt Wizard and dbt State cards in Billing & Usage when a trial is available but they lack permission to start it, instead of a blank space. The same message appears if a non-admin tries to start a trial from a dbt State or dbt Wizard link.
 * **Enhancement:** dbt State is now available for jobs running on the Compatible, dbt v2 Extended, and dbt v2 Fallback release tracks, in addition to previously supported tracks.
 * **Enhancement:** When compare results are larger than 50 MB, pull request comments now show a "too large to summarize" notice with a link to the full compare report, instead of failing with no message.
@@ -133,9 +131,6 @@ Two other things moved:
 * **Enhancement:** On Snowflake, when [`metadata_warehouse`](../../reference/resource-configs/metadata-warehouse.md) is configured, dbt State now issues multiple, individual queries (one per schema) in parallel on the dedicated warehouse — faster than the single, consolidated query dbt runs by default. Without a dedicated warehouse, dbt now emits a warning if the metadata fetch takes longer than 15 seconds.
 * **New:** The [`allow_clones`](../../reference/resource-configs/allow-clones.md) profile-level setting lets you control whether dbt State can clone tables into a target environment. Previously, there was no way to disable cloning — dbt State always cloned into any environment when a matching table was found.
 * **New**: [`compare_unrendered_code`](../../reference/resource-configs/compare-unrendered-code.md) is a new dbt State config that checks the Jinja template for unrendered code changes. If dbt detects unrendered code changes, it then compares the rendered SQL. A rebuild only occurs when *both* have changed. This prevents unnecessary rebuilds for nodes that use non-deterministic macros or environment variables.
-* **New:** When dbt State is enabled, you can run `dbt state explain` (dbt v2) or `dbt-state explain` (dbt v1 plugin) in the CLI after a job finishes to see why dbt State made each decision and whether each node was built, reused, or cloned. For a detailed breakdown, run the command with `--verbose -s my_node_name` to see the table analysis, query analysis, and data freshness analysis for a specific node. For more information, refer to [`dbt state explain`](../../reference/commands/state-explain.md).
-* **Enhancement:** New sessions open on the Wizard tab when available, and the Studio IDE remembers your last-used tab for each project so you can pick up where you left off.
-* **Enhancement:** A new `relationName` field on the `ModelAppliedStateNode` and `ModelAppliedStateNestedNode` GraphQL types exposes the fully-qualified, adapter-rendered relation name (for example, `"database"."schema"."model_name"`) from the last successful model build.
 * **New:** When dbt State is enabled, you can run `dbt state explain` (dbt v2) or `dbt-state explain` (dbt v1 plugin) in the CLI after a job finishes to see why dbt State made each decision and whether each node was built, reused, or cloned. For a detailed breakdown, run the command with `--verbose -s my_node_name` to see the table analysis, query analysis, and data freshness analysis for a specific node. For more information, refer to [`dbt state explain`](../../reference/commands/state-explain.md).
 * **Enhancement:** New sessions open on the Wizard tab when available, and the Studio IDE remembers your last-used tab for each project so you can pick up where you left off.
 * **Enhancement:** A new `relationName` field on the `ModelAppliedStateNode` and `ModelAppliedStateNestedNode` GraphQL types exposes the fully-qualified, adapter-rendered relation name (for example, `"database"."schema"."model_name"`) from the last successful model build.
