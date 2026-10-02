@@ -18,7 +18,7 @@ dbt v2 is available for installation in:
 * [VS Code and Cursor with the dbt extension](../install-dbt-extension.md)
 * [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
-Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
+Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
 State-aware orchestration saves you compute costs and reduces runtime because when a job runs, it checks for new records and only builds the models that will change.
 

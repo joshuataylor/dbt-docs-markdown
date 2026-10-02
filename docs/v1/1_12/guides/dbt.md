@@ -14,7 +14,7 @@ dbt v2 is available for installation in:
 * [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md)
 * [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
 
-Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
+Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
 dbt v2 is a powerful new approach to classic dbt ideas! Completely rebuilt from the ground up in Rust, dbt v2 lets you compile and run your dbt projects faster than ever — often in seconds.
 

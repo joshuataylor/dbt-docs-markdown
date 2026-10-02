@@ -48,9 +48,9 @@ Introduction
 
 Build a dbt project locally, write your first dbt Charts board by hand, and preview it in the browser.
 
-## [Quickstart for dbt v1 from a manual install](../guides/manual-install.md)
+## [Quickstart for dbt from a manual install](../guides/manual-install.md)
 
-Connecting your warehouse to dbt v1 using the CLI.
+Connecting your warehouse to dbt using the CLI.
 
 ## [Quickstart for dbt v1 using DuckDB](../guides/duckdb.md)
 

@@ -14,7 +14,7 @@ dbt v2 is available for installation in:
 * [VS Code and Cursor with the dbt extension](../../install-dbt-extension.md)
 * [dbt platform environments](../upgrade-dbt-platform-version.md#dbt-v2)
 
-Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
+Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
 ## More information about dbt v2
 

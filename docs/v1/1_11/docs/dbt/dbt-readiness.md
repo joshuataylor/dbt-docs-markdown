@@ -1,8 +1,6 @@
 # dbt v2 readiness checklist
 
-The dbt v2 is here and is now generally available for dbt platform projects on Snowflake, BigQuery, Redshift, and Databricks!
-
-We currently offer it as a [preview](../dbt-versions/product-lifecycles.md) for all other supported adapters. Even if we haven't enabled it for your account, you can still start preparing your projects for upgrade. Use this checklist to ensure a smooth upgrade once dbt v2 becomes available. If this is all new to you, first [learn about dbt v2](../introduction.md), its current state, and the features available.
+dbt v2 is here and is now generally available for the dbt platform.
 
 Enable the dbt v2 readiness panel
 
@@ -78,11 +76,3 @@ We determine dbt v2 eligibility using data from your job runs.
 * [ ] Delete any jobs that are no longer in use to ensure accurate eligibility reporting.
 * [ ] Make sure you've promoted the changes for deprecation resolution and package upgrades to your git branches that map to your deployment environments.
 * [ ] For eligible jobs, use **Debug on dbt v2** to debug in Studio IDE or run once on dbt v2. Refer to [Update your jobs](../../guides/prepare-v2-upgrade.md?step=7).
-
-### Stay informed about dbt v2 progress
-
-The dbt v2 is generally available for dbt platform projects on Snowflake, BigQuery, Redshift, and Databricks, and in preview for all other eligible projects! Keep up-to-date with these resources:
-
-* [ ] Check out the [v2 homepage](https://www.getdbt.com/product/fusion) for available resources, including supported adapters, prerequisites, installation instructions, limitations, and deprecations.
-* [ ] Read the [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to learn about the new features and functionality that impact your dbt projects.
-* [ ] Learn how [dbt State](../deploy/dbt-state-about.md) can reduce warehouse costs by 30%+ by rebuilding models only when data or code changes.
