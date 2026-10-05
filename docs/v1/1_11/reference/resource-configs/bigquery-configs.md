@@ -1153,7 +1153,7 @@ Installation of third-party packages on Dataproc varies depending on whether it'
 
   You can also install packages at cluster creation time by [defining cluster properties](https://cloud.google.com/dataproc/docs/tutorials/python-configuration#image_version_20): `dataproc:pip.packages` or `dataproc:conda.packages`.
 
-* **Dataproc Serverless** — Google recommends using a [custom docker image](https://cloud.google.com/dataproc-serverless/docs/guides/custom-containers) to install thrid-party packages. The image needs to be hosted in [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs). It can then be used by providing the image path in dbt profiles:
+* **Dataproc Serverless** — Google recommends using a [custom docker image](https://cloud.google.com/dataproc-serverless/docs/guides/custom-containers) to install third-party packages. The image needs to be hosted in [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs). It can then be used by providing the image path in dbt profiles:
 
   profiles.yml
 
@@ -1184,16 +1184,16 @@ Installation of third-party packages on Dataproc varies depending on whether it'
 
 The BigQuery Python models also have the following additional configuration parameters:
 
-| Parameter               | Type        | Required | Default   | Valid values                           |
-| ----------------------- | ----------- | -------- | --------- | -------------------------------------- |
-| `enable_list_inference` | `<boolean>` | no       | `True`    | `True`, `False`                        |
-| `intermediate_format`   | `<string>`  | no       | `parquet` | `parquet`, `orc`                       |
-| `submission_method`     | `<string>`  | no       | \`\`      | `serverless`, `bigframes`, `cluster`   |
-| `notebook_template_id`  | `<integer>` | no       | \`\`      | `<NOTEBOOK RUNTIME TEMPLATE_ID>`       |
-| `compute_region`        | `<string>`  | no       | \`\`      | `<COMPUTE_REGION>`                     |
-| `gcs_bucket`            | `<string>`  | no       | \`\`      | `<GCS_BUCKET>`                         |
-| `packages`              | `<string>`  | no       | \`\`      | `['numpy<=1.1.1', 'pandas', 'mlflow']` |
-| `timeout`               | `<integer>` | no       | \`\`      | `<timeout_in_seconds>`                 |
+| Parameter               | Type        | Required | Default   | Valid values                                              |
+| ----------------------- | ----------- | -------- | --------- | --------------------------------------------------------- |
+| `enable_list_inference` | `<boolean>` | no       | `True`    | `True`, `False`                                           |
+| `intermediate_format`   | `<string>`  | no       | `parquet` | `parquet`, `orc`                                          |
+| `submission_method`     | `<string>`  | no       | \`\`      | `serverless`, `bigframes`, `cluster`                      |
+| `notebook_template_id`  | `<integer>` | no       | \`\`      | `<NOTEBOOK RUNTIME TEMPLATE_ID>`                          |
+| `compute_region`        | `<string>`  | no       | \`\`      | `<COMPUTE_REGION>`                                        |
+| `gcs_bucket`            | `<string>`  | no       | \`\`      | `<GCS_BUCKET>`                                            |
+| `packages`              | `<string>`  | no       | \`\`      | `['numpy<=1.1.1', 'pandas', 'mlflow']` (`bigframes` only) |
+| `timeout`               | `<integer>` | no       | \`\`      | `<timeout_in_seconds>`                                    |
 
 * The `enable_list_inference` parameter
 
@@ -1218,6 +1218,10 @@ The BigQuery Python models also have the following additional configuration para
 * The `gcs_bucket` parameter
 
   * The `gcs_bucket` parameter specifies the GCS bucket used for storing artifacts for the job.
+
+* The `packages` parameter
+
+  * The `packages` parameter lists Python packages to `pip install` before your model runs. It only works with `submission_method: bigframes`. Dataproc (`serverless` and `cluster`) ignores it without an error or warning. To install packages on Dataproc, use a custom container image (serverless) or initialization actions (cluster) instead. Refer to **Installing packages** under the Dataproc tab in [Python model configuration](#python-model-configuration).
 
 * The `timeout` parameter
 
