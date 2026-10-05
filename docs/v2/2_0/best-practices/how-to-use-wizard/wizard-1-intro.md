@@ -19,3 +19,9 @@ For local workflows, make sure the dbt Wizard CLI is installed, configured, and 
 * To set up the CLI, check out [Use Wizard locally](../../docs/dbt-ai/wizard-quickstart.md)
 * For options such as deferral and approval policies, check out the [Wizard CLI config reference](../../docs/dbt-ai/wizard-config.md)
 * To use Wizard in the dbt platform, check out [Use Wizard in dbt platform](../../docs/platform/wizard-platform.md)
+
+## Use one chat per task
+
+Start a new dbt Wizard chat for each discrete unit of work, such as building one model, debugging one job failure, or validating a change. A focused conversation keeps the context relevant to the task so dbt Wizard doesn't carry over assumptions from unrelated work. Go back to an existing chat only when you're continuing that same task.
+
+The workflows in this guide follow that pattern: each one is a self-contained task you can run in its own chat. For how to start, resume, and manage sessions on each surface, refer to [Sessions and conversations](../../docs/dbt-ai/wizard-how-it-works.md#sessions-and-conversations) for the dbt platform and [Sessions](../../docs/dbt-ai/wizard-how-it-works.md#sessions) for the CLI and Wizard Desktop.
