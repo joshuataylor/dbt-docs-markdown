@@ -236,6 +236,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [OBJ.FETCH\_METADATA](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions#objfetch_metadata)                              | Built-in | —               |
 | [OBJ.GET\_ACCESS\_URL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions#objget_access_url)                             | Built-in | —               |
 | [OBJ.GET\_READ\_URL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions#objget_read_url)                                 | Built-in | —               |
+| [OBJ.LIST](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions#objlist)                                                   | Built-in | —               |
 | [OBJ.MAKE\_REF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions#objmake_ref)                                          | Built-in | —               |
 | [OCTET\_LENGTH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#octet_length)                                            | Built-in | ✓               |
 | [PARSE\_BIGNUMERIC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/conversion_functions#parse_bignumeric)                                | Built-in | ✓               |
@@ -409,7 +410,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [TRANSLATE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#translate)                                                   | Built-in | ✓               |
 | [TRIM](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#trim)                                                             | Built-in | ✓               |
 | [TRUNC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#trunc)                                                     | Built-in | ✓               |
-| [TYPEOF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/utility-functions#typeof)                                                        | Built-in | —               |
+| [TYPEOF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/utility-functions#typeof)                                                        | Built-in | ✓               |
 | [UNICODE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#unicode)                                                       | Built-in | ✓               |
 | [UNIX\_DATE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#unix_date)                                                    | Built-in | ✓               |
 | [UNIX\_MICROS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#unix_micros)                                           | Built-in | ✓               |
