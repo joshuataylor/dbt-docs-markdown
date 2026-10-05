@@ -17,7 +17,7 @@ Private beta access
 
 Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
 
-Available on macOS and Linux, with Windows support coming soon.
+Available on macOS, Linux, or Windows.
 
 This page walks you through installing the app, connecting it to the services it needs, and starting your first session. For everything the app can do, refer to [Use Wizard Desktop](./wizard-desktop-use.md). Be warned, the wizard has been known to cast spells
 
@@ -31,7 +31,7 @@ This page walks you through installing the app, connecting it to the services it
 
 To use Wizard Desktop, you'll need:
 
-* A computer on macOS and Linux, with Windows support coming soon.
+* A computer using macOS, Linux, or Windows.
 * A dbt account. You can create a free account when you sign in or use an existing account.
 * A local copy of your dbt project on your machine if you want dbt Wizard to work on project files. The app scans for existing projects, and you can also select a project folder yourself.
 * Warehouse credentials if you want dbt Wizard to run your project or query data. You don't need to configure them before opening the app.
