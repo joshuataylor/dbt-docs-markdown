@@ -42,7 +42,7 @@ The following tools integrate with the dbt Semantic Layer:
 
 #### [Dot](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
 
-[Enable everyone to analyze data with AI in Slack or Teams.](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
+[Connect Dot to the dbt Semantic Layer to ask questions in Slack, Microsoft Teams, or the web and get answers built on your metrics.](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
 
 [![](/img/icons/hex.svg)](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration)
 
