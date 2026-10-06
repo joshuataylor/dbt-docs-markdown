@@ -15,6 +15,7 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## September 2026
 
+* **Enhancement:** You can now enable or disable [dbt State](../deploy/dbt-state-about.md) for each job using the **dbt State** dropdown: **On**, **Off**, or **Inherited from environment**. New jobs default to **Inherited from environment**. Make sure to manually update existing jobs. Refer to [Enabling dbt State on environments and jobs](../deploy/dbt-state-enable-env-jobs.md) for more information.
 * **Private beta:** Snowflake users can now configure [custom relation overrides](../explore/set-up-cost-insights.md#custom-relation-overrides) when setting up Cost Insights. If your credentials don't have access to the `SNOWFLAKE` system database, you can use your own tables or views in place of the default Snowflake system tables. Contact your account representative for access.
 * **Enhancement:** The [column lineage](../explore/column-level-lineage.md#column-lens) panel now shows SQL transformation expressions for all users. You can see how columns are derived across your lineage without any additional configuration.
 * **Enhancement:** The "last run finished at" column in the account Insights table now displays times in UTC, giving you a consistent reference regardless of your local timezone.
@@ -249,7 +250,7 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 ## June 2026
 
 * **Enhancement:** [Column-level tags](../../reference/resource-configs/tags.md) defined in your dbt project now appear on the **Columns** tab of resource details pages in Catalog. You can click any tag badge to filter the lineage view, or search for columns directly by tag name. Refer to [View resource details](../explore/explore-projects.md#view-resource-details).
-* **Enhancement:** You can now enable [dbt State](../deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on individual jobs](../deploy/dbt-state-enable-jobs.md).
+* **Enhancement:** You can now enable [dbt State](../deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on environments and jobs](../deploy/dbt-state-enable-env-jobs.md).
 * **Enhancement**: The [Cost Insights](../explore/cost-insights.md) table view now includes **All** and **Jobs** buttons to switch between an aggregated cost view and a per-job cost breakdown. Available in the project dashboard and the **Model performance** section in Catalog. When **Jobs** is selected, the CSV export includes job-level data. For more information, refer to [Explore cost data](../explore/explore-cost-data.md).
 * **Enhancement:** [dbt Wizard](../platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](../platform/wizard-home.md).
 * **Enhancement:** You can now download files from the Studio IDE File explorer. Right-click a file and select **Download** to save it to your computer. For more information, refer to the [Studio IDE user interface](../platform/studio-ide/ide-user-interface.md#basic-layout).

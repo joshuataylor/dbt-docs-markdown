@@ -38,9 +38,9 @@ Configure which target environment dbt State defers to for self-managed deployme
 
 Enable dbt State in the dbt Studio IDE for faster development runs, either at the environment level or per user.
 
-## [Enabling dbt State on individual jobs](../docs/deploy/dbt-state-enable-jobs.md)
+## [Enabling dbt State on environments and jobs](../docs/deploy/dbt-state-enable-env-jobs.md)
 
-Enable dbt State on specific jobs in dbt platform, whether existing or newly created.
+Enable dbt State on deployment environments and individual jobs in dbt platform.
 
 ## [evaluate\_volatile\_sql](../reference/resource-configs/evaluate-volatile-sql.md)
 

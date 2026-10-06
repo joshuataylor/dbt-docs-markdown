@@ -48,14 +48,14 @@ To enable dbt State:
 
 7. Select the jobs to enable dbt State for. You can either enable:
 
-   * **By environment**: Enables dbt State on all existing jobs within the selected environment at once. New jobs created in that environment will have dbt State enabled automatically.
-   * **By specific jobs**: Enables dbt State on individual jobs. To enable it on additional jobs later, refer to [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
+   * **By environment**: Enables dbt State on the selected environment. New jobs automatically default to **Inherited from environment** and have dbt State enabled without additional configuration. Existing jobs are not automatically updated — you must [configure each job manually](./dbt-state-enable-env-jobs.md#enabling-dbt-state-on-individual-jobs).
+   * **By specific jobs**: Enables dbt State on individual jobs. To enable it on additional jobs, refer to [Enabling dbt State on individual jobs](./dbt-state-enable-env-jobs.md#enabling-dbt-state-on-individual-jobs).
 
 8. Click **Enable dbt State**.
 
 For next steps, see:
 
-* [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
+* [Enable dbt State on environments and jobs](./dbt-state-enable-env-jobs.md)
 * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
 
 ### dbt platform sign-up
@@ -76,7 +76,7 @@ For next steps, see:
 
 3. Go to **Orchestration** to create your environments and jobs. For next steps, see:
 
-   * [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
+   * [Enable dbt State on environments and jobs](./dbt-state-enable-env-jobs.md)
    * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
 
 ### dbt v2

@@ -8,6 +8,7 @@ Deployment environments in dbt are crucial for deploying dbt jobs in production 
 * The warehouse connection information (including the target database/schema settings)
 * The [connection profile](../platform/about-profiles.md) (the credentials dbt uses to connect)
 * The version of your code to execute
+* Whether [dbt State](./dbt-state-about.md) is enabled for the environment, which jobs in the environment can inherit. For more information, refer to [Enabling dbt State on environments and jobs](./dbt-state-enable-env-jobs.md).
 
 A dbt project can have multiple deployment environments, providing you the flexibility and customization to tailor the execution of dbt jobs. You can use deployment environments to [create and schedule jobs](./deploy-jobs.md#create-and-schedule-jobs), [enable continuous integration](./continuous-integration.md), or more based on your specific needs or requirements.
 
@@ -42,6 +43,10 @@ In dbt, each project can have one designated deployment environment, which serve
 For customers using the Semantic Layer, the next section of environment settings is the Semantic Layer configurations. [The Semantic Layer setup guide](../use-dbt-semantic-layer/setup-sl.md) has the most up-to-date setup instructions.
 
 You can also leverage the dbt Job scheduler to [validate your semantic nodes in a CI job](./ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
+
+### dbt State
+
+[dbt State](./dbt-state-about.md) reduces unnecessary node rebuilds by reusing nodes when neither the logic nor the data has changed. You can enable it on a deployment environment so that jobs in the environment can inherit the setting. This option is only visible if dbt State is enabled on your account. For steps, refer to [Enabling dbt State on environments and jobs](./dbt-state-enable-env-jobs.md).
 
 ## Staging environment
 
@@ -181,3 +186,4 @@ If you're having any issues, feel free to [contact us](mailto:support@getdbt.com
 * [Deploy jobs](./deploy-jobs.md)
 * [CI jobs](./continuous-integration.md)
 * [Delete a job or environment in dbt](../../faqs/Environments/delete-environment-job.md)
+* [Set up dbt State](./dbt-state-setup.md)

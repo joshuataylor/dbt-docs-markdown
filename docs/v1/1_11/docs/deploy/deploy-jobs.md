@@ -48,7 +48,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
    * [**Generate docs on run**](./job-commands.md#checkbox-commands) — Enable this option if you want to [generate project docs](../explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
 
    - [**Run source freshness**](./source-freshness.md) — Enable this option to invoke the `dbt source freshness` command before running the deploy job. If the step fails, the job can succeed if subsequent steps pass. Refer to [Source freshness](./source-freshness.md) for more details.
-   - [**Enable dbt State**](./dbt-state-about.md) — dbt State reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
+   - [**dbt State**](./dbt-state-about.md) — \[dbt State] reuses nodes when their logic and data haven’t changed, avoiding unnecessary rebuilds. Select **On**, **Off**, or **Inherited from environment** to use the environment’s setting. This option appears only when dbt State is [enabled](./dbt-state-setup.md) on your account. Learn more about [enabling dbt State on individual jobs](./dbt-state-enable-env-jobs.md#enabling-dbt-state-on-individual-jobs).
 
 4. Options in the **Triggers** section:
 
