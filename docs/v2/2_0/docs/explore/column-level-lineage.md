@@ -21,7 +21,7 @@ If you enjoy video courses, check out our [dbt Catalog on-demand course](https:/
 
 There is no additional setup required for CLL in Catalog if your account is an Enterprise or Enterprise+ plan with Catalog access. You can access CLL from the column card in the **Columns** tab in the Catalog [resource details page](./explore-projects.md#view-resource-details) for a model, source, or snapshot.
 
-dbt updates the lineage in Catalog after each run that's executed in the production or staging environment. At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
+dbt updates the lineage in Catalog after each run that's executed in the production or staging environment. (Applies to dbt v2.0 and later) Jobs running v2 refresh this metadata automatically on every job run. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
 
 ![Example of the Columns tab and where to open the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to open the CLL")Example of the Columns tab and where to open the CLL
 

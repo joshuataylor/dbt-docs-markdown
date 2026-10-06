@@ -234,7 +234,7 @@ Before a downstream team can leverage assets from this foundational project, you
 
 * [Create and define](../docs/mesh/govern/model-access.md) at least one model as “public”
 * Run a [deployment job](../docs/deploy/deploy-jobs.md) successfully
-  * Note, Enable [**Generate docs on run**](../docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
+  * Note, (Applies to dbt v1.99 and earlier) enable [**Generate docs on run**](../docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
 
 ## Define a public model and run first job
 
@@ -308,7 +308,9 @@ To run your first deployment dbt job, you will need to create a new dbt job.
 
 1. Go to **Orchestration** > **Jobs**.
 2. Click **Create job** and then **Deploy job**.
-3. Select the **Generate docs on run** option. This will hydrate your metadata in Catalog.
+3. (Applies to dbt v1.99 and earlier) Select the **Generate docs on run** option. This will hydrate your metadata in Catalog.
+
+(Applies to dbt v1.99 and earlier)
 
 ![ Select the 'Generate docs on run' option when configuring your dbt job.](/img/guides/dbt-mesh/generate_docs_on_run.png?v=2 " Select the 'Generate docs on run' option when configuring your dbt job.") Select the 'Generate docs on run' option when configuring your dbt job.
 

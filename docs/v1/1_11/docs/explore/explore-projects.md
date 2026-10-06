@@ -21,7 +21,7 @@ Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-
 
 If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploading artifacts from dbt v1, make sure to follow the [setup instructions](../deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
 
-* To ensure all metadata is available in Catalog, run `dbt build` and `dbt docs generate` as part of your job in your production or staging environment. Running these two commands ensures all relevant metadata (like lineage, test results, documentation, and more) is available in Catalog.
+* (Applies to dbt v1.99 and earlier) To ensure all metadata is available in Catalog, run `dbt build` and `dbt docs generate` as part of your job in your production or staging environment. Running these two commands ensures all relevant metadata (like lineage, test results, documentation, and more) is available in Catalog.
 * Catalog automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project. This includes deploy and merge jobs.
   * Note that CI jobs don't update Catalog. This is because they don't reflect the production state and don't provide the necessary metadata updates.
 * To view a resource and its metadata, you must define the resource in your project and run a job in the production or staging environment.
@@ -32,7 +32,7 @@ If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploadin
 dbt populates a model's metadata in Catalog when both of the following conditions are met:
 
 * The model is defined in your dbt project (it exists in the manifest).
-* The model appears in the `run_results` of a [`dbt build`](../../reference/commands/build.md), [`dbt run`](../../reference/commands/run.md), or [`dbt clone`](../../reference/commands/clone.md) command, regardless of the run's success or failure status. Note that `dbt docs generate` alone does not create model entries in Catalog. It provides supplementary metadata like column details and descriptions for models that already exist.
+* The model appears in the `run_results` of a [`dbt build`](../../reference/commands/build.md), [`dbt run`](../../reference/commands/run.md), or [`dbt clone`](../../reference/commands/clone.md) command, regardless of the run's success or failure status.(Applies to dbt v1.99 and earlier) Note that `dbt docs generate` alone does not create model entries in Catalog. It provides supplementary metadata like column details and descriptions for models that already exist.
 
 ### When dbt removes model metadata
 
@@ -40,6 +40,8 @@ dbt removes a model's metadata from Catalog in these two cases:
 
 * **Model removed from project**: If a model is deleted from your dbt project (and therefore no longer exists in the manifest), its metadata is removed after a subsequent job run in which the model is no longer included.
 * **Environment inactivity**: If an environment has had no job runs in the past 3 months, all metadata for that environment is purged. To prevent this, schedule jobs to run at least once every 3 months.
+
+(Applies to dbt v1.99 and earlier)
 
 | To view in Catalog                                        | You must successfully run                                                                                                                                                                                                                                                                     |
 | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

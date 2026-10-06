@@ -234,7 +234,7 @@ Before a downstream team can leverage assets from this foundational project, you
 
 * [Create and define](../docs/mesh/govern/model-access.md) at least one model as “public”
 * Run a [deployment job](../docs/deploy/deploy-jobs.md) successfully
-  * Note, Enable [**Generate docs on run**](../docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
+  * Note, (Applies to dbt v2.0 and later) this job updates assets in Catalog automatically. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
 
 ## Define a public model and run first job
 
@@ -308,13 +308,11 @@ To run your first deployment dbt job, you will need to create a new dbt job.
 
 1. Go to **Orchestration** > **Jobs**.
 2. Click **Create job** and then **Deploy job**.
-3. Select the **Generate docs on run** option. This will hydrate your metadata in Catalog.
+3. (Applies to dbt v2.0 and later) Keep the default `dbt build` command. Every job run hydrates your metadata in Catalog automatically.
 
-![ Select the 'Generate docs on run' option when configuring your dbt job.](/img/guides/dbt-mesh/generate_docs_on_run.png?v=2 " Select the 'Generate docs on run' option when configuring your dbt job.") Select the 'Generate docs on run' option when configuring your dbt job.
-
-4. Click **Save**.
-5. Click **Run now** to trigger the job.
-6. After the run is complete, navigate to Catalog. You should now see your lineage, tests, and documentation coming through successfully.
+4) Click **Save**.
+5) Click **Run now** to trigger the job.
+6) After the run is complete, navigate to Catalog. You should now see your lineage, tests, and documentation coming through successfully.
 
 For details on how dbt uses metadata from the Staging environment to resolve references in downstream projects, check out the section on [Staging with downstream dependencies](../docs/mesh/govern/project-dependencies.md#staging-with-downstream-dependencies).
 

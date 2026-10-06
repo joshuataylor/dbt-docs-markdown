@@ -62,7 +62,6 @@ To create a state-aware job:
 * **Execution settings** section:
 
   * **Commands**: By default, it includes the `dbt build` command. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when the job runs.
-  * **Generate docs on run**: Enable this option if you want to [generate project docs](../build/documentation.md) when this deploy job runs.
   * **Enable dbt v2 cost optimization features**: Select this option to enable **State-aware orchestration**. **Efficient testing** is disabled by default. You can expand **More options** to enable or disable individual settings.
 
 * **Triggers** section:

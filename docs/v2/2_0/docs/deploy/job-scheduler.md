@@ -83,8 +83,6 @@ Jobs consume a lot of memory in the following situations:
 
 * A high thread count was specified
 * Custom dbt macros attempt to load data into memory instead of pushing compute down to the cloud data platform
-* Having a job that generates dbt project documentation for a large and complex dbt project.
-  * To prevent problems with the job running out of memory, we recommend generating documentation in a separate job that is set aside for that task and removing `dbt docs generate` from all other jobs. This is especially important for large and complex projects.
 
 Refer to [dbt architecture](../platform/about-platform/architecture.md) for an architecture diagram and to learn how the data flows.
 

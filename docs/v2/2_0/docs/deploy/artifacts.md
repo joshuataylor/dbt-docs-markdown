@@ -24,9 +24,7 @@ While running any job can produce artifacts, you should only associate one produ
 
 ![Configuring Artifacts](/img/docs/dbt-platform/using-dbt-platform/project-level-artifact-updated.png?v=2 "Configuring Artifacts")Configuring Artifacts
 
-If you don't see your job listed, you might need to edit the job and select **Run source freshness** and **Generate docs on run**.
-
-![Editing the job to generate artifacts](/img/docs/dbt-platform/using-dbt-platform/edit-job-generate-artifacts.png?v=2 "Editing the job to generate artifacts")Editing the job to generate artifacts
+If you don't see your job listed, you might need to edit the job and select **Run source freshness**
 
 When you add a production job to a project, dbt updates the content and provides links to the production documentation and source freshness artifacts it generated for that project. You can see these links by clicking **Deploy** in the upper left, selecting **Jobs**, and then selecting the production job. From the job page, you can select a specific run to see how artifacts were updated for that run only.
 
@@ -35,8 +33,6 @@ When you add a production job to a project, dbt updates the content and provides
 Navigate to [Catalog](../explore/explore-projects.md) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
 
 To view a resource, its metadata, and what commands are needed, refer to [generate metadata](../explore/explore-projects.md#generate-metadata) for more details.
-
-Both the job's commands and the docs generate step (triggered by the **Generate docs on run** checkbox) must succeed during the job invocation to update the documentation.
 
  For dbt Docs
 

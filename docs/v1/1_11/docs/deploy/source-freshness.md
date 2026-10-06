@@ -11,8 +11,10 @@ dbt provides a helpful interface around dbt's [source data freshness](../build/s
 [`dbt build`](../../reference/commands/build.md) does *not* include source freshness checks when building and testing resources in your DAG. Instead, you can use one of these common patterns for defining jobs:
 
 * Add `dbt build` to the run step to run models, tests, and so on.
-* Select the **Generate docs on run** checkbox to automatically [generate project docs](../explore/build-and-view-your-docs.md).
+* (Applies to dbt v1.99 and earlier) Select the **Generate docs on run** checkbox to automatically [generate project docs](../explore/build-and-view-your-docs.md).
 * Select the **Run source freshness** checkbox to enable [source freshness](#checkbox) as the first step of the job.
+
+(Applies to dbt v1.99 and earlier)
 
 ![Selecting source freshness](/img/docs/dbt-platform/select-source-freshness.png?v=2 "Selecting source freshness")Selecting source freshness
 
