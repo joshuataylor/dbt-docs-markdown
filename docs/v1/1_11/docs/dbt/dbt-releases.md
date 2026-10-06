@@ -176,11 +176,11 @@ Released by: **mishamsk**Aug 26, 2026, 10:25 PM
 
 planned
 
-[v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
+[v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
 
-Released by: **PaulVPham**Oct 5, 2026, 08:15 PM
+Released by: **agelber-dbt**Oct 6, 2026, 12:12 AM
 
-Automated ST snapshot
+Automated monthly cadence: extended ← newest stable ≥30 days old
 
 [v2.0.0-preview.210](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview210 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST MondayST Wednesday
 
