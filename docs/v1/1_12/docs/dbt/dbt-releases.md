@@ -88,7 +88,7 @@ Automated promotion
 
 [v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **PaulVPham**Oct 5, 2026, 08:15 PM
+Released by: **johnchappelledbt**Oct 7, 2026, 09:13 PM
 
 Automated ST snapshot
 
@@ -178,9 +178,9 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
 
-Released by: **agelber-dbt**Oct 6, 2026, 12:12 AM
+Released by: **johnchappelledbt**Oct 7, 2026, 09:13 PM
 
-Automated monthly cadence: extended ← newest stable ≥30 days old
+Automated ST snapshot
 
 [v2.0.0-preview.210](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview210 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST MondayST Wednesday
 
@@ -226,7 +226,7 @@ Planned Promotion
 
 [v2.0.0-preview.203](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview203 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **PaulVPham**Oct 5, 2026, 08:15 PM
+Released by: **johnchappelledbt**Oct 7, 2026, 09:13 PM
 
 Automated ST snapshot
 
