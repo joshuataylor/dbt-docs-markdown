@@ -27,7 +27,7 @@ Use this page to understand the different types of changes, what to do, and wher
 If you're upgrading to dbt v2, you should:
 
 * [ ] Resolve all [deprecations](./deprecations.md) to avoid causing errors in dbt v2.
-* [ ] Review [behavior change flags](./global-configs/behavior-changes.md) to understand how dbt v2 will behave (new behavior is always enabled).
+* [ ] Review [behavior change flags](./global-configs/behavior-changes.md#behavior-change-flags) and the **Removed** column to see which flags are always-on in dbt v2 versus which remain configurable.
 * [ ] Update [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) to avoid errors in dbt v2.
 
 ## Related docs

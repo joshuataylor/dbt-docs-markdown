@@ -7,7 +7,7 @@ dbt gates these changes behind behavior change flags, so you control when to ado
 The following are examples of behavior changes:
 
 * dbt begins raising a validation *error* that it didn't previously.
-* dbt changes the signature of a built-in macro. Your project has a custom reimplementation of that macro. This could lead to errors, because your custom reimplementation will be passed arguments it cannot accept.
+* dbt changes the signature of a built-in macro. Your project has a custom re-implementation of that macro. This could lead to errors, because your custom re-implementation will be passed arguments it cannot accept.
 * A dbt adapter renames or removes a method that was previously available on the `{{ adapter }}` object in the dbt-Jinja context.
 
 The following are *not* behavior changes:
@@ -26,34 +26,34 @@ Behavior change flags go through three phases of development:
 
 1. **Introduced (disabled by default):** dbt adds logic to support both 'old' and 'new' behaviors. The 'new' behavior is gated behind a flag, disabled by default, preserving the old behavior.
 2. **Mature (enabled by default):** The default value of the flag is switched to the new behavior by default. You can still preserve the old behavior, but you may see deprecation warnings.
-3. **Removed (generally enabled):** The old behavior is removed from the dbt codebase(s). Most flags are supported indefinitely, but there is no committement to supporting them forever. If a flag is removed, there will be significant advanced warning.
+3. **Removed (generally enabled):** The old behavior is removed from the dbt codebase(s). Most flags are supported indefinitely, but there is no commitment to supporting them forever. If a flag is removed, there will be significant advance warning.
 
 ### Introduced in dbt v1
 
-This table outlines which month of the **v1 Latest** release track in dbt and which version of dbt v1 contains the behavior change's introduction (disabled by default) or maturity (enabled by default).
+This table outlines which month of the **v1 Latest** release track in dbt and which version of dbt v1 contains the behavior change's introduction (disabled by default) or maturity (enabled by default). Flags marked 2.0 in the **Removed** column are removed in dbt v2 and the new behavior is always enabled.
 
-| Flag                                                                                                                                                                                                        | dbt **v1 Latest**: Intro | dbt **v1 Latest**: Maturity | dbt v1: Intro  | dbt v1: Maturity | dbt v1: Removed |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------------------- | -------------- | ---------------- | --------------- |
-| [require\_explicit\_package\_overrides\_for\_builtin\_materializations](./behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) | 2024.04                  | 2024.06                     | 1.6.14, 1.7.14 | 1.8.0            | 2.0             |
-| [require\_resource\_names\_without\_spaces](./behavior-flags/require_resource_names_without_spaces.md)                                                       | 2024.05                  | 2025.05                     | 1.8.0          | 1.10.0           | 2.0             |
-| [source\_freshness\_run\_project\_hooks](./behavior-flags/source_freshness_run_project_hooks.md)                                                             | 2024.03                  | 2025.05                     | 1.8.0          | 1.10.0           | 2.0             |
-| [skip\_nodes\_if\_on\_run\_start\_fails](./behavior-flags/skip_nodes_if_on_run_start_fails.md)                                                               | 2024.10                  | 2026.09                     | 1.9.0          | 1.12.0           | 2.0             |
-| [state\_modified\_compare\_more\_unrendered\_values](./behavior-flags/state_modified_compare_more_unrendered_values.md)                                      | 2024.10                  | 2026.09                     | 1.9.0          | 1.12.0           | 2.0             |
-| [require\_yaml\_configuration\_for\_mf\_time\_spines](./behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                                     | 2024.10                  | 2026.09                     | 1.9.0          | 1.12.0           | 2.0             |
-| [require\_batched\_execution\_for\_custom\_microbatch\_strategy](./behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)               | 2024.11                  | 2026.09                     | 1.9.0          | 1.12.0           | 2.0             |
-| [require\_nested\_cumulative\_type\_params](./behavior-flags/require_nested_cumulative_type_params.md)                                                       | 2024.11                  | 2026.09                     | 1.9.0          | 1.12.0           | -               |
-| [enable\_truthy\_nulls\_equals\_macro](./behavior-flags/enable_truthy_nulls_equals_macro.md)                                                                 | 2025.02                  | -                           | 1.9.0          | -                | -               |
-| [validate\_macro\_args](./behavior-flags/validate_macro_args.md)                                                                                             | 2025.03                  | 2026.09                     | 1.10.0         | 1.12.0           | -               |
-| [require\_all\_warnings\_handled\_by\_warn\_error](./behavior-flags/require_all_warnings_handled_by_warn_error.md)                                           | 2025.06                  | 2026.09                     | 1.10.0         | 1.12.0           | -               |
-| [require\_generic\_test\_arguments\_property](./behavior-flags/require_generic_test_arguments_property.md)                                                   | 2025.07                  | 2025.08                     | 1.10.5         | 1.10.8           | -               |
-| [require\_unique\_project\_resource\_names](./behavior-flags/require_unique_project_resource_names.md)                                                       | 2025.12                  | -                           | 1.11.0         | -                | -               |
-| [require\_ref\_searches\_node\_package\_before\_root](./behavior-flags/require_ref_searches_node_package_before_root.md)                                     | 2025.12                  | -                           | 1.11.0         | -                | -               |
-| [require\_valid\_schema\_from\_generate\_schema\_name](./behavior-flags/require_valid_schema_from_generate_schema_name.md)                                   | 2026.1                   | -                           | 1.12.0a1       | -                | -               |
-| [require\_sql\_header\_in\_test\_configs](./behavior-flags/require_sql_header_in_test_configs.md)                                                            | 2026.3                   | -                           | 1.12.0         | -                | -               |
-| [require\_corrected\_analysis\_fqns](./behavior-flags/require_corrected_analysis_fqns.md)                                                                    | 2026.3                   | -                           | 1.12.0         | -                | -               |
-| [require\_source\_and\_semantic\_model\_names\_without\_spaces](./behavior-flags/require_source_and_semantic_model_names_without_spaces.md)                  | 2026.4                   | -                           | 1.12.0         | -                | -               |
-| [allow\_jinja\_file\_extensions](./behavior-flags/allow_jinja_file_extensions.md)                                                                            | 2026.5                   | -                           | 1.12.0         | -                | -               |
-| [latest\_version\_pointer\_enabled\_by\_default](./behavior-flags/latest_version_pointer_enabled_by_default.md)                                              | 2026.5                   | -                           | 1.12.0         | -                | -               |
+| Flag                                                                                                                                                                                                        | **v1 Latest**: Intro | **v1 Latest**: Maturity | dbt v1: Intro  | dbt v1: Maturity | Removed |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------- | -------------- | ---------------- | ------- |
+| [require\_explicit\_package\_overrides\_for\_builtin\_materializations](./behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) | 2024.04              | 2024.06                 | 1.6.14, 1.7.14 | 1.8.0            | 2.0     |
+| [require\_resource\_names\_without\_spaces](./behavior-flags/require_resource_names_without_spaces.md)                                                       | 2024.05              | 2025.05                 | 1.8.0          | 1.10.0           | 2.0     |
+| [source\_freshness\_run\_project\_hooks](./behavior-flags/source_freshness_run_project_hooks.md)                                                             | 2024.03              | 2025.05                 | 1.8.0          | 1.10.0           | 2.0     |
+| [skip\_nodes\_if\_on\_run\_start\_fails](./behavior-flags/skip_nodes_if_on_run_start_fails.md)                                                               | 2024.10              | 2026.09                 | 1.9.0          | 1.12.0           | 2.0     |
+| [state\_modified\_compare\_more\_unrendered\_values](./behavior-flags/state_modified_compare_more_unrendered_values.md)                                      | 2024.10              | 2026.09                 | 1.9.0          | 1.12.0           | 2.0     |
+| [require\_yaml\_configuration\_for\_mf\_time\_spines](./behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                                     | 2024.10              | 2026.09                 | 1.9.0          | 1.12.0           | 2.0     |
+| [require\_batched\_execution\_for\_custom\_microbatch\_strategy](./behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)               | 2024.11              | 2026.09                 | 1.9.0          | 1.12.0           | 2.0     |
+| [require\_nested\_cumulative\_type\_params](./behavior-flags/require_nested_cumulative_type_params.md)                                                       | 2024.11              | 2026.09                 | 1.9.0          | 1.12.0           | -       |
+| [enable\_truthy\_nulls\_equals\_macro](./behavior-flags/enable_truthy_nulls_equals_macro.md)                                                                 | 2025.02              | -                       | 1.9.0          | -                | -       |
+| [validate\_macro\_args](./behavior-flags/validate_macro_args.md)                                                                                             | 2025.03              | 2026.09                 | 1.10.0         | 1.12.0           | -       |
+| [require\_all\_warnings\_handled\_by\_warn\_error](./behavior-flags/require_all_warnings_handled_by_warn_error.md)                                           | 2025.06              | 2026.09                 | 1.10.0         | 1.12.0           | -       |
+| [require\_generic\_test\_arguments\_property](./behavior-flags/require_generic_test_arguments_property.md)                                                   | 2025.07              | 2025.08                 | 1.10.5         | 1.10.8           | -       |
+| [require\_unique\_project\_resource\_names](./behavior-flags/require_unique_project_resource_names.md)                                                       | 2025.12              | -                       | 1.11.0         | -                | -       |
+| [require\_ref\_searches\_node\_package\_before\_root](./behavior-flags/require_ref_searches_node_package_before_root.md)                                     | 2025.12              | -                       | 1.11.0         | -                | -       |
+| [require\_valid\_schema\_from\_generate\_schema\_name](./behavior-flags/require_valid_schema_from_generate_schema_name.md)                                   | 2026.1               | -                       | 1.12.0a1       | -                | -       |
+| [require\_sql\_header\_in\_test\_configs](./behavior-flags/require_sql_header_in_test_configs.md)                                                            | 2026.3               | -                       | 1.12.0         | -                | -       |
+| [require\_corrected\_analysis\_fqns](./behavior-flags/require_corrected_analysis_fqns.md)                                                                    | 2026.3               | -                       | 1.12.0         | -                | -       |
+| [require\_source\_and\_semantic\_model\_names\_without\_spaces](./behavior-flags/require_source_and_semantic_model_names_without_spaces.md)                  | 2026.4               | -                       | 1.12.0         | -                | -       |
+| [allow\_jinja\_file\_extensions](./behavior-flags/allow_jinja_file_extensions.md)                                                                            | 2026.5               | -                       | 1.12.0         | -                | -       |
+| [latest\_version\_pointer\_enabled\_by\_default](./behavior-flags/latest_version_pointer_enabled_by_default.md)                                              | 2026.5               | -                       | 1.12.0         | -                | -       |
 
 ### Flags reaching maturity
 
@@ -81,21 +81,21 @@ The following flags are specific to dbt v2 and have no equivalent in dbt v1. The
 
 ### Adapter-specific behavior change flags
 
-This table outlines which version of the dbt adapter contains the behavior change's introduction (disabled by default) or maturity (enabled by default).
+This table outlines which version of the dbt adapter contains the behavior change's introduction (disabled by default) or maturity (enabled by default). Flags marked 2.0 are in the **Removed** column are removed in dbt v2 and the new behavior is always enabled.
 
-| Flag                                                                                                                                                                                        | dbt-ADAPTER: Intro | dbt-ADAPTER: Maturity | dbt v1: Removed |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------- | --------------- |
-| [use\_info\_schema\_for\_columns](./databricks-changes.md#use-information-schema-for-columns)                                                | Databricks 1.9.0   | -                     | 2.0             |
-| [use\_user\_folder\_for\_python](./databricks-changes.md#use-users-folder-for-python-model-notebooks)                                        | Databricks 1.9.0   | -                     | 2.0             |
-| [use\_managed\_iceberg](./databricks-changes.md#use-managed-iceberg)                                                                         | Databricks 1.11.0  | 1.12.0                | -               |
-| [use\_materialization\_v2](./databricks-changes.md#use-restructured-materializations)                                                        | Databricks 1.10.0  | -                     | -               |
-| [use\_replace\_on\_for\_insert\_overwrite](./databricks-changes.md#use-replace-on-for-insert_overwrite-strategy)                             | Databricks 1.11.0  | 1.11.0                | -               |
-| [use\_describe\_as\_json\_for\_relation\_metadata](./databricks-changes.md#use-describe-as-json-for-relation-metadata)                       | Databricks 1.12.0  | -                     | -               |
-| [redshift\_skip\_autocommit\_transaction\_statements](./redshift-changes.md#redshift_skip_autocommit_transaction_statements-flag)            | Redshift 1.12.0    | -                     | -               |
-| [bigquery\_use\_batch\_source\_freshness](./bigquery-changes.md#bigquery-use-batch-source-freshness)                                         | BigQuery 1.11.0rc2 | -                     | -               |
-| [bigquery\_reject\_wildcard\_metadata\_source\_freshness](./bigquery-changes.md#the-bigquery_reject_wildcard_metadata_source_freshness-flag) | BigQuery 1.12.0    | -                     | -               |
-| [bigquery\_use\_standard\_sql\_for\_partitions](./bigquery-changes.md#the-bigquery_use_standard_sql_for_partitions-flag)                     | BigQuery 1.12.0    | 1.12.0                | -               |
-| [snowflake\_default\_transient\_dynamic\_tables](./snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag)                 | Snowflake 1.12.0   | -                     | -               |
+| Flag                                                                                                                                                                                        | dbt-ADAPTER: Intro | dbt-ADAPTER: Maturity | Removed |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------- | ------- |
+| [use\_info\_schema\_for\_columns](./databricks-changes.md#use-information-schema-for-columns)                                                | Databricks 1.9.0   | -                     | 2.0     |
+| [use\_user\_folder\_for\_python](./databricks-changes.md#use-users-folder-for-python-model-notebooks)                                        | Databricks 1.9.0   | -                     | 2.0     |
+| [use\_managed\_iceberg](./databricks-changes.md#use-managed-iceberg)                                                                         | Databricks 1.11.0  | 1.12.0                | -       |
+| [use\_materialization\_v2](./databricks-changes.md#use-restructured-materializations)                                                        | Databricks 1.10.0  | -                     | -       |
+| [use\_replace\_on\_for\_insert\_overwrite](./databricks-changes.md#use-replace-on-for-insert_overwrite-strategy)                             | Databricks 1.11.0  | 1.11.0                | -       |
+| [use\_describe\_as\_json\_for\_relation\_metadata](./databricks-changes.md#use-describe-as-json-for-relation-metadata)                       | Databricks 1.12.0  | -                     | -       |
+| [redshift\_skip\_autocommit\_transaction\_statements](./redshift-changes.md#redshift_skip_autocommit_transaction_statements-flag)            | Redshift 1.12.0    | -                     | -       |
+| [bigquery\_use\_batch\_source\_freshness](./bigquery-changes.md#bigquery-use-batch-source-freshness)                                         | BigQuery 1.11.0rc2 | -                     | -       |
+| [bigquery\_reject\_wildcard\_metadata\_source\_freshness](./bigquery-changes.md#the-bigquery_reject_wildcard_metadata_source_freshness-flag) | BigQuery 1.12.0    | -                     | -       |
+| [bigquery\_use\_standard\_sql\_for\_partitions](./bigquery-changes.md#the-bigquery_use_standard_sql_for_partitions-flag)                     | BigQuery 1.12.0    | 1.12.0                | -       |
+| [snowflake\_default\_transient\_dynamic\_tables](./snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag)                 | Snowflake 1.12.0   | -                     | -       |
 
 ## FAQs
 
