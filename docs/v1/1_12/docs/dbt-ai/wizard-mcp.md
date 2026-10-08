@@ -232,6 +232,28 @@ nightly job and summarize the error.
 
 Report incorrect code
 
+### Fivetran Agent Context MCP server
+
+Connect dbt Wizard to the [Fivetran Agent Context MCP server](https://fivetran.com/docs/context-layer/agent-context-mcp) which gives Wizard access to your organization's Fivetran context layer, so it can answer questions using your business definitions, metrics, and operational data. Add it with the following command:
+
+```bash
+wizard mcp add AgentContext \
+  --url "https://api.fivetran.ai/mcp"
+```
+
+Report incorrect code
+
+Wizard then prompts you to authorize the connection. Follow the prompts to finish connecting.
+
+If your organization uses system keys, set your API key as an environment variable first, then include it in the command:
+
+```bash
+export FIVETRAN_AI_API_KEY=YOUR_API_KEY
+wizard mcp add AgentContext --url "https://api.fivetran.ai/mcp" --bearer-token-env-var FIVETRAN_AI_API_KEY
+```
+
+Report incorrect code
+
 ### GitHub MCP server for pull request review
 
 Connect a GitHub MCP server so dbt Wizard can read a pull request and post review comments:
