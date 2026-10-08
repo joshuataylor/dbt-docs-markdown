@@ -9,10 +9,18 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
 ## Prerequisites
 
 * Available on [Enterprise or Enterprise+ plans](https://www.getdbt.com/pricing).
+
 * You must use Okta as your single sign-on (SSO) provider and have it connected in the dbt platform.
+
 * You must have [permissions](./enterprise-permissions.md) to configure the account settings in dbt platform.
+
 * Complete [setup SSO with Okta](./set-up-sso-okta.md) before configuring SCIM settings.
+
 * Complete the [Set up SCIM](./scim.md#set-up-dbt) to get your SCIM base URL and token.
+
+* **Account Admin group required:** Before enabling SCIM on your dbt account, you must create a dbt Account Admin group in your IdP, and a group with a matching name in your dbt account. Assign the dbt group the [Account Admin](./enterprise-permissions.md#account-admin) permission set.
+
+  Without this group, your users could be removed from the default dbt 'Owner' group once SCIM provisioning is enabled and would lose admin access to your dbt account. The names of these two groups can match your IdP group naming scheme, but the names for both the dbt and IdP group must be the same value.
 
 ## Set up Okta
 

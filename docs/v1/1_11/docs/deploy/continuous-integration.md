@@ -90,6 +90,8 @@ For parity expectations between `dbt lint` and SQLFluff, refer to [Rule parity w
 
 By default, SQL linting lints all the changed SQL files in your project, compared to the last deferred production state.
 
+If dbt can't find the commit for that deferred state, linting doesn't fail the run. dbt shows a warning with the unresolved commit SHA and lints the entire project instead. To refresh the baseline, rerun the job you defer to.
+
 Note that [snapshots](../build/snapshots.md) can be defined in YAML *and* `.sql` files. Their SQL isn't lintable and can cause errors during linting.
 
 To prevent SQLFluff from linting snapshot files, add the snapshots directory to your `.sqlfluffignore` file (for example `snapshots/`). Refer to [snapshot linting](../platform/studio-ide/lint-format.md#snapshot-linting) for more information.

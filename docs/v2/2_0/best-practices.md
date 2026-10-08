@@ -29,6 +29,10 @@ Learn how dbt Labs approaches building projects through our current viewpoints o
 
 [6 items](./best-practices/how-we-handle-real-time-data/1-intro.md)
 
+## [How to handle change data capture](./best-practices/how-we-handle-cdc/1-intro.md)
+
+[2 items](./best-practices/how-we-handle-cdc/1-intro.md)
+
 ## [Materialization best practices](./best-practices/materializations/1-guide-overview.md)
 
 [6 items](./best-practices/materializations/1-guide-overview.md)

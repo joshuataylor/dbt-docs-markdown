@@ -5,6 +5,7 @@
 * [Snapshot configurations](../../reference/snapshot-configs.md)
 * [Snapshot properties](../../reference/snapshot-properties.md)
 * [`snapshot` command](../../reference/commands/snapshot.md)
+* [Choosing incremental models or snapshots](../../best-practices/how-we-handle-cdc/2-choosing-incremental-or-snapshots.md) for guidance on using snapshots for CDC
 
 Learn by video!
 
@@ -517,6 +518,8 @@ Check out the [model selection syntax documentation](../../reference/node-select
 How often should I run the snapshot command?
 
 Snapshots are a batch-based approach to [change data capture](https://en.wikipedia.org/wiki/Change_data_capture). The `dbt snapshot` command must be run on a schedule to ensure that changes to tables are actually recorded! While individual use-cases may vary, snapshots are intended to be run between hourly and daily. If you find yourself snapshotting more frequently than that, consider if there isn't a more appropriate way to capture changes in your source data tables.
+
+For best practices on when to use snapshots vs incremental models, refer to [Choosing incremental models or snapshots](../../best-practices/how-we-handle-cdc/2-choosing-incremental-or-snapshots.md).
 
 What happens if I add new columns to my snapshot query?
 
