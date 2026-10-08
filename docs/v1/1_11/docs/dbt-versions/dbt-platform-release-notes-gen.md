@@ -11,7 +11,7 @@ dbt Single-tenant release notes for weekly updates. Release notes fall into one 
 
 Release notes are grouped by date for single-tenant environments.
 
-![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-st-rss-4c9047ac2540f4efb76c9e4fcb1d8196.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-st-atom-682759378b01d903d7f530326fdb037b.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-st-rss-18276380b2823619bba7fb2ae538bda6.json).
+![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/feeds/release-notes-st-rss.xml), [Atom](https://docs.getdbt.com/feeds/release-notes-st-atom.xml), or [JSON Feed](https://docs.getdbt.com/feeds/release-notes-st-rss.json).
 
 ## October 7, 2026
 
@@ -52,10 +52,6 @@ Release notes are grouped by date for single-tenant environments.
 ### dbt platform
 
 * **dbt State no longer in preview**: The dbt State navigation option no longer carries a "Preview" badge. Incomplete projects (those without a repository or skipped setup) are also excluded from automatic project selection on the dbt State home page.
-
-* **Add-on trial-to-allowance email notification**: Billing admins now receive an email when an add-on trial transitions to the free monthly allowance plan instead of expiring outright. The email directs them to their account team.
-
-* **Expanded State Spend API fields**: The State Spend API response now includes allowance amount, consumed and remaining allowance, reset and end dates, and an `is_soft_blocked` flag indicating when dbt State activity is halted due to an exhausted allowance.
 
 * **Microsoft Entra Application API exposes `client_id` and `tenant_id`**: The GET, POST, and PATCH endpoints for Microsoft Entra applications now return `client_id` and `tenant_id` in their responses, giving you visibility into your Azure DevOps (ADO) integration configuration.
 

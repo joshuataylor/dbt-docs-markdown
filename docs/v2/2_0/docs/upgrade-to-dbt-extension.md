@@ -33,7 +33,7 @@ You can start manual onboarding in either of the following ways:
 * Follow the prompts in the upgrade assistant to complete the upgrade.
 * Run `dbtf compile` to verify your project is ready for dbt v2.
 
-![The message received when you have completed upgrading your project to v2.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
+![The message received when you have completed upgrading your project to v2.](/img/docs/extension/v2-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
 
 Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 
@@ -82,7 +82,7 @@ There are cases where dbt-autofix may not resolve all errors and requires manual
 
 The tool compiles your project with full dbt v2 static analysis. This checks that your SQL code is valid in the context of your warehouse's tables and columns.
 
-![The message received when you have completed upgrading your project to v2.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
+![The message received when you have completed upgrading your project to v2.](/img/docs/extension/v2-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to v2.")The message received when you have completed upgrading your project to v2.
 
 Once the upgrade is completed, you're ready to dive into all the features that dbt v2 has to offer!
 

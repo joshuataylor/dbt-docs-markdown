@@ -49,7 +49,7 @@ When a job on dbt v2 finishes, selecting a step displays a structured logs view 
 
 For more information about each status, refer to [dbt v2 telemetry and observability](../../reference/telemetry-observability.md#node-outcome).
 
-![Structured logs in v2](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in v2")Structured logs in v2
+![Structured logs in v2](/img/docs/dbt-platform/deployment/v2-logs.png?v=2 "Structured logs in v2")Structured logs in v2
 
 #### Downloading logs
 

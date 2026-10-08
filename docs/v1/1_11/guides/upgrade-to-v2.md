@@ -255,7 +255,7 @@ Change your staging environment to use the dbt v2 release track:
 3. Select **v2 Stable** from the list.
 4. Scroll to the top and click **Save**.
 
-![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable from the dbt version dropdown")Select v2 Stable from the dbt version dropdown
+![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable from the dbt version dropdown")Select v2 Stable from the dbt version dropdown
 
 Your staging environment is now configured to use dbt v2! Any jobs associated with this environment will use dbt v2 on their next run.
 
@@ -355,7 +355,7 @@ Update your production environment to use dbt v2:
 4. Review your settings one final time to ensure everything is correct.
 5. Scroll to the top and click **Save**.
 
-![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Select v2 Stable for production")Select v2 Stable for production
+![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable for production")Select v2 Stable for production
 
 Your production environment is now running on dbt v2!
 

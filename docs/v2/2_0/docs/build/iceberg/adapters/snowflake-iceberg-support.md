@@ -132,7 +132,13 @@ First, you need to set up a catalog integration and (recommended) catalog-linked
 Caveats:
 
 * For some external catalogs (for example, AWS Glue), table and column identifiers must use only alphanumeric characters (letters and numbers), be lowercase, and surrounded by double quotes.
-* Starting in dbt v1.11, dbt-snowflake supports basic table materialization on Iceberg tables registered in a Glue catalog through a catalog-linked database. Note that incremental materializations aren't yet supported.
+
+(Applies to dbt v2.0 and later)
+
+* dbt supports table and incremental materializations (the `append`, `merge`, and `delete+insert` strategies) on Iceberg tables registered in a Glue catalog through a catalog-linked database. For incremental models:
+
+  * They must resolve to a `type: glue` catalog in `catalogs.yml` (using `catalog_name`) whose `config.snowflake.catalog_database` names the catalog-linked database.
+  * Their identifiers must follow Glue's lowercase, double-quoted rule (for example, set `quoting: {schema: true, identifier: true}` at the project level).
 
 After you create the external catalog integration, you can do two things:
 

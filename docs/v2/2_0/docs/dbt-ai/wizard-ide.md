@@ -186,7 +186,7 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
 
 8. After you merge the changes, wait for the job to run again or run it manually on dbt v2.
 
-![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
+![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/v2-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
 
 For more on how to prepare your project for dbt v2 and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../dbt/dbt-readiness.md) and the [Upgrade to dbt v2 guides](../../guides/prepare-v2-upgrade.md).
 

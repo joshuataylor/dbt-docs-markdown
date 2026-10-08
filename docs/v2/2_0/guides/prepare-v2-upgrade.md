@@ -95,7 +95,7 @@ When enabled, only users assigned the [`v2 Migration Admin`](../docs/platform/ma
 
 With the readiness experience enabled, you can monitor your project's eligibility as you work through the preparation steps below. The panel shows which jobs are eligible or ineligible for dbt v2 and why.
 
-![The dbt v2 readiness checklist](/img/fusion/fusion-readiness.png?v=2 "The dbt v2 readiness checklist")The dbt v2 readiness checklist
+![The dbt v2 readiness checklist](/img/v2/v2-readiness.png?v=2 "The dbt v2 readiness checklist")The dbt v2 readiness checklist
 
 Common ineligibility reasons include:
 
@@ -484,11 +484,11 @@ If a job has not run in the last 7 days, you must run it once for the debugging 
    * From the main menu, go to **Orchestration** → **Jobs**.
    * From the readiness panel, click **Review jobs**.
 
-   ![Shortcut to review your jobs from the readiness panel](/img/fusion/review-jobs.png?v=2 "Shortcut to review your jobs from the readiness panel")Shortcut to review your jobs from the readiness panel
+   ![Shortcut to review your jobs from the readiness panel](/img/v2/review-jobs.png?v=2 "Shortcut to review your jobs from the readiness panel")Shortcut to review your jobs from the readiness panel
 
 2. Find the dbt v2 eligibility icon to the right of your jobs. Click **Review job** for any job that is ineligible or has an unknown eligibility status.
 
-   ![Take action on your jobs to make them v2 eligible.](/img/fusion/job-eligibility.png?v=2 "Take action on your jobs to make them v2 eligible.")Take action on your jobs to make them v2 eligible.
+   ![Take action on your jobs to make them v2 eligible.](/img/v2/job-eligibility.png?v=2 "Take action on your jobs to make them v2 eligible.")Take action on your jobs to make them v2 eligible.
 
 3. Click **Debug on dbt v2** and choose one of the following:
 
@@ -502,7 +502,7 @@ In the Studio IDE, run dbt v2 in your development environment to review project 
 
 1. Click **Debug in Studio**. dbt sets your user-level `DBT_DEVELOP_CORE_VERSION` environment variable to `latest-fusion`, then opens the Studio IDE with the **Problems** tab selected.
 
-![Running v2 in development](/img/fusion/fusion-ide.png?v=2 "Running v2 in development")Running v2 in development
+![Running v2 in development](/img/v2/v2-ide.png?v=2 "Running v2 in development")Running v2 in development
 
 2. Review the warnings or errors in the **Problems** tab.
 3. Fix the issues directly or run the [autofix tool](../docs/platform/studio-ide/autofix-deprecations.md).
@@ -542,7 +542,7 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
 
 8. After you merge the changes, wait for the job to run again or run it manually on dbt v2.
 
-![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
+![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/v2-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
 
 #### Run once on dbt v2
 
@@ -552,11 +552,11 @@ When you are confident a job is ready for dbt v2, you can run it once on the eng
 2. The job window opens and dbt runs the job on dbt v2 without changing other jobs or environment settings.
 3. When the job succeeds, click **Override eligibility status** to update the eligibility status.
 
-   ![Override the eligibility status of a successful job.](/img/fusion/eligibility-status.png?v=2 "Override the eligibility status of a successful job.")Override the eligibility status of a successful job.
+   ![Override the eligibility status of a successful job.](/img/v2/eligibility-status.png?v=2 "Override the eligibility status of a successful job.")Override the eligibility status of a successful job.
 
 Congratulations! You have validated dbt v2 eligibility for your jobs.
 
-![Your job is now ready for v2!](/img/fusion/fusion-eligible.png?v=2 "Your job is now ready for v2!")Your job is now ready for v2!
+![Your job is now ready for v2!](/img/v2/v2-eligible.png?v=2 "Your job is now ready for v2!")Your job is now ready for v2!
 
 ## What's next?
 

@@ -87,7 +87,7 @@ dbt Labs has introduced the new [dbt v2](../introduction.md), a ground-up rebuil
 
 * Once you upgrade your development environment(s) to `v2 Stable`, every user will have to restart the IDE.
 
-  ![Upgrade to v2 in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Upgrade to v2 in your environment settings.")Upgrade to v2 in your environment settings.
+  ![Upgrade to v2 in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Upgrade to v2 in your environment settings.")Upgrade to v2 in your environment settings.
 
 ### Upgrading environments to dbt v2
 
