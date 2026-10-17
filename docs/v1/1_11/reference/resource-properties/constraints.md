@@ -83,6 +83,18 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ❌        | ❌       |
 | check           | ✅        | ✅       |
 
+#### Fabric
+
+Microsoft Fabric creates the table first, then adds some constraints in separate steps. Only `not_null` is checked when the model builds. Primary key, foreign key, and unique constraints are recorded on the table for reference, but Fabric does not check them when new data is added. Define `primary_key`, `foreign_key`, and `unique` at the model level. The adapter ignores those constraint types at the column level.
+
+| Constraint type | Definable | Enforced |
+| --------------- | --------- | -------- |
+| not\_null       | ✅        | ✅       |
+| primary\_key    | ✅        | ❌       |
+| foreign\_key    | ✅        | ❌       |
+| unique          | ✅        | ❌       |
+| check           | ❌        | ❌       |
+
 #### Athena
 
 | Constraint type | Definable | Enforced |
@@ -203,7 +215,7 @@ models/schema.yml
 
 ```yml
 models:
-  - name: dim_customers
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -276,7 +288,7 @@ models/schema.yml
 
 ```yml
 models:
-  - name: dim_customers
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -359,7 +371,7 @@ models/schema.yml
 
 ```yml
 models:
-  - name: dim_customers
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -387,7 +399,7 @@ Expected DDL to enforce constraints:
 target/run/.../constraints\_example.sql
 
 ```sql
-create or replace transient table <database>.<schema>.constraints_model        
+create or replace transient table <database>.<schema>.constraints_example        
 (
     id integer not null primary key,
     customer_name text,
@@ -433,7 +445,7 @@ models/schema.yml
 
 ```yml
 models:
-  - name: dim_customers
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -451,6 +463,28 @@ models:
         data_type: string
       - name: first_transaction_date
         data_type: date
+```
+
+Report incorrect code
+
+### Expected DDL to enforce constraints:
+
+target/run/.../constraints\_example.sql
+
+```sql
+create or replace table `<project>`.`<dataset>`.`constraints_example`        
+(
+    id integer not null,
+    customer_name string,
+    first_transaction_date date  
+)
+as
+(
+select 
+  1 as id, 
+  'My Favorite Customer' as customer_name, 
+  cast('2019-01-01' as date) as first_transaction_date
+);
 ```
 
 Report incorrect code
@@ -508,28 +542,6 @@ models:
 
 Report incorrect code
 
-### Expected DDL to enforce constraints:
-
-target/run/.../constraints\_example.sql
-
-```sql
-create or replace table `<project>`.`<dataset>`.`constraints_model`        
-(
-    id integer not null,
-    customer_name string,
-    first_transaction_date date  
-)
-as
-(
-select 
-  1 as id, 
-  'My Favorite Customer' as customer_name, 
-  cast('2019-01-01' as date) as first_transaction_date
-);
-```
-
-Report incorrect code
-
 ### Databricks
 
 Databricks allows you to define:
@@ -567,7 +579,7 @@ models/schema.yml
 
 ```yml
 models:
-  - name: dim_customers
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -594,7 +606,7 @@ Expected DDL to enforce constraints:
 target/run/.../constraints\_example.sql
 
 ```sql
-  create or replace table schema_name.my_model 
+  create or replace table schema_name.constraints_example 
   using delta 
   as
     select
@@ -608,8 +620,87 @@ Report incorrect code
 Followed by the statements
 
 ```sql
-alter table schema_name.my_model change column id set not null;
-alter table schema_name.my_model add constraint 472394792387497234 check (id > 0);
+alter table schema_name.constraints_example change column id set not null;
+alter table schema_name.constraints_example add constraint 472394792387497234 check (id > 0);
+```
+
+Report incorrect code
+
+### Fabric
+
+Microsoft Fabric allows you to define:
+
+* A `not_null` constraint, which is checked when the model builds
+* The `primary_key`, `foreign_key`, and `unique` constraints, which are recorded on the table for reference but not checked when new data is added
+
+Be aware of the following limitations and requirements:
+
+* `check` constraints are not supported on Microsoft Fabric. Use [data tests](../../docs/build/data-tests.md) such as `dbt_utils.expression_is_true` to validate custom rules instead.
+* Microsoft Fabric does not include all constraints in the initial `create table` statement. dbt creates the table first, then runs separate statements to add model-level constraints.
+* You must provide a `name` for each model-level constraint.
+* Columns in [snapshot](../../docs/build/snapshots.md) source tables cannot have constraints. If a source column has a `not_null` constraint or similar rule, the snapshot may fail.
+
+For more on Microsoft Fabric setup, refer to [Microsoft Fabric Data Warehouse configurations](../resource-configs/fabric-configs.md).
+
+models/constraints\_example.sql
+
+```sql
+{{
+  config(
+    materialized = "table"
+  )
+}}
+
+select 
+  1 as id, 
+  'My Favorite Customer' as customer_name, 
+  cast('2019-01-01' as date) as first_transaction_date
+```
+
+Report incorrect code
+
+models/schema.yml
+
+```yml
+models:
+  - name: constraints_example
+    config:
+      contract:
+        enforced: true
+    constraints:
+      - type: primary_key
+        columns: [id]
+        name: pk_constraints_example
+    columns:
+      - name: id
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check       # not supported -- will warn & skip
+            expression: "id > 0"
+        data_tests:
+          - unique            # primary_key constraint is not enforced
+      - name: customer_name
+        data_type: varchar(100)
+      - name: first_transaction_date
+        data_type: date
+```
+
+Report incorrect code
+
+Expected SQL to enforce constraints:
+
+target/run/.../constraints\_example.sql
+
+```sql
+create table schema_name.constraints_example
+(
+    id int not null,
+    customer_name varchar(100),
+    first_transaction_date date
+);
+
+alter table schema_name.constraints_example add constraint pk_constraints_example primary key nonclustered(id) not enforced;
 ```
 
 Report incorrect code
@@ -635,7 +726,7 @@ models/constraints\_example.yml
 ```yaml
 
 models:
-  - name: my_model
+  - name: constraints_example
     config:
       contract:
         enforced: true
@@ -663,7 +754,7 @@ models/constraints\_example.yml
 ```yaml
 
 models:
-  - name: my_model
+  - name: constraints_example
     config:
       contract:
         enforced: true

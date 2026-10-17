@@ -4,18 +4,21 @@
 
 Dimensions represent the non-aggregatable columns in your data set, which are the attributes, features, or characteristics that describe or categorize data. In the context of the Semantic Layer, dimensions are part of a larger structure called a semantic model. They are created along with other elements like [entities](./entities.md) and [simple metrics](./simple.md) and used to add more details to your data. In SQL, dimensions are typically included in the `group by` clause of your SQL query.
 
-All dimensions require a `name`, `type`, and can optionally include an `expr` parameter. The `name` for your Dimension must be unique within the same semantic model.
-
 (Applies to dbt v1.12 and later)
 
-| Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                                                | Required | Type       |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
-| `name`                                                               | The name of the dimension that will be visible to the user in downstream tools. It can also serve as an alias for derived dimensions<br /><br />Dimension names should be unique within a semantic model, but they can be non-unique across different models as MetricFlow uses [joins](./join-logic.md) to identify the right dimension. | Required | String     |
-| `type`                                                               | Specifies the type of group created in the semantic model. There are two types:<br /><br />- **Categorical**: Describe attributes or features like geography or sales region.<br />- **Time**: Time-based dimensions like timestamps or dates.                                                                                                                             | Required | String     |
-| `description`                                                        | A clear description of the dimension.                                                                                                                                                                                                                                                                                                                                      | Optional | String     |
-| `expr`                                                               | Defines the underlying column or SQL query for a dimension. If no `expr` is specified, MetricFlow will use the column with the same name as the group. You can use the column name itself to input a SQL expression.                                                                                                                                                       | Optional | String     |
-| `label`                                                              | Defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                        | Optional | String     |
-| [`meta`](../../reference/resource-configs/meta.md) | Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.                                                                                                                                                                                                                                                                                | Optional | Dictionary |
+Dimensions are defined on the column they map to, so they only require a `type`. The `name` defaults to the column name and must be unique within the same semantic model.
+
+note
+
+You can't use `expr` inside a `dimension` block. To define a dimension from a SQL expression instead of a single column, use [`derived_semantics`](#derived_semantics-in-dimensions).
+
+| Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                                                | Required                               | Type       |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ---------- |
+| `name`                                                               | The name of the dimension that will be visible to the user in downstream tools. It can also serve as an alias for derived dimensions<br /><br />Dimension names should be unique within a semantic model, but they can be non-unique across different models as MetricFlow uses [joins](./join-logic.md) to identify the right dimension. | Optional (defaults to the column name) | String     |
+| `type`                                                               | Specifies the type of group created in the semantic model. There are two types:<br /><br />- **Categorical**: Describe attributes or features like geography or sales region.<br />- **Time**: Time-based dimensions like timestamps or dates.                                                                                                                             | Required                               | String     |
+| `description`                                                        | A clear description of the dimension.                                                                                                                                                                                                                                                                                                                                      | Optional                               | String     |
+| `label`                                                              | Defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                        | Optional                               | String     |
+| [`meta`](../../reference/resource-configs/meta.md) | Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.                                                                                                                                                                                                                                                                                | Optional                               | Dictionary |
 
 Refer to the following for the complete specification for dimensions:
 
@@ -43,7 +46,7 @@ Refer to the following example to see how dimensions are used in a semantic mode
 
 ```yaml
 models:
-  - name: fact_transactions
+  - name: fct_transactions
     semantic_model:
       enabled: true
       name: transactions
@@ -165,18 +168,42 @@ This section further explains the dimension definitions, along with examples. Di
 
 ## Categorical
 
-Categorical dimensions are used to group metrics by different attributes, features, or characteristics such as product type. They can refer to existing columns in your dbt model or be calculated using a SQL expression with the `expr` parameter. An example of a categorical dimension is `is_bulk_transaction`, which is a group created by applying a case statement to the underlying column `quantity`. This allows users to group or filter the data based on bulk transactions.
+Categorical dimensions are used to group metrics by different attributes, features, or characteristics such as product type.
 
-(Applies to dbt v1.9 and later)
+(Applies to dbt v1.12 and later)
+
+Define a categorical dimension on the column it maps to. For example, the `transaction_type` column becomes a dimension you can group or filter metrics by:
 
 ```yaml
-dimensions: 
-  - name: is_bulk_transaction
-    type: categorical
-    expr: case when quantity > 10 then true else false end
-    config:
-      meta:
-        usage: "Filter to identify bulk transactions, like where quantity > 10."
+models:
+  - name: fct_transactions
+    semantic_model:
+      enabled: true
+
+    columns:
+      - name: transaction_type
+        dimension:
+          type: categorical
+          config:
+            meta:
+              usage: "Group transactions by their type, like refund or purchase."
+```
+
+Report incorrect code
+
+To calculate a categorical dimension from a SQL expression instead of a single column, define it under [`derived_semantics`](#derived_semantics-in-dimensions) and use `expr`. For example, `is_bulk_transaction` applies a case statement to the underlying `quantity` column so users can group or filter by bulk transactions:
+
+```yaml
+models:
+  - name: fct_transactions
+    semantic_model:
+      enabled: true
+
+    derived_semantics:
+      dimensions:
+        - name: is_bulk_transaction
+          type: categorical
+          expr: "case when quantity > 10 then true else false end"
 ```
 
 Report incorrect code
@@ -313,6 +340,26 @@ models:
         type: simple
         agg: sum
         expr: 1
+```
+
+Report incorrect code
+
+(Applies to dbt v1.12 and later)
+
+To create a time dimension from a SQL expression instead of a single column, define it under [`derived_semantics`](#derived_semantics-in-dimensions) and add `expr` and `granularity`. For example, `order_month` truncates `ts_created` to the month:
+
+```yaml
+models:
+  - name: orders
+    semantic_model:
+      enabled: true
+
+    derived_semantics:
+      dimensions:
+        - name: order_month
+          type: time
+          granularity: month
+          expr: "date_trunc('month', ts_created)"
 ```
 
 Report incorrect code
@@ -492,7 +539,7 @@ The following code represents a separate semantic model that holds a fact table 
 
 ```yaml
 models:
-  - name: fact_transactions
+  - name: fct_transactions
     semantic_model:
       enabled: true
 

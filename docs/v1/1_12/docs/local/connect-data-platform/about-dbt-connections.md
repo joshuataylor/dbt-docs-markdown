@@ -20,9 +20,9 @@ dbt v1 connects to data platforms through adapters. Popular platforms include:
 * [Microsoft Fabric](./fabric-setup.md)
 * [Azure Synapse](./azuresynapse-setup.md)
 
-When you install dbt v1, you also need to install the specific adapter for your data platform. Data platform adapters may be verified by our [Trusted Adapter Program](../../trusted-adapters.md), and maintained by dbt Labs, partners, or community members.
+When you install dbt v1, you also need to install the specific adapter for your data platform. Adapters are maintained by dbt Labs, partners, and community members. Refer to [community adapters](../../community-adapters.md).
 
-For the full list of supported platforms, see [Supported data platforms](../../supported-data-platforms.md).
+For the full list of supported platforms, refer to [Supported data platforms](../../supported-data-platforms.md).
 
 ## Connection profiles
 
@@ -46,7 +46,7 @@ The following table lists features available for adapters:
 
 ### Catalog
 
-For adapters that support it, you can partially build the catalog (dbt v1 only). This builds the catalog for only selected models via `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
+For adapters that support it, you can partially build the catalog (dbt v1 only). This builds the catalog for only selected models using `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
 
 ### Source freshness
 

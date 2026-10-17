@@ -9,21 +9,36 @@ dbt release notes for recent and historical changes. Release notes fall into one
 * **Fix:** Bug and security fixes
 * **Behavior change:** A change to existing behavior that doesn't fit into the other categories, such as feature deprecations or changes to default settings
 
-Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments. ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getbdt.com/feeds/release-notes-rss.xml), [Atom](https://docs.getbdt.com/feeds/release-notes-atom.xml), or [JSON Feed](https://docs.getbdt.com/feeds/release-notes-rss.json).
+Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments. ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/feeds/release-notes-rss.xml), [Atom](https://docs.getdbt.com/feeds/release-notes-atom.xml), or [JSON Feed](https://docs.getdbt.com/feeds/release-notes-rss.json).
 
 For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md).
 
 ## October 2026
 
+* **Enhancement:** You can now sort columns, search by connection name, and filter by connection type, credentials, and connection method (private link or OAuth).
+* **Enhancement:** When a dbt State trial ends, you'll get an email that communicates your Consumption, Developer, Starter, Legacy Teams, or Enterprise plan and includes the allowance end date when your plan has one.
+* **Fix:** Charts now show dates such as `2026-01` or `2026-01-15` from oldest to newest. Tables keep your query's row order until you sort a column.
+* **Behavior change:** You can no longer create a System for Cross-domain Identity Management (SCIM) token with a personal access token or a service token. Sign in to dbt and [create a SCIM token](../platform/manage-access/scim.md#set-up-dbt).
 * **New:** The jobs list API endpoint (`GET /api/v2/accounts/{account_id}/jobs/`) now accepts a `pk__in` query parameter, letting you retrieve up to 500 specific jobs by ID in a single request.
 * **New:** You can now specify `clickhouse_v0` as the adapter\_version when creating connections and credentials, filtering connections, and retrieving adapter schemas in the Administrative API v3. Contact your account representative to enable.
 * **New:** The `metrics` and `metricsPaginated` GraphQL queries now accept a `searchTerms` argument, letting you filter metrics by multiple terms in a single request with correct pagination. Note: `search` and `searchTerms` cannot be combined, and a maximum of 20 terms is allowed.
+* **New:** In dbt Wizard Desktop, you can attach files and images to a chat. Drag them in, paste them, or copy them from Finder into the composer, then preview them before you send. Sent files show up as readable cards.
+* **New:** In dbt Wizard Desktop, projects connected to dbt platform now connect to the remote dbt MCP server by default, using OAuth sign-in. This adds platform tools like job management, run status, and run errors. Go to **Settings** → **Connectors** to turn it on or off for each dbt account.
+* **New:** In dbt Wizard Desktop, you can pin chats and environments to a section at the top of the sidebar and reorder them.
+* **New:** In dbt Wizard Desktop, you can open SQL from a chat in the **Queries** pane.
+* **New:** In dbt Wizard Desktop, you can pick the Jaffle Shop sample project during onboarding.
 * **Enhancement:** Workspace @-mention queries now use server-side fuzzy matching instead of filtering a local list, returning better-ranked results for large repositories. The context file picker also prevents selecting stale results while a search is still in flight.
 * **Enhancement:** You can now add a `table` block type to `compose_report` reports to render query results as formatted, scrollable tables. Columns can be narrowed and reordered using the `columns` field, and the display caps at 50 rows on screen with a truncation notice for clipped results.
 * **Enhancement:** You can use the new transformation type badge on column cards to see how each column is derived.
 * **Enhancement:** The webhook subscription job picker now searches and paginates server-side. You see a search box with debounced filtering and scroll-to-load pagination instead of a slow or frozen dropdown when your account has many jobs.
 * **Enhancement:** The dbt State navigation option no longer carries a "Preview" badge. Incomplete projects (those without a repository or skipped setup) are also excluded from automatic project selection on the dbt State home page.
 * **Enhancement:** The GET, POST, and PATCH endpoints for Microsoft Entra applications now return `client_id` and `tenant_id` in their responses, giving you visibility into your Azure DevOps (ADO) integration configuration.
+* **Enhancement:** dbt Wizard Desktop now installs and manages `uv` itself when a project's Python requirement blocks setup.
+* **Enhancement:** dbt Wizard Desktop chats in the sidebar now show PR status, unread, and running indicators.
+* **Enhancement:** dbt Wizard follows updated dbt best practices, including better use of the Semantic Layer.
+* **Behavior change:** Pull requests that dbt Wizard creates now say in their description that dbt Wizard made them.
+* **Fix:** dbt Wizard now detects when deferral isn't working because the upstream model doesn't exist in production, and recommends turning off deferral for the session.
+* **Fix:** dbt Wizard Desktop now handles dbt platform sign-in errors better, fixes issues with the **Changes** and **Summary** panes (including generating a new summary when non-agent changes are detected), and fixes edge cases when creating environments with a missing adapter.
 * **Fix:** When the Wizard receives a malformed diff patch, it now displays a "Couldn't parse diff" error badge instead of crashing.
 * **Fix:** Charts with decimal data values (for example, 25.43 minutes) no longer push the y-axis name outside the visible canvas area. The axis gap is now calculated from rounded tick values.
 * **Fix:** The x-axis name, grid bottom margin, and legend centering on horizontal bar charts are now computed correctly so the axis label no longer overlaps the legend.
@@ -101,7 +116,7 @@ Two other things moved:
 
 * **New:** The **dbt State** page now includes a [**Lag tolerance recommendations**](../deploy/dbt-state-interface.md#lag-tolerance-recommendations) section that identifies models that could safely tolerate more lag. For each model, it shows the current lag tolerance, the recommended value, the estimated percentage of build time you'd save, and projected build time savings over the next 30 days. You can search by model name or filter by project, and apply recommendations by updating the [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) config.
 
-* **New:** The Snowflake adapter now supports the `interactive_table` materialization in beta on dbt v2 (dbt-snowflake v1.13+), covering both static and dynamic (auto-refreshing) interactive tables. For more information, see [Interactive tables](../../reference/resource-configs/snowflake-configs.md).
+* **Beta:** The Snowflake adapter now supports the `interactive_table` materialization in beta on dbt v2 and `dbt-snowflake` v1.12+, covering both static and dynamic (auto-refreshing) interactive tables. For more information, see [Interactive tables](../../reference/resource-configs/snowflake-configs.md).
 
 * **Enhancement:** When you connect to Snowflake through the Semantic Layer, authentication failures and permission errors now return distinct messages prefixed with `[WAREHOUSE_AUTHENTICATION_FAILED]` or `[WAREHOUSE_PERMISSION_DENIED]`, so you can tell credential issues apart from missing grants.
 

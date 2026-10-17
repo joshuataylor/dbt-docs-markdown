@@ -348,7 +348,7 @@ Report incorrect code
 
 * [About dbt State](./dbt-state-about.md)
 * [Setting up dbt State](./dbt-state-setup.md)
-* [Non-interactive environment setup for dbt State](./dbt-state-cicd.md)
+* [Set up authentication for non-interactive environments](./dbt-state-cicd.md)
 * [Configuring deferral in dbt State](./dbt-state-deferral.md)
 * [Monitoring dbt State activity in dbt platform](./dbt-state-interface.md)
 * [Migrating from state-aware orchestration to dbt State](./dbt-state-migration.md)

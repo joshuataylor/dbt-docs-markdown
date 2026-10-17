@@ -1,0 +1,95 @@
+# About dbt invocation command
+
+The `dbt invocation` command is available in the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) and allows you to:
+
+* List active invocations to debug long-running or hanging invocations.
+* Identify and investigate sessions causing the `Session occupied` error.
+* Monitor currently active dbt commands (like `run`, `build`) in real-time.
+
+The `dbt invocation` command only lists *active invocations*. If no sessions are running, the list will be empty. Completed sessions aren't included in the output.
+
+## Usage
+
+This page lists the command and flag you can use with `dbt invocation`. To use them, add a command or option like this: `dbt invocation [command]`.
+
+Available flags in the command line interface (CLI) are [`help`](#dbt-invocation-help) and [`list`](#dbt-invocation-list).
+
+### dbt invocation help
+
+The `help` command provides you with the help output for the `invocation` command in the CLI, including the available flags.
+
+```shell
+dbt invocation help
+```
+
+Report incorrect code
+
+or
+
+```shell
+dbt help invocation
+```
+
+Report incorrect code
+
+The command returns the following information:
+
+```bash
+dbt invocation help
+Manage invocations
+
+Usage:
+  dbt invocation [command]
+
+Available Commands:
+  list        List active invocations
+
+Flags:
+  -h, --help   help for invocation
+
+Global Flags:
+      --log-format LogFormat   The log format, either json or plain. (default plain)
+      --log-level LogLevel     The log level, one of debug, info, warning, error or fatal. (default info)
+      --no-color               Disables colorization of the output.
+  -q, --quiet                  Suppress all non-error logging to stdout.
+
+Use "dbt invocation [command] --help" for more information about a command.
+```
+
+Report incorrect code
+
+### dbt invocation list
+
+The `list` command provides you with a list of active invocations in your dbt platform CLI. When a long-running session is active, you can use this command in a separate terminal window to view the active session to help debug the issue.
+
+```shell
+dbt invocation list
+```
+
+Report incorrect code
+
+The command returns the following information, including the `ID`, `status`, `type`, `arguments`, and `started at` time of the active session:
+
+```bash
+dbt invocation list
+
+Active Invocations:
+  ID                             6dcf4723-e057-48b5-946f-a4d87e1d117a
+  Status                         running
+  Type                           cli
+  Args                           [run --select test.sql]
+  Started At                     2025-01-24 11:03:19
+
+➜  jaffle-shop git:(test-cli) ✗ 
+```
+
+Report incorrect code
+
+tip
+
+To cancel an active session in the terminal, use the `Ctrl + Z` shortcut.
+
+## Related docs
+
+* [Install dbt CLI](../../docs/platform/dbt-cli-installation.md)
+* [Troubleshooting dbt CLI 'Session occupied' error](../../faqs/Troubleshooting/long-sessions-dbt-cli.md)

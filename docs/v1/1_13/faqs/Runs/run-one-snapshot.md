@@ -1,0 +1,11 @@
+# How do I run one snapshot at a time?
+
+To run one snapshot, use the `--select` flag, followed by the name of the snapshot:
+
+```shell
+$ dbt snapshot --select order_snapshot
+```
+
+Report incorrect code
+
+Check out the [model selection syntax documentation](../../reference/node-selection/syntax.md) for more operators and examples.

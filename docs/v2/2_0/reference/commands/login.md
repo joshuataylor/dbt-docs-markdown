@@ -1,12 +1,12 @@
 # About dbt login
 
-Available in v2
+Local development
 
 Use dbt login to authenticate once and unlock advanced features across dbt tools.
 
 info
 
-Available in dbt v2.0 and later.
+Available in dbt v1.13 and later.
 
 Run `dbt login` from the command line to unlock advanced dbt features. It'll open browser-based authentication where you can sign in to your existing dbt platform account or create a free one — no credit card required!
 
@@ -56,6 +56,8 @@ In dbt v2, after platform authentication, the CLI checks your configuration and 
 | ✅                                 | ✅                         | dbt State is ready to use.                                                                                                                                                      |
 | ✅                                 | ❌                         | CLI prompts you to enable dbt State locally. If you confirm, [`user_settings.yml`](../global-configs/user-settings.md) is updated automatically. |
 | ❌                                 | ✅                         | CLI prompts you to enable dbt State in your platform account.                                                                                                                   |
+
+In dbt v1.13, `dbt login` automatically sets `manage_state: true` in [`user_settings.yml`](../global-configs/user-settings.md) after platform authentication. If you previously set `manage_state: false`, the CLI prompts you before overwriting it.
 
 ## Authentication methods
 

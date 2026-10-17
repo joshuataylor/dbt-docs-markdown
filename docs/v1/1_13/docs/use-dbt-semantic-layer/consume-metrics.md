@@ -1,0 +1,41 @@
+# Consume metrics from your Semantic Layer
+
+dbt platform | Starter, Enterprise, Enterprise+
+
+After [deploying](./deploy-sl.md) your Semantic Layer, the next important (and fun!) step is querying and consuming the metrics you’ve defined. This page links to key resources that guide you through the process of consuming metrics across different integrations, APIs, and tools, using various different [query syntaxes](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata).
+
+Connect your AI to your metrics
+
+AI tools like Claude and ChatGPT can connect to the Semantic Layer through the [dbt MCP server](../dbt-ai/about-mcp.md?section=sl-connect-ai), so their answers use your governed metrics instead of guessing at raw tables.
+
+Once your Semantic Layer is deployed, you can start querying your metrics using a variety of tools and APIs. Here are the main resources to get you started:
+
+### Available integrations
+
+Integrate the Semantic Layer with a variety of business intelligence (BI) tools and data platforms, enabling seamless metric queries within your existing workflows. Explore the following integrations:
+
+* [Available integrations](../platform-integrations/avail-sl-integrations.md) — Review a wide range of partners such as Tableau, Google Sheets, Microsoft Excel, and more, where you can query your metrics directly from the Semantic Layer.
+
+### Query with APIs
+
+To leverage the full power of the Semantic Layer, you can use the Semantic Layer APIs for querying metrics programmatically:
+
+* [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) — Learn how to use the Semantic Layer APIs to query metrics in downstream tools, ensuring consistent and reliable data metrics.
+
+  * [JDBC API query syntax](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata) — Dive into the syntax for querying metrics with the JDBC API, with examples and detailed instructions.
+  * [GraphQL API query syntax](../dbt-apis/sl-graphql.md#querying) — Learn the syntax for querying metrics via the GraphQL API, including examples and detailed instructions.
+  * [Python SDK](../dbt-apis/sl-python.md#usage-examples) — Use the Python SDK library to query metrics programmatically with Python.
+
+### Query during development
+
+For developers working within the dbt ecosystem, it’s essential to understand how to query metrics during the development phase using MetricFlow commands:
+
+* [MetricFlow commands](../build/metricflow-commands.md) — Learn how to use MetricFlow commands to query metrics directly during the development process, ensuring your metrics are correctly defined and working as expected.
+
+## Next steps
+
+After understanding the basics of querying metrics, consider optimizing your setup and ensuring the integrity of your metric definitions:
+
+* [Optimize querying performance](./sl-cache.md) — Improve query speed and efficiency by using declarative caching techniques.
+* [Validate semantic nodes in CI](../deploy/ci-jobs.md#semantic-validations-in-ci) — Ensure that any changes to dbt models don’t break your metrics by validating semantic nodes in Continuous Integration (CI) jobs.
+* [Build your metrics and semantic models](../build/build-metrics-intro.md) — If you haven’t already, learn how to define and build your metrics and semantic models using your preferred development tool.

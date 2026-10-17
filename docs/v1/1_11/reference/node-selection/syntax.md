@@ -107,7 +107,7 @@ dbt run --select "selector:staging,tag:nightly"
 
 Report incorrect code
 
-As your selection logic gets more complex, and becomes unwieldly to type out as command-line arguments, consider using a [yaml selector](./yaml-selectors.md).
+As your selection logic gets more complex, and becomes unwieldy to type out as command-line arguments, consider using a [yaml selector](./yaml-selectors.md).
 
 (Applies to dbt v1.11 and earlier)
 

@@ -1,0 +1,551 @@
+# SQL models
+
+## Related reference docs
+
+* [Model configurations](../../reference/model-configs.md)
+* [Model properties](../../reference/model-properties.md)
+* [`run` command](../../reference/commands/run.md)
+* [`ref` function](../../reference/dbt-jinja-functions/ref.md)
+
+## Getting started
+
+Building your first models
+
+If you're new to dbt, we recommend that you read a [quickstart guide](https://docs.getdbt.com/guides) to build your first dbt project with models.
+
+dbt's Python capabilities are an extension of its capabilities with SQL models. If you're new to dbt, we recommend that you read this page first, before reading: ["Python Models"](./python-models.md)
+
+A SQL model is a `select` statement. Models are defined in `.sql` files (typically in your `models` directory):
+
+* Each `.sql` file contains one model / `select` statement
+* The model name is inherited from the filename and must match the *filename* of a model — including case sensitivity. Any mismatched casing can prevent dbt from applying configurations correctly and may affect metadata in [Catalog](../explore/explore-projects.md).
+* We strongly recommend using underscores for model names, not dots. For example, use `models/my_model.sql` instead of `models/my.model.sql`.
+* Models can be nested in subdirectories within the `models` directory.
+* Starting in dbt v1.12, you can use Jinja-style suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` files (for example, `my_model.sql.j2`) by enabling the [`allow_jinja_file_extensions`](../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) flag.
+
+Refer to [How we style our dbt models](../../best-practices/how-we-style/1-how-we-style-our-dbt-models.md) for details on how we recommend you name your models.
+
+When you execute the [`dbt run` command](../../reference/commands/run.md), dbt will build this model data warehouse by wrapping it in a `create view as` or `create table as` statement.
+
+For example, consider this `customers` model:
+
+models/customers.sql
+
+```sql
+with customer_orders as (
+    select
+        customer_id,
+        min(order_date) as first_order_date,
+        max(order_date) as most_recent_order_date,
+        count(order_id) as number_of_orders
+
+    from jaffle_shop.orders
+
+    group by 1
+)
+
+select
+    customers.customer_id,
+    customers.first_name,
+    customers.last_name,
+    customer_orders.first_order_date,
+    customer_orders.most_recent_order_date,
+    coalesce(customer_orders.number_of_orders, 0) as number_of_orders
+
+from jaffle_shop.customers
+
+left join customer_orders using (customer_id)
+```
+
+Report incorrect code
+
+When you execute `dbt run`, dbt will build this as a *view* named `customers` in your target schema:
+
+```sql
+create view dbt_alice.customers as (
+    with customer_orders as (
+        select
+            customer_id,
+            min(order_date) as first_order_date,
+            max(order_date) as most_recent_order_date,
+            count(order_id) as number_of_orders
+
+        from jaffle_shop.orders
+
+        group by 1
+    )
+
+    select
+        customers.customer_id,
+        customers.first_name,
+        customers.last_name,
+        customer_orders.first_order_date,
+        customer_orders.most_recent_order_date,
+        coalesce(customer_orders.number_of_orders, 0) as number_of_orders
+
+    from jaffle_shop.customers
+
+    left join customer_orders using (customer_id)
+)
+```
+
+Report incorrect code
+
+Why a *view* named `dbt_alice.customers`? By default dbt will:
+
+* Create models as views
+* Build models in a target schema you define
+* Use your file name as the view or table name in the database
+
+You can use *configurations* to change any of these behaviors — more on that later.
+
+### FAQs
+
+How can I see the SQL that dbt is running?
+
+To check out the SQL that dbt is running, you can look in:
+
+* dbt:
+  * Within the run output, click on a model name, and then select "Details"
+
+* dbt v1:
+
+  * The `target/compiled/` directory for compiled `select` statements
+  * The `target/run/` directory for compiled `create` statements
+  * The `logs/dbt.log` file for verbose logging.
+
+Do I need to create my target schema before running dbt?
+
+Nope! dbt will check if the schema exists when it runs. If the schema does not exist, dbt will create it for you.
+
+If I rerun dbt, will there be any downtime as models are rebuilt?
+
+Nope! The SQL that dbt generates behind the scenes ensures that any relations are replaced atomically (i.e. your business users won't experience any downtime).
+
+The implementation of this varies on each warehouse, check out the [logs](../../faqs/Runs/checking-logs.md) to see the SQL dbt is executing.
+
+What happens if the SQL in my query is bad or I get a database error?
+
+If there's a mistake in your SQL, dbt will return the error that your database returns.
+
+```shell
+$ dbt run --select customers
+Running with dbt=1.9.0
+Found 3 models, 9 tests, 0 snapshots, 0 analyses, 133 macros, 0 operations, 0 seed files, 0 sources
+
+14:04:12 | Concurrency: 1 threads (target='dev')
+14:04:12 |
+14:04:12 | 1 of 1 START view model dbt_alice.customers.......................... [RUN]
+14:04:13 | 1 of 1 ERROR creating view model dbt_alice.customers................. [ERROR in 0.81s]
+14:04:13 |
+14:04:13 | Finished running 1 view model in 1.68s.
+
+Completed with 1 error and 0 warnings:
+
+Database Error in model customers (models/customers.sql)
+  Syntax error: Expected ")" but got identifier `your-info-12345` at [13:15]
+  compiled SQL at target/run/jaffle_shop/customers.sql
+
+Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+```
+
+Report incorrect code
+
+Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../../faqs/Runs/checking-logs.md) to debug any errors.
+
+Which SQL dialect should I write my models in? Or which SQL dialect does dbt use?
+
+dbt can feel like magic, but it isn't actually magic. Under the hood, it's running SQL in your own warehouse — your data is not processed outside of your warehouse.
+
+As such, your models should just use the **SQL dialect of your own database**. Then, when dbt wraps your `select` statements in the appropriate DDL or DML, it will use the correct DML for your warehouse — all of this logic is written in to dbt.
+
+You can find more information about the databases, platforms, and query engines that dbt supports in the [Supported Data Platforms](../supported-data-platforms.md) docs.
+
+Want to go a little deeper on how this works? Consider a snippet of SQL that works on each warehouse:
+
+models/test\_model.sql
+
+```sql
+select 1 as my_column
+```
+
+Report incorrect code
+
+To replace an existing table, here's an *illustrative* example of the SQL dbt will run on different warehouses (the actual SQL can get much more complicated than this!)
+
+#### Redshift
+
+```sql
+-- you can't create or replace on redshift, so use a transaction to do this in an atomic way
+
+begin;
+
+create table "dbt_alice"."test_model__dbt_tmp" as (
+    select 1 as my_column
+);
+
+alter table "dbt_alice"."test_model" rename to "test_model__dbt_backup";
+
+alter table "dbt_alice"."test_model__dbt_tmp" rename to "test_model"
+
+commit;
+
+begin;
+
+drop table if exists "dbt_alice"."test_model__dbt_backup" cascade;
+
+commit;
+```
+
+Report incorrect code
+
+#### BigQuery
+
+```sql
+
+-- Make an API call to create a dataset (no DDL interface for this)!!;
+
+create or replace table `dbt-dev-87681`.`dbt_alice`.`test_model` as (
+  select 1 as my_column
+);
+```
+
+Report incorrect code
+
+#### Snowflake
+
+```sql
+create schema if not exists analytics.dbt_alice;
+
+create or replace table analytics.dbt_alice.test_model as (
+    select 1 as my_column
+);
+```
+
+Report incorrect code
+
+## Configuring models
+
+Configurations are "model settings" that you can set in your `dbt_project.yml` file, *and* in your model file using a `config` block. Some example configurations include:
+
+* Changing the materialization that a model uses — a [materialization](./materializations.md) determines the SQL that dbt uses to create the model in your warehouse.
+* Build models into separate [schemas](./custom-schemas.md).
+* Apply [tags](../../reference/resource-configs/tags.md) to a model.
+
+The following diagram shows an example directory structure of a models folder:
+
+```text
+models
+├── staging
+└── marts
+    └── marketing
+```
+
+Report incorrect code
+
+Here's an example of a model configuration:
+
+dbt\_project.yml
+
+```yaml
+name: jaffle_shop
+config-version: 2
+...
+
+models:
+  jaffle_shop: # this matches the `name:`` config
+    +materialized: view # this applies to all models in the current project
+    marts:
+      +materialized: table # this applies to all models in the `marts/` directory
+      marketing:
+        +schema: marketing # this applies to all models in the `marts/marketing/`` directory
+```
+
+Report incorrect code
+
+models/customers.sql
+
+```sql
+
+{{ config(
+    materialized="view",
+    schema="marketing"
+) }}
+
+with customer_orders as ...
+```
+
+Report incorrect code
+
+It is important to note that configurations are applied hierarchically — a configuration applied to a subdirectory will override any general configurations.
+
+You can learn more about configurations in the [reference docs](../../reference/model-configs.md).
+
+### FAQs
+
+What materializations are available in dbt?
+
+dbt ships with five built-in materializations: `view`, `table`, `incremental`, `ephemeral`, and `materialized_view`. Check out the documentation on [materializations](./materializations.md) for more information on each of these options.
+
+You can also create your own [custom materializations](../../guides/create-new-materializations.md). This is an advanced feature of dbt.
+
+What model configurations exist?
+
+You can also configure:
+
+* [tags](../../reference/resource-configs/tags.md) to support easy categorization and graph selection
+* [custom schemas](../../reference/resource-properties/schema.md) to split your models across multiple schemas
+* [aliases](../../reference/resource-configs/alias.md) if your view/table name should differ from the filename
+* Snippets of SQL to run at the start or end of a model, known as [hooks](./hooks-operations.md)
+* Warehouse-specific configurations for performance (e.g. `sort` and `dist` keys on Redshift, `partitions` on BigQuery)
+
+Check out the docs on [model configurations](../../reference/model-configs.md) to learn more.
+
+## Building dependencies between models
+
+You can build dependencies between models by using the [`ref` function](../../reference/dbt-jinja-functions/ref.md) in place of table names in a query. Use the name of another model as the argument for `ref`.
+
+### Model
+
+models/customers.sql
+
+```sql
+with customers as (
+
+    select * from {{ ref('stg_customers') }}
+
+),
+
+orders as (
+
+    select * from {{ ref('stg_orders') }}
+
+),
+
+...
+```
+
+Report incorrect code
+
+### Compiled code in dev
+
+```sql
+create view dbt_alice.customers as (
+  with customers as (
+
+      select * from dbt_alice.stg_customers
+
+  ),
+
+  orders as (
+
+      select * from dbt_alice.stg_orders
+
+  ),
+
+  ...
+)
+
+...
+```
+
+Report incorrect code
+
+### Compiled code in prod
+
+```sql
+create view analytics.customers as (
+  with customers as (
+
+      select * from analytics.stg_customers
+
+  ),
+
+  orders as (
+
+      select * from analytics.stg_orders
+
+  ),
+
+  ...
+)
+
+...
+```
+
+Report incorrect code
+
+dbt uses the `ref` function to:
+
+* Determine the order to run the models by creating a dependent acyclic graph (DAG).
+
+![The DAG for our dbt project](/img/dbt-dag.png?v=2 "The DAG for our dbt project")The DAG for our dbt project
+
+* Manage separate environments — dbt will replace the model specified in the `ref` function with the database name for the table (or view). Importantly, this is environment-aware — if you're running dbt with a target schema named `dbt_alice`, it will select from an upstream table in the same schema. Check out the tabs above to see this in action.
+
+Additionally, the `ref` function encourages you to write modular transformations, so that you can re-use models, and reduce repeated code.
+
+## Testing and documenting models
+
+You can also document and test models — skip ahead to the section on [testing](./data-tests.md) and [documentation](./documentation.md) for more information.
+
+## Additional FAQs
+
+Are there any example dbt models?
+
+Yes!
+
+* **Quickstart Tutorial:** You can build your own example dbt project in the [quickstart guide](../get-started-dbt.md)
+* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store. Refer to [Clone the Jaffle Shop sample project](../../guides/clone-jaffle-shop.md) for clone instructions, or view the [main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using DuckDB](https://github.com/dbt-labs/jaffle_shop_duckdb) on GitHub.
+* **GitLab:** Gitlab's internal dbt project is open source and is a great example of how to use dbt at scale ([source code](https://gitlab.com/gitlab-com/content-sites/handbook/blob/main/content/handbook/enterprise-data/platform/dbt-guide.md))
+* **dummy-dbt:** A containerized dbt project that populates the Sakila database in Postgres and populates dbt seeds, models, snapshots, and tests. The project can be used for testing and experimentation purposes ([source code](https://github.com/gmyrianthous/dbt-dummy))
+* **Google Analytics 4:** A demonstration project that transforms the Google Analytics 4 BigQuery exports to various models ([source code](https://github.com/stacktonic-com/stacktonic-dbt-example-project), [docs](https://stacktonic.com/article/google-analytics-big-query-and-dbt-a-dbt-example-project))
+* **Make Open Data:** A production-grade ELT with tests, documentation, and CI/CD (GHA) about French open data (housing, demography, geography, etc). It can be used to learn with voluminous and ambiguous data. Contributions are welcome ([source code](https://github.com/make-open-data/make-open-data).
+
+If you have an example project to add to this list, suggest an edit by clicking **Edit this page** below.
+
+Can I store my models in a directory other than the \`models\` directory in my project?
+
+By default, dbt expects the files defining your models to be located in the `models` subdirectory of your project.
+
+To change this, update the [model-paths](../../reference/project-configs/model-paths.md) configuration in your `dbt_project.yml` file, like so:
+
+dbt\_project.yml
+
+```yml
+model-paths: ["transformations"]
+```
+
+Report incorrect code
+
+Can I build my models in a schema other than my target schema or split my models across multiple schemas?
+
+Yes! Use the [schema](../../reference/resource-configs/schema.md) configuration in your `dbt_project.yml` file, or using a `config` block:
+
+dbt\_project.yml
+
+```yml
+name: jaffle_shop
+...
+
+models:
+  jaffle_shop:
+    marketing:
+      +schema: marketing # models in the `models/marketing/` subdirectory will use the marketing schema
+```
+
+Report incorrect code
+
+models/customers.sql
+
+```sql
+{{
+  config(
+    schema='core'
+  )
+}}
+```
+
+Report incorrect code
+
+Do ref-able resource names need to be unique?
+
+Within one project: yes! To build dependencies between resources (such as models, seeds, and snapshots), you need to use the `ref` function, and pass in the resource name as an argument. dbt uses that resource name to uniquely resolve the `ref` to a specific resource. As a result, these resource names need to be unique, *even if they are in distinct folders*.
+
+A resource in one project can have the same name as a resource in another project (installed as a dependency). dbt uses the project name to uniquely identify each resource. We call this "namespacing." If you `ref` a resource with a duplicated name, it will resolve to the resource within the same namespace (package or project), or raise an error because of an ambiguous reference. Use [two-argument `ref`](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) to disambiguate references by specifying the namespace.
+
+Those resource will still need to land in distinct locations in the data warehouse. Read the docs on [custom aliases](./custom-aliases.md) and [custom schemas](./custom-schemas.md) for details on how to achieve this.
+
+How do I remove deleted models from my data warehouse?
+
+If you delete a model from your dbt project, dbt does not automatically drop the relation from your schema. This means that you can end up with extra objects in schemas that dbt creates, which can be confusing to other users.
+
+(This can also happen when you switch a model from being a view or table, to ephemeral)
+
+When you remove models from your dbt project, you should manually drop the related relations from your schema.
+
+As I create more models, how should I keep my project organized? What should I name my models?
+
+There's no one best way to structure a project! Every organization is unique.
+
+If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](../../best-practices/how-we-structure/1-guide-overview.md).
+
+If models can only be \`select\` statements, how do I insert records?
+
+For those coming from an ETL (Extract Transform Load) paradigm, there's often a desire to write transformations as `insert` and `update` statements. In comparison, dbt will wrap your `select` query in a `create table as` statement, which can feel counter-productive.
+
+* If you wish to use `insert` statements for performance reasons (i.e. to reduce data that is processed), consider [incremental models](./incremental-models.md)
+* If you wish to use `insert` statements since your source data is constantly changing (e.g. to create "Type 2 Slowly Changing Dimensions"), consider [snapshotting your source data](./sources.md#source-data-freshness), and building models on top of your snapshots.
+
+Why can't I just write DML in my transformations?
+
+#### `select` statements make transformations accessible
+
+More people know how to write `select` statements, than DML, making the transformation layer accessible to more people!
+
+#### Writing good DML is hard
+
+If you write the DDL / DML yourself you can end up getting yourself tangled in problems like:
+
+* What happens if the table already exists? Or this table already exists as a view, but now I want it to be a table?
+* What if the schema already exists? Or, should I check if the schema already exists?
+* How do I replace a model atomically (such that there's no down-time for someone querying the table)
+* What if I want to parameterize my schema so I can run these transformations in a development environment?
+* What order do I need to run these statements in? If I run a `cascade` does it break other things?
+
+Each of these problems *can* be solved, but they are unlikely to be the best use of your time.
+
+#### dbt does more than generate SQL
+
+You can test your models, generate documentation, create snapshots, and more!
+
+#### You reduce your vendor lock in
+
+SQL dialects tend to diverge the most in DML and DDL (rather than in `select` statements) — check out the example [here](../../faqs/Models/sql-dialect.md). By writing less SQL, it can make a migration to a new database technology easier.
+
+If you do need to write custom DML, there are ways to do this in dbt using [custom materializations](../../guides/create-new-materializations.md).
+
+How do I specify column types?
+
+Simply cast the column to the correct type in your model:
+
+```sql
+select
+    id,
+    created::timestamp as created
+from some_other_table
+```
+
+Report incorrect code
+
+You might have this question if you're used to running statements like this:
+
+```sql
+create table dbt_alice.my_table
+  id integer,
+  created timestamp;
+
+insert into dbt_alice.my_table (
+  select id, created from some_other_table
+)
+```
+
+Report incorrect code
+
+In comparison, dbt would build this table using a `create table as` statement:
+
+```sql
+create table dbt_alice.my_table as (
+  select id, created from some_other_table
+)
+```
+
+Report incorrect code
+
+So long as your model queries return the correct column type, the table you create will also have the correct column type.
+
+To define additional column options:
+
+* Rather than enforcing uniqueness and not-null constraints on your column, use dbt's [data testing](./data-tests.md) functionality to check that your assertions about your model hold true.
+* Rather than creating default values for a column, use SQL to express defaults (e.g. `coalesce(updated_at, current_timestamp()) as updated_at`)
+* In edge-cases where you *do* need to alter a column (e.g. column-level encoding on Redshift), consider implementing this via a [post-hook](../../reference/resource-configs/pre-hook-post-hook.md).

@@ -1,6 +1,6 @@
 # Configure BYOK for dbt Wizard in dbt platform
 
-dbt platform
+dbt platform | Starter, Enterprise, Enterprise+
 
 Use bring-your-own-key (BYOK) to connect dbt Wizard or dbt Copilot in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
 
@@ -12,7 +12,7 @@ If you'd rather skip that upkeep, the [dbt Labs-managed option](./manage-dbt-ai.
 
 ## Prerequisites
 
-* A [dbt platform account](https://www.getdbt.com/pricing) on any plan — BYOK is available on Developer, Starter, Enterprise, and Enterprise+ plans
+* A [dbt platform account](https://www.getdbt.com/pricing) on a Starter, Enterprise, or Enterprise+ plan
 * dbt admin permissions to enable AI features and configure providers in **Account settings**
 * An API key or credentials for your supported AI provider
 
@@ -50,7 +50,7 @@ You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 #### dbt Copilot
 
-dbt Copilot supports different AI providers, including bring your own key (BYOK) on any plan:
+dbt Copilot supports different AI providers, including bring your own key (BYOK) on Starter, Enterprise, and Enterprise+ plans:
 
 * dbt Labs-managed OpenAI API key
 * BYOK OpenAI API key
@@ -60,7 +60,7 @@ Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported 
 
 ## Configure AI provider
 
-A dbt platform account on any plan can use a dbt managed provider to get started right away or configure a custom AI provider by BYOK. If you use BYOK, you will incur API calls and associated charges from that provider.
+A dbt platform account on any plan can use a dbt managed provider to get started right away. Accounts on Starter, Enterprise, and Enterprise+ plans can also configure a custom AI provider by BYOK. If you use BYOK, you will incur API calls and associated charges from that provider.
 
 The following instructions explain how to configure a dbt Labs managed or BYOK AI provider for dbt Wizard. dbt managed AI providers are administered by dbt Labs and don’t require a user-provided API key. The AI providers shown in **Account settings** may change as dbt Labs adds managed models. For the current list of models and providers, refer to the [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model).
 

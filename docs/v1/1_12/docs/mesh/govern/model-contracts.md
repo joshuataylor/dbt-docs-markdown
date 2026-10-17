@@ -173,6 +173,18 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ❌        | ❌       |
 | check           | ✅        | ✅       |
 
+### Fabric
+
+Microsoft Fabric creates the table first, then adds some constraints in separate steps. Only `not_null` is checked when the model builds. Primary key, foreign key, and unique constraints are recorded on the table for reference, but Fabric does not check them when new data is added. Define `primary_key`, `foreign_key`, and `unique` at the model level. The adapter ignores those constraint types at the column level.
+
+| Constraint type | Definable | Enforced |
+| --------------- | --------- | -------- |
+| not\_null       | ✅        | ✅       |
+| primary\_key    | ✅        | ❌       |
+| foreign\_key    | ✅        | ❌       |
+| unique          | ✅        | ❌       |
+| check           | ❌        | ❌       |
+
 ### Athena
 
 | Constraint type | Definable | Enforced |

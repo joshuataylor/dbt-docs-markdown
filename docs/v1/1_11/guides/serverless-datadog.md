@@ -93,7 +93,7 @@ Sample output from the setup wizard:
 
 The application requires four secrets to be set, using these names:
 
-* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md) with at least the `Metdata Only` permission.
+* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md) with at least the `Metadata Only` permission.
 * `DBT_CLOUD_AUTH_TOKEN`: the Secret Key for the dbt webhook you created earlier.
 * `DD_API_KEY`: the API key you created earlier.
 * `DD_SITE`: The Datadog site for your organisation, e.g. `datadoghq.com`.

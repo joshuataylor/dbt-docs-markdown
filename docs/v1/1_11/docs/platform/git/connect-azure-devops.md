@@ -25,3 +25,19 @@ Currently, there are multiple methods for integrating Azure DevOps with dbt. The
 * [**Service user to service principal migration**](./setup-service-principal.md#migrate-to-service-principal)
 
 No matter which approach you take, you will need admins for dbt, Azure Entra ID, and Azure DevOps to complete the integration. For more information, follow the setup guide that's right for you.
+
+## Troubleshooting
+
+ CI jobs don't trigger on pull requests
+
+If continuous integration (CI) jobs aren't triggered when you open pull requests in Azure DevOps, and you don't see an error in dbt or Azure DevOps, try these checks:
+
+* Confirm the Azure DevOps service hooks for the repository still exist and point to your dbt account.
+* Confirm your service principal or service user still has access to the repository.
+
+If those look fine, disconnect and reconnect the repository:
+
+1. From **Account settings**, select **Projects**, then select the project.
+2. Select the **Repository** link, then **Edit**, then **Disconnect**.
+3. Select **Confirm Disconnect**.
+4. Select **Configure Repository** and connect the same Azure DevOps repository.

@@ -2,7 +2,7 @@
 
 ## Authentication
 
-To succesfully connect dbt to MindsDB, you will need to provide the following configuration from the MindsDB instance.
+To successfully connect dbt to MindsDB, you will need to provide the following configuration from the MindsDB instance.
 
 | Key      | Required | Description                                          | Self-hosted                                                                    | MindsDB Cloud                                                                  |
 | -------- | -------- | ---------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |

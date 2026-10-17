@@ -1,0 +1,69 @@
+# Sources object schema
+
+dbt platform | Starter, Enterprise, Enterprise+
+
+The sources object allows you to query information about all sources in a given job.
+
+### Arguments
+
+When querying for `sources`, the following arguments are available.
+
+# Fetching data...
+
+Below we show some illustrative example queries and outline the schema of the sources object.
+
+### Example queries
+
+The database, schema, and identifier arguments are optional. This means that with this endpoint you can:
+
+* Find a specific source by providing `<database>.<schema>.<identifier>`
+* Find all of the sources in a database and/or schema by providing `<database>` and/or `<schema>`
+
+#### Finding sources by their database, schema, and identifier
+
+The example query below finds a source by its unique database, schema, and identifier.
+
+```graphql
+{
+  job(id: 123) {
+    sources(
+      database: "analytics"
+      schema: "analytics"
+      identifier: "dim_customers"
+      first: 10
+      after: "{somePaginationCursorValue}"
+    ) {
+      uniqueId
+      paginationCursor
+    }
+  }
+}
+```
+
+Report incorrect code
+
+#### Finding sources by their schema
+
+The example query below finds all sources in this schema and their respective states (pass, error, fail).
+
+```graphql
+{
+  job(id: 123) {
+    sources(schema: "analytics", first: 10, after: "{somePaginationCursorValue}") {
+      uniqueId
+      state
+      paginationCursor
+    }
+  }
+}
+```
+
+Report incorrect code
+
+### Fields
+
+The sources object can access the *same fields* as the [source node](./discovery-schema-job-source.md). The difference is that the sources object can output a list so instead of querying for fields for one specific source, you can query for those parameters for all sources within a jobID, database, and so on.
+
+When querying for `sources`, the following fields are available:
+
+# Fetching data...

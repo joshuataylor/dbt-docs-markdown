@@ -1,0 +1,64 @@
+# invalidate\_hard\_deletes legacy
+
+Legacy opt-in configuration to enable invalidating hard deleted records while snapshotting the query.
+
+This is a legacy config — Use the [`hard_deletes`](./hard-deletes.md) config instead.
+
+In dbt release tracks and dbt 1.9 and higher, the [`hard_deletes`](./hard-deletes.md) config replaces the `invalidate_hard_deletes` config for better control over how to handle deleted rows from the source.
+
+For new snapshots, set the config to `hard_deletes='invalidate'` instead of `invalidate_hard_deletes=true`. For existing snapshots, [arrange an update](../snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
+
+(Applies to dbt v1.9 and later)
+
+snapshots/\<filename>.yml
+
+```yaml
+snapshots:
+  - name: snapshot
+    relation: source('my_source', 'my_table')
+    config:
+      strategy: timestamp
+      invalidate_hard_deletes: true | false
+```
+
+Report incorrect code
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  <resource-path>:
+    +strategy: timestamp
+    +invalidate_hard_deletes: true
+```
+
+Report incorrect code
+
+## Description
+
+Opt-in feature to enable invalidating hard deleted records while snapshotting the query.
+
+## Default
+
+By default the feature is disabled.
+
+## Example
+
+(Applies to dbt v1.9 and later)
+
+snapshots/orders.yml
+
+```yaml
+snapshots:
+  - name: orders_snapshot
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      database: analytics
+      unique_key: id
+      strategy: timestamp
+      updated_at: updated_at
+      invalidate_hard_deletes: true
+```
+
+Report incorrect code

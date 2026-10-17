@@ -58,11 +58,16 @@ In self-managed deployments, you can also use dbt State with `state:*` selectors
 
 ## Signing up for dbt State
 
-dbt State is connected to your existing dbt platform account. Your dbt State credentials are the same as your platform credentials, and dbt State has access to your platform environments and jobs.
+dbt State requires a dbt platform account for authentication, even if you run dbt locally or in a non-interactive environment.
 
-dbt State app retirement
+* **Existing dbt platform users**: Your dbt State credentials are the same as your platform credentials, and dbt State has access to your platform environments and jobs.
+* **New to dbt platform**: Create an account from the [dbt platform sign-up page](http://us1.dbt.com/register?_dbtsrc=dbt-state). For dbt v2 and v1 users, you can start the account creation workflow from the CLI by running `dbt login` (v1.13/v2) or `dbt run`/`dbt build` (dbt v1.7–1.12), which opens the sign-up page where you can create a free account.
 
-The standalone dbt State app (`app.state.dbt.com`) is being retired and is no longer accepting new users. If you have an existing dbt State app account, [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
+For setup steps, refer to [Set up dbt State](./dbt-state-setup.md).
+
+The dbt State app is deprecated
+
+The standalone dbt State app (`app.state.dbt.com`) is no longer accepting new users. If you have an existing dbt State app account, [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
 
 ## FAQs
 
@@ -276,7 +281,7 @@ Report incorrect code
 
 * [Set up dbt State](./dbt-state-setup.md)
 * [Monitor dbt State activity](./dbt-state-interface.md)
-* [Non-interactive environment setup](./dbt-state-cicd.md)
+* [Set up authentication for non-interactive environments](./dbt-state-cicd.md)
 * [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
 * [Migrate from state-aware orchestration](./dbt-state-migration.md)
 * [dbt State trial and billing](./dbt-state-trial.md)

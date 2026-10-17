@@ -109,7 +109,7 @@ In this quickstart guide, you'll learn how to use dbt with [Azure Synapse Analyt
 
    * **Authentication** — Choose **Service Principal** from the dropdown.
    * **Tenant ID** — Use the service principal’s **Directory (tenant) id** as the value.
-   * **Client ID** — Use the service principal’s **application (client) ID id** as the value.
+   * **Client ID** — Use the service principal’s **application (client) ID** as the value.
    * **Client secret** — Use the service principal’s **client secret** (not the **client secret id**) as the value.
 
 6. Click **Test connection**. This verifies that dbt can access your Azure Synapse Analytics account.
@@ -838,7 +838,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
 3. In the modal window, name your new branch `add-customers-model`. This branches off from your primary branch with your new changes.
-4. Add a commit message, such as "Add customers model, tests, docs" and and commit your changes.
+4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
 **If you created a new branch before editing:**

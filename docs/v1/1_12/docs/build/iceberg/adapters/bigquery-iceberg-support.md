@@ -40,7 +40,7 @@ Supply and nest these additional configurations, unique to BigQuery, under `conf
 
 1. Create a `catalogs.yml` at the top level of your dbt project.
 
-#### New spec (beta)
+#### (Applies to dbt v1.99 and earlier) New spec (beta)
 
 catalogs.yml
 
@@ -136,7 +136,7 @@ select * from {{ ref('jaffle_shop_customers') }}
 
 Report incorrect code
 
-#### New spec (beta)
+#### (Applies to dbt v1.99 and earlier) New spec (beta)
 
 catalogs.yml
 

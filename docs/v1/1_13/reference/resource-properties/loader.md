@@ -1,0 +1,42 @@
+# loader
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: <source_name>
+    database: <database_name>
+    loader: <string>
+    tables:
+      - ...
+```
+
+Report incorrect code
+
+## Definition
+
+Describe the tool that loads this source into your warehouse. Note that this property is for documentation purposes only — dbt does not meaningfully use this.
+
+## Examples
+
+### Indicate which EL tool loaded data
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: jaffle_shop
+    loader: fivetran
+    tables:
+      - name: orders
+      - name: customers
+
+  - name: stripe
+    loader: stitch
+    tables:
+      - name: payments
+```
+
+Report incorrect code

@@ -242,7 +242,7 @@ Spark can be customized using [Application Properties](https://spark.apache.org/
 
 ### Supported functionality
 
-Most dbt v1 functionality is supported, Please refer to [Delta Lake interoporability](https://learn.microsoft.com/en-us/fabric/fundamentals/delta-lake-interoperability).
+Most dbt v1 functionality is supported, Please refer to [Delta Lake interoperability](https://learn.microsoft.com/en-us/fabric/fundamentals/delta-lake-interoperability).
 
 Delta-only features:
 

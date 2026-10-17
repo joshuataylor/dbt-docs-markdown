@@ -1,0 +1,107 @@
+# type
+
+Did you know\...
+
+Available from dbt v1.11 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+
+functions/\<filename>.yml
+
+```yml
+functions:
+  - name: function_name
+    config:
+      type: scalar | aggregate 
+```
+
+Report incorrect code
+
+In the future, we're considering adding support for `table` type. Refer to [this issue](https://github.com/dbt-labs/dbt/issues/11917) to track the progress and provide any feedback.
+
+## Definition
+
+The `type` config specifies the type of user-defined function (UDF) you're creating. This config is optional and defaults to `scalar` if not specified.
+
+## Supported function types
+
+The following function types are supported:
+
+* [scalar (default)](#scalar-default)
+* [aggregate](#aggregate)
+
+Support for `type` differs based on the warehouse and language (SQL or Python) you're using:
+
+| Adapter        | scalar SQL | scalar Python | aggregate SQL | aggregate Python |
+| -------------- | ---------- | ------------- | ------------- | ---------------- |
+| dbt-bigquery   | ✅         | ✅            | ✅            | ❌               |
+| dbt-snowflake  | ✅         | ✅            | ❌            | ✅               |
+| dbt-databricks | ✅         | ❌            | ❌            | ❌               |
+| dbt-postgres   | ✅         | ❌            | ❌            | ❌               |
+| dbt-redshift   | ✅         | ❌            | ❌            | ❌               |
+
+### scalar (default)
+
+A scalar function returns a single value for each row of input. This is the most common type of UDF.
+
+**Example use cases:**
+
+* Data validation (checking if a string matches a pattern)
+* Data transformation (converting formats, cleaning strings)
+* Custom calculations (complex mathematical operations)
+
+functions/schema.yml
+
+```yml
+functions:
+  - name: is_positive_int
+    description: Determines if a string represents a positive integer
+    config:
+      type: scalar
+    arguments:
+      - name: input_string
+        data_type: STRING
+    returns:
+      data_type: BOOLEAN
+```
+
+Report incorrect code
+
+### aggregate
+
+Aggregate functions operate on multiple rows and return a single value — for example, they sum values or calculate an average for a group. Queries use these functions in `GROUP BY` operations.
+
+Aggregate functions are currently supported only for:
+
+* Python functions on Snowflake
+* SQL functions on BigQuery
+
+**Example use cases:**
+
+* Calculating totals or averages for groups of data (for example, total sales per customer)
+* Aggregating data over time (for example, daily, monthly, or yearly totals)
+
+functions/schema.yml
+
+```yml
+functions:
+  - name: double_total
+    description: Sums values and doubles the result
+    config:
+      type: aggregate
+    arguments:
+      - name: values
+        data_type: FLOAT
+        description: A sequence of numbers to aggregate
+    returns:
+      data_type: FLOAT
+```
+
+Report incorrect code
+
+## Related documentation
+
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function configurations](../function-configs.md)
+* [volatility](./volatility.md)
+* [arguments](../resource-properties/function-arguments.md)
+* [returns](../resource-properties/returns.md)

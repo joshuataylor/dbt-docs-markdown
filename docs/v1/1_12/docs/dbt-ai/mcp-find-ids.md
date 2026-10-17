@@ -86,6 +86,6 @@ Used for shared or team setups. Better for CI/automation.
 
 1. Go to **Account settings** → **API tokens** → **Service tokens**.
 2. Click **+ New token**, assign the required permissions, and copy the token value.
-3. For full MCP access, the service token needs at least `Semantic Layer Only`, `Metadata Only`, and `Developer` permissions.
+3. Assign the `Developer` permission set, scoped either to the project that owns the environment you'll use for `x-dbt-prod-environment-id` or to all projects. A token without this permission set is rejected with a `401` when the MCP client connects. No other permission sets are required. `Developer` can only be assigned to a service token on Enterprise and Enterprise+ plans; on other plans, use [OAuth](./setup-remote-mcp.md#oauth-remote-mcp).
 
 For more information, see [User tokens (PAT)](../dbt-apis/user-tokens.md) and [Service tokens](../dbt-apis/service-tokens.md).

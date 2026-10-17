@@ -61,9 +61,7 @@ License types override group permissions
 
 This ensures that license restrictions are always enforced, regardless of group membership.
 
-Each dbt plan comes with a base number of Developer, IT, and Read-Only licenses. You can add or remove licenses by modifying the number of users in your account settings.
-
-If you have a Developer plan account and want to add more people to your team, you'll need to upgrade to the Starter plan. Refer to [dbt Pricing Plans](https://www.getdbt.com/pricing/) for more information about licenses available with each plan.
+dbt has different [license types](https://www.getdbt.com/pricing) and you can add or remove them by modifying the number of users in your account settings. If you have a Developer plan account and want to add more people to your team, you'll need to upgrade to the Starter plan. Refer to [dbt Pricing Plans](https://www.getdbt.com/pricing/) for more information about licenses available with each plan.
 
 The following tabs detail steps on how to modify your user license count:
 

@@ -1,0 +1,100 @@
+# About self-hosted dbt v2 installation
+
+important
+
+dbt v2 is available for installation in:
+
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md)
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
+
+Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://getdbt.slack.com/archives/C088YCAB6GH).
+
+Learn more about installing dbt v2 locally, along with important prerequisites, step-by-step installation instructions, troubleshooting common issues, and configuration guidance.
+
+## Prerequisites
+
+Before installing dbt v2, ensure that you:
+
+* Have administrative privileges to install software on your local machine.
+
+* Are comfortable using a command-line interface (Terminal on macOS/Linux, PowerShell on Windows).
+
+* Use a supported data warehouse and authentication method and configure permissions as needed:
+
+   BigQuery
+
+  * Service Account / User Token
+  * Native OAuth
+  * External OAuth
+    * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
+
+   Databricks
+
+  * Service Account / User Token
+  * Native OAuth
+
+   Redshift
+
+  * Username / Password
+  * IAM profile
+
+   Snowflake
+
+  * Username / Password
+  * Native OAuth
+  * External OAuth
+  * Key pair using a modern PKCS#8 method
+  * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
+
+   Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Thrift
+
+    * Simple Authentication and Security Layer (SASL) PLAIN
+    * No SASL (NOSASL)
+
+  * Livy
+
+    * Basic authentication (username and password)
+    * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
+      * Supports authentication using single sign-on, service accounts, or user tokens
+
+   DuckDB (CLI only)
+
+  DuckDB does not require authentication — it runs locally on your machine.
+
+  *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+* Use a supported operating system:
+
+  * **macOS:** Supported on both Intel (x86-64) and Apple Silicon (ARM)
+  * **Linux:** Supported on both x86-64 and ARM
+  * **Windows:** Supported on x86-64; ARM support coming soon
+
+## Getting started
+
+If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [v2 availability](./dbt-availability.md) page.
+
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
+
+#### [dbt VS Code Extension](../local/install-dbt.md?version=2)
+
+[Learn how to connect to a data platform, integrate with secure authentication methods, and configure a sync with a git repo.](../local/install-dbt.md?version=2)
+
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
+
+#### [dbt v2 from the CLI](../local/install-dbt.md?version=2)
+
+[Learn how to install dbt v2 on the command line interface (CLI).](../local/install-dbt.md?version=2)
+
+[![](/img/icons/dbt-bit.svg)](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
+
+#### [dbt v2 upgrade](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
+
+[Learn how you can upgrade and leverage the speed and scale of dbt v2](../dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)

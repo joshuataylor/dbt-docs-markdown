@@ -18,7 +18,7 @@
 
 ## [Run models downstream of a seed](../faqs/Runs/run-downstream-of-seed.md)
 
-[You run models downstread using model selection syntax](../faqs/Runs/run-downstream-of-seed.md)
+[You run models downstream using model selection syntax](../faqs/Runs/run-downstream-of-seed.md)
 
 ## [Run one model at a time](../faqs/Runs/run-one-model.md)
 

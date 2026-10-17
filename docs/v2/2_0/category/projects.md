@@ -62,7 +62,7 @@
 
 ## [Source is in a poorly-named scheme or table](../faqs/Project/source-has-bad-name.md)
 
-[Use schema and identifier properities to define names](../faqs/Project/source-has-bad-name.md)
+[Use schema and identifier properties to define names](../faqs/Project/source-has-bad-name.md)
 
 ## [Source is in a different database to target database](../faqs/Project/source-in-different-database.md)
 

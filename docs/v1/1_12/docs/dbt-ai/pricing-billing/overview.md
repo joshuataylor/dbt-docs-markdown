@@ -23,12 +23,12 @@ Most users start with the dbt managed model and only reach for BYOK or a specifi
 
 These four terms come up on every dbt Wizard billing page:
 
-| Term             | What it means                                                                                                                                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Token            | The unit of AI model usage. How many tokens you use, and the rate you pay for them, depends on the model, the context window, the length and complexity of your prompt, and the size of the response           |
-| Usage credits    | The free balance included with your plan, shared by everyone on the account, whether thats trial credits on Developer and Starter, or monthly credits on Enterprise and Enterprise+. Scoped to dbt Wizard only |
-| Consumption pool | Your overall dbt managed usage balance, including any pool you purchase once your credits run out. A purchased pool covers both dbt Wizard and dbt State. Shown as **Consumption pool** in **Billing & Usage** |
-| Spend limit      | The maximum dbt managed usage your account can consume in a billing period                                                                                                                                     |
+| Term             | What it means                                                                                                                                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Token            | The unit of AI model usage. How many tokens you use, and the rate you pay for them, depends on the model, the context window, the length and complexity of your prompt, and the size of the response            |
+| Usage credits    | The free balance included with your plan, shared by everyone on the account, whether that's trial credits on Developer and Starter, or monthly credits on Enterprise and Enterprise+. Scoped to dbt Wizard only |
+| Consumption pool | Your overall dbt managed usage balance, including any pool you purchase once your credits run out. A purchased pool covers both dbt Wizard and dbt State. Shown as **Consumption pool** in **Billing & Usage**  |
+| Spend limit      | The maximum dbt managed usage your account can consume in a billing period                                                                                                                                      |
 
 Usage draws down from your credits first, then your consumption pool, and stops at your spend limit. Usage costs are passed through directly from the AI provider.
 
@@ -46,6 +46,8 @@ Refer to the [Model Provider Rate Table](https://www.getdbt.com/legal/dbt-wizard
 ## Bring your own key (BYOK)
 
 With BYOK, you supply your own credentials for a provider — OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, Snowflake Cortex, or Databricks.
+
+BYOK in dbt platform is available on Starter, Enterprise, and Enterprise+ plans.
 
 To set up BYOK, refer to [Configure BYOK for dbt platform](../../platform/wizard-byok-platform.md) or [Configure BYOK for the CLI](../wizard-byok.md).
 

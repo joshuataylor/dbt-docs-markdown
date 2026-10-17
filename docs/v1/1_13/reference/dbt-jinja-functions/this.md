@@ -1,0 +1,34 @@
+# about this
+
+`this` is the database representation of the current model. It is useful when:
+
+* Defining a `where` statement within [incremental models](../../docs/build/incremental-models.md)
+* Using [pre or post hooks](../resource-configs/pre-hook-post-hook.md)
+
+`this` is a [Relation](../dbt-classes.md#relation), and as such, properties such as `{{ this.database }}` and `{{ this.schema }}` compile as expected.
+
+* Note — Prior to dbt v1.6, Studio IDE returns `request` as the result of `{{ ref.identifier }}`.
+
+`this` can be thought of as equivalent to `ref('<the_current_model>')`, and is a neat way to avoid circular dependencies.
+
+## Examples
+
+### Configuring incremental models
+
+models/stg\_events.sql
+
+```sql
+{{ config(materialized='incremental') }}
+
+select
+    *,
+    my_slow_function(my_column)
+
+from raw_app_data.events
+
+{% if is_incremental() %}
+  where event_time > (select max(event_time) from {{ this }})
+{% endif %}
+```
+
+Report incorrect code

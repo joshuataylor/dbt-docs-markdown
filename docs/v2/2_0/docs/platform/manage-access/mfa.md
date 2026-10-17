@@ -39,7 +39,7 @@ Choose the next steps based on your preferred enrollment selection:
 
 ![Example of the user generated QR code.](/img/docs/dbt-platform/scan-qr.png?v=2 "Example of the user generated QR code.")Example of the user generated QR code.
 
-3. Enter the code provide for "dbt Labs: YOUR\_EMAIL\_ADDRESS" from your authenticator app into the the field in dbt.
+3. Enter the code provided for "dbt Labs: YOUR\_EMAIL\_ADDRESS" from your authenticator app into the field in dbt.
 
  Webauthn-compliant security key
 

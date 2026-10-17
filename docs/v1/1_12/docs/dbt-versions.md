@@ -68,6 +68,7 @@ The dbt v1 engine uses semantic versioning for the 1.x release series. To instal
 
 | dbt v1                                                                                                  | Initial release | Support level and end date                             |
 | ------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ |
+| [**v1.13**](./dbt-versions/dbt-upgrade/upgrading-to-v1.13.md)                | (coming soon)   | Beta                                                   |
 | [**v1.12**](./dbt-versions/dbt-upgrade/upgrading-to-v1.12.md)                | Jul 16, 2026    | **Active support — July 15, 2027**                     |
 | [**v1.11**](./dbt-versions/dbt-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025    | **Critical support — Dec 18, 2026**                    |
 | [**v1.10**](./dbt-versions/dbt-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025    | Deprecated ⛔️                                         |

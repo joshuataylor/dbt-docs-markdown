@@ -90,18 +90,18 @@ Then each developer on the account needs to [relink their GitHub profile](#relin
 
 We recommend creating the app in your GitHub organization instead of a personal account to ensure the connection doesn't break should a person leave. For the full walkthrough on the GitHub side, check out GitHub's guide to [registering a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
-1. In dbt, go to **Account settings** > **Integrations** > **Git** and expand the **GitHub** section. Select **Copy** next to **Redirect URL** — you need it in the next step. Leave this page open.
+1. In dbt, go to **Account settings** > **Integrations** > **Git** and expand the **GitHub** section. Select **Copy** next to **Redirect URL** — you need it in the next step.
 
 2. In your GitHub organization, go to **Settings** > **Developer settings** > **GitHub Apps** and select **New GitHub App**.
 
 3. Enter the following:
 
-   | Field               | Value                                                                                                      |
-   | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-   | **GitHub App name** | Something recognizable, such as `dbt platform`                                                             |
-   | **Homepage URL**    | Your dbt [access URL](../about-platform/access-regions-ip-addresses.md) |
-   | **Redirect URL**    | The **Redirect URL** you copied from dbt                                                                   |
-   | **Webhook**         | Leave **Active** selected                                                                                  |
+   | Field               | Value                                                                                                                                                           |
+   | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **GitHub App name** | Something recognizable, such as `dbt platform`                                                                                                                  |
+   | **Homepage URL**    | Your dbt [access URL](../about-platform/access-regions-ip-addresses.md)                                                      |
+   | **Redirect URL**    | The **Redirect URL** you copied from dbt                                                                                                                        |
+   | **Webhook**         | Leave **Active** selected and enter any placeholder URL (such as <https://example.com>) in the **Webhook URL** field. dbt doesn't use it but GitHub requires it |
 
 4. Grant the app these repository permissions:
 

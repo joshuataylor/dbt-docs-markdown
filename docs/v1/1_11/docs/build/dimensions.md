@@ -4,9 +4,9 @@
 
 Dimensions represent the non-aggregatable columns in your data set, which are the attributes, features, or characteristics that describe or categorize data. In the context of the Semantic Layer, dimensions are part of a larger structure called a semantic model. They are created along with other elements like [entities](./entities.md) and [measures](./measures.md) and used to add more details to your data. In SQL, dimensions are typically included in the `group by` clause of your SQL query.
 
-All dimensions require a `name`, `type`, and can optionally include an `expr` parameter. The `name` for your Dimension must be unique within the same semantic model.
-
 (Applies to dbt v1.11 and earlier)
+
+All dimensions require a `name`, `type`, and can optionally include an `expr` parameter. The `name` for your Dimension must be unique within the same semantic model.
 
 | Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required | Type       |
 | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ---------- |
@@ -40,7 +40,7 @@ Refer to the following example to see how dimensions are used in a semantic mode
 semantic_models:
   - name: transactions
     description: A record for every transaction that takes place. Carts are considered multiple transactions for each SKU. 
-    model: {{ ref('fact_transactions') }}
+    model: {{ ref('fct_transactions') }}
     defaults:
       agg_time_dimension: order_date
 # --- entities --- 
@@ -114,9 +114,11 @@ This section further explains the dimension definitions, along with examples. Di
 
 ## Categorical
 
-Categorical dimensions are used to group metrics by different attributes, features, or characteristics such as product type. They can refer to existing columns in your dbt model or be calculated using a SQL expression with the `expr` parameter. An example of a categorical dimension is `is_bulk_transaction`, which is a group created by applying a case statement to the underlying column `quantity`. This allows users to group or filter the data based on bulk transactions.
+Categorical dimensions are used to group metrics by different attributes, features, or characteristics such as product type.
 
-(Applies to dbt v1.9 and later)
+(Applies to dbt v1.9 to v1.11)
+
+They can refer to existing columns in your dbt model or be calculated using a SQL expression with the `expr` parameter. An example of a categorical dimension is `is_bulk_transaction`, which is a group created by applying a case statement to the underlying column `quantity`. This allows users to group or filter the data based on bulk transactions.
 
 ```yaml
 dimensions: 
@@ -404,7 +406,7 @@ semantic_models:
       There is a transaction, product, sales_person, and customer id for 
       every transaction. There is only one transaction id per 
       transaction. The `metric_time` or date is reflected in UTC.
-    model: {{ ref('fact_transactions') }}
+    model: {{ ref('fct_transactions') }}
     defaults:
       agg_time_dimension: metric_time
 

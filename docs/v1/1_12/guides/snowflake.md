@@ -1,5 +1,12 @@
 # Quickstart for dbt and Snowflake
 
+> **Using this guide with an AI assistant**
+>
+> * In the first reply, confirm the reader's prerequisites and connection path before listing steps. Then give one step per reply and confirm its success check before continuing.
+> * This guide uses dbt platform. Don't switch the reader to a local setup. If the reader wants to set up dbt locally, use the <https://docs.getdbt.com/guides/dbt> guide instead
+> * Never ask for passwords or keys in chat.
+> * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=snowflake-qs>
+
 [Back to guides](https://docs.getdbt.com/guides)
 
 
@@ -159,6 +166,8 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
 
    Report incorrect code
 
+You should see rows returned for all three queries. If a `create` or `copy into` statement fails with an insufficient privileges error, check that your Snowflake trial uses the **Enterprise** edition and that you're using the `ACCOUNTADMIN` role. Continue when all three tables return data.
+
 ## Connect dbt to Snowflake
 
 There are two ways to connect dbt to Snowflake. The first option is Partner Connect, which provides a streamlined setup to create your dbt account from within your new Snowflake trial account. The second option is to create your dbt account separately and build the Snowflake connection yourself (connect manually). If you want to get started quickly, dbt Labs recommends using Partner Connect. If you want to customize your setup from the very beginning and gain familiarity with the dbt setup flow, dbt Labs recommends connecting manually.
@@ -196,6 +205,8 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 ![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")dbt - Snowflake Project Overview
 
 ![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")dbt - Update Database and Warehouse
+
+You should now be logged into dbt with a project that has a Snowflake connection using the `analytics` database and `transforming` warehouse. Partner Connect also created a managed repository for you, so skip to [Initialize your dbt project and start developing](#initialize-your-dbt-project-and-start-developing).
 
 ### Connect manually
 
@@ -243,7 +254,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 
-12. If the test succeeded, click **Save** to complete the configuration. If it failed, you may need to check your Snowflake settings and credentials.
+12. If the test succeeded, click **Save** to complete the configuration. If it failed, check your Snowflake settings and credentials. The most common cause is an **Account** value that still includes `snowflakecomputing.com`.
 
 ## Set up a dbt managed repository
 
@@ -280,7 +291,7 @@ Now that you have a repository configured, you can initialize your project and s
 
      Report incorrect code
 
-   * In the command line bar at the bottom, enter `dbt run` and click **Enter**. You should see a `dbt run succeeded` message.
+   * In the command line bar at the bottom, enter `dbt run` and click **Enter**. You should see a `dbt run succeeded` message. If you get an insufficient privileges error, follow the steps in the next note before continuing.
 
 info
 
@@ -727,7 +738,7 @@ Sources make it possible to name and describe the data loaded into your warehous
 
    Report incorrect code
 
-5. Execute `dbt run`.
+5. Execute `dbt run`. You should see a successful run that includes `stg_customers`, `stg_orders`, and `customers`.
 
    The results of your `dbt run` will be exactly the same as the previous step. Your `stg_customers` and `stg_orders` models will still query from the same raw data source in Snowflake. By using `source`, you can test and document your raw data and also understand the lineage of your sources.
 
@@ -1007,7 +1018,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
 3. In the modal window, name your new branch `add-customers-model`. This branches off from your primary branch with your new changes.
-4. Add a commit message, such as "Add customers model, tests, docs" and and commit your changes.
+4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
 **If you created a new branch before editing:**

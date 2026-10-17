@@ -66,7 +66,7 @@ When you set `external_volume` to `SNOWFLAKE_MANAGED`, dbt omits `base_location`
 
 First, configure a catalog with `type: horizon` in `catalogs.yml`:
 
-##### New spec (beta)
+##### (Applies to dbt v1.99 and earlier) New spec (beta)
 
 catalogs.yml
 
@@ -75,7 +75,7 @@ catalogs.yml
 catalogs:
   - name: my_horizon_catalog
     type: horizon
-    table_format: iceberg  # optional - default
+    table_format: iceberg
     config:
       snowflake:
         # optional - specify additional Snowflake-specific configurations
@@ -148,7 +148,7 @@ After you create the external catalog integration, you can do two things:
 
 Now, we can configure that external catalog in `catalogs.yml`. Here is an example for an AWS Glue catalog:
 
-#### New spec (beta)
+#### (Applies to dbt v1.99 and earlier) New spec (beta)
 
 catalogs.yml
 

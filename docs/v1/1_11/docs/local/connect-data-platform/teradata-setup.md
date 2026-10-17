@@ -214,7 +214,7 @@ For using cross-DB macros, teradata-utils as a macro namespace will not be used,
 
 ##### datediff
 
-`datediff` macro in teradata supports difference between dates. Differece between timestamps is not supported.
+`datediff` macro in teradata supports difference between dates. Difference between timestamps is not supported.
 
 ##### hash
 

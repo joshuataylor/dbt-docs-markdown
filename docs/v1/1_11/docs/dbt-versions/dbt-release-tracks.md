@@ -2,15 +2,11 @@
 
 dbt platform
 
-Since May 2024, new capabilities in the dbt framework are delivered continuously to dbt. Your projects and environments are upgraded automatically on a cadence that you choose, depending on your dbt plan.
-
-Previously, customers would pin to a minor version of dbt v1, and receive only patch updates during that specific version's active support period. Release tracks ensure that your project stays up-to-date with the modern capabilities of dbt and recent versions of dbt v1.
-
-This will require you to make one final update to your current jobs and environments. When that's done, you'll never have to think about managing, coordinating, or upgrading dbt versions again.
-
-By moving your environments and jobs to release tracks you can get all the functionality in dbt as soon as it's ready. On the **v1 Latest** release track, this includes access to features *before* they're available in final releases of dbt v1 OSS.
+New capabilities in the dbt framework are delivered continuously to dbt platform. Your projects and environments are upgraded automatically on a cadence that you choose, depending on your dbt plan.
 
 ## Which release tracks are available?
+
+The release tracks available for your project vary depending on the major version of dbt.
 
 ### dbt v2 release tracks
 
@@ -34,6 +30,14 @@ The dbt platform has four dbt v2 release tracks available to give you control ov
 | **v1 Extended**   | The previous month's **v1 Compatible** release.                                                                                                                                                                                                                                                                  | Enterprise, Enterprise+          | `extended`   |
 | **v1 Fallback**   | The previous month's **v1 Extended** release.                                                                                                                                                                                                                                                                    | Enterprise+                      | `fallback`   |
 
+### API release tracks
+
+API naming differences
+
+API release track names differ from the names in the UI. They still use legacy names. We plan to add aliases for the new names soon. We'll notify customers when those are available and update this page.
+
+Names prefixed with `fusion` are for v2. Names without that prefix are for v1.
+
 To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest) to use a release track, set `dbt_version` to the release track name:
 
 * `fusion-nightly`
@@ -45,6 +49,8 @@ To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or 
 * `extended`
 
 ## Which release track should I choose?
+
+We recommend that all new projects run dbt v2. Projects still on v1 release tracks are eligible for upgrade to v2 and projects on legacy versions of v1.x should [migrate to release tracks](../../guides/migrate-off-legacy-dbt-versions.md).
 
 ### Choosing a dbt v2 release track
 
@@ -126,35 +132,22 @@ Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to h
 
 ### How to upgrade
 
-If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt v1, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt platform CLI and do your development work as usual. Everything should work as you expect.
+If you're running a deprecated version of dbt, we recommend that you upgrade or delete your project. For more information about the right path for you, refer to [Migrate off legacy dbt versions](../../guides/migrate-off-legacy-dbt-versions.md).
 
-If you do see something unexpected or surprising, revert back to the previous version and record the differences you observed. [Contact dbt support](../dbt-support.md#dbt-cloud-support) with your findings for a more detailed investigation.
-
-Next, we recommend that you try upgrading your project’s [deployment environment](./upgrade-dbt-platform-version.md#environments). If your project has a [staging deployment environment](../deploy/deploy-environments.md#staging-environment), upgrade and try working with it for a few days before you proceed with upgrading the production environment.
-
-If your organization has multiple dbt projects, we recommend starting your upgrade with projects that are smaller, newer, or more familiar for your team. That way, if you do encounter any issues, it'll be easier and faster to troubleshoot those before proceeding to upgrade larger or more complex projects.
+We recommend you start upgrading projects that are smaller, newer, or more familiar for your team first. They'll be faster and easier to troubleshoot and enable you to more efficiently migrate complex projects.
 
 ### Considerations
 
 To learn more about how dbt Labs deploys stable dbt upgrades in a safe manner to dbt, we recommend that you read our blog post: [How we're making sure you can confidently switch to the "Latest" release track in dbt](https://docs.getdbt.com/blog/latest-dbt-stability).
 
-If you're running dbt version 1.6 or older, please know that your version of dbt v1 has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
-
-dbt Labs has extended the critical support period of dbt v1.7 for dbt Enterprise-tier customers to March 2025. At that point, we will be encouraging all customers to select a Release Track for ongoing updates in dbt.
-
  I'm using an older version of dbt in the dbt platform. What should I do? What happens if I do nothing?
 
-If you're running dbt version v1.6 or older, please know that your version of dbt v1 has reached [end-of-life (EOL)](../dbt-versions.md#eol-version-support) and is no longer supported. We strongly recommend that you update to a newer version as soon as reasonably possible.
-
-dbt Labs has extended the "Critical Support" period of dbt v1.7 for dbt Enterprise-tier customers while we work through the migration with those customers to Release Tracks. In the meantime, this means that v1.7 will continue to be accessible in dbt for Enterprise customers, jobs and environments on v1.7 for those customers will not be automatically migrated to "Latest," and dbt Labs will continue to fix critical bugs and security issues.
-
-Starting in October 2024, dbt accounts on the Developer and Starter (formerly Teams) plans have been migrated to release tracks from older dbt v1 versions. If your account was migrated to the **v1 Latest** release track and you notice new failures in scheduled jobs, please [contact dbt support](../dbt-support.md#dbt-cloud-support) to report the problem or request an extension.
+If you're on version v1.3-v1.7, you need to follow the path for your project(s) as outlined in [Migrate off legacy versions](../../guides/migrate-off-legacy-dbt-versions.md). If you have not migrated by January 31, 2027, you will lose access to these projects. If you have any questions or concerns, please [contact support](../dbt-support.md)
 
  What are other known issues when upgrading from older v1 versions?
 
 If you are upgrading from a very old unsupported version of dbt v1, you may run into one of these edge cases after the upgrade to a newer version:
 
-* \[v1.1] Customers on BigQuery should be aware that dbt sets a default [per-model timeout](../local/connect-data-platform/bigquery-setup.md#job_execution_timeout_seconds) of 5 minutes. You may override this config in your connection details. Older versions of dbt (including v1.0) did not appropriately respect this timeout configuration.
 * \[v1.3] Customers with non-dbt `.py` files defined within their project directories, such as `models/`. Since v1.3, dbt expects these files be valid [Python models](../build/python-models.md). The customer needs to move these files out of their `models/` directory, or ignore them via `.dbtignore`
 * \[v1.5] Customers who have `--m` in their job definitions, instead of `-m` or `--models`. This autocompletion (`--m[odels]` for `--models`) has never been officially documented or supported. It was an implicit behavior of argparse (CLI library used in dbt-core v1.0-1.4) that is not supported by `click` (the CLI library used in dbt-core since v1.5+).
 * \[v1.5] Empty invalid `tests` config start raising a validation error]\(/docs/dbt-versions/dbt-upgrade/Older%20versions/upgrading-to-v1.5). Replace empty `tests` config with `tests: []` or remove it altogether.
@@ -179,5 +172,3 @@ If you upgrade to the **v1 Latest** release track, and immediately see something
 If you’re already on the **v1 Latest** release track, and you observe a breaking change (like something worked yesterday, but today it isn't working, or works in a surprising/different way), please [contact support](../dbt-support.md#dbt-cloud-support) immediately. Depending on your contracted support agreement, the dbt Labs team will respond within our SLA time and we would seek to roll back the change and/or roll out a fix (just as we would for any other part of dbt). This is the same whether or not the root cause of the breaking change is in the project code or in the code of a package.
 
 If the package you’ve installed relies on *undocumented* functionality of dbt, it doesn't have the same guarantees as functionality that we’ve documented and tested. However, we will still do our best to avoid breaking them.
-
-If you have comments or concerns, we’re happy to help. If you’re an existing dbt customer, you may reach out to your account team or [contact support](../dbt-support.md#dbt-cloud-support).

@@ -109,13 +109,13 @@ To set up a Redshift profile using IAM Authentication, set the `method` paramete
 
 If you receive the "You must specify a region" error when using IAM Authentication, then your aws credentials are likely misconfigured. Try running `aws configure` to set up AWS access keys, and pick a default region. If you have any questions, please refer to the official AWS documentation on [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
-| Profile field | Example     | Description                                                                     |
-| ------------- | ----------- | ------------------------------------------------------------------------------- |
-| `method`      | IAM         | use IAM to authenticate via IAM User authentication                             |
-| `iam_profile` | analyst     | dbt will use the specified profile from your \~/.aws/config file                |
-| `cluster_id`  | cluster\_id | Required for IAM authentication only for provisoned cluster, not for Serverless |
-| `user`        | username    | User querying the database, ignored for Serverless (but field still required)   |
-| `region`      | us-east-1   | Region of your Redshift instance                                                |
+| Profile field | Example     | Description                                                                      |
+| ------------- | ----------- | -------------------------------------------------------------------------------- |
+| `method`      | IAM         | use IAM to authenticate via IAM User authentication                              |
+| `iam_profile` | analyst     | dbt will use the specified profile from your \~/.aws/config file                 |
+| `cluster_id`  | cluster\_id | Required for IAM authentication only for provisioned cluster, not for Serverless |
+| `user`        | username    | User querying the database, ignored for Serverless (but field still required)    |
+| `region`      | us-east-1   | Region of your Redshift instance                                                 |
 
 #### Example profiles.yml for IAM
 

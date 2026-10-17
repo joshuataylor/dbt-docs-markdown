@@ -22,8 +22,8 @@ When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-s
 * **Log in with your dbt platform account**
 
   * In dbt v2, the CLI prompts you before writing to `user_settings.yml`.
-
-  - Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
+  * In dbt v1.13, dbt writes `manage_state: true` automatically. If you previously set `manage_state: false`, the CLI prompts you before overwriting it.
+  * Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
 
 If `user_settings.yml` already contains a value, [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state) prompts you before overwriting it.
 

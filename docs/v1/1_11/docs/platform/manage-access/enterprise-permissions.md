@@ -202,13 +202,12 @@ Notable features:
 
  Job creator
 
-Job creator is a scoped project-level permission set for users who need to create, edit, and run jobs within assigned projects and environments without broader administrative access.
+Job creator is a scoped project-level permission set for users who need to manage jobs within assigned projects without broader administrative access.
 
 Notable features:
 
 * Job creator is a project-level set.
-* Can create, edit, and run jobs within assigned projects and environments.
-* Read-only access to environments, environment variables, and related project settings needed to configure jobs.
+* Can create, edit, and run jobs in environment types where the group has [environment write access](./environment-permissions-setup.md). Without write access, job and run actions are read-only.
 * Cannot create or delete environments or edit environment variables.
 * More limited than [Job admin](#job-admin), which can edit environments, environment variables, and data platform configurations.
 
@@ -339,7 +338,7 @@ Permissions:
 
 note
 
-Some permissions sets have read-only access to environment settings that can be overriden with more privileged access if the user is assigned to a group with [Environment write access](./about-user-access.md#environment-write-access) configured.
+Some permissions sets have read-only access to environment settings that can be overridden with more privileged access if the user is assigned to a group with [Environment write access](./about-user-access.md#environment-write-access) configured.
 
 ### Account permissions
 
@@ -440,12 +439,12 @@ Key:
 | Develop (IDE or CLI)        | W     | W       | -                  | -                   | -                    | -              | W         | -                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
 | Environments                | W     | R       | R                  | -                   | -                    | R              | R         | -                  | R         | W         | R           | -          | R          | -                             | -              | R                     | R          |
 | dbt v2 upgrade              | -     | -       | -                  | -                   | -                    | -              | -         | W                  | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
-| Jobs                        | W     | R\*     | -                  | R                   | R                    | R\*            | R\*       | -                  | R\*       | W         | W           | R          | R          | -                             | -              | R                     | R\*        |
+| Jobs                        | W     | R\*     | -                  | R                   | R                    | R\*            | R\*       | -                  | R\*       | W         | R\*         | R          | R          | -                             | -              | R                     | R\*        |
 | Metadata GraphQL API access | R     | R       | R                  | R                   | R                    | R              | R         | -                  | R         | R         | R           | -          | R          | R                             | -              | R                     | R          |
 | Permissions                 | W     | -       | -                  | -                   | -                    | R              | R         | -                  | R         | -         | -           | -          | -          | -                             | -              | -                     | R          |
 | Projects                    | W     | R       | R                  | R                   | R                    | W              | R         | -                  | W         | R         | R           | -          | R          | -                             | -              | R                     | W          |
 | Repositories                | W     | R       | R                  | -                   | -                    | R              | R         | -                  | W         | -         | R           | -          | -          | -                             | -              | R                     | R          |
-| Runs                        | W     | R\*     | -                  | -                   | -                    | R\*            | R\*       | -                  | R\*       | W         | W           | W          | R          | -                             | -              | R                     | R\*        |
+| Runs                        | W     | R\*     | -                  | -                   | -                    | R\*            | R\*       | -                  | R\*       | W         | R\*         | W          | R          | -                             | -              | R                     | R\*        |
 | Semantic Layer config       | W     | R       | R                  | -                   | -                    | W              | R         | -                  | R         | R         | R           | -          | -          | -                             | W              | R                     | R          |
 
 \*These permissions are `R`ead-only by default, but may be changed to `W`rite with [environment permissions](./environment-permissions.md#environments-and-roles).

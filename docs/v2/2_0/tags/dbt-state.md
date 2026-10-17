@@ -66,10 +66,6 @@ Step-by-step guide for migrating from state-aware orchestration to dbt State.
 
 Learn how to monitor dbt State activity in dbt platform for better visibility into model builds and cost savings.
 
-## [Non-interactive environment setup for dbt State](../docs/deploy/dbt-state-cicd.md)
-
-Learn how to configure dbt State authentication for CI/CD and other non-interactive environments using service tokens or OAuth client credentials.
-
 ## [pre\_clone](../reference/resource-configs/pre-clone.md)
 
 Configure when dbt State pre-populates incremental models and snapshots in dev by cloning their production counterparts.
@@ -77,6 +73,10 @@ Configure when dbt State pre-populates incremental models and snapshots in dev b
 ## [require\_fresh\_data\_from](../reference/resource-configs/require-fresh-data-from.md)
 
 Configure how many direct parent nodes need fresh data before a node is rebuilt by dbt State.
+
+## [Setting up authentication for non-interactive environments](../docs/deploy/dbt-state-cicd.md)
+
+Learn how to configure dbt State authentication for CI/CD and other non-interactive environments using service tokens.
 
 ## [Setting up dbt State](../docs/deploy/dbt-state-setup.md)
 

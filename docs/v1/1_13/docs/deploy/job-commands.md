@@ -1,0 +1,110 @@
+# Job commands
+
+dbt platform
+
+A dbt production job allows you to set up a system to run a dbt job and job commands on a schedule, rather than running dbt commands manually from the command line or [Studio IDE](../platform/studio-ide/develop-in-studio.md). A job consists of commands that are "chained" together and executed as run steps. Each run step can succeed or fail, which may determine the job's run status (Success, Cancel, or Error).
+
+Each job allows you to:
+
+* Configure job commands
+* View job run details, including timing, artifacts, and detailed run steps
+* Access logs to view or help debug issues and historical invocations of dbt
+* Set up notifications, and [more](./deployments.md#dbt-cloud)
+
+## Job command types
+
+Job commands are specific tasks executed by the job, and you can configure them seamlessly by either adding [dbt commands](../../reference/dbt-commands.md) or using the checkbox option in the **Commands** section.
+
+During a job run, the commands are "chained" together and executed as run steps. When you add a dbt command in the **Commands** section, you can expect different outcomes compared to the checkbox option.
+
+![Configuring checkbox and commands list](/img/docs/dbt-platform/using-dbt-platform/job-commands.gif?v=2 "Configuring checkbox and commands list")Configuring checkbox and commands list
+
+### Built-in commands
+
+Every job invocation automatically includes the [`dbt deps`](../../reference/commands/deps.md) command, meaning you don't need to add it to the **Commands** list in your job settings. You will also notice every job will include a run step to reclone your repository and connect to your data platform, which can affect your job status if these run steps aren't successful.
+
+**Job outcome** — During a job run, the built-in commands are "chained" together. This means if one of the run steps in the chain fails, then the next commands aren't executed, and the entire job fails with an "Error" job status.
+
+![A failed job that had an error during the dbt deps run step.](/img/docs/dbt-platform/using-dbt-platform/fail-dbtdeps.png?v=2 "A failed job that had an error during the dbt deps run step.")A failed job that had an error during the dbt deps run step.
+
+(Applies to dbt v1.99 and earlier)
+
+### Checkbox commands
+
+For every job, you have the option to select the [Generate docs on run](../explore/build-and-view-your-docs.md) or [Run source freshness](./source-freshness.md) checkboxes, enabling you to run the commands automatically.
+
+**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command, *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. Read [Set up a documentation job](../explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
+
+**Run source freshness** checkbox — dbt executes the `dbt source freshness` command as the first run step in your job. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. Read [Source freshness](./source-freshness.md) for more information.
+
+### Command list
+
+You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt v1" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt v1 or dbt CLI, and not in Studio IDE.
+
+Using selectors
+
+Use [selectors](../../reference/node-selection/syntax.md) as a powerful way to select and execute portions of your project in a job run. For example, to run tests for `one_specific_model`, use the selector: `dbt test --select one_specific_model`. The job will still run if a selector doesn't match any models.
+
+#### Compare changes custom commands
+
+For users that have Advanced CI's [compare changes](./advanced-ci.md#compare-changes) feature enabled and selected the **dbt compare** checkbox, you can add custom dbt commands to optimize running the comparison (for example, to exclude specific large models, or groups of models with tags). Running comparisons on large models can significantly increase the time it takes for CI jobs to complete.
+
+![Add custom dbt commands to when using dbt compare.](/img/docs/deploy/dbt-compare.jpg?v=2 "Add custom dbt commands to when using dbt compare.")Add custom dbt commands to when using dbt compare.
+
+The following examples highlight how you can customize the dbt compare command box:
+
+* Exclude the large `fct_orders` model from the comparison to run a CI job on fewer or smaller models and reduce job time/resource consumption. Use the following command:
+
+  ```sql
+  --select state:modified --exclude fct_orders
+  ```
+
+  Report incorrect code
+
+* Exclude models based on tags for scenarios like when models share a common feature or function. Use the following command:
+
+  ```sql
+     --select state:modified --exclude tag:tagname_a tag:tagname_b
+  ```
+
+  Report incorrect code
+
+* Include models that were directly modified and also those one step downstream using the `modified+1` selector. Use the following command:
+
+  ```sql
+  --select state:modified+1
+  ```
+
+  Report incorrect code
+
+#### Job outcome
+
+During a job run, the commands are "chained" together and executed as run steps. If one of the run steps in the chain fails, then the subsequent steps aren't executed, and the job will fail.
+
+In the following example image, the first four run steps are successful. However, if the fifth run step (`dbt run --select state:modified+ --full-refresh --fail-fast`) fails, then the next run steps aren't executed, and the entire job fails. The failed job returns a non-zero [exit code](../../reference/exit-codes.md) and "Error" job status:
+
+![A failed job run that had an error during a run step](/img/docs/dbt-platform/using-dbt-platform/skipped-jobs.png?v=2 "A failed job run that had an error during a run step")A failed job run that had an error during a run step
+
+## Job command failures
+
+Job command failures can mean different things for different commands. Some common reasons why a job command may fail:
+
+* **Failure at `dbt run`** — [`dbt run`](../../reference/commands/run.md) executes compiled SQL model files against the current target database. It will fail if there is an error in any of the built models. By default, if a model fails, its downstream models are also skipped. In dbt v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run despite the failure.
+
+* **Failure at `dbt test`** — [`dbt test`](../../reference/commands/test.md) runs tests defined on models, sources, snapshots, and seeds. A test can pass, fail, or warn depending on its [severity](../../reference/resource-configs/severity.md). Unless you set [warnings as errors](../../reference/global-configs/warnings.md), only an error fails the command. Tests on upstream resources prevent downstream resources from running and a failed test will skip them.
+
+* **Failure at `dbt build`** — [`dbt build`](../../reference/commands/build.md) runs models, tests, snapshots, and seeds. This command executes resources in the DAG-specified order. If any upstream resource fails, all downstream resources are skipped, and the command exits with an error code of `1`. In dbt v1.12+, you can set [`on_error: continue`](../../reference/resource-configs/on_error.md) on a model to allow its downstream models to still attempt to run when that model fails.
+
+* **Selector failures**
+
+  * If a [`select`](../../reference/node-selection/set-operators.md) matches multiple nodes and one of the nodes fails, then the job will have an exit code `1` and the subsequent command will fail. If you specified the [`--fail-fast`](../../reference/global-configs/failing-fast.md) flag, then the first failure will stop the entire connection for any models that are in progress.
+
+  * If a selector doesn't match any nodes, it's not considered a failure.
+
+## Related docs
+
+* [Job creation best practices](https://discourse.getdbt.com/t/job-creation-best-practices-in-dbt-cloud-feat-my-moms-lasagna/2980)
+* [dbt Command reference](../../reference/dbt-commands.md)
+* [Job notifications](./job-notifications.md)
+* [Source freshness](./source-freshness.md)
+* [Build and view your docs](../explore/build-and-view-your-docs.md)

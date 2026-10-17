@@ -96,7 +96,7 @@ You can send dbt job [notification emails](#configure-email-notifications) direc
 
 You can receive Slack alerts about jobs by setting up the Slack integration and then configuring the dbt Slack notification settings. dbt integrates with Slack via OAuth to ensure secure authentication.
 
-This is the current Slack integration available for all users and set at the user level, not to be confused with the [Slack notifications at the account level](#slack-notifications-account) feature.
+This Slack integration is set at the user level, not to be confused with the [Slack notifications at the account level](#slack-notifications-account) feature.
 
 note
 
@@ -192,7 +192,7 @@ IT licenses can receive job notifications but can't [configure them](../platform
 
 The account-level Slack integration uses the official dbt platform Slack app, which is separate from the [user-linked Slack integration](#slack-notifications).
 
-To use Slack notifications, you must unlink the old Slack app and then connect the new official app:
+To use Slack notifications, you must unlink the old Slack app and then connect the official app:
 
 1. Go to **Account settings** > **Integrations** > **OAuth**.
 2. Click the **X** icon next to Slack and select **Unlink**.
@@ -351,6 +351,21 @@ dbt will now add the **dbt-cloud-integration app** to your Microsoft Entra tenan
   * `ChannelMessage.Send`
   * `ChannelMessage.Read.All`
   * `Channel.ReadBasic.All`
+
+info
+
+The `dbt-cloud-integration` app is a multi-tenant Microsoft Entra app that dbt Labs already owns. You don't need to pre-register anything in your tenant. Approving the consent prompt during **Link** registers the app as an Enterprise Application in your tenant. This follows the same pattern as other multi-tenant SaaS apps, for example Slack or Zoom.
+
+### Troubleshooting the Teams link
+
+If the **Link** flow fails with `AADSTS90094: Admin consent is required`, your Microsoft Entra tenant restricts user consent for third-party apps.
+
+To resolve this, have an Entra admin (Cloud Application Administrator or Global Administrator) do one of the following:
+
+* Complete the **Link** step themselves and approve the consent prompt.
+* Grant admin consent for the `dbt-cloud-integration` app from **Enterprise applications** in the Entra admin center.
+
+After admin consent is granted, retry the **Link** flow in dbt platform. For more information, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/answers/questions/5637987/corporate-account-apps-registration-error-aadsts90).
 
 ### Configure Teams notifications
 

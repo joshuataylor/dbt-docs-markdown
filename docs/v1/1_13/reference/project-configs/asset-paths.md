@@ -1,0 +1,55 @@
+# asset-paths
+
+dbt\_project.yml
+
+```yml
+asset-paths: [directorypath]
+```
+
+Report incorrect code
+
+## Definition
+
+Optionally specify a custom list of directories to copy to the `target` directory as part of the `docs generate` command. This is useful for rendering images in your repository in your project documentation.
+
+## Default
+
+By default, dbt will not copy any additional files as part of docs generate. For example, `asset-paths: []`.
+
+Paths specified in `asset-paths` must be relative to the location of your `dbt_project.yml` file. Avoid using absolute paths like `/Users/username/project/assets`, as it will lead to unexpected behavior and outcomes.
+
+* ✅ **Do**
+
+  * Use relative path:
+
+    ```yml
+    asset-paths: ["assets"]
+    ```
+
+    Report incorrect code
+
+* ❌ **Don't**
+
+  * Avoid absolute paths:
+
+    ```yml
+    asset-paths: ["/Users/username/project/assets"]
+    ```
+
+    Report incorrect code
+
+## Examples
+
+### Compile files in the `assets` subdirectory as part of `docs generate`
+
+dbt\_project.yml
+
+```yml
+asset-paths: ["assets"]
+```
+
+Report incorrect code
+
+Any files included in this directory will be copied to the `target/` directory as part of `dbt docs generate`, making them accessible as images in your project documentation.
+
+Check out the full writeup on including images in your descriptions [here](../resource-properties/description.md#include-an-image-from-your-repo-in-your-descriptions).

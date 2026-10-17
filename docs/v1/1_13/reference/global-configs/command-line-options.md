@@ -1,0 +1,127 @@
+# Command line options
+
+For consistency, command-line interface (CLI) flags should come right after the `dbt` prefix and its subcommands. This includes "global" flags (supported for all commands). For the full list of global CLI options for dbt v1 or dbt v2 (depending on your [selected docs version](../../docs/dbt-versions.md)), refer to [Available flags](./about-global-configs.md#available-flags). When set, CLI flags override [environment variables](./environment-variable-configs.md) and [project flags](./project-flags.md).
+
+For example, instead of using:
+
+```bash
+dbt --no-populate-cache run
+```
+
+Report incorrect code
+
+You should use:
+
+```bash
+dbt run --no-populate-cache
+```
+
+Report incorrect code
+
+Historically, passing flags (such as "global flags") *before* the subcommand is a legacy functionality that dbt Labs can remove at any time. We do not support using the same flag before and after the subcommand.
+
+## Using boolean and non-boolean flags
+
+You can construct your commands with boolean flags to enable or disable or with non-boolean flags that use specific values, such as strings.
+
+### Non-boolean config
+
+Use this non-boolean config structure:
+
+* Replacing `<SUBCOMMAND>` with the command this config applies to.
+* `<THIS-CONFIG>` with the config you are enabling or disabling, and
+* `<SETTING>` with the new setting for the config.
+
+CLI flags
+
+```text
+
+<SUBCOMMAND> --<THIS-CONFIG>=<SETTING> 
+```
+
+Report incorrect code
+
+### Example
+
+CLI flags
+
+```text
+
+dbt run --printer-width=80 
+dbt test --indirect-selection=eager
+```
+
+Report incorrect code
+
+### Boolean config
+
+To enable or disable boolean configs:
+
+* Use `<SUBCOMMAND>` this config applies to.
+* Followed by `--<THIS-CONFIG>` to turn it on, or `--no-<THIS-CONFIG>` to turn it off.
+* Replace `<THIS-CONFIG>` with the config you are enabling or disabling
+
+CLI flags
+
+```text
+dbt <SUBCOMMAND> --<THIS-CONFIG> 
+dbt <SUBCOMMAND> --no-<THIS-CONFIG> 
+```
+
+Report incorrect code
+
+### Example
+
+CLI flags
+
+```text
+
+dbt run --version-check
+dbt run --no-version-check 
+```
+
+Report incorrect code
+
+## Config precedence
+
+There are multiple ways of setting flags, which depend on the use case:
+
+* **[CLI options](./command-line-options.md):** Define behavior specific to *this invocation*. Supported for all dbt commands.
+* **[Environment variables](./environment-variable-configs.md):** Define different behavior in different runtime environments (development vs. production vs. [continuous integration](../../docs/deploy/continuous-integration.md)), or different behavior for different users in development (based on personal preferences).
+* **[Project-level `flags` in `dbt_project.yml`](./project-flags.md):** Define version-controlled defaults for everyone running this project. Also, opt in or out of [behavior changes](./behavior-changes.md) to manage your migration off legacy functionality.
+* **[User settings (`~/.dbt/user_settings.yml`)](./user-settings.md):** Define personal preferences that apply across all projects on your machine. Written automatically by `dbt login`.
+
+The most specific setting "wins." CLI options take the highest precedence, followed by environment variables, then `dbt_project.yml`, and finally `user_settings.yml`. If you set the flag in none of those places, it will use the default value defined within dbt.
+
+Most flags can be set in all three places:
+
+```yaml
+# dbt_project.yml
+flags:
+  # set default for running this project -- anywhere, anytime, by anyone
+  fail_fast: true
+```
+
+Report incorrect code
+
+(Applies to dbt v1.11 and later)
+
+```bash
+# set this environment variable to 'True' (bash syntax)
+export DBT_ENGINE_FAIL_FAST=1
+dbt run
+```
+
+Report incorrect code
+
+```bash
+dbt run --fail-fast # set to True for this specific invocation
+dbt run --no-fail-fast # set to False
+```
+
+Report incorrect code
+
+There are two categories of exceptions:
+
+1. **Flags setting file paths:** Flags for file paths that are relevant to runtime execution (for example, `--log-path` or `--state`) cannot be set in `dbt_project.yml`. To override defaults, pass CLI options or set environment variables ((Applies to dbt v1.11 and later) `DBT_ENGINE_LOG_PATH` and `DBT_ENGINE_STATE`). Flags that tell dbt where to find project resources (for example, `model-paths`) are set in `dbt_project.yml`, but as a top-level key, outside the `flags` dictionary; these configs are expected to be fully static and never vary based on the command or execution environment.
+2. **Opt-in flags:** Flags opting in or out of [behavior changes](./behavior-changes.md) can *only* be defined in `dbt_project.yml`. These are intended to be set in version control and migrated via pull/merge request. Their values should not diverge indefinitely across invocations, environments, or users.

@@ -95,14 +95,14 @@ Configure catalogs in order to:
 
 Notes:
 
-* Every Databricks catalog may optionally configure `table_format`. By default, this is set to `iceberg` for `catalog_type=unity`, and `default` for `hive_metastore`.
+* (Applies to dbt v2.0 and later) Every Databricks catalog configures `table_format`. `type: unity` requires `iceberg`, and `type: hive_metastore` requires `default`.
 * On Databricks, `catalog_name` takes precedence over the `catalog` config when determining the model's top-level namespace.
 
 ## Configure catalog integration for Iceberg tables
 
 1. Create a `catalogs.yml` at the top level of your dbt project. An example of Unity Catalog as the catalog:
 
-### New spec (beta)
+### (Applies to dbt v2.0 and later) New spec
 
 catalogs.yml
 
@@ -111,7 +111,7 @@ catalogs.yml
 catalogs:
   - name: unity_catalog
     type: unity
-    table_format: iceberg # optional
+    table_format: iceberg
     config:
       databricks:
         # optional

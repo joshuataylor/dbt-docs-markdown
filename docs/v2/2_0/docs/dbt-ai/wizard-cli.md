@@ -56,7 +56,7 @@ You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 New to the terminal?
 
-If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for for some helpful tips to help you get started!
+If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for some helpful tips to help you get started!
 
 ## Install and set up dbt Wizard CLI
 
@@ -97,6 +97,10 @@ wizard update
 ```
 
 Report incorrect code
+
+Prefer to learn by video?
+
+Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/dbt-wizard) on dbt Learn!
 
 ## Uninstall
 

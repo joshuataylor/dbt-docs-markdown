@@ -6,7 +6,7 @@ Available in v1
 
 * [dbt v1.12 changelog](https://github.com/dbt-labs/dbt/blob/1.12.latest/CHANGELOG.md)
 * [dbt v1 CLI Installation guide](../../local/install-dbt.md)
-* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#release-tracks)
+* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
@@ -146,6 +146,8 @@ You can read more about each of these behavior changes in the following links:
 ## Adapter-specific features and functionalities
 
 ### Snowflake
+
+* You can materialize a model as a Snowflake [interactive table](../../../reference/resource-configs/snowflake-configs.md#interactive-tables) by setting `materialized: interactive_table`. Interactive tables are optimized for low-latency queries and support both static and dynamic (auto-refreshing) forms, depending on whether you set [`target_lag`](../../../reference/resource-configs/snowflake-configs.md#target-lag-interactive-tables). Unlike dynamic tables, [`cluster_by`](../../../reference/resource-configs/snowflake-configs.md#cluster-by-interactive-tables) is required. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 * You can use the [`snowflake.quote_args`](../../../reference/resource-configs/quote_args.md) config on JavaScript UDFs to control whether argument names are quoted in the generated `CREATE FUNCTION` statement. When `true` (default), Snowflake quotes argument names, preserving their exact casing, so you reference arguments using the same case as defined in the YAML inside the function body. When `false`, argument names are unquoted and Snowflake uppercases them, so you must reference them in uppercase inside the function body.
 

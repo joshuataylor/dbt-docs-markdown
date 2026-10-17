@@ -6,7 +6,7 @@ Available in v1
 
 * dbt [v1.10 changelog](https://github.com/dbt-labs/dbt/blob/1.10.latest/CHANGELOG.md)
 * [dbt v1 CLI Installation guide](../../local/install-dbt.md)
-* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#release-tracks)
+* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 
@@ -122,7 +122,7 @@ Check out our [docs on external catalog support](../../build/iceberg/about-catal
 With [hybrid projects](../../deploy/hybrid-projects.md), dbt v1 users working in the command line interface (CLI) can execute runs that seamlessly upload [artifacts](../../../reference/artifacts/dbt-artifacts.md) into dbt. This enhances hybrid dbt v1/dbt deployments by:
 
 * Fostering collaboration between dbt + dbt v1 users by enabling them to visualize and perform [cross-project references](../../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to models defined in dbt v1 projects. This feature unifies dbt + dbt v1 workflows for a more connected dbt experience.
-* Giving dbt and dbt v1 users insights into their models and assets in [Catalog](../../explore/explore-projects.md). To view Catalog, you must have have a [developer or read-only license](../../platform/manage-access/seats-and-users.md).
+* Giving dbt and dbt v1 users insights into their models and assets in [Catalog](../../explore/explore-projects.md). To view Catalog, you must have a [developer or read-only license](../../platform/manage-access/seats-and-users.md).
 * (Coming soon) Enabling users working in the [Canvas](../../platform/canvas.md) to build off of models already created by a central data team in dbt v1 rather than having to start from scratch.
 
 Hybrid projects are available as a private beta to [dbt Enterprise accounts](https://www.getdbt.com/pricing). Contact your account representative to register your interest in the beta.
@@ -171,7 +171,7 @@ Report incorrect code
 
 dbt detects the unrecognized custom property (`dbt_is_awesome`) and silently continues. Without a set of strictly defined inputs, it becomes challenging to validate your project's configuration. This creates unintended issues such as:
 
-* Silently ignoring misspelled properties and configurations (for example, `desciption:` instead of `description:`).
+* Silently ignoring misspelled properties and configurations (for example, `description:` instead of `description:`).
 * Unintended collisions with user code when dbt introduces a new “reserved” property or configuration.
 
 If you have an unrecognized custom property, you will receive a warning, and in a future version, dbt will cease to support custom properties. Moving forward, these should be nested under the [`meta` config](../../../reference/resource-configs/meta.md), which will be the only place to put custom user-defined attributes:

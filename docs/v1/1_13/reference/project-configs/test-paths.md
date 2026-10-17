@@ -1,0 +1,54 @@
+# test-paths
+
+dbt\_project.yml
+
+```yml
+test-paths: [directorypath]
+```
+
+Report incorrect code
+
+## Definition
+
+Optionally specify a custom list of directories where [singular tests](../../docs/build/data-tests.md#singular-data-tests) and [custom generic tests](../../docs/build/data-tests.md#generic-data-tests) are located.
+
+## Default
+
+Without specifying this config, dbt will search for tests in the `tests` directory, i.e. `test-paths: ["tests"]`. Specifically, it will look for `.sql` files containing:
+
+* Generic test definitions in the `tests/generic` subdirectory
+* Singular tests (all other files)
+
+Paths specified in `test-paths` must be relative to the location of your `dbt_project.yml` file. Avoid using absolute paths like `/Users/username/project/test`, as it will lead to unexpected behavior and outcomes.
+
+* ✅ **Do**
+
+  * Use relative path:
+
+    ```yml
+    test-paths: ["test"]
+    ```
+
+    Report incorrect code
+
+* ❌ **Don't:**
+
+  * Avoid absolute paths:
+
+    ```yml
+    test-paths: ["/Users/username/project/test"]
+    ```
+
+    Report incorrect code
+
+## Examples
+
+### Use a subdirectory named `custom_tests` instead of `tests` for data tests
+
+dbt\_project.yml
+
+```yml
+test-paths: ["custom_tests"]
+```
+
+Report incorrect code

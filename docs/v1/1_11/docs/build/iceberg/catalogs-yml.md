@@ -35,11 +35,15 @@ You should start using `catalogs` when:
 * You want to write to multiple catalogs ("external" as well as built-in / managed)
 * You want to access the same catalog across multiple data platforms / dbt projects
 
+(Applies to dbt v1.99 and earlier)
+
 dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt v1.10; starting in dbt v1.12, we've introduced a new simpler spec (recommended) behind an opt-in behavior flag.
 
-### New spec (recommended) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### New spec (recommended) (Applies to dbt v1.99 and earlier) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 *Available in dbt v1.12+ (including v2). See GitHub discussion [dbt-labs/dbt#12723](https://github.com/dbt-labs/dbt/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
+
+(Applies to dbt v1.99 and earlier)
 
 To use the new spec, first set this behavior flag:
 
@@ -83,7 +87,7 @@ catalogs.yml
 ```yml
 catalogs:
   - name: finance_db
-    catalog_type: unity
+    type: unity
     config:
       snowflake:
         base_location_root: 's3://my-bucket/finance_db'

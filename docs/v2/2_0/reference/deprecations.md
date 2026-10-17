@@ -565,7 +565,7 @@ Nest your `window` and `time_to_grain` under the `cumulative_type_params` proper
 
 ### MFTimespineWithoutYamlConfigurationDeprecation
 
-Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine defintion](../docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
+Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine definition](../docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
 
 Example:
 
@@ -588,7 +588,7 @@ Define your MetricFlow timespine in [YAML](../docs/build/metricflow-time-spine.m
 
 ### MissingArgumentsPropertyInGenericTestDeprecation
 
-dbt has deprecated specifiying keyword arguments as properties on custom generic data tests or data tests that use the [alternative `test_name` format](./resource-properties/data-tests.md#alternative-format-for-defining-tests). Instead, arguments to tests should be specified under the new `arguments` property.
+dbt has deprecated specifying keyword arguments as properties on custom generic data tests or data tests that use the [alternative `test_name` format](./resource-properties/data-tests.md#alternative-format-for-defining-tests). Instead, arguments to tests should be specified under the new `arguments` property.
 
 This deprecation warning is only raised when the behavior flag `require_generic_test_arguments_property` is set to `true`.
 

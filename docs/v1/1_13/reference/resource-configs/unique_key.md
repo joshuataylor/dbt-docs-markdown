@@ -1,0 +1,201 @@
+# unique\_key
+
+unique\_key identifies records for incremental models or snapshots, ensuring changes are captured or updated correctly.
+
+## Models
+
+Configure the `unique_key` in the `config` block of your [incremental model's](../../docs/build/incremental-models.md) SQL file, in your `models/properties.yml` file, or in your `dbt_project.yml` file.
+
+models/my\_incremental\_model.sql
+
+```sql
+{{
+    config(
+        materialized='incremental',
+        unique_key='id'
+    )
+}}
+```
+
+Report incorrect code
+
+models/properties.yml
+
+```yaml
+models:
+  - name: my_incremental_model
+    description: "An incremental model example with a unique key."
+    config:
+      materialized: incremental
+      unique_key: id
+```
+
+Report incorrect code
+
+dbt\_project.yml
+
+```yaml
+name: jaffle_shop
+
+models:
+  jaffle_shop:
+    staging:
+      +unique_key: id
+```
+
+Report incorrect code
+
+## Snapshots
+
+(Applies to dbt v1.9 and later)
+
+For [snapshots](../../docs/build/snapshots.md), configure the `unique_key` in the your `snapshot/filename.yml` file or in your `dbt_project.yml` file.
+
+snapshots/\<filename>.yml
+
+```yaml
+snapshots:
+  - name: orders_snapshot
+    relation: source('my_source', 'my_table')
+    config:
+      unique_key: order_id
+```
+
+Report incorrect code
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  <resource-path>:
+    +unique_key: column_name_or_expression
+```
+
+Report incorrect code
+
+## Description
+
+A column name or expression that uniquely identifies each record in the inputs of a snapshot or incremental model. dbt uses this key to match incoming records to existing records in the target table (either a snapshot or an incremental model) so that changes can be captured or updated correctly:
+
+* In an incremental model, dbt replaces the old row (like a merge key or upsert).
+* In a snapshot, dbt keeps history, storing multiple rows for that same `unique_key` as it evolves over time.
+
+For best practices on choosing incremental models, snapshots, or both for change data capture, refer to [Choosing incremental models or snapshots](../../best-practices/how-we-handle-cdc/2-choosing-incremental-or-snapshots.md).
+
+In dbt **v1 Latest** release track and from dbt v1.9, [snapshots](../../docs/build/snapshots.md) are defined and configured in YAML files within your `snapshots/` directory. You can specify one or multiple `unique_key` values within your snapshot YAML file's `config` key.
+
+caution
+
+Providing a non-unique key will result in unexpected snapshot results. dbt **will not** test the uniqueness of this key, consider [testing](https://docs.getdbt.com/blog/primary-key-testing#how-to-test-primary-keys-with-dbt) the source data to ensure that this key is indeed unique.
+
+## Default
+
+This parameter is optional. If you don't provide a `unique_key`, your adapter will default to using `incremental_strategy: append`.
+
+If you leave out the `unique_key` parameter and use strategies like `merge`, `insert_overwrite`, `delete+insert`, or `microbatch`, the adapter will fall back to using `incremental_strategy: append`.
+
+This is different for BigQuery:
+
+* For `incremental_strategy = merge`, you must provide a `unique_key`; leaving it out leads to ambiguous or failing behavior.
+* For `insert_overwrite` or `microbatch`, `unique_key` is not required because they work by partition replacement rather than row-level upserts.
+
+## Examples
+
+### Use an `id` column as a unique key
+
+#### Models
+
+In this example, the `id` column is the unique key for an incremental model.
+
+models/my\_incremental\_model.sql
+
+```sql
+{{
+    config(
+        materialized='incremental',
+        unique_key='id'
+    )
+}}
+
+select * from ..
+```
+
+Report incorrect code
+
+#### Snapshots
+
+In this example, the `id` column is used as a unique key for a snapshot.
+
+(Applies to dbt v1.9 and later)
+
+snapshots/orders\_snapshot.yml
+
+```yaml
+snapshots:
+  - name: orders_snapshot
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      unique_key: id
+      strategy: timestamp
+      updated_at: updated_at
+```
+
+Report incorrect code
+
+You can also specify configurations in your `dbt_project.yml` file if multiple snapshots share the same `unique_key`:
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  <resource-path>:
+    +unique_key: id
+```
+
+Report incorrect code
+
+(Applies to dbt v1.9 and later)
+
+### Use multiple unique keys
+
+#### Models
+
+Configure multiple unique keys for an incremental model as a string representing a single column or a list of single-quoted column names that can be used together, for example, `['col1', 'col2', …]`.
+
+Columns must not contain null values, otherwise the incremental model will fail to match rows and generate duplicate rows. Refer to [Defining a unique key](../../docs/build/incremental-models.md#defining-a-unique-key-optional) for more information.
+
+models/my\_incremental\_model.sql
+
+```sql
+{{ config(
+    materialized='incremental',
+    unique_key=['order_id', 'location_id']
+) }}
+
+with...
+```
+
+Report incorrect code
+
+#### Snapshots
+
+You can configure snapshots to use multiple unique keys for `primary_key` columns.
+
+snapshots/transaction\_items\_snapshot.yml
+
+```yaml
+snapshots:
+  - name: orders_snapshot
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      unique_key: 
+        - order_id
+        - product_id
+      strategy: timestamp
+      updated_at: updated_at
+      
+```
+
+Report incorrect code

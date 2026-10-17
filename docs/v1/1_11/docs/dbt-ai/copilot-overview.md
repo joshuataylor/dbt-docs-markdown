@@ -38,7 +38,7 @@ Refer to [dbt AI usage](../platform/billing/dbt-ai-usage.md) for what counts as 
 
 You need dbt admin permissions to change account settings and configure providers. dbt Copilot is configured separately from dbt Wizard — for dbt Wizard providers, refer to [Manage AI features](../platform/manage-dbt-ai.md#configure-ai-provider).
 
-dbt Copilot supports fewer providers than dbt Wizard, including bring your own key (BYOK) on any plan:
+dbt Copilot supports fewer providers than dbt Wizard, including bring your own key (BYOK) on Starter, Enterprise, and Enterprise+ plans:
 
 * dbt Labs-managed OpenAI API key
 * BYOK OpenAI API key

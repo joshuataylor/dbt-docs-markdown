@@ -1,0 +1,57 @@
+# name
+
+dbt\_project.yml
+
+```yml
+name: string
+```
+
+Report incorrect code
+
+## Definition
+
+**Required configuration**
+
+The name of a dbt project. Must be letters, digits and underscores only, and cannot start with a digit.
+
+## Recommendation
+
+Often an organization has one dbt project, so it is sensible to name a project with your organization's name, in `snake_case`. For example:
+
+* `name: acme`
+* `name: jaffle_shop`
+* `name: evilcorp`
+
+## Troubleshooting
+
+### Invalid project name
+
+```text
+Encountered an error while reading the project:
+  ERROR: Runtime Error
+  at path ['name']: 'jaffle-shop' does not match '^[^\\d\\W]\\w*$'
+Runtime Error
+  Could not run dbt
+```
+
+Report incorrect code
+
+This project has:
+
+dbt\_project.yml
+
+```yml
+name: jaffle-shop
+```
+
+Report incorrect code
+
+In this case, change your project name to be `snake_case` instead:
+
+dbt\_project.yml
+
+```yml
+name: jaffle_shop
+```
+
+Report incorrect code

@@ -1,0 +1,67 @@
+# Upgrading to v1.3
+
+Available in v1
+
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
+
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+
+Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
+
+### Resources
+
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.3.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../../local/install-dbt.md)
+* [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
+
+## What to know before upgrading
+
+We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
+
+There are three changes in dbt v1.3 that may require action from some users:
+
+1. If you have a `profiles.yml` file located in the root directory where you run dbt, dbt will start preferring that profiles file over the default location on your machine. [You can read more details here](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory).
+2. If you already have `.py` files defined in the `model-paths` of your dbt project, dbt will start trying to read them as Python models. You can use [the new `.dbtignore` file](../../../../reference/dbtignore.md) to tell dbt to ignore those files.
+3. If you have custom code accessing the `raw_sql` property of models (with the [model](../../../../reference/dbt-jinja-functions/model.md) or [graph](../../../../reference/dbt-jinja-functions/graph.md) objects), it has been renamed to `raw_code`. This is a change to the manifest contract, described in more detail below.
+
+### For users of dbt Metrics
+
+The names of metric properties have changed, with backward compatibility. Those changes are:
+
+* Renamed `type` to `calculation_method`
+* Renamed `sql` to `expression`
+* Renamed `expression` calculation method metrics to `derived` calculation method metrics
+
+We plan to keep backward compatibility for a full minor version. Defining metrics with the old names will raise an error in dbt v1.4.
+
+### For consumers of dbt artifacts (metadata)
+
+We have updated the manifest schema version to `v7`. This includes the changes to metrics described above and a few other changes related to the addition of Python models:
+
+* Renamed `raw_sql` to `raw_code`
+* Renamed `compiled_sql` to `compiled_code`
+* A new top-level node property, `language` (`'sql'` or `'python'`)
+
+For users of [state-based selection](../../../../reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt v1.0 and higher.
+
+### For maintainers of adapter plugins
+
+GitHub discussion with details: [dbt-labs/dbt#6011](https://github.com/dbt-labs/dbt/discussions/6011)
+
+## New and changed documentation
+
+* **[Python models](../../../build/python-models.md)** are natively supported in `dbt-core` for the first time, on data warehouses that support Python runtimes.
+
+* Updates made to **[Metrics](../../../build/build-metrics-intro.md)** reflect their new syntax for definition, as well as additional properties that are now available.
+
+* Plus, a few related updates to **[exposure properties](../../../../reference/exposure-properties.md)**: `config`, `label`, and `name` validation.
+
+* **[Custom `node_color`](../../../../reference/resource-configs/docs.md)** in `dbt-docs`. For the first time, you can control the colors displayed in dbt's DAG. Want bronze, silver, and gold layers? It's at your fingertips.
+
+* **[`Profiles.yml`](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory)** search order now looks in the current working directory before `~/.dbt`.
+
+### Quick hits
+
+* **["Full refresh"](../../../../reference/resource-configs/full_refresh.md)** flag supports a short name, `-f`.
+* **[The "config" selection method](../../../../reference/node-selection/methods.md#config)** supports boolean and list config values, in addition to strings.
+* Two new dbt-Jinja context variables for accessing invocation metadata: [`invocation_args_dict`](../../../../reference/dbt-jinja-functions/flags.md#invocation_args_dict) and [`dbt_metadata_envs`](../../../../reference/dbt-jinja-functions/env_var.md#custom-metadata).

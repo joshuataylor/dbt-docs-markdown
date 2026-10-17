@@ -16,7 +16,7 @@ Using the `builtins` variable in this way is an advanced development workflow. U
 
 ### Overriding `ref`
 
-From dbt v1.5 and higher, use the following macro to override the `ref` method available in the model compilation context to return a [Relation](../dbt-classes.md#relation) with the database name overriden to `dev`.
+From dbt v1.5 and higher, use the following macro to override the `ref` method available in the model compilation context to return a [Relation](../dbt-classes.md#relation) with the database name overridden to `dev`.
 
 It includes logic to extract user-provided arguments, including `version`, and call the `builtins.ref()` function with either a single `modelname` argument or both `packagename` and `modelname` arguments, based on the number of positional arguments in `varargs`.
 

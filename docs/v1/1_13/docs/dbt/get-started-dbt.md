@@ -1,0 +1,43 @@
+### New to dbt? Start here
+
+Once you've caught up on everything [dbt has to offer](../introduction.md), start with the path that matches how you want to use dbt.
+
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md)
+
+#### [Install dbt](../local/install-dbt.md)
+
+[Install dbt from your command line.](../local/install-dbt.md)
+
+[![](/img/icons/dbt-bit.svg)](../about-dbt-extension.md)
+
+#### [Install the dbt VS Code extension](../about-dbt-extension.md)
+
+[Get dbt's performance plus autocomplete, inline errors, and lineage in your editor.](../about-dbt-extension.md)
+
+[![](/img/icons/dbt-bit.svg)](https://www.getdbt.com/signup)
+
+#### [Sign up for the dbt platform](https://www.getdbt.com/signup)
+
+[Create a dbt platform account to unlock the full dbt feature set.](https://www.getdbt.com/signup)
+
+### Already using dbt? Start here
+
+Upgrade your existing projects to v2 and learn about the tools available to you once you're there.
+
+[![](/img/icons/dbt-bit.svg)](../../guides/prepare-v2-upgrade.md)
+
+#### [Preparing to upgrade from v1 to v2](../../guides/prepare-v2-upgrade.md)
+
+[Step-by-step guide to prepare your dbt platform projects for upgrading to v2.](../../guides/prepare-v2-upgrade.md)
+
+[![](/img/icons/dbt-bit.svg)](../../guides/upgrade-to-v2.md)
+
+#### [Upgrade to v2](../../guides/upgrade-to-v2.md)
+
+[Learn how to upgrade your eligible projects on the dbt platform to v2.](../../guides/upgrade-to-v2.md)
+
+[![](/img/icons/dbt-bit.svg)](../../guides/dbt-platform-local-workflow.md)
+
+#### [Hybrid dbt platform and local workflows](../../guides/dbt-platform-local-workflow.md)
+
+[Learn how to keep credentials, environment variables, and dbt versions in sync between dbt platform and local development.](../../guides/dbt-platform-local-workflow.md)

@@ -1,0 +1,160 @@
+# About the dbt VS Code extension
+
+Local development
+
+The dbt VS Code extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. This is the only way to enjoy all the power of dbt v2 while developing with a self-hosted installation.
+
+* *Save time and resources* with near-instant parsing, live error detection, powerful IntelliSense capabilities, and more.
+* *Stay in flow* with a seamless, end-to-end dbt development experience designed from scratch for local dbt development.
+
+The dbt VS Code extension is available in the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt).
+
+The dbt VS Code extension works with v2, the default free-to-use product you get when you install dbt.
+
+## Version compatibility
+
+dbt v1 and v2 both support the dbt VS Code extension.
+
+You get editor features out of the box as long as your project complies with the v2 language spec:
+
+* Autocomplete for `ref`, sources, macros, and doc blocks
+* Go to definition and find references for models, sources, macros, and docs
+* Jinja syntax error detection
+* Model renames that update `ref` calls, and source or table reference renames
+* View compiled SQL, and preview a model, selected SQL, or an individual CTE
+* Run `dbt run`, `build`, `test`, and selectors
+* Table descriptions, metadata, and metadata on hover
+* Production column types, descriptions, and tests
+* Visual and textual table lineage in the extension pane
+
+If your project isn't compliant with the v2 language spec yet, the extension has [dbt-autofix](https://github.com/dbt-labs/dbt-autofix) built in. Opt in to fix deprecations across your project in a single pull request. Each issue in the **Problems** pane also has an autofix action, available from the lightbulb or right-click menu.
+
+To unlock the full language server, including column-level lineage, column go-to definition and find references, nonexistent-column and type detection, warehouse-specific syntax checks, column renames that propagate downstream, and `SELECT *` expansion, enable [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2) and resolve your parse errors. Refer to [About dbt LSP](./about-dbt-lsp.md) for the full feature list.
+
+Try out the dbt v2 quickstart guide
+
+Check out the [v2 quickstart guide](../guides/dbt.md?step=1) to try the dbt VS Code extension in action.
+
+## Navigating the dbt extension
+
+Once the dbt VS Code extension has been installed, several visual enhancements will be added to your IDE to help you navigate the features and functionality. To read more about the features and functionality, see the [dbt extension features](./dbt-extension-features.md).
+
+Check out the following video to see the features and functionality of the dbt VS Code extension:
+
+[dbt v2 + VS Code extension walkthrough](https://app.storylane.io/share/a1rkqx0mbd7a)
+
+### Sign in and feature access
+
+After you install the dbt VS Code extension, its [features](./dbt-extension-features.md) are available to you. What's available depends on your project's [static analysis](./build/about-static-analysis.md) mode. For example, column-level lineage and column go-to definition need `static_analysis: strict`.
+
+A few capabilities read data from your dbt platform account, such as the **Catalog** tab and [compare changes](./dbt/vs-compare-changes.md) with platform deferral. [Sign in](./sign-in-dbt-extension.md) to a dbt platform account so the extension can reach your account for those.
+
+Refer to [VS Code extension features](./dbt-extension-features.md#feature-availability) for the full list of features and their availability.
+
+Signing in is handled by [`dbt login`](../reference/commands/login.md?version=2.0). Your login state is shared across the CLI, dbt VS Code extension, and dbt State (if you log in using dbt platform). You can use the [get started wizard](./install-dbt-extension.md#getting-started) or run `dbt login` from your terminal, then restart or reload VS Code. The extension detects your login automatically.
+
+### The dbt extension menu
+
+The dbt logo on the sidebar (or the **dbt Extension** text on the bottom tray) launches the main menu for the extension. This menu contains helpful information and actions you can take:
+
+* **Get started button:** Launches the [v2 upgrade](./upgrade-to-dbt-extension.md) workflow.
+* **Extension info:** Information about the extension, v2, and your dbt project. Includes configuration options and actions.
+* **Help:** Quick links to support, bug submissions, and documentation.
+
+![dbt VS Code extension welcome screen.](/img/docs/extension/sidebar-menu.png?v=2 "dbt VS Code extension welcome screen.")dbt VS Code extension welcome screen.
+
+### Caching
+
+The dbt extension caches important schema information from your data warehouse to improve speed and performance. This will automatically update over time, but if recent changes have been made that aren't reflected in your project, you can manually update the schema information:
+
+1. Click the **dbt logo** on the sidebar to open the menu.
+2. Expand the **Extension info** section and location the **Actions** subsection.
+3. Click **Clear Cache** to update.
+
+## Using the extension
+
+Once installed, the dbt extension automatically activates when you open any `.sql` or `.yml` file inside of a dbt project directory.
+
+## Configuration
+
+After installation, you may want to configure the extension to better fit your development workflow:
+
+1. Open the VS Code settings by pressing `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac).
+2. Search for `dbt`. On this page, you can adjust the extension’s configuration options to fit your needs.
+
+![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")dbt extension settings within the VS Code settings.
+
+## Known limitations
+
+The following are currently known limitations of the dbt extension:
+
+* **Remote development:** The dbt extension does not yet support remote development sessions over SSH. Support will be added in a future release. For more information on remote development, refer to [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) and [Visual Studio Code Server](https://code.visualstudio.com/docs/remote/vscode-server).
+
+* **Working with YAML files:** Today, the dbt extension has the following limitations with operating on YAML files:
+
+  * Go-to-definition is not supported for nodes defined in YAML files (like snapshots).
+  * Renaming models and columns will not update references in YAML files.
+  * Future releases of the dbt extension will address these limitations.
+
+* **Renaming models:** When you rename a model file, the dbt extension applies edits to update all `ref()` calls that reference the renamed model. Due to limitations of VS Code's Language Server Client, the extension can't auto-save these edited files. As a result, renaming a model file may cause compiler errors in your project. To fix these errors, either manually save each file that the dbt extension edited, or click **File** --> **Save All** to save all edited files.
+
+* **Using Cursor's Agent mode:** When using the dbt extension in Cursor, lineage visualization works best in Editor mode and doesn't render in Agent mode. If you're working in Agent mode and need to view lineage, switch to Editor mode to access the full lineage tab functionality.
+
+### Extension conflicts
+
+The extension may occasionally conflict with other VS Code extensions that provide similar services (such as code validation). You may need to disable these third-party extensions while working with the dbt extension.
+
+**YAML by Red Hat:**
+
+The YAML extension by Red Hat may erroneously flag some keys (such as `static_analysis`) in dbt YAML files as invalid in the IDE.
+
+![Static analysis erroneously tagged as invalid](/img/docs/extension/false-yaml-error.png?v=2 "Static analysis erroneously tagged as invalid")Static analysis erroneously tagged as invalid
+
+To solve this issue, do one of the following:
+
+* (Recommended) Disable the Red Hat YAML extension while working with the dbt extension.
+
+* Add the following configuration to your VS Code `settings.json` file:
+
+  ```json
+  "yaml.schemas": {
+      "Core/dbtschema.json": "data/dbt/models/**/schema.yml",
+      "": "data/dbt/dbt_project.yml"
+  },
+  ```
+
+  Report incorrect code
+
+  This could disable *all* use of the schema store, resulting in unintended consequences.
+
+## dbt Wizard
+
+The dbt VS Code extension and [dbt Wizard](./dbt-ai/wizard-quickstart.md) are designed to work together. The extension gives you fast parsing, inline error detection, and IntelliSense. [dbt Wizard](./dbt-ai/wizard-quickstart.md) adds an AI layer on top — one that works with a live understanding of your project through dbt's [native metadata engine](./dbt-ai/about-dbt-ai.md), a structured index of your [lineage](./explore/explore-projects.md), model health, test coverage, and semantic definitions.
+
+* **Build and refactor from natural language**: Describe what you want, review the diff, approve or redirect before anything is saved.
+* **Validate changes before they land**: The agent compiles and runs against your warehouse in a tight loop — not just editor linting.
+* **Work with your full project map**: Traverse the [DAG](./explore/explore-projects.md), understand downstream impact, and keep tests and YAML in sync as models change.
+
+For data practitioners, combining the extension's dbt-powered editor experience with dbt Wizard's project-aware agent means less manual YAML, fewer context switches, and faster iteration on complex modeling work. See [dbt Wizard quickstart](./dbt-ai/wizard-quickstart.md) to get started.
+
+## Support
+
+dbt platform customers can contact dbt Labs support at <support@getdbt.com>. You can also get in touch with us by reaching out to your Account Manager directly.
+
+For organizations that aren't customers of the dbt platform, the best place for questions and discussion is the [dbt Community Slack](https://www.getdbt.com/community/join-the-community).
+
+We welcome feedback as we work to continuously improve the extension, and would love to hear from you!
+
+The extension is available to all users and for more information, refer to the [dbt Product License Agreement](https://www.getdbt.com/dbt-product-license-agreement).
+
+Developing locally as a dbt platform user?
+
+Refer to the [Hybrid development with dbt platform and dbt v2](../guides/dbt-platform-local-workflow.md) guide for how to keep credentials, environment variables, and v2 versions in sync between your local extension and dbt platform.
+
+## More information about dbt v2
+
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md)
+* [Install dbt v2](./local/install-dbt.md)
+* [dbt v2 quickstart guide](../guides/dbt.md?step=1)
+* [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

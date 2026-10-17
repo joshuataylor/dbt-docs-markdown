@@ -1,0 +1,485 @@
+# Quickstart for dbt v2
+
+> **Using this guide with an AI assistant**
+>
+> * In the first reply, confirm the reader’s prerequisites and connection path before listing steps. Then give one step per reply and confirm its success check before continuing.
+> * Never ask for passwords or keys in chat.
+> * If the reader wants to try the dbt platform, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=dbt-qs>
+
+[Back to guides](https://docs.getdbt.com/guides)
+
+
+
+## Introduction
+
+important
+
+dbt v2 is available for installation in:
+
+* [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2)
+* [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md)
+* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2)
+
+Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://getdbt.slack.com/archives/C088YCAB6GH).
+
+dbt v2 is a powerful new approach to classic dbt ideas! Completely rebuilt from the ground up in Rust, dbt v2 lets you compile and run your dbt projects faster than ever — often in seconds.
+
+This quickstart guide will get you from zero to running your first dbt project with dbt v2 + VS Code. By the end, you’ll have:
+
+* A working dbt project (`jaffle_shop`) built with dbt v2
+* The dbt VS Code extension installed and connected
+* The ability to preview, compile, and run dbt commands directly from your IDE
+
+### About dbt v2
+
+dbt v2 and the features it provides are available in multiple environments:
+
+| Environment              | How to use dbt v2                                                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Studio IDE**           | dbt v2 is automatically enabled; just [upgrade your environment(s)](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-v2). |
+| **Local CLI**            | [Install dbt v2](../docs/local/install-dbt.md?version=2) locally following this guide.                                            |
+| **VS Code / Cursor IDE** | [Install the dbt extension](../docs/install-dbt-extension.md) to unlock dbt v2's interactive power in your editor.                |
+
+To learn more about which tool is best for you, see the [v2 availability](../docs/dbt/dbt-availability.md) page. To learn about dbt v2 and how it works, read more [about dbt v2](../docs/introduction.md).
+
+## Prerequisites
+
+To take full advantage of this guide, you'll need to meet the following prerequisites:
+
+* You should have a basic understanding of [dbt projects](../docs/build/projects.md), [git workflows](../docs/platform/git/git-version-control.md), and [data warehouse requirements](../docs/supported-data-platforms.md).
+
+* Make sure you're using a supported adapter and authentication method:
+
+   BigQuery
+
+  * Service Account / User Token
+  * Native OAuth
+  * External OAuth
+    * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
+
+   Databricks
+
+  * Service Account / User Token
+  * Native OAuth
+
+   Redshift
+
+  * Username / Password
+  * IAM profile
+
+   Snowflake
+
+  * Username / Password
+  * Native OAuth
+  * External OAuth
+  * Key pair using a modern PKCS#8 method
+  * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
+
+   Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Thrift
+
+    * Simple Authentication and Security Layer (SASL) PLAIN
+    * No SASL (NOSASL)
+
+  * Livy
+
+    * Basic authentication (username and password)
+    * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
+      * Supports authentication using single sign-on, service accounts, or user tokens
+
+   DuckDB (CLI only)
+
+  DuckDB does not require authentication — it runs locally on your machine.
+
+  *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+* You need a macOS (Terminal), Linux, or Windows (Powershell) machine to run dbt v2.
+
+* You need to have [Visual Studio Code](https://code.visualstudio.com/) installed. The [Cursor](https://www.cursor.com/en) code editor will also work, but these instructions will focus on VS Code.
+
+* You need admin or install privileges on your machine.
+
+### What you’ll learn
+
+By following this guide, you will:
+
+* Set up a fully functional dbt environment with an operational project
+* Install and use dbt v2 + dbt VS Code extension
+* Run dbt commands from your IDE or terminal
+* Preview data, view lineage, and write SQL faster with autocomplete, and more!
+
+You can learn more through high-quality [dbt Learn courses and workshops](https://learn.getdbt.com/).
+
+## Installation
+
+It's easy to think of dbt v2 and the dbt extension as two different products, but they're a powerful combo that works together to unlock the full potential of dbt. Think of dbt v2 as exactly that — an engine. The dbt extension and VS Code are the chassis, and together they form a powerful vehicle for transforming your data.
+
+info
+
+* You can install dbt v2 and use it standalone with the CLI.
+* You *cannot* use the dbt extension without dbt v2 installed.
+* Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt platform CLI or dbt v1), you can use `dbtf` as an unambiguous alias for dbt v2.
+
+The following are the essential steps from the [dbt v2](../docs/local/install-dbt.md?version=2) and [extension](../docs/install-dbt-extension.md) installation guides:
+
+1. Run the following commands to install the dbt v2 CLI:
+
+   ```shell
+   python -m pip install dbt
+   ```
+
+   Report incorrect code
+
+### Verify the dbt v2 installation
+
+1. After installation, open a new command-line window to confirm that dbt v2 installed correctly by checking the version.
+
+   ```bash
+   dbt --version
+   ```
+
+   Report incorrect code
+
+2. You should see output similar to the following:
+
+   ```bash
+   dbt 2.0.0
+   ```
+
+   Report incorrect code
+
+### Install the dbt VS Code extension
+
+The dbt VS Code extension is available in the [Visual Studio extension marketplace](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt). Download it directly from your VS Code editor:
+
+1. Navigate to the **Extensions** tab of VS Code (or Cursor).
+2. Search for `dbt` and choose the one from the publisher `dbt Labs, LLC`.
+
+   ![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")Search for the extension
+3. Click **Install**.
+4. When the prompt appears, you can sign in to a dbt platform account or skip it. Check out the [sign-in](../docs/sign-in-dbt-extension.md) or [installation](../docs/install-dbt-extension.md) instructions to come back to it later.
+5. Confirm you've installed the extension by looking for the **dbt Extension** label in the status bar. If you see it, the extension was installed successfully!
+
+   ![Verify installation in the status bar.](/img/docs/extension/extension-lsp-download.png?v=2 "Verify installation in the status bar.")Verify installation in the status bar.
+
+## Initialize the Jaffle Shop project
+
+Now let's create your first dbt project powered by dbt v2!
+
+1. Run `dbt init` in your terminal from the directory where you want to create the project. The `dbt init` command creates an example project and walks you through setting up a connection profile.
+
+   * If you *do not* have a connection profile that you want to use, start with `dbt init` and use the prompts to configure a profile:
+
+   * If you already have a connection profile that you want to use, use the `--skip-profile-setup` flag then edit the generated `dbt_project.yml` to replace `profile: jaffle_shop` with `profile: <YOUR-PROFILE-NAME>`.
+
+     ```bash
+     dbt init --skip-profile-setup
+     ```
+
+     Report incorrect code
+
+   * If you created new credentials through the interactive prompts, `init` automatically runs `dbt debug` at the end. This ensures the newly created profile establishes a valid connection with the database.
+
+2. Change directories into your newly created project:
+
+   ```bash
+   cd jaffle_shop
+   ```
+
+   Report incorrect code
+
+3. Build your dbt project (which includes creating example data):
+
+   ```bash
+   dbt build
+   ```
+
+   Report incorrect code
+
+   #### Viewing metadata in Catalog
+
+   Run `dbt build --write-catalog` locally to generate docs metadata (`dbt build` alone does not generate docs metadata). To view that metadata in Catalog, run a job in dbt platform so the metadata is uploaded. For details, refer to [Platform behavior](../reference/commands/cmd-docs.md?version=2.0#platform-behavior).
+
+   This will:
+
+   * Load example data into your warehouse
+   * Create, build, and test models
+   * Verify your dbt environment is fully operational
+
+## Explore with the dbt VS Code extension
+
+The dbt VS Code extension (available for VS Code and Cursor) compiles and builds your project with dbt v2, a powerful and blazing fast rebuild of dbt from the ground up.
+
+Want to see dbt v2 in action? Check out the following video to get a sense of how it works:
+
+[dbt v2 + VS Code extension walkthrough](https://app.storylane.io/share/a1rkqx0mbd7a)
+
+Now that your project works, open it in VS Code or Cursor and see dbt v2 in action:
+
+1. Open the **View** menu and click **Command Palette**. Enter **Workspaces: Add Folder to Workspace**.
+
+2. Select your `jaffle_shop` folder. If you don't add the root folder of the dbt project to the workspace, the [dbt language server](https://docs.getdbt.com/blog/dbt-fusion-engine-components#the-dbt-vs-code-extension-and-language-server) (LSP) will not run. The LSP enables features like autocomplete, hover info, and inline error highlights.
+
+3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the dbt v2 binary, confirming your project is open, checking dbt v2 compatibility, and registering. If you haven't already upgraded your project to dbt v2, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
+
+4. Open a model file to see the definition for the `orders` model. This is the model we'll use in all of the examples below.
+
+   ```bash
+       models/marts/orders.sql
+   ```
+
+   Report incorrect code
+
+5. Locate **Lineage** and **Query Results** in the lower panel, and the **dbt icon** in the upper right corner next to your editor groups. If you see all of these, the extension is installed correctly and running!
+
+   ![The VS Code UI with the extension running.](/img/docs/extension/extension-running.png?v=2 "The VS Code UI with the extension running.")The VS Code UI with the extension running.
+
+Now you're ready to see some of these awesome features in action!
+
+* [Preview data and code](#preview-data-and-code)
+* [Navigate your project with lineage tools](#navigate-your-project-with-lineage-tools)
+* [Use the power of SQL understanding](#use-the-power-of-sql-understanding)
+* [Speed up common dbt commands](#speed-up-common-dbt-commands)
+
+#### Preview data and code
+
+Gain valuable insights into your data transformation during each step of your development process. You can quickly access model results and underlying data structures directly from your code. These previews help validate your code step-by-step.
+
+1. Locate the **table icon** for **Preview File** in the upper right corner. Click it to preview results in the **Query Results** tab.
+
+   ![Preview model query results.](/img/docs/extension/preview-query-results.png?v=2 "Preview model query results.")Preview model query results.
+
+2. Click **Preview CTE** above `orders as (` to preview results in the **Query Results** tab.
+
+   ![Preview CTE query results.](/img/docs/extension/preview-cte-query-results-3.png?v=2 "Preview CTE query results.")Preview CTE query results.
+
+3. Locate the code icon for **Compile File** in between the dbt and the table icons. Clicking this icon opens a window with the compiled version of the model.
+
+   ![Compile File icon.](/img/docs/extension/compile-file-icon.png?v=2 "Compile File icon.")Compile File icon.
+
+   ![Compile File results.](/img/docs/extension/compile-file.png?v=2 "Compile File results.")Compile File results.
+
+#### Navigate your project with lineage tools
+
+Almost as important as where your data is going is where it's been. The lineage tools in the extension let you visualize the lineage of the resources in your models as well as the column-level lineage. These capabilities deepen your understanding of model relationships and dependencies.
+
+1. Open the **Lineage** tab to visualize the model-level lineage of this model.
+
+   ![Visualizing model-level lineage.](/img/docs/extension/extension-pane.png?v=2 "Visualizing model-level lineage.")Visualizing model-level lineage.
+2. Open the **View** menu, click **Command Palette** and enter `dbt: Show Column Lineage` to visualize the column-level lineage in the **Lineage** tab.
+
+   ![Show column-level lineage.](/img/docs/extension/show-cll.png?v=2 "Show column-level lineage.")Show column-level lineage.
+
+#### Use the power of SQL understanding
+
+Code smarter, not harder. The autocomplete and context clues help avoid mistakes and enable you to write fast and accurate SQL. Catch issues before you commit them!
+
+1. To see **Autocomplete** in action, delete `ref('stg_orders')`, and begin typing `ref(stg_` to see the subset of matching model names. Use up and down arrows to select `stg_orders`.
+
+   ![Autocomplete for a model name.](/img/docs/extension/autocomplete.png?v=2 "Autocomplete for a model name.")Autocomplete for a model name.
+2. Hover over any `*` to see the list of column names and data types being selected.
+
+   ![Hovering over \* to see column names and data types.](/img/docs/extension/hover-star.png?v=2 "Hovering over * to see column names and data types.")Hovering over \* to see column names and data types.
+
+#### Speed up common dbt commands
+
+Testing, testing... is this mic on? It is and it's ready to execute your commands with blazing fast speeds! When you want to test your code against various dbt commands:
+
+1. The dbt icon in the top right opens a list of extension-specific commands:
+
+   ![Select a command via the dbt icon.](/img/docs/extension/run-command.png?v=2 "Select a command via the dbt icon.")Select a command via the dbt icon.
+2. Opening the **View** menu, clicking the **Command Palette**, and entering `>dbt:` in the command bar shows all the new commands that are available.
+
+   ![dbt commands in the command bar.](/img/docs/extension/extension-commands-all.png?v=2 "dbt commands in the command bar.")dbt commands in the command bar.
+
+Try choosing some of them and see what they do 😎
+
+This is just the start. There is so much more available and so much more coming. Be sure to check out our resources for all the information about dbt v2 and the dbt VS Code extension!
+
+Connect your AI to this project
+
+Now that your project is up and running, connect to your AI tool (like Claude or ChatGPT) through the [dbt MCP server](../docs/dbt-ai/about-mcp.md?section=qs-connect-ai), so you can ask questions about your models in plain language. Descriptions, tests, and semantic models make its answers even better.
+
+## Troubleshooting
+
+If you run into any issues, check out the troubleshooting section below.
+
+ How to create a .dbt directory in root and move dbt\_cloud.yml file
+
+If you've never had a `.dbt` directory, you should perform the following recommended steps to create one. If you already have a `.dbt` directory, move the `dbt_cloud.yml` file into it. Some information about the `.dbt` directory:
+
+* A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
+* To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
+
+### Create a .dbt directory
+
+1. Clone your dbt project repository locally.
+2. Use the `mkdir` command followed by the name of the folder you want to create.
+
+* If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
+
+  * macOS: `mkdir ~/.dbt`
+  * Windows: `mkdir %USERPROFILE%\.dbt`
+
+### Move the dbt\_cloud.yml file
+
+You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
+
+To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
+
+#### Mac or Linux
+
+In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
+
+```bash
+mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
+```
+
+Report incorrect code
+
+#### Windows
+
+In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
+
+```bash
+move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
+```
+
+Report incorrect code
+
+ I can't see the lineage tab in Cursor
+
+If you're using the dbt VS Code extension in Cursor, the lineage tab works best in Editor mode and doesn't render in Agent mode. If you're in Agent mode and the lineage tab isn't rendering, just switch to Editor mode to view your project's table and column lineage.
+
+ The extension gets stuck in a loading state
+
+If the extension is attempting to activate during startup and locks into a permanent loading state, check that:
+
+* Your dbt VS Code extension is on the latest version.
+* Your IDE is on the latest version.
+* You have a valid `dbt_cloud.yml` file configured and in the [correct location](#register-with-dbt_cloudyml).
+
+If you're still experiencing issues, try these steps before contacting dbt Support:
+
+* Delete and download a new copy of your `dbt_cloud.yml` file.
+* Delete and reinstall the dbt VS Code extension.
+
+ dbt platform configurations
+
+If you're a cloud-based dbt platform user who has the `dbt-cloud:` config in the `dbt_project.yml` file and are also using dbt Mesh, you must have the project ID configured:
+
+```yaml
+dbt-cloud:
+project-id: 12345 # Required
+```
+
+Report incorrect code
+
+If you don’t configure this correctly, cross-platform references will not resolve properly, and you will encounter errors executing dbt commands.
+
+ dbt extension not activating
+
+If the dbt extension has activated successfully, you will see the **dbt Extension** label in the status bar at the bottom left of your editor. You can view diagnostic information about the dbt extension by clicking the **dbt Extension** button.
+
+If the **dbt Extension** label is not present, then it is likely that the dbt extension was not installed successfully. If this happens, try uninstalling the extension, restarting your editor, and then reinstalling the extension.
+
+**Note:** It is possible to "hide" status bar items in VS Code. Double-check if the dbt Extension status bar label is hidden by right-clicking on the status bar in your editor. If you see dbt Extension in the right-click menu, then the extension has installed successfully.
+
+ Missing dbt LSP features
+
+If you receive a `no active LSP for this workspace` error message or aren't seeing dbt Language Server (LSP) features in your editor (like autocomplete, go-to-definition, or hover text), start by first following the general troubleshooting steps mentioned earlier.
+
+If you've confirmed the dbt extension is installed correctly but don't see LSP features, try the following:
+
+1. Check extension version — Ensure that you're using the latest available version of the dbt extension by:
+
+   * Opening the **Extensions** page in your editor, or
+   * Going to the **Output** tab and looking for the version number, or
+   * Running `dbtf --version` in the terminal.
+
+2. Reinstall the LSP — If the version is correct, reinstall the LSP:
+
+   1. Open the Command Palette: Command + Shift + P (macOS) or Ctrl + Shift + P (Windows/Linux).
+   2. Paste `dbt: Reinstall dbt LSP` and enter.
+
+This command downloads the LSP and re-activates the extension to resolve the error.
+
+ Unsupported dbt version
+
+If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
+
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt v2 executable. If necessary, you can also install dbt v2 directly using these instructions: [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2)
+
+ dbt v2 binary not found at the configured path
+
+If the extension reports that the dbt v2 binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
+
+* Verify that [`dbt.fusionPath`](../docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid dbt v2 binary.
+* If you haven't installed dbt v2 manually, clear the setting and let the extension download and manage it for you.
+* To install manually, follow [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2).
+
+ dbt v2 version is not compatible with this extension
+
+If the extension reports that the installed dbt v2 version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
+
+1. Run `dbt --version` to check your installed dbt v2 version.
+2. Compare it against the [version compatibility matrix](../docs/dbt-versions/dbt-version-compatibility.md#compatibility-matrix) for your extension version.
+3. Update dbt v2 or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
+
+ dbt v2 crashes on startup
+
+If the extension reports that dbt v2 crashed on startup, confirm the binary runs on its own:
+
+1. Run `dbt --version` in your terminal. If this fails, reinstall dbt v2 using [Install the dbt v2 CLI](../docs/local/install-dbt.md?version=2).
+2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
+
+ A known-bad dbt v2 version is installed
+
+If the extension warns that your installed dbt v2 version has a known regression, dbt Labs has flagged that release as [known-bad](../docs/dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+
+For standalone installations:
+
+```shell
+dbt system update
+```
+
+Report incorrect code
+
+The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](../docs/dbt-versions/dbt-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
+
+ Addressing the 'dbt language server is not running in this workspace' error
+
+To resolve the `dbt language server is not running in this workspace` error, you need to add your dbt project folder to a workspace:
+
+1. In VS Code, click **File** in the toolbar then select **Add Folder to Workspace**.
+2. Select the dbt project file you want to add to a workspace.
+3. To save your workspace, click **File** then select **Save Workspace As**.
+4. Navigate to the location you want to save your workspace.
+
+This should resolve the error and open your dbt project by opening the workspace it belongs to. For more information on workspaces, refer to [What is a VS Code workspace?](https://code.visualstudio.com/docs/editing/workspaces/workspaces).
+
+ Manifest cannot be downloaded from the dbt platform
+
+If the dbt VS Code extension cannot download the manifest from the dbt platform or you get `warning: dbt1200: Failed to download manifest` using dbt v2 locally, you are probably having DNS-related issues.
+
+To confirm this, do a DNS lookup for the host dbt v2 is trying to download from (for example, prodeu2.blob.core.windows.net) by using `dig` on Linux/Mac or `nslookup` on Windows.
+
+If this doesn't return an IP address, the likely reason is that your company uses the same cloud provider with private endpoints for cloud resources, and DNS requests for these are forwarded to private DNS zones.
+
+This situation can be remedied by setting up an internet fallback, which will then return a public IP to any cloud storage that does not have a private IP registered with the private DNS zone.
+
+For Azure refer to [Fallback to internet for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-fallback).
+
+## More information about dbt v2
+
+* [dbt v2 changelog](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md)
+* [About the dbt extension](../docs/about-dbt-extension.md)
+* [Install dbt v2](../docs/local/install-dbt.md)
+* [Upgrade guide](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

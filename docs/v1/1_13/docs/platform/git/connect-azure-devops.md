@@ -1,0 +1,43 @@
+# Connect to Azure DevOps
+
+dbt platform | Enterprise, Enterprise+
+
+Available for dbt Enterprise and Enterprise+
+
+Connecting an Azure DevOps cloud account is available for organizations using the dbt Enterprise or Enterprise+ plans.
+
+dbt's native Azure DevOps integration does not support Azure DevOps Server (on-premise). Instead, you can [import a project by git URL](./import-a-project-by-git-url.md) to connect to an Azure DevOps Server.
+
+## About Azure DevOps and dbt
+
+Connect your Azure DevOps cloud account in dbt to unlock new product experiences:
+
+* Import new Azure DevOps repos with a couple clicks during dbt project setup.
+* Clone repos using HTTPS rather than SSH
+* Enforce user authorization with OAuth 2.0.
+* Carry Azure DevOps user repository permissions (read / write access) through to Studio IDE or dbt CLI's git actions.
+* Trigger Continuous integration (CI) builds when pull requests are opened in Azure DevOps.
+
+Currently, there are multiple methods for integrating Azure DevOps with dbt. The following methods are available to all accounts:
+
+* [**Service principal (recommended)**](./setup-service-principal.md)
+* [**Service user (legacy)**](./setup-service-user.md)
+* [**Service user to service principal migration**](./setup-service-principal.md#migrate-to-service-principal)
+
+No matter which approach you take, you will need admins for dbt, Azure Entra ID, and Azure DevOps to complete the integration. For more information, follow the setup guide that's right for you.
+
+## Troubleshooting
+
+ CI jobs don't trigger on pull requests
+
+If continuous integration (CI) jobs aren't triggered when you open pull requests in Azure DevOps, and you don't see an error in dbt or Azure DevOps, try these checks:
+
+* Confirm the Azure DevOps service hooks for the repository still exist and point to your dbt account.
+* Confirm your service principal or service user still has access to the repository.
+
+If those look fine, disconnect and reconnect the repository:
+
+1. From **Account settings**, select **Projects**, then select the project.
+2. Select the **Repository** link, then **Edit**, then **Disconnect**.
+3. Select **Confirm Disconnect**.
+4. Select **Configure Repository** and connect the same Azure DevOps repository.

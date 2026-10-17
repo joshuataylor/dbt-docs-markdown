@@ -2,7 +2,7 @@
 
 dbt platform
 
-dbt platform supports connecting to PostgresSQL and Postgres-compatible databases (AlloyDB, Lakebase).
+dbt platform supports connecting to PostgreSQL and Postgres-compatible databases (AlloyDB, Lakebase).
 
 The following fields are required when creating a connection:
 

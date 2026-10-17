@@ -17,7 +17,7 @@ For most people: dbt v2. It has more [capabilities](./dbt/dbt-availability.md?ve
 
 We recommend everyone to just [install dbt](./local/install-dbt.md) and get dbt v2 by default.
 
-Typically you'd choose the open source installtion directly only if you're in one of two specific situations:
+Typically you'd choose the open source installation directly only if you're in one of two specific situations:
 
 1. Your organization's license policy requires a strict open-source distribution
 2. You're building something custom on top of the OSS code itself.

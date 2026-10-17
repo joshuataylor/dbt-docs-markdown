@@ -158,7 +158,7 @@ The most common data environments are production, staging, and development. The 
 * Integrating with features such as job scheduling or version control, making it easier to manage the full lifecycle of your dbt projects within a single platform.
 * Streamlining the process of switching between development, staging, and production contexts.
 * Making it easy to configure environments through the dbt platform UI instead of manually editing the `profiles.yml` file. You can also [set up](../reference/dbt-jinja-functions/target.md) or [customize](../docs/build/custom-target-names.md) target names in the dbt platform.
-* Adding `profiles.yml` attributes to dbt platform environment settings with [Extended Attributes](../docs/dbt-platform-environments.md#extended-attributes).
+* Adding `profiles.yml` attributes with [Extended attributes](../docs/dbt-platform-environments.md#extended-attributes), which explains where to configure them for deployment and development environments.
 * Using [Git repo caching](../docs/platform/account-settings.md#git-repository-caching) to protect you from third-party outages, Git auth failures, and more. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 ### Initial setup steps

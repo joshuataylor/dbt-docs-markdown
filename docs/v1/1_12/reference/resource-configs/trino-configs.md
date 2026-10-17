@@ -10,7 +10,7 @@ With a Starburst Enterprise, Starburst Galaxy, or Trino cluster, you can [set se
 
 The standard way to define session properties is with the `session_properties` field of your `profiles.yml`. This ensures that all dbt connections use these settings by default.
 
-However, to temporaily adjust these session properties for a specific dbt model or group of models, you can use a [dbt hook](./pre-hook-post-hook.md) to set session properties on a specific dbt model. For example:
+However, to temporarily adjust these session properties for a specific dbt model or group of models, you can use a [dbt hook](./pre-hook-post-hook.md) to set session properties on a specific dbt model. For example:
 
 ```sql
 {{

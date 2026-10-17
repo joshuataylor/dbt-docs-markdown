@@ -107,4 +107,4 @@ To learn more about changing the way that dbt generates a relation's `database`,
 ## Warehouse specific information
 
 * BigQuery: `project` and `database` are interchangeable
-* Databricks: `catalog` and `database` are interchangable
+* Databricks: `catalog` and `database` are interchangeable

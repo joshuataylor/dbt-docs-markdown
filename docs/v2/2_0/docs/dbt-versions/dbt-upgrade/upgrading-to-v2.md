@@ -42,7 +42,7 @@ If you have an older project that isn't ready to move to v2, or you need compati
 
 This new major version is an opportunity to *strengthen the framework* by removing deprecated functionality, rationalizing confusing behavior, and providing more rigorous validation on erroneous inputs. This means that there is some work involved in preparing an existing dbt project for v2.
 
-That work is documented below — it should be simple, straightforward, and in many cases, auto-fixable with the [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) helper or the [agent skill](https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-fusion).
+That work is documented below — it should be simple, straightforward, and in many cases, auto-fixable with the [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) helper or the [agent skill](https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-v2).
 
 Test v2 parser compatibility from dbt v1.12
 
@@ -255,7 +255,7 @@ v2 introduces [agent skills](../../dbt-ai/package-skills.md), which are reusable
 To use agent skills, you need to:
 
 * Include skills in your project's `skills/` directory, use a package that ships skills, or both
-* Set the `ai_provider` flag in your root project to tell dbt which which coding agent you use. Supported values are `wizard`, `claude`, `openai`, `codex`, `cursor`, or `gemini` (case-insensitive).
+* Set the `ai_provider` flag in your root project to tell dbt which coding agent you use. Supported values are `wizard`, `claude`, `openai`, `codex`, `cursor`, or `gemini` (case-insensitive).
 
 Once both are in place, `dbt deps` installs those skills into the directory your agent reads from (such as `.claude/skills` or `.agents/skills`), and `dbt clean` removes them. If you're missing either piece, `dbt deps` installs your packages as usual and skips the skills.
 

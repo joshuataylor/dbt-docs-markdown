@@ -1,0 +1,264 @@
+# event\_time
+
+Did you know\...
+
+Available from dbt v1.9 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+
+## Models
+
+dbt\_project.yml
+
+```yml
+models:
+  resource-path:
+    +event_time: my_time_field
+```
+
+Report incorrect code
+
+models/properties.yml
+
+```yml
+models:
+  - name: model_name
+    config:
+      event_time: my_time_field
+```
+
+Report incorrect code
+
+models/modelname.sql
+
+```sql
+{{ config(
+    event_time='my_time_field'
+) }}
+```
+
+Report incorrect code
+
+## Seeds
+
+dbt\_project.yml
+
+```yml
+seeds:
+  resource-path:
+    +event_time: my_time_field
+```
+
+Report incorrect code
+
+seeds/properties.yml
+
+```yml
+seeds:
+  - name: seed_name
+    config:
+      event_time: my_time_field
+```
+
+Report incorrect code
+
+## Snapshots
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  resource-path:
+    +event_time: my_time_field
+```
+
+Report incorrect code
+
+(Applies to dbt v1.9 and later)
+
+snapshots/properties.yml
+
+```yml
+snapshots:
+  - name: snapshot_name
+    config:
+      event_time: my_time_field
+```
+
+Report incorrect code
+
+## Sources
+
+dbt\_project.yml
+
+```yml
+sources:
+  resource-path:
+    +event_time: my_time_field
+```
+
+Report incorrect code
+
+models/properties.yml
+
+```yml
+sources:
+  - name: source_name
+    config:
+      event_time: my_time_field
+```
+
+Report incorrect code
+
+## Definition
+
+dbt uses `event_time` to understand when an event occurred. Configure it in your project YAML file (`dbt_project.yml`), properties YAML file (`models/properties.yml`), or SQL file config for [models](../../docs/build/models.md), [seeds](../../docs/build/seeds.md), or [sources](../../docs/build/sources.md).
+
+Required
+
+For incremental microbatch models, if your upstream models don't have `event_time` configured, dbt *cannot* automatically filter them during batch processing and will perform full table scans on every batch run.
+
+To avoid this, configure `event_time` on every upstream model that should be filtered. Learn how to exclude a model from auto-filtering by [opting out of auto-filtering](../../docs/build/incremental-microbatch.md#opting-out-of-auto-filtering).
+
+### Usage
+
+`event_time` is required for the [incremental microbatch](../../docs/build/incremental-microbatch.md) strategy(Applies to dbt v1.10 and later) , the [`--sample` flag](../../docs/build/sample-flag.md), and highly recommended for [Advanced CI's compare changes](../../docs/deploy/advanced-ci.md#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
+
+### Best practices
+
+Set the `event_time` to the name of the field that represents the actual timestamp of the event (like `account_created_at`). The timestamp of the event should represent "at what time did the row occur" rather than an event ingestion date. Marking a column as the `event_time` when it isn't, diverges from the semantic meaning of the column which may result in user confusion when other tools make use of the metadata.
+
+However, if an ingestion date (like `loaded_at`, `ingested_at`, or `last_updated_at`) are the only timestamps you use, you can set `event_time` to these fields. Here are some considerations to keep in mind if you do this:
+
+* Using `last_updated_at` or `loaded_at` — May result in duplicate entries in the resulting table in the data warehouse over multiple runs. Setting an appropriate [lookback](./lookback.md) value can reduce duplicates but it can't fully eliminate them since some updates outside the lookback window won't be processed.
+* Using `ingested_at` — Since this column is created by your ingestion/EL tool instead of coming from the original source, it will change if/when you need to resync your connector for some reason. This means that data will be reprocessed and loaded into your warehouse for a second time against a second date. As long as this never happens (or you run a full refresh when it does), microbatches will be processed correctly when using `ingested_at`.
+
+Here are some examples of recommended and not recommended `event_time` columns:
+
+| Status             | Column name          | Description                                                                                                                                    |
+| ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ Recommended     | `account_created_at` | Represents the specific time when an account was created, making it a fixed event in time.                                                     |
+| ✅ Recommended     | `session_began_at`   | Captures the exact timestamp when a user session started, which won’t change and directly ties to the event.                                   |
+| ❌ Not recommended | `_fivetran_synced`   | This represents the time the event was ingested, not when it happened.                                                                         |
+| ❌ Not recommended | `last_updated_at`    | Changes over time and isn't tied to the event itself. If used, note the considerations mentioned earlier in [best practices](#best-practices). |
+
+## Examples
+
+### Models
+
+Here's an example in the `dbt_project.yml` file:
+
+dbt\_project.yml
+
+```yml
+models:
+  my_project:
+    user_sessions:
+      +event_time: session_start_time
+```
+
+Report incorrect code
+
+Example in a property file:
+
+models/properties.yml
+
+```yml
+models:
+  - name: user_sessions
+    config:
+      event_time: session_start_time
+```
+
+Report incorrect code
+
+Example in a config block for a model:
+
+models/user\_sessions.sql
+
+```sql
+{{ config(
+    event_time='session_start_time'
+) }}
+```
+
+Report incorrect code
+
+This setup sets `session_start_time` as the `event_time` for the `user_sessions` model.
+
+### Seeds
+
+Here's an example in the `dbt_project.yml` file:
+
+dbt\_project.yml
+
+```yml
+seeds:
+  my_project:
+    my_seed:
+      +event_time: record_timestamp
+```
+
+Report incorrect code
+
+Example in a seed properties YAML:
+
+seeds/properties.yml
+
+```yml
+seeds:
+  - name: my_seed
+    config:
+      event_time: record_timestamp
+```
+
+Report incorrect code
+
+This setup sets `record_timestamp` as the `event_time` for `my_seed`.
+
+### Snapshots
+
+Here's an example in the `dbt_project.yml` file:
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  my_project:
+    my_snapshot:
+      +event_time: record_timestamp
+```
+
+Report incorrect code
+
+Example in a snapshot properties YAML:
+
+my\_project/properties.yml
+
+```yml
+snapshots:
+  - name: my_snapshot
+    config:
+      event_time: record_timestamp
+```
+
+Report incorrect code
+
+This setup sets `record_timestamp` as the `event_time` for `my_snapshot`.
+
+### Sources
+
+Here's an example of a source property file:
+
+models/properties.yml
+
+```yml
+sources:
+  - name: source_name
+    tables:
+      - name: table_name
+        config:
+          event_time: event_timestamp
+```
+
+Report incorrect code
+
+This setup sets `event_timestamp` as the `event_time` for the specified source table.

@@ -1,0 +1,183 @@
+# Configure and use the dbt platform CLI
+
+dbt platform
+
+Learn how to configure the dbt platform CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
+
+* Secure credential storage in the dbt platform.
+* [Automatic deferral](./about-defer.md) of build artifacts to your project's production environment.
+* Speedier, lower-cost builds.
+* Support for Mesh ([cross-project ref](../mesh/govern/project-dependencies.md)), and more.
+
+## Prerequisites
+
+* You must set up a project in dbt.
+  * **Note** — If you're using the dbt platform CLI, you can connect to your [data platform](./connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](../local/profiles.yml.md) file.
+* You must have your [personal user credentials](../dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt platform CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
+* You must be on dbt version 1.5 or higher. Refer to [dbt versions](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
+
+## Configure the dbt platform CLI
+
+Once you install the dbt platform CLI, you need to configure it to connect to a dbt project.
+
+1. In dbt, select the project you want to configure your dbt platform CLI with. The project must already have a [development environment](../dbt-platform-environments.md#create-a-development-environment) set up.
+
+2. Download your `dbt_cloud.yml` credentials file and save it to your `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux, `C:\Users\yourusername\.dbt\dbt_cloud.yml` on Windows). For download steps, the full file structure, and a field reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
+
+3. After downloading the config file and creating your directory, navigate to a project in your terminal:
+
+   ```bash
+   cd ~/dbt-projects/jaffle_shop
+   ```
+
+   Report incorrect code
+
+4. In your `dbt_project.yml` file, ensure you have or include a [`dbt-cloud` block](../../reference/dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml) with a `project-id` field that points to your dbt project.
+
+   ```yaml
+   # dbt_project.yml
+   dbt-cloud:
+       project-id: PROJECT_ID
+   ```
+
+   Report incorrect code
+
+5. You should now be able to [use the dbt platform CLI](#use-the-dbt-cli) and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
+
+With your repo recloned, you can add, edit, and sync files with your repo.
+
+## Set environment variables
+
+To set environment variables in the dbt platform CLI for your dbt project:
+
+1. From dbt, click on your account name in the left side menu and select **Account settings**.
+2. Under the **Your profile** section, select **Credentials**.
+3. Click on your project and scroll to the **Environment variables** section.
+4. Click **Edit** on the lower right and then set the user-level environment variables.
+
+## Use the dbt platform CLI
+
+The dbt platform CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt v1 to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt platform CLI, you can:
+
+* Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution).
+* Automatically defer build artifacts to your project's production environment.
+* Support [project dependencies](../mesh/govern/project-dependencies.md), which allows you to depend on another project using the metadata service in dbt.
+  * Project dependencies instantly connect to and reference (or `ref`) public models defined in other projects. You don't need to execute or analyze these upstream models yourself. Instead, you treat them as an API that returns a dataset.
+
+Use the `--help` flag
+
+As a tip, most command-line tools have a `--help` flag to show available commands and arguments. Use the `--help` flag with dbt in two ways:
+
+* `dbt --help`: Lists the commands available for dbt
+* `dbt run --help`: Lists the flags available for the `run` command
+
+## Lint SQL files
+
+From the dbt platform CLI, you can invoke [SQLFluff](https://sqlfluff.com/), which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. Many of the same flags that you can pass to SQLFluff are available from the dbt platform CLI.
+
+The available SQLFluff commands are:
+
+* `lint` — Lint SQL files by passing a list of files or from standard input (stdin).
+* `fix` — Fix SQL files.
+* `format` — Autoformat SQL files.
+
+To lint SQL files, run the command as follows:
+
+```text
+dbt sqlfluff lint [PATHS]... [flags]
+```
+
+Report incorrect code
+
+When you don't specify a path, dbt lints all SQL files in the current project. To lint a specific SQL file or a directory, set `PATHS` to the path of the SQL file(s) or directory of files. To lint multiple files or directories, pass multiple `PATHS` flags.
+
+To show detailed information on all the dbt supported commands and flags, run the `dbt sqlfluff -h` command.
+
+#### Considerations
+
+When running `dbt sqlfluff` from the dbt platform CLI, the following are important behaviors to consider:
+
+* dbt reads the `.sqlfluff` file, if it exists, for any custom configurations you might have.
+* For continuous integration/continuous development (CI/CD) workflows, your project must have a `dbt_cloud.yml` file and you have successfully run commands from within this dbt project.
+* An SQLFluff command will return an exit code of 0 if it ran with any file violations. This dbt behavior differs from SQLFluff behavior, where a linting violation returns a non-zero exit code. dbt Labs plans on addressing this in a later release.
+
+## Considerations
+
+The dbt platform CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
+
+Here's an example of a [local package](../build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt platform CLI:
+
+```yaml
+# repository_root/my_dbt_project_in_a_subdirectory/packages.yml
+
+packages:
+  - local: ../shared_macros
+```
+
+Report incorrect code
+
+In this example, `../shared_macros` is a relative path that tells dbt to look for:
+
+* `..` — Go one directory up (to `repository_root`).
+* `/shared_macros` — Find the `shared_macros` folder in the root directory.
+
+To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
+
+## FAQs
+
+ How to create a .dbt directory and move your file
+
+If you've never had a `.dbt` directory, you should perform the following recommended steps to create one. If you already have a `.dbt` directory, move the `dbt_cloud.yml` file into it. Some information about the `.dbt` directory:
+
+* A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
+* To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
+
+### Create a .dbt directory
+
+1. Clone your dbt project repository locally.
+2. Use the `mkdir` command followed by the name of the folder you want to create.
+
+* If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
+
+  * macOS: `mkdir ~/.dbt`
+  * Windows: `mkdir %USERPROFILE%\.dbt`
+
+### Move the dbt\_cloud.yml file
+
+You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
+
+To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
+
+#### Mac or Linux
+
+In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
+
+```bash
+mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
+```
+
+Report incorrect code
+
+#### Windows
+
+In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
+
+```bash
+move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
+```
+
+Report incorrect code
+
+ How to skip artifacts from being downloaded
+
+By default, the dbt platform CLI downloads [all artifacts](../../reference/artifacts/dbt-artifacts.md) when you execute dbt commands. To skip these files from being downloaded, add `--download-artifacts=false` to the command you want to run. This can help improve run-time performance but might break workflows that depend on assets like the [manifest](../../reference/artifacts/manifest-json.md).
+
+ I'm getting a \`Session occupied\` error in dbt platform CLI?
+
+If you're receiving a `Session occupied` error in the dbt platform CLI or if you're experiencing a long-running session, you can use the `dbt invocation list` command in a separate terminal window to view the status of your active session. This helps debug the issue and identify the arguments that are causing the long-running session.
+
+To cancel an active session, use the `Ctrl + Z` shortcut.
+
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](../../reference/commands/invocation.md?version=2.0).
+
+Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

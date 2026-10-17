@@ -19,6 +19,10 @@ The agent comes with the following out of the box, meaning no configuration need
 
 AI features are being enabled by default. They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can [turn AI off or back on and configure providers](../platform/manage-dbt-ai.md) anytime.
 
+Prefer to learn by video?
+
+Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/dbt-wizard) on dbt Learn!
+
 ### Prerequisites
 
 * A [dbt platform account](https://www.getdbt.com/signup) and [Developer seat license](../platform/manage-access/seats-and-users.md).

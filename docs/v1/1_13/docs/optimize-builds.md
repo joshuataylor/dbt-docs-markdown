@@ -1,0 +1,69 @@
+# Optimize your dbt builds
+
+By default, dbt rebuilds every selected node on every run — even if nothing has changed. This makes it easy to get started, but adds up for larger projects: longer job times, higher warehouse costs, and slower feedback during development. dbt has features designed to help you skip unnecessary work and reuse existing results instead.
+
+## dbt State
+
+[dbt State](./deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment — including self-hosted deployments using dbt v2 or dbt v1 — without requiring a recurring dbt platform subscription.
+
+Instead of rebuilding every node on every run, it compares each node's logic and upstream data against the previous run and picks the most efficient path:
+
+* **Skip** — If the node's logic and upstream data haven't changed, dbt reuses the existing object in your target schema as-is.
+* **Clone** — If the data is fresh but exists in a different schema (for example, production), dbt clones it rather than rebuilding from scratch.
+* **Build** — If reuse isn't possible, dbt rebuilds normally and automatically defers unselected upstream nodes to production — no `--defer` or `--state` flags required.
+
+To enable dbt State:
+
+* **dbt v1.7–1.12**:
+
+  ```bash
+  cd path/to/your/project
+  pip install dbt-state
+  ```
+
+  Report incorrect code
+
+* **dbt v2**:
+
+  ```bash
+  cd path/to/your/project
+  dbt login
+  ```
+
+  Report incorrect code
+
+Authentication requires a dbt platform account with a [30-day free trial](./deploy/dbt-state-trial.md). dbt State pricing is usage-based — you're billed per target table that dbt State reuses each day, not per dbt platform seat. For full setup instructions, refer to [Setting up dbt State](./deploy/dbt-state-setup.md).
+
+## Deferral
+
+[Deferral](../reference/node-selection/defer.md) lets you build a subset of your project without building all upstream dependencies first. Instead of running everything upstream, dbt points unbuilt references at existing objects in another environment — typically production.
+
+This is useful in development and CI environments, where you want to test one or two models without waiting for a full pipeline run.
+
+```bash
+dbt build --select my_model --defer --state path/to/prod/artifacts
+```
+
+Report incorrect code
+
+## dbt clone
+
+[`dbt clone`](../reference/commands/clone.md) creates copies of selected nodes in a target schema. On warehouses that support zero-copy cloning (for example, Snowflake), it creates lightweight database clones without duplicating the underlying data. On other warehouses, it creates views pointing at the upstream relations.
+
+This is useful in development when you want to quickly populate a dev environment with production-like objects without running the full pipeline.
+
+```bash
+dbt clone --select my_model
+```
+
+Report incorrect code
+
+## dbt's selection syntax
+
+dbt has a [variety of selectors](../reference/node-selection/syntax.md) you can use to target specific parts of your project instead of building everything every time. For example, `+my_model` selects `my_model` and all of its upstream dependencies, while `my_model+2` selects `my_model` and two levels of downstream dependents. This lets you test your changes in isolation without running your entire project.
+
+```bash
+dbt build --select +my_model
+```
+
+Report incorrect code

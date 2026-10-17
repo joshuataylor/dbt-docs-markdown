@@ -1,0 +1,117 @@
+# Upgrading to v1.6
+
+Available in v1
+
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
+
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+
+Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
+
+dbt v1.6 has three significant areas of focus:
+
+1. Next milestone of [multi-project deployments](https://github.com/dbt-labs/dbt/discussions/6725): improvements to contracts, groups/access, versions; and building blocks for cross-project `ref`
+2. Semantic layer re-launch: dbt v1 and [MetricFlow](../../../build/about-metricflow.md) integration
+3. Mechanisms to support mature deployment at scale (`dbt clone` and `dbt retry`)
+
+## Resources
+
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.6.latest/CHANGELOG.md)
+* [dbt v1 installation guide](../../../local/install-dbt.md)
+* [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
+* [Release schedule](https://github.com/dbt-labs/dbt/issues/7481)
+
+## What to know before upgrading
+
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
+
+### Behavior changes
+
+Action required if your project defines `metrics`
+
+The [spec for metrics](https://github.com/dbt-labs/dbt/discussions/7456) has changed and now uses [MetricFlow](../../../build/about-metricflow.md).
+
+If your dbt project defines metrics, you must migrate to dbt v1.6 because the YAML spec has moved from dbt\_metrics to MetricFlow. Any tests you have won't compile on v1.5 or older.
+
+* dbt v1.6 does not support Python 3.7, which reached End Of Life on June 23. Support Python versions are 3.8, 3.9, 3.10, and 3.11.
+* As part of the [dbt Semantic layer](../../../use-dbt-semantic-layer/dbt-sl.md) re-launch, the spec for `metrics` has changed significantly.
+* The manifest schema version is now v10.
+* dbt Labs is ending support for Homebrew installation of dbt v1 and adapters. See [the discussion](https://github.com/dbt-labs/dbt/discussions/8277) for more details.
+
+### For consumers of dbt artifacts (metadata)
+
+The [manifest](../../../../reference/artifacts/manifest-json.md) schema version has been updated to `v10`. Specific changes:
+
+* Addition of `semantic_models` and changes to `metrics` attributes
+* Addition of `deprecation_date` as a model property
+* Addition of `on_configuration_change` as default node configuration (to support materialized views)
+* Small type changes to `contracts` and `constraints`
+* Manifest `metadata` includes `project_name`
+
+### For maintainers of adapter plugins
+
+For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt-core#7958](https://github.com/dbt-labs/dbt/discussions/7958).
+
+## New and changed documentation
+
+### MetricFlow
+
+* [**Build your metrics**](../../../build/build-metrics-intro.md) with MetricFlow, a key component of the Semantic Layer. You can define your metrics and build semantic models with MetricFlow, available on the command line (CLI) for dbt v1.6 beta or higher.
+
+### Materialized views
+
+Supported on:
+
+* [Postgres](../../../../reference/resource-configs/postgres-configs.md#materialized-view)
+* [Redshift](../../../../reference/resource-configs/redshift-configs.md#materialized-view)
+* [Snowflake](../../../../reference/resource-configs/snowflake-configs.md#dynamic-tables)
+* [Databricks](../../../../reference/resource-configs/databricks-configs.md#materialized-views-and-streaming-tables)
+
+### New commands for mature deployment
+
+[`dbt retry`](../../../../reference/commands/retry.md) executes the previously run command from the point of failure. Rebuild just the nodes that errored or skipped in a previous run/build/test, rather than starting over from scratch.
+
+[`dbt clone`](../../../../reference/commands/clone.md) leverages each data platform's functionality for creating lightweight copies of dbt models from one environment into another. Useful when quickly spinning up a new development environment, or promoting specific models from a staging environment into production.
+
+### Multi-project collaboration
+
+[**Deprecation date**](../../../../reference/resource-properties/deprecation_date.md): Models can declare a deprecation date that will warn model producers and downstream consumers. This enables clear migration windows for versioned models, and provides a mechanism to facilitate removal of immature or little-used models, helping to avoid project bloat.
+
+[Model names](../../../../faqs/Project/unique-resource-names.md) can be duplicated across different namespaces (projects/packages), so long as they are unique within each project/package. We strongly encourage using [two-argument `ref`](../../../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) when referencing a model from a different package/project.
+
+More consistency and flexibility around packages. Resources defined in a package will respect variable and global macro definitions within the scope of that package.
+
+* `vars` defined in a package's `dbt_project.yml` are now available in the resolution order when compiling nodes in that package, though CLI `--vars` and the root project's `vars` will still take precedence. See ["Variable Precedence"](../../../build/project-variables.md#variable-precedence) for details.
+* `generate_x_name` macros (defining custom rules for database, schema, alias naming) follow the same pattern as other "global" macros for package-scoped overrides. See [macro dispatch](../../../../reference/dbt-jinja-functions/dispatch.md) for an overview of the patterns that are possible.
+
+Closed Beta - dbt Enterprise
+
+[**Project dependencies**](../../../mesh/govern/project-dependencies.md): Introduces `dependencies.yml` and dependent `projects` as a feature of dbt Enterprise. Allows enforcing model access (public vs. protected/private) across project/package boundaries. Enables cross-project `ref` of public models, without requiring the installation of upstream source code.
+
+### Deprecated functionality
+
+The ability for installed packages to override built-in materializations without explicit opt-in from the user is being deprecated.
+
+* Overriding a built-in materialization from an installed package raises a deprecation warning.
+
+* Using a custom materialization from an installed package does not raise a deprecation warning.
+
+* Using a built-in materialization package override from the root project via a wrapping materialization is still supported. For example:
+
+  ```text
+  {% materialization view, default %}
+  {{ return(my_cool_package.materialization_view_default()) }}
+  {% endmaterialization %}
+  ```
+
+  Report incorrect code
+
+### Quick hits
+
+* [`state:unmodified` and `state:old`](../../../../reference/node-selection/methods.md#state) for [MECE](https://en.wikipedia.org/wiki/MECE_principle) stateful selection
+* [`invocation_args_dict`](../../../../reference/dbt-jinja-functions/flags.md#invocation_args_dict) includes full `invocation_command` as string
+* [`dbt debug --connection`](../../../../reference/commands/debug.md) to test just the data platform connection specified in a profile
+* [`dbt docs generate --empty-catalog`](../../../../reference/commands/cmd-docs.md) to skip catalog population while generating docs
+* [`--defer-state`](../../../../reference/node-selection/defer.md) enables more-granular control
+* [`dbt ls`](../../../../reference/commands/list.md) adds the Semantic model selection method to allow for `dbt ls -s "semantic_model:*"` and the ability to execute `dbt ls --resource-type semantic_model`.
+* Syntax for `DBT_ENV_SECRET_` has changed to `DBT_ENV_SECRET` and no longer requires the closing underscore.

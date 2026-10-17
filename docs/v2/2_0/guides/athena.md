@@ -93,7 +93,7 @@ Save the `aws_access_key_id` and `aws_secret_access_key` for a future step.
 
 To obtain your AWS credentials file:
 
-1. Follow the instructions for [configuring the credentials file](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html) usin the AWS CLI
+1. Follow the instructions for [configuring the credentials file](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html) using the AWS CLI
 
 2. Locate the `~/.aws/credentials` file on your computer
 
@@ -870,7 +870,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
 3. In the modal window, name your new branch `add-customers-model`. This branches off from your primary branch with your new changes.
-4. Add a commit message, such as "Add customers model, tests, docs" and and commit your changes.
+4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
 **If you created a new branch before editing:**

@@ -1,0 +1,64 @@
+# Connect Yellowbrick to dbt v1
+
+Local development
+
+Community plugin
+
+Some core functionality may be limited.
+
+* **Maintained by**: Community
+* **Authors**: InfoCapital team
+* **GitHub repo**: [InfoCapital-AU/dbt-yellowbrick](https://github.com/InfoCapital-AU/dbt-yellowbrick) [![](https://img.shields.io/github/stars/InfoCapital-AU/dbt-yellowbrick?style=for-the-badge)](https://github.com/InfoCapital-AU/dbt-yellowbrick)
+* **PyPI package**: `dbt-yellowbrick` [![](https://badge.fury.io/py/dbt-yellowbrick.svg)](https://badge.fury.io/py/dbt-yellowbrick)
+* **Slack channel**: [n/a](https://www.getdbt.com/community)
+* **Supported dbt version**: v1.7.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: Yellowbrick 5.2
+
+## Installing dbt-yellowbrick
+
+Use `pip` to install the adapter. Use the following command for installation:
+
+`python -m pip install dbt-yellowbrick`
+
+## Configuring dbt-yellowbrick
+
+For Yellowbrick Data-specific configuration, please refer to [Yellowbrick Data configs.](../../../reference/resource-configs/yellowbrick-configs.md)
+
+## Profile configuration
+
+Yellowbrick targets should be set up using the following configuration in your `profiles.yml` file.
+
+\~/.dbt/profiles.yml
+
+```yaml
+company-name:
+  target: dev
+  outputs:
+    dev:
+      type: yellowbrick
+      host: [hostname]
+      user: [username]
+      password: [password]
+      port: [port]
+      dbname: [database name]
+      schema: [dbt schema]
+      role: [optional, set the role dbt assumes when executing queries]
+      sslmode: [optional, set the sslmode used to connect to the database]
+      sslrootcert: [optional, set the sslrootcert config value to a new file path to customize the file location that contains root certificates]
+  
+```
+
+Report incorrect code
+
+### Configuration notes
+
+This adapter is based on the dbt-postgres adapter documented here [Postgres profile setup](./postgres-setup.md)
+
+#### role
+
+The `role` config controls the user role that dbt assumes when opening new connections to the database.
+
+#### sslmode / sslrootcert
+
+The ssl config parameters control how dbt connects to Yellowbrick using SSL. Refer to the [Yellowbrick documentation](https://docs.yellowbrick.com/5.2.27/client_tools/config_ssl_for_clients_intro.html) for details.

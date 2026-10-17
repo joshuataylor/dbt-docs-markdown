@@ -10,6 +10,10 @@ Learn what's new in the latest version of dbt.
 
 [New features and changes in v2](./dbt-upgrade/upgrading-to-v2.md)
 
+## [Upgrading to v1.13](./dbt-upgrade/upgrading-to-v1.13.md)
+
+[New features and changes in dbt v1.13](./dbt-upgrade/upgrading-to-v1.13.md)
+
 ## [Upgrading to v1.12](./dbt-upgrade/upgrading-to-v1.12.md)
 
 [New features and changes in dbt v1.12](./dbt-upgrade/upgrading-to-v1.12.md)

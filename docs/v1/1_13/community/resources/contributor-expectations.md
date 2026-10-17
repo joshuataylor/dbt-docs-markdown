@@ -1,0 +1,140 @@
+# Expectations for dbt contributors
+
+Whether it's `dbt-labs/dbt`, adapters, packages, or this very documentation site, contributing to the open source or source-available code that supports the dbt ecosystem is a great way to share your knowledge, level yourself up as a developer, and to give back to the community. The goal of this page is to help you understand what to expect when contributing to dbt ecosystem projects.
+
+Have you seen things in other projects that you like, and think we could learn from? [Open a discussion on the dbt Community Forum](https://discourse.getdbt.com), or start a conversation in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community) (for example: `#community-strategy`, `#dbt-development`, `#package-ecosystem`, `#adapter-ecosystem`). We always appreciate hearing from you!
+
+## Principles
+
+### dbt is a team sport
+
+We all build dbt together -- whether you write code or contribute your ideas. By using dbt, you're invested in the future of the tool, and have an active role in pushing forward the standard of analytics engineering. You already benefit from using code and documentation contributed by community members. Contributing to the dbt community is your way to be an active participant in the thing we're all creating together.
+
+There's a very practical reason, too: building in public prioritizes our collective knowledge and experience over any one person's. We don't have experience using every database, operating system, security environment, ... We rely on the community of users to hone our product capabilities and documentation to the wide variety of contexts in which it operates. In this way, dbt gets to be the handiwork of thousands, rather than a few dozen.
+
+### We take seriously our role as maintainers of a standard
+
+As a standard, dbt must be reliable and consistent. Our first priority is ensuring the continued high quality of existing dbt capabilities before we introduce net-new capabilities.
+
+We also believe dbt as a framework should be extensible enough to ["make the easy things easy, and the hard things possible"](https://en.wikipedia.org/wiki/Perl#Philosophy). To that end, we *don't* believe it's appropriate for dbt to have an out-of-the-box solution for every niche problem. Users have the flexibility to achieve many custom behaviors by defining their own macros, materializations, hooks, and more. We view it as our responsibility as maintainers to decide when something should be "possible" — via macros, packages, etc. — and when something should be "easy" — built into the dbt standard.
+
+So when will we say "yes" to new capabilities for dbt? The signals we look for include:
+
+* Upvotes on issues in our GitHub repos
+* Open source dbt packages trying to close a gap
+* Technical advancements in the ecosystem
+
+In the meantime — we'll do our best to respond to new issues with:
+
+* Clarity about whether the proposed feature falls into the intended scope of dbt's source-available components
+* Context (including links to related issues)
+* Alternatives and workarounds
+* When possible, pointers to code that would aid a community contributor
+
+### Initiative is everything
+
+Given that we, as maintainers, will not be able to resolve every bug or flesh out every feature request, we empower you, as a community member, to initiate a change.
+
+* If you open the bug report, it's more likely to be identified.
+* If you open the feature request, it's more likely to be discussed.
+* If you comment on the issue, engaging with ideas and relating it to your own experience, it's more likely to be prioritized.
+* If you open a PR to fix an identified bug, it's more likely to be fixed.
+* If you comment on an existing PR, to confirm it solves the concrete problem for your team in practice, it's more likely to be merged.
+
+Sometimes, this can feel like shouting into the void, especially if you aren't met with an immediate response. We promise that there are dozens (if not hundreds) of folks who will read your comment, including us as maintainers. It all adds up to a real difference.
+
+## Practicalities
+
+### Discussions
+
+A discussion is best suited to propose a Big Idea, such as brand-new capability in the v1 framework. Anyone can open a discussion, comment on an existing one, or reply in a thread.
+
+When you open a new discussion, you might be looking for validation from other members of the community — folks who identify with your problem statement, who like your proposed idea, and who may have their own ideas for how it could be improved. The most helpful comments propose nuances or desirable user experiences to be considered in design and refinement. Unlike an **issue**, there is no specific code change that would “resolve” a discussion.
+
+If, over the course of a discussion, we reach a consensus on specific elements of a proposed design, we can open new implementation issues that reference the discussion for context. Those issues will connect desired user outcomes to specific implementation details, acceptance testing, and remaining questions that need answering.
+
+### Issues
+
+An issue could be a bug you've identified while using the product or reading the documentation. It could also be a specific idea you've had for a narrow extension of existing functionality.
+
+#### Best practices for issues
+
+* Issues are **not** for support / troubleshooting / debugging help. Please see [dbt support](../../docs/dbt-support.md) for more details and suggestions on how to get help.
+* Always search existing issues first, to see if someone else had the same idea / found the same bug you did.
+* Many dbt repositories offer templates for creating issues, such as reporting a bug or requesting a new feature. If available, please select the relevant template and fill it out to the best of your ability. This information helps us (and others) understand your issue.
+
+##### You've found an existing issue that interests you. What should you do?
+
+Comment on it! Explain that you've run into the same bug, or had a similar idea for a new feature. If the issue includes a detailed proposal for a change, say which parts of the proposal you find most compelling, and which parts give you pause.
+
+##### You've opened a new issue. What can you expect to happen?
+
+In our most critical repositories (such as `dbt-labs/dbt`), our goal is to respond to new issues as soon as possible. This initial response will often be a short acknowledgement that the maintainers are aware of the issue, signalling our perception of its urgency. Depending on the nature of your issue, it might be well suited to an external contribution, from you or another community member.
+
+**What if you're opening an issue in a different repository?** We have engineering teams dedicated to active maintenance of [`dbt-labs/dbt`](https://github.com/dbt-labs/dbt), home to both v1 and v2. Some things to note about the `dbt-labs/dbt` repo when you're contributing:
+
+* v2 lives on the `main` branch
+* v1 lives on the `latest.1` branch, as well as the component libraries of v1 ([`dbt-common`](https://github.com/dbt-labs/dbt-common) + [`dbt-adapters`](https://github.com/dbt-labs/dbt-adapters) (which also includes the dbt Labs managed adapters). `dbt-adapters` applies to v1 only.
+
+We've open-sourced a number of other software projects over the years, and the majority of them do not have the same activity or maintenance guarantees. Check to see if other recent issues have responses, or when the last commit was added to the `main` branch.
+
+**You're not sure about the status of your issue.** If your issue is in an actively maintained repo and has a `status:triage` label attached, we're aware it's something that needs a response. If the issue has been triaged, but not prioritized, this could mean:
+
+* The intended scope or user experience of a proposed feature requires further refinement from a maintainer
+* We believe the required code change is too tricky for an external contributor
+
+We'll do our best to explain the open questions or complexity, and when / why we could foresee prioritizing it.
+
+**Automation that can help us:** In many repositories, we use a bot that marks issues as stale if they haven't had any activity for 180 days. This helps us keep our backlog organized and up-to-date. We encourage you to comment on older open issues that you're interested in, to keep them from being marked stale. You're also always welcome to comment on closed issues to say that you're still interested in the proposal.
+
+#### Issue labels
+
+In all likelihood, the maintainer who responds will also add a number of labels. Not all of these labels are used in every repository.
+
+In some cases, the right resolution to an open issue might be tangential to the codebase. The right path forward might be in another codebase (we'll transfer it), a documentation update, or a change that you can make yourself in user-space code. In other cases, the issue might describe functionality that the maintainers are unwilling or unable to incorporate into the main codebase. In these cases, a maintainer will close the issue (perhaps using a `wontfix` label) and explain why.
+
+Many labels follow a namespaced `facet:value` model, where each facet answers one question about an issue — the kind of work it is, which subsystem it touches, which dbt engine it targets, and so on. Some facets take exactly one value; others can take several. You don't need to apply these yourself, but knowing what they mean helps you follow an issue's status.
+
+| Facet         | Example values                                                                                                                    | What it means                                                                                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `type:`       | `type:bug`, `type:feature`, `type:docs`, `type:tech-debt`, `type:epic`, `type:good-first-issue`                                   | The kind of work. Exactly one per issue.                                                                            |
+| `area:`       | `area:static-analysis`, `area:engine`, `area:compute`, `area:adapters`, `area:vscode`, `area:wizard`, `area:autofix`, `area:cicd` | Which subsystem the issue touches.                                                                                  |
+| `adapter:`    | `adapter:bigquery`, `adapter:snowflake`, `adapter:databricks`, `adapter:postgres`, …                                              | Which adapter or SQL dialect is involved.                                                                           |
+| `engine:`     | `engine:v1`, `engine:v2`                                                                                                          | Which dbt engine the issue concerns: `engine:v1` is the Python engine (dbt v1); `engine:v2` is the v2 Rust rewrite. |
+| `priority:`   | `priority:p0`, `priority:p1`, `priority:p2`                                                                                       | Maintainer triage urgency.                                                                                          |
+| `status:`     | `status:triage`, `status:needs-repro`, `status:has-repro`, `status:ready-for-review`                                              | Where the issue sits in the workflow.                                                                               |
+| `resolution:` | `resolution:wontfix`                                                                                                              | Why an issue was closed without a code change.                                                                      |
+
+Automation labels new issues with `status:triage` to mark them as awaiting a maintainer's first response. Older issues may also carry previous, un-namespaced labels such as `bug`, `enhancement`, `good_first_issue`, `help_wanted`, `duplicate`, `stale`, and `wontfix`. These map onto the faceted labels above (`bug` → `type:bug`, `enhancement` → `type:feature`, `good_first_issue` → `type:good-first-issue`, `wontfix` → `resolution:wontfix`, and so on) and remain in place for continuity. You may see either set while the transition settles.
+
+### Pull requests
+
+**Every PR should be associated with an issue.** Why? Before you spend a lot of time working on a contribution, we want to make sure that your proposal will be accepted. You should open an issue first, describing your desired outcome and outlining your planned change. If you've found an older issue that's already open, comment on it with an outline for your planned implementation *before* putting in the work to open a pull request.
+
+**PRs must include robust testing.** Comprehensive testing within pull requests is crucial for the stability of dbt. By prioritizing robust testing, we ensure the reliability of our codebase, minimize unforeseen issues, and safeguard against potential regressions. **We cannot merge changes that risk the backward incompatibility of existing documented behaviors.** We understand that creating thorough tests often requires significant effort, and your dedication to this process greatly contributes to the project's overall reliability. Thank you for your commitment to maintaining the integrity of our codebase and the experience of everyone using dbt!
+
+**PRs go through two review steps.** First, we aim to respond with feedback on whether we think the implementation is appropriate from a product & usability standpoint. At this point, we will close PRs that we believe fall outside the scope of dbt, or which might lead to an inconsistent user experience. Many of these are great ideas for add-on functionality that is better suited for a package or plugin. This is an important part of our role as maintainers; we're always open to hearing disagreement. If a PR passes this first review, we will queue it up for code review, at which point we aim to test it ourselves and provide thorough feedback.
+
+**We receive more PRs than we can thoroughly review, test, and merge.** Our teams have finite capacity, and our top priority is maintaining a well-scoped, high-quality framework for the tens of thousands of people who use it every week. To that end, we must prioritize overall stability and planned improvements over a long tail of niche potential features. For best results, say what in particular you'd like feedback on, and explain what would it mean to you, your team, and other community members to have the proposed change merged. Smaller PRs tackling well-scoped issues tend to be easier and faster for review. Two examples of community-contributed PRs:
+
+* [(dbt-labs/dbt#9347) Fix configuration of turning test warnings into failures](https://github.com/dbt-labs/dbt/pull/9347)
+* [(dbt-labs/dbt#9863) Better error message when trying to select a disabled model](https://github.com/dbt-labs/dbt/pull/9863)
+
+**Automation that can help us:** Many repositories have a template for pull request descriptions, which will include a checklist that must be completed before the PR can be merged. You don't have to do all of these things to get an initial PR, but they will delay our review process. Those include:
+
+* **Tests, tests, tests.** When you open a PR, some tests and code checks will run. (For security reasons, some may need to be approved by a maintainer.) We will not merge any PRs with failing tests. If you're not sure why a test is failing, please say so, and we'll do our best to get to the bottom of it together.
+* **Contributor License Agreement** (CLA): This ensures that we can merge your code, without worrying about unexpected implications for the copyright or license of open source or source-available dbt software. For more details, read: ["Contributor License Agreements"](./contributor-license-agreements.md)
+* **Changelog:** In projects that include a number of changes in each release, we need a reliable way to signal what's been included. The mechanism for this will vary by repository, so keep an eye out for notes about how to update the changelog.
+* **Semver label:** Some repositories require every pull request to carry exactly one `semver:patch` (bug fixes and other safe changes) or `semver:minor` (new, non-breaking features) label; `semver:major` isn't accepted. Where this applies, CI enforces it.
+
+### Inclusion in release versions
+
+#### dbt v1
+
+Both bug fixes and backwards-compatible new features will be included in the [next minor release of dbt v1](../../docs/dbt-versions.md#how-dbt-v1-uses-semantic-versioning). Fixes for regressions and net-new bugs that were present in the minor version's original release will be backported to versions with [active support](../../docs/dbt-versions.md). Other bug fixes may be backported when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
+
+#### dbt v2
+
+dbt v2 is released continuously, and it contains a superset of the code and functionality available in the open source layer. Version numbers for dbt OSS and dbt v2 converge at v2.0.0.
+
+The major version of our [open source](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md) offering is built on the v2 runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release.

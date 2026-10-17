@@ -1,0 +1,110 @@
+# Connect MySQL to dbt v1
+
+Local development
+
+Community plugin
+
+Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
+
+* **Maintained by**: Community
+* **Authors**: Doug Beatty (https\://github.com/dbeatty10)
+* **GitHub repo**: [dbeatty10/dbt-mysql](https://github.com/dbeatty10/dbt-mysql) [![](https://img.shields.io/github/stars/dbeatty10/dbt-mysql?style=for-the-badge)](https://github.com/dbeatty10/dbt-mysql)
+* **PyPI package**: `dbt-mysql` [![](https://badge.fury.io/py/dbt-mysql.svg)](https://badge.fury.io/py/dbt-mysql)
+* **Slack channel**: [#db-mysql-family](https://getdbt.slack.com/archives/C03BK0SHC64)
+* **Supported dbt version**: v0.18.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: MySQL 5.7 and 8.0
+
+## Installing dbt-mysql
+
+Use `pip` to install the adapter. Use the following command for installation:
+
+`python -m pip install dbt-mysql`
+
+## Configuring dbt-mysql
+
+For MySQL-specific configuration, please refer to [MySQL configs.](../../../reference/resource-configs/no-configs.md)
+
+This is an experimental plugin:
+
+* It has not been tested extensively.
+
+* Storage engines other than the default of InnoDB are untested.
+
+* Only tested with [dbt-adapter-tests](https://github.com/dbt-labs/dbt-adapter-tests) with the following versions:
+
+  * MySQL 5.7
+  * MySQL 8.0
+  * MariaDB 10.5
+
+* Compatibility with other [dbt packages](https://hub.getdbt.com/) (like [dbt\_utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/)) are also untested.
+
+Please read these docs carefully and use at your own risk. [Issues](https://github.com/dbeatty10/dbt-mysql/issues/new) and [PRs](https://github.com/dbeatty10/dbt-mysql/blob/main/CONTRIBUTING.rst#contributing) welcome!
+
+## Connecting to MySQL with dbt-mysql
+
+MySQL targets should be set up using the following configuration in your `profiles.yml` file.
+
+Example:
+
+\~/.dbt/profiles.yml
+
+```yaml
+your_profile_name:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: localhost
+      port: 3306
+      schema: analytics
+      username: your_mysql_username
+      password: your_mysql_password
+      ssl_disabled: True
+```
+
+Report incorrect code
+
+#### Description of MySQL Profile Fields
+
+| Option        | Description                                           | Required? | Example                        |
+| ------------- | ----------------------------------------------------- | --------- | ------------------------------ |
+| type          | The specific adapter to use                           | Required  | `mysql`, `mysql5` or `mariadb` |
+| server        | The server (hostname) to connect to                   | Required  | `yourorg.mysqlhost.com`        |
+| port          | The port to use                                       | Optional  | `3306`                         |
+| schema        | Specify the schema (database) to build models into    | Required  | `analytics`                    |
+| username      | The username to use to connect to the server          | Required  | `dbt_admin`                    |
+| password      | The password to use for authenticating to the server  | Required  | `correct-horse-battery-staple` |
+| ssl\_disabled | Set to enable or disable TLS connectivity to mysql5.x | Optional  | `True` or `False`              |
+
+## Supported features
+
+| MariaDB 10.5 | MySQL 5.7 | MySQL 8.0 | Feature                     |
+| ------------ | --------- | --------- | --------------------------- |
+| ✅           | ✅        | ✅        | Table materialization       |
+| ✅           | ✅        | ✅        | View materialization        |
+| ✅           | ✅        | ✅        | Incremental materialization |
+| ✅           | ❌        | ✅        | Ephemeral materialization   |
+| ✅           | ✅        | ✅        | Seeds                       |
+| ✅           | ✅        | ✅        | Sources                     |
+| ✅           | ✅        | ✅        | Custom data tests           |
+| ✅           | ✅        | ✅        | Docs generate               |
+| 🤷           | 🤷        | ✅        | Snapshots                   |
+
+## Notes
+
+* Ephemeral materializations rely upon [Common Table Expressions](https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL) (CTEs), which are not supported until MySQL 8.0.
+
+* MySQL 5.7 has some configuration gotchas that might affect dbt snapshots to not work properly due to [automatic initialization and updating for `TIMESTAMP`](https://dev.mysql.com/doc/refman/5.7/en/timestamp-initialization.html).
+
+  * If the output of `SHOW VARIABLES LIKE 'sql_mode'` includes `NO_ZERO_DATE`. A solution is to include the following in a `*.cnf` file:
+
+  ```text
+  [mysqld]
+  explicit_defaults_for_timestamp = true
+  sql_mode = "ALLOW_INVALID_DATES,{other_sql_modes}"
+  ```
+
+  Report incorrect code
+
+  * Where `{other_sql_modes}` is the rest of the modes from the `SHOW VARIABLES LIKE 'sql_mode'` output.

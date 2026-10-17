@@ -1,0 +1,61 @@
+# Resources object schema
+
+dbt platform | Starter, Enterprise, Enterprise+
+
+The resources object allows you to paginate across all resources in your environment.
+
+The [Example query](#example-query) illustrates a few fields you can query with the `resources` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
+
+### Arguments
+
+When querying for `resources`, you can use the following arguments:
+
+# Fetching data...
+
+### Example query
+
+You can specify the `environmentId`, filter by "Model" as the type, and limit to the first 100 results to see comprehensive information about the first 100 model resources in this environment, including their metadata, tags, and file locations:
+
+```graphql
+query {
+  environment(id: 834) {
+    applied {
+      resources(
+        filter: {
+          types: [
+            Model
+          ]
+        }, 
+        first: 100
+      ) {
+        edges {
+          node {
+            accountId
+            description
+            environmentId
+            filePath
+            meta
+            name
+            projectId
+            resourceType
+            uniqueId
+            tags
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Report incorrect code
+
+### Fields
+
+When querying for `resources`, you can use the following fields:
+
+# Fetching data...
+
+### Key fields from nodes
+
+# Fetching data...

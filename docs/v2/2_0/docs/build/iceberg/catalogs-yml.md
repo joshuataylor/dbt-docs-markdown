@@ -35,22 +35,13 @@ You should start using `catalogs` when:
 * You want to write to multiple catalogs ("external" as well as built-in / managed)
 * You want to access the same catalog across multiple data platforms / dbt projects
 
-dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt v1.10; starting in dbt v1.12, we've introduced a new simpler spec (recommended) behind an opt-in behavior flag.
+(Applies to dbt v2.0 and later)
 
-### New spec (recommended) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt v1.10, and dbt v1.12 added a new simpler spec (recommended). In dbt v2, the new spec is the default. To keep using the old spec, set `use_catalogs_v2: false` under `flags:` in `dbt_project.yml`.
+
+### New spec (recommended)
 
 *Available in dbt v1.12+ (including v2). See GitHub discussion [dbt-labs/dbt#12723](https://github.com/dbt-labs/dbt/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
-
-To use the new spec, first set this behavior flag:
-
-dbt\_project.yml
-
-```yml
-flags:
-  use_catalogs_v2: true
-```
-
-Report incorrect code
 
 Each entry in `catalogs` refers to a specific catalog containing Iceberg tables. Each catalog **should** map to a top-level logical namespace (often called "database" in dbt). Each catalog may be managed or external for this data platform. Each catalog may be accessed (read from and written to) by one or multiple data platforms.
 
@@ -66,7 +57,7 @@ catalogs.yml
 catalogs:
   - name: my_iceberg_catalog
     type: CATALOG_TYPE     # see below
-    table_format: iceberg  # default, optional
+    table_format: iceberg  # required
     config:
       ADAPTER:
         # Configuration for a specific adapter to integrate with this catalog.
@@ -100,7 +91,7 @@ catalogs.yml
 ```yml
 catalogs:
   - name: finance_db
-    catalog_type: unity
+    type: unity
     config:
       snowflake:
         base_location_root: 's3://my-bucket/finance_db'
@@ -137,6 +128,19 @@ If you don't specify a `catalog_database`, then dbt materializes models based on
 ### Old spec
 
 *Available in dbt v1.10+*
+
+(Applies to dbt v2.0 and later)
+
+To use the old spec, first set this behavior flag:
+
+dbt\_project.yml
+
+```yml
+flags:
+  use_catalogs_v2: false
+```
+
+Report incorrect code
 
 Each catalog configures one or more `write_integrations`, and then specifies an "active" write integration to use for the current invocation / data warehouse.
 

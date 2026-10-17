@@ -36,6 +36,10 @@ The following table shows where dbt Wizard is available, the AI keys each surfac
 | [Locally: Wizard terminal (CLI)](../dbt-ai/wizard-cli.md)   | Public beta    | dbt managed, BYOK, or OpenAI subscription |
 | [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)      | Private beta   | dbt managed or BYOK                       |
 
+Prefer to learn by video?
+
+Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/dbt-wizard) on dbt Learn!
+
 ## Supported providers
 
 dbt Wizard supports [managed models](../dbt-ai/pricing-billing/overview.md#dbt-managed-providers) (billed by dbt Labs, no key to manage) and [bring-your-own-key (BYOK)](../dbt-ai/wizard-byok.md) models (billed directly by your provider).
@@ -117,7 +121,7 @@ For first-run setup and billing, refer to [Use dbt Wizard locally](../dbt-ai/wiz
 
 New to the terminal?
 
-If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for for some helpful tips to help you get started!
+If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for some helpful tips to help you get started!
 
 ### Wizard Desktop [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 

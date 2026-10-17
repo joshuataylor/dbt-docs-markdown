@@ -1,0 +1,65 @@
+# About builtins Jinja variable
+
+The `builtins` variable exists to provide references to builtin dbt context methods. This allows macros to be created with names that *mask* dbt builtin context methods, while still making those methods accessible in the dbt compilation context.
+
+The `builtins` variable is a dictionary containing the following keys:
+
+* [ref](./ref.md)
+* [source](./source.md)
+* [config](./config.md)
+
+## Examples
+
+important
+
+Using the `builtins` variable in this way is an advanced development workflow. Users should be ready to maintain and update these overrides when upgrading in the future.
+
+### Overriding `ref`
+
+From dbt v1.5 and higher, use the following macro to override the `ref` method available in the model compilation context to return a [Relation](../dbt-classes.md#relation) with the database name overridden to `dev`.
+
+It includes logic to extract user-provided arguments, including `version`, and call the `builtins.ref()` function with either a single `modelname` argument or both `packagename` and `modelname` arguments, based on the number of positional arguments in `varargs`.
+
+Note that the `ref`, `source`, and `config` functions can't be overridden with a package. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt/issues/4491#issuecomment-994709916) for more context.
+
+```text
+{% macro ref() %}
+
+-- extract user-provided positional and keyword arguments
+{% set version = kwargs.get('version') or kwargs.get('v') %}
+{% set packagename = none %}
+{%- if (varargs | length) == 1 -%}
+    {% set modelname = varargs[0] %}
+{%- else -%}
+    {% set packagename = varargs[0] %}
+    {% set modelname = varargs[1] %}
+{% endif %}
+
+-- call builtins.ref based on provided positional arguments
+{% set rel = None %}
+{% if packagename is not none %}
+    {% set rel = builtins.ref(packagename, modelname, version=version) %}
+{% else %}
+    {% set rel = builtins.ref(modelname, version=version) %}
+{% endif %}
+
+-- finally, override the database name with "dev"
+{% set newrel = rel.replace_path(database="dev") %}
+{% do return(newrel) %}
+
+{% endmacro %}
+```
+
+Report incorrect code
+
+### Render identifiers without a database
+
+Logic within the ref macro can also be used to control which elements of the model path are rendered when run, for example the following logic renders only the schema and object identifier, but not the database reference i.e. `my_schema.my_model` rather than `my_database.my_schema.my_model`. This is especially useful when using snowflake as a warehouse, if you intend to change the name of the database post-build and wish the references to remain accurate.
+
+```text
+
+  -- render identifiers without a database
+  {% do return(rel.include(database=false)) %}
+```
+
+Report incorrect code

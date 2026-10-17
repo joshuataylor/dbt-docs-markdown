@@ -73,13 +73,29 @@ note
 
 Extended attributes are currently *not* supported for SSH tunneling
 
-Extended attributes allows users to set a flexible [profiles.yml](./local/profiles.yml.md) snippet in their dbt Environment settings. It provides users with more control over environments (both deployment and development) and extends how dbt connects to the data platform within a given environment.
+Extended attributes allow you to set a [`profiles.yml`](./local/profiles.yml.md) snippet that changes how dbt connects to your data platform. You can set any YAML attributes that a dbt adapter accepts in its `profiles.yml`. Extended attributes partially override connection or environment credentials, including custom environment variables.
 
-Extended attributes are set at the environment level, and can partially override connection or environment credentials, including any custom environment variables. You can set any YAML attributes that a dbt adapter accepts in its `profiles.yml`.
+Where you set them depends on the environment:
 
-![Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.")Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.
+**Deployment:** On the [connection profile](./platform/about-profiles.md) assigned to the environment:
 
-The following code is an example of the types of attributes you can add in the **Extended Attributes** text box:
+1. Go to **Orchestration** > **Environments**.
+2. Open the deployment environment and click **Settings**.
+3. Click **Edit**.
+4. Under **Connection profiles**, click the profile name.
+5. Add **Extended attributes** and save your changes.
+
+A profile can be assigned to more than one deployment environment, so these attributes apply to every environment that uses it.
+
+**Development:** [Profiles](./platform/about-profiles.md) apply to deployment environments only. Set **Extended attributes** on the development environment **Settings** page:
+
+1. Go to **Orchestration** > **Environments**.
+2. Open the development environment and click **Settings**.
+3. Click **Edit profile**, then set **Extended attributes** and save your changes.
+
+![The Extended attributes field on a connection profile.](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "The Extended attributes field on a connection profile.")The Extended attributes field on a connection profile.
+
+The following code is an example of the types of attributes you can add in the **Extended attributes** text box:
 
 ```yaml
 dbname: jaffle_shop      
@@ -101,11 +117,11 @@ db_groups:
 
 Report incorrect code
 
-#### Extended Attributes don't mask secret values
+#### Extended attributes don't mask secret values
 
 * We recommend you avoid setting secret values to prevent visibility in the text box and logs. A common workaround is to wrap extended attributes in [environment variables](./build/environment-variables.md). In the earlier example, `password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'` will get a value from the `DBT_ENV_SECRET_PASSWORD` environment variable at runtime.
 
-* If you're using [profiles](./platform/about-profiles.md) for deployment environments, any `env_var` references in Extended Attributes must use *project-scoped* environment variables. Since profiles are environment-agnostic, environment-scoped variables aren't available during connection tests. Jobs run normally since they have a real environment, but connection tests will fail if the referenced variable is only set at the environment level.
+* If you're using [profiles](./platform/about-profiles.md) for deployment environments, any `env_var` references in Extended attributes must use *project-scoped* environment variables. Since profiles are environment-agnostic, environment-scoped variables aren't available during connection tests. Jobs run normally since they have a real environment, but connection tests will fail if the referenced variable is only set at the environment level.
 
   To set a project-scoped variable, go to **Orchestration** > **Environments** > **Environment variables**, and set a value in the **Project default** column. This value applies across all environments in the project, making it available to profiles during connection tests. See [environment variables](./build/environment-variables.md?version=2.0#setting-environment-variables) for more information.
 

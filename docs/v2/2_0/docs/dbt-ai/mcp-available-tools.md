@@ -136,3 +136,7 @@ These tools provide information about the MCP server itself.
 
 * `get_mcp_server_branch`: Returns the current git branch of the running dbt MCP server.
 * `get_mcp_server_version`: Returns the current version of the dbt MCP server.
+
+### Find jobs across project environments
+
+Use the `list_jobs` [tool](#admin-api) with a `project_id` to list jobs across every environment in a dbt project. This is useful when you need to inspect jobs outside the configured production environment. Without `project_id`, `list_jobs` continues to use the configured production environment, or lists jobs across the account when no production environment is configured.

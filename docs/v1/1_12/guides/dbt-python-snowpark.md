@@ -459,7 +459,7 @@ dbt Labs has developed a [project structure guide](../best-practices/how-we-stru
 
    ![File tree of new folders](/img/guides/dbt-ecosystem/dbt-python-snowpark/7-folder-structure/3-tree-of-new-folders.png?v=2 "File tree of new folders")File tree of new folders
 
-Remember you can always reference the entire project in [GitHub](https://github.com/dbt-labs/python-snowpark-formula1/tree/python-formula1) to view the complete folder and file strucutre.
+Remember you can always reference the entire project in [GitHub](https://github.com/dbt-labs/python-snowpark-formula1/tree/python-formula1) to view the complete folder and file structure.
 
 ## Create source and staging models
 
@@ -1712,7 +1712,7 @@ If you haven’t seen code like this before or use joblib files to save machine 
          * Fit our model. In a logistic regression this means finding the coefficients that will give the least classification error.
          * Round our predictions to the nearest integer since logistic regression creates a probability between for each class and calculate a balanced accuracy to account for imbalances in the target variable.
 
-     * Right now our model is only in memory, so we need to use our nifty function `save_file` to save our model file to our Snowflake stage. We save our model as a joblib file so Snowpark can easily call this model object back to create predictions. We really don’t need to know much else as a data practitioner unless we want to. It’s worth noting that joblib files aren’t able to be queried directly by SQL. To do this, we would need to transform the joblib file to an SQL querable format such as JSON or CSV (out of scope for this workshop).
+     * Right now our model is only in memory, so we need to use our nifty function `save_file` to save our model file to our Snowflake stage. We save our model as a joblib file so Snowpark can easily call this model object back to create predictions. We really don’t need to know much else as a data practitioner unless we want to. It’s worth noting that joblib files aren’t able to be queried directly by SQL. To do this, we would need to transform the joblib file to an SQL queryable format such as JSON or CSV (out of scope for this workshop).
 
      * Finally we want to return our dataframe, but create a new column indicating what rows were used for training and those for training.
 

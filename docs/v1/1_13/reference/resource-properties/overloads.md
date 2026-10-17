@@ -1,0 +1,216 @@
+# overloads
+
+Did you know\...
+
+Available from dbt v1.12 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+
+functions/\<filename>.yml
+
+```yml
+
+functions:
+  - name: <function name>
+    arguments:
+      - name: <arg name>
+        data_type: <string>
+    returns:
+      data_type: <string>
+    overloads:
+      - defined_in: <string>       # required, name of the SQL, Python, or JavaScript file
+        arguments:                 # optional
+          - name: <arg name>       # required if arguments is specified
+            data_type: <string>    # required if arguments is specified, warehouse-specific
+            description: <markdown_string>
+            default_value: <string | boolean | integer> # optional, Snowflake and Postgres only
+        returns:                   # optional, inherits from root function if omitted
+          data_type: <string>      # required if returns is specified, warehouse-specific
+          description: <markdown_string>
+      - defined_in: ...            # declare additional overloads
+```
+
+Report incorrect code
+
+## Definition
+
+The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](../../docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
+
+Each overload references a separate file that contains its function body, with optional `arguments` and `returns`. All overloads are grouped into one DAG node (the root function), so they're built and selected together. On retry, dbt skips overloads that succeeded and reruns only those that failed.
+
+## Behavior
+
+dbt runs all overloads regardless of individual failures, so you get a complete picture of which overloads succeeded and which failed. The following behaviors apply:
+
+* If any overload fails, dbt marks the function node as `PARTIAL_SUCCESS` and skips downstream nodes.
+* [`dbt retry`](../commands/retry.md) skips overloads that already succeeded and only re-runs the previously failed ones.
+* [`state:modified`](../node-selection/methods.md#the-state-method) detects changes to any overload's function body, arguments, or return type and marks the root function node as modified.
+
+## Properties
+
+Each entry in the `overloads` list supports the following properties.
+
+### defined\_in
+
+The name of the file (without extension) that contains the overload's function body. The file must exist in the `functions/` directory. For example, `defined_in: null_if_empty_numeric` references `functions/null_if_empty_numeric.sql` for SQL UDFs, `functions/null_if_empty_numeric.py` for Python UDFs, or `functions/null_if_empty_numeric.js` for JavaScript UDFs.
+
+Each overload must reference a unique file. The root function's file and all `defined_in` values must be distinct.
+
+dbt raises a parsing error if:
+
+* A `defined_in` value matches the root function's own file.
+* Two overloads reference the same file.
+* The referenced file doesn't exist in the `functions/` directory.
+
+### arguments
+
+The argument list for the overload. Follows the same structure as [function arguments](./function-arguments.md).
+
+### returns
+
+The return type for the overload. Follows the same structure as [returns](./returns.md). If omitted, the overload inherits the return type of the root function.
+
+## Example
+
+### SQL
+
+functions/null\_if\_empty.yml
+
+```yml
+functions:
+  - name: null_if_empty
+    arguments:
+      - name: val
+        data_type: varchar
+    returns:
+      data_type: varchar
+    overloads:
+      - defined_in: null_if_empty_numeric
+        arguments:
+          - name: val
+            data_type: numeric
+        returns:
+          data_type: numeric
+```
+
+Report incorrect code
+
+Create a separate SQL file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
+
+functions/null\_if\_empty.sql
+
+```sql
+# syntax for Snowflake
+CASE WHEN val = '' THEN NULL ELSE val END
+
+# syntax for Postgres
+SELECT CASE WHEN val = '' THEN NULL ELSE val END
+```
+
+Report incorrect code
+
+functions/null\_if\_empty\_numeric.sql
+
+```sql
+# syntax for Snowflake
+CASE WHEN val = 0 THEN NULL ELSE val END
+
+# syntax for Postgres
+SELECT CASE WHEN val = 0 THEN NULL ELSE val END
+```
+
+Report incorrect code
+
+### Python
+
+functions/null\_if\_empty.yml
+
+```yml
+functions:
+  - name: null_if_empty
+    config:
+      runtime_version: "3.11"
+      entry_point: main
+    arguments:
+      - name: val
+        data_type: varchar
+    returns:
+      data_type: varchar
+    overloads:
+      - defined_in: null_if_empty_numeric
+        arguments:
+          - name: val
+            data_type: numeric
+        returns:
+          data_type: numeric
+```
+
+Report incorrect code
+
+Create a separate Python file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
+
+functions/null\_if\_empty.py
+
+```python
+def main(val):
+    return None if val == '' else val
+```
+
+Report incorrect code
+
+functions/null\_if\_empty\_numeric.py
+
+```python
+def main(val):
+    return None if val == 0 else val
+```
+
+Report incorrect code
+
+### JavaScript
+
+functions/null\_if\_empty.yml
+
+```yml
+functions:
+  - name: null_if_empty
+    arguments:
+      - name: val
+        data_type: varchar
+    returns:
+      data_type: varchar
+    overloads:
+      - defined_in: null_if_empty_numeric
+        arguments:
+          - name: val
+            data_type: numeric
+        returns:
+          data_type: numeric
+```
+
+Report incorrect code
+
+Create a separate JavaScript file for each overload body. In this example, the base function handles empty strings, and the overload handles numeric values:
+
+functions/null\_if\_empty.js
+
+```javascript
+if (val === '') return null;
+return val;
+```
+
+Report incorrect code
+
+functions/null\_if\_empty\_numeric.js
+
+```javascript
+if (val === 0) return null;
+return val;
+```
+
+Report incorrect code
+
+## Related documentation
+
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function arguments](./function-arguments.md)
+* [returns](./returns.md)

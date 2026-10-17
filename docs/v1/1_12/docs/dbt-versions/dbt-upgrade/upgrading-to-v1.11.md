@@ -6,7 +6,7 @@ Available in v1
 
 * [dbt v1.11 changelog](https://github.com/dbt-labs/dbt/blob/1.11.latest/CHANGELOG.md)
 * [dbt v1 CLI Installation guide](../../local/install-dbt.md)
-* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#release-tracks)
+* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading
 

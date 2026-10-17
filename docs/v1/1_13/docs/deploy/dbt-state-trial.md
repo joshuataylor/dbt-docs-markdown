@@ -1,0 +1,77 @@
+# dbt State trial and billing
+
+Login required | Usage-based
+
+Start a dbt State trial and manage paid access from the dbt platform **Billing & Usage** dashboard.
+
+## How the trial works
+
+* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Setting up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing).
+* To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally.
+* Once started, you cannot pause the trial.
+* If you were using state-aware orchestration prior to June 1, 2026, your dbt State trial will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team.
+
+## Starting your trial
+
+To start your 30-day trial, refer to the instructions in [Setting up dbt State](./dbt-state-setup.md).
+
+## Setting up usage-based billing
+
+dbt State pricing is usage-based; you're billed per target table that dbt State reuses each day, *not* per dbt platform seat.
+
+You can set up billing during your trial or after it ends. Once your trial ends, dbt notifies your billing admin — they must set up billing to keep using dbt State.
+
+#### Managed accounts
+
+If your account has consumption spend on contract, go to the **State** tab of the **Usage-based features** page and click **Allow** to bill against your committed spend. Otherwise, [contact the dbt Labs sales team](https://www.getdbt.com/contact).
+
+#### Self-serve accounts
+
+1. Go to **Billing & Usage** > **Usage-based features**.
+2. Click **Set up billing** (if your trial is still active) or **Add billing info** (if your trial has ended).
+3. In **Add a payment method**, enter your card details and billing address.
+4. Click **Save card**.
+5. Under the **State** tab, the card you added is displayed. Click **Confirm and activate**.
+
+After setting up billing, you can optionally [set a spend alert](#setting-spend-alerts) to get notified when your monthly costs reach a threshold.
+
+## Setting spend alerts
+
+You can set a spend alert to get notified when your monthly dbt State costs reach a defined threshold.
+
+1. In your dbt platform account, click your account name in the lower-left corner above your username and click **Account settings**.
+2. Go to **Billing & Usage** > **Usage-based features**.
+3. In the **Spend alert** section, click **Set a spend alert**.
+4. Enable the toggle to receive email notifications when monthly spend reaches your threshold.
+5. In the **Alert threshold** field, enter the amount in USD that triggers the alert.
+6. Click **Save**.
+
+## How billing works
+
+### Daily active target tables
+
+For purposes of pricing, daily active target tables (DATT) are measured as the number of distinct target tables (as defined below) for which dbt State performs at least one of the following unique operations on a given day (based on UTC time): a skip, clone, or test reuse.
+
+A target table is a database object managed by your dbt project for a given database and schema name. It includes seeds, snapshots, dbt models (including incremental models). It also includes each distinct test (even if the tests are not built into the database because `store_failures` is disabled). For example, if `stg_customers` has `not_null` and `unique` tests on its `id` column, that's three target tables: the model and its two tests.
+
+When you run `dbt build` or a similar command, a target table is selected for execution. It counts as an active target table if dbt State can reuse it based on your configuration rules. All reuses of the same active target table in a single day (based on UTC time) count as a single daily active target table (DATT).
+
+### Monthly cost calculation
+
+dbt State calculates cost per billing period using the unit price (USD $0.094) x sum of daily active target tables (DATT) for all account users and all days in that billing period. For example, if you have 100 DATT in a billing period, you'll be billed for 100 \* $0.094 = $9.40.
+
+For current unit price and more information, refer to the [dbt Labs Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table).
+
+### DATT chart
+
+You can view your DATT count in **Account settings** > **Billing & Usage** > **Usage-based features**. Under the **State** tab, the DATT chart shows DATTs split into **Billable** and **Free**. During a trial, all DATTs are counted as free.
+
+### Cancellation
+
+Usage is tracked through your cancellation date. You're billed at month end for usage incurred before cancellation and not charged for usage after.
+
+## Related docs
+
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State usage and pricing](../platform/billing.md#dbt-state-usage)

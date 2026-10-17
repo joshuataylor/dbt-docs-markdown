@@ -1,0 +1,172 @@
+Did you know\...
+
+Available from dbt v1.12 or with the [dbt "v1 Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+
+# latest\_version\_pointer
+
+## Project file
+
+dbt\_project.yml
+
+```yaml
+models:
+  <resource-path>:
+    +latest_version_pointer:
+      enabled: true | false
+      alias: <string>
+```
+
+Report incorrect code
+
+## Property file
+
+models/schema.yml
+
+```yaml
+models:
+  - name: [<model-name>]
+    config:
+      latest_version_pointer:
+        enabled: true | false
+        alias: <string>
+```
+
+Report incorrect code
+
+## SQL config
+
+models/\<model\_name>.sql
+
+```sql
+{{ config(
+    latest_version_pointer={
+        "enabled": true | false,
+        "alias": "<string>"
+    }
+) }}
+```
+
+Report incorrect code
+
+## Definition
+
+dbt platform on dbt v2
+
+In dbt v2, `latest_version_pointer` is enabled by default for all versioned models. If you have a versioned model with an explicit `alias` that matches the model's base name, you may see a `dbt1005` collision error. See [Naming collisions](#naming-collisions) below for how to resolve it.
+
+The `latest_version_pointer` config creates a view named after a [versioned model's](../../docs/mesh/govern/model-versions.md) base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). The view is created after the model with `is_latest_version = true` materializes successfully and is skipped for all other versions.
+
+You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](../global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`:
+
+dbt\_project.yml
+
+```yaml
+flags:
+  latest_version_pointer_enabled_by_default: true
+```
+
+Report incorrect code
+
+`latest_version_pointer` accepts two optional sub-keys for per-model control:
+
+| Key       | Type    | Default         | Description                                                                                                                                                            |
+| --------- | ------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled` | boolean | —               | Enables or disables the pointer view for this model. Overrides the `latest_version_pointer_enabled_by_default` project flag when set; defers to the flag when not set. |
+| `alias`   | string  | Model base name | Custom name for the pointer view. Overrides the default base name. For more information, see [Alias customization](#alias-customization).                              |
+
+## Alias customization
+
+By default, the pointer view uses the model's base name (for example, `dim_customers`). You can customize this in two ways:
+
+* **Per model**: Set `latest_version_pointer.alias` in the model config.
+* **Globally**: Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project. This macro follows the same pattern as [`generate_alias_name`](../../docs/build/custom-aliases.md#generate_alias_name).
+
+## Naming collisions
+
+To prevent naming collisions, dbt raises a `dbt1005` error if the latest version's alias is the same as the pointer view name. In dbt v2, where `latest_version_pointer` is enabled by default, this error can surface on models that have an explicit `alias` matching the model's base name, even if you never configured the pointer yourself.
+
+For example, the following configuration would raise `dbt1005` because both `dim_customers_v2` and the pointer view would resolve to `dim_customers`:
+
+```text
+dbt1005 (Cannot create latest version pointer: the latest version of 'dim_customers' is already aliased to 'dim_customers')
+```
+
+Report incorrect code
+
+```yaml
+models:
+  - name: dim_customers
+    versions:
+      - v: 1
+      - v: 2
+        config:
+          alias: dim_customers  # collides with the pointer view name
+    config:
+      latest_version_pointer:
+        enabled: true
+```
+
+Report incorrect code
+
+To fix this, select one of the following options:
+
+* [Remove the `alias` (recommended)](#remove-the-alias-recommended)
+* [Disable the latest version pointer for that model](#disable-the-latest-version-pointer-for-that-model)
+* [Set a unique `alias`](#set-a-unique-alias)
+* [Override the `generate_latest_version_pointer_alias` macro](#override-the-generate_latest_version_pointer_alias-macro)
+
+#### Remove the `alias` (recommended)
+
+Remove the `alias` from the latest version and let the automatic pointer handle it:
+
+```yaml
+config:
+  alias: dim_customers
+```
+
+Report incorrect code
+
+#### Disable the latest version pointer for that model
+
+This approach is immediately backward-compatible for pre-existing `alias` configs:
+
+```yaml
+        config:
+          alias: dim_customers
+    config:
+      latest_version_pointer:
+        enabled: false
+```
+
+Report incorrect code
+
+#### Set a unique `alias`
+
+```yaml
+        config:
+          alias: dim_customers_latest
+```
+
+Report incorrect code
+
+#### Override the `generate_latest_version_pointer_alias` macro
+
+Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
+
+macros/generate\_latest\_version\_pointer\_alias.sql
+
+```sql
+{% macro generate_latest_version_pointer_alias(custom_alias_name=none, node=none) -%}
+    {{ node.name ~ "_latest" }}
+{%- endmacro %}
+```
+
+Report incorrect code
+
+## Related documentation
+
+* [Model versions](../../docs/mesh/govern/model-versions.md)
+* [Pointing to the latest version](../../docs/mesh/govern/model-versions.md#pointing-to-the-latest-version)
+* [`latest_version_pointer_enabled_by_default` flag](../global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md)
+* [`versions`](../resource-properties/versions.md)
+* [`latest_version`](../resource-properties/latest_version.md)

@@ -52,14 +52,14 @@ You may have already started your move to the dbt platform and are looking for t
 
 ## Adapters and connections
 
-In the dbt platform, you can natively connect to your data platform and test its [connection](../docs/connect-adapters.md) with a click of a button. This is especially useful for users who are new to the dbt platform or are looking to streamline their connection setup. Here are some tips and caveats to consider:
+In the dbt platform, you can natively connect to your data platform and test its [connection](../docs/platform/connect-data-platform/about-connections.md) with a click of a button. This is especially useful for users who are new to the dbt platform or are looking to streamline their connection setup. Here are some tips and caveats to consider:
 
 ### Tips
 
 * Manage [dbt versions](../docs/dbt-versions/upgrade-dbt-platform-version.md) and ensure team collaboration with dbt platform's one-click feature, eliminating the need for manual updates and version discrepancies. Select a [release track](../docs/dbt-versions/dbt-release-tracks.md) for ongoing updates, to always stay up to date with fixes and (optionally) get early access to new functionality for your dbt project.
 * The dbt platform supports a whole host of [cloud providers](../docs/platform/connect-data-platform/about-connections.md), including Snowflake, Databricks, BigQuery, Fabric, and Redshift (to name a few).
-* Use [Extended Attributes](../docs/deploy/deploy-environments.md#extended-attributes) to set a flexible [profiles.yml](../docs/local/profiles.yml.md) snippet in your dbt platform environment settings. It gives you more control over environments (both deployment and development) and extends how the dbt platform connects to the data platform within a given environment.
-  * For example, if you have a field in your `profiles.yml` that you’d like to add to the dbt platform adapter user interface, you can use Extended Attributes to set it.
+* Use [Extended attributes](../docs/dbt-platform-environments.md#extended-attributes) to set a [`profiles.yml`](../docs/local/profiles.yml.md) snippet that changes how the dbt platform connects to the data platform. That page explains where to configure them for deployment and development environments.
+  * For example, if you have a field in your `profiles.yml` that you’d like to add to the dbt platform adapter user interface, you can use Extended attributes to set it.
 
 ### Caveats
 

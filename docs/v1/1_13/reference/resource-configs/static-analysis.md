@@ -1,0 +1,402 @@
+# static\_analysis
+
+static\_analysis controls how dbt v2 analyzes SQL at compile time for models, tests, seeds, and snapshots.
+
+info
+
+The `static_analysis` config is available in dbt v2 only. It isn't available in dbt v1 and will be ignored. To upgrade to dbt v2, refer to [Get started with dbt v2](../../docs/dbt/get-started-dbt.md).
+
+The `static_analysis` config sets how dbt v2 validates SQL before execution—using `strict` analysis, a `baseline` that balances checks with compatibility, or `off` to skip analysis when needed. You can find supported configuration locations for each resource type.
+
+To check out which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](./snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](./bigquery-function-support.md).
+
+## Models
+
+dbt\_project.yml
+
+```yml
+models:
+  resource-path:
+    +static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+models/filename.yml
+
+```yml
+models:
+  - name: model_name
+    config:
+      static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+models/model\_name.sql
+
+```sql
+{{ config(static_analysis='strict' | 'baseline' | 'off') }}
+```
+
+Report incorrect code
+
+## Tests
+
+dbt\_project.yml
+
+```yml
+data_tests:
+  +static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+models/filename.yml
+
+```yml
+models:
+  - name: model_name
+    data_tests:
+      - not_null:
+          arguments:
+            column_name: your_column_name
+          config:
+            static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+## Seeds
+
+dbt\_project.yml
+
+```yml
+seeds:
+  resource-path:
+    +static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+seeds/filename.yml
+
+```yml
+seeds:
+  - name: seed_name
+    config:
+      static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+## Snapshots
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  resource-path:
+    +static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+snapshots/filename.yml
+
+```yml
+snapshots:
+  - name: snapshot_name
+    config:
+      static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+## Unit tests
+
+dbt\_project.yml
+
+```yml
+unit_tests:
+  resource-path:
+    +static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+models/filename.yml
+
+```yml
+unit_tests:
+  - name: unit_test_name
+    model: model_name
+    config:
+      static_analysis: strict | baseline | off
+```
+
+Report incorrect code
+
+## Definition
+
+You can configure `static_analysis` for [models](../../docs/build/sql-models.md), [data tests](../../docs/build/data-tests.md), [unit tests](../../docs/build/unit-tests.md), [seeds](../../docs/build/seeds.md), and [snapshots](../../docs/build/snapshots.md).
+
+You can configure if and when dbt v2 performs static SQL analysis for a model. Configure the `static_analysis` config in your project YAML file (`dbt_project.yml`), model properties YAML file, or in a SQL config block in your model file. Refer to [Principles of static analysis](../../docs/build/about-static-analysis.md?version=1.12#principles-of-static-analysis) for more information on the different modes of static analysis.
+
+Setting a model to `strict` does not automatically set `strict` for downstream models; they keep the project default unless you configure them explicitly. For more information and examples, refer to [strict mode inheritance](../../docs/build/about-static-analysis.md#strict-mode-inheritance).
+
+The following values are available for `static_analysis`:
+
+* `baseline` (default): Statically analyze SQL. This is the recommended starting point for users transitioning from dbt v1, providing a smooth migration experience while still catching most SQL errors. You can incrementally opt-in to stricter analysis over time.
+* `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
+* `off`: Skip SQL analysis for this model and its descendants.
+
+Deprecated values
+
+The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use `strict` instead.
+
+### User-defined functions (UDFs) in `strict` mode
+
+When `static_analysis: strict` is in effect, dbt v2 parses `CREATE FUNCTION` statements from [`sql_header`](./sql_header.md) and from [`on-run-start`](../project-configs/on-run-start-on-run-end.md) project hooks, registers those UDFs in the compiler registry, and makes them available during strict static compilation. The `baseline` and `off` modes don't perform this UDF registration for static analysis.
+
+A model’s `sql_header` can include multiple statements. dbt v2 registers UDFs from `CREATE FUNCTION` statements and ignores other statements for this step.
+
+If strict analysis still cannot resolve a UDF, set [`static_analysis: off`](./static-analysis.md#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf) on the affected models.
+
+### How static analysis modes cascade
+
+Two rules determine how `static_analysis` modes apply in a lineage:
+
+* Eligibility rule: A model is eligible for static analysis only if all of its "parents" are eligible (by parents, we mean the models that are upstream of the current model in the lineage).
+* Strictness rule: A "child" model cannot be stricter than its parent (by child, we mean the models that are downstream of the current model in the lineage).
+
+The static analysis configuration cascades from most strict to least strict. Here's the strictness hierarchy: `strict` → `baseline` → `off`
+
+**Allowed downstream by parent mode** When going downstream in your lineage, you can keep the same mode or relax it; but you cannot make a child stricter than its parent. The following table shows the allowed downstream modes by parent mode:
+
+| Parent mode | Child can be                       |
+| ----------- | ---------------------------------- |
+| `strict`    | `strict`, `baseline`, or `off`     |
+| `baseline`  | `baseline` or `off` (not `strict`) |
+| `off`       | `off` only                         |
+
+For example, for the lineage Model A → Model B → Model C:
+
+* If Model A is `baseline`, you *cannot* set Model B to `strict`
+* If Model A is `strict`, you *can* set Model B to `baseline`
+
+This makes sure that stricter validation requirements don't apply downstream when parent models haven't met those requirements. `baseline` doesn't produce the full analyzed schema that `strict` needs from its upstream models, so a downstream model of a `baseline` model can't run strict-level type checking.
+
+Refer to the v2 concepts page for deeper discussion and visuals: [New concepts](../../docs/build/about-static-analysis.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
+
+### Custom materializations
+
+Models that use a [custom materialization](../../guides/create-new-materializations.md) follow the same `static_analysis` rules as any other model, whether you give the materialization a new name or reuse a built-in one like `table` or `incremental`. Downstream models follow the usual [cascading rules](#how-static-analysis-modes-cascade).
+
+If a custom materialization adds, renames, or retypes columns, dbt v2 can't predict those changes from the model's SQL. This mainly affects `strict`, which needs accurate upstream schemas. If you use `strict`, set `static_analysis: off` on the models that use that materialization.
+
+Because `off` cascades, every downstream model also loses static analysis and the features that depend on it, such as column-level lineage and type checking. To keep coverage across your DAG, use schema-changing materializations on models that nothing else depends on.
+
+For more information, refer to [Custom materializations](../../docs/build/about-static-analysis.md#custom-materializations).
+
+## CLI override
+
+You can override model-level configuration for a run using the [`--static-analysis`](../global-configs/static-analysis-flag.md) flag. For example, to disable static analysis for a run:
+
+```bash
+dbt run --static-analysis off # disable static analysis for all models
+dbt run --static-analysis baseline # use baseline analysis for all models
+```
+
+Report incorrect code
+
+## Examples
+
+The following examples show how to disable or configure `static_analysis` for different scenarios:
+
+* [Enable strict analysis for all your models](#enable-strict-analysis-for-all-your-models)
+* [Disable static analysis for all models in a package](#disable-static-analysis-for-all-models-in-a-package)
+* [Disable static analysis in YAML for a single model](#disable-static-analysis-in-yaml-for-a-single-model)
+* [Disable static analysis in SQL for a model using a custom UDF](#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf)
+* [Configure static analysis for data tests](#configure-static-analysis-for-data-tests)
+* [Configure static analysis for unit tests](#configure-static-analysis-for-unit-tests)
+* [Configure static analysis for seeds](#configure-static-analysis-for-seeds)
+* [Configure static analysis for snapshots](#configure-static-analysis-for-snapshots)
+
+### Enable strict analysis for all your models
+
+The recommended way to get maximum SQL validation for your entire project is to set `strict` in the top-level `models` configuration in your `dbt_project.yml`. This configuration applies strict analysis to every model in your project, so you don't need to configure each model individually:
+
+dbt\_project.yml
+
+```yml
+name: jaffle_shop
+
+models:
+  jaffle_shop:
+    +static_analysis: strict
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+```
+
+Report incorrect code
+
+You can set individual subdirectories or models to `baseline` or `off` where needed (for example, models that use unsupported UDFs). Individual models can use less strict settings than the project-level config, but you can't set them to stricter settings. The project default is `baseline`.
+
+In this example, strict static analysis applies only to Jaffle Shop models. Installed packages keep the default `baseline` setting unless you explicitly configure them.
+
+### Disable static analysis for all models in a package
+
+This example shows how to disable static analysis for all models in a package. The [`+` prefix](./plus-prefix.md) applies the config to all models in the package.
+
+dbt\_project.yml
+
+```yml
+name: jaffle_shop
+
+models:
+  jaffle_shop:
+    marts:
+      +materialized: table
+
+  a_package_with_introspective_queries:
+    +static_analysis: off
+```
+
+Report incorrect code
+
+### Disable static analysis in YAML for a single model
+
+This example shows how to disable static analysis for a single model in YAML.
+
+models/my\_udf\_using\_model.yml
+
+```yml
+models:
+  - name: model_with_static_analysis_off
+    config:
+      static_analysis: off
+```
+
+Report incorrect code
+
+### Disable static analysis in SQL for a model using a custom UDF
+
+This example shows how to disable static analysis for a model using a custom [user-defined function (UDF)](../../docs/build/udfs.md) in a SQL file.
+
+models/my\_udf\_using\_model.sql
+
+```sql
+{{ config(static_analysis='off') }}
+
+select
+  user_id,
+  my_cool_udf(ip_address) as cleaned_ip
+from {{ ref('my_model') }}
+```
+
+Report incorrect code
+
+### Configure static analysis for data tests
+
+This example shows how to set static analysis for all tests in a project using `dbt_project.yml`.
+
+dbt\_project.yml
+
+```yaml
+# dbt_project.yml
+data_tests:
+  +static_analysis: baseline
+```
+
+Report incorrect code
+
+To configure static analysis for a specific data test on a model:
+
+models/filename.yml
+
+```yaml
+# models/filename.yml
+models:
+  - name: my_model
+    data_tests:
+      - not_null:
+          arguments:
+            column_name: order_id
+          config:
+            static_analysis: off
+```
+
+Report incorrect code
+
+### Configure static analysis for seeds
+
+This example shows how to set static analysis for all seeds in a project.
+
+dbt\_project.yml
+
+```yaml
+# dbt_project.yml
+seeds:
+  your_project:
+    +static_analysis: baseline
+```
+
+Report incorrect code
+
+To configure a single seed in a properties file:
+
+seeds/filename.yml
+
+```yaml
+# seeds/filename.yml
+seeds:
+  - name: my_seed
+    config:
+      static_analysis: off
+```
+
+Report incorrect code
+
+### Configure static analysis for snapshots
+
+This example shows how to set static analysis for all snapshots in a project.
+
+dbt\_project.yml
+
+```yaml
+# dbt_project.yml
+snapshots:
+  your_project:
+    +static_analysis: baseline
+```
+
+Report incorrect code
+
+To configure a single snapshot in a properties file:
+
+snapshots/filename.yml
+
+```yaml
+# snapshots/filename.yml
+snapshots:
+  - name: my_snapshot
+    config:
+      static_analysis: off
+```
+
+Report incorrect code
+
+## Considerations
+
+* For models, disabling static analysis means that features of the VS Code extension that depend on SQL comprehension will be unavailable.
+* For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](../../docs/build/about-static-analysis.md#when-should-i-turn-static-analysis-off).
+* Because modes cascade, the mode you configure isn't always the mode in effect. To check the effective mode for a model, use the CodeLens in the dbt VS Code extension or the Studio IDE, which shows which models have static analysis disabled and why.
+
+## Related docs
+
+* [About static analysis](../../docs/build/about-static-analysis.md)
+* [`--static-analysis` flag](../global-configs/static-analysis-flag.md)
+* [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md)

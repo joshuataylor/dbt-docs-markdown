@@ -34,11 +34,11 @@ Read-only users only have access to Explore mode and see a simpler UI. The only 
 
  Which license does a read-only user need?
 
-Read-only. For current license types and how they're assigned, refer to [User licenses](./manage-access/about-user-access.md).
+You can use a Read-only license. For current license types and how they're assigned, refer to [User licenses](./manage-access/about-user-access.md).
 
  How many read-only users can we invite?
 
-It depends on your dbt platform plan. For license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
+You can invite any user that has a read-only license! Check out [Invite read-only users](#invite-read-only-users) for instructions on how to invite users. For license availability by plan, refer to [dbt pricing](https://www.getdbt.com/pricing).
 
  Does read-only usage count against our AI usage credits?
 
@@ -68,7 +68,7 @@ Seeing dbt Wizard in the Home tab doesn't mean the account is ready to answer qu
 
 ## Invite read-only users
 
-Read-only users need AI features turned on to use Wizard. AI features are [enabled](./manage-dbt-ai.md) by default, so there's usually nothing to change.
+This section explains how to invite read-only users to dbt platform so they can use the Wizard home tab.
 
 1. In dbt platform, go to **Account settings** --> **Users**.
 2. Click **Invite users**.

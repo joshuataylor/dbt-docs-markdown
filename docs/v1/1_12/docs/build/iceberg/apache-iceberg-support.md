@@ -47,3 +47,9 @@ To the extent possible, dbt tries to abstract away the complexity of table forma
 #### [DuckDB + Iceberg](./adapters/duckdb-iceberg-support.md)
 
 [DuckDB Iceberg configurations](./adapters/duckdb-iceberg-support.md)
+
+[![](/img/icons/aws.svg)](./adapters/aws-iceberg-support.md)
+
+#### [AWS + Iceberg](./adapters/aws-iceberg-support.md)
+
+[AWS Iceberg configurations, including Amazon S3 Tables](./adapters/aws-iceberg-support.md)

@@ -1,0 +1,76 @@
+# seed-paths
+
+dbt\_project.yml
+
+```yml
+seed-paths: [directorypath]
+```
+
+Report incorrect code
+
+## Definition
+
+Optionally specify a custom list of directories where [seed](../../docs/build/seeds.md) files are located.
+
+## Default
+
+By default, dbt expects seeds to be located in the `seeds` directory. For example, `seed-paths: ["seeds"]`.
+
+Paths specified in `seed-paths` must be relative to the location of your `dbt_project.yml` file. Avoid using absolute paths like `/Users/username/project/seed`, as it will lead to unexpected behavior and outcomes.
+
+* ✅ **Do**
+
+  * Use relative path:
+
+    ```yml
+    seed-paths: ["seed"]
+    ```
+
+    Report incorrect code
+
+* ❌ **Don't:**
+
+  * Avoid absolute paths:
+
+    ```yml
+    seed-paths: ["/Users/username/project/seed"]
+    ```
+
+    Report incorrect code
+
+## Examples
+
+### Use a directory named `custom_seeds` instead of `seeds`
+
+dbt\_project.yml
+
+```yml
+seed-paths: ["custom_seeds"]
+```
+
+Report incorrect code
+
+### Co-locate your models and seeds in the `models` directory
+
+Note: this works because dbt is looking for different file types for seeds (`.csv` files) and models (`.sql` files).
+
+dbt\_project.yml
+
+```yml
+seed-paths: ["models"]
+model-paths: ["models"]
+```
+
+Report incorrect code
+
+### Split your seeds across two directories
+
+Note: We recommend that you instead use two subdirectories within the `seeds/` directory to achieve a similar effect.
+
+dbt\_project.yml
+
+```yml
+seed-paths: ["seeds", "custom_seeds"]
+```
+
+Report incorrect code

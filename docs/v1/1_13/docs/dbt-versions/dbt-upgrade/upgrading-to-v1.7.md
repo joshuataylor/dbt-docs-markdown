@@ -1,0 +1,144 @@
+# Upgrading to v1.7
+
+Available in v1
+
+dbt v1.3 – v1.7 will be deprecated on January 31, 2027
+
+dbt v1 versions v1.3-v1.7 have reached [end of life](../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+
+Upgrade your environments to a [supported dbt version](../../dbt-versions.md) or a [release track](../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
+
+## Resources
+
+* [Changelog](https://github.com/dbt-labs/dbt/blob/1.7.latest/CHANGELOG.md)
+* [dbt v1 CLI Installation guide](../../local/install-dbt.md)
+* [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
+* [Release schedule](https://github.com/dbt-labs/dbt/issues/8260)
+
+## What to know before upgrading
+
+dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
+
+Snowflake column size change
+
+[Snowflake plans to increase](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-2118) the default column size for string and binary data types in September 2026. `dbt-snowflake` versions below v1.10.6 may fail to build certain incremental models when this change is deployed.
+
+ Assess impact and required actions
+
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+
+* Contain string columns with collation defined
+* Use the `on_schema_change='sync_all_columns'` config
+
+To check whether this change affects your project, run the following [list](../../../reference/commands/list.md) command:
+
+```bash
+dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
+```
+
+Report incorrect code
+
+* If the command returns `No nodes selected!`, no action is required.
+
+* If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
+
+  * **dbt v1**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt v1 installation instructions.
+  * **dbt platform**: Any release track (**v1 Latest**, **v1 Compatible**, **v1 Extended**, or **v1 Fallback**).
+  * **dbt v2**: v2.0.0.
+
+  This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
+
+### Behavior changes
+
+dbt v1.7 expands the amount of sources you can configure freshness for. Previously, freshness was limited to sources with a `loaded_at_field`; now, freshness can be generated from warehouse metadata tables when available.
+
+As part of this change, the `loaded_at_field` is no longer required to generate source freshness. If a source has a `freshness:` block, dbt will attempt to calculate freshness for that source:
+
+* If a `loaded_at_field` is provided, dbt will calculate freshness via a select query (previous behavior).
+* If a `loaded_at_field` is *not* provided, dbt will calculate freshness via warehouse metadata tables when possible (new behavior).
+
+This is a relatively small behavior change, but worth calling out in case you notice that dbt is calculating freshness for *more* sources than before. To exclude a source from freshness calculations, explicitly set `freshness: null`.
+
+Beginning with v1.7, running [`dbt deps`](../../../reference/commands/deps.md) creates or updates the `package-lock.yml` file in the *project\_root* where `packages.yml` is recorded. The `package-lock.yml` file contains a record of all packages installed and, if subsequent `dbt deps` runs contain no updated packages in `dependencies.yml` or `packages.yml`, dbt-core installs from `package-lock.yml`.
+
+To retain the behavior prior to v1.7, there are two main options:
+
+1. Use `dbt deps --upgrade` everywhere `dbt deps` was used previously.
+2. Add `package-lock.yml` to your `.gitignore` file.
+
+## New and changed features and functionality
+
+* [`dbt docs generate`](../../../reference/commands/cmd-docs.md) now supports `--select` to generate [catalog metadata](../../../reference/artifacts/catalog-json.md) for a subset of your project.
+* [Source freshness](../../deploy/source-freshness.md) can now be generated from warehouse metadata tables.
+
+### MetricFlow enhancements
+
+* Automatically create metrics on measures with [`create_metric: true`](../../build/semantic-models.md).
+* Optional [`label`](../../build/semantic-models.md) in semantic\_models, measures, dimensions, and entities.
+* New configurations for semantic models - [enable/disable](../../../reference/resource-configs/enabled.md), [group](../../../reference/resource-configs/group.md), and [meta](../../../reference/resource-configs/meta.md).
+* Support `fill_nulls_with` and `join_to_timespine` for metric nodes.
+* `saved_queries` extends governance beyond the semantic objects to their consumption.
+
+### For consumers of dbt artifacts (metadata)
+
+* The [manifest](../../../reference/artifacts/manifest-json.md) schema version has been updated to v11.
+
+* The [run\_results](../../../reference/artifacts/run-results-json.md) schema version has been updated to v5.
+
+* There are a few specific changes to the [catalog.json](../../../reference/artifacts/catalog-json.md):
+
+  * Added [node attributes](../../../reference/artifacts/run-results-json.md) related to compilation (`compiled`, `compiled_code`, `relation_name`) to the `catalog.json`.
+  * The nodes dictionary in the `catalog.json` can now be "partial" if `dbt docs generate` is run with a selector.
+
+### Model governance
+
+dbt v1.5 introduced model governance which we're continuing to refine. v1.7 includes these additional features and functionality:
+
+* **[Breaking change detection](../../../reference/resource-properties/versions.md#detecting-breaking-changes) for models with contracts enforced:** When dbt detects a breaking change to a model with an enforced contract during state comparison, it will now raise an error for versioned models and a warning for models that are not versioned.
+* **[Set `access` as a config](../../../reference/resource-configs/access.md):** You can now set a model's `access` within config blocks in the model's SQL file or in the project YAML file (`dbt_project.yml`) for an entire subfolder at once.
+* **[Type aliasing for model contracts](../../../reference/resource-configs/contract.md):** dbt will use each adapter's built-in type aliasing for user-provided data types—meaning you can now write `string` always, and dbt will translate to `text` on Postgres/Redshift. This is "on" by default, but you can opt-out.
+* **[Raise warning for numeric types](../../../reference/resource-configs/contract.md):** Because of issues when putting `numeric` in model contracts without considering that default values such as `numeric(38,0)` might round decimals accordingly. dbt will now warn you if it finds a numeric type without specified precision/scale.
+
+### dbt clean
+
+[dbt clean](../../../reference/commands/clean.md) only cleans paths within the current working directory. The `--no-clean-project-files-only` flag will delete all paths specified in the `clean-targets` section of `dbt_project.yml`, even if they're outside the dbt project.
+
+Supported flags:
+
+* `--clean-project-files-only` (default)
+* `--no-clean-project-files-only`
+
+### Additional attributes in run\_results.json
+
+The run\_results.json now includes three attributes related to the `applied` state that complement `unique_id`:
+
+* `compiled`: Boolean entry of the node compilation status (`False` after parsing, but `True` after compiling).
+* `compiled_code`: Rendered string of the code that was compiled (empty after parsing, but full string after compiling).
+* `relation_name`: The fully-qualified name of the object that was (or will be) created/updated within the database.
+
+### Deprecated functionality
+
+The ability for installed packages to override built-in materializations without explicit opt-in from the user is being deprecated.
+
+* Overriding a built-in materialization from an installed package raises a deprecation warning.
+
+* Using a custom materialization from an installed package does not raise a deprecation warning.
+
+* Using a built-in materialization package override from the root project via a wrapping materialization is still supported. For example:
+
+  ```text
+  {% materialization view, default %}
+  {{ return(my_cool_package.materialization_view_default()) }}
+  {% endmaterialization %}
+  ```
+
+  Report incorrect code
+
+### Quick hits
+
+With these quick hits, you can now:
+
+* Configure a [`delimiter`](../../../reference/resource-configs/delimiter.md) for a seed file.
+* Use packages with the same git repo and unique subdirectory.
+* Access the `date_spine` macro directly from dbt-core (moved over from dbt-utils).
+* Syntax for `DBT_ENV_SECRET_` has changed to `DBT_ENV_SECRET` and no longer requires the closing underscore.

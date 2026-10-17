@@ -54,11 +54,13 @@ Each provider lists how many of its models are enabled, such as `6/6 models enab
 
 ## Connectors
 
-*Coming soon*
+MCP connectors give dbt Wizard context about your pipelines, BI tools, and orchestration.
 
-MCP connectors give dbt Wizard context about your pipelines, BI tools, and orchestration. Browsing and enabling them from this pane is planned for future releases.
+If your project is connected to dbt platform, dbt Wizard connects to the [remote dbt MCP server](./mcp-quickstart-remote.md) by default and asks you to sign in with OAuth. This adds platform tools like job management, run status, and run errors. Use the toggle on this pane to turn it on or off for each dbt account.
 
-Until then, add [MCP servers](./wizard-mcp.md) from the terminal:
+The remote dbt MCP server is available to dbt platform users only. dbt Wizard still uses its local [index](./wizard-how-it-works.md#native-metadata-engine) for project metadata.
+
+Browsing and enabling other connectors from this pane is planned for future releases. Until then, add [MCP servers](./wizard-mcp.md) from the terminal:
 
 1. Start a project chat and send your first message, which starts the terminal.
 2. Run `wizard` from the terminal.

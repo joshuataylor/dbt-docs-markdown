@@ -1,0 +1,63 @@
+# Defining a schema source property
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: <source_name>
+    database: <database_name>
+    schema: <schema_name>
+    tables:
+      - name: <table_name>
+      - ...
+```
+
+Report incorrect code
+
+## Definition
+
+The schema name as stored in the database.
+
+This parameter is useful if you want to use a [source](../source-properties.md) name that differs from the schema name.
+
+BigQuery terminology
+
+If you're using BigQuery, use the *dataset* name as the `schema` property.
+
+## Default
+
+By default, dbt will use the source's `name` parameter as the schema name.
+
+## Examples
+
+### Use a simpler name for a source schema than the one in your database
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: jaffle_shop
+    schema: postgres_backend_public_schema
+    tables:
+      - name: orders
+```
+
+Report incorrect code
+
+In a downstream model:
+
+```sql
+select * from {{ source('jaffle_shop', 'orders') }}
+```
+
+Report incorrect code
+
+Will get compiled to:
+
+```sql
+select * from postgres_backend_public_schema.orders
+```
+
+Report incorrect code

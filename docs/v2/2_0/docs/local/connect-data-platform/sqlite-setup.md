@@ -67,7 +67,7 @@ Report incorrect code
 | `schema`            | Value of 'schema' must be defined in schema\_paths below. in most cases, this should be main.                                                                                                                                                             |
 | `schemas_and_paths` | Connect schemas to paths: at least one of these must be 'main'                                                                                                                                                                                            |
 | `schema_directory`  | Directory where all \*.db files are attached as schema, using base filename as schema name, and where new schemas are created. This can overlap with the dirs of files in schemas\_and\_paths as long as there's no conflicts.                            |
-| `extensions`        | Optional. List of file paths of SQLite extensions to load. crypto.so is needed for snapshots to work; see SQLlite Extensions below.                                                                                                                       |
+| `extensions`        | Optional. List of file paths of SQLite extensions to load. crypto.so is needed for snapshots to work; see SQLite Extensions below.                                                                                                                        |
 
 ## Caveats
 

@@ -65,7 +65,7 @@ From the **Customer model page** in Catalog, Kimiko selects **Analyze data** fro
 
 ![Open query in Insights](/img/guides/analyst-qs/query.png?v=2 "Open query in Insights")Open query in Insights
 
-When Kimiko runs the query, she can look at the data underyling it. The same context she saw in Catalog she now sees in her SQL editing experience.
+When Kimiko runs the query, she can look at the data underlying it. The same context she saw in Catalog she now sees in her SQL editing experience.
 
 As she looks through the data, she sees information about each customer. She also notices the `first_ordered_at` column. Kimiko wants to code the query but her SQL is a little rusty so she uses natural language in dbt Wizard:
 
@@ -109,7 +109,7 @@ Report incorrect code
 
 She's happy with the results and clicks **Details** to see the AI-generated report, which includes a title and description, supplied SQL, and the compiled SQL.
 
-![Details report tabe](/img/guides/analyst-qs/details.png?v=2 "Details report tabe")Details report tabe
+![Details report tab](/img/guides/analyst-qs/details.png?v=2 "Details report tab")Details report tab
 
 Once she's ready to get the insight to her stakeholder, she clicks **Chart** to view the chart prefilled with the data from the **Data** tab.
 
@@ -133,4 +133,4 @@ Going forward, Kimiko is able to return to her project in Catalog and run the mo
 
 * Manually run the model, which also runs tests and is versioned so Kimiko can track changes over time
 * Trigger a scheduled job to run the dbt model, like every Monday for her stakeholder report
-* Set up a Slack notification in case the job fails so she can recitfy any problems
+* Set up a Slack notification in case the job fails so she can rectify any problems

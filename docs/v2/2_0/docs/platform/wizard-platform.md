@@ -96,6 +96,10 @@ For more prompt ideas, refer to the [prompt cookbook](../../guides/prompt-cookbo
 
 If dbt Wizard isn't available, confirm that your plan is eligible and that an admin has [enabled account access to AI features](./manage-dbt-ai.md#manage-ai-features).
 
+Prefer to learn by video?
+
+Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/dbt-wizard) on dbt Learn!
+
 ## Trial and usage credits
 
 Every prompt you send to dbt Wizard uses AI model tokens. What you pay for those tokens depends on your plan and whether you use a dbt Labs-managed model or your own key. If you [bring your own key](./wizard-byok-platform.md), your AI provider bills you directly and your usage doesn't draw from your consumption pool.

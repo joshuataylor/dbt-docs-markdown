@@ -1,0 +1,89 @@
+# overrides
+
+Deprecation
+
+The `overrides` property is [deprecated in v1.10](../deprecations.md#sourceoverridedeprecation). You can [enable or disable a source](../source-configs.md#configuring-sources) from a package instead.
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: <source_name>
+    overrides: <package name> # deprecated in v1.10
+
+    database: ...
+    schema: ...
+```
+
+Report incorrect code
+
+## Definition
+
+Override a source defined in an included package. The properties defined in the overriding source will be applied on top of the base properties of the overridden source.
+
+The following source properties can be overridden:
+
+* [description](./description.md)
+* [meta](../resource-configs/meta.md)
+* [database](./database.md)
+* [schema](./schema.md)
+* [loader](./loader.md)
+* [quoting](./quoting.md)
+* [freshness](../resource-configs/freshness.md)
+* [loaded\_at\_field](../resource-configs/freshness.md)
+* [tags](../resource-configs/tags.md)
+
+## Examples
+
+### Supply your database and schema name for a source defined in a package
+
+This example is based on the [Fivetran GitHub Source package](https://github.com/fivetran/dbt_github_source/blob/830ba43ac2948e4853a3c167ab7ee88b8b425fa0/models/src_github.yml#L3-L29). Here, the database and schema are overridden in the parent dbt project which includes the `github_source` package.
+
+models/src\_github.yml
+
+```yml
+
+sources:
+  - name: github
+    overrides: github_source # deprecated in v1.10
+
+    database: RAW
+    schema: github_data
+```
+
+Report incorrect code
+
+### Configure your own source freshness for a source table in a package
+
+You can override configurations at both the source and the table level
+
+models/src\_github.yml
+
+```yml
+
+sources:
+  - name: github
+    overrides: github_source # deprecated in v1.10
+    config:
+      freshness: # changed to config in v1.9
+        warn_after:
+          count: 1
+          period: day
+        error_after:
+          count: 2
+          period: day
+
+    tables:
+      - name: issue_assignee
+        config:
+          freshness:
+            warn_after:
+              count: 2
+              period: day
+            error_after:
+              count: 4
+              period: day
+```
+
+Report incorrect code

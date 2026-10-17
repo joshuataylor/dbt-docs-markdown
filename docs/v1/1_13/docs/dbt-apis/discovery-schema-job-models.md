@@ -1,0 +1,87 @@
+# Models object schema
+
+dbt platform | Starter, Enterprise, Enterprise+
+
+The models object allows you to query information about all models in a given job.
+
+### Arguments
+
+When querying for `models`, the following arguments are available.
+
+# Fetching data...
+
+Below we show some illustrative example queries and outline the schema of the models object.
+
+### Example queries
+
+The database, schema, and identifier arguments are all optional. This means that with this endpoint you can:
+
+* Find a specific model by providing `<database>.<schema>.<identifier>`
+* Find all of the models in a database and/or schema by providing `<database>` and/or `<schema>`
+
+#### Find models by their database, schema, and identifier
+
+The example query below finds a model by its unique database, schema, and identifier.
+
+```graphql
+{
+  job(id: 123) {
+    models(
+      database: "analytics"
+      schema: "analytics"
+      identifier: "dim_customers"
+      first: 10
+      after: "{somePaginationCursorValue}"
+    ) {
+      uniqueId
+      paginationCursor
+    }
+  }
+}
+```
+
+Report incorrect code
+
+#### Find models by their schema
+
+The example query below finds all models in this schema and their respective execution times.
+
+```graphql
+{
+  job(id: 123) {
+    models(schema: "analytics", first: 10, after: "{somePaginationCursorValue}") {
+      uniqueId
+      executionTime
+      paginationCursor
+    }
+  }
+}
+```
+
+Report incorrect code
+
+#### Paginate models in a job run
+
+Job-based `models` queries support `first` and `after` for cursor pagination. Each model returns a `paginationCursor` field to fetch the next page. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) for paging behavior, supported resource types, and legacy default behavior.
+
+```graphql
+query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: String) {
+  job(id: $jobId, runId: $runId) {
+    models(first: $first, after: $after) {
+      uniqueId
+      executionTime
+      paginationCursor
+    }
+  }
+}
+```
+
+Report incorrect code
+
+### Fields
+
+The models object can access the *same fields* as the [Model node](./discovery-schema-job-model.md). The difference is that the models object can output a list so instead of querying for fields for one specific model, you can query for those parameters for all models within a jobID, database, and so on.
+
+When querying for `models`, the following fields are available:
+
+# Fetching data...

@@ -1,12 +1,12 @@
 # About dbt login
 
-Available in v2
+Local development
 
 Use dbt login to authenticate once and unlock advanced features across dbt tools.
 
 info
 
-Available in dbt v2.0 and later.
+Available in dbt v1.13 and later.
 
 Run `dbt login` from the command line to unlock advanced dbt features. It'll open browser-based authentication where you can sign in to your existing dbt platform account or create a free one — no credit card required!
 

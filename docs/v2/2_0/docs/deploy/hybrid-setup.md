@@ -26,7 +26,7 @@ Make sure to enable the hybrid projects toggle in dbt’s **Account settings** p
 
 ### Make dbt models public (optional)
 
-This step is optional and and only needed if you want to share your dbt v1 models with other dbt projects using the [cross-project referencing](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) feature.
+This step is optional and only needed if you want to share your dbt v1 models with other dbt projects using the [cross-project referencing](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) feature.
 
 Before connecting your dbt v1 project to a dbt project, make sure models that you want to share have `access: public` in their model configuration. This setting makes those models visible to other dbt projects for better collaboration, such as [cross-project referencing](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref).
 

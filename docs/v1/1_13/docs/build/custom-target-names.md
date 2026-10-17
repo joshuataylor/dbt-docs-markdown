@@ -1,0 +1,27 @@
+# Custom target names
+
+## dbt Scheduler
+
+You can define a custom target name for any dbt job to correspond to settings in your dbt project. This is helpful if you have logic in your dbt project that behaves differently depending on the specified target, for example:
+
+```sql
+select *
+from a_big_table
+
+-- limit the amount of data queried in dev
+{% if target.name != 'prod' %}
+where created_at > date_trunc('month', current_date)
+{% endif %}
+```
+
+Report incorrect code
+
+To set a custom target name for a job in dbt, configure the **Target Name** field for your job in the Job Settings page.
+
+![Overriding the target name to 'prod'](/img/docs/dbt-platform/using-dbt-platform/jobs-settings-target-name.png?v=2 "Overriding the target name to 'prod'")Overriding the target name to 'prod'
+
+## dbt Studio IDE
+
+When developing in dbt, you can set a custom target name in your user credentials. Click your account name above the profile icon in the left panel, select **Account settings**, then go to **Credentials**. Choose the project to update the target name.
+
+![Overriding the target name to 'dev'](/img/docs/dbt-platform/using-dbt-platform/development-credentials.png?v=2 "Overriding the target name to 'dev'")Overriding the target name to 'dev'

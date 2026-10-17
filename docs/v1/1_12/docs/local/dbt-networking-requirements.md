@@ -22,7 +22,7 @@ Adapter driver downloads require outbound HTTPS access to the dbt CDN:
 
 info
 
-dbt v2 handles driver download automatically on first use. The `dbt system install-drivers` command downloads **all** supported drivers (Snowflake, BigQuery, Postgres, Databricks, Redshift, DuckDB, and Salesforce) at once. This is useful if you work across multiple data platforms and want to pre-cache every driver before going offline or switching projects.
+dbt v2 handles driver download automatically on first use. The `dbt system install-drivers` command downloads **all** supported drivers (Snowflake, BigQuery, Postgres, Databricks, Redshift, and DuckDB) at once. This is useful if you work across multiple data platforms and want to pre-cache every driver before going offline or switching projects.
 
 ### Enterprise proxy considerations
 

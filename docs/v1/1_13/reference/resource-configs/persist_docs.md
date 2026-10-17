@@ -1,0 +1,206 @@
+# persist\_docs
+
+## Models
+
+dbt\_project.yml
+
+```yml
+models:
+  <resource-path>:
+    +persist_docs:
+      relation: true
+      columns: true
+```
+
+Report incorrect code
+
+models/\<modelname>.sql
+
+```sql
+
+{{ config(
+  persist_docs={"relation": true, "columns": true}
+) }}
+
+select ...
+```
+
+Report incorrect code
+
+## Sources
+
+This config is not implemented for sources.
+
+## Seeds
+
+dbt\_project.yml
+
+```yml
+seeds:
+  <resource-path>:
+    +persist_docs:
+      relation: true
+      columns: true
+```
+
+Report incorrect code
+
+## Snapshots
+
+dbt\_project.yml
+
+```yml
+snapshots:
+  <resource-path>:
+    +persist_docs:
+      relation: true
+      columns: true
+```
+
+Report incorrect code
+
+(Applies to dbt v1.9 and later)
+
+snapshots/snapshot\_name.yml
+
+```yaml
+
+snapshots:
+  - name: snapshot_name
+    config:
+      persist_docs:
+        relation: true
+        columns: true
+```
+
+Report incorrect code
+
+snapshots/\<filename>.sql
+
+```sql
+{% snapshot snapshot_name %}
+
+{{ config(
+  persist_docs={"relation": true, "columns": true}
+) }}
+
+select ...
+
+{% endsnapshot %}
+```
+
+Report incorrect code
+
+## Definition
+
+Optionally persist [resource descriptions](../resource-properties/description.md) as column and relation comments in the database. By default, documentation persistence is disabled, but it can be enabled for specific resources or groups of resources as needed.
+
+## Support
+
+The `persist_docs` config is supported on the most widely used dbt adapters:
+
+* Postgres
+* Redshift
+* Snowflake
+* BigQuery
+* Databricks
+* Apache Spark
+* Starburst Galaxy (`dbt-trino`)
+
+However, some databases limit where and how descriptions can be added to database objects. Those database adapters might not support `persist_docs`, or might offer only partial support.
+
+Some known issues and limitations:
+
+### Databricks
+
+* Column-level comments require `file_format: delta` (or another "v2 file format").
+
+### Snowflake
+
+* If a column name in a SQL model is in a mixed-case format (for example, `ca_net_ht_N`), the docs for that column will not be persisted. For the docs to persist, there are two options:
+
+  * Define the column name in the corresponding YML file using lowercase or uppercase letters only.
+  * Use the [`quote`](../resource-properties/columns.md#quoter) configuration in the corresponding YML file.
+
+  See the following sample steps on how to use the `quote` field for columns in a mixed-case format.
+
+  1. Create the following SQL and YML files:
+
+     \<modelname>.sql
+
+     ```sql
+     {{ config(materialized='table') }}
+
+     select 1 as "ca_net_ht_N" # note the use of double quotes for the column name
+     ```
+
+     Report incorrect code
+
+     \<modelname>.yml
+
+     ```yml
+     models:
+       - name: <modelname>
+         description: This is the table description
+
+     columns:
+       - name: "ca_net_ht_N"
+         description: This should be the description of the column
+         quote: true
+     ```
+
+     Report incorrect code
+
+  2. Run `dbt build -s models/<modelname>.sql --full-refresh`.
+
+  3. Open the logs at `logs/dbt.log` and check the column description:
+
+     ```log
+     alter table analytics.<schema>.<modelname> alter
+         "ca_net_ht_N" COMMENT $$This should be the description of the column$$;
+     ```
+
+     Report incorrect code
+
+### Starburst Galaxy (dbt-trino)
+
+* Requires configuring an [API Auth token](https://docs.starburst.io/starburst-galaxy/developer-tools/api/api-auth-token.html) and setting `starburst_url`, `starburst_client_id`, and `starburst_secret_key` in the [connection profile](../../docs/local/connect-data-platform/trino-setup.md#additional-parameters).
+
+## Usage
+
+### Documenting columns and relations
+
+Supply a [description](../resource-properties/description.md) for a model:
+
+models/schema.yml
+
+```yml
+
+models:
+  - name: dim_customers
+    description: One record per customer
+    columns:
+      - name: customer_id
+        description: Primary key
+```
+
+Report incorrect code
+
+Enable `persist_docs` for columns and relations in your project:
+
+dbt\_project.yml
+
+```yml
+models:
+  +persist_docs:
+    relation: true
+    columns: true
+```
+
+Report incorrect code
+
+Run dbt and observe that the created relation and columns are annotated with your descriptions:
+
+![Relation descriptions in BigQuery](/img/reference/persist_docs_relation.png?v=2 "Relation descriptions in BigQuery")Relation descriptions in BigQuery
+
+![Column descriptions in BigQuery](/img/reference/persist_docs_columns.png?v=2 "Column descriptions in BigQuery")Column descriptions in BigQuery

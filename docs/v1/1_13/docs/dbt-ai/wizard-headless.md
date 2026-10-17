@@ -1,0 +1,134 @@
+# Headless mode [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Local development
+
+dbt Wizard can run without the interactive TUI — useful for scripts, CI pipelines, pre-commit hooks, and any workflow where you want a one-shot result without human-in-the-loop approval.
+
+See it in action and share your feedback
+
+Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube.com/watch?v=-lIzh1xQWMA).
+
+We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
+
+Thanks so much for your help in improving dbt Wizard and dbt data development!
+
+## `exec` — one-shot prompts
+
+Run a single prompt and exit:
+
+```bash
+wizard exec "list all models with no tests"
+```
+
+Report incorrect code
+
+Pipe input via stdin:
+
+```bash
+echo "which sources have stale freshness?" | wizard exec -
+```
+
+Report incorrect code
+
+Use `exec` in CI to gate on quality checks:
+
+```bash
+# Check test coverage before merging
+wizard exec "are there any models in models/marts/ with no tests?"
+```
+
+Report incorrect code
+
+### JSON output
+
+For downstream processing, emit a structured JSON event stream:
+
+```bash
+wizard exec --json "summarize test coverage by schema" > coverage.json
+```
+
+Report incorrect code
+
+With a JSON Schema to constrain the response shape:
+
+```bash
+wizard exec \
+  --json \
+  --output-schema ./schemas/coverage-response.json \
+  "summarize test coverage by schema"
+```
+
+Report incorrect code
+
+Write the final message to a file:
+
+```bash
+wizard exec \
+  --output-last-message ./review-output.md \
+  "review the changes in this branch for correctness"
+```
+
+Report incorrect code
+
+## `review` — automated code review
+
+Review uncommitted changes:
+
+```bash
+wizard review --uncommitted
+```
+
+Report incorrect code
+
+Review a branch diff in CI:
+
+```bash
+wizard review --base main
+```
+
+Report incorrect code
+
+Review a specific commit:
+
+```bash
+wizard review --commit abc1234
+```
+
+Report incorrect code
+
+### Example: GitHub Actions code review
+
+```yaml
+- name: dbt Wizard review
+  run: |
+    wizard review \
+      --base ${{ github.base_ref }} > review.md
+  env:
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+```
+
+Report incorrect code
+
+## Permissions in headless mode
+
+In headless `exec` mode, Wizard runs without interactive approval prompts. Pre-grant the sandbox permissions you need:
+
+```bash
+# Read-only analysis (default — safe for CI)
+wizard exec "list models with no documentation"
+
+# Allow file writes inside the workspace
+wizard exec -s workspace-write "add not_null tests to all primary keys in staging"
+
+# Allow shell commands like dbt compile
+wizard exec -s workspace-write "compile and validate fct_orders"
+```
+
+Report incorrect code
+
+For read-only analysis tasks (coverage checks, impact queries, documentation gaps), the default permissions are sufficient. For tasks that write files or run dbt commands, pass the appropriate flags explicitly.
+
+## Related docs
+
+* [dbt Wizard command reference](./wizard-cli-reference.md)
+* [Use cases and examples](./wizard-use-cases.md)

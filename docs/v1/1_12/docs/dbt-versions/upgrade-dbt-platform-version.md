@@ -6,27 +6,15 @@ In dbt, both [jobs](../deploy/jobs.md) and [environments](../dbt-platform-enviro
 
 ## Environments
 
-Navigate to the settings page of an environment, then click **Edit**. Click the **dbt version** dropdown bar and make your selection. You can select a [release track](#release-tracks) to receive ongoing updates (recommended), or a legacy version of dbt v1. Be sure to save your changes before navigating away.
+Navigate to the settings page of an environment, then click **Edit**. Click the **dbt version** dropdown bar and make your selection. You can select a [release track](./dbt-release-tracks.md) to receive ongoing updates (recommended), or a legacy version of dbt v1. Be sure to save your changes before navigating away.
 
 ![Example environment settings in dbt](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example environment settings in dbt")Example environment settings in dbt
 
-### Release Tracks
+### Release tracks
 
-Starting in 2024, your project gets upgraded automatically on a cadence that you choose:
-
-The **v1 Latest** track ensures you have up-to-date dbt functionality, and early access to new features of the dbt framework. The **v1 Compatible** and **v1 Extended** tracks are designed for customers who need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt v1.
+Release tracks determine the version of dbt and release cadence for your projects. dbt supports two major versions — v1 and v2 — and automatically delivers [minor version updates](./dbt-upgrade.md) for you. For more information, refer to [About release tracks](./dbt-release-tracks.md).
 
 As a best practice, dbt Labs recommends that you test the upgrade in development first; use the [Override dbt version](#override-dbt-version) setting to test *your* project on the latest dbt version before upgrading your deployment environments and the default development environment for all your colleagues.
-
-To upgrade an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the name of your release track:
-
-* `fusion-nightly`
-* `fusion-stable` (formerly `latest-fusion`)
-* `fusion-extended`
-* `fusion-fallback`
-* `latest` (default)
-* `compatible` (available to Starter, Enterprise, Enterprise+ plans)
-* `extended` (available to all Enterprise plans)
 
 ### Override dbt version
 
@@ -157,7 +145,7 @@ To begin the process of upgrading to dbt v2 with the assistant:
 
 ![You're now ready to upgrade to v2 in your development environment!](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "You're now ready to upgrade to v2 in your development environment!")You're now ready to upgrade to v2 in your development environment!
 
-Now that you've upgraded your development environment to dbt v2, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](#release-tracks) to upgrade.
+Now that you've upgraded your development environment to dbt v2, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](./dbt-release-tracks.md) to upgrade.
 
 Enable the dbt v2 readiness panel
 
@@ -206,6 +194,7 @@ We'll continue to update the following release table so that users know when we 
 
 | dbt v1                                                                                                  | Initial release | Support level and end date                             |
 | ------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ |
+| [**v1.13**](./dbt-upgrade/upgrading-to-v1.13.md)                | (coming soon)   | Beta                                                   |
 | [**v1.12**](./dbt-upgrade/upgrading-to-v1.12.md)                | Jul 16, 2026    | **Active support — July 15, 2027**                     |
 | [**v1.11**](./dbt-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025    | **Critical support — Dec 18, 2026**                    |
 | [**v1.10**](./dbt-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025    | Deprecated ⛔️                                         |

@@ -1,0 +1,78 @@
+# dbt v2 readiness checklist
+
+dbt v2 is here and is now generally available for the dbt platform.
+
+Enable the dbt v2 readiness panel
+
+The dbt v2 readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable dbt v2 readiness features](../../guides/prepare-v2-upgrade.md?step=2) for setup steps.
+
+If you have access to dbt Wizard, use the [dbt Wizard's dbt v2 migration workflow](../dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
+
+## Preparing for dbt v2
+
+Use the following checklist to prepare your projects for dbt v2
+
+For walkthroughs of both the preparation and upgrade processes, check out our detailed guides:
+
+* [ ] [Upgrade to dbt v2 Pt. 1: Preparing to upgrade](../../guides/prepare-v2-upgrade.md?step=1)
+* [ ] [Upgrade to dbt v2 Pt. 2: Making the move](../../guides/upgrade-to-v2.md?step=1)
+
+### Upgrade to the latest dbt version (recommended)
+
+The **v1 Latest** [release track](../dbt-versions/dbt-release-tracks.md) has all of the most recent features to help you prepare for dbt v2.
+
+* [ ] Make sure all your projects are on the **v1 Latest** release track across all deployment environments and jobs. This is not a strict requirement for upgrading, but it will ensure the simplest, most predictable experience by allowing you to pre-validate that your project doesn't rely on deprecated behaviors.
+
+### Resolve all deprecation warnings
+
+You must resolve deprecations while your projects are on a dbt v1 release track, as they result in warnings that will become errors once you upgrade to dbt v2. The autofix tool can automatically resolve many deprecations (such as moving arbitrary configs into the meta dictionary). For a full list of deprecations and how to resolve them, refer to [Deprecations](../../reference/deprecations.md).
+
+Start a new branch to begin resolving deprecation warnings using one of the following methods:
+
+* [ ] **Run autofix in the dbt platform:** You can address deprecation warnings using the [autofix tool in the Studio IDE](../platform/studio-ide/autofix-deprecations.md). You can run the autofix tool on the **v1 Compatible** or **v1 Latest** release track.
+* [ ] **Run autofix locally:** Use the [VS Code extension](../about-dbt-extension.md). The extension has a built-in ["Getting Started" workflow](../install-dbt-extension.md#getting-started) that will debug your dbt project in the VS Code or Cursor IDE and execute the autofix tool. This has the added benefit of installing dbt v2 to your computer so you can begin testing locally before implementing in your dbt platform account.
+* [ ] **Run autofix locally (without the extension):** Visit the autofix [GitHub repo](https://github.com/dbt-labs/dbt-autofix) to run the tool locally if you're not using VS Code or Cursor. This will only run the tool, it will not install dbt v2.
+* [ ] **Review behavior change flag overrides:** dbt v2 removes the [behavior change flags](../../reference/global-configs/behavior-changes.md#behavior-change-flags) marked `2.0` in the **Removed** column and always enables their new behavior. Delete any `flags:` overrides in your `dbt_project.yml` that opt out of those flags. Other flags remain configurable (including v2-specific flags on that page); validate that your project works with the mature / removed defaults before upgrading.
+
+### Upgrade YAML spec
+
+* [ ] **Migrate Semantic Layer configs:** If your project uses the Semantic Layer, make sure your metric configurations use the [latest YAML spec](../build/latest-metrics-spec.md).
+
+### Validate and upgrade your dbt packages
+
+The most commonly used dbt Labs managed packages (such as `dbt_utils` and `dbt_project_evaluator`) are already compatible with dbt v2, as are a large number of external and community packages. Review [the dbt package hub](https://hub.getdbt.com) to see verified dbt v2-compatible packages by checking that the `require-dbt-version` configuration includes `2.0.0` or higher. Refer to [package support](./supported-features.md#package-support) for more information.
+
+* [ ] Make sure that all of your packages are upgraded to the most recent version, many of which contain enhancements to support dbt v2.
+* [ ] Check package repositories to make sure they're compatible with dbt v2. If a package you use is not yet compatible, we recommend opening an issue with the maintainer, making the contribution yourself, or removing the package temporarily before you upgrade.
+
+### Validate user-defined functions
+
+Check that dbt v2 supports all user-defined functions (UDFs) in your project.
+
+dbt v2 supports nearly all built-in data platform functions out of the box. However, data platforms continuously add new functions that dbt v2 may not yet support.
+
+If you see the error `dbt0209: No function <function name>`, you can resolve it depending on whether the function is a UDF or a built-in function:
+
+* [ ] **For custom UDFs:** Recreate it as a [native dbt UDF](../build/udfs.md#defining-udfs-in-dbt) to get the full dbt v2 experience. With `static_analysis: baseline` (the default), most UDFs will work out of the box.
+* [ ] **For Warehouse-native functions:** Submit a [GitHub issue](https://github.com/dbt-labs/dbt-fusion). dbt v2's `baseline` mode handles most cases, but will throw warnings and not errors. You can set `static_analysis: off` for specific models if needed.
+
+For more information about using `strict` in development and `baseline` in deployment, refer to [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md).
+
+### Check for known dbt v2 limitations
+
+Your project may implement features that dbt v2 currently [limits](./supported-features.md#limitations) or doesn't support.
+
+* [ ] Remove unnecessary features from your project to make it dbt v2 compatible.
+* [ ] Monitor progress for critical features, knowing we are working to bring them to dbt v2. You can monitor their progress using the issues linked in the [limitations table](./supported-features.md#limitations).
+
+### Review jobs configured in the dbt platform
+
+We determine dbt v2 eligibility using data from your job runs.
+
+* [ ] Ensure you have at least one job running in each of your projects in the dbt platform.
+  * [ ] Ensure each job has run within the last 7 days. Jobs that haven't run recently are considered inactive and are ineligible for dbt v2. If you see a "no active jobs" ineligibility reason in the v2 readiness UI, run the job manually or adjust its schedule.
+* [ ] Ensure all jobs are running on the [**v1 Latest** release track](../dbt-versions/dbt-release-tracks.md#which-release-tracks-are-available) for the smoothest upgrade experience.
+* [ ] Resolve any job failures — all jobs must run successfully for eligibility checks to work.
+* [ ] Delete any jobs that are no longer in use to ensure accurate eligibility reporting.
+* [ ] Make sure you've promoted the changes for deprecation resolution and package upgrades to your git branches that map to your deployment environments.
+* [ ] For eligible jobs, use **Debug on dbt v2** to debug in Studio IDE or run once on dbt v2. Refer to [Update your jobs](../../guides/prepare-v2-upgrade.md?step=7).

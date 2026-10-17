@@ -1,0 +1,143 @@
+# Source properties
+
+## Related documentation
+
+* [Using sources](../docs/build/sources.md)
+* [Declaring resource properties](./configs-and-properties.md)
+
+## Overview
+
+Source properties can be declared in any `properties.yml` file in your `models/` directory (as defined by the [`model-paths` config](./project-configs/model-paths.md)). Source properties are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.
+
+You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory:
+
+models/\<filename>.yml
+
+```yml
+
+sources:
+  - name: <string> # required
+    description: <markdown_string>
+    database: <database_name>
+    schema: <schema_name>
+    loader: <string>
+
+    config: # requires v1.1+
+      <source_config>: <config_value>
+      loaded_at_field: <column_name> # moved under config in v1.10
+      freshness: # moved under config in v1.10
+        warn_after:
+          count: <positive_integer>
+          period: minute | hour | day
+        error_after:
+          count: <positive_integer>
+          period: minute | hour | day
+        filter: <where-condition>
+      meta: {<dictionary>} # moved under config in v1.10
+      tags: [<string>] # moved under config in v1.10
+
+    overrides: <string> # deprecated in v1.10
+
+    quoting:
+      database: true | false
+      schema: true | false
+      identifier: true | false
+
+    tables:
+      - name: <string> #required
+        description: <markdown_string>
+        identifier: <table_name>
+        data_tests:
+          - <test>
+          - ... # declare additional tests
+        config:
+          loaded_at_field: <column_name>
+          meta: {<dictionary>}
+          tags: [<string>]
+          freshness:
+            warn_after:
+              count: <positive_integer>
+              period: minute | hour | day
+            error_after:
+              count: <positive_integer>
+              period: minute | hour | day
+            filter: <where-condition>
+
+        quoting:
+          database: true | false
+          schema: true | false
+          identifier: true | false
+        external: {<dictionary>}
+        columns:
+          - name: <column_name> # required
+            description: <markdown_string>
+            quote: true | false
+            data_tests:
+              - <test>
+              - ... # declare additional tests
+            config:
+              meta: {<dictionary>}
+              tags: [<string>]
+          - name: ... # declare properties of additional columns
+
+      - name: ... # declare properties of additional source tables
+
+  - name: ... # declare properties of additional sources
+```
+
+Report incorrect code
+
+## Example
+
+models/\<filename>.yml
+
+```yaml
+
+sources:
+  - name: jaffle_shop
+    database: raw
+    schema: public
+    loader: emr # informational only (free text)
+
+    config:
+      # changed to config in v1.10
+      loaded_at_field: _loaded_at # configure for all sources
+      # meta fields are rendered in auto-generated documentation
+      meta: # changed to config in v1.10
+        contains_pii: true
+        owner: "@alice"
+
+      # Add tags to this source
+      tags: # changed to config in v1.10
+        - ecom
+        - pii
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: orders
+        identifier: Orders_
+        config:
+          # changed to config in v1.10
+          loaded_at_field: updated_at # override source defaults
+        columns:
+          - name: id
+            data_tests:
+              - unique
+
+          - name: price_in_usd
+            data_tests:
+              - not_null
+
+      - name: customers
+        quoting:
+          identifier: true # override source defaults
+        columns:
+            data_tests:
+              - unique
+```
+
+Report incorrect code

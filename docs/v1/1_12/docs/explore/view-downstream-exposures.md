@@ -2,7 +2,7 @@
 
 dbt platform | Enterprise, Enterprise+
 
-Downstream exposures integrate natively with Tableau (Power BI coming soon) and auto-generate downstream lineage in Catalog for a richer experience.
+Downstream exposures integrate natively with Tableau and auto-generate downstream lineage in Catalog for a richer experience.
 
 As a data team, it’s critical that you have context into the downstream use cases and users of your data products. By leveraging downstream [exposures](../build/exposures.md) automatically, data teams can:
 

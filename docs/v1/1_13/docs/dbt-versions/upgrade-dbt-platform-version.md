@@ -1,0 +1,244 @@
+# Upgrade versions in dbt platform
+
+dbt platform
+
+In dbt, both [jobs](../deploy/jobs.md) and [environments](../dbt-platform-environments.md) are configured to use a specific version of dbt. The version can be upgraded at any time.
+
+## Environments
+
+Navigate to the settings page of an environment, then click **Edit**. Click the **dbt version** dropdown bar and make your selection. You can select a [release track](./dbt-release-tracks.md) to receive ongoing updates (recommended), or a legacy version of dbt v1. Be sure to save your changes before navigating away.
+
+![Example environment settings in dbt](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example environment settings in dbt")Example environment settings in dbt
+
+### Release tracks
+
+Release tracks determine the version of dbt and release cadence for your projects. dbt supports two major versions — v1 and v2 — and automatically delivers [minor version updates](./dbt-upgrade.md) for you. For more information, refer to [About release tracks](./dbt-release-tracks.md).
+
+As a best practice, dbt Labs recommends that you test the upgrade in development first; use the [Override dbt version](#override-dbt-version) setting to test *your* project on the latest dbt version before upgrading your deployment environments and the default development environment for all your colleagues.
+
+### Override dbt version
+
+Configure your project to use a different dbt version than what's configured in your [development environment](../dbt-platform-environments.md#types-of-environments). This *override* only affects your user account, no one else's. Use this to safely test new dbt features before upgrading the dbt version for your projects.
+
+1. Click your account name from the left side panel and select **Account settings**.
+2. Choose **Credentials** from the sidebar and select a project. This opens a side panel.
+3. In the side panel, click **Edit** and scroll to the **User development settings** section.
+4. Choose a version from the **dbt version** dropdown and click **Save**.
+
+An example of overriding the configured version to [**v1 Latest** release track](./dbt-release-tracks.md) for the selected project:
+
+![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")Example of overriding the dbt version on your user account
+
+5. (Optional) Verify that dbt will use your override setting to build the project by invoking a `dbt build` command in the Studio IDE's command bar. Expand the **System Logs** section and find the output's first line. It should begin with `Running with dbt=` and list the version dbt is using. For users on Release tracks, the output will display `Running dbt...` instead of a specific version, reflecting the flexibility and continuous automatic updates provided by the release track functionality.
+
+## dbt v2
+
+dbt Labs has introduced the new [dbt v2](../introduction.md), a ground-up rebuild of dbt. This is currently generally available for Snowflake, BigQuery, Redshift, and Databricks projects. It is in preview for other supported adapters on the dbt platform. Eligible customers can update environments to dbt v2 using the same workflows as v1.x, but remember:
+
+* If you don't see the **v2 Stable** release track as an option, you should check with your dbt Labs account team about eligibility.
+
+* To increase the compatibility of your project, update all jobs and environments to the **v1 Latest** release track and read more about the changes in our [upgrade guide](./dbt-upgrade/upgrading-to-v2.md).
+
+* Make sure you're using a [supported adapter](../platform/connect-data-platform/about-connections.md?version=2.0) and authentication method:
+
+   BigQuery
+
+  * Service Account / User Token
+  * Native OAuth
+  * External OAuth
+    * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
+
+   Databricks
+
+  * Service Account / User Token
+  * Native OAuth
+
+   Redshift
+
+  * Username / Password
+  * IAM profile
+
+   Snowflake
+
+  * Username / Password
+  * Native OAuth
+  * External OAuth
+  * Key pair using a modern PKCS#8 method
+  * MFA
+
+   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+  * Username / Password
+
+  *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+* Once you upgrade your development environment(s) to `v2 Stable`, every user will have to restart the IDE.
+
+  ![Upgrade to v2 in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Upgrade to v2 in your environment settings.")Upgrade to v2 in your environment settings.
+
+### Upgrading environments to dbt v2
+
+When you're ready to upgrade your project(s) to dbt v2, there are some tools available to you in the dbt platform UI to help you get started. The dbt v2 upgrade assistant will step you through the process of preparing and upgrading your projects.
+
+![The v2 upgrade assistant.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/v2-upgrade-gui.png?v=2 "The v2 upgrade assistant.")The v2 upgrade assistant.
+
+#### Prerequisites
+
+To take advantage of the upgrade assistant and other upgrade tools, you'll need to meet the following prerequisites:
+
+* Your dbt project must be updated to use the **v1 Latest** release track.
+* You must have a `developer` license.
+* You must have the proper [permissions set](../platform/manage-access/enterprise-permissions.md) to execute individual upgrade tasks. Migrating to dbt v2 is a multi-step process and some of these steps may be repeated across projects by different users:
+
+| Upgrade task                                    | Required permission(s)                           | Supported permission sets                                                                                                          |
+| ----------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Enable dbt v2 access (triggers migration flows) | dbt v2 readiness: `write`<br />Projects: `write` | Admin, Account Admin, and anyone assigned the v2 Migration Admin set, provided their base role also has `write` access to projects |
+| View dbt v2 readiness and job eligibility       | dbt v2 readiness: `read`                         | Developer, Admin, Member, Account Admin, v2 Migration Admin                                                                        |
+| **Run once on dbt v2** job action               | Runs: `write`                                    | Job Admin, Job Runner, Admin, Member, Project Creator, Account Admin                                                               |
+| Enable **v2 Stable** for an environment         | Environments: `write`                            | Job Admin, Admin, Member, Project Creator, Account Admin                                                                           |
+
+#### Assign access to upgrade
+
+The dbt v2 readiness & upgrade flow are controlled by two account-level settings that an admin must configure.
+
+Step 1: Enable dbt v2 readiness features (required)
+
+The upgrade assistant and readiness panel only appear after enabling this setting. From your **Account settings**:
+
+1. Navigate to the **Account** screen.
+2. Click **Edit** and scroll to the **Settings** section.
+3. Click the box next to **Enable dbt v2 readiness & upgrade features**.
+4. Click **Save**.
+
+Once enabled, all admins and developers can see each project's v2 readiness status and which jobs are eligible or ineligible for dbt v2. Admins can also initiate the dbt v2 upgrade from development environments, environment settings, and job settings (subject to existing user permissions). Developer-licensed users will have access to debug tools to help make projects dbt v2 eligible in both development and production environments.
+
+Step 2: Restrict upgrade access (optional, Enterprise/Enterprise+ only)
+
+By default, all admins and developer-licensed users can access the dbt v2 readiness & upgrade flow. To restrict upgrade execution to users with the `v2 Migration Admin` permission set, enable this additional setting. From your **Account settings**:
+
+1. Navigate to the **Account** screen.
+2. Click **Edit** and scroll to the **Settings** section.
+3. Click the box next to **Enable restricted dbt v2 upgrade permissions**.
+4. Click **Save**.
+
+This hides the dbt v2 upgrade workflows from users who don't have the [`v2 Migration Admin`](../platform/manage-access/enterprise-permissions.md#v2-migration-admin) permission set. To grant access to the upgrade workflows to specific projects and/or specific users:
+
+1. Navigate to an existing group in your **Account settings** and click **Edit**, or click [**Create group**](../platform/manage-access/about-user-access.md#create-new-groups) to create a new one.
+2. Scroll to the **Access and permissions** section and click **Add permission**.
+3. Select the **v2 Migration Admin** permission set from the dropdown, then select the project(s) you want the users to access.
+4. Click **Save**.
+
+The dbt v2 upgrade workflows helps identify areas of the project that need to be updated and provides tools for manually resolving and autofixing any errors.
+
+#### Upgrade your development environment
+
+To begin the process of upgrading to dbt v2 with the assistant:
+
+1. From the project homepage, click the **Start dbt v2 upgrade** or **Upgrade** button. You will be redirected to the Studio IDE.
+2. At the top of the Studio IDE click **Check deprecation warnings**.
+
+![Begin the process of parsing for deprecation warnings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Begin the process of parsing for deprecation warnings.")Begin the process of parsing for deprecation warnings.
+
+3. dbt parses your project for the deprecations and presents a list of all deprecation warnings along with the option to **Autofix warnings**. Autofixing attempts to correct all syntax errors automatically. See [Fix deprecation warnings](../platform/studio-ide/autofix-deprecations.md) for more information.
+4. Once the deprecation warnings have been resolved, click the **Upgrade to dbt v2** button. This upgrades your development environment to dbt v2!
+
+![You're now ready to upgrade to v2 in your development environment!](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "You're now ready to upgrade to v2 in your development environment!")You're now ready to upgrade to v2 in your development environment!
+
+Now that you've upgraded your development environment to dbt v2, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](./dbt-release-tracks.md) to upgrade.
+
+Enable the dbt v2 readiness panel
+
+The dbt v2 readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable dbt v2 readiness features](../../guides/prepare-v2-upgrade.md?step=2) for setup steps.
+
+If you have access to dbt Wizard, use the [dbt Wizard's dbt v2 migration workflow](../dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
+
+#### Upgrade considerations
+
+Keep in mind the following considerations during the upgrade process:
+
+* **Manifest compatibility** — dbt v2 produces a `v12` [manifest](../../reference/artifacts/manifest-json.md) that's compatible with dbt v1. The only differences are optional dbt v2-specific fields that only dbt v2 writes, which dbt v1 safely ignores.
+
+  As a result, you can run dbt v2 and dbt v1 side by side. State-dependent features such as `state:modified`, `--defer`, and cross-environment `dbt docs generate` work across mixed dbt v2 and dbt v1 environments, so you can migrate to dbt v2 incrementally without breaking existing dbt v1 jobs.
+
+State-aware orchestration is now dbt State
+
+[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt v1, the dbt platform, and dbt v2.
+
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
+
+## Jobs
+
+Each job in dbt can be configured to inherit parameters from the environment it belongs to.
+
+![Settings of a dbt job](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/job-settings.png?v=2 "Settings of a dbt job")Settings of a dbt job
+
+The example job seen in the screenshot above belongs to the environment "Prod". It inherits the dbt version of its environment as shown by the **Inherited from ENVIRONMENT\_NAME (DBT\_VERSION)** selection. You may also manually override the dbt version of a specific job to be any of the current dbt v1 releases supported by Cloud by selecting another option from the dropdown.
+
+## Supported versions
+
+dbt Labs has always encouraged users to upgrade dbt v1 versions whenever a new minor version is released. We released our first major version of dbt - `dbt 1.0` - in December 2021. Alongside this release, we updated our policy on which versions of dbt v1 we will support in the dbt platform.
+
+> **Starting with v1.0, all subsequent minor versions are available in dbt. Versions are actively supported, with patches and bug fixes, for 1 year after their initial release. At the end of the 1-year window, we encourage all users to upgrade to a newer version for better ongoing maintenance and support.**
+
+We provide different support levels for different versions, which may include new features, bug fixes, or security patches:
+
+* **[Active](../dbt-versions.md#current-version-support)**: In the first few months after a minor version's initial release, we patch it with bugfix releases. These include fixes for regressions, new bugs, and older bugs / quality-of-life improvements. We implement these changes when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
+* **[Critical](../dbt-versions.md#current-version-support)**: When a newer minor version ships, the previous one transitions to "Critical Support" for the remainder of its one-year window. Patches during this period are limited to critical security and installation fixes. After the one-year window ends, the version reaches end of life.
+* **[End of Life](../dbt-versions.md#end-of-life-versions)**: Minor versions that have reached EOL no longer receive new patch releases.
+* **Deprecated**: dbt v1 versions that are no longer maintained by dbt Labs, nor supported in the dbt platform.
+
+We'll continue to update the following release table so that users know when we plan to stop supporting different versions of dbt v1 in dbt.
+
+### Latest releases
+
+| dbt v1                                                                                                  | Initial release | Support level and end date                             |
+| ------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ |
+| [**v1.13**](./dbt-upgrade/upgrading-to-v1.13.md)                | (coming soon)   | Beta                                                   |
+| [**v1.12**](./dbt-upgrade/upgrading-to-v1.12.md)                | Jul 16, 2026    | **Active support — July 15, 2027**                     |
+| [**v1.11**](./dbt-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025    | **Critical support — Dec 18, 2026**                    |
+| [**v1.10**](./dbt-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025    | Deprecated ⛔️                                         |
+| [**v1.9**](./dbt-upgrade/upgrading-to-v1.9.md)                  | Dec 9, 2024     | Deprecated ⛔️                                         |
+| [**v1.8**](./dbt-upgrade/upgrading-to-v1.8.md)                  | May 9, 2024     | Deprecated ⛔️                                         |
+| [**v1.7**](./dbt-upgrade/upgrading-to-v1.7.md)                  | Nov 2, 2023     | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.6**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.6.md>) | Jul 31, 2023    | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.5**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md>) | Apr 27, 2023    | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.4**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.4.md>) | Jan 25, 2023    | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.3**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.3.md>) | Oct 12, 2022    | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.2**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.2.md>) | Jul 26, 2022    | Deprecated ⛔️                                         |
+| [**v1.1**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.1.md>) | Apr 28, 2022    | Deprecated ⛔️                                         |
+| [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021     | Deprecated ⛔️                                         |
+| **v0.X** ⛔️                                                                                            | (Various dates) | Deprecated ⛔️                                         |
+
+All functionality in v1 since the v1.7 release is available in [dbt release tracks](./dbt-release-tracks.md), which provide automated upgrades at a cadence appropriate for your team.
+
+1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **v1 Latest** release track.
+
+For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-release-tracks.md) or a supported version. On January 31, 2027, dbt Labs will deprecate v1 versions v1.3 through v1.7, removing them from availability in dbt platform.
+
+Starting with v1.0, dbt will ensure that you're always using the latest compatible patch release of `dbt-core` and plugins, including all the latest fixes. You may also choose to try prereleases of those patch releases before they are generally available.
+
+For more on version support and future releases, see [Understanding dbt v1 versions](../dbt-versions.md).
+
+### Need help upgrading?
+
+If you want more advice on how to upgrade your dbt projects, check out our [migration guides](./dbt-upgrade.md) and our [upgrading Q\&A page](./upgrade-dbt-platform-version.md#upgrading-legacy-versions-under-10).
+
+### Testing your changes before upgrading
+
+Once you know what code changes you'll need to make, you can start implementing them. We recommend you:
+
+* Create a separate dbt project, "Upgrade project", to test your changes before making them live in your main dbt project.
+* In your "Upgrade project", connect to the same repository you use for your production project.
+* Set the development environment [settings](./upgrade-dbt-platform-version.md) to run the latest version of dbt v1.
+* Check out a branch `dbt-version-upgrade`, make the appropriate updates to your project, and verify your dbt project compiles and runs with the new version in the Studio IDE.
+  * If upgrading directly to the latest version results in too many issues, try testing your project iteratively on successive minor versions. There are years of development and a few breaking changes between distant versions of dbt v1 (for example, 1.0 --> 1.10). The likelihood of experiencing problems upgrading between successive minor versions is much lower, which is why upgrading regularly is recommended.
+* Once you have your project compiling and running on the latest version of dbt in the development environment for your `dbt-version-upgrade` branch, try replicating one of your production jobs to run off your branch's code.
+* You can do this by creating a new deployment environment for testing, setting the custom branch to 'ON' and referencing your `dbt-version-upgrade` branch. You'll also need to set the dbt version in this environment to the latest dbt v1 version.
+
+![Setting your testing environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-environment.png?v=2 "Setting your testing environment")Setting your testing environment
+
+* Then add a job to the new testing environment that replicates one of the production jobs your team relies on.
+
+  * If that job runs smoothly, you should be all set to merge your branch into main.
+  * Then change your development and deployment environments in your main dbt project to run off the newest version of dbt v1.
