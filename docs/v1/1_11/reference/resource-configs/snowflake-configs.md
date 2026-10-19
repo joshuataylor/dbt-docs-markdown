@@ -952,6 +952,19 @@ def model(dbt, session: snowpark.Session):
 
 **Docs:** ["Developer Guide: Snowpark Python"](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html)
 
+### Additional parameters
+
+Snowflake Python models accept these parameters in `dbt.config()`. Refer to [Configuring Python models](../../docs/build/python-models.md#configuring-python-models) for more info.
+
+| Parameter                      | Type           | Default | Description                                                                                                                                                                                                          |
+| ------------------------------ | -------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `python_version`               | `<string>`     | `3.10`  | Python version the Snowpark model runs on.                                                                                                                                                                           |
+| `packages`                     | `<list>`       | `[]`    | Anaconda packages to install when the model runs. dbt always adds `snowflake-snowpark-python`.                                                                                                                       |
+| `imports`                      | `<list>`       | `[]`    | Staged files, such as zip files, to make available to your model. Refer to [Third-party Snowflake packages](./snowflake-configs.md#third-party-snowflake-packages). |
+| `external_access_integrations` | `<list>`       | `[]`    | Snowflake external access integrations that let your model reach external APIs.                                                                                                                                      |
+| `secrets`                      | `<dictionary>` | `{}`    | Maps a variable name in your code to a Snowflake secret. Use it with `external_access_integrations`.                                                                                                                 |
+| `use_anonymous_sproc`          | `<boolean>`    | `True`  | When `True`, dbt runs your model as an anonymous stored procedure. When `False`, dbt creates a named procedure (`<model_name>__dbt_sp`), calls it, then drops it.                                                    |
+
 ### Third-party Snowflake packages
 
 To use a third-party Snowflake package that isn't available in Snowflake Anaconda, upload your package by following [this example](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#importing-packages-through-a-snowflake-stage), and then configure the `imports` setting in the dbt Python model to reference to the zip file in your Snowflake staging.
