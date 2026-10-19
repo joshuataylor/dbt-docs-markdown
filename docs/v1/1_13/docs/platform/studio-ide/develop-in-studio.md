@@ -70,7 +70,7 @@ If a warning looks wrong but dbt commands succeed, trust your project commands a
 
 ### dbt Wizard
 
-[dbt Wizard](../../dbt-ai/wizard-ide.md) helps you develop trusted dbt projects faster in the Studio IDE. It understands more than the file you’re editing. It uses dbt's native metadata engine to understand your project’s lineage, model health, test coverage, and semantic definitions, so it can provide answers and suggestions based on your *full* project context.
+[dbt Wizard](../../dbt-ai/wizard-ide.md) helps you develop trusted dbt projects faster in the Studio IDE. It understands more than the file you’re editing. It uses the [dbt Information Schema](../../build/dbt-information-schema.md) to understand your project’s lineage, model health, test coverage, and semantic definitions, so it can provide answers and suggestions based on your *full* project context.
 
 With dbt Wizard, you can:
 

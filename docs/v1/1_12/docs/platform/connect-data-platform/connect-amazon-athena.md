@@ -53,8 +53,6 @@ To use temporary credentials:
    aws_session_token: '{{ env_var(''DBT_ENV_AWS_SESSION_TOKEN'') }}'
    ```
 
-   Report incorrect code
-
 3. [Assign](../../build/environment-variables.md#setting-environment-variables) `DBT_ENV_AWS_SESSION_TOKEN`:
 
    * For a deployment connection profile, set a value in the **Project default** column. Profile-backed `env_var()` references need a project-scoped value for connection tests.

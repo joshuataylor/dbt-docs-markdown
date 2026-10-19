@@ -9,8 +9,6 @@ seeds:
   +quote_columns: false  #or `true` if you have CSV column headers with spaces
 ```
 
-Report incorrect code
-
 ## Model configuration for fact tables
 
 A dbt model can be created as a Firebolt fact table and configured using the following syntax:
@@ -32,8 +30,6 @@ models:
       ...
 ```
 
-Report incorrect code
-
 ### Properties YAML file
 
 models/properties.yml
@@ -51,8 +47,6 @@ models:
           aggregation: [ <agg-sql>, ... ]
         ...
 ```
-
-Report incorrect code
 
 ### SQL file config
 
@@ -73,8 +67,6 @@ models/\<model\_name>.sql
     ]
 ) }}
 ```
-
-Report incorrect code
 
 #### Fact table configurations
 
@@ -105,8 +97,6 @@ Report incorrect code
 ) }}
 ```
 
-Report incorrect code
-
 ## Model configuration for dimension tables
 
 A dbt model can be materialized as a Firebolt dimension table and configured using the following syntax:
@@ -123,8 +113,6 @@ models:
     ...
 ```
 
-Report incorrect code
-
 ### Properties YAML file
 
 models/properties.yml
@@ -138,8 +126,6 @@ models:
     ...
 ```
 
-Report incorrect code
-
 ### SQL file config
 
 models/\<model\_name>.sql
@@ -151,8 +137,6 @@ models/\<model\_name>.sql
     ...
 ) }}
 ```
-
-Report incorrect code
 
 Dimension tables do not support aggregation indexes.
 
@@ -170,8 +154,6 @@ In dbt-firebolt, you do not provide names for aggregating indexes; they are name
 ```text
 <table-name>__<key-column>__<index-type>_<unix-timestamp-at-execution>
 ```
-
-Report incorrect code
 
 For example, a join index could be named `my_users__id__join_1633504263` and an aggregating index could be named `my_orders__order_date__aggregating_1633504263`.
 
@@ -193,8 +175,6 @@ To install and use `dbt-external-tables` with Firebolt, you must:
        version: <version>
    ```
 
-   Report incorrect code
-
 2. Add these fields to your `dbt_project.yml`:
 
    ```yaml
@@ -202,8 +182,6 @@ To install and use `dbt-external-tables` with Firebolt, you must:
      - macro_namespace: dbt_external_tables
        search_order: ['dbt', 'dbt_external_tables']
    ```
-
-   Report incorrect code
 
 3. Pull in the `packages.yml` dependencies by calling `dbt deps`.
 
@@ -241,8 +219,6 @@ sources:
               data_type: <type>
 ```
 
-Report incorrect code
-
 `aws_key_id` and `aws_secret_key` are the credentials that allow Firebolt access to your S3 bucket. Learn how to set them up by following this [guide](https://docs.firebolt.io/godocs/Guides/loading-data/creating-access-keys-aws.html). If your bucket is public these parameters are not necessary.
 
 #### Running external tables
@@ -256,8 +232,6 @@ $ dbt run-operation stage_external_sources
 # iterate through all source nodes, create or replace (no refresh command is required as data is fetched live from remote)
 $ dbt run-operation stage_external_sources --vars "ext_full_refresh: true"
 ```
-
-Report incorrect code
 
 ## Incremental models
 
@@ -282,8 +256,6 @@ select * from {{ ref('raw_orders') }}
 {% endif %}
 ```
 
-Report incorrect code
-
 Example run code:
 
 ```sql
@@ -295,8 +267,6 @@ INSERT INTO orders VALUES ([columns])
 SELECT ([columns])
 FROM orders__dbt_tmp;
 ```
-
-Report incorrect code
 
 ## Seeds behavior
 

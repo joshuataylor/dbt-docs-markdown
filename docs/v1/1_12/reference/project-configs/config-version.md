@@ -8,8 +8,6 @@ dbt\_project.yml
 config-version: 2
 ```
 
-Report incorrect code
-
 ## Definition
 
 Specify your `dbt_project.yml` as using the v2 structure.

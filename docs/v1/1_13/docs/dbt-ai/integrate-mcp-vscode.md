@@ -64,8 +64,6 @@ To get started, in VS Code:
    }
    ```
 
-   Report incorrect code
-
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
    ### dbt platform + CLI
@@ -90,8 +88,6 @@ To get started, in VS Code:
    }
    ```
 
-   Report incorrect code
-
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
     Self-hosted MCP (CLI only)
@@ -114,8 +110,6 @@ To get started, in VS Code:
      }
    }
    ```
-
-   Report incorrect code
 
    **Finding your paths:**
 
@@ -159,8 +153,6 @@ To get started, in VS Code:
    }
    ```
 
-   Report incorrect code
-
    Using an `.env` file (alternative - two-file configuration):
 
    ```json
@@ -177,8 +169,6 @@ To get started, in VS Code:
      }
    }
    ```
-
-   Report incorrect code
 
 6. You can start, stop, and configure your MCP servers by:
 
@@ -239,8 +229,6 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    }
    ```
 
-   Report incorrect code
-
    Replace `YOUR_DBT_HOST_URL` with your hostname (for example, `abc123.us1.dbt.com`). You can find the URL in dbt platform under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
 
    ### Token-based
@@ -263,8 +251,6 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
      }
    }
    ```
-
-   Report incorrect code
 
    For token-based remote MCP, set these headers in your client's MCP config:
 
@@ -309,8 +295,6 @@ To resolve, use the full path to `uvx` in your configuration:
      }
    }
    ```
-
-   Report incorrect code
 
    Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 

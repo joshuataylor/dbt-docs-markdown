@@ -13,8 +13,6 @@ snapshots:
       hard_deletes: 'ignore' | 'invalidate' | 'new_record'
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -22,8 +20,6 @@ snapshots:
   <resource-path>:
     +hard_deletes: "ignore" | "invalidate" | "new_record"
 ```
-
-Report incorrect code
 
 snapshots/\<filename>.sql
 
@@ -37,8 +33,6 @@ snapshots/\<filename>.sql
     )
 }}
 ```
-
-Report incorrect code
 
 ## Description
 
@@ -101,8 +95,6 @@ snapshots:
       - name: dbt_is_deleted
         description: Indicates whether the record was deleted.
 ```
-
-Report incorrect code
 
 The resulting snapshot table contains the `hard_deletes: new_record` configuration. If a record is deleted and later restored, the resulting snapshot table might look like this:
 

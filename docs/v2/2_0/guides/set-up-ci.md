@@ -90,8 +90,6 @@ dbt_project_evaluator:
     +severity: "{{ env_var('DBT_PROJECT_EVALUATOR_SEVERITY', 'warn') }}"
 ```
 
-Report incorrect code
-
 ### 3. Update your CI commands
 
 Because these tests should only run after the rest of your project has been built, your existing CI command will need to be updated to exclude the dbt\_project\_evaluator package. You will then add a second step which builds *only* the package's models and tests.
@@ -102,8 +100,6 @@ Update your steps to:
 dbt build --select state:modified+ --exclude package:dbt_project_evaluator
 dbt build --select package:dbt_project_evaluator
 ```
-
-Report incorrect code
 
 ### 4. Apply any customizations
 
@@ -142,8 +138,6 @@ my_awesome_project
 │   │   └── lint_on_push.yml
 ```
 
-Report incorrect code
-
 **Key pieces:**
 
 * `on:` defines when the pipeline is run. This workflow will run whenever code is pushed to any branch except `main`. For other trigger options, check out [GitHub’s docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
@@ -180,8 +174,6 @@ jobs:
         run: "sqlfluff lint models --dialect snowflake"
 ```
 
-Report incorrect code
-
 #### GitLab
 
 Create a `.gitlab-ci.yml` file in your **root directory** to define the triggers for when to execute the script below. You’ll put the code below into this file.
@@ -191,8 +183,6 @@ my_awesome_project
 ├── dbt_project.yml
 ├── .gitlab-ci.yml
 ```
-
-Report incorrect code
 
 **Key pieces:**
 
@@ -218,8 +208,6 @@ lint-project:
     - sqlfluff lint models --dialect snowflake
 ```
 
-Report incorrect code
-
 #### Bitbucket
 
 Create a `bitbucket-pipelines.yml` file in your **root directory** to define the triggers for when to execute the script below. You’ll put the code below into this file.
@@ -229,8 +217,6 @@ my_awesome_project
 ├── bitbucket-pipelines.yml
 ├── dbt_project.yml
 ```
-
-Report incorrect code
 
 **Key pieces:**
 
@@ -256,8 +242,6 @@ pipelines:
           script:
             - python --version
 ```
-
-Report incorrect code
 
 ### 2. Commit and push your changes to make sure everything works
 

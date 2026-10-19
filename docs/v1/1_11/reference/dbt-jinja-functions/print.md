@@ -11,5 +11,3 @@ When used in conjunction with the `QUIET` global config, which suppresses non-er
     {{ print("Running some_macro: " ~ arg1 ~ ", " ~ arg2) }}
   {% endmacro %}
 ```
-
-Report incorrect code

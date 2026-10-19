@@ -14,8 +14,6 @@ drop table ...
 {% endif %}
 ```
 
-Report incorrect code
-
 The list of available flags is defined in the [`flags` module](https://github.com/dbt-labs/dbt/blob/HEAD/crates/dbt-jinja-utils/src/flags.rs) within `dbt-labs/dbt`.
 
 Recommended use cases include:
@@ -41,8 +39,6 @@ models/my\_model.sql
 select 1 as id
 ```
 
-Report incorrect code
-
 The `invocation_command` key within `invocation_args_dict` includes the entire subcommand when it compiles:
 
 ```shell
@@ -64,8 +60,6 @@ $ DBT_ENV_CUSTOM_ENV_MYVAR=myvalue dbt compile -s my_model
 select 1 as id
 ```
 
-Report incorrect code
-
 ## flags.EMPTY
 
 `flags.EMPTY` returns `True` when the [`--empty` flag](../../docs/build/empty-flag.md) is passed to a dbt command, and `False` otherwise. This is useful when you need to customize materialization logic or macro behavior depending on whether dbt is running in empty (schema-only) mode.
@@ -80,8 +74,6 @@ Report incorrect code
     {% endif %}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 ## flags.WHICH
 
@@ -104,8 +96,6 @@ Report incorrect code
     {% endif %}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 The following commands are supported:
 

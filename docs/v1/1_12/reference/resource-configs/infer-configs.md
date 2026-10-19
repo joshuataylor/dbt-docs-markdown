@@ -21,8 +21,6 @@ The format of this should look like this:
         [configuration for your underlying data warehouse]  
 ```
 
-Report incorrect code
-
 ### Description of Infer Profile Fields
 
 | Field         | Required | Description                                                                                                                                       |

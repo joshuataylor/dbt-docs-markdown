@@ -40,8 +40,6 @@ The example query below finds a model by its unique database, schema, and identi
 }
 ```
 
-Report incorrect code
-
 #### Find models by their schema
 
 The example query below finds all models in this schema and their respective execution times.
@@ -58,8 +56,6 @@ The example query below finds all models in this schema and their respective exe
 }
 ```
 
-Report incorrect code
-
 #### Paginate models in a job run
 
 Job-based `models` queries support `first` and `after` for cursor pagination. Each model returns a `paginationCursor` field to fetch the next page. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) for paging behavior, supported resource types, and legacy default behavior.
@@ -75,8 +71,6 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
   }
 }
 ```
-
-Report incorrect code
 
 ### Fields
 

@@ -133,8 +133,6 @@ Some notes when using `loaded_at_field` or `loaded_at_query`:
     where ingested_at >= current_timestamp - interval '3 days'
   ```
 
-  Report incorrect code
-
 * If a source is a view in the data warehouse, the available metadata is usually insufficient to discern freshness, and dbt emits a warning during freshness checks. To determine freshness for sources that are views, add a `loaded_at_field` or `loaded_at_query` to your configuration.
 
 To learn more about model freshness and `build_after`, refer to [model `freshness` config](../../reference/resource-configs/freshness.md). To learn more about source and upstream model freshness configs, refer to [resource `freshness` config](../../reference/resource-configs/freshness.md).
@@ -178,8 +176,6 @@ You can optionally configure state-aware orchestration when you want to fine-tun
         loaded_at_field: _etl_loaded_at
   ```
 
-  Report incorrect code
-
   #### loaded\_at\_query
 
   To define freshness with custom SQL, use `loaded_at_query`. State-aware orchestration runs the query to get a single timestamp. When that value changes compared to the previous run, the source is considered fresh.
@@ -196,8 +192,6 @@ You can optionally configure state-aware orchestration when you want to fine-tun
             from {{ this }}
             where ingested_at >= current_timestamp - interval '3 days'
   ```
-
-  Report incorrect code
 
   In this example, dbt runs the custom `loaded_at_query` to get a single timestamp — the latest `ingested_at` within the last three days. On each run, dbt compares this new maximum timestamp to the value from the previous run. If the maximum timestamp is newer, state-aware orchestration considers the source to have fresh data and may trigger rebuilds.
 
@@ -249,8 +243,6 @@ where
 {% endif %}
 ```
 
-Report incorrect code
-
 #### loaded\_at\_query
 
 ```yaml
@@ -259,8 +251,6 @@ loaded_at_query: |
   from {{ this }}
   where ingested_at >= current_timestamp - interval '3 days'
 ```
-
-Report incorrect code
 
 ## Example
 
@@ -296,8 +286,6 @@ models:
           updates_on: all
 ```
 
-Report incorrect code
-
 ### Project YAML file
 
 dbt\_project.yml
@@ -311,8 +299,6 @@ models:
         period: hour
         updates_on: all 
 ```
-
-Report incorrect code
 
 ### SQL file config
 
@@ -331,8 +317,6 @@ models/\<filename>.sql
     )
 }}
 ```
-
-Report incorrect code
 
 With this config, dbt:
 
@@ -358,8 +342,6 @@ models:
       +materialized: table
 ```
 
-Report incorrect code
-
 This configuration means that every model in the project has a `build_after` of 4 hours. To change this for specific models or groups of models, you could set:
 
 dbt\_project.yml
@@ -376,8 +358,6 @@ models:
         count: 1
         period: hour
 ```
-
-Report incorrect code
 
 If you want to exclude a model from the freshness rule set at a higher level, set `freshness: null` for that model. With freshness disabled, state-aware orchestration falls back to its default behavior and builds the model whenever there’s an upstream code or data change.
 
@@ -396,8 +376,6 @@ models/model.yml
         period: hour
         updates_on: any
 ```
-
-Report incorrect code
 
 This way, if either `dim_wizards` or `dim_worlds` has fresh upstream data and enough time passed, dbt rebuilds the models. This method helps when the need for fresher data outweighs the costs.
 

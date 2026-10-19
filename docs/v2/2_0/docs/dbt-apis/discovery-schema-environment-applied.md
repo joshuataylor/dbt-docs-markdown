@@ -33,8 +33,6 @@ query Example {
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying the `applied` field of `environment`, you can use the following fields.

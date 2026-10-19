@@ -26,8 +26,6 @@ groups:
         data_classification: sensitive
 ```
 
-Report incorrect code
-
 #### Centrally defining a group
 
 To centrally define a group in your project, there are two options:
@@ -39,8 +37,6 @@ To centrally define a group in your project, there are two options:
   ```yml
   model-paths: ["models", "groups"]
   ```
-
-  Report incorrect code
 
 ### Group properties
 
@@ -68,8 +64,6 @@ groups:
         data_classification: sensitive
 ```
 
-Report incorrect code
-
 ### Adding a model to a group
 
 Use the `group` configuration to add one or more models to a group.
@@ -85,8 +79,6 @@ models:
       +group: finance
 ```
 
-Report incorrect code
-
 #### Model-level
 
 models/schema.yml
@@ -98,8 +90,6 @@ models:
       group: finance
 ```
 
-Report incorrect code
-
 #### In-file
 
 models/model\_name.sql
@@ -109,8 +99,6 @@ models/model\_name.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ### Referencing a model in a group
 
@@ -131,15 +119,11 @@ models:
       group: marketing
 ```
 
-Report incorrect code
-
 models/marketing\_model.sql
 
 ```sql
 select * from {{ ref('finance_private_model') }}
 ```
-
-Report incorrect code
 
 ```shell
 $ dbt run -s marketing_model
@@ -148,8 +132,6 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_private_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
-
-Report incorrect code
 
 ## Related docs
 

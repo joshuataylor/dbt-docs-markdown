@@ -22,5 +22,3 @@ The following is an example of the 403 response error:
             },
         }
 ```
-
-Report incorrect code

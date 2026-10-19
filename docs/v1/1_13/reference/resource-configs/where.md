@@ -12,8 +12,6 @@ from my_model
 where my_column is null
 ```
 
-Report incorrect code
-
 If the `where` config is set to `where date_column = current_date`, then the test query will be updated to:
 
 ```sql
@@ -21,8 +19,6 @@ select *
 from (select * from my_model where date_column = current_date) dbt_subquery
 where my_column is null
 ```
-
-Report incorrect code
 
 ### Examples
 
@@ -51,8 +47,6 @@ models:
                 where: "date_column < current_date"
 ```
 
-Report incorrect code
-
 #### One-off test
 
 This config is ignored for one-off tests.
@@ -73,8 +67,6 @@ select ...
 {% endtest %}
 ```
 
-Report incorrect code
-
 #### Project level
 
 Set the default for all tests in a package or project:
@@ -90,8 +82,6 @@ data_tests:
         date_column = current_date
         and another_column is not null
 ```
-
-Report incorrect code
 
 ### Custom logic
 
@@ -128,8 +118,6 @@ models:
                 where: "date_column > __3_days_ago__"  # placeholder string for static config
 ```
 
-Report incorrect code
-
 macros/custom\_get\_where\_subquery.sql
 
 ```sql
@@ -164,5 +152,3 @@ macros/custom\_get\_where\_subquery.sql
     {{ return(result) }}
 {% endmacro %}
 ```
-
-Report incorrect code

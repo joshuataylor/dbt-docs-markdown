@@ -42,8 +42,6 @@ DBT_CLOUD_ACCOUNT_HOST=YOUR_ACCOUNT_HOST
 DBT_CLOUD_ACCOUNT_ID=YOUR_ACCOUNT_ID
 ```
 
-Report incorrect code
-
 Replace `YOUR_SERVICE_TOKEN` with your service token, `YOUR_ACCOUNT_HOST` with your [account host](../platform/about-platform/access-regions-ip-addresses.md) (for example, `abc123.us1.dbt.com`), and `YOUR_ACCOUNT_ID` with your numeric account ID. Go to **Account settings** > **Account** to find your account ID and account host (the hostname from the **Access URL** field).
 
 ### Network requirements
@@ -67,8 +65,6 @@ Once authentication is configured, [verify dbt State is active](#verifying-dbt-s
    ```text
    dbt State adapter: dbt-state v2.10.1 is enabled
    ```
-
-   Report incorrect code
 
 ## Related docs
 

@@ -79,8 +79,6 @@ Define variables once at the OS or shell level to ensure they're available to al
    nano ~/.bashrc ## for bash (Linux or older macOS)
    ```
 
-   Report incorrect code
-
 2. A file will open up and you can add your environment variables to the file. For example:
 
    * For zsh (macOS):
@@ -91,8 +89,6 @@ Define variables once at the OS or shell level to ensure they're available to al
          export DBT_ENV_VAR2="another_value"
      ```
 
-     Report incorrect code
-
    * For bash (Linux or older macOS):
 
      ```bash
@@ -100,8 +96,6 @@ Define variables once at the OS or shell level to ensure they're available to al
          export DBT_ENV_VAR1="my_value"
          export DBT_ENV_VAR2="another_value"
      ```
-
-     Report incorrect code
 
 3. Save the file.
 
@@ -128,8 +122,6 @@ The following steps will explain how to configure environment variables using Po
   [Environment]::SetEnvironmentVariable("DBT_ENV_VAR1","my_value","User")
   [Environment]::SetEnvironmentVariable("DBT_ENV_VAR2","another_value","User")
 ```
-
-Report incorrect code
 
 1. This saves the variables permanently for your user account. To make them available system-wide for all users, replace "User" with "Machine" (requires admin rights).
 2. Then, restart VS Code or select **Developer: Reload Window** for changes to take effect.
@@ -197,8 +189,6 @@ To configure environment variables in VS Code/Cursor:
    DBT_ENV_VAR2=another_value
    ```
 
-   Report incorrect code
-
 3. Save the file.
 
 4. Reload the VS Code extension to apply the changes.
@@ -215,8 +205,6 @@ To configure environment variables in VS Code/Cursor:
    "database": "my_database",        # Loaded from DBT_MY_DATABASE in .env
    "schema": "my_schema",            # Loaded from DBT_MY_SCHEMA in .env
    ```
-
-   Report incorrect code
 
 ### Configure in the terminal session
 
@@ -236,8 +224,6 @@ To configure environment variables in the terminal session:
    export DBT_ENV_VAR1=test1
    ```
 
-   Report incorrect code
-
    #### Windows Cmd
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1) for more information on the `set` command.
@@ -246,8 +232,6 @@ To configure environment variables in the terminal session:
    set DBT_ENV_VAR1=test1 
    ```
 
-   Report incorrect code
-
    #### Windows PowerShell
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.5#use-the-variable-syntax) for more information on the `$env:` syntax.
@@ -255,8 +239,6 @@ To configure environment variables in the terminal session:
    ```bash
    $env:DBT_ENV_VAR1 = "test1"
    ```
-
-   Report incorrect code
 
 2. Verify the changes by running a dbt command and checking the output.
 
@@ -297,8 +279,6 @@ If you want to use both extensions, keep your ad hoc query files in a separate, 
   }
 }
 ```
-
-Report incorrect code
 
 ## Next steps
 

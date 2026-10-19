@@ -123,8 +123,6 @@ Add this to `.mcp.json` at your project root:
 }
 ```
 
-Report incorrect code
-
 ##### Cursor
 
 Add this to `.cursor/mcp.json` (or use the Cursor deeplink in [Integrate Cursor with MCP](./integrate-mcp-cursor.md#set-up-with-remote-dbt-mcp-server)):
@@ -138,8 +136,6 @@ Add this to `.cursor/mcp.json` (or use the Cursor deeplink in [Integrate Cursor 
   }
 }
 ```
-
-Report incorrect code
 
 ##### VS Code
 
@@ -155,8 +151,6 @@ Add this to `mcp.json` (run **MCP: Open Workspace Folder MCP Configuration** fro
   }
 }
 ```
-
-Report incorrect code
 
 #### Token-based
 
@@ -185,8 +179,6 @@ Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the r
 }
 ```
 
-Report incorrect code
-
 ##### Cursor
 
 ```json
@@ -204,8 +196,6 @@ Report incorrect code
   }
 }
 ```
-
-Report incorrect code
 
 ##### VS Code
 
@@ -228,8 +218,6 @@ VS Code uses the `servers` key, not `mcpServers`:
 }
 ```
 
-Report incorrect code
-
 ##### Gemini
 
 Gemini uses the `httpUrl` key instead of `url`:
@@ -249,8 +237,6 @@ Gemini uses the `httpUrl` key instead of `url`:
   }
 }
 ```
-
-Report incorrect code
 
 * For the complete list of headers, Cursor and other client examples, and optional headers, refer to [Set up remote MCP](./setup-remote-mcp.md).
 * For self-hosted MCP, configuration uses environment variables; check out the [Environment variables reference](./mcp-environment-variables.md) for more information.

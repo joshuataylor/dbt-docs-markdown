@@ -44,5 +44,3 @@ dbt\_project.yml
 flags:
   snowflake_managed_iceberg_default: true
 ```
-
-Report incorrect code

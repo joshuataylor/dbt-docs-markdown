@@ -27,5 +27,3 @@ dogs:
 {% do log(my_dict['dogs'], info=true) %}
 -- ["good"]
 ```
-
-Report incorrect code

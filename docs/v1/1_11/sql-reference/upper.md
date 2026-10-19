@@ -12,8 +12,6 @@ The syntax for using the UPPER function looks like the following:
 upper(<string_column>)
 ```
 
-Report incorrect code
-
 Executing this command in a SELECT statement will return the uppercase version of the input string value. You may additionally use the UPPER function in WHERE clauses and on join values.
 
 Below, we’ll walk through a practical example using the UPPER function.
@@ -29,8 +27,6 @@ select
 	last_name
 from {{ ref('customers') }}
 ```
-
-Report incorrect code
 
 After running this query, the `customers` table will look a little something like this:
 

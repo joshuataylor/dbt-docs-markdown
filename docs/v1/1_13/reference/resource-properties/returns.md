@@ -16,8 +16,6 @@ functions:
       description: <markdown_string> # optional
 ```
 
-Report incorrect code
-
 ## Definition
 
 The `returns` property defines the output of a user-defined function (UDF). This is a required property for all functions and specifies what data type the function will return when executed.
@@ -63,8 +61,6 @@ functions:
       description: Returns true if the string is a valid email format, false otherwise
 ```
 
-Report incorrect code
-
 ### Function with complex return type
 
 functions/schema.yml
@@ -84,8 +80,6 @@ functions:
       description: The calculated profit margin as a percentage
 ```
 
-Report incorrect code
-
 ### BigQuery function with ARRAY return type
 
 functions/schema.yml
@@ -102,8 +96,6 @@ functions:
       data_type: ARRAY<STRING>
       description: An array of individual tag strings
 ```
-
-Report incorrect code
 
 ## Related documentation
 

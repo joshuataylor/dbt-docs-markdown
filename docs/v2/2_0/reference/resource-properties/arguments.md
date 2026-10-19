@@ -13,8 +13,6 @@ macros:
         description: <markdown_string>
 ```
 
-Report incorrect code
-
 ## Definition
 
 The `arguments` property is used to define the parameters that a resource can accept. Each argument can have a `name`, a `type` field, and an optional `description`.
@@ -48,8 +46,6 @@ macros:
         type: <string>
 ```
 
-Report incorrect code
-
 ### Supported types
 
 (Applies to dbt v2.0 and later)
@@ -79,8 +75,6 @@ macros/cents\_to\_dollars.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 macros/cents\_to\_dollars.yml
 
 ```yml
@@ -95,8 +89,6 @@ macros:
         type: integer
         description: "The number of decimal places to round to. Default is 2."
 ```
-
-Report incorrect code
 
 ## Related documentation
 

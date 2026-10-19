@@ -17,8 +17,6 @@ Use the following metric configured with the syntax before v1.9 as an example:
       window: 7 days
 ```
 
-Report incorrect code
-
 If you run `dbt parse` with that syntax on dbt v1.9 or [the dbt **v1 Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
 
 ```bash
@@ -30,15 +28,11 @@ behavior changes:
 https://docs.getdbt.com/reference/global-configs/behavior-changes
 ```
 
-Report incorrect code
-
 Because `require_nested_cumulative_type_params` defaults to `true`, running `dbt parse` produces an error like:
 
 ```bash
 21:39:18  Cumulative fields `type_params.window` and `type_params.grain_to_date` should be nested under `type_params.cumulative_type_params.window` and `type_params.cumulative_type_params.grain_to_date`. Invalid metrics: orders_last_7_days. See documentation on behavior changes: https://docs.getdbt.com/reference/global-configs/behavior-changes.
 ```
-
-Report incorrect code
 
 Once the metric is updated, it will work as expected:
 
@@ -50,8 +44,6 @@ Once the metric is updated, it will work as expected:
       cumulative_type_params:
         window: 7 days
 ```
-
-Report incorrect code
 
 ## Impact
 
@@ -87,8 +79,6 @@ metrics:
     window: 7 days
 ```
 
-Report incorrect code
-
 Re-run `dbt parse` to confirm the manifest validates.
 
 To opt out of this behavior, set the flag to `false`:
@@ -99,5 +89,3 @@ dbt\_project.yml
 flags:
   require_nested_cumulative_type_params: false
 ```
-
-Report incorrect code

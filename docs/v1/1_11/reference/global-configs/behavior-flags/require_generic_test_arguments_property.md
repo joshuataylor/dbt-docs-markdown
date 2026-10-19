@@ -27,8 +27,6 @@ models:
             expression: "order_items_subtotal = subtotal"
 ```
 
-Report incorrect code
-
 Here's an example using the alternative `test_name` format:
 
 model.yml
@@ -45,8 +43,6 @@ models:
         where: "1=1"
 ```
 
-Report incorrect code
-
 With this flag enabled, dbt will:
 
 * Parse any key-value pairs under `arguments` in generic tests as inputs to the generic test macro.
@@ -60,5 +56,3 @@ dbt\_project.yml
 flags:
   require_generic_test_arguments_property: false
 ```
-
-Report incorrect code

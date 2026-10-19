@@ -11,8 +11,6 @@ CLI
 21:35:48  6 of 7 OK created view model dbt_testing.name_list......................... [CREATE VIEW in 0.17s]
 ```
 
-Report incorrect code
-
 logs/dbt.log
 
 ```text
@@ -23,8 +21,6 @@ logs/dbt.log
 21:21:16.191404 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
 21:21:16.207330 [info ] [MainThread]: Found 2 models, 0 tests, 0 snapshots, 1 analysis, 535 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
 ```
-
-Report incorrect code
 
 ## Structured logging
 
@@ -117,8 +113,6 @@ Many events are fired while compiling or running a specific DAG node (model, see
   }
 }
 ```
-
-Report incorrect code
 
 ## Python interface
 

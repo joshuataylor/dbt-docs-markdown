@@ -25,5 +25,3 @@ path/to/folders/**
 # ignore some folders in a directory
 path/to/folders/subfolder/**
 ```
-
-Report incorrect code

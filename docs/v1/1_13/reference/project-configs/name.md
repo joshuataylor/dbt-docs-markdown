@@ -6,8 +6,6 @@ dbt\_project.yml
 name: string
 ```
 
-Report incorrect code
-
 ## Definition
 
 **Required configuration**
@@ -34,8 +32,6 @@ Runtime Error
   Could not run dbt
 ```
 
-Report incorrect code
-
 This project has:
 
 dbt\_project.yml
@@ -44,8 +40,6 @@ dbt\_project.yml
 name: jaffle-shop
 ```
 
-Report incorrect code
-
 In this case, change your project name to be `snake_case` instead:
 
 dbt\_project.yml
@@ -53,5 +47,3 @@ dbt\_project.yml
 ```yml
 name: jaffle_shop
 ```
-
-Report incorrect code

@@ -11,8 +11,6 @@ flags:
   use_catalogs_v2: true
 ```
 
-Report incorrect code
-
 Unlike Snowflake, Databricks, and BigQuery, DuckDB doesn't ship with a single built-in "managed" Iceberg catalog. This means there's no `table_format='iceberg'`-only shortcut for DuckDB — every Iceberg model requires a `catalog_name` that points to an entry in [`catalogs.yml`](../catalogs-yml.md).
 
 dbt supports creating Iceberg tables for two DuckDB materializations:
@@ -41,8 +39,6 @@ catalogs:
         secret: my_iceberg_secret
 ```
 
-Report incorrect code
-
 models/my\_iceberg\_model.sql
 
 ```sql
@@ -55,8 +51,6 @@ models/my\_iceberg\_model.sql
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
-
-Report incorrect code
 
 Run the model with `dbt run -s my_iceberg_model`. Instead of `endpoint`, you can use `endpoint_type: GLUE` or `endpoint_type: S3_TABLES` to attach one of these well-known AWS-managed Iceberg REST endpoints without specifying a URL:
 
@@ -73,8 +67,6 @@ catalogs:
         warehouse: "arn:aws:s3tables:us-east-1:123456789012:bucket/example"
 ```
 
-Report incorrect code
-
 `endpoint` and `endpoint_type` are mutually exclusive.
 
 ### Writing to S3 Tables
@@ -87,13 +79,9 @@ In the current v2 preview builds, the `endpoint_type: S3_TABLES` shortcut works 
 Invalid Configuration Error: AUTHORIZATION_TYPE is 'oauth2', yet no 'secret' was provided...
 ```
 
-Report incorrect code
-
 ```text
 InvalidArguments: HTTP Error: Failed to retrieve OAuth2 token from  (sqlstate: ...)
 ```
-
-Report incorrect code
 
 S3 Tables requires SigV4 authentication. Until this is fixed, use the explicit `endpoint` + `authorization_type: SIGV4` config. Refer to [Write to Amazon S3 Tables](#write-to-amazon-s3-tables) for any S3 Tables catalog you write to.
 
@@ -124,8 +112,6 @@ catalogs:
         purge_requested: true             # S3 Tables only allows DROP TABLE with purge enabled
 ```
 
-Report incorrect code
-
 Replace the placeholders with your AWS Region, account ID, table bucket name, and namespace.
 
 `secret` references an `s3` credential-chain secret defined in `profiles.yml` (refer to [Secrets](#secrets)) — this supplies the SigV4 credentials, not an OAuth2 token.
@@ -154,8 +140,6 @@ my_profile:
           region: <region>
 ```
 
-Report incorrect code
-
 ### Configure your model
 
 Set `catalog_name` to your catalog's name and `schema` to your S3 Tables namespace:
@@ -174,8 +158,6 @@ models/my\_s3\_tables\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
-Report incorrect code
-
 ### Match the schema to your namespace
 
 Because DuckDB's default schema is `main`, dbt's default schema-naming logic concatenates it with your model's custom schema (for example, `main_my_namespace`), which won't match an existing S3 Tables namespace.
@@ -193,8 +175,6 @@ macros/generate\_schema\_name.sql
     {%- endif -%}
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 ## Cross-platform Mesh: reading catalogs managed by other platforms
 
@@ -221,8 +201,6 @@ catalogs:
         default_schema: demo
 ```
 
-Report incorrect code
-
 ### Databricks Unity Catalog
 
 Similarly, for [Databricks Unity Catalog](./databricks-iceberg-support.md):
@@ -244,8 +222,6 @@ catalogs:
         default_schema: demo
 ```
 
-Report incorrect code
-
 ### Read-only vs. read-write
 
 By default, dbt attaches Horizon and Unity catalogs read-write (`read_only: false`) and applies write-compat `ATTACH` defaults for each (for example, disabling multi-table commits on Unity). Writing to these catalogs from DuckDB requires DuckDB 1.5.4+ and [duckdb-iceberg#1017](https://github.com/duckdb/duckdb-iceberg/issues/1017). If you only need to *read* Iceberg tables that another platform wrote, set `read_only: true`:
@@ -256,8 +232,6 @@ By default, dbt attaches Horizon and Unity catalogs read-write (`read_only: fals
         endpoint: "https://horizon.example.com/catalog"
         read_only: true
 ```
-
-Report incorrect code
 
 ## DuckLake
 
@@ -276,8 +250,6 @@ catalogs:
         data_path: "s3://my-bucket/lake" # optional
 ```
 
-Report incorrect code
-
 models/my\_ducklake\_model.sql
 
 ```sql
@@ -291,16 +263,12 @@ models/my\_ducklake\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
-Report incorrect code
-
 dbt installs the DuckLake extension and attaches the catalog before running your model:
 
 ```sql
 INSTALL ducklake
 ATTACH IF NOT EXISTS 'ducklake:metadata.ducklake' AS local_lake (DATA_PATH 's3://my-bucket/lake')
 ```
-
-Report incorrect code
 
 ## Secrets
 
@@ -322,8 +290,6 @@ my_profile:
           # (for example, token, client_id, client_secret) -- see DuckDB's
           # iceberg extension docs for the parameters your catalog needs.
 ```
-
-Report incorrect code
 
 For Amazon S3 Tables specifically, use a `type: s3` / `provider: credential_chain` secret instead (SigV4, not OAuth2/token-based) — see [Amazon S3 Tables (write path)](#amazon-s3-tables-write-path) above.
 

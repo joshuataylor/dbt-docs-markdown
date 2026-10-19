@@ -29,5 +29,3 @@ models:
     facts:
       +materialized: "{{ 'view' if target.name == 'dev' else 'table' }}"
 ```
-
-Report incorrect code

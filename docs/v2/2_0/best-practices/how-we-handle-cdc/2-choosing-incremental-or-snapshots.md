@@ -108,8 +108,6 @@ where _loaded_at >= (
 {% endif %}
 ```
 
-Report incorrect code
-
 The first run reads all rows. Later runs read rows at or after the latest stored `_loaded_at` value. Using `>=` includes rows that share that timestamp.
 
 ### 2. Capture historical versions
@@ -128,8 +126,6 @@ snapshots:
       updated_at: updated_at
 ```
 
-Report incorrect code
-
 Snapshot sources or lightly transformed staging models. Keep business logic in downstream models so changes to that logic do not become part of your source history.
 
 ### 3. Select current values for reporting
@@ -147,8 +143,6 @@ select
 from {{ ref('customers_snapshot') }}
 where dbt_valid_to is null
 ```
-
-Report incorrect code
 
 Run these resources in dependency order: staging model, snapshot, then reporting model. You can use `dbt build` with all three selected.
 

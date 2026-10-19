@@ -6,24 +6,24 @@ Built for governed data development in dbt, dbt Wizard understands your project,
 
 Most of how dbt Wizard works is the same in [dbt platform](../platform/wizard-platform.md), [Wizard Desktop](./wizard-desktop.md), and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
 
-## Native metadata engine
+## dbt Information Schema
 
-dbt Wizard ships with a metadata engine — a pre-built, structured index of your entire project that's ready before your first prompt.
+dbt Wizard uses the [dbt Information Schema](../build/dbt-information-schema.md) — a contracted interface into your project’s metadata that's ready before your first prompt.
 
 Think of it like a map of your whole city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout. (No crystal ball
 
 required.)
 
-That index gives dbt Wizard four capabilities that aren't possible from file-reading alone:
+That metadata gives dbt Wizard four capabilities that aren't possible from file-reading alone:
 
-| Capability          | Description                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Impact analysis     | When you ask "what breaks if I change this column?", dbt Wizard returns the exact set of downstream models, metrics, tests, and exposures affected — instantly, from the index. Column-level lineage is tracked, so dbt Wizard knows not just which models reference a table, but which ones reference that specific column. |
-| Health checks       | dbt Wizard knows which models have tests, which don't, which have stale data, which have failing contracts, and which had recent run failures — as a structured dataset. You can ask "what's unhealthy in this part of my DAG?" and get a precise answer without running anything.                                           |
-| Data profiling      | dbt Wizard can profile your data — row counts, column distributions, null rates — and use that context when deciding how to build or refactor a model. It can reason about your data without materializing models or running expensive queries.                                                                              |
-| Validation planning | dbt Wizard uses project metadata to identify affected resources and choose relevant checks. In the CLI, you control the depth of structured validation before commands run.                                                                                                                                                  |
+| Capability          | Description                                                                                                                                                                                                                                                                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Impact analysis     | When you ask "what breaks if I change this column?", dbt Wizard returns the exact set of downstream models, metrics, tests, and exposures affected — instantly, from the dbt Information Schema. Column-level lineage is tracked, so dbt Wizard knows not just which models reference a table, but which ones reference that specific column. |
+| Health checks       | dbt Wizard knows which models have tests, which don't, which have stale data, which have failing contracts, and which had recent run failures — as a structured dataset. You can ask "what's unhealthy in this part of my DAG?" and get a precise answer without running anything.                                                            |
+| Data profiling      | dbt Wizard can profile your data — row counts, column distributions, null rates — and use that context when deciding how to build or refactor a model. It can reason about your data without materializing models or running expensive queries.                                                                                               |
+| Validation planning | dbt Wizard uses project metadata to identify affected resources and choose relevant checks. In the CLI, you control the depth of structured validation before commands run.                                                                                                                                                                   |
 
-dbt Wizard builds and updates this index from dbt artifacts. In dbt platform, project state comes from your connected development environment. In the terminal, run `dbt parse`, `dbt compile`, or `dbt build` before a session so dbt Wizard has your latest local project state.
+dbt Wizard builds and updates this metadata from dbt artifacts. In dbt platform, project state comes from your connected development environment. In the terminal, run `dbt parse`, `dbt compile`, or `dbt build` before a session so dbt Wizard has your latest local project state.
 
 dbt version shown in the status panel
 
@@ -120,8 +120,6 @@ wizard mcp add MCP_NAME --url https://YOUR_MCP_URL
 wizard mcp login MCP_NAME
 ```
 
-Report incorrect code
-
 You can see more options by running `wizard mcp --help`.
 
 For example, to connect to the dbt MCP server, replace `DBT_MCP_ENDPOINT` with your endpoint and run:
@@ -130,15 +128,11 @@ For example, to connect to the dbt MCP server, replace `DBT_MCP_ENDPOINT` with y
 wizard mcp add dbt --url DBT_MCP_ENDPOINT
 ```
 
-Report incorrect code
-
 You should see output similar to `Added global MCP server 'dbt'.` Then authenticate:
 
 ```bash
 wizard mcp login dbt
 ```
-
-Report incorrect code
 
 The dbt MCP server reads its connection settings — such as `DBT_HOST`, `DBT_TOKEN`, `DBT_PROJECT_DIR`, `DBT_PATH`, `DBT_PROD_ENV_ID`, and `DBT_ACCOUNT_ID` — from environment variables, typically a `.env` file in your dbt project root.
 
@@ -192,8 +186,6 @@ wizard --ask-for-approval never
 wizard --sandbox workspace-write
 ```
 
-Report incorrect code
-
 Use relaxed settings when you want dbt Wizard to move faster on a scoped task you trust, such as a large refactor, generating documentation, or applying repetitive test updates. The tradeoff is that dbt Wizard has more freedom to act before you review each step, so use these settings in a clean working tree or feature branch.
 
 Approval settings apply to the current session. They are not scoped per action type in the command line flags shown above; for example, `--ask-for-approval never` relaxes prompts broadly for that session. To set defaults that persist across sessions or apply only to a specific project, use the [configuration file](./wizard-config.md).
@@ -203,8 +195,6 @@ You can view more options by running:
 ```bash
 wizard --help
 ```
-
-Report incorrect code
 
 ### Sessions
 
@@ -222,8 +212,6 @@ Resume a previous session with:
 wizard resume        # choose from a list of saved sessions
 wizard resume --last # resume the most recent session
 ```
-
-Report incorrect code
 
 Local sessions are saved on your machine, in the CLI and in Wizard Desktop alike. This is separate from platform conversations, which are stored in your dbt platform account.
 

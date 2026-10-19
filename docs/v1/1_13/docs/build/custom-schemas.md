@@ -33,8 +33,6 @@ orders.sql
 select ...
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yaml
@@ -44,8 +42,6 @@ models:
     marketing:
       +schema: marketing
 ```
-
-Report incorrect code
 
 ## Understanding custom schemas
 
@@ -79,8 +75,6 @@ The following code represents the default macro's logic:
 
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 💡 Use Jinja's whitespace control to tidy your macros!
 
@@ -120,8 +114,6 @@ If you remove `{{ default_schema }}`, it causes developers to override each othe
 
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 ### generate\_schema\_name arguments
 
@@ -187,8 +179,6 @@ macros/generate\_schema\_name.sql
     {{ generate_schema_name_for_env(custom_schema_name, node) }}
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 When using this macro, you'll need to set the target name in your production job to `prod`.
 

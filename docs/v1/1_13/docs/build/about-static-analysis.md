@@ -114,8 +114,6 @@ select * from (
 )
 ```
 
-Report incorrect code
-
 If the introspection query fails or returns no results, this renders to:
 
 ```sql
@@ -123,8 +121,6 @@ select * from (
 
 )
 ```
-
-Report incorrect code
 
 This is invalid SQL. In `baseline` mode, dbt v2 displays a warning so your project can continue running while still alerting you to the issue:
 
@@ -134,8 +130,6 @@ dbt0101: no viable alternative at input '(
 )'
   --> models/example_model.sql:17:1
 ```
-
-Report incorrect code
 
 #### Migration scenarios
 
@@ -206,8 +200,6 @@ models:
       +static_analysis: baseline
 ```
 
-Report incorrect code
-
 #### How modes cascade in your lineage
 
 Two rules determine which mode a model can use:
@@ -261,8 +253,6 @@ models/my\_schema\_changing\_model.sql
 select ...
 ```
 
-Report incorrect code
-
 Because `off` cascades, every downstream model also loses static analysis. To keep coverage across your DAG, use schema-changing materializations on models that nothing else depends on.
 
 ### Identify a model's mode
@@ -309,8 +299,6 @@ analyses:
     +static_analysis: strict
 ```
 
-Report incorrect code
-
 Use your project name in place of `my_project` — that's the same value as the `name:` key at the top of `dbt_project.yml` (for example, `jaffle_shop`). To apply `strict` to a package as well, add another entry under each resource type using the package name as the key; for example, under `models:` add `your_package_name:` with `+static_analysis: strict` beneath it.
 
 ##### Disable static analysis for all models in a package:
@@ -329,8 +317,6 @@ models:
     +static_analysis: off
 ```
 
-Report incorrect code
-
 ##### Disable static analysis in YAML:
 
 models/my\_udf\_using\_model.yml
@@ -341,8 +327,6 @@ models:
     config:
       static_analysis: off
 ```
-
-Report incorrect code
 
 ##### Disable static analysis for a model using a custom UDF:
 
@@ -356,8 +340,6 @@ select
   my_cool_udf(ip_address) as cleaned_ip
 from {{ ref('my_model') }}
 ```
-
-Report incorrect code
 
 ### Can I use strict mode in development and baseline in deployment?
 

@@ -18,8 +18,6 @@ snapshots:
         dbt_is_deleted: <string>
 ```
 
-Report incorrect code
-
 snapshots/\<filename>.sql
 
 ```jinja2
@@ -36,8 +34,6 @@ snapshots/\<filename>.sql
 }}
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -50,8 +46,6 @@ snapshots:
       dbt_updated_at: <string>
       dbt_is_deleted: <string>
 ```
-
-Report incorrect code
 
 ## Description
 
@@ -93,8 +87,6 @@ md5(
 )
 ```
 
-Report incorrect code
-
 The exact fields included in the hash depend on the snapshot strategy:
 
 * [`timestamp` strategy](./strategy.md#use-the-timestamp-strategy): The hash typically combines the [`unique_key`](./unique_key.md) columns and the `updated_at` value.
@@ -122,8 +114,6 @@ snapshots:
         dbt_updated_at: modified_date
         dbt_is_deleted: is_deleted
 ```
-
-Report incorrect code
 
 The resulting snapshot table contains the configured meta column names:
 

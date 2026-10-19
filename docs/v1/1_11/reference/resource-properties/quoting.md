@@ -18,8 +18,6 @@ sources:
           identifier: true | false
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally configure whether dbt should quote databases, schemas, and identifiers when resolving a `{{ source() }}` function to a direct relation reference.
@@ -64,8 +62,6 @@ sources:
           identifier: false
 ```
 
-Report incorrect code
-
 In a downstream model:
 
 models/\<filename>.yml
@@ -81,8 +77,6 @@ from {{ source('jaffle_shop', 'orders') }}
 left join {{ source('jaffle_shop', 'customers') }} using (order_id)
 ```
 
-Report incorrect code
-
 This will get compiled to:
 
 ```sql
@@ -95,5 +89,3 @@ from "raw"."jaffle_shop"."orders"
 -- here, the identifier should be unquoted
 left join "raw"."jaffle_shop".customers using (order_id)
 ```
-
-Report incorrect code

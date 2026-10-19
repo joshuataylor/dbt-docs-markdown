@@ -9,5 +9,3 @@ dbt\_project.yml
 ```yml
 model-paths: ["transformations"]
 ```
-
-Report incorrect code

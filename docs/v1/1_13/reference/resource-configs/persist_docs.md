@@ -12,8 +12,6 @@ models:
       columns: true
 ```
 
-Report incorrect code
-
 models/\<modelname>.sql
 
 ```sql
@@ -24,8 +22,6 @@ models/\<modelname>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Sources
 
@@ -43,8 +39,6 @@ seeds:
       columns: true
 ```
 
-Report incorrect code
-
 ## Snapshots
 
 dbt\_project.yml
@@ -56,8 +50,6 @@ snapshots:
       relation: true
       columns: true
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.9 and later)
 
@@ -73,8 +65,6 @@ snapshots:
         columns: true
 ```
 
-Report incorrect code
-
 snapshots/\<filename>.sql
 
 ```sql
@@ -88,8 +78,6 @@ select ...
 
 {% endsnapshot %}
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -134,8 +122,6 @@ Some known issues and limitations:
      select 1 as "ca_net_ht_N" # note the use of double quotes for the column name
      ```
 
-     Report incorrect code
-
      \<modelname>.yml
 
      ```yml
@@ -149,8 +135,6 @@ Some known issues and limitations:
          quote: true
      ```
 
-     Report incorrect code
-
   2. Run `dbt build -s models/<modelname>.sql --full-refresh`.
 
   3. Open the logs at `logs/dbt.log` and check the column description:
@@ -159,8 +143,6 @@ Some known issues and limitations:
      alter table analytics.<schema>.<modelname> alter
          "ca_net_ht_N" COMMENT $$This should be the description of the column$$;
      ```
-
-     Report incorrect code
 
 ### Starburst Galaxy (dbt-trino)
 
@@ -184,8 +166,6 @@ models:
         description: Primary key
 ```
 
-Report incorrect code
-
 Enable `persist_docs` for columns and relations in your project:
 
 dbt\_project.yml
@@ -196,8 +176,6 @@ models:
     relation: true
     columns: true
 ```
-
-Report incorrect code
 
 Run dbt and observe that the created relation and columns are annotated with your descriptions:
 

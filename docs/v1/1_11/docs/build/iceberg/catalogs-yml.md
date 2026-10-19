@@ -19,8 +19,6 @@ models/hello\_iceberg.sql
 select 'hello_iceberg' as message
 ```
 
-Report incorrect code
-
 That's it. This model is materialized as an Iceberg table, with all the default configurations for this adapter, and stored in the default (managed) catalog offered by this data platform. You can now connect to that catalog using another engine (such as DuckDB) to read this table. Congratulations, you're using Iceberg!
 
 note
@@ -53,8 +51,6 @@ dbt\_project.yml
 flags:
   use_catalogs_v2: true
 ```
-
-Report incorrect code
 
 Each entry in `catalogs` refers to a specific catalog containing Iceberg tables. Each catalog **should** map to a top-level logical namespace (often called "database" in dbt). Each catalog may be managed or external for this data platform. Each catalog may be accessed (read from and written to) by one or multiple data platforms.
 
@@ -93,8 +89,6 @@ catalogs:
         base_location_root: 's3://my-bucket/finance_db'
 ```
 
-Report incorrect code
-
 But then you override that config for one particular model:
 
 models/finance/my\_special\_model.sql
@@ -106,8 +100,6 @@ models/finance/my\_special\_model.sql
 ) 
 }}
 ```
-
-Report incorrect code
 
 Some Iceberg-related configurations are only available at the model configuration level, so they can't be set in `catalogs.yml`. For example, the related config `base_location_subpath` determines the exact write path for a single Iceberg table, so it only makes sense to configure per-model, rather than setting a default for all models in the catalog.
 
@@ -141,5 +133,3 @@ catalogs:
           catalog_linked_database: catalog_linked_db_glue
           catalog_linked_database_type: glue
 ```
-
-Report incorrect code

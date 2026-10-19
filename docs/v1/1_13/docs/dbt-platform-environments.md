@@ -105,8 +105,6 @@ username: alice
 password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'
 ```
 
-Report incorrect code
-
 You can also use arrays as values for keys. For example, to pass a list of database groups:
 
 ```yaml
@@ -114,8 +112,6 @@ db_groups:
   - db_editor
   - db_viewer
 ```
-
-Report incorrect code
 
 #### Extended attributes don't mask secret values
 

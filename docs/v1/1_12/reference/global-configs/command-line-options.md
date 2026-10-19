@@ -8,15 +8,11 @@ For example, instead of using:
 dbt --no-populate-cache run
 ```
 
-Report incorrect code
-
 You should use:
 
 ```bash
 dbt run --no-populate-cache
 ```
-
-Report incorrect code
 
 Historically, passing flags (such as "global flags") *before* the subcommand is a legacy functionality that dbt Labs can remove at any time. We do not support using the same flag before and after the subcommand.
 
@@ -39,8 +35,6 @@ CLI flags
 <SUBCOMMAND> --<THIS-CONFIG>=<SETTING> 
 ```
 
-Report incorrect code
-
 ### Example
 
 CLI flags
@@ -50,8 +44,6 @@ CLI flags
 dbt run --printer-width=80 
 dbt test --indirect-selection=eager
 ```
-
-Report incorrect code
 
 ### Boolean config
 
@@ -68,8 +60,6 @@ dbt <SUBCOMMAND> --<THIS-CONFIG>
 dbt <SUBCOMMAND> --no-<THIS-CONFIG> 
 ```
 
-Report incorrect code
-
 ### Example
 
 CLI flags
@@ -79,8 +69,6 @@ CLI flags
 dbt run --version-check
 dbt run --no-version-check 
 ```
-
-Report incorrect code
 
 ## Config precedence
 
@@ -102,8 +90,6 @@ flags:
   fail_fast: true
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.11 and later)
 
 ```bash
@@ -112,14 +98,10 @@ export DBT_ENGINE_FAIL_FAST=1
 dbt run
 ```
 
-Report incorrect code
-
 ```bash
 dbt run --fail-fast # set to True for this specific invocation
 dbt run --no-fail-fast # set to False
 ```
-
-Report incorrect code
 
 There are two categories of exceptions:
 

@@ -68,8 +68,6 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-Report incorrect code
-
 ### Calling a macro in a hook
 
 You can also use a [macro](./jinja-macros.md#macros) to bundle up hook logic. Check out some of the examples in the reference sections for [on-run-start and on-run-end hooks](../../reference/project-configs/on-run-start-on-run-end.md) and [pre- and post-hooks](../../reference/resource-configs/pre-hook-post-hook.md).
@@ -84,8 +82,6 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-Report incorrect code
-
 models/properties.yml
 
 ```yaml
@@ -96,8 +92,6 @@ models:
         - "{{ some_macro() }}"
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yaml
@@ -106,8 +100,6 @@ models:
     +pre-hook:
       - "{{ some_macro() }}"
 ```
-
-Report incorrect code
 
 ## About operations
 
@@ -134,8 +126,6 @@ macros/grant\_select.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 To invoke this macro as an operation, execute `dbt run-operation grant_select --args '{role: reporter}'`.
 
 ```text
@@ -143,8 +133,6 @@ $ dbt run-operation grant_select --args '{role: reporter}'
 Running with dbt=1.6.0
 Privileges granted
 ```
-
-Report incorrect code
 
 Full usage docs for the `run-operation` command can be found [here](../../reference/commands/run-operation.md).
 

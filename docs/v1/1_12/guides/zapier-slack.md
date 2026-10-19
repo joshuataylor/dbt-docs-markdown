@@ -67,8 +67,6 @@ store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with webhook secret
 store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your dbt API token
 ```
 
-Report incorrect code
-
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
 ## Add a code action
@@ -177,8 +175,6 @@ send_error_thread = len(threaded_errors_post) > 0
 output = {'step_summary_post': step_summary_post, 'send_error_thread': send_error_thread, 'threaded_errors_post': threaded_errors_post}
 ````
 
-Report incorrect code
-
 ## Add Slack actions in Zapier
 
 Select **Slack** as the App, and **Send Channel Message** as the Action.
@@ -260,8 +256,6 @@ store = StoreClient('abc123') #replace with your UUID secret
 store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your dbt API token
 ```
 
-Report incorrect code
-
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
 ### 6. Add a Code action
@@ -329,8 +323,6 @@ for step in results['run_steps']:
 
 output = {'threaded_errors_post': threaded_errors_post}
 ````
-
-Report incorrect code
 
 ### 7. Add Slack action in Zapier
 

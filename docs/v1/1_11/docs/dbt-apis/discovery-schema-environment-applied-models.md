@@ -44,8 +44,6 @@ query {
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `models`, you can use the following fields:

@@ -14,8 +14,6 @@ Supply `--no-print` flag to `dbt run` to suppress `print()` messages from showin
 dbt run --no-print
 ```
 
-Report incorrect code
-
 ### Printer width
 
 By default, dbt will print out lines padded to 80 characters wide. You can change this setting by adding the following to your `profiles.yml` file:
@@ -26,8 +24,6 @@ profiles.yml
 config:
   printer_width: 120
 ```
-
-Report incorrect code
 
 ### Print color
 
@@ -40,14 +36,10 @@ config:
   use_colors: False
 ```
 
-Report incorrect code
-
 ```text
 dbt run --use-colors
 dbt run --no-use-colors
 ```
-
-Report incorrect code
 
 You can set the color preferences for the file logs only within `profiles.yml` or using the `--use-colors-file / --no-use-colors-file` flags.
 
@@ -58,11 +50,7 @@ config:
   use_colors_file: False
 ```
 
-Report incorrect code
-
 ```text
 dbt run --use-colors-file
 dbt run --no-use-colors-file
 ```
-
-Report incorrect code

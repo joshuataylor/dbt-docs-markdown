@@ -56,8 +56,6 @@ layer-profile:
       keyfile: [/path/to/bigquery/keyfile.json]
 ```
 
-Report incorrect code
-
 #### Description of Layer Bigquery Profile Fields
 
 The following fields are required:
@@ -82,8 +80,6 @@ You can automatically build state-of-art ML models using your own dbt models wit
 ```text
 layer.automl("MODEL_TYPE", ARRAY[FEATURES], TARGET)
 ```
-
-Report incorrect code
 
 *Parameters:*
 
@@ -116,8 +112,6 @@ SELECT order_id,
 FROM {{ ref('training_data') }}
 ```
 
-Report incorrect code
-
 ### Prediction
 
 You can make predictions using any Layer ML model within your dbt models. Layer dbt Adapter helps you score your data resides on your warehouse within your dbt DAG with SQL.
@@ -127,8 +121,6 @@ You can make predictions using any Layer ML model within your dbt models. Layer 
 ```text
 layer.predict("LAYER_MODEL_PATH", ARRAY[FEATURES])
 ```
-
-Report incorrect code
 
 *Parameters:*
 
@@ -148,5 +140,3 @@ SELECT
 FROM
     {{ ref("products") }}
 ```
-
-Report incorrect code

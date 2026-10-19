@@ -20,6 +20,4 @@ models/model name with spaces.sql
 -- This model file should be renamed to model_name_with_underscores.sql
 ```
 
-Report incorrect code
-
 See also [`require_source_and_semantic_model_names_without_spaces`](./require_source_and_semantic_model_names_without_spaces.md), which extends this behavior to source and semantic model names.

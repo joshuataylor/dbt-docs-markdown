@@ -41,8 +41,6 @@ The `type_params.measure` configuration can be written in different ways:
     measure: revenue
   ```
 
-  Report incorrect code
-
 * Object syntax — To add more details or attributes to the measure (such as adding a filter, handling `null` values, or specifying whether to join to a time spine), you need to use the object syntax. This allows for additional configuration beyond just the measure's name.
 
   ```yaml
@@ -52,8 +50,6 @@ The `type_params.measure` configuration can be written in different ways:
       fill_nulls_with: 0
       join_to_timespine: true
   ```
-
-  Report incorrect code
 
 ### Complete specification
 
@@ -79,8 +75,6 @@ metrics:
         fill_nulls_with: Set the value in your metric definition instead of null (such as zero). # Optional
         join_to_timespine: true/false # Boolean that indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. Default `false`. # Optional
 ```
-
-Report incorrect code
 
 ## Cumulative metrics example
 
@@ -131,8 +125,6 @@ metrics:
         grain_to_date: month
 ```
 
-Report incorrect code
-
 ### Granularity options
 
 (Applies to dbt v1.9 to v1.11)
@@ -157,8 +149,6 @@ models/marts/sem\_semantic\_model\_name.yml
     cumulative_type_params:
       period_agg: first # Optional. Defaults to first. Accepted values: first|end|average
 ```
-
-Report incorrect code
 
 In this example, `period_agg` is set to `first`, which chooses the first value for the selected granularity window. To query `cumulative_revenue` by week, use the following query syntax:
 
@@ -224,8 +214,6 @@ group by
   revenue_all_time
 ```
 
-Report incorrect code
-
 ### Window options
 
 This section details examples of when to specify and not to specify window options.
@@ -250,8 +238,6 @@ measures:
     agg: count_distinct
 ```
 
-Report incorrect code
-
 We can write a cumulative metric `weekly_customers` as such:
 
 models/marts/sem\_semantic\_model\_name.yml
@@ -266,8 +252,6 @@ metrics:
       window: 7 days # Setting the window to 7 days since we want to track weekly active
       period_agg: first #  When using non-default granularity with cumulative metrics, re-aggregation is required. period_agg: first selects the first value in each granularity window during re-aggregation.
 ```
-
-Report incorrect code
 
 From the sample YAML example, note the following:
 
@@ -319,8 +303,6 @@ metrics:
       measure: subscription_count
 ```
 
-Report incorrect code
-
 ### Grain to date
 
 You can choose to specify a grain to date in your cumulative metric configuration to accumulate a metric from the start of a grain (such as week, month, or year). When using a window, such as a month, MetricFlow will go back one full calendar month. However, grain to date will always start accumulating from the beginning of the grain, regardless of the latest date of data.
@@ -336,8 +318,6 @@ models/marts/sem\_semantic\_model\_name.yml
       - name: order_total
         agg: sum
 ```
-
-Report incorrect code
 
 We can compare the difference between a 1-month window and a monthly grain to date.
 
@@ -369,8 +349,6 @@ metrics:
         period_agg: first # Optional. Defaults to first. Accepted values: first|last|average
 ```
 
-Report incorrect code
-
 Cumulative metric with grain to date:
 
 (Applies to dbt v1.9 to v1.11)
@@ -386,8 +364,6 @@ models/marts/sem\_semantic\_model\_name.yml
     cumulative_type_params:
       grain_to_date: month
 ```
-
-Report incorrect code
 
  Expand toggle to view how the SQL compiles
 
@@ -430,8 +406,6 @@ order by
     metric_time__week
     1
 ```
-
-Report incorrect code
 
 ## SQL implementation example
 
@@ -485,8 +459,6 @@ group by
 limit 100;
 ```
 
-Report incorrect code
-
 ## Limitations
 
 If you specify a `window` in your cumulative metric definition, you must include `metric_time` as a dimension in the SQL query. This is because the accumulation window is based on metric time. For example,
@@ -502,8 +474,6 @@ from (
 group by
   subq_3.metric_time
 ```
-
-Report incorrect code
 
 ## Related docs
 

@@ -121,8 +121,6 @@ my_second_project_profile:
       threads: 4
 ```
 
-Report incorrect code
-
 ### Environment variables
 
 Use environment variables to keep sensitive credentials out of your `profiles.yml` file. Check out the [env\_var](../../reference/dbt-jinja-functions/env_var.md) reference for more information.
@@ -146,8 +144,6 @@ my_profile:
       role: "{{ env_var("ADAPTER_ROLE") }}"
       threads: 4
 ```
-
-Report incorrect code
 
 When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. dbt, the dbt VS Code extension, and dbt v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](../../reference/dbt-jinja-functions/env_var.md#using-the-env-file).
 
@@ -173,8 +169,6 @@ For example, to run against your `prod` target instead of the default `dev` targ
 dbt run --target prod
 ```
 
-Report incorrect code
-
 You can use the `--target` flag with any dbt command, such as:
 
 ```bash
@@ -182,8 +176,6 @@ dbt build --target prod
 dbt test --target dev
 dbt compile --target qa
 ```
-
-Report incorrect code
 
 ### Overriding profiles and targets
 
@@ -199,8 +191,6 @@ These flags help when you're working with multiple profiles and targets and want
 ```bash
 dbt run --profile my-profile-name --target dev
 ```
-
-Report incorrect code
 
 In this example, the `dbt run` command will use the `my-profile-name` profile and the `dev` target.
 

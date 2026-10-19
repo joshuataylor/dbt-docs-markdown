@@ -325,8 +325,6 @@ For a project, you will first create an environment variable to store the secret
    }'
    ```
 
-   Report incorrect code
-
 2. **Extended attributes**
 
    Complete the [extended attributes](../../dbt-platform-environments.md#extended-attributes) block with the following payload (replacing `XXX` with your corresponding information). That page explains where to configure them for deployment and development environments:
@@ -344,8 +342,6 @@ For a project, you will first create an environment variable to store the secret
      auth_provider_x509_cert_url: xxx
      client_x509_cert_url: xxx
    ```
-
-   Report incorrect code
 
    If you require [other fields](../../local/connect-data-platform/bigquery-setup.md#service-account-json) to be overridden at the environment level via extended attributes, please respect the [expected indentation](../../dbt-platform-environments.md#only-the-top-level-keys-are-accepted-in-extended-attributes) (ordering doesn't matter):
 
@@ -365,8 +361,6 @@ For a project, you will first create an environment variable to store the secret
    execution_project: buck-stops-here-456
    ```
 
-   Report incorrect code
-
    To automate your deployment, you first need to [create the extended attributes payload](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Extended%20Attributes) for a given project, and then [assign it](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Update%20Environment) to a specific environment. With `XXXXX` as your account number, `YYYYY` as your project number, and `ZZZZZ` as your [API token](../../dbt-apis/authentication.md):
 
    ```shell
@@ -382,8 +376,6 @@ For a project, you will first create an environment variable to store the secret
    }'
    ```
 
-   Report incorrect code
-
    *Make a note of the `id` returned in the message.* It will be used in the following call. With `EEEEE` the environment id, `FFFFF` the extended attributes id:
 
    ```shell
@@ -396,5 +388,3 @@ For a project, you will first create an environment variable to store the secret
      "extended_attributes_id": FFFFF
    }'
    ```
-
-   Report incorrect code

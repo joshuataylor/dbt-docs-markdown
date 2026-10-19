@@ -4,8 +4,6 @@
 select * from {{ source("source_name", "table_name") }}
 ```
 
-Report incorrect code
-
 ## Definition
 
 This function:
@@ -40,8 +38,6 @@ sources:
       - name: orders
 ```
 
-Report incorrect code
-
 Select from the source in a model:
 
 models/orders.sql
@@ -54,5 +50,3 @@ from {{ source('jaffle_shop', 'customers') }}
 
 left join {{ source('jaffle_shop', 'orders') }} using (customer_id)
 ```
-
-Report incorrect code

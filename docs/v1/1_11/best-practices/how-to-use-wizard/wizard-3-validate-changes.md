@@ -29,8 +29,6 @@ Review my uncommitted changes. Explain which dbt resources changed, trace their
 downstream impact, and propose a validation plan. Do not edit files yet.
 ```
 
-Report incorrect code
-
 For a targeted review, name the resource and the behavior that must remain stable:
 
 ```text
@@ -38,8 +36,6 @@ Validate the changes to fct_orders. Its grain must remain one row per order,
 order_total must not change for completed orders, and downstream finance models
 must still compile. Show me the validation plan before running it.
 ```
-
-Report incorrect code
 
 dbt Wizard uses the project graph and changed files to identify affected models, tests, and downstream resources. Review this scope carefully. Add any business invariant that cannot be inferred from SQL or metadata.
 
@@ -73,8 +69,6 @@ Do not build every downstream model. Build fct_orders and its first-degree
 children, then compile the rest of the downstream graph.
 ```
 
-Report incorrect code
-
 ## Review the validation result
 
 A useful validation summary should distinguish evidence from unresolved risk. Check that it includes:
@@ -92,8 +86,6 @@ If a check fails, ask dbt Wizard to investigate the failure before changing the 
 Explain whether this failure is caused by my code, existing warehouse data,
 or the validation environment. Do not weaken or remove the test.
 ```
-
-Report incorrect code
 
 ## Understand the limits
 

@@ -45,8 +45,6 @@ your_profile_name:
       threads: 1
 ```
 
-Report incorrect code
-
 | Field                    | Description                                                       | Required?             | Default                |
 | ------------------------ | ----------------------------------------------------------------- | --------------------- | ---------------------- |
 | `type`                   | Must be `sail`.                                                   | Required              | -                      |
@@ -74,8 +72,6 @@ my_sail_project:
       threads: 4
 ```
 
-Report incorrect code
-
 ### Example: remote mode
 
 \~/.dbt/profiles.yml
@@ -92,8 +88,6 @@ my_sail_project:
       schema: analytics
       threads: 4
 ```
-
-Report incorrect code
 
 ## Resource configuration
 

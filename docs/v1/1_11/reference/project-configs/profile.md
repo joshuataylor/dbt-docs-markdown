@@ -6,8 +6,6 @@ dbt\_project.yml
 profile: string
 ```
 
-Report incorrect code
-
 ## Definition
 
 The profile your dbt project should use to connect to your data warehouse.

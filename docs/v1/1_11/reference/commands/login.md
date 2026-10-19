@@ -57,8 +57,6 @@ dbt login
 dbt login status
 ```
 
-Report incorrect code
-
 Complete the browser prompts to sign in or register for a dbt platform account.
 
 ### Non-interactive environments
@@ -91,8 +89,6 @@ export DBT_CLOUD_ACCOUNT_ID=12345
 export DBT_CLOUD_TOKEN=dbtc_xxxxxxxx
 export DBT_CLOUD_PROJECT_ID=67890
 ```
-
-Report incorrect code
 
 ## How shared login works across dbt tools
 
@@ -134,8 +130,6 @@ Run `dbt login` from your terminal to open browser-based authentication:
 dbt login
 ```
 
-Report incorrect code
-
 The CLI opens your default browser and shows the authentication URL:
 
 ```text
@@ -145,8 +139,6 @@ Opening your browser to complete login...
 If you need to reset your password, complete the reset, then re-run dbt login to finish authenticating.
 Waiting for authentication…
 ```
-
-Report incorrect code
 
 After you sign in or register, dbt saves your credentials to your local dbt configuration directory:
 
@@ -161,8 +153,6 @@ When authentication completes successfully, the CLI shows:
 Congratulations! You are now signed in.
 ```
 
-Report incorrect code
-
 When authentication fails, the CLI shows:
 
 ```text
@@ -170,8 +160,6 @@ Authentication failed. Re-run dbt login to try again.
 
 [Placeholder for user-facing error message on failure reason]
 ```
-
-Report incorrect code
 
 dbt State and dbt login
 
@@ -186,8 +174,6 @@ Commands:
   status          Show dbt authentication status
 ```
 
-Report incorrect code
-
 ### dbt login status
 
 Run `dbt login status` to show whether dbt is authenticated:
@@ -196,23 +182,17 @@ Run `dbt login status` to show whether dbt is authenticated:
 dbt login status
 ```
 
-Report incorrect code
-
 If dbt is authenticated, the CLI shows the authentication method:
 
 ```text
 Status: authenticated (via METHOD)
 ```
 
-Report incorrect code
-
 If dbt is not authenticated, the CLI shows:
 
 ```text
 Status: unauthenticated
 ```
-
-Report incorrect code
 
 ### dbt license info
 
@@ -221,8 +201,6 @@ dbt uses local licenses to cache your logged-in state and give you access to adv
 ```shell
 dbt license info
 ```
-
-Report incorrect code
 
 The output should look like this:
 
@@ -237,15 +215,11 @@ issued_at: June 17, 2026 10:55 UTC
 expires_at: June 18, 2026 10:55 UTC
 ```
 
-Report incorrect code
-
 Add `--json` for machine-readable output:
 
 ```shell
 dbt license info --json
 ```
-
-Report incorrect code
 
 For how to interpret each status, refer to [Troubleshooting](#troubleshooting).
 
@@ -257,15 +231,11 @@ If an advanced feature isn't working, or you're not sure whether you're still si
 dbt license info
 ```
 
-Report incorrect code
-
 Add `--json` for machine-readable output:
 
 ```shell
 dbt license info --json
 ```
-
-Report incorrect code
 
 The output shows your current status. Use the following table to interpret it:
 

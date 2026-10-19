@@ -36,8 +36,6 @@ from journal_entries
 order by account_id, id
 ```
 
-Report incorrect code
-
 You can configure individual analyses in their property file. For example:
 
 analyses/\<filename>.yml
@@ -59,8 +57,6 @@ analyses:
         description: The adjusted transaction amount for the account.
 ```
 
-Report incorrect code
-
 For more information, refer to [Analysis properties](../../reference/analysis-properties.md).
 
 ## Compiling analyses
@@ -70,7 +66,5 @@ To compile this analysis into runnable sql, run:
 ```text
 dbt compile
 ```
-
-Report incorrect code
 
 Then, look for the compiled SQL file in `target/compiled/{project name}/analyses/running_total_by_account.sql`. This SQL can then be pasted into a data visualization tool, for instance. Note that no `running_total_by_account` relation will be materialized in the database as this is an `analysis`, not a `model`.

@@ -53,8 +53,6 @@ models:
           - not_null
 ```
 
-Report incorrect code
-
 ### FAQs
 
 Are there any example dbt documentation sites?
@@ -92,8 +90,6 @@ models:
       consequat.
 ```
 
-Report incorrect code
-
 2. Split your description over multiple lines using `|`. Interior line breaks are maintained and Markdown can be used. This method is recommended for more complex descriptions:
 
 ```yml
@@ -105,8 +101,6 @@ models:
       * dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
-
-Report incorrect code
 
 3. Use a [docs block](./documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
 
@@ -180,8 +174,6 @@ The events in this table are recorded by Snowplow and piped into the warehouse o
 {% enddocs %}
 ```
 
-Report incorrect code
-
 In this example, a docs block named `table_events` is defined with some descriptive markdown contents. There is nothing significant about the name `table_events` — docs blocks can be named however you like, as long as the name only contains alphanumeric and underscore characters and doesn't start with a numeric character.
 
 ### Placement
@@ -210,8 +202,6 @@ models:
             - not_null
 ```
 
-Report incorrect code
-
 In the resulting documentation, `'{{ doc("table_events") }}'` will be expanded to the markdown defined in the `table_events` docs block.
 
 ## Setting a custom overview
@@ -239,8 +229,6 @@ as well as the repo for this project [here](https://github.com/dbt-labs/mrr-play
 {% enddocs %}
 ```
 
-Report incorrect code
-
 ### Custom project-level overviews
 
 You can set different overviews for each dbt project/package included in your documentation site by creating a docs block named `__[project_name]__`.
@@ -264,5 +252,3 @@ Our organization uses this package of transformations to roll Snowplow events
 up to page views and sessions.
 {% enddocs %}
 ```
-
-Report incorrect code

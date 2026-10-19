@@ -29,8 +29,6 @@ In [Snowflake](https://docs.snowflake.com/en/sql-reference/functions/date_trunc.
 date_trunc(<date_part>, <date/time field>)
 ```
 
-Report incorrect code
-
 In these platforms, the \<date\_part> is passed in as the first argument in the DATE\_TRUNC function.
 
 ## The DATE\_TRUNC function in Google BigQuery and Amazon Redshift
@@ -40,8 +38,6 @@ In [Google BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-s
 ```sql
 date_trunc(<date/time field>, <date part>)
 ```
-
-Report incorrect code
 
 A note on BigQuery: BigQuery’s DATE\_TRUNC function supports the truncation of date types, whereas Snowflake, Redshift, and Databricks’ `<date/time field>` can be a date or timestamp data type. BigQuery also supports DATETIME\_TRUNC and TIMESTAMP\_TRUNC functions to support truncation of more granular date/time types.
 
@@ -62,8 +58,6 @@ select
    {{ date_trunc("year", "order_date") }} as order_year
 from {{ ref('orders') }}
 ```
-
-Report incorrect code
 
 Running the above would product the following sample results:
 

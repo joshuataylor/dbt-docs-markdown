@@ -53,8 +53,6 @@ DISABLE_SEMANTIC_LAYER=false
 DBT_MCP_ENABLE_SEMANTIC_LAYER=true
 ```
 
-Report incorrect code
-
 Also avoid empty `DBT_MCP_ENABLE_*=` lines as they activate enable mode and will silently disable all other toolsets.
 
 ### Disable mode (default)

@@ -12,8 +12,6 @@ GB,United Kingdom
 ...
 ```
 
-Report incorrect code
-
 2. Run `dbt seed`
 3. Ref the model in a downstream model
 
@@ -22,5 +20,3 @@ models/something.sql
 ```sql
 select * from {{ ref('country_codes') }}
 ```
-
-Report incorrect code

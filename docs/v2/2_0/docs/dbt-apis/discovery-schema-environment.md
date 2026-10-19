@@ -41,8 +41,6 @@ query Example {
 	}
 ```
 
-Report incorrect code
-
 With the deprecation of the data type `Int` for `id`, below is an example of replacing it with `BigInt`:
 
 ```graphql
@@ -64,8 +62,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 With the deprecation of `modelByEnvironment`, below is an example of replacing it with `environment`:
 
 ```graphql
@@ -81,8 +77,6 @@ query ($environmentId: BigInt!, $uniqueId: String) {
   }
 }
 ```
-
-Report incorrect code
 
 ### Fields
 

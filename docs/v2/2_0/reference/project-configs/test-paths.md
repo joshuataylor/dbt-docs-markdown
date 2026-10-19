@@ -6,8 +6,6 @@ dbt\_project.yml
 test-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally specify a custom list of directories where [singular tests](../../docs/build/data-tests.md#singular-data-tests) and [custom generic tests](../../docs/build/data-tests.md#generic-data-tests) are located.
@@ -29,8 +27,6 @@ Paths specified in `test-paths` must be relative to the location of your `dbt_pr
     test-paths: ["test"]
     ```
 
-    Report incorrect code
-
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -38,8 +34,6 @@ Paths specified in `test-paths` must be relative to the location of your `dbt_pr
     ```yml
     test-paths: ["/Users/username/project/test"]
     ```
-
-    Report incorrect code
 
 ## Examples
 
@@ -50,5 +44,3 @@ dbt\_project.yml
 ```yml
 test-paths: ["custom_tests"]
 ```
-
-Report incorrect code

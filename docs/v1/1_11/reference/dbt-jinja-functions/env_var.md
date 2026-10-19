@@ -19,8 +19,6 @@ profile:
       ....
 ```
 
-Report incorrect code
-
 If the `DBT_USER` and `DBT_ENV_SECRET_PASSWORD` environment variables are present when dbt is invoked, dbt will use these variables in your connection configuration — for example, in `profiles.yml` when running locally, or in [connection profiles](../../docs/platform/about-profiles.md) if you have a dbt platform project. If your project references environment variables that aren't set, dbt will raise a compilation error.
 
 ### Converting env\_vars
@@ -45,8 +43,6 @@ dbt\_project.yml
   columns: "{{ env_var('DBT_PERSIST_DOCS_COLUMNS', False) | as_bool }}"
 ```
 
-Report incorrect code
-
 Quoting, curly brackets, & you
 
 Be sure to quote the entire Jinja string. Otherwise, the YAML parser will be confused by the Jinja curly brackets.
@@ -63,8 +59,6 @@ models:
   jaffle_shop:
     +materialized: "{{ env_var('DBT_MATERIALIZATION', 'view') }}"
 ```
-
-Report incorrect code
 
 This can be useful to avoid compilation errors when the environment variable isn't available.
 
@@ -88,8 +82,6 @@ host: "{{ env_var('DBT_ENV_SECRET_HOST') }}"
 host: "www.{{ env_var('DBT_ENV_SECRET_HOST_DOMAIN') }}.com/{{ env_var('DBT_ENV_SECRET_HOST_PATH') }}"
 ```
 
-Report incorrect code
-
 ### Custom metadata
 
 Any env var named with the prefix `DBT_ENV_CUSTOM_ENV_` will be included in two places, with its prefix-stripped name as the key:
@@ -105,13 +97,9 @@ A dictionary of these prefixed env vars will also be available in a `dbt_metadat
 select 1 as id
 ```
 
-Report incorrect code
-
 ```shell
 $ DBT_ENV_CUSTOM_ENV_MY_FAVORITE_COLOR=indigo DBT_ENV_CUSTOM_ENV_MY_FAVORITE_NUMBER=6 dbt compile
 ```
-
-Report incorrect code
 
 Compiles to:
 
@@ -120,8 +108,6 @@ Compiles to:
 
 select 1 as id
 ```
-
-Report incorrect code
 
 ### dbt platform usage
 

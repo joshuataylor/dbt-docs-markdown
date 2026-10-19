@@ -6,8 +6,6 @@ dbt\_project.yml
 query-comment: string
 ```
 
-Report incorrect code
-
 The `query-comment` configuration also accepts a dictionary input, like so:
 
 dbt\_project.yml
@@ -22,8 +20,6 @@ query-comment:
   append: true | false
   job-label: true | false  # BigQuery only
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -48,8 +44,6 @@ By default, dbt automatically inserts a JSON comment in each query it runs. This
     );
   ```
 
-  Report incorrect code
-
 ## Using the dictionary syntax
 
 The dictionary syntax includes two keys:
@@ -71,8 +65,6 @@ dbt\_project.yml
 query-comment: "executed by dbt"
 ```
 
-Report incorrect code
-
 **Example output:**
 
 ```sql
@@ -80,8 +72,6 @@ Report incorrect code
 
 select ...
 ```
-
-Report incorrect code
 
 ### Disable query comments
 
@@ -91,8 +81,6 @@ dbt\_project.yml
 query-comment:
 ```
 
-Report incorrect code
-
 Or:
 
 dbt\_project.yml
@@ -100,8 +88,6 @@ dbt\_project.yml
 ```yml
 query-comment: null
 ```
-
-Report incorrect code
 
 ### Prepend a dynamic comment
 
@@ -113,8 +99,6 @@ dbt\_project.yml
 query-comment: "run by {{ target.user }} in dbt"
 ```
 
-Report incorrect code
-
 **Example output:**
 
 ```sql
@@ -122,8 +106,6 @@ Report incorrect code
 
 select ...
 ```
-
-Report incorrect code
 
 ### Append the default comment
 
@@ -139,8 +121,6 @@ query-comment:
   append: True
 ```
 
-Report incorrect code
-
 **Example output:**
 
 ```sql
@@ -148,8 +128,6 @@ select ...
 /* {"app": "dbt", "dbt_version": "1.6.0rc2", "profile_name": "debug", "target_name": "dev", "node_id": "model.dbt2.my_model"} */
 ;
 ```
-
-Report incorrect code
 
 ### BigQuery: include query comment items as job labels
 
@@ -162,8 +140,6 @@ dbt\_project.yml
 query-comment:
   job-label: True
 ```
-
-Report incorrect code
 
 ### Append a custom comment
 
@@ -178,8 +154,6 @@ query-comment:
   append: True
 ```
 
-Report incorrect code
-
 **Example output:**
 
 ```sql
@@ -187,8 +161,6 @@ select ...
 /* run by drew in dbt */
 ;
 ```
-
-Report incorrect code
 
 ### Intermediate: Use a macro to generate a comment
 
@@ -205,8 +177,6 @@ macros/query\_comment.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 Then call the macro in your `dbt_project.yml` file. Make sure you quote the macro to avoid the YAML parser from trying to interpret the `{` as the start of a dictionary.
 
 dbt\_project.yml
@@ -214,8 +184,6 @@ dbt\_project.yml
 ```yaml
 query-comment: "{{ query_comment() }}"
 ```
-
-Report incorrect code
 
 ### Advanced: Use a macro to generate a comment
 
@@ -252,8 +220,6 @@ macros/query\_comment.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 As above, call this macro as follows:
 
 dbt\_project.yml
@@ -261,8 +227,6 @@ dbt\_project.yml
 ```yaml
 query-comment: "{{ query_comment(node) }}"
 ```
-
-Report incorrect code
 
 ## Compilation context
 

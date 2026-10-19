@@ -65,8 +65,6 @@ groups:
         slack: '#docs-fox'
 ```
 
-Report incorrect code
-
 tip
 
 The `owner` field supports `name` and `email`, which are required values.
@@ -95,8 +93,6 @@ models:
       group: marketing
 ```
 
-Report incorrect code
-
 By assigning groups in the `dbt_project.yml` file, you can capture all models in a subdirectory at once.
 
 In this example, model notifications related to staging models go to the data engineering group, `marts/sales` models to the finance team, and `marts/campaigns` models to the marketing team.
@@ -120,8 +116,6 @@ models:
         +group: marketing
     
 ```
-
-Report incorrect code
 
 Attaching a group to a model also encompasses its tests, so you will also receive notifications for a model's test failures.
 

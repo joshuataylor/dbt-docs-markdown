@@ -14,8 +14,6 @@ from {{ info_schema('models') }}
 where description = ''
 ```
 
-Report incorrect code
-
 For the full list of columns available for each view, refer to [Columns available for checks](../info-schema.md#columns-available-for-checks).
 
 note

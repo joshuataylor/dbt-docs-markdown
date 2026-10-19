@@ -54,8 +54,6 @@ The example below queries information about an exposure including the owner's na
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for an `exposure`, the following fields are available:

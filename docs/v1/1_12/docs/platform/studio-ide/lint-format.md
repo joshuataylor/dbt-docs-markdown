@@ -78,8 +78,6 @@ You can lint multiple SQL files at once, depending on how you are working with d
   dbt sqlfluff lint [PATHS]... [flags]
   ```
 
-  Report incorrect code
-
   If no path is specified (for example, `dbt sqlfluff lint`), all SQL files in the project are linted.
 
 ### Customize linting
@@ -149,8 +147,6 @@ capitalisation_policy = lower
 [sqlfluff:rules:ambiguous.column_references]  # Number in group by
 group_by_and_order_by_style = implicit
 ```
-
-Report incorrect code
 
 For more information on styling best practices, refer to [How we style our SQL](../../../best-practices/how-we-style/2-how-we-style-our-sql.md).
 

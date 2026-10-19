@@ -15,8 +15,6 @@ models:
       +schema: marketing
 ```
 
-Report incorrect code
-
 You can also set the schema for an individual model in its property file:
 
 models/properties.yml
@@ -27,8 +25,6 @@ models:
     config:
       schema: marketing
 ```
-
-Report incorrect code
 
 This would result in the generated relations for these models being located in the `marketing` schema, so the full relation names would be `analytics.target_schema_marketing.model_name`. This is because the schema of the relation is `{{ target.schema }}_{{ schema }}`. The [definition](#definition) section explains this in more detail.
 
@@ -46,8 +42,6 @@ seeds:
     product_mappings:
       +schema: mappings
 ```
-
-Report incorrect code
 
 This would result in the generated relation being located in the `mappings` schema, so the full relation name would be `analytics.mappings.seed_name`.
 
@@ -70,8 +64,6 @@ snapshots:
       +schema: snapshots
 ```
 
-Report incorrect code
-
 In a `snapshots/snapshot_name.yml` file:
 
 snapshots/snapshot\_name.yml
@@ -83,8 +75,6 @@ snapshots:
     config:
       schema: snapshots
 ```
-
-Report incorrect code
 
 This results in the generated relation being located in the `snapshots` schema so the full relation name would be `analytics.snapshots.your_snapshot` instead of the default target schema.
 
@@ -98,8 +88,6 @@ dbt\_project.yml
 saved-queries:
   +schema: metrics
 ```
-
-Report incorrect code
 
 This would result in the saved query being stored in the `metrics` schema.
 
@@ -116,8 +104,6 @@ data_tests:
   +store_failures: true
   +schema: test_results
 ```
-
-Report incorrect code
 
 This would result in the test results being stored in the `test_results` schema.
 
@@ -153,8 +139,6 @@ models:
       +schema: marketing
 ```
 
-Report incorrect code
-
 Configure individual models using a config block:
 
 models/my\_model.sql
@@ -164,8 +148,6 @@ models/my\_model.sql
     schema='marketing'
 ) }}
 ```
-
-Report incorrect code
 
 Or configure individual models in a property file:
 
@@ -178,8 +160,6 @@ models:
       schema: marketing
 ```
 
-Report incorrect code
-
 ### Seeds
 
 dbt\_project.yml
@@ -188,8 +168,6 @@ dbt\_project.yml
 seeds:
   +schema: mappings
 ```
-
-Report incorrect code
 
 ### Data tests
 
@@ -203,15 +181,11 @@ data_tests:
   +schema: _sad_test_failures  # Will write tables to my_database.my_schema__sad_test_failures
 ```
 
-Report incorrect code
-
 Ensure you have the authorization to create or access schemas for your work. To ensure that the required schemas have the correct permissions, run a SQL statement in your respective data platform environment. For example, run the following command if using Redshift (exact authorization query may differ from one data platform to another):
 
 ```sql
 create schema if not exists dev_username_dbt_test__audit authorization username;
 ```
-
-Report incorrect code
 
 *Replace `dev_username` with your specific development schema name and `username` with the appropriate user who should have the permissions.*
 

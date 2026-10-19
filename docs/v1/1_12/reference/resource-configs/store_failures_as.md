@@ -24,8 +24,6 @@ select 1 as id
 where 1=0
 ```
 
-Report incorrect code
-
 #### Generic test
 
 [Generic tests](../../docs/build/data-tests.md#generic-data-tests) in `models/_models.yml` file
@@ -43,8 +41,6 @@ models:
               config:
                 store_failures_as: ephemeral
 ```
-
-Report incorrect code
 
 #### Project level
 
@@ -64,8 +60,6 @@ data_tests:
     my_subfolder_2:
       +store_failures_as: ephemeral
 ```
-
-Report incorrect code
 
 ### "Clobbering" configs
 

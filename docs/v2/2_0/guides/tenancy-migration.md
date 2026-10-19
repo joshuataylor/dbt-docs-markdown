@@ -97,23 +97,17 @@ python3 -m venv tf_acct_migrator_env
 source tf_acct_migrator_env/bin/activate
 ```
 
-Report incorrect code
-
 Install Terraform:
 
 ```shell
 brew tap hashicorp/tap && brew install hashicorp/tap/terraform
 ```
 
-Report incorrect code
-
 Install `dbtcloud-terraforming`:
 
 ```shell
 brew install dbt-labs/dbt-cli/dbtcloud-terraforming
 ```
-
-Report incorrect code
 
 ### Step 2: Set up the migration tool
 
@@ -124,8 +118,6 @@ git clone https://github.com/dpguthrie/dbt-cloud-migration-tool
 cd dbt-cloud-migration-tool
 ```
 
-Report incorrect code
-
 Set environment variables for your source dbt platform account:
 
 ```shell
@@ -133,8 +125,6 @@ export DBT_CLOUD_HOST_URL="https://YOUR_SOURCE_REGION.getdbt.com/api"
 export DBT_CLOUD_TOKEN="your_source_service_token"
 export DBT_CLOUD_ACCOUNT_ID="your_source_account_id"
 ```
-
-Report incorrect code
 
 ### Step 3: Generate and apply Terraform configuration
 
@@ -144,16 +134,12 @@ Run the migration tool to generate a `resources.tf` file with your source accoun
 sh migrate.sh
 ```
 
-Report incorrect code
-
 Copy the example vars file and add your target account's details:
 
 ```shell
 cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars with your target account details
 ```
-
-Report incorrect code
 
 Apply the configuration to your target account:
 
@@ -162,8 +148,6 @@ terraform init
 terraform plan
 terraform apply
 ```
-
-Report incorrect code
 
 Terraform will output the newly created resources and any warnings or errors. You may need to re-run `migrate.sh` multiple times to catch all required resource types.
 
@@ -179,16 +163,12 @@ Install Python and Terraform:
 choco install python terraform -y
 ```
 
-Report incorrect code
-
 After installation, restart your terminal and verify:
 
 ```shell
 python --version
 terraform --version
 ```
-
-Report incorrect code
 
 Install `dbtcloud-terraforming` by adding it to your Terraform installation directory. If you used Chocolatey, the path is typically `C:\ProgramData\chocolatey\bin`.
 
@@ -201,8 +181,6 @@ git clone https://github.com/dpguthrie/dbt-cloud-migration-tool.git
 cd dbt-cloud-migration-tool
 ```
 
-Report incorrect code
-
 ### Step 3: Configure and run the migration
 
 Set environment variables for your source dbt platform account (these reset when you close the terminal):
@@ -213,15 +191,11 @@ export DBT_CLOUD_TOKEN="your_source_service_token"
 export DBT_CLOUD_ACCOUNT_ID="your_source_account_id"
 ```
 
-Report incorrect code
-
 Run the migration script:
 
 ```shell
 sh migrate.sh
 ```
-
-Report incorrect code
 
 Copy the example vars file and add your target account's details:
 
@@ -230,8 +204,6 @@ cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars with your target account details
 ```
 
-Report incorrect code
-
 Apply the configuration to your target account:
 
 ```shell
@@ -239,8 +211,6 @@ terraform init
 terraform plan
 terraform apply
 ```
-
-Report incorrect code
 
 Terraform will output the newly created resources and any warnings or errors. You may need to re-run `migrate.sh` multiple times to catch all required resource types.
 

@@ -13,8 +13,6 @@ Some configurations may contain characters (e.g. dashes) that cannot be parsed a
 select ...
 ```
 
-Report incorrect code
-
 While dbt provides an alias for any core configurations (for example, you should use `pre_hook` instead of `pre-hook` in a config block), your dbt project may contain custom configurations without aliases.
 
 If you want to specify these configurations inside of a model, use the alternative config block syntax:
@@ -32,5 +30,3 @@ models/events/base/base\_events.sql
 
 select ...
 ```
-
-Report incorrect code

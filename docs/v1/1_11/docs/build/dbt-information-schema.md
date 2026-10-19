@@ -18,6 +18,8 @@ Use `dbt show --inline` to run SQL queries or `dbt show --info` to query a view 
 
 For available tables and their descriptions, see [Information Schema tables](../../reference/info-schema.md).
 
+dbt Wizard also uses the Information Schema to understand your project. Refer to [How dbt Wizard works](../dbt-ai/wizard-how-it-works.md#dbt-information-schema) to learn more.
+
 ## Generating the Information Schema
 
 Use `--generate-info-schema` flag with `dbt build`, `dbt run`, `dbt compile`, or `dbt parse`.
@@ -27,8 +29,6 @@ Use `--generate-info-schema` flag with `dbt build`, `dbt run`, `dbt compile`, or
   ```shell
   dbt build --generate-info-schema --static-analysis strict
   ```
-
-  Report incorrect code
 
   Without this flag, `dbt.node_columns` and `dbt.column_lineage` contain no column types and no lineage.
 
@@ -49,8 +49,6 @@ dbt build --generate-info-schema --info-schema-dir /tmp/my_schema
 # writes to /tmp/my_schema/v1/
 ```
 
-Report incorrect code
-
 ## Querying the Information Schema
 
 You can query the Information Schema locally with `dbt show` or any Parquet-compatible tool.
@@ -64,8 +62,6 @@ dbt show --info models
 dbt show --info models --format json --limit 20
 ```
 
-Report incorrect code
-
 This queries the intermediate views directly, without connecting to your warehouse. `--info <view>` is equivalent to `--inline "select * from {{ info_schema('<view>') }}"`.
 
 You can also use `--inline` SQL that calls `{{ info_schema() }}` directly:
@@ -73,8 +69,6 @@ You can also use `--inline` SQL that calls `{{ info_schema() }}` directly:
 ```shell
 dbt show --inline "select name from {{ info_schema('models') }} order by name"
 ```
-
-Report incorrect code
 
 ### Querying with external tools
 
@@ -85,8 +79,6 @@ import pandas as pd
 models = pd.read_parquet("target/info_schema/v1/dbt.models.parquet")
 ```
 
-Report incorrect code
-
 ## Using the Information Schema in checks
 
 [Checks](./checks.md) are SQL queries that run against the dbt Information Schema to check your project quality. Use the [`{{ info_schema() }}`](../../reference/dbt-jinja-functions/info-schema-macro.md) macro in your check to reference a view in the dbt Information Schema. You must set the version of the `info_schema` you want to use in `dbt_project.yml`. Currently, `1` is the only available version.
@@ -95,8 +87,6 @@ Report incorrect code
 info_schema:
   version: 1
 ```
-
-Report incorrect code
 
 You can find the schema version in the versioned subdirectory name (for example, `target/info_schema/v1/`).
 

@@ -56,8 +56,6 @@ company-name:
   
 ```
 
-Report incorrect code
-
 ### Configurations
 
 #### search\_path
@@ -112,8 +110,6 @@ if [[ $(pip show psycopg2-binary) ]]; then
 fi
 ```
 
-Report incorrect code
-
 Installing `psycopg2` often requires OS level dependencies. These dependencies may vary across operating systems and architectures.
 
 For example, on Ubuntu, you need to install `libpq-dev` and `python-dev`:
@@ -123,15 +119,11 @@ sudo apt-get update
 sudo apt-get install libpq-dev python-dev
 ```
 
-Report incorrect code
-
 whereas on Mac, you need to install `postgresql`:
 
 ```bash
 brew install postgresql
 pip install psycopg2
 ```
-
-Report incorrect code
 
 Your OS may have its own dependencies based on your particular scenario.

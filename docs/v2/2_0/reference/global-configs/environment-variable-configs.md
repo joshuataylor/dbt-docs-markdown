@@ -12,8 +12,6 @@ $ export DBT_ENGINE_<THIS-CONFIG>=True
 dbt run
 ```
 
-Report incorrect code
-
 For more detailed information, read our [environment variables page](../../docs/build/environment-variables.md).
 
 ## Config precedence
@@ -36,8 +34,6 @@ flags:
   fail_fast: true
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.11 and later)
 
 ```bash
@@ -46,14 +42,10 @@ export DBT_ENGINE_FAIL_FAST=1
 dbt run
 ```
 
-Report incorrect code
-
 ```bash
 dbt run --fail-fast # set to True for this specific invocation
 dbt run --no-fail-fast # set to False
 ```
-
-Report incorrect code
 
 There are two categories of exceptions:
 

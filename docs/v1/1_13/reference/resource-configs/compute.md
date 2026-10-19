@@ -12,8 +12,6 @@ The `compute` config is available in v2 only. It isn't available in v1 and will 
 export DBT_ENGINE_EXPERIMENTAL_LOCAL_UNIT_TESTS=true
 ```
 
-Report incorrect code
-
 Without it, dbt fails with an invalid configuration error that names the variable.
 
 By default, each unit test sends a query to your data platform and waits for the result. This can slow down testing and use warehouse compute.
@@ -30,8 +28,6 @@ unit_tests:
       compute: local | remote
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -39,8 +35,6 @@ unit_tests:
   resource-path:
     +compute: local | remote
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -65,8 +59,6 @@ unit_tests:
     +compute: local
 ```
 
-Report incorrect code
-
 Then on a single test:
 
 models/filename.yml
@@ -78,8 +70,6 @@ unit_tests:
     config:
       compute: remote
 ```
-
-Report incorrect code
 
 #### Things to know about local execution
 

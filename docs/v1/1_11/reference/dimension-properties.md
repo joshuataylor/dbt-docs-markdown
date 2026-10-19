@@ -47,6 +47,4 @@ dimensions:
     meta: {}                     # Optional
 ```
 
-Report incorrect code
-
 For the latest spec (column-level and derived dimensions), see [Dimensions](../docs/build/dimensions.md).

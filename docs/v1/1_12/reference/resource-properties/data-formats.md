@@ -27,8 +27,6 @@ unit_tests:
           - {id: 2, name: michelle}    
 ```
 
-Report incorrect code
-
 ## CSV
 
 When using the `csv` format, you can use either an inline CSV string for `rows`:
@@ -49,8 +47,6 @@ unit_tests:
           2,michelle
 ```
 
-Report incorrect code
-
 Or, you can provide the name of a CSV file in the `tests/fixtures` directory (or the configured `test-paths` location) of your project for `fixture`:
 
 models/schema.yml
@@ -65,8 +61,6 @@ unit_tests:
         format: csv
         fixture: my_model_a_fixture
 ```
-
-Report incorrect code
 
 ## sql
 
@@ -94,8 +88,6 @@ unit_tests:
           select 2 as id, 'michelle', null as loaded_at as name
 ```
 
-Report incorrect code
-
 Or, you can provide the name of a SQL file in the `tests/fixtures` directory (or the configured `test-paths` location) of your project for `fixture`:
 
 models/schema.yml
@@ -110,7 +102,5 @@ unit_tests:
         format: sql
         fixture: my_model_a_fixture
 ```
-
-Report incorrect code
 
 **Note:** Jinja is unsupported in SQL fixtures for unit tests.

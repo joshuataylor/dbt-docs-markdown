@@ -44,8 +44,6 @@ models:
                 warn_if: ">10"
 ```
 
-Report incorrect code
-
 ## Singular tests
 
 Configure a singular test:
@@ -57,8 +55,6 @@ tests/\<filename>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Custom generic tests
 
@@ -76,8 +72,6 @@ select ...
 {% endtest %}
 ```
 
-Report incorrect code
-
 ## Project level
 
 Set the default for all tests in a package or project:
@@ -91,8 +85,6 @@ data_tests:
   <package_name>:
     +warn_if: >10 # tests in <package_name>
 ```
-
-Report incorrect code
 
 ### Asserting an expected failure
 
@@ -113,8 +105,6 @@ models:
             error_if: "<1"
             warn_if: "<0"
 ```
-
-Report incorrect code
 
 In this example, the test passes only when it returns one or more failing rows. If the test returns `0` rows, dbt raises an error because `0` satisfies `error_if: '<1'`.
 

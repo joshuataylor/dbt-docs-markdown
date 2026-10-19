@@ -7,8 +7,6 @@ on-run-start: sql-statement | [sql-statement]
 on-run-end: sql-statement | [sql-statement]
 ```
 
-Report incorrect code
-
 ## Definition
 
 A SQL statement (or list of SQL statements) to be run at the start or end of the following commands:
@@ -34,8 +32,6 @@ on-run-end:
   - "{% for schema in schemas %}grant usage on schema {{ schema }} to group reporter; {% endfor %}"
 ```
 
-Report incorrect code
-
 ### Call a macro to grant privileges
 
 dbt\_project.yml
@@ -43,8 +39,6 @@ dbt\_project.yml
 ```yml
 on-run-end: "{{ grant_select(schemas) }}"
 ```
-
-Report incorrect code
 
 ### Additional examples
 

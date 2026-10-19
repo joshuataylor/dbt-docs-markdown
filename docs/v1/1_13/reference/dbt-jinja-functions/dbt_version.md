@@ -14,11 +14,7 @@ macros/get\_version.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 ```text
 $ dbt run-operation get_version
 The installed version of dbt is 1.6.0
 ```
-
-Report incorrect code

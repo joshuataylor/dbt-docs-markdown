@@ -21,13 +21,9 @@ The `show` command allows you to view your local and dbt configuration details. 
 dbt environment show
 ```
 
-Report incorrect code
-
 ```shell
 dbt env show
 ```
-
-Report incorrect code
 
 The command returns the following information:
 
@@ -63,8 +59,6 @@ Snowflake Connection Details:
   Client session keep alive      false 
 ```
 
-Report incorrect code
-
 Note, that dbt won't return anything that is a secret key and will return an 'NA' for any field that isn't configured.
 
 ### dbt environment flags
@@ -76,8 +70,6 @@ Use the following flags (or options) with the `dbt environment` command:
   ```shell
   dbt environment [command] --help
   ```
-
-  Report incorrect code
 
   The `--help` flag returns the following information:
 
@@ -100,13 +92,9 @@ Use the following flags (or options) with the `dbt environment` command:
   Use "dbt environment [command] --help" for more information about a command.
   ```
 
-  Report incorrect code
-
   For example, to view the help documentation for the `show` command, enter one of the following commands, including the shorthand:
 
   ```shell
   dbt environment show --help
   dbt env show -h
   ```
-
-  Report incorrect code

@@ -14,8 +14,6 @@ By default, dbt State defers to your production environment. You only need to co
     defer-env-id: <your-environment-id>
   ```
 
-  Report incorrect code
-
   note
 
   `defer-env-id` is manifest-based. If you set it, [dbt State-powered `state:*` selectors](#dbt-state-powered-state-selectors) are disabled. Refer to that section's requirements for more information.
@@ -32,8 +30,6 @@ By default, dbt State defers to your production environment. You only need to co
         # ... connection settings
         defer_to_target: staging
   ```
-
-  Report incorrect code
 
   In self-managed deployments, you can use [dbt State-powered `state:*` selectors](#dbt-state-powered-state-selectors), which compare each node against its own last execution rather than a single job's `manifest.json`. To use this feature, connect your project to the dbt platform.
 
@@ -61,8 +57,6 @@ dbt-cloud:
   project-id: <your-project-id>
 ```
 
-Report incorrect code
-
 note
 
 When orchestrating with the dbt platform, each job produces a `manifest.json`, so dbt State uses that for `state:*` comparisons instead of per-node execution history.
@@ -80,8 +74,6 @@ If you have multiple projects or orgs that use dbt State, configure the `dbt-clo
     project-id: <your-project-id>
   ```
 
-  Report incorrect code
-
 * **For self-managed deployments with multiple dbt State orgs**: Add `state-org-id` to identify which org dbt State should use.
 
   dbt\_project.yml
@@ -90,8 +82,6 @@ If you have multiple projects or orgs that use dbt State, configure the `dbt-clo
   dbt-cloud:
     state-org-id: <your-org-id>
   ```
-
-  Report incorrect code
 
 ## Related docs
 

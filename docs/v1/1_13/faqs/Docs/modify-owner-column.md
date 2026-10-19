@@ -27,5 +27,3 @@ models:
       - name: order_date
         description: "Date when order was placed."
 ```
-
-Report incorrect code

@@ -25,8 +25,6 @@ models/order\_payment\_methods.sql
 11  {% set payment_methods = results.columns[0].values() %}
 ```
 
-Report incorrect code
-
 The error returned by dbt will look as follows:
 
 ```text
@@ -34,8 +32,6 @@ Encountered an error:
 Compilation Error in model order_payment_methods (models/order_payment_methods.sql)
   'None' has no attribute 'table'
 ```
-
-Report incorrect code
 
 This is because line #11 in the earlier code example (`{% set payment_methods = results.columns[0].values() %}`) assumes that a table has been returned, when, during the parse phase, this query hasn't been run.
 
@@ -60,8 +56,6 @@ order by 1
 {% endif %}
 ```
 
-Report incorrect code
-
 `{% if execute %}` doesn't stop queries during `dbt compile`
 
 If `dbt compile` is slow, or you see unexpected queries in your warehouse's query history, check for `run_query` calls guarded only by `{% if execute %}`.
@@ -74,8 +68,6 @@ That's because `execute` is `True` any time dbt compiles your models' SQL, not j
   {% set results = run_query(my_query) %}
 {% endif %}
 ```
-
-Report incorrect code
 
 Make sure the rest of your macro handles `results` being `none` when the query is skipped.
 
@@ -123,8 +115,6 @@ $ dbt run
 15:42:02  1 of 1 OK created table model analytics.my_model ............................. [OK in 0.36s]
 ```
 
-Report incorrect code
-
 ### Logging fully-qualified relation names
 
 Let's assume you have a relation named `relation` obtained using something like `{% set relation = ref('my_model') %}` or `{% set relation = source('source_name', 'table_name') %}` — this will lead to unexpected or confusing behavior during parsing:
@@ -135,8 +125,6 @@ Let's assume you have a relation named `relation` obtained using something like 
     {{ log("Relation is missing: " ~ relation, True) }}
 {% endif %}
 ```
-
-Report incorrect code
 
 To prevent this, add the `execute` flag to make sure the check only runs when dbt is actually running the code — not just when it's preparing it.
 
@@ -149,5 +137,3 @@ Use the command `do exceptions.warn` to emit a warning during model execution wi
     {{ log("Relation is missing: " ~ relation, info=True) }}
 {%- endif -%}
 ```
-
-Report incorrect code

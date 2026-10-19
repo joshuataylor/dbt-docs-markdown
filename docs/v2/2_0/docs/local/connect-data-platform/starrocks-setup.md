@@ -50,8 +50,6 @@ my-starrocks-db:
       password: your_starrocks_password
 ```
 
-Report incorrect code
-
 #### Description of Profile Fields
 
 | Option   | Description                                            | Required? | Example                        |

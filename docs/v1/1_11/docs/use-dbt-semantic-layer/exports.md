@@ -74,8 +74,6 @@ Use the following command to run exports in the dbt platform CLI:
 dbt sl export
 ```
 
-Report incorrect code
-
 The following table lists the options for `dbt sl export` command, using the `--` flag prefix to specify the parameters:
 
 | Parameters    | Type           | Required | Description                                                                                                           |
@@ -94,16 +92,12 @@ You can also run any export defined for the saved query and write the table or v
 dbt sl export --saved-query sq_name
 ```
 
-Report incorrect code
-
 The output would look something like this:
 
 ```bash
 Polling for export status - query_id: 2c1W6M6qGklo1LR4QqzsH7ASGFs..
 Export completed.
 ```
-
-Report incorrect code
 
 ### Use the select flag
 
@@ -114,8 +108,6 @@ For example, the following command runs `export_1` and `export_2` and doesn't wo
 ```bash
 dbt sl export --saved-query sq_name --select export_1,export2
 ```
-
-Report incorrect code
 
 Overriding export configurations
 
@@ -133,8 +125,6 @@ For example, you can use the following command to create a new export named `new
 dbt sl export --saved-query sq_number1 --export-as table --alias new_export
 ```
 
-Report incorrect code
-
 ### Exports for multiple saved queries
 
 Use the command, `dbt sl export-all`, to run exports for multiple saved queries at once. This is different from the `dbt sl export` command, which only runs exports for a singular saved query. For example, to run exports for multiple saved queries, you can use:
@@ -142,8 +132,6 @@ Use the command, `dbt sl export-all`, to run exports for multiple saved queries 
 ```bash
 dbt sl export-all
 ```
-
-Report incorrect code
 
 The output would look something like this:
 
@@ -156,8 +144,6 @@ Exports completed:
 
 Polling completed
 ```
-
-Report incorrect code
 
 The command `dbt sl export-all` provides the flexibility to manage multiple exports in a single command.
 
@@ -194,8 +180,6 @@ When you run a build job, any saved queries downstream of the dbt models in that
    ```bash
      dbt build --select orders+
    ```
-
-   Report incorrect code
 
 2. After dbt finishes building the models, the MetricFlow Server processes the exports, compiles the necessary SQL, and executes this SQL against your data platform. It directly executes a "create table" statement so the data stays within your data platform.
 

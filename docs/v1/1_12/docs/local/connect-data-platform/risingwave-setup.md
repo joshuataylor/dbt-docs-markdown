@@ -47,8 +47,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 | Field    | Description                                            |
 | -------- | ------------------------------------------------------ |
 | `host`   | The host name or IP address of the RisingWave instance |
@@ -63,8 +61,6 @@ To test the connection to RisingWave, run:
 ```bash
 dbt debug
 ```
-
-Report incorrect code
 
 ## Materializations
 

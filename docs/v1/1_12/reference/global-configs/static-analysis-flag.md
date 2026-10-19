@@ -22,8 +22,6 @@ dbt run --static-analysis baseline
 dbt run --static-analysis off
 ```
 
-Report incorrect code
-
 ## Related docs
 
 * [`static_analysis` (resource config)](../resource-configs/static-analysis.md)

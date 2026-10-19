@@ -6,8 +6,6 @@ dbt\_project.yml
 analysis-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Specify a custom list of directories where [analyses](../../docs/build/analyses.md) are located.
@@ -28,8 +26,6 @@ Paths specified in `analysis-paths` must be relative to the location of your `db
     analysis-paths: ["analyses"]
     ```
 
-    Report incorrect code
-
 * ❌ **Don't**
 
   * Avoid absolute paths:
@@ -37,8 +33,6 @@ Paths specified in `analysis-paths` must be relative to the location of your `db
     ```yml
     analysis-paths: ["/Users/username/project/analyses"]
     ```
-
-    Report incorrect code
 
 ## Examples
 
@@ -52,8 +46,6 @@ dbt\_project.yml
 analysis-paths: ["analyses"]
 ```
 
-Report incorrect code
-
 ### Use a subdirectory named `custom_analyses`
 
 dbt\_project.yml
@@ -61,5 +53,3 @@ dbt\_project.yml
 ```yml
 analysis-paths: ["custom_analyses"]
 ```
-
-Report incorrect code

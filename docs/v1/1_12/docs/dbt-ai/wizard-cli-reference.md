@@ -99,8 +99,6 @@ Run wizard non-interactively
 wizard exec [OPTIONS] <COMMAND> [ARGS]
 ```
 
-Report incorrect code
-
 **Arguments:**
 
 | Argument   | Description                                                                                                                                                                                                             |
@@ -452,8 +450,6 @@ Here are some examples and commands that you might use. Replace the example prom
   wizard exec --json "list my models" > result.jsonl
   ```
 
-  Report incorrect code
-
 * **Review your changes**
 
   `wizard review` runs a code review without starting an interactive session.
@@ -466,8 +462,6 @@ Here are some examples and commands that you might use. Replace the example prom
   wizard review --base main
   ```
 
-  Report incorrect code
-
 * **Resume a session**
 
   ```shell
@@ -478,8 +472,6 @@ Here are some examples and commands that you might use. Replace the example prom
   wizard resume
   ```
 
-  Report incorrect code
-
 * **Override a config value**
 
   Use `-c` to override any value from `~/.dbt/wizard/config.toml` for a single run, without editing the file.
@@ -488,8 +480,6 @@ Here are some examples and commands that you might use. Replace the example prom
   # Set the model for this run only
   wizard exec -c model="dbt/gpt-5.5" "your prompt"
   ```
-
-  Report incorrect code
 
 ## Related docs
 

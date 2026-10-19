@@ -18,13 +18,9 @@ CLI
 dbt build --use-fast-test-edges
 ```
 
-Report incorrect code
-
 Env var
 
 ```bash
 export DBT_ENGINE_USE_FAST_TEST_EDGES=true
 dbt build
 ```
-
-Report incorrect code

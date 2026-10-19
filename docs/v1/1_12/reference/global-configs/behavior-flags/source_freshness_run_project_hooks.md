@@ -20,5 +20,3 @@ dbt\_project.yml
 on-run-start:
   - "{{ ... if flags.WHICH != 'freshness' }}"
 ```
-
-Report incorrect code

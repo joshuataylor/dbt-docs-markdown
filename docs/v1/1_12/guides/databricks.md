@@ -138,8 +138,6 @@ If you get a session error and don’t get redirected to this page, you can go b
     select * from default.stripe_payments
     ```
 
-    Report incorrect code
-
     ![Query Check](/img/databricks_tutorial/images/query_check.png?v=2 "Query Check")Query Check
 
 12. To ensure any users who might be working on your dbt project has access to your object, run this command.
@@ -147,8 +145,6 @@ If you get a session error and don’t get redirected to this page, you can go b
     ```sql
     grant all privileges on schema default to users;
     ```
-
-    Report incorrect code
 
 ## Connect dbt to Databricks
 
@@ -236,8 +232,6 @@ Now that you have a repository configured, you can initialize your project and s
      select * from default.jaffle_shop_customers
      ```
 
-     Report incorrect code
-
    * In the command line bar at the bottom, enter `dbt run` and click **Enter**. You should see a `dbt run succeeded` message.
 
 ## Build your first model
@@ -313,8 +307,6 @@ final as (
 select * from final
 ```
 
-Report incorrect code
-
 4. Enter `dbt run` in the command prompt at the bottom of the screen. You should get a successful run and see the three models.
 
 Later, you can connect your business intelligence (BI) tools (like [dbt Charts](https://dbtcharts.com/)) to these views and tables so they only read cleaned up data rather than raw data.
@@ -380,8 +372,6 @@ Database Error in model customers (models/customers.sql)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
-Report incorrect code
-
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
 
 ### Build it with AI using dbt Wizard
@@ -416,8 +406,6 @@ By default, everything gets created as a view. You can override that at the dire
      name: 'jaffle_shop'
      ```
 
-     Report incorrect code
-
    * Configure `jaffle_shop` so everything in it will be materialized as a table; and configure `example` so everything in it will be materialized as a view. Update your `models` config in the project YAML file to:
 
      dbt\_project.yml
@@ -429,8 +417,6 @@ By default, everything gets created as a view. You can override that at the dire
          example:
            +materialized: view
      ```
-
-     Report incorrect code
 
    * Click **Save**.
 
@@ -459,8 +445,6 @@ By default, everything gets created as a view. You can override that at the dire
 
    )
    ```
-
-   Report incorrect code
 
 4. Enter the `dbt run` command. Your model, `customers`, should now build as a view.
 
@@ -513,8 +497,6 @@ You can now delete the files that dbt created when you initialized the project:
          +materialized: view
    ```
 
-   Report incorrect code
-
    dbt\_project.yml
 
    ```yaml
@@ -523,8 +505,6 @@ You can now delete the files that dbt created when you initialized the project:
      jaffle_shop:
        +materialized: table
    ```
-
-   Report incorrect code
 
 3. Save your changes.
 
@@ -567,8 +547,6 @@ Now you can experiment by separating the logic out into separate models and usin
    from jaffle_shop_customers
    ```
 
-   Report incorrect code
-
    models/stg\_orders.sql
 
    ```sql
@@ -580,8 +558,6 @@ Now you can experiment by separating the logic out into separate models and usin
 
    from jaffle_shop_orders
    ```
-
-   Report incorrect code
 
 3. Edit the SQL in your `models/customers.sql` file as follows:
 
@@ -634,8 +610,6 @@ Now you can experiment by separating the logic out into separate models and usin
    select * from final
    ```
 
-   Report incorrect code
-
 4. Execute `dbt run`.
 
    This time, when you performed a `dbt run`, separate views/tables were created for `stg_customers`, `stg_orders` and `customers`. dbt inferred the order to run these models. Because `customers` depends on `stg_customers` and `stg_orders`, dbt builds `customers` last. You do not need to explicitly define these dependencies.
@@ -649,8 +623,6 @@ To run one model, use the `--select` flag (or `-s` flag), followed by the name o
 ```shell
 $ dbt run --select customers
 ```
-
-Report incorrect code
 
 Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for more operators and examples.
 
@@ -718,8 +690,6 @@ To add data tests to your project:
                    field: customer_id
    ```
 
-   Report incorrect code
-
 3. Run `dbt test`, and confirm that all your tests passed.
 
 When you run `dbt test`, dbt iterates through your YAML files, and constructs a query for each test. Each query will return the number of records that fail the test. If this number is 0, then the test is successful.
@@ -746,8 +716,6 @@ Running tests on one model looks very similar to running a model: use the `--sel
 ```shell
 dbt test --select customers
 ```
-
-Report incorrect code
 
 Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for full syntax, and [test selection examples](../reference/node-selection/test-selection-examples.md) in particular.
 
@@ -853,8 +821,6 @@ models:
                 field: customer_id
 ```
 
-Report incorrect code
-
 ### View in Catalog
 
 [Catalog](../docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
@@ -909,8 +875,6 @@ models:
       consequat.
 ```
 
-Report incorrect code
-
 2. Split your description over multiple lines using `|`. Interior line breaks are maintained and Markdown can be used. This method is recommended for more complex descriptions:
 
 ```yml
@@ -922,8 +886,6 @@ models:
       * dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
-
-Report incorrect code
 
 3. Use a [docs block](../docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
 

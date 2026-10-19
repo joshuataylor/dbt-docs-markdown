@@ -142,8 +142,6 @@ default:
       password: THISISMYPASSWORD
 ```
 
-Report incorrect code
-
 #### Example password with MFA configuration
 
 profiles.yml
@@ -163,8 +161,6 @@ default:
       schema: JANE_SMITH
 ```
 
-Report incorrect code
-
 ### Key pair
 
 Key pair authentication gives you the option to:
@@ -183,8 +179,6 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 aes-256-cbc -inform PEM -out rsa_key.p8
   ```
 
-  Report incorrect code
-
 * (Temporary workaround) Add the `BEGIN` header and `END` footer to your PEM body:
 
   ```text
@@ -192,8 +186,6 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   < Your existing encrypted private key contents >
   -----END ENCRYPTED PRIVATE KEY-----
   ```
-
-  Report incorrect code
 
 Once the key is configured, you will be given the option to provide a passphrase, if required.
 
@@ -216,8 +208,6 @@ default:
       private_key: '<Your existing encrypted private key contents>'
       private_key_passphrase: YOURPASSPHRASEHERE
 ```
-
-Report incorrect code
 
 ### Single sign-on
 
@@ -245,8 +235,6 @@ default:
       warehouse: TRANSFORM
       schema: JANE_SMITH
 ```
-
-Report incorrect code
 
 ## More information
 

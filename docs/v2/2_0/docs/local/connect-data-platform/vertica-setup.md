@@ -56,8 +56,6 @@ your-profile:
   target: dev
 ```
 
-Report incorrect code
-
 ##### Description of Profile Fields:
 
 | Property                  | Description                                                                                                                                                                                                                                                  | Required? | Default Value                                         | Example                                                                                                       |

@@ -10,8 +10,6 @@ dbt\_project.yml
 osi-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally specify a custom list of directories where [Apache Ossie semantic layer documents](../../docs/build/ossie-semantic-models.md) are located.
@@ -30,8 +28,6 @@ Paths specified in `osi-paths` must be relative to the location of your `dbt_pro
     osi-paths: ["OSI"]
     ```
 
-    Report incorrect code
-
 * ❌ **Don't:**
 
   * Avoid absolute paths:
@@ -39,8 +35,6 @@ Paths specified in `osi-paths` must be relative to the location of your `dbt_pro
     ```yml
     osi-paths: ["/Users/username/project/OSI"]
     ```
-
-    Report incorrect code
 
 ## Examples
 
@@ -52,8 +46,6 @@ dbt\_project.yml
 osi-paths: ["semantic_interchange"]
 ```
 
-Report incorrect code
-
 Use multiple directories to organize your Ossie documents:
 
 dbt\_project.yml
@@ -61,5 +53,3 @@ dbt\_project.yml
 ```yml
 osi-paths: ["OSI", "external_osi"]
 ```
-
-Report incorrect code

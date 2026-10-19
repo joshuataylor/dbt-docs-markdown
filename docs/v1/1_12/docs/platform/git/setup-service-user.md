@@ -196,8 +196,6 @@ To re-enable MFA for the user, select them again and click **Enable**. Note, you
 }
 ```
 
-Report incorrect code
-
 **Uses:** To view existing Azure DevOps service hooks subscriptions
 
 **Token (where applicable - API only):**
@@ -212,8 +210,6 @@ Report incorrect code
 ```bash
 az devops security permission update --organization https://dev.azure.com/<org_name> --namespace-id cb594ebe-87dd-4fc9-ac2c-6a10a4c92046 --subject <service_account>@xxxxxx.onmicrosoft.com --token PublisherSecurity/<azure_devops_project_object_id> --allow-bit 1
 ```
-
-Report incorrect code
 
 **EditSubscriptions**
 
@@ -231,8 +227,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 **Uses:** To add or update existing Azure DevOps service hooks subscriptions
 
 **Token (where applicable - API only):**
@@ -247,8 +241,6 @@ Report incorrect code
 ```bash
 az devops security permission update --organization https://dev.azure.com/<org_name> --namespace-id cb594ebe-87dd-4fc9-ac2c-6a10a4c92046 --subject <service_account>@xxxxxx.onmicrosoft.com --token PublisherSecurity/<azure_devops_project_object_id> --allow-bit 2
 ```
-
-Report incorrect code
 
 **DeleteSubscriptions**
 
@@ -266,8 +258,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 **Uses:** To delete any redundant Azure DevOps service hooks subscriptions
 
 **Token (where applicable - API only):**
@@ -282,8 +272,6 @@ Report incorrect code
 ```bash
 az devops security permission update --organization https://dev.azure.com/<org_name> --namespace-id cb594ebe-87dd-4fc9-ac2c-6a10a4c92046 --subject <service_account>@xxxxxx.onmicrosoft.com --token PublisherSecurity/<azure_devops_project_object_id> --allow-bit 4
 ```
-
-Report incorrect code
 
 **Additional Notes:** This permission has been deprecated in recent Azure DevOps versions. Edit Subscriptions (bit 2) has Delete permissions.
 
@@ -303,8 +291,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 **Uses:** To post Pull Request statuses to Azure DevOps
 
 **Token (where applicable - API only):**
@@ -320,8 +306,6 @@ Report incorrect code
 ```bash
 az devops security permission update --organization https://dev.azure.com/<org_name> --namespace-id 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 --subject <service_account>@xxxxxx.onmicrosoft.com --token repoV2/<azure_devops_project_object_id>/<azure_devops_repository_object_id> --allow-bit 16384
 ```
-
-Report incorrect code
 
 **Additional Notes:** This permission is automatically inherited if Project Reader/Contributor/Administrator is set in the UI.
 
@@ -341,8 +325,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 **Uses:** To post commit statuses to Azure DevOps
 
 **Token (where applicable - API only):**
@@ -358,8 +340,6 @@ Report incorrect code
 ```bash
 az devops security permission update --organization https://dev.azure.com/<org_name> --namespace-id 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 --subject <service_account>@xxxxxx.onmicrosoft.com --token repoV2/<azure_devops_project_object_id>/<azure_devops_repository_object_id> --allow-bit 4
 ```
-
-Report incorrect code
 
 **Additional Notes:** This permission is automatically inherited if Project Contributor/Administrator is set in the UI.
 

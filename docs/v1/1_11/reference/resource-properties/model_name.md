@@ -8,8 +8,6 @@ models:
   - name: model_name
 ```
 
-Report incorrect code
-
 ## Definition
 
 The name of the model you are declaring properties for. Must match the *filename* of a model — including case sensitivity. Any mismatched casing can prevent dbt from applying configurations correctly and may affect metadata in Catalog.

@@ -24,15 +24,11 @@ On instance['failures']:
     None
 ```
 
-Report incorrect code
-
 To avoid this issue, use a case statement to ensure that `0` is returned when no rows exist:
 
 ```yaml
 fail_calc: "case when count(*) > 0 then sum(n_records) else 0 end"
 ```
-
-Report incorrect code
 
 ## Specific test
 
@@ -52,8 +48,6 @@ models:
                 fail_calc: "case when count(*) > 0 then sum(n_records) else 0 end"
 ```
 
-Report incorrect code
-
 ## One-off test
 
 Configure a one-off (data) test:
@@ -65,8 +59,6 @@ tests/\<filename>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Generic test block
 
@@ -84,8 +76,6 @@ select ...
 {% endtest %}
 ```
 
-Report incorrect code
-
 ## Project level
 
 Set the default for all tests in a package or project:
@@ -99,5 +89,3 @@ data_tests:
   <package_name>:
     +fail_calc: count(distinct id) # tests in <package_name>
 ```
-
-Report incorrect code

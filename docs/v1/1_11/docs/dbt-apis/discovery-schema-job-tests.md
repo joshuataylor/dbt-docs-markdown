@@ -33,8 +33,6 @@ The example query below finds all tests in this job and includes information abo
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `tests`, the following fields are available:

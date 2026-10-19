@@ -6,8 +6,6 @@ dbt\_project.yml
 require-dbt-version: version-range | [version-range]
 ```
 
-Report incorrect code
-
 ## Definition
 
 You can use `require-dbt-version` to restrict your project to only work with a range of dbt versions.
@@ -49,8 +47,6 @@ models/some\_days.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 ## YAML quoting
 
 This configuration needs to be interpolated by the YAML parser as a string. As such, you should quote the value of the configuration, taking care to avoid whitespace. For example:
@@ -64,8 +60,6 @@ require-dbt-version: '>=1.0.0' # So are single quotes
 require-dbt-version: >=1.0.0 # No quotes? No good
 require-dbt-version: ">= 1.0.0" # Don't put whitespace after the equality signs
 ```
-
-Report incorrect code
 
 #### Avoid unbounded upper limits
 
@@ -111,8 +105,6 @@ require-dbt-version: ">=1.9.0" # project will only work with versions 1.9 and hi
 require-dbt-version: ">=2.0.0" # project will only work with dbt v2 (v2.0.0 and higher).
 ```
 
-Report incorrect code
-
 Remember, having an unbounded upper limit isn't recommended. Instead, check out the [pin to a range](#pin-to-a-range) example to define a range with both a lower and upper limit to ensure stability across releases.
 
 ### Pin to a range
@@ -130,8 +122,6 @@ require-dbt-version: [">=1.10.0", "<3.0.0"]
 
 require-dbt-version: ">=1.10.0,<3.0.0"
 ```
-
-Report incorrect code
 
 If your range excludes 2.0.0 (for example, `>=1.6.0,<2.0.0`), dbt v2 will show a warning now and error in a future release. You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
 
@@ -151,8 +141,6 @@ dbt\_project.yml
 require-dbt-version: "1.5.0"
 ```
 
-Report incorrect code
-
 ## Invalid dbt versions
 
 If the version of dbt used to invoke a project disagrees with the specified `require-dbt-version` in the project or *any* of the included packages, then dbt will fail immediately with the following error:
@@ -168,8 +156,6 @@ Runtime Error
   Check the requirements for the 'my_project' package, or run dbt again with --no-version-check
 ```
 
-Report incorrect code
-
 ## Disabling version checks
 
 To suppress failures to incompatible dbt versions, supply the `--no-version-check` flag to `dbt run`.
@@ -179,7 +165,5 @@ $ dbt run --no-version-check
 Running with dbt=1.5.0
 Found 13 models, 2 tests, 1 archives, 0 analyses, 204 macros, 2 operations....
 ```
-
-Report incorrect code
 
 See [global configs](../global-configs/version-compatibility.md) for usage details.

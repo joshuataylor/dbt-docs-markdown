@@ -13,8 +13,6 @@ select
 from ...
 ```
 
-Report incorrect code
-
 To modify the timezone of this variable, use the `pytz` module:
 
 run\_started\_at\_utc.sql
@@ -25,5 +23,3 @@ select
 
 from ...
 ```
-
-Report incorrect code

@@ -13,8 +13,6 @@ models:
       ...
 ```
 
-Report incorrect code
-
 ## Seeds
 
 seeds/\<filename>.yml
@@ -28,8 +26,6 @@ seeds:
       ...
 ```
 
-Report incorrect code
-
 ## Snapshots
 
 snapshots/\<filename>.yml
@@ -42,8 +38,6 @@ snapshots:
       <snapshot_config>: <config_value>
       ...
 ```
-
-Report incorrect code
 
 ## Tests
 
@@ -73,8 +67,6 @@ Report incorrect code
                 ...
 ```
 
-Report incorrect code
-
 ## Unit tests
 
 Did you know\...
@@ -94,8 +86,6 @@ unit_tests:
       tags: <string>
 ```
 
-Report incorrect code
-
 ## Sources
 
 models/\<filename>.yml
@@ -112,8 +102,6 @@ sources:
           <source_config>: <config_value>
 ```
 
-Report incorrect code
-
 ## Metrics
 
 models/\<filename>.yml
@@ -128,8 +116,6 @@ metrics:
       meta: {dictionary}
 ```
 
-Report incorrect code
-
 ## Exposures
 
 models/\<filename>.yml
@@ -142,8 +128,6 @@ exposures:
       enabled: true | false
       meta: {dictionary}
 ```
-
-Report incorrect code
 
 ## Semantic models
 
@@ -160,8 +144,6 @@ models:
       config:
         meta: {dictionary}
 ```
-
-Report incorrect code
 
 ## Saved queries
 
@@ -185,8 +167,6 @@ saved-queries:
           alias: <string>
           schema: <string>
 ```
-
-Report incorrect code
 
 ## Definition
 

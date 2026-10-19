@@ -131,8 +131,6 @@ match self.adapter_type() {
 }
 ```
 
-Report incorrect code
-
 ```text
 error[E0004]: non-exhaustive patterns: `AdapterType::MyWarehouse` not covered
   --> crates/dbt-adapter/src/adapter/adapter_impl.rs:142:18
@@ -140,8 +138,6 @@ error[E0004]: non-exhaustive patterns: `AdapterType::MyWarehouse` not covered
    |     match self.adapter_type() {
    |           ^^^^^^^^^^^^^^^^^^^ pattern `AdapterType::MyWarehouse` not covered
 ```
-
-Report incorrect code
 
 Each failure is a concrete implementation task.
 
@@ -212,23 +208,17 @@ cd dbt
 cargo build --bin dbt
 ```
 
-Report incorrect code
-
 If you hit Z3 errors:
 
 ```shell
 brew install pkg-config z3
 ```
 
-Report incorrect code
-
 If disk fills during build:
 
 ```shell
 cargo clean  # frees old build artifacts; you'll do this often
 ```
-
-Report incorrect code
 
 ### Development workflow
 
@@ -264,8 +254,6 @@ This step walks you through each crate you need to touch. Work through them in o
 cargo build -p <crate-name>
 ```
 
-Report incorrect code
-
 Replace `<crate-name>` with the crate you just edited, for example `dbt-adapter-core`, `dbt-xdbc`, `dbt-schemas`, `dbt-auth`, `dbt-adapter`, or `dbt-loader`.
 
 ### 5.1: Register the adapter type
@@ -287,8 +275,6 @@ pub enum AdapterType {
 }
 ```
 
-Report incorrect code
-
 Also add a `quote_char` arm in the same file. Use double quotes `'"'` for most warehouses; BigQuery and Databricks use a backtick instead:
 
 ```rust
@@ -302,8 +288,6 @@ fn quote_char(&self) -> char {
     }
 }
 ```
-
-Report incorrect code
 
 ### 5.2: Register the ADBC driver
 
@@ -356,8 +340,6 @@ pub struct ExasolDbConfig {
 }
 ```
 
-Report incorrect code
-
 After adding the config struct, also add `DbConfig::MyWarehouse(Box<MyWarehouseDbConfig>)` as a new variant to the `DbConfig` enum. The compiler will then point you at every place that reads from `DbConfig` and needs a new case for your warehouse. Follow those errors to wire it in.
 
 ### 5.3.1: Add `dbt init` profile generation (optional but strongly encouraged)
@@ -377,8 +359,6 @@ pub fn get_available_adapters() -> &'static [AdapterType] {
 }
 ```
 
-Report incorrect code
-
 2. Create a config file `crates/dbt-init/src/adapter_config/<warehouse>_config.rs` implementing `InteractiveSetup` for your `DbConfig` struct: define the fields `dbt init` should prompt for and a `set_field()` handler. See `postgres_config.rs` as a minimal reference.
 
 3. Export it from `crates/dbt-init/src/adapter_config/mod.rs`:
@@ -387,8 +367,6 @@ Report incorrect code
 pub mod mywarehouse_config;
 pub use mywarehouse_config::setup_mywarehouse_profile;
 ```
-
-Report incorrect code
 
 4. Add a match arm in `create_profile_for_adapter()` in `profile_setup.rs`:
 
@@ -401,8 +379,6 @@ AdapterType::MyWarehouse => {
     DbConfig::MyWarehouse(setup_mywarehouse_profile(config.map(Box::as_ref))?)
 }
 ```
-
-Report incorrect code
 
 ### 5.4: Add authentication
 
@@ -454,8 +430,6 @@ fn include_policy(adapter_type: AdapterType, path: &RelationPath) -> Policy {
 }
 ```
 
-Report incorrect code
-
 Decide up front whether your warehouse uses 2-part or 3-part names, and whether identifiers are case-sensitive. For example, Exasol uppercases unquoted identifiers by default, so all catalog lookup SQL uses `upper()` comparisons.
 
 **File:** `src/relation/factory.rs`
@@ -469,8 +443,6 @@ Databricks | Spark | Fabric | DuckDB | Exasol | Postgres | Redshift | Bigquery =
 }
 ```
 
-Report incorrect code
-
 #### Catalog introspection
 
 **File:** `src/metadata/get_relation.rs`
@@ -482,8 +454,6 @@ AdapterType::Exasol => exasol_get_relation(
     adapter, state, ctx, conn, database, schema, identifier, token,
 ),
 ```
-
-Report incorrect code
 
 ```rust
 fn exasol_get_relation(
@@ -510,8 +480,6 @@ fn exasol_get_relation(
 }
 ```
 
-Report incorrect code
-
 Use `information_schema` if your warehouse supports standard SQL, or system catalog tables (`sys.*`, `information_schema.*`) as appropriate.
 
 #### Adapter match arms
@@ -531,8 +499,6 @@ Exasol => "name",
 AdapterType::Exasol => "DATA_TYPE",  // in src/sql_types.rs
 ```
 
-Report incorrect code
-
 For capabilities your adapter doesn't support yet (like `valid_incremental_strategies`), return `unimplemented!()`. That's fine for an initial community adapter contribution.
 
 #### Column builder
@@ -544,8 +510,6 @@ Add a match arm for how your warehouse's Arrow record batches map to dbt column 
 ```rust
 Exasol => Ok(Self::build_postgres_like(field, type_ops)),
 ```
-
-Report incorrect code
 
 Only implement custom logic if your warehouse has unusual type handling.
 
@@ -592,8 +556,6 @@ v2 uses the same `adapter.dispatch()` pattern as v1. Your macros use the `<wareh
 {% endmacro %}
 ```
 
-Report incorrect code
-
 Note: `rename_relation` uses only `to_relation.identifier`, not the full relation. Exasol's `RENAME` syntax doesn't take a fully qualified target.
 
 For catalog introspection, use your warehouse's system catalog. For example, Exasol queries `sys.*` instead of `information_schema`:
@@ -625,8 +587,6 @@ For catalog introspection, use your warehouse's system catalog. For example, Exa
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 If your warehouse is similar to an existing one (for example, Postgres-compatible), start by delegating to that dialect's macros and only override where behavior differs:
 
 ```sql
@@ -634,8 +594,6 @@ If your warehouse is similar to an existing one (for example, Postgres-compatibl
   {{ return(postgres__create_table_as(temporary, relation, sql)) }}
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 ## Step 6: Test your adapter
 
@@ -652,8 +610,6 @@ cargo build -p dbt-adapter
 cargo build -p dbt-loader
 ```
 
-Report incorrect code
-
 ### Smoke testing with a dbt project
 
 Run a real `dbt build` against your warehouse and ensure it builds error-free. At minimum, exercise table, view, incremental, and seed materializations. A clean `dbt build` on [jaffle-shop](https://github.com/dbt-labs/jaffle-shop) is one example of an acceptance bar for a community adapter.
@@ -668,8 +624,6 @@ cargo build --bin dbt
 # Run against your warehouse
 ./target/debug/dbt build --project-dir <your-project>
 ```
-
-Report incorrect code
 
 ### CI testing
 
@@ -750,5 +704,3 @@ cargo build --bin dbt
 # Free disk space
 cargo clean
 ```
-
-Report incorrect code

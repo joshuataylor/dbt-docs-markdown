@@ -12,8 +12,6 @@ sources:
       - ...
 ```
 
-Report incorrect code
-
 ## Definition
 
 The database that your source is stored in.
@@ -43,5 +41,3 @@ sources:
       - name: orders
       - name: customers
 ```
-
-Report incorrect code

@@ -14,8 +14,6 @@ For example, the following command combines two selector expressions. Each uses 
 dbt run --select "+snowplow_sessions +fct_orders"
 ```
 
-Report incorrect code
-
 This behavior differs from an [intersection](#intersections), where comma-separated arguments with no spaces between them require a resource to satisfy *all* criteria at once.
 
 ## Intersections
@@ -32,23 +30,17 @@ Select shared upstream nodes (common ancestors of `snowplow_sessions` and `fct_o
 dbt run --select "+snowplow_sessions,+fct_orders"
 ```
 
-Report incorrect code
-
 Select shared downstream nodes (common descendants of `stg_invoices` and `stg_accounts`):
 
 ```bash
 dbt run --select "stg_invoices+,stg_accounts+"
 ```
 
-Report incorrect code
-
 Select models that are under the `marts/finance` path and tagged `nightly`:
 
 ```bash
 dbt run --select "marts.finance,tag:nightly"
 ```
-
-Report incorrect code
 
 ## Combining unions and intersections
 
@@ -64,5 +56,3 @@ The space between those arguments creates a union and combines both results into
 ```bash
 dbt run --select "+snowplow_sessions,+fct_orders marts.finance,tag:nightly"
 ```
-
-Report incorrect code

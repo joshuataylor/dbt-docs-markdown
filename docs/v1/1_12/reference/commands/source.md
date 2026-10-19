@@ -47,8 +47,6 @@ sources:
           
 ```
 
-Report incorrect code
-
 This helps to monitor the data pipeline health.
 
 You can also configure source freshness in the **Execution settings** section in your dbt platform job **Settings** page. For more information, refer to [Enabling source freshness checks](../../docs/deploy/source-freshness.md#enabling-source-freshness-checks).
@@ -80,8 +78,6 @@ $ dbt source freshness --select "source:snowplow"
 # Check freshness for a particular source table:
 $ dbt source freshness --select "source:snowplow.event"
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.99 and earlier)
 
@@ -118,16 +114,12 @@ target/sources.json
 }
 ```
 
-Report incorrect code
-
 To override the destination for this `sources.json` file, use the `-o` (or `--output`) flag:
 
 ```text
 # Output source freshness info to a different path
 $ dbt source freshness --output target/source_freshness.json
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.99 and earlier)
 

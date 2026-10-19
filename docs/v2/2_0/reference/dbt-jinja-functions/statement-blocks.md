@@ -22,15 +22,11 @@ get\_states\_statement.sql
 {%- endcall -%}
 ```
 
-Report incorrect code
-
 The signature of the `statement` block looks like this:
 
 ```text
 statement(name=None, fetch_result=False, auto_begin=True)
 ```
-
-Report incorrect code
 
 When executing a `statement`, dbt needs to understand how to resolve references to other dbt models or resources. If you are already `ref`ing the model outside of the statement block, the dependency will be automatically inferred, but otherwise you will need to [force the dependency](./ref.md#forcing-dependencies) with `-- depends_on`.
 
@@ -49,8 +45,6 @@ When executing a `statement`, dbt needs to understand how to resolve references 
 {%- endcall %}
 ```
 
-Report incorrect code
-
  Example using ref() function
 
 ```sql
@@ -67,8 +61,6 @@ Report incorrect code
 
 select id * 2 from {{ ref('users') }}
 ```
-
-Report incorrect code
 
 **Args**:
 
@@ -92,8 +84,6 @@ load\_states.sql
 {%- set states_status = states['response'] -%}
 ```
 
-Report incorrect code
-
 The contents of the returned `data` field is a matrix. It contains a list rows, with each row being a list of values returned by the database. For the above example, this data structure might look like:
 
 states.sql
@@ -108,8 +98,6 @@ states.sql
 	...
 ]
 ```
-
-Report incorrect code
 
 (Applies to dbt v2.0 and later)
 
@@ -136,8 +124,6 @@ macros/optimize\_table.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 You can use this macro in a post-hook:
 
 dbt\_project.yml
@@ -148,5 +134,3 @@ models:
     +post-hook:
       - "{{ optimize_table(this, ['customer_id', 'order_date']) }}"
 ```
-
-Report incorrect code

@@ -19,8 +19,6 @@ macros:
         description: Number of decimal places. Defaults to 2.
 ```
 
-Report incorrect code
-
 tip
 
 From dbt v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
@@ -39,8 +37,6 @@ When you create a [custom materialization](../../guides/create-new-materializati
 materialization_{materialization_name}_{adapter}
 ```
 
-Report incorrect code
-
 To document a custom materialization, use the previously mentioned format to determine the associated macro name(s) to document.
 
 macros/properties.yml
@@ -52,5 +48,3 @@ macros:
   - name: materialization_my_materialization_name_xyz
     description: A custom materialization to insert records into an append-only table and track when they were added.
 ```
-
-Report incorrect code

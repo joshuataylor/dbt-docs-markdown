@@ -38,8 +38,6 @@ This is an example of a URL connection string and the individual components:
 jdbc:arrow-flight-sql://semantic-layer.cloud.getdbt.com:443?&environmentId=202339&token=AUTHENTICATION_TOKEN
 ```
 
-Report incorrect code
-
 | JDBC parameter                    | Description                                                                                                                                                                                                                                                                                                                   | Example                                                                                       |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `jdbc:arrow-flight-sql://`        | The protocol for the JDBC driver.                                                                                                                                                                                                                                                                                             | `jdbc:arrow-flight-sql://`                                                                    |
@@ -65,8 +63,6 @@ select * from {{
 }}
 ```
 
-Report incorrect code
-
  Fetch dimension for a metric
 
 You can use this query to fetch all dimensions for a metric.
@@ -77,8 +73,6 @@ Note, metrics is a required argument that lists one or multiple metrics in it.
 select * from {{ 
     semantic_layer.dimensions(metrics=['food_order_amount'])}}
 ```
-
-Report incorrect code
 
  Fetch granularities for metrics
 
@@ -93,8 +87,6 @@ select * from {{
     semantic_layer.queryable_granularities(metrics=['food_order_amount', 'order_gross_profit'])}}
 ```
 
-Report incorrect code
-
  Fetch available metrics given dimensions
 
 You can use this query to fetch available metrics given dimensions. This command is essentially the opposite of getting dimensions given a list of metrics.
@@ -106,8 +98,6 @@ select * from {{
     semantic_layer.metrics_for_dimensions(group_by=['customer__customer_type'])
 }}
 ```
-
-Report incorrect code
 
  Fetch granularities for all time dimensions
 
@@ -122,8 +112,6 @@ select NAME, QUERYABLE_GRANULARITIES from {{
     )
 }}
 ```
-
-Report incorrect code
 
  Paginate metadata calls
 
@@ -145,8 +133,6 @@ select * from {{ semantic_layer.metrics(page_size=10) }}
 select * from {{ semantic_layer.metrics() }}
 ```
 
-Report incorrect code
-
 You can use the same pagination parameters for `semantic_layer.dimensions(...)`.
 
  List saved queries
@@ -159,15 +145,11 @@ You can use this example query to list all available saved queries in your dbt p
 select * from semantic_layer.saved_queries()
 ```
 
-Report incorrect code
-
 **Output**
 
 ```bash
 | NAME | DESCRIPTION | LABEL | METRICS | GROUP_BY | WHERE_FILTER |
 ```
-
-Report incorrect code
 
  Fetch metric aliases
 
@@ -178,8 +160,6 @@ select * from {{
     semantic_layer.query(metrics=[Metric("metric_name", alias="metric_alias")])
 }}
 ```
-
-Report incorrect code
 
 In this example, if you define an alias for `revenue` as `banana`, the query will return a column named `banana` even if `banana` isn't defined in the metric configuration. However, when using `where` Jinja clauses, you need to reference the *actual* metric name (`revenue` in this case) instead of the alias.
 
@@ -240,8 +220,6 @@ select name, dimensions from {{
 	WHERE name='food_order_amount'
 ```
 
-Report incorrect code
-
 ### Query common dimensions
 
 You can select common dimensions for multiple metrics. Use the following query to fetch the name and dimensions for multiple metrics:
@@ -251,8 +229,6 @@ select * from {{
 	semantic_layer.dimensions(metrics=['food_order_amount', 'order_gross_profit'])
 	}}
 ```
-
-Report incorrect code
 
 ### Query grouped by time
 
@@ -265,8 +241,6 @@ select * from {{
 	}}
 ```
 
-Report incorrect code
-
 ### Query with a time grain
 
 Use the following example query to fetch multiple metrics with a change in time dimension granularities:
@@ -277,8 +251,6 @@ select * from {{
 	group_by=[Dimension('metric_time').grain('month')])
 	}}
 ```
-
-Report incorrect code
 
 ### Group by categorical dimension
 
@@ -291,8 +263,6 @@ select * from {{
 	}}
 ```
 
-Report incorrect code
-
 ### Query only a dimension
 
 In this case, you'll get the full list of dimension values for the chosen dimension.
@@ -302,8 +272,6 @@ select * from {{
     semantic_layer.query(group_by=['customer__customer_type'])
                   }}
 ```
-
-Report incorrect code
 
 ### Query by all dimensions
 
@@ -315,8 +283,6 @@ select * from {{
     compile= True)
 }}
 ```
-
-Report incorrect code
 
 This returns all dimensions that are valid for the set of metrics in the request.
 
@@ -342,8 +308,6 @@ where="{{ Dimension('metric_time').grain('month')  }} >= '2017-03-09' AND {{ Dim
 }}
 ```
 
-Report incorrect code
-
 * (Recommended for better performance) Use the following example to query using a `where` filter with a filter list format:
 
 ```bash
@@ -353,8 +317,6 @@ group_by=[Dimension('metric_time').grain('month'),'customer__customer_type'],
 where=["{{ Dimension('metric_time').grain('month') }} >= '2017-03-09'", "{{ Dimension('customer__customer_type') }} in ('new')", "{{ Entity('order_id') }} = 10"])
 }}
 ```
-
-Report incorrect code
 
 ### Query with a limit
 
@@ -367,8 +329,6 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
   limit=10)
   }}
 ```
-
-Report incorrect code
 
 ### Query with order by examples
 
@@ -383,8 +343,6 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
   }}
 ```
 
-Report incorrect code
-
 For descending order, you can add a `-` sign in front of the object. However, you can only use this short-hand notation if you aren't operating on the object or using the full object notation.
 
 ```bash
@@ -395,8 +353,6 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
   order_by=['-order_gross_profit'])
   }}
 ```
-
-Report incorrect code
 
 If you are ordering by an object that's been operated on (for example, you changed the granularity of the time dimension), or you are using the full object notation, descending order must look like:
 
@@ -409,8 +365,6 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
   }}
 ```
 
-Report incorrect code
-
 Similarly, this will yield ascending order:
 
 ```bash
@@ -421,8 +375,6 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
   order_by=[Metric('order_gross_profit'), Dimension('metric_time').grain('week')])
   }}
 ```
-
-Report incorrect code
 
 ### Query with compile keyword
 
@@ -436,15 +388,11 @@ Report incorrect code
       }}
   ```
 
-  Report incorrect code
-
 * Use the following example to compile SQL with a [saved query](../build/saved-queries.md). You can use this for frequently used queries.
 
   ```sql
   select * from {{ semantic_layer.query(saved_query="new_customer_orders", limit=5, compile=True}}
   ```
-
-  Report incorrect code
 
 A note on querying saved queries
 
@@ -458,8 +406,6 @@ Use the following example to query a [saved query](../build/saved-queries.md):
 select * from {{ semantic_layer.query(saved_query="new_customer_orders", limit=5}}
 ```
 
-Report incorrect code
-
 The JDBC API will use the saved query (`new_customer_orders`) as defined and apply a limit of 5 records.
 
 ### Query metric alias
@@ -472,8 +418,6 @@ select * from {{
 }}
 ```
 
-Report incorrect code
-
 For example, let's say your metric configuration includes an alias like `total_revenue_global` for the `order_total` metric. You can query the metric using the alias instead of the original name:
 
 ```sql
@@ -481,8 +425,6 @@ select * from {{
     semantic_layer.query(metrics=[Metric("order_total", alias="total_revenue_global")], group_by=['metric_time'])
 }}
 ```
-
-Report incorrect code
 
 The result will be:
 
@@ -494,8 +436,6 @@ The result will be:
 | 2023-12-03    |              1850.00 |
 ```
 
-Report incorrect code
-
 tip
 
 Note that you need to use the actual metric name when using the `where` Jinja clauses. For example, if you used `banana` as an alias for `revenue`, you need to use the actual metric name, `revenue`, in the `where` clause, not `banana`.
@@ -503,8 +443,6 @@ Note that you need to use the actual metric name when using the `where` Jinja cl
 ```graphql
 semantic_layer.query(metrics=[Metric("revenue", alias="banana")], where="{{ Metric('revenue') }} > 0")
 ```
-
-Report incorrect code
 
 ### Multi-hop joins
 
@@ -516,15 +454,11 @@ In cases where you need to query across multiple related tables (multi-hop joins
   {{Dimension('location__location_name', entity_path=['order_id'])}}
   ```
 
-  Report incorrect code
-
 * In this example, the `salesforce_account_owner` dimension is joined to the `region` field, with the path going through `salesforce_account`.
 
   ```sql
   {{ Dimension('salesforce_account_owner__region',['salesforce_account']) }}
   ```
-
-  Report incorrect code
 
 ## FAQs
 

@@ -64,8 +64,6 @@ select *
 from source_events;
 ```
 
-Report incorrect code
-
 Schedule this model to run, for example, every 5–15 minutes as part of your near real‑time job.
 
 ## NRT view: rows more recent than the base table
@@ -99,8 +97,6 @@ fresh_events as (
 select *
 from fresh_events;
 ```
-
-Report incorrect code
 
 Characteristics:
 
@@ -137,8 +133,6 @@ select
     payload
 from {{ ref('fct_events_nrt') }};
 ```
-
-Report incorrect code
 
 Point your BI tools and dashboards to `analytics.fct_events_lambda`. Most data comes from the pre-computed incremental table, while the most recent events (since the last dbt run) come from a live query against `raw.events`.
 

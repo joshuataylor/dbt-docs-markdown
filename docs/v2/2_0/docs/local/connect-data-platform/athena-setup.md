@@ -48,8 +48,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 ### Example Config
 
 profiles.yml
@@ -70,5 +68,3 @@ default:
       num_retries: 3    
   target: dev
 ```
-
-Report incorrect code

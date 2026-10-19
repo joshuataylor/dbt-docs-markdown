@@ -33,15 +33,11 @@ How you download the file depends on whether you're configuring the [dbt platfor
    mkdir -p ~/.dbt && mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
    ```
 
-   Report incorrect code
-
    ### Windows
 
    ```powershell
    mkdir %USERPROFILE%\.dbt 2>nul & move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
    ```
-
-   Report incorrect code
 
     Manually create and move your .dbt directory
 
@@ -74,8 +70,6 @@ How you download the file depends on whether you're configuring the [dbt platfor
    mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
    ```
 
-   Report incorrect code
-
    #### Windows
 
    In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
@@ -83,8 +77,6 @@ How you download the file depends on whether you're configuring the [dbt platfor
    ```bash
    move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
    ```
-
-   Report incorrect code
 
    If your downloaded file has a numerical suffix (for example, `dbt_cloud(2).yml`), rename it to `dbt_cloud.yml` before moving it. The dbt platform CLI and extension only look for the exact filename.
 
@@ -132,8 +124,6 @@ projects:
     token-value: your_token_value
 ```
 
-Report incorrect code
-
 For example, if you have a Jaffle and wizard shop account, here's what your `dbt_cloud.yml` file would look like:
 
 dbt\_cloud.yml
@@ -167,8 +157,6 @@ projects:
     token-value: "dbtu_token_value"
 ```
 
-Report incorrect code
-
 ### Field reference
 
 | Field                    | Required | Description                                                                                                                                                                                                                                                        |
@@ -200,8 +188,6 @@ dbt-cloud:
   project-id: your_project_id
   defer-env-id: '123456'  # optional
 ```
-
-Report incorrect code
 
 | Field          | Required | Description                                                                                                                                                                             |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

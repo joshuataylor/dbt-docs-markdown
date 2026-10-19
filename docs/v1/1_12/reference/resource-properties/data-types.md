@@ -31,8 +31,6 @@ unit_tests:
            binary_field: 19E1FFDCCB6CDEE788BF631C1C4905D1
 ```
 
-Report incorrect code
-
 ## BigQuery
 
 ```yml
@@ -63,8 +61,6 @@ unit_tests:
            # It's not currently possible to use only a subset of columns in a 'struct'
 ```
 
-Report incorrect code
-
 ## Redshift
 
 ```yml
@@ -84,8 +80,6 @@ unit_tests:
            timestamptz_field: 2013-11-03 00:00:00-0
            json_field: '{"bar": "baz", "balance": 7.77, "active": false}'
 ```
-
-Report incorrect code
 
 Currently, the `array` is not supported.
 
@@ -112,8 +106,6 @@ unit_tests:
            named_struct_field: 'named_struct("a", 1, "b", 2, "c", 3)'
 ```
 
-Report incorrect code
-
 ## Postgres
 
 ```yml
@@ -135,7 +127,5 @@ unit_tests:
            timestamptz_field: 2013-11-03 00:00:00-0
            json_field: '{"bar": "baz", "balance": 7.77, "active": false}'
 ```
-
-Report incorrect code
 
 Currently, the `array` is not supported.

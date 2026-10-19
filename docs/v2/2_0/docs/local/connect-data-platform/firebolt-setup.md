@@ -48,8 +48,6 @@ profiles.yml
       host: "<hostname>"
 ```
 
-Report incorrect code
-
 #### Description of Firebolt Profile Fields
 
 To specify values as environment variables, use the format `{{ env_var('<variable_name>' }}`. For example, `{{ env_var('DATABASE_NAME' }}`.
@@ -88,8 +86,6 @@ In dbt, database schemas are used to compartmentalize developer environments so 
     {%- endif -%}
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 For an example of how this works, let’s say Shahar and Eric are both working on the same project.
 

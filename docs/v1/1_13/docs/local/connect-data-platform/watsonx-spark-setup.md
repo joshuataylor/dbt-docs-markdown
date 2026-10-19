@@ -42,8 +42,6 @@ Note: Installing an adapter doesn't install 'dbt v1' automatically. This is beca
 python -m pip install dbt-core dbt-watsonx-spark
 ```
 
-Report incorrect code
-
 ## Configuring `dbt-watsonx-spark`
 
 For IBM watsonx.data-specific configuration, refer to [IBM watsonx.data configs.](../../../reference/resource-configs/watsonx-spark-config.md)
@@ -71,8 +69,6 @@ project_name:
         user: [username]
         apikey: [apikey]
 ```
-
-Report incorrect code
 
 ## Host parameters
 

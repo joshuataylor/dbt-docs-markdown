@@ -19,8 +19,6 @@ models/hello\_iceberg.sql
 select 'hello_iceberg' as message
 ```
 
-Report incorrect code
-
 That's it. This model is materialized as an Iceberg table, with all the default configurations for this adapter, and stored in the default (managed) catalog offered by this data platform. You can now connect to that catalog using another engine (such as DuckDB) to read this table. Congratulations, you're using Iceberg!
 
 note
@@ -64,8 +62,6 @@ catalogs:
         # See available configs for each adapter + catalog combination.
 ```
 
-Report incorrect code
-
 #### Catalog types
 
 | catalog `type`     | default for | supported by                  | Notes                                                                                                                                                                                                      |
@@ -97,8 +93,6 @@ catalogs:
         base_location_root: 's3://my-bucket/finance_db'
 ```
 
-Report incorrect code
-
 But then you override that config for one particular model:
 
 models/finance/my\_special\_model.sql
@@ -110,8 +104,6 @@ models/finance/my\_special\_model.sql
 ) 
 }}
 ```
-
-Report incorrect code
 
 Some Iceberg-related configurations are only available at the model configuration level, so they can't be set in `catalogs.yml`. For example, the related config `base_location_subpath` determines the exact write path for a single Iceberg table, so it only makes sense to configure per-model, rather than setting a default for all models in the catalog.
 
@@ -140,8 +132,6 @@ flags:
   use_catalogs_v2: false
 ```
 
-Report incorrect code
-
 Each catalog configures one or more `write_integrations`, and then specifies an "active" write integration to use for the current invocation / data warehouse.
 
 catalogs.yml
@@ -158,5 +148,3 @@ catalogs:
           catalog_linked_database: catalog_linked_db_glue
           catalog_linked_database_type: glue
 ```
-
-Report incorrect code

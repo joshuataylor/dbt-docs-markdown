@@ -14,15 +14,11 @@ Install dbt locally to run dbt commands from your terminal. You can install it w
 python -m pip install dbt
 ```
 
-Report incorrect code
-
 Or with `curl`:
 
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh
 ```
-
-Report incorrect code
 
 For full installation instructions, including adapter-specific setup, refer to [Install dbt](./install-dbt.md).
 
@@ -32,7 +28,7 @@ The [dbt VS Code extension](../about-dbt-extension.md) lets you develop dbt proj
 
 ## dbt Wizard
 
-[dbt Wizard](../dbt-ai/wizard-quickstart.md) is a natural next step for local dbt development. It works with dbt and adds an AI agent that understands your full project through dbt's [native metadata engine](../dbt-ai/about-dbt-ai.md), a structured index of your [lineage](../explore/explore-projects.md), model health, test coverage, and semantic definitions.
+[dbt Wizard](../dbt-ai/wizard-quickstart.md) is a natural next step for local dbt development. It works with dbt and adds an AI agent that understands your full project through the [dbt Information Schema](../build/dbt-information-schema.md), a structured view of your [lineage](../explore/explore-projects.md), model health, test coverage, and semantic definitions.
 
 * **Build and refactor from natural language:** Describe the change, get a reviewable diff, approve before anything is written.
 * **Validate in a tight loop:** Every proposed change compiles and runs against your warehouse, catching issues before production.

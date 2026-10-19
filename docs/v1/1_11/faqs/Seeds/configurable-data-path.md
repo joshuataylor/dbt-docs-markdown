@@ -9,5 +9,3 @@ dbt\_project.yml
 ```yml
 seed-paths: ["custom_seeds"]
 ```
-
-Report incorrect code

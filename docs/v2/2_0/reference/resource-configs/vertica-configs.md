@@ -19,8 +19,6 @@ vertica\_incremental.sql
     select * from {{ ref('seed_added') }}
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -34,8 +32,6 @@ vertica\_incremental.sql
     )
 ```
 
-Report incorrect code
-
 #### Configuring the `fail` parameter
 
 ##### Source code
@@ -48,8 +44,6 @@ vertica\_incremental.sql
       
       select * from {{ ref('seed_added') }}
 ```
-
-Report incorrect code
 
 ##### Run code
 
@@ -69,8 +63,6 @@ vertica\_incremental.sql
                  New column types: {{ schema_changes_dict['new_target_types'] }}
 ```
 
-Report incorrect code
-
 #### Configuring the `append_new_columns` parameter
 
 ##### Source code
@@ -87,8 +79,6 @@ vertica\_incremental.sql
     select * from  public.seed_added
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -101,8 +91,6 @@ vertica\_incremental.sql
                 from "over__dbt_tmp"
           )
 ```
-
-Report incorrect code
 
 ### Using the `incremental_strategy` config parameter
 
@@ -130,8 +118,6 @@ vertica\_incremental.sql
     {% endif %}
 ```
 
-Report incorrect code
-
 #### Run code
 
 vertica\_incremental.sql
@@ -151,8 +137,6 @@ vertica\_incremental.sql
     )
 ```
 
-Report incorrect code
-
 **The `merge` strategy**:
 
 Match records based on a unique\_key; update old records, insert new ones. (If no unique\_key is specified, all new data is inserted, similar to append.) The unique\_key config parameter is required for using the merge strategy, the value accepted by this parameter is a single table column.
@@ -168,8 +152,6 @@ vertica\_incremental.sql
       
           select * FROM  public.promotion_dimension
 ```
-
-Report incorrect code
 
 ##### Run code
 
@@ -193,8 +175,6 @@ vertica\_incremental.sql
         )
 ```
 
-Report incorrect code
-
 ###### Using the `merge_update_columns` config parameter
 
 The `merge_update_columns` config parameter is passed to only update the columns specified and it accepts a list of table columns.
@@ -209,8 +189,6 @@ vertica\_incremental.sql
     
         select * from {{ref('seed_tc1')}}
 ```
-
-Report incorrect code
 
 ###### Run code
 
@@ -230,8 +208,6 @@ vertica\_incremental.sql
         )
 ```
 
-Report incorrect code
-
 **`delete+insert` strategy**:
 
 Through the `delete+insert` incremental strategy, you can instruct dbt to use a two-step incremental approach. It will first delete the records detected through the configured `is_incremental()` block and then re-insert them. The `unique_key` is a required parameter for using `delete+insert` strategy which specifies how to update the records when there is duplicate data. The value accepted by this parameter is a single table column.
@@ -247,8 +223,6 @@ vertica\_incremental.sql
 
           select * FROM  public.date_dimension
 ```
-
-Report incorrect code
 
 ###### Run code
 
@@ -269,8 +243,6 @@ vertica\_incremental.sql
             from "samp__dbt_tmp"
         );
 ```
-
-Report incorrect code
 
 **`insert_overwrite` strategy**:
 
@@ -314,8 +286,6 @@ vertica\_incremental.sql
         select * from online_sales.call_center_dimension
 ```
 
-Report incorrect code
-
 ###### Run code
 
 vertica\_incremental.sql
@@ -344,8 +314,6 @@ vertica\_incremental.sql
         );
 ```
 
-Report incorrect code
-
 ## Optimization options for table materialization
 
 There are multiple optimizations that can be used when materializing models as tables. Each config parameter applies a Vertica specific clause in the generated `CREATE TABLE` DDL.
@@ -370,8 +338,6 @@ vertica\_incremental.sql
         select * from public.product_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -384,8 +350,6 @@ vertica\_incremental.sql
               
                  order by product_key;
 ```
-
-Report incorrect code
 
 ### Configuring the `SEGMENTED BY` clause
 
@@ -409,8 +373,6 @@ vertica\_incremental.sql
         select * from public.product_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -424,8 +386,6 @@ vertica\_incremental.sql
           
              segmented by product_key  ALL NODES;
 ```
-
-Report incorrect code
 
 #### Using the `segmented_by_all_nodes` config parameter
 
@@ -445,8 +405,6 @@ vertica\_incremental.sql
             select * from public.product_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -459,8 +417,6 @@ vertica\_incremental.sql
                   
             segmented by product_key  ALL NODES;
 ```
-
-Report incorrect code
 
 ### Configuring the UNSEGMENTED ALL NODES clause
 
@@ -480,8 +436,6 @@ vertica\_incremental.sql
           select * from public.product_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -500,8 +454,6 @@ vertica\_incremental.sql
     
   
 ```
-
-Report incorrect code
 
 ### Configuring the `PARTITION BY` clause
 
@@ -525,8 +477,6 @@ vertica\_incremental.sql
         select * FROM public.employee_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -540,8 +490,6 @@ vertica\_incremental.sql
          
         partition BY employee_age
 ```
-
-Report incorrect code
 
 #### Using the `partition_by_active_count` config parameter
 
@@ -571,8 +519,6 @@ vertica\_incremental.sql
  
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -593,8 +539,6 @@ vertica\_incremental.sql
         
         SET ACTIVEPARTITIONCOUNT 2  ;
 ```
-
-Report incorrect code
 
 #### Using the `partition_by_group_by_string` config parameter
 
@@ -622,8 +566,6 @@ vertica\_incremental.sql
 select * from public.customer_dimension
 ```
 
-Report incorrect code
-
 ##### Run code
 
 vertica\_incremental.sql
@@ -639,8 +581,6 @@ vertica\_incremental.sql
                                              ELSE 'big_family' END  ;
 ```
 
-Report incorrect code
-
 ### Configuring the KSAFE clause
 
 To leverage the `KSAFE` clause of the `CREATE TABLE` statement, use the `ksafe` config parameter in your model.
@@ -655,8 +595,6 @@ vertica\_incremental.sql
           select * from  public.product_dimension
 ```
 
-Report incorrect code
-
 #### Run code
 
 vertica\_incremental.sql
@@ -667,5 +605,3 @@ vertica\_incremental.sql
         (select * from  public.product_dimension ) 
             ksafe 1;
 ```
-
-Report incorrect code

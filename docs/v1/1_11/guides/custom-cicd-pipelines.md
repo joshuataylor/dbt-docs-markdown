@@ -185,8 +185,6 @@ my_awesome_project
 │   └── run_and_monitor_dbt_job.py
 ```
 
-Report incorrect code
-
 The following Python file has everything you need to call the dbt API, but requires a few inputs as outlined below. These inputs will be fed to this script through environment variables that will be defined in the next step.
 
 ```python
@@ -202,8 +200,6 @@ account_id      = os.environ['DBT_ACCOUNT_ID'] # no default here, just throw an 
 project_id      = os.environ['DBT_PROJECT_ID'] # no default here, just throw an error here if id not provided
 job_id          = os.environ['DBT_PR_JOB_ID'] # no default here, just throw an error here if id not provided
 ```
-
-Report incorrect code
 
 **Required input:**
 
@@ -230,8 +226,6 @@ my_awesome_project
 │   │   └── dbt_run_on_merge.yml
 │   │   └── lint_on_push.yml
 ```
-
-Report incorrect code
 
 The YAML file will look pretty similar to our earlier job, but there is a new section called `env` that we’ll use to pass in the required variables. Update the variables below to match your setup based on the comments in the file.
 
@@ -276,8 +270,6 @@ jobs:
         run: "python python/run_and_monitor_dbt_job.py"
 ```
 
-Report incorrect code
-
 #### GitLab
 
 For this job, we'll set it up using the `gitlab-ci.yml` file as in the prior step (see Step 1 of the linting setup for more info). The YAML file will look pretty similar to our earlier job, but there is a new section called `variables` that we’ll use to pass in the required variables to the Python script. Update this section to match your setup based on the comments in the file.
@@ -309,8 +301,6 @@ run-dbt-cloud-job:
   script:
     - python python/run_and_monitor_dbt_job.py
 ```
-
-Report incorrect code
 
 ##### Lint and dbt job
 
@@ -350,8 +340,6 @@ run-dbt-cloud-job:
     - python python/run_and_monitor_dbt_job.py
 ```
 
-Report incorrect code
-
 #### Azure DevOps
 
 For this new job, open the existing Azure pipeline you created above and select the *Edit* button. We'll want to edit the corresponding Azure pipeline YAML file with the appropriate configuration, instead of the starter code, along with including a `variables` section to pass in the required variables.
@@ -389,8 +377,6 @@ steps:
       DBT_API_KEY: $(DBT_API_KEY) # Set these values as secrets in the Azure pipelines Web UI
 ```
 
-Report incorrect code
-
 #### Bitbucket
 
 For this job, we'll set it up using the `bitbucket-pipelines.yml` file as in the prior step (see Step 1 of the linting setup for more info). The YAML file will look pretty similar to our earlier job, but we’ll pass in the required variables to the Python script using `export` statements. Update this section to match your setup based on the comments in the file.
@@ -414,8 +400,6 @@ pipelines:
             - export DBT_PR_JOB_ID=00000 # enter your job id here
             - python python/run_and_monitor_dbt_job.py
 ```
-
-Report incorrect code
 
 ##### Lint and dbt job
 
@@ -444,8 +428,6 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-Report incorrect code
-
 #### CodeCommit
 
 For CodeCommit, you'll configure a CodeBuild project and an EventBridge rule to trigger a dbt job every time code is pushed to your default branch (for example, when a pull request is merged to `main`).
@@ -459,8 +441,6 @@ my_awesome_project
 ├── python
 │   └── run_and_monitor_dbt_cloud_job.py
 ```
-
-Report incorrect code
 
 **Create `python/run_and_monitor_dbt_cloud_job.py` with the following content:**
 
@@ -542,8 +522,6 @@ if __name__ == "__main__":
     main()
 ```
 
-Report incorrect code
-
 **Create `ci-configuration/buildspec-merge.yml` with the following content:**
 
 Replace the placeholder values with your actual dbt account details:
@@ -577,8 +555,6 @@ phases:
       - python -u ./python/run_and_monitor_dbt_cloud_job.py
 ```
 
-Report incorrect code
-
 **Create a CodeBuild project**
 
 Follow the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-console.html) to create a project. Configure the following settings:
@@ -607,8 +583,6 @@ Note the service role name shown in the **Environment** section. In **IAM**, fin
 }
 ```
 
-Report incorrect code
-
 **Create an EventBridge rule**
 
 1. In the AWS console, go to **Amazon EventBridge** → **Rules** → **Create rule**
@@ -629,8 +603,6 @@ Report incorrect code
   }
 }
 ```
-
-Report incorrect code
 
 4. Under **Target**, select **AWS service** → **CodeBuild** and choose the project you created above
 5. When prompted, allow EventBridge to create a new IAM role for the target automatically
@@ -726,8 +698,6 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-Report incorrect code
-
 #### CodeCommit
 
 The setup for CodeCommit follows the same steps as the prior page. Before moving on, follow steps 1–5 from the [prior page](./custom-cicd-pipelines.md?step=2) to store your API key, add the Python script to your repository, and configure the merge pipeline.
@@ -779,8 +749,6 @@ phases:
       - python -u ./python/run_and_monitor_dbt_cloud_job.py
 ```
 
-Report incorrect code
-
 **2. Create a CodeBuild project for pull requests**
 
 Follow the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-console.html) to create a second project (separate from the one you created for merge). Configure the following settings:
@@ -808,8 +776,6 @@ Note the service role name shown in the **Environment** section. In **IAM**, fin
   ]
 }
 ```
-
-Report incorrect code
 
 **3. Create a Lambda trigger function**
 
@@ -843,8 +809,6 @@ def lambda_handler(event, context):
     )
 ```
 
-Report incorrect code
-
 Replace `YOUR_CODEBUILD_PROJECT_NAME` with the name of the CodeBuild project you created above, then click **Deploy**.
 
 4. Go to **Configuration** → **Permissions** → click the execution role name to open IAM
@@ -862,8 +826,6 @@ Replace `YOUR_CODEBUILD_PROJECT_NAME` with the name of the CodeBuild project you
   ]
 }
 ```
-
-Report incorrect code
 
 **4. Create an EventBridge rule**
 
@@ -886,8 +848,6 @@ Report incorrect code
      }
    }
    ```
-
-   Report incorrect code
 
 4. Under **Target**, select **AWS service** → **Lambda function**, and choose the Lambda function you created above
 
@@ -958,8 +918,6 @@ Add this as a macro to your project. It takes 2 arguments that lets you control 
 
 {% endmacro %}
 ```
-
-Report incorrect code
 
 This macro goes into a dbt job that is run on a schedule. The command will look like this (text below for copy/paste): ![ job showing the run operation command for the cleanup macro](/assets/images/dbt-macro-cleanup-pr-c053bfe70d3bc2d4aefa3211713238ce.png) `dbt run-operation pr_schema_cleanup --args "{ 'database_to_clean': 'development','age_in_days':15}"`
 

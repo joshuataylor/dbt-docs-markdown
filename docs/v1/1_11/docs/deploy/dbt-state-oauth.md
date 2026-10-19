@@ -51,8 +51,6 @@ DBT_ENGINE_STATE_OAUTH_CLIENT_ID=YOUR_CLIENT_ID
 DBT_ENV_SECRET_STATE_OAUTH_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
-Report incorrect code
-
 Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with the values from your OAuth client.
 
 Once configured, [verify dbt State is active](./dbt-state-cicd.md#verifying-dbt-state-is-active).

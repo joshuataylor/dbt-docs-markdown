@@ -42,8 +42,6 @@ my_profile:
       threads: 4
 ```
 
-Report incorrect code
-
 For the full set of connection options, see the [dbt-athena setup page](../../../local/connect-data-platform/athena-setup.md).
 
 2. To create an Iceberg table without `catalogs.yml`, set `table_type='iceberg'` in your model config:
@@ -61,8 +59,6 @@ models/my\_iceberg\_model.sql
 
 select * from {{ ref('jaffle_shop_customers') }}
 ```
-
-Report incorrect code
 
 ## Amazon S3 Tables
 
@@ -96,8 +92,6 @@ aws glue create-catalog \
   }'
 ```
 
-Report incorrect code
-
 This example uses `IAM_ALLOWED_PRINCIPALS` to configure IAM-only access. Access is controlled by the query role's IAM permissions, without requiring AWS Lake Formation setup.
 
 You can optionally use Lake Formation if you need fine-grained permissions or centrally managed access. For both options, refer to [Enabling S3 Tables integration with the Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/enable-s3-tables-catalog-integration.html).
@@ -113,8 +107,6 @@ You can optionally use Lake Formation if you need fine-grained permissions or ce
      use_catalogs_v2: true
    ```
 
-   Report incorrect code
-
 2. Create a `catalogs.yml` at the top level of your dbt project:
 
 catalogs.yml
@@ -129,8 +121,6 @@ catalogs:
         catalog_database: s3tablescatalog/<your-table-bucket-name>
         file_format: parquet
 ```
-
-Report incorrect code
 
 Set `catalog_database` to the federated Glue catalog name for your S3 table bucket (the same name Athena uses to address it). dbt uses this value as the model's `database`. Omitting `catalog_database` falls back to the profile's `database`. The model's resolved `schema` identifies the S3 Tables namespace.
 
@@ -150,15 +140,11 @@ models/my\_s3\_tables\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
-Report incorrect code
-
 4. Run your dbt model:
 
 ```shell
   dbt run -s my_s3_tables_model
 ```
-
-Report incorrect code
 
 ### Create an incremental model
 
@@ -186,8 +172,6 @@ models/my\_incremental\_s3\_tables\_model.sql
 select * from {{ ref('my_s3_tables_model') }}
 ```
 
-Report incorrect code
-
 On the first run, when the target table does not yet exist, dbt creates the incremental model using `CREATE TABLE AS` (the same drop-and-recreate-aware path the `table` materialization uses), then switches to `merge` on subsequent runs. No `--full-refresh` is needed to bootstrap the table.
 
 ### How dbt writes to S3 Tables
@@ -206,8 +190,6 @@ Running an incremental S3 Tables model with `--full-refresh` fails with this err
 An error occurred (InvalidRequestException) when calling the StartQueryExecution
 operation: Unsupported DDL query for S3 table buckets
 ```
-
-Report incorrect code
 
 This happens because the incremental materialization's full-refresh path still swaps tables with `ALTER TABLE ... RENAME TO ...__bkp`, which S3 Tables doesn't support. The `table` materialization's drop-and-recreate fix doesn't currently extend to this path.
 

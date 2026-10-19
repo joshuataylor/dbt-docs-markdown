@@ -68,8 +68,6 @@ sources:
         loaded_at_field: event_ts
 ```
 
-Report incorrect code
-
 ### Staging view
 
 ```sql
@@ -87,8 +85,6 @@ select
     payload
 from {{ source('raw', 'realtime_events') }};
 ```
-
-Report incorrect code
 
 ### Domain view definition
 
@@ -123,8 +119,6 @@ from base as b
 left join user_dim as u
   on b.user_id = u.user_id;
 ```
-
-Report incorrect code
 
 Downstream tools query `analytics.vw_realtime_events_enriched`. As long as `raw.realtime_events` is continuously updated, this view stack is as fresh as the source.
 

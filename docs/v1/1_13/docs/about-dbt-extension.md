@@ -123,13 +123,11 @@ To solve this issue, do one of the following:
   },
   ```
 
-  Report incorrect code
-
   This could disable *all* use of the schema store, resulting in unintended consequences.
 
 ## dbt Wizard
 
-The dbt VS Code extension and [dbt Wizard](./dbt-ai/wizard-quickstart.md) are designed to work together. The extension gives you fast parsing, inline error detection, and IntelliSense. [dbt Wizard](./dbt-ai/wizard-quickstart.md) adds an AI layer on top — one that works with a live understanding of your project through dbt's [native metadata engine](./dbt-ai/about-dbt-ai.md), a structured index of your [lineage](./explore/explore-projects.md), model health, test coverage, and semantic definitions.
+The dbt VS Code extension and [dbt Wizard](./dbt-ai/wizard-quickstart.md) are designed to work together. The extension gives you fast parsing, inline error detection, and IntelliSense. [dbt Wizard](./dbt-ai/wizard-quickstart.md) adds an AI layer on top — one that works with a live understanding of your project through the [dbt Information Schema](./build/dbt-information-schema.md), a structured view of your [lineage](./explore/explore-projects.md), model health, test coverage, and semantic definitions.
 
 * **Build and refactor from natural language**: Describe what you want, review the diff, approve or redirect before anything is saved.
 * **Validate changes before they land**: The agent compiles and runs against your warehouse in a tight loop — not just editor linting.

@@ -26,15 +26,11 @@ A typical PR build URL looks like:
 https://github.com/dbt-labs/jaffle_shop/compare/{{destination}}..{{source}}
 ```
 
-Report incorrect code
-
 #### Rendered
 
 ```text
 https://github.com/dbt-labs/jaffle_shop/compare/master..my-branch
 ```
-
-Report incorrect code
 
 ## Example templates
 
@@ -46,15 +42,11 @@ Some common URL templates are provided below, but please note that the exact val
 https://github.com/<org>/<repo>/compare/{{destination}}..{{source}}
 ```
 
-Report incorrect code
-
 If you're using Github Enterprise your template may look something like:
 
 ```text
 https://git.<mycompany>.com/<org>/<repo>/compare/{{destination}}..{{source}}
 ```
-
-Report incorrect code
 
 ### GitLab
 
@@ -62,15 +54,11 @@ Report incorrect code
 https://gitlab.com/<org>/<repo>/-/merge_requests/new?merge_request[source_branch]={{source}}&merge_request[target_branch]={{destination}}
 ```
 
-Report incorrect code
-
 ### BitBucket
 
 ```text
 https://bitbucket.org/<org>/<repo>/pull-requests/new?source={{source}}&dest={{destination}}
 ```
-
-Report incorrect code
 
 If you're using BitBucket Server or Data Center your template may look something like:
 
@@ -78,20 +66,14 @@ If you're using BitBucket Server or Data Center your template may look something
 https://<bitbucket-server>/projects/<proj>/repos/<repo>/pull-requests?create&sourceBranch={{source}}&targetBranch={{destination}}
 ```
 
-Report incorrect code
-
 ### AWS CodeCommit
 
 ```text
 https://console.aws.amazon.com/codesuite/codecommit/repositories/<repo>/pull-requests/new/refs/heads/{{destination}}/.../refs/heads/{{source}}
 ```
 
-Report incorrect code
-
 ### Azure DevOps
 
 ```text
 https://dev.azure.com/<org>/<project>/_git/<repo>/pullrequestcreate?sourceRef={{source}}&targetRef={{destination}}
 ```
-
-Report incorrect code

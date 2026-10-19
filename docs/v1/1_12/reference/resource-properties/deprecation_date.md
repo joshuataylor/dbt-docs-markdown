@@ -9,8 +9,6 @@ models:
     deprecation_date: 1999-01-01 00:00:00.00+00:00
 ```
 
-Report incorrect code
-
 models/\<schema>.yml
 
 ```yml
@@ -19,8 +17,6 @@ models:
     description: deprecating in the future
     deprecation_date: 2999-01-01 00:00:00.00+00:00
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -68,8 +64,6 @@ $ dbt parse
 15:48:14  Registered adapter: postgres=1.6.0
 15:48:14  [WARNING]: While compiling 'my_model_ref': Found a reference to my_model, which is slated for deprecation on '2038-01-19T03:14:07-00:00'.
 ```
-
-Report incorrect code
 
 ### Selection syntax
 

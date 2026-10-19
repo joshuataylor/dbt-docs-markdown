@@ -19,8 +19,6 @@ models:
       +alias: sales_dashboard
 ```
 
-Report incorrect code
-
 The following specifies an `alias` as part of the `models/properties.yml` file metadata, useful for centralized configuration:
 
 models/properties.yml
@@ -33,8 +31,6 @@ models:
       alias: sales_dashboard
 ```
 
-Report incorrect code
-
 The following assigns the `alias` directly in the In `models/sales_total.sql` file:
 
 models/sales\_total.sql
@@ -44,8 +40,6 @@ models/sales\_total.sql
     alias="sales_dashboard"
 ) }}
 ```
-
-Report incorrect code
 
 This would return `analytics.finance.sales_dashboard` in the database, instead of the default `analytics.finance.sales_total`.
 
@@ -64,8 +58,6 @@ seeds:
       +alias: categories_data
 ```
 
-Report incorrect code
-
 In the `seeds/properties.yml` file:
 
 seeds/properties.yml
@@ -77,8 +69,6 @@ seeds:
     config:
       alias: categories_data
 ```
-
-Report incorrect code
 
 This would return the name `analytics.finance.categories_data` in the database.
 
@@ -92,8 +82,6 @@ seeds:
     country_codes:
       +alias: country_mappings
 ```
-
-Report incorrect code
 
 ## Snapshots
 
@@ -112,8 +100,6 @@ snapshots:
       +alias: the_best_snapshot
 ```
 
-Report incorrect code
-
 In the `snapshots/snapshot_name.yml` file:
 
 snapshots/snapshot\_name.yml
@@ -126,8 +112,6 @@ snapshots:
       alias: the_best_snapshot
 ```
 
-Report incorrect code
-
 In `snapshots/your_snapshot.sql` file:
 
 snapshots/your\_snapshot.sql
@@ -137,8 +121,6 @@ snapshots/your\_snapshot.sql
     alias="the_best_snapshot"
 ) }}
 ```
-
-Report incorrect code
 
 This would build your snapshot to `analytics.finance.the_best_snapshot` in the database.
 
@@ -158,8 +140,6 @@ data_tests:
     +alias: unique_order_id_test
 ```
 
-Report incorrect code
-
 In the `models/properties.yml` file:
 
 models/properties.yml
@@ -175,8 +155,6 @@ models:
                 alias: unique_order_id_test
 ```
 
-Report incorrect code
-
 In `tests/unique_order_id_test.sql` file:
 
 tests/unique\_order\_id\_test.sql
@@ -187,8 +165,6 @@ tests/unique\_order\_id\_test.sql
     severity="error"
 ) }}
 ```
-
-Report incorrect code
 
 When using [`store_failures_as`](./store_failures_as.md), this would return the name `analytics.dbt_test__audit.orders_order_id_unique_order_id_test` in the database.
 

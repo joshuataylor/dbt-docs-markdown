@@ -122,8 +122,6 @@ default:
       threads: 16
 ```
 
-Report incorrect code
-
 ### Service Principal token
 
 Enter your Service Principal token for the Databricks environment. For more information about obtaining a Service Principal token, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/admin/users-groups/service-principals).
@@ -147,8 +145,6 @@ default:
       threads: 16
 ```
 
-Report incorrect code
-
 ### OAuth (Recommended)
 
 Selecting the OAuth option will create a connection to your Databricks environment and open a web browser so you can complete the authentication. Users will be prompted to re-authenticate with each new dbt session they initiate.
@@ -170,8 +166,6 @@ default:
       auth_type: oauth
       threads: 16
 ```
-
-Report incorrect code
 
 ## Optional connection settings
 
@@ -198,8 +192,6 @@ outputs:
     # ...your other connection fields
     connect_timeout: 600
 ```
-
-Report incorrect code
 
 ## More information
 

@@ -10,8 +10,6 @@ models:
       access: private | protected | public # changed to config in v1.10
 ```
 
-Report incorrect code
-
 You can apply `access` modifiers in config files, including the `dbt_project.yml`, or to models one-by-one in `properties.yml`. Applying `access` configs to a subfolder modifies the default for all models in that subfolder, so make sure you intend for this behavior. When setting individual model access, a group or subfolder might contain a variety of access levels, so when you designate a model with `access: public` make sure you intend for this behavior.
 
 Note that for backwards compatibility, `access` is supported as a top-level key, but without the capabilities of config inheritance.
@@ -30,8 +28,6 @@ There are multiple approaches to configuring access:
       
   ```
 
-  Report incorrect code
-
 * In `properties.yml` using the latest method (for v1.10 or higher). Use either the older method or the latest method, but not both for the same model:
 
   models/properties\_my\_public\_model.yml
@@ -45,8 +41,6 @@ There are multiple approaches to configuring access:
       
   ```
 
-  Report incorrect code
-
 * In `dbt_project.yml`:
 
   dbt\_project.yml
@@ -59,8 +53,6 @@ There are multiple approaches to configuring access:
         +access: private  # sets default for all models in this subfolder
   ```
 
-  Report incorrect code
-
 * In the `my_public_model.sql` file:
 
   models/my\_public\_model.sql
@@ -72,8 +64,6 @@ There are multiple approaches to configuring access:
 
   select ...
   ```
-
-  Report incorrect code
 
 After you define `access`, rerun a production job to apply the change.
 
@@ -98,8 +88,6 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.12 and later)
 

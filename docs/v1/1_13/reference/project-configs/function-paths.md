@@ -6,8 +6,6 @@ dbt\_project.yml
 function-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally specify a custom list of directories where [user-defined functions (UDFs)](../../docs/build/udfs.md) are located.
@@ -26,8 +24,6 @@ dbt\_project.yml
 function-paths: ["udfs"]
 ```
 
-Report incorrect code
-
 Use multiple directories to organize your functions:
 
 dbt\_project.yml
@@ -35,5 +31,3 @@ dbt\_project.yml
 ```yml
 function-paths: ["functions", "custom_udfs"]
 ```
-
-Report incorrect code

@@ -13,8 +13,6 @@ functions:
       packages: [<string>] # optional, Python UDFs only
 ```
 
-Report incorrect code
-
 ## Definition
 
 When creating Python UDFs, you can use the optional `packages` config to specify public third-party PyPI packages. You can list package names (for example, `numpy` and `pandas`) and pin versions (for example, `pandas==1.5.0`). The warehouse installs these packages when it creates the UDF, so your UDF can use functionality from external Python libraries.
@@ -44,8 +42,6 @@ functions:
       data_type: integer
 ```
 
-Report incorrect code
-
 Compiled SQL:
 
 ```sql
@@ -60,8 +56,6 @@ def main(a_string):
     ...
 $$
 ```
-
-Report incorrect code
 
 ### BigQuery
 
@@ -84,8 +78,6 @@ functions:
       data_type: integer
 ```
 
-Report incorrect code
-
 Compiled SQL:
 
 ```sql
@@ -102,8 +94,6 @@ def main(a_string):
     ...
 '''
 ```
-
-Report incorrect code
 
 ## Related documentation
 

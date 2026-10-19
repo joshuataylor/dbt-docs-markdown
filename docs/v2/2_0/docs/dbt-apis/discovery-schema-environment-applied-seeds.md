@@ -44,8 +44,6 @@ query ($environmentId: BigInt!, $first: Int!, $filter: GenericMaterializedFilter
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `seeds`, you can use the following fields:

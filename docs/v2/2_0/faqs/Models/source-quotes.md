@@ -25,5 +25,3 @@ sources:
         quoting:
           identifier: false
 ```
-
-Report incorrect code

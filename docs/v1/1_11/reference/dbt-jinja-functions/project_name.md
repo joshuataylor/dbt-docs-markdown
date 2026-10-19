@@ -29,5 +29,3 @@ redshift/macros/helper.sql
 
 {% endmacro %}
 ```
-
-Report incorrect code

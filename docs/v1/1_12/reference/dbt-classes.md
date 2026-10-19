@@ -26,8 +26,6 @@ class Relation:
   """
 ```
 
-Report incorrect code
-
 ### Using relations
 
 In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](./dbt-jinja-functions/ref.md), [`source`](./dbt-jinja-functions/source.md) or [`this`](./dbt-jinja-functions/this.md).
@@ -59,8 +57,6 @@ relation\_usage.sql
 {{ relation.is_cte }}
 ```
 
-Report incorrect code
-
 ## Column
 
 The `Column` object is used to encode information about a column in a relation.
@@ -88,8 +84,6 @@ col.is_float() # False
 col.string_type() # character varying(255)
 col.numeric_type('numeric', 12, 4) # numeric(12,4)
 ```
-
-Report incorrect code
 
 ### Column API
 
@@ -168,8 +162,6 @@ column\_usage.sql
 {{ api.Column.numeric_type('numeric', 12, 4) }}
 ```
 
-Report incorrect code
-
 ## BigQuery columns
 
 The `Column` type is overridden as a `BigQueryColumn` in BigQuery dbt projects. This object works the same as the `Column` type described above, with the exception of extra properties and methods:
@@ -187,15 +179,11 @@ The `Column` type is overridden as a `BigQueryColumn` in BigQuery dbt projects. 
 [{"hits": {"pageviews": 1, "bounces": 0}}]
 ```
 
-Report incorrect code
-
 will be expanded to:
 
 ```text
 [{"hits.pageviews": 1, "hits.bounces": 0}]
 ```
-
-Report incorrect code
 
 ## Result objects
 

@@ -30,8 +30,6 @@ The example query below pulls relevant information about all seeds in a given jo
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `seeds`, the following fields are available:

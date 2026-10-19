@@ -16,8 +16,6 @@ checks:
   - name: ... # declare properties of additional checks
 ```
 
-Report incorrect code
-
 ## Example
 
 checks/\_checks.yml
@@ -39,5 +37,3 @@ checks:
     config:
       severity: warn
 ```
-
-Report incorrect code

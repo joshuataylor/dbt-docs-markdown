@@ -17,8 +17,6 @@ To check whether this change affects your project, run the following [list](../c
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
 ```
 
-Report incorrect code
-
 * If the command returns `No nodes selected!`, no action is required.
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
@@ -76,8 +74,6 @@ models:
     +transient: true | false
 ```
 
-Report incorrect code
-
 ### Properties YAML file
 
 models/properties.yml
@@ -102,8 +98,6 @@ models:
       transient: true | false
 ```
 
-Report incorrect code
-
 ### SQL file config
 
 models/\<model\_name>.sql
@@ -127,8 +121,6 @@ models/\<model\_name>.sql
 
 ) }}
 ```
-
-Report incorrect code
 
 Learn more about these parameters in Snowflake's [docs](https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table):
 
@@ -188,8 +180,6 @@ For example, to let dbt manage refreshes (default behavior):
 select * from {{ source('raw', 'events') }}
 ```
 
-Report incorrect code
-
 To enable Snowflake-managed scheduling with a target lag:
 
 ```sql
@@ -201,8 +191,6 @@ To enable Snowflake-managed scheduling with a target lag:
 
 select * from {{ source('raw', 'events') }}
 ```
-
-Report incorrect code
 
 Learn more about `scheduler` in [Snowflake's docs](https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#optional-parameters).
 
@@ -226,8 +214,6 @@ models/\<model\_name>.sql
 
 select * from {{ source('raw', 'events') }}
 ```
-
-Report incorrect code
 
 **Key points:**
 
@@ -283,8 +269,6 @@ select
 from {{ source('raw', 'events') }}
 ```
 
-Report incorrect code
-
 **Key points:**
 
 * The config supports Jinja rendering (for example, dbt variables and macros), as long as the rendered result is a valid Snowflake SQL condition.
@@ -311,8 +295,6 @@ To configure the `copy_grants` parameter, refer to the following example:
 
 select * from {{ source('raw', 'events') }}
 ```
-
-Report incorrect code
 
 Learn more about `COPY GRANTS` in [Snowflake's docs](https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table).
 
@@ -343,8 +325,6 @@ For example:
 select * from {{ source('raw', 'events') }}
 ```
 
-Report incorrect code
-
 ### Initialization warehouse
 
 Snowflake supports an `INITIALIZATION_WAREHOUSE` parameter that specifies which virtual warehouse to use when initializing or reinitializing a dynamic table.
@@ -363,8 +343,6 @@ To configure the `snowflake_initialization_warehouse` parameter, refer to the fo
 
 select * from {{ source('raw', 'events') }}
 ```
-
-Report incorrect code
 
 **Key points:**
 
@@ -394,8 +372,6 @@ If your dynamic table model fails to rerun with the following error message afte
 ```sql
 SnowflakeDynamicTableConfig.__init__() missing 6 required positional arguments: 'name', 'schema_name', 'database_name', 'query', 'target_lag', and 'snowflake_warehouse'
 ```
-
-Report incorrect code
 
 Ensure that `QUOTED_IDENTIFIERS_IGNORE_CASE` on your account is set to `FALSE`.
 
@@ -440,8 +416,6 @@ models:
     +snowflake_initialization_warehouse: <warehouse-name>
 ```
 
-Report incorrect code
-
 ### Properties YAML file
 
 models/properties.yml
@@ -459,8 +433,6 @@ models:
       refresh_warehouse: <warehouse-name>
       snowflake_initialization_warehouse: <warehouse-name>
 ```
-
-Report incorrect code
 
 ### SQL file config
 
@@ -480,8 +452,6 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-Report incorrect code
-
 Learn more about these parameters in Snowflake's [docs](https://docs.snowflake.com/en/sql-reference/sql/create-interactive-table). The warehouse parameters above refer to ordinary virtual warehouses that run DDL and refreshes. They do not attach the table to an [interactive warehouse](https://docs.snowflake.com/en/user-guide/interactive) — refer to [Limitations of interactive tables](#limitations-of-interactive-tables).
 
 ### Cluster by (interactive tables)
@@ -496,8 +466,6 @@ Unlike dynamic tables, where [`cluster_by`](#dynamic-table-clustering) is option
 
 select * from {{ ref('stg_orders') }}
 ```
-
-Report incorrect code
 
 **Key points:**
 
@@ -520,8 +488,6 @@ Set `target_lag` to make the table dynamic (auto-refreshing). Snowflake also req
 
 select * from {{ ref('stg_orders') }}
 ```
-
-Report incorrect code
 
 **Key points:**
 
@@ -546,8 +512,6 @@ Use `refresh_warehouse` to run a dynamic interactive table's automatic refreshes
 select * from {{ ref('stg_orders') }}
 ```
 
-Report incorrect code
-
 **Key points:**
 
 * On a dynamic interactive table, if `refresh_warehouse` is not set, `snowflake_warehouse` is used for both DDL execution and self-refresh operations.
@@ -571,8 +535,6 @@ Use `snowflake_initialization_warehouse` to specify which virtual warehouse Snow
 
 select * from {{ ref('stg_orders') }}
 ```
-
-Report incorrect code
 
 **Key points:**
 
@@ -627,8 +589,6 @@ To recover, run the interactive table with `--full-refresh`. To prevent it, add 
 ) }}
 ```
 
-Report incorrect code
-
 Note that a `change_tracking` model config is *not* a substitute here, since that config does not reach the SQL for plain tables. Plain dynamic tables have the same exposure.
 
 If your interactive table model fails to rerun after the initial execution with an error about missing positional arguments, ensure that `QUOTED_IDENTIFIERS_IGNORE_CASE` on your account is set to `FALSE`.
@@ -656,15 +616,11 @@ packages:
     version: 1.0.3
 ```
 
-Report incorrect code
-
 Run `dbt deps` to install package dependencies:
 
 ```shell
 dbt deps
 ```
-
-Report incorrect code
 
 Verify the package was installed by confirming `dbt_semantic_view` is present in your `dbt_packages/` directory.
 
@@ -740,8 +696,6 @@ metrics (
 )
 ```
 
-Report incorrect code
-
 When you run dbt, this model compiles to a Snowflake `CREATE SEMANTIC VIEW` statement.
 
 #### Reference Semantic Views in other dbt models
@@ -759,8 +713,6 @@ select * from semantic_view(
 )
 ```
 
-Report incorrect code
-
 ```sql
 {{ config(materialized='table') }}
 
@@ -771,8 +723,6 @@ select * from semantic_view(
   WHERE ...
 )
 ```
-
-Report incorrect code
 
 ## Temporary tables
 
@@ -803,8 +753,6 @@ models:
   
 ```
 
-Report incorrect code
-
 In the configuration format for the model SQL file:
 
 dbt\_model.sql
@@ -816,8 +764,6 @@ dbt\_model.sql
     -- If not defined, view is the default.
 ) }}
 ```
-
-Report incorrect code
 
 Concurrent run conflicts with `transient`
 
@@ -837,8 +783,6 @@ macros/snowflake\_incremental.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 This macro receives the default tmp relation object and returns a modified version. Common overrides include appending a developer username, a CI job ID, or a target name to the schema to ensure isolation across concurrent runs.
 
 To append a target name to the schema:
@@ -851,8 +795,6 @@ macros/snowflake\_incremental.sql
   {{ return(tmp_relation.incorporate(schema=scratch_schema)) }}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 ## Transient tables
 
@@ -875,8 +817,6 @@ models:
     ...
 ```
 
-Report incorrect code
-
 ### Configuring transience for a specific model
 
 A specific model can be configured to be transient by setting the `transient` model config to `true`.
@@ -888,8 +828,6 @@ my\_table.sql
 
 select * from ...
 ```
-
-Report incorrect code
 
 ## Query tags
 
@@ -905,8 +843,6 @@ models:
     +query_tag: dbt_special
 ```
 
-Report incorrect code
-
 models/\<modelname>.sql
 
 ```sql
@@ -916,8 +852,6 @@ models/\<modelname>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 In this example, you can set up a query tag to be applied to every query with the model's name.
 
@@ -934,8 +868,6 @@ In this example, you can set up a query tag to be applied to every query with th
   {{ return(none)}}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 **Note:** query tags are set at the *session* level. At the start of each model materialization, if the model has a custom `query_tag` configured, dbt will run `alter session set query_tag` to set the new value. At the end of the materialization, dbt will run another `alter` statement to reset the tag to its default value. As such, build failures midway through a materialization may result in subsequent queries running with an incorrect tag.
 
@@ -971,8 +903,6 @@ select id, value, event_date
 from {{ ref('my_source') }}
 ```
 
-Report incorrect code
-
 * If you set `overwrite_columns`, dbt generates SQL that explicitly lists the columns in both the `INSERT` target and the `SELECT` projection:
 
   ```sql
@@ -981,8 +911,6 @@ Report incorrect code
   from staging_table
   ```
 
-  Report incorrect code
-
 * If you don't set `overwrite_columns`, dbt currently defaults to `SELECT *`:
 
   ```sql
@@ -990,8 +918,6 @@ Report incorrect code
   select *
   from staging_table
   ```
-
-  Report incorrect code
 
 ## Configuring table clustering
 
@@ -1026,8 +952,6 @@ from {{ source('snowplow', 'event') }}
 group by 1
 ```
 
-Report incorrect code
-
 The code above will be compiled to SQL that looks (approximately) like this:
 
 ```sql
@@ -1053,8 +977,6 @@ create or replace table my_database.my_schema.my_table as (
  alter table my_database.my_schema.my_table cluster by (session_start);
 ```
 
-Report incorrect code
-
 ### Dynamic table clustering
 
 Starting in dbt v1.11, dynamic tables support the `cluster_by` configuration. When set, dbt includes the clustering specification in the `CREATE DYNAMIC TABLE` statement.
@@ -1079,8 +1001,6 @@ from {{ source('snowplow', 'event') }}
 group by 1, 2
 ```
 
-Report incorrect code
-
 This config generates the following SQL when compiled:
 
 ```sql
@@ -1100,8 +1020,6 @@ as (
 );
 ```
 
-Report incorrect code
-
 You can specify clustering for dynamic tables when you create them using `CLUSTER BY` in the `CREATE DYNAMIC TABLE` statement. You don’t need to run a separate `ALTER TABLE` statement.
 
 ### Automatic clustering
@@ -1118,8 +1036,6 @@ dbt\_project.yml
 models:
   +automatic_clustering: true
 ```
-
-Report incorrect code
 
 ## Python model configuration
 
@@ -1138,8 +1054,6 @@ def model(dbt, session):
         python_version="3.11"
     )
 ```
-
-Report incorrect code
 
 You can use the `python_version` config to run a Snowpark model with [Python versions](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup) 3.9, 3.10, or 3.11.
 
@@ -1162,8 +1076,6 @@ def model(dbt, session: snowpark.Session):
         )
     )
 ```
-
-Report incorrect code
 
 **Docs:** ["Developer Guide: Snowpark Python"](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html)
 
@@ -1197,8 +1109,6 @@ def model(dbt, session):
     return df
 ```
 
-Report incorrect code
-
 For more information on using this configuration, refer to [Snowflake's documentation](https://community.snowflake.com/s/article/how-to-use-other-python-packages-in-snowpark) on uploading and using other python packages in Snowpark not published on Snowflake's Anaconda channel.
 
 ## Configuring virtual warehouses
@@ -1230,8 +1140,6 @@ data_tests:
   +snowflake_warehouse: "EXTRA_SMALL"    # all data tests are configured to use the `EXTRA_SMALL` warehouse.
 ```
 
-Report incorrect code
-
 ### Property file
 
 The following example overrides the Snowflake warehouse for a single model and a specific test using a config argument in the property file.
@@ -1250,8 +1158,6 @@ models:
               config:
                 snowflake_warehouse: "EXTRA_SMALL"    # use a smaller warehouse for this test
 ```
-
-Report incorrect code
 
 ### SQL file config
 
@@ -1297,8 +1203,6 @@ index_sessions as (
 select * from index_sessions
 ```
 
-Report incorrect code
-
 ## Copying grants
 
 When the `copy_grants` config is set to `true`, dbt will add the `copy grants` DDL qualifier when rebuilding tables, views, and [dynamic tables](#copy-grants-dynamic-tables) (`dbt-snowflake` v1.11 and later). The default value is `false`.
@@ -1309,8 +1213,6 @@ dbt\_project.yml
 models:
   +copy_grants: true
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.10 and later)
 
@@ -1328,8 +1230,6 @@ models/\<modelname>.sql
 select ...
 ```
 
-Report incorrect code
-
 ## Configuring table tags
 
 To add tags to tables, views, and dynamic tables, use the `table_tag` config. Note, the tag must already exist in Snowflake before you apply it.
@@ -1343,8 +1243,6 @@ models/\<modelname>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Secure views
 
@@ -1364,8 +1262,6 @@ models:
       +materialized: view
       +secure: true
 ```
-
-Report incorrect code
 
 ## Source freshness known limitation
 
@@ -1398,5 +1294,3 @@ flags:
   list_relations_per_page: 10000
   list_relations_page_limit: 100
 ```
-
-Report incorrect code

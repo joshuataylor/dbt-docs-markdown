@@ -76,8 +76,6 @@ context:
   defer-env-id: '123456'
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -85,5 +83,3 @@ dbt-cloud:
   project-id: '654321'
   defer-env-id: '123456'
 ```
-
-Report incorrect code

@@ -21,8 +21,6 @@ snapshots:
       invalidate_hard_deletes: true | false
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -31,8 +29,6 @@ snapshots:
     +strategy: timestamp
     +invalidate_hard_deletes: true
 ```
-
-Report incorrect code
 
 ## Description
 
@@ -60,5 +56,3 @@ snapshots:
       updated_at: updated_at
       invalidate_hard_deletes: true
 ```
-
-Report incorrect code

@@ -23,5 +23,3 @@ sources:
         config:
           freshness: null # do not check freshness for this table
 ```
-
-Report incorrect code

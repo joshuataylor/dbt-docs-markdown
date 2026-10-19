@@ -94,8 +94,6 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-Report incorrect code
-
 **Default project**
 
 If you do not specify a `project`/`database` and are using the `oauth` method, dbt will use the default `project` associated with your user, as defined by `gcloud config set`.
@@ -127,8 +125,6 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-Report incorrect code
-
 #### Temporary token
 
 dbt will use the one-time access token, no questions asked. This approach makes sense if you have an external deployment process that can mint new access tokens and update the profile file accordingly.
@@ -149,8 +145,6 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-Report incorrect code
-
 ### Service Account File
 
 \~/.dbt/profiles.yml
@@ -168,8 +162,6 @@ my-bigquery-db:
       keyfile: /PATH/TO/BIGQUERY/keyfile.json
       OPTIONAL_CONFIG: VALUE
 ```
-
-Report incorrect code
 
 ### Service Account JSON
 
@@ -205,8 +197,6 @@ my-bigquery-db:
         client_x509_cert_url: xxx
 ```
 
-Report incorrect code
-
 ## Optional configurations
 
 ### Priority
@@ -224,8 +214,6 @@ my-profile:
       dataset: my_dataset
       priority: interactive
 ```
-
-Report incorrect code
 
 ### Timeouts and Retries
 
@@ -260,15 +248,11 @@ my-profile:
       job_execution_timeout_seconds: 600 # 10 minutes
 ```
 
-Report incorrect code
-
 No timeout is set by default. For historical reasons, some query types use a default of 300 seconds when the `job_execution_timeout_seconds` configuration is not set. When you do set the `job_execution_timeout_seconds`, if any dbt query takes more than the configured number of seconds to finish, the `dbt-bigquery` adapter will run into an exception:
 
 ```text
  Operation did not complete within the designated timeout.
 ```
-
-Report incorrect code
 
 Note
 
@@ -317,8 +301,6 @@ my-profile:
       job_retry_deadline_seconds: 1200
 ```
 
-Report incorrect code
-
 ### Dataset locations
 
 The location of BigQuery datasets can be configured using the `location` configuration in a BigQuery profile. `location` may be either a multi-regional location (for example, `EU`, `US`), or a regional location (for example, `us-west2` ) as per [the BigQuery documentation](https://cloud.google.com/bigquery/docs/locations) describes. Example:
@@ -334,8 +316,6 @@ my-profile:
       dataset: my_dataset
       location: US # Optional, one of US or EU, or a regional location
 ```
-
-Report incorrect code
 
 ### Maximum Bytes Billed
 
@@ -355,8 +335,6 @@ my-profile:
       maximum_bytes_billed: 1000000000
 ```
 
-Report incorrect code
-
 **Example output**
 
 ```text
@@ -364,8 +342,6 @@ Database Error in model debug_table (models/debug_table.sql)
   Query exceeded limit for bytes billed: 1000000000. 2000000000 or higher required.
   compiled SQL at target/run/bq_project/models/debug_table.sql
 ```
-
-Report incorrect code
 
 ### OAuth 2.0 Scopes for Google APIs
 
@@ -384,8 +360,6 @@ my-profile:
         - https://www.googleapis.com/auth/bigquery
 ```
 
-Report incorrect code
-
 ### Service Account Impersonation
 
 This feature allows users authenticating via local OAuth to access BigQuery resources based on the permissions of a service account.
@@ -401,8 +375,6 @@ my-profile:
       dataset: my_dataset
       impersonate_service_account: dbt-runner@yourproject.iam.gserviceaccount.com
 ```
-
-Report incorrect code
 
 For a general overview of this process, see the official docs for [Creating Short-lived Service Account Credentials](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials).
 
@@ -439,8 +411,6 @@ my-profile:
       execution_project: buck-stops-here-456
 ```
 
-Report incorrect code
-
 ### Quota project
 
 By default, dbt will use the `quota_project_id` set within the credentials of the account you are using to authenticate to BigQuery.
@@ -463,8 +433,6 @@ my-profile:
       quota_project: my-bq-quota-project
 ```
 
-Report incorrect code
-
 ### Running Python models on BigQuery DataFrames
 
 To run dbt Python models on GCP, dbt uses BigQuery DataFrames running directly with BigQuery compute, leveraging the scale and performance of BigQuery.
@@ -486,8 +454,6 @@ my-profile:
       threads: 1
       type: bigquery
 ```
-
-Report incorrect code
 
 ### Running Python models on Dataproc
 
@@ -525,8 +491,6 @@ my-profile:
       dataproc_region: us-central1
 ```
 
-Report incorrect code
-
 #### Dataproc Serverless
 
 Dataproc Serverless is the default `submission_method`. It requires no cluster management and supports optional batch configuration:
@@ -560,8 +524,6 @@ my-profile:
             spark.driver.memory: 1g
 ```
 
-Report incorrect code
-
 For a full list of possible configuration fields that can be passed in `dataproc_batch`, refer to the [Dataproc Serverless Batch](https://cloud.google.com/dataproc-serverless/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.Batch) documentation.
 
 #### BigFrames
@@ -584,8 +546,6 @@ my-profile:
       dataproc_region: us-central1
 ```
 
-Report incorrect code
-
 ### Reservation
 
 If your organization has set up BigQuery Reservations, you may specify `reservation` for dbt to use for query execution.
@@ -604,8 +564,6 @@ my-profile:
       reservation: projects/abc-admin/locations/US/reservations/my-reservation
 ```
 
-Report incorrect code
-
 ## Local OAuth gcloud setup
 
 To connect to BigQuery using the `oauth` method, follow these steps:
@@ -620,8 +578,6 @@ https://www.googleapis.com/auth/drive.readonly,\
 https://www.googleapis.com/auth/iam.test,\
 https://www.googleapis.com/auth/cloud-platform
 ```
-
-Report incorrect code
 
 A browser window should open, and you should be prompted to log into your Google account. Once you've done that, dbt will use your OAuth'd credentials to connect to BigQuery!
 

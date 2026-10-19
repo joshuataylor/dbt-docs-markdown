@@ -43,15 +43,11 @@ The default value of `ORA_PYTHON_DRIVER_TYPE` is `thin`
 export ORA_PYTHON_DRIVER_TYPE=thin # default
 ```
 
-Report incorrect code
-
 #### Thick
 
 ```bash
 export ORA_PYTHON_DRIVER_TYPE=thick
 ```
-
-Report incorrect code
 
 ### Install Oracle Instant Client libraries
 
@@ -75,15 +71,11 @@ cd /opt/oracle
 unzip instantclient-basic-linux.x64-21.6.0.0.0.zip
 ```
 
-Report incorrect code
-
 3. Install the libaio package with sudo or as the root user. For example:
 
 ```bash
 sudo yum install libaio
 ```
-
-Report incorrect code
 
 On some Linux distributions this package is called `libaio1` instead.
 
@@ -94,23 +86,17 @@ sudo sh -c "echo /opt/oracle/instantclient_21_6 > /etc/ld.so.conf.d/oracle-insta
 sudo ldconfig
 ```
 
-Report incorrect code
-
 Alternatively, set the environment variable `LD_LIBRARY_PATH`
 
 ```bash
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
 ```
 
-Report incorrect code
-
 5. If you use optional Oracle configuration files such as tnsnames.ora, sqlnet.ora, or oraaccess.xml with Instant Client, then put the files in an accessible directory and set the environment variable TNS\_ADMIN to that directory name.
 
 ```bash
 export TNS_ADMIN=/opt/oracle/your_config_dir
 ```
-
-Report incorrect code
 
 #### Windows
 
@@ -135,8 +121,6 @@ Note that Oracle Client versions 21c and 19c are not supported on Windows 7.
    ```bash
    SET PATH=C:\oracle\instantclient_19_9;%PATH%
    ```
-
-   Report incorrect code
 
 #### MacOS
 
@@ -186,8 +170,6 @@ export WALLET_PASSWORD=***
 export TNS_ADMIN=/path/to/directory_containing_tnsnames.ora
 ```
 
-Report incorrect code
-
 Optionally, if `ewallet.pem` file is encrypted using a wallet password, specify the password using environment variable **WALLET\_PASSWORD**
 
 ##### Thick
@@ -204,8 +186,6 @@ After unzipping the files in a secure directory, set the **TNS\_ADMIN** environm
 export TNS_ADMIN=/path/to/directory_containing_tnsnames.ora
 ```
 
-Report incorrect code
-
 Next, edit the `sqlnet.ora` file to point to the wallet directory.
 
 sqlnet.ora
@@ -214,8 +194,6 @@ sqlnet.ora
 WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="/path/to/wallet/directory")))
 SSL_SERVER_DN_MATCH=yes
 ```
-
-Report incorrect code
 
 ## Connecting to Oracle Database
 
@@ -228,15 +206,11 @@ export DBT_ORACLE_SCHEMA=<username>
 export DBT_ORACLE_DATABASE=example_db2022adb
 ```
 
-Report incorrect code
-
 Use the following query to retrieve the database name:
 
 ```sql
 SELECT SYS_CONTEXT('userenv', 'DB_NAME') FROM DUAL
 ```
-
-Report incorrect code
 
 An Oracle connection profile for dbt can be set using any one of the following methods
 
@@ -257,15 +231,11 @@ db2022adb_high = (description =
                  OU=Oracle BMCS US,O=Oracle Corporation,L=Redwood City,ST=California,C=US")))
 ```
 
-Report incorrect code
-
 The TNS alias `db2022adb_high` can be defined as an environment variable and referred to in `profiles.yml`
 
 ```bash
 export DBT_ORACLE_TNS_NAME=db2022adb_high
 ```
-
-Report incorrect code
 
 \~/.dbt/profiles.yml
 
@@ -283,8 +253,6 @@ dbt_test:
          threads: 4
 ```
 
-Report incorrect code
-
 ### Using Connect string
 
 The connection string identifies which database service to connect to. It can be one of the following
@@ -299,8 +267,6 @@ export DBT_ORACLE_CONNECT_STRING="(description=(retry_count=20)(retry_delay=3)(a
                                   (security=(ssl_server_cert_dn=\"CN=adb.example.oraclecloud.com,
                                   OU=Oracle BMCS US,O=Oracle Corporation,L=Redwood City,ST=California,C=US\")))"
 ```
-
-Report incorrect code
 
 \~/.dbt/profiles.yml
 
@@ -319,8 +285,6 @@ dbt_test:
          connection_string: "{{ env_var('DBT_ORACLE_CONNECT_STRING') }}"
 ```
 
-Report incorrect code
-
 ### Using Database hostname
 
 To connect using the database hostname or IP address, you need to specify the following
@@ -334,8 +298,6 @@ To connect using the database hostname or IP address, you need to specify the fo
 export DBT_ORACLE_HOST=adb.example.oraclecloud.com
 export DBT_ORACLE_SERVICE=example_high.adb.oraclecloud.com
 ```
-
-Report incorrect code
 
 \~/.dbt/profiles.yml
 
@@ -360,8 +322,6 @@ dbt_test:
          threads: 4
 ```
 
-Report incorrect code
-
 Note
 
 Starting with `dbt-oracle==1.0.2`, it is **optional** to set the `database` name in `profiles.yml`
@@ -383,8 +343,6 @@ quoting:
   schema: false
 ```
 
-Report incorrect code
-
 This is recommended and works for most cases.
 
 ### Approximate relation match error
@@ -397,8 +355,6 @@ Compilation Error in model <model>
 19:09:40    which relation to use, dbt will move on. Please delete <model>, or rename it to be less ambiguous.
   Searched for: <model>
 ```
-
-Report incorrect code
 
 This is reported in multiple channels:
 
@@ -420,8 +376,6 @@ dbt\_project.yaml
 quoting:
   database: true
 ```
-
-Report incorrect code
 
 ## Python models using Oracle Autonomous Database (ADB-S)
 
@@ -452,8 +406,6 @@ OML Cloud Service URL is of the following format:
 https://tenant1-dbt.adb.us-sanjose-1.oraclecloudapps.com
 ```
 
-Report incorrect code
-
 In this example:
 
 * `tenant1` is the tenancy ID
@@ -478,8 +430,6 @@ dbt_test:
          schema: "{{ env_var('DBT_ORACLE_SCHEMA') }}"
          oml_cloud_service_url: "https://tenant1-dbt.adb.us-sanjose-1.oraclecloudapps.com"
 ```
-
-Report incorrect code
 
 ### Python model configurations
 
@@ -512,8 +462,6 @@ def model(dbt, session):
     return s_df
 ```
 
-Report incorrect code
-
 #### Refer a source
 
 Use `dbt.source(source_schema, table_name)`
@@ -526,8 +474,6 @@ def model(dbt, session):
     s_df = dbt.source("sh_database", "channels")
     return s_df
 ```
-
-Report incorrect code
 
 #### Incremental materialization
 
@@ -547,8 +493,6 @@ def model(dbt, session):
 
     return sales_cost_df
 ```
-
-Report incorrect code
 
 #### Concatenate a new column in Dataframe
 
@@ -586,8 +530,6 @@ def model(dbt, session):
     return us_potential_customers
 ```
 
-Report incorrect code
-
 ### Use Custom Conda environment
 
 1. As ADMIN user, create a conda environment using [OML4PY Conda Notebook](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/administrative-task-create-and-conda-environments.html):
@@ -596,15 +538,11 @@ Report incorrect code
 conda create -n dbt_py_env -c conda-forge --override-channels --strict-channel-priority python=3.12.1 nltk gensim
 ```
 
-Report incorrect code
-
 2. Save this environment using the following command from the OML4PY Conda Notebook:
 
 ```bash
 conda upload --overwrite dbt_py_env -t application OML4PY
 ```
-
-Report incorrect code
 
 3. Use the environment in dbt Python models:
 
@@ -622,8 +560,6 @@ def model(dbt, session):
     promotion_cost = dbt.ref("direct_sales_channel_promo_cost")
     return promotion_cost
 ```
-
-Report incorrect code
 
 ## Supported features
 

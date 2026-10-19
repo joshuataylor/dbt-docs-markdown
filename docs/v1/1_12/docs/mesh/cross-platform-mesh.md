@@ -32,8 +32,6 @@ models:
       catalog_name: finance_db
 ```
 
-Report incorrect code
-
 ```yaml
 # jaffle_finance/catalogs.yml
 catalogs:
@@ -45,15 +43,11 @@ catalogs:
         catalog_database: finance_db
 ```
 
-Report incorrect code
-
 ```yaml
 # jaffle_marketing/dbt_project.yml
 flags:
   use_catalogs_v2: true
 ```
-
-Report incorrect code
 
 ```yaml
 # jaffle_marketing/catalogs.yml
@@ -66,8 +60,6 @@ catalogs:
         # where jaffle_marketing project will read jaffle_finance public models from
         catalog_database: snowflake_cld__finance_db
 ```
-
-Report incorrect code
 
 note
 
@@ -90,8 +82,6 @@ with monthly_revenue as (
 ...
 ```
 
-Report incorrect code
-
 ![Flow chart: The marketing project's ROI by channel model depends on the finance project's monthly revenue model](https://github.com/user-attachments/assets/e0a07911-b9d5-4422-9a81-6287e1946ca2)
 
 This works for [both ways of resolving cross-project references](./govern/project-dependencies.md):
@@ -107,8 +97,6 @@ packages:
   - git: https://github.com/dbt-labs/jaffle-shop-mesh-finance
 ```
 
-Report incorrect code
-
 The upstream package model `jaffle_finance.monthly_revenue` is configured with `catalog_name: finance_db`. dbt uses the currently running (root) project's `catalogs.yml` to resolve its three-part relation name. In this project (`jaffle_marketing`) + this platform (Snowflake), that catalog is configured with `database: snowflake_cld__finance_db`. Therefore, dbt resolves the reference to:
 
 **For `project` dependencies:**
@@ -118,8 +106,6 @@ The upstream package model `jaffle_finance.monthly_revenue` is configured with `
 projects:
   - name: jaffle_finance
 ```
-
-Report incorrect code
 
 Previously, if we only used the upstream model's `database` config, then dbt would resolve this to `finance_db.jaffle_finance.monthly_revenue` — which doesn't exist in Snowflake.
 
@@ -136,8 +122,6 @@ with monthly_revenue as (
 
 ...
 ```
-
-Report incorrect code
 
 *And it just works!*
 
@@ -176,5 +160,3 @@ catalogs:
          # where jaffle_finance will read jaffle_marketing's public models
         catalog_database: dbx_federation__horizon_db
 ```
-
-Report incorrect code

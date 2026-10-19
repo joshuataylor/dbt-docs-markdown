@@ -38,8 +38,6 @@ models:
           description: Same as always # Optional, defaults to the column description if not otherwise specified
 ```
 
-Report incorrect code
-
 Refer to the following example to see how dimensions are used in a semantic model:
 
 (Applies to dbt v1.12 and later)
@@ -76,8 +74,6 @@ models:
           name: type
 ```
 
-Report incorrect code
-
 ## `derived_semantics` in `dimensions`
 
 Use the `derived_semantics` key in the model YAML entry when you need to derive a dimension definition that is not a direct 1:1 mapping to a single physical column. The `expr` field is required when using `derived_semantics`.
@@ -94,8 +90,6 @@ models:
           type: categorical
           expr: "case when quantity > 10 then true else false end" # Required
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.12 and later)
 
@@ -130,8 +124,6 @@ models:
         agg: sum
 ```
 
-Report incorrect code
-
 If your table doesn't have a physical primary key column, you can still declare a primary entity. Set the model’s grain by declaring a `primary_entity`. The new YAML spec supports this and treats the model as being at that entity’s grain.
 
 ```yaml
@@ -144,8 +136,6 @@ models:
       - name: customer_id
         entity: foreign
 ```
-
-Report incorrect code
 
 ## Dimensions types
 
@@ -189,8 +179,6 @@ models:
               usage: "Group transactions by their type, like refund or purchase."
 ```
 
-Report incorrect code
-
 To calculate a categorical dimension from a SQL expression instead of a single column, define it under [`derived_semantics`](#derived_semantics-in-dimensions) and use `expr`. For example, `is_bulk_transaction` applies a case statement to the underlying `quantity` column so users can group or filter by bulk transactions:
 
 ```yaml
@@ -205,8 +193,6 @@ models:
           type: categorical
           expr: "case when quantity > 10 then true else false end"
 ```
-
-Report incorrect code
 
 ## Time
 
@@ -228,8 +214,6 @@ dbt sl query --metrics users_created,users_deleted --group-by metric_time__year 
 # dbt v1 users
 mf query --metrics users_created,users_deleted --group-by metric_time__year --order-by metric_time__year
 ```
-
-Report incorrect code
 
 You can set `is_partition` for time to define specific time spans.
 
@@ -279,8 +263,6 @@ models:
         agg: sum
         expr: 1
 ```
-
-Report incorrect code
 
 ### time\_granularity
 
@@ -342,8 +324,6 @@ models:
         expr: 1
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.12 and later)
 
 To create a time dimension from a SQL expression instead of a single column, define it under [`derived_semantics`](#derived_semantics-in-dimensions) and add `expr` and `granularity`. For example, `order_month` truncates `ts_created` to the month:
@@ -361,8 +341,6 @@ models:
           granularity: month
           expr: "date_trunc('month', ts_created)"
 ```
-
-Report incorrect code
 
 ### SCD Type II
 
@@ -432,8 +410,6 @@ models:
             is_end: true # Indicates the end of the validity period
 ```
 
-Report incorrect code
-
 SCD Type II tables have a specific dimension with a start and end date. To join tables:
 
 * Set the additional [entity `type`](./entities.md#entity-types) parameter to the `natural` key.
@@ -462,8 +438,6 @@ on
   and (a.metric_time < b. valid_to or b.valid_to is null)
 group by 1, 2
 ```
-
-Report incorrect code
 
 #### SCD examples
 
@@ -531,8 +505,6 @@ models:
           name: sales_person
 ```
 
-Report incorrect code
-
 The following code represents a separate semantic model that holds a fact table for `transactions`:
 
 (Applies to dbt v1.12 and later)
@@ -596,8 +568,6 @@ models:
         expr: sales_person_id
 ```
 
-Report incorrect code
-
 You can now access the metrics in the `transactions` semantic model organized by the slowly changing dimension of `tier`.
 
 In the sales tier example, For instance, if a salesperson was Tier 1 from 2022-03-01 to 2022-03-12, and gets promoted to Tier 2 from 2022-03-12 onwards, all transactions from March would be categorized under Tier 1 since the dimensions value of Tier 1 comes earlier (and is the default starting point), even though the salesperson was promoted to Tier 2 on 2022-03-12.
@@ -625,5 +595,3 @@ dbt sl query --metrics transactions --group-by metric_time__month,sales_person__
 # dbt v1 users
 mf query --metrics transactions --group-by metric_time__month,sales_person__tier --order-by metric_time__month,sales_person__tier
 ```
-
-Report incorrect code

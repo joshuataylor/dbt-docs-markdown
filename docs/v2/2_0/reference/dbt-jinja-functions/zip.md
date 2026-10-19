@@ -16,16 +16,12 @@ You can use the `zip` context method to return an iterator of tuples, where the 
 {% do log(my_zip) %}  {# [(1, 'alice'), (2, 'bob')] #}
 ```
 
-Report incorrect code
-
 ```text
 {% set my_list_a = 12 %}
 {% set my_list_b = ['alice', 'bob'] %}
 {% set my_zip = zip(my_list_a, my_list_b, default = []) | list %}
 {% do log(my_zip) %}  {# [] #}
 ```
-
-Report incorrect code
 
 ### zip\_strict
 
@@ -42,8 +38,6 @@ You can use the `zip_strict` context to return an iterator of tuples, just like 
 {% do log(my_zip) %}  {# [(1, 'alice'), (2, 'bob')] #}
 ```
 
-Report incorrect code
-
 ```text
 {% set my_list_a = 12 %}
 {% set my_list_b = ['alice', 'bob'] %}
@@ -52,5 +46,3 @@ Report incorrect code
 Compilation Error in ... (...)
   'int' object is not iterable
 ```
-
-Report incorrect code

@@ -17,7 +17,7 @@ AI features are enabled by default. Admins can [turn them off or back on anytime
 
 ## dbt Wizard in Studio IDE [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Use [dbt Wizard](../../dbt-ai/wizard-ide.md) for autonomous model generation, refactoring, and multi-step workflows in the Studio IDE. It's grounded in dbt's native metadata engine — a structured index of your project's lineage, tests, model health, and semantic definitions — so it knows your data, not just your code.
+Use [dbt Wizard](../../dbt-ai/wizard-ide.md) for autonomous model generation, refactoring, and multi-step workflows in the Studio IDE. It's grounded in the [dbt Information Schema](../../build/dbt-information-schema.md) — a structured view of your project's lineage, tests, model health, and semantic definitions — so it knows your data, not just your code.
 
 dbt Wizard is accessible from the sidebar panel or in the Console section of the Studio IDE.
 
@@ -111,8 +111,6 @@ To validate or run models during a session, the agent may request to run dbt com
 dbt compile --select model_name
 ```
 
-Report incorrect code
-
 You can select one of the following options:
 
 | Option                                                | Behavior                                                                                         |
@@ -168,8 +166,6 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
    ```text
    I need help fixing dbt v2 compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
    ```
-
-   Report incorrect code
 
 5. Review and approve dbt Wizard's permission requests so it can run the commands it needs.
 

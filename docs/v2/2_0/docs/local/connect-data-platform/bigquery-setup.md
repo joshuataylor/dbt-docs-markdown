@@ -130,8 +130,6 @@ default:
       dataproc_batch: null
 ```
 
-Report incorrect code
-
 ### gcloud OAuth
 
 Prior to selecting this authentication method, you must first configure local OAuth for gcloud:
@@ -150,8 +148,6 @@ https://www.googleapis.com/auth/cloud-platform
 
 # This command uses the `--scopes` flag to request access to Google Sheets. This makes it possible to transform data in Google Sheets using dbt. If your dbt project does not transform data in Google Sheets, then you may omit the `--scopes` flag.
 ```
-
-Report incorrect code
 
 A browser window should open, and you should be prompted to log into your Google account. Once you've done that, dbt will use your OAuth'd credentials to connect to BigQuery.
 
@@ -172,8 +168,6 @@ default:
       location: us-east1
       dataproc_batch: null
 ```
-
-Report incorrect code
 
 ### Workload Identity Federation (Microsoft Entra)
 
@@ -222,8 +216,6 @@ default:
       # Optional: include only if your workload identity pool doesn't have direct resource access and needs to impersonate a service account.
       # service_account_impersonation_url: https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/sa@project.iam.gserviceaccount.com:generateAccessToken
 ```
-
-Report incorrect code
 
 ## More information
 

@@ -12,8 +12,6 @@ dbt v1 has no equivalent.
 dbt system <subcommand> [flags]
 ```
 
-Report incorrect code
-
 ## Subcommands
 
 | Subcommand                   | Description                                       |
@@ -29,8 +27,6 @@ Report incorrect code
 ```shell
 dbt system update [flags]
 ```
-
-Report incorrect code
 
 ### Options
 
@@ -55,23 +51,17 @@ Update to the latest stable release:
 dbt system update
 ```
 
-Report incorrect code
-
 Update to a specific version:
 
 ```shell
 dbt system update --version 2.0.1
 ```
 
-Report incorrect code
-
 Update to the canary channel:
 
 ```shell
 dbt system update --version canary
 ```
-
-Report incorrect code
 
 ## dbt system uninstall
 
@@ -80,8 +70,6 @@ Report incorrect code
 ```shell
 dbt system uninstall
 ```
-
-Report incorrect code
 
 This command takes no additional flags.
 
@@ -92,8 +80,6 @@ This command takes no additional flags.
 ```shell
 dbt system install-drivers
 ```
-
-Report incorrect code
 
 This command takes no additional flags.
 

@@ -60,8 +60,6 @@ unit_tests:
   - name: <test-name> ... # declare additional unit tests
 ```
 
-Report incorrect code
-
 ## Examples
 
 models/schema.yml
@@ -90,8 +88,6 @@ unit_tests:
         - {email: missingdot@gmailcom, is_valid_email_address: false}
 ```
 
-Report incorrect code
-
 models/schema.yml
 
 ```yaml
@@ -117,8 +113,6 @@ unit_tests:
       fixture: valid_email_address_fixture_output
 ```
 
-Report incorrect code
-
 models/schema.yml
 
 ```yaml
@@ -142,5 +136,3 @@ unit_tests:
       format: sql
       fixture: valid_email_address_fixture_output
 ```
-
-Report incorrect code

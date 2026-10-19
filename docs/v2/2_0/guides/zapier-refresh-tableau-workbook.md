@@ -69,8 +69,6 @@ store.set('TABLEAU_API_TOKEN_NAME', 'abc123') #replace with your Tableau API Tok
 store.set('TABLEAU_API_TOKEN_SECRET', 'abc123') #replace with your Tableau API Secret
 ```
 
-Report incorrect code
-
 Test the step to run the code. You can delete this action when the test succeeds. The keys will remain stored as long as it is accessed at least once every three months.
 
 ## Add a code action
@@ -166,8 +164,6 @@ refresh_headers = {
 refresh_trigger = requests.post(refresh_url, data=json.dumps(refresh_data), headers=refresh_headers)
 return {"message": "Workbook refresh has been queued"}
 ```
-
-Report incorrect code
 
 ## Test and deploy
 

@@ -22,8 +22,6 @@ dbt run --select [...] --defer --state path/to/artifacts
 dbt test --select [...] --defer --state path/to/artifacts
 ```
 
-Report incorrect code
-
 By default, dbt uses the [`target`](../dbt-jinja-functions/target.md) namespace to resolve `ref` calls.
 
 When `--defer` is enabled, dbt resolves `ref`(Applies to dbt v1.11 and later) and `function` calls using the state manifest instead, but only if:
@@ -72,8 +70,6 @@ from {{ ref('model_a') }}
 group by 1
 ```
 
-Report incorrect code
-
 I want to test my changes. Nothing exists in my development schema, `dev_alice`.
 
 #### Standard run
@@ -81,8 +77,6 @@ I want to test my changes. Nothing exists in my development schema, `dev_alice`.
 ```shell
 dbt run --select "model_b"
 ```
-
-Report incorrect code
 
 target/run/my\_project/model\_b.sql
 
@@ -100,8 +94,6 @@ create or replace view dev_me.model_b as (
 )
 ```
 
-Report incorrect code
-
 Unless I had previously run `model_a` into this development environment, `dev_alice.model_a` will not exist, thereby causing a database error.
 
 #### Deferred run
@@ -109,8 +101,6 @@ Unless I had previously run `model_a` into this development environment, `dev_al
 ```shell
 dbt run --select "model_b" --defer --state prod-run-artifacts
 ```
-
-Report incorrect code
 
 target/run/my\_project/model\_b.sql
 
@@ -127,8 +117,6 @@ create or replace view dev_me.model_b as (
 
 )
 ```
-
-Report incorrect code
 
 Because `model_a` is unselected, dbt will check to see if `dev_alice.model_a` exists. If it doesn't exist, dbt will resolve all instances of `{{ ref('model_a') }}` to `prod.model_a` instead.
 
@@ -151,8 +139,6 @@ models:
                 field: id
 ```
 
-Report incorrect code
-
 (This is a simplified example, since all the data in `model_b` already comes from `model_a`)
 
 #### Without defer
@@ -160,8 +146,6 @@ Report incorrect code
 ```shell
 dbt test --select "model_b"
 ```
-
-Report incorrect code
 
 target/compiled/.../relationships\_model\_b\_id\_\_id\_\_ref\_model\_a\_.sql
 
@@ -177,8 +161,6 @@ where child.id is not null
   and parent.id is null
 ```
 
-Report incorrect code
-
 The `relationships` test requires both `model_a` and `model_b`. Because I did not build `model_a` in my previous `dbt run`, `dev_alice.model_a` does not exist and this test query fails.
 
 #### With defer
@@ -186,8 +168,6 @@ The `relationships` test requires both `model_a` and `model_b`. Because I did no
 ```shell
 dbt test --select "model_b" --defer --state prod-run-artifacts
 ```
-
-Report incorrect code
 
 target/compiled/.../relationships\_model\_b\_id\_\_id\_\_ref\_model\_a\_.sql
 
@@ -202,8 +182,6 @@ left join (
 where child.id is not null
   and parent.id is null
 ```
-
-Report incorrect code
 
 dbt will check to see if `dev_alice.model_a` exists. If it doesn't exist, dbt will resolve all instances of `{{ ref('model_a') }}`, including those in schema tests, to use `prod.model_a` instead. The query succeeds. Whether I really want to test for referential integrity across environments is a different question.
 

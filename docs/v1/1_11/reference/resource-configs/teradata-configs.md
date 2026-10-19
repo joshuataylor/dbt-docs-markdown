@@ -9,8 +9,6 @@
     +quote_columns: false  #or `true` if you have CSV column headers with spaces
   ```
 
-  Report incorrect code
-
 ## Models
 
 ### table
@@ -28,8 +26,6 @@
     }}
     ```
 
-    Report incorrect code
-
   * in seed configuration:
 
     ```yaml
@@ -37,8 +33,6 @@
       <project-name>:
         table_kind: "SET"
     ```
-
-    Report incorrect code
 
   For details, see [CREATE TABLE documentation](https://docs.teradata.com/r/76g1CuvvQlYBjb2WPIuk3g/B6Js16DRQVwPDjgJ8rz7hg).
 
@@ -60,8 +54,6 @@
   }
   ```
 
-  Report incorrect code
-
   where:
 
   * mergeblockratio:
@@ -73,8 +65,6 @@
     }
     ```
 
-    Report incorrect code
-
   * datablocksize:
 
     ```text
@@ -84,8 +74,6 @@
     }
     ```
 
-    Report incorrect code
-
   * blockcompression:
 
     ```text
@@ -94,15 +82,11 @@
       [, BLOCKCOMPRESSIONLEVEL = { value | DEFAULT } ]
     ```
 
-    Report incorrect code
-
   * isolated\_loading:
 
     ```text
     WITH [NO] [CONCURRENT] ISOLATED LOADING [ FOR { ALL | INSERT | NONE } ]
     ```
-
-    Report incorrect code
 
   Examples:
 
@@ -117,8 +101,6 @@
     }}
     ```
 
-    Report incorrect code
-
     ```yaml
     {{
       config(
@@ -127,8 +109,6 @@
       )
     }}
     ```
-
-    Report incorrect code
 
     ```yaml
     {{
@@ -141,8 +121,6 @@
     }}
     ```
 
-    Report incorrect code
-
   * in seed configuration:
 
     ```yaml
@@ -151,15 +129,11 @@
         table_option:"NO FALLBACK"
     ```
 
-    Report incorrect code
-
     ```yaml
     seeds:
       <project-name>:
         table_option:"NO FALLBACK, NO JOURNAL"
     ```
-
-    Report incorrect code
 
     ```yaml
     seeds:
@@ -168,8 +142,6 @@
           NO MERGEBLOCKRATIO,
           WITH CONCURRENT ISOLATED LOADING FOR ALL"
     ```
-
-    Report incorrect code
 
   For details, see [CREATE TABLE documentation](https://docs.teradata.com/r/76g1CuvvQlYBjb2WPIuk3g/B6Js16DRQVwPDjgJ8rz7hg).
 
@@ -183,8 +155,6 @@
     )
   }}
   ```
-
-  Report incorrect code
 
   For details, see [CREATE TABLE documentation](https://docs.teradata.com/r/76g1CuvvQlYBjb2WPIuk3g/B6Js16DRQVwPDjgJ8rz7hg).
 
@@ -200,8 +170,6 @@
   [,...]
   ```
 
-  Report incorrect code
-
   where:
 
   * partitioning\_level:
@@ -213,23 +181,17 @@
     } [ ADD constant ]
     ```
 
-    Report incorrect code
-
   * ordering:
 
     ```text
     ORDER BY [ VALUES | HASH ] [ ( order_column_name ) ]
     ```
 
-    Report incorrect code
-
   * loading:
 
     ```text
     WITH [NO] LOAD IDENTITY
     ```
-
-    Report incorrect code
 
   Examples:
 
@@ -244,8 +206,6 @@
     }}
     ```
 
-    Report incorrect code
-
     > ℹ️ Note, unlike in `table_option`, there are no commas between index statements!
 
     ```yaml
@@ -261,8 +221,6 @@
     }}
     ```
 
-    Report incorrect code
-
     ```yaml
     {{
       config(
@@ -276,8 +234,6 @@
       )
     }}
     ```
-
-    Report incorrect code
 
   * in seed configuration:
 
@@ -287,8 +243,6 @@
         index: "UNIQUE PRIMARY INDEX ( GlobalID )"
     ```
 
-    Report incorrect code
-
     > ℹ️ Note, unlike in `table_option`, there are no commas between index statements!
 
     ```yaml
@@ -301,8 +255,6 @@
                         EACH INTERVAL '1' MONTH)"
     ```
 
-    Report incorrect code
-
     ```yaml
     seeds:
       <project-name>:
@@ -313,8 +265,6 @@
                         EACH INTERVAL '1' MONTH)
           INDEX index_attrA (attrA) WITH LOAD IDENTITY"
     ```
-
-    Report incorrect code
 
 ## Seeds
 
@@ -333,8 +283,6 @@ Loading CSVs using dbt's seed functionality is not performant for large files. C
     <project-name>:
       +use_fastload: true
   ```
-
-  Report incorrect code
 
 ## Snapshots
 
@@ -359,8 +307,6 @@ select * from {{ ref('order_payments') }}
 {% endsnapshot %}
 ```
 
-Report incorrect code
-
 #### Grants
 
 Grants are supported in dbt-teradata adapter with release version 1.2.0 and above. You can use grants to manage access to the datasets you're producing with dbt. To implement these permissions, define grants as resource configs on each model, seed, or snapshot. Define the default grants that apply to the entire project in your `dbt_project.yml`, and define model-specific grants within each model's SQL or property file.
@@ -375,8 +321,6 @@ models:
         select: ['user_a', 'user_b']
 ```
 
-Report incorrect code
-
 Another example for adding multiple grants:
 
 ```yaml
@@ -388,8 +332,6 @@ models:
       select: ["user_b"]
       insert: ["user_c"]
 ```
-
-Report incorrect code
 
 > ℹ️ `copy_grants` is not supported in Teradata.
 
@@ -405,8 +347,6 @@ Query band in dbt-teradata can be set on three levels:
    query_band: 'application=dbt;'
    ```
 
-   Report incorrect code
-
 2. Project level: In the `dbt_project.yml` file, the user can provide `query_band` using the following example:
 
    ```yaml
@@ -415,15 +355,11 @@ Query band in dbt-teradata can be set on three levels:
         +query_band: "app=dbt;model={model};"
    ```
 
-   Report incorrect code
-
 3. Model level: It can be set on the model SQL file or model level configuration on YAML files:
 
    ```sql
    {{ config( query_band='sql={model};' ) }}
    ```
-
-   Report incorrect code
 
 Users can set `query_band` at any level or on all levels. With profiles-level `query_band`, dbt-teradata will set the `query_band` for the first time for the session, and subsequently for model and project level query band will be updated with respective configuration.
 
@@ -434,8 +370,6 @@ models:
 Project_name:
   +query_band: "app=dbt;model={model};"
 ```
-
-Report incorrect code
 
 * For example, if the model the user is running is `stg_orders`, `{model}` will be replaced with `stg_orders` in runtime.
 * If no `query_band` is set by the user, the default query\_band used will be: `org=teradata-internal-telem;appname=dbt;`
@@ -465,8 +399,6 @@ This strategy is designed to manage historical data efficiently within a Teradat
   )
   }}
 ```
-
-Report incorrect code
 
 The `valid_history` incremental strategy requires the following parameters:
 
@@ -525,8 +457,6 @@ These steps collectively ensure that the valid\_history strategy effectively man
       2  | PERIOD(TIMESTAMP)[2024-03-12 00:00:00.0, 9999-12-31 23:59:59.9999] | C          | x1
 ```
 
-Report incorrect code
-
 ## Common Teradata-specific tasks
 
 * *collect statistics* - when a table is created or modified significantly, there might be a need to tell Teradata to collect statistics for the optimizer. It can be done using `COLLECT STATISTICS` command. You can perform this step using dbt's `post-hooks`, e.g.:
@@ -538,8 +468,6 @@ Report incorrect code
       ]
   )}}
   ```
-
-  Report incorrect code
 
   See [Collecting Statistics documentation](https://docs.teradata.com/r/76g1CuvvQlYBjb2WPIuk3g/RAyUdGfvREwbO9J0DMNpLw) for more information.
 
@@ -555,8 +483,6 @@ packages:
     version: [">=0.9.0", "<1.0.0"]
 ```
 
-Report incorrect code
-
 You need to add the dispatch config for the project to pick the overridden macros from the dbt-teradata package:
 
 ```yaml
@@ -564,8 +490,6 @@ dispatch:
   - macro_namespace: dbt_external_tables
     search_order: ['dbt', 'dbt_external_tables']
 ```
-
-Report incorrect code
 
 To define `STOREDAS` and `ROWFORMAT` for external tables, one of the following options can be used:
 
@@ -607,8 +531,6 @@ sources:
             data_type: varchar(64)
 ```
 
-Report incorrect code
-
 ```yaml
 sources:
   - name: teradata_external
@@ -631,8 +553,6 @@ sources:
               data_type: CHAR(1)
 ```
 
-Report incorrect code
-
 ### `temporary_metadata_generation_schema` (previously `fallback_schema`)
 
 The dbt-teradata adapter internally creates temporary tables to fetch the metadata of views for manifest and catalog creation. If you lack permission to create tables on the schema you are working with, you can define a `temporary_metadata_generation_schema` (to which you have the proper `create`/`drop` privileges) in the `dbt_project.yml` as a variable.
@@ -641,5 +561,3 @@ The dbt-teradata adapter internally creates temporary tables to fetch the metada
 vars:
   temporary_metadata_generation_schema: <schema-name>
 ```
-
-Report incorrect code

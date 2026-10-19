@@ -51,8 +51,6 @@ dbt-tidb:
       retries: 3 # default 1
 ```
 
-Report incorrect code
-
 #### Description of Profile Fields
 
 | Option   | Description                                          | Required? | Example            |

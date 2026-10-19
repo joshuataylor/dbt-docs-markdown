@@ -14,8 +14,6 @@ snapshots:
     +target_database: string
 ```
 
-Report incorrect code
-
 snapshots/\<filename>.sql
 
 ```jinja2
@@ -23,8 +21,6 @@ snapshots/\<filename>.sql
   target_database="string"
 ) }}
 ```
-
-Report incorrect code
 
 ## Description
 
@@ -42,8 +38,6 @@ Runtime Error
   Cross-db references not allowed in redshift (raw vs analytics)
 ```
 
-Report incorrect code
-
 ## Default
 
 By default, dbt will use the [target](../dbt-jinja-functions/target.md) database associated with your profile/connection.
@@ -59,8 +53,6 @@ snapshots:
   +target_database: snapshots
 ```
 
-Report incorrect code
-
 ### Use a target-aware database
 
 Use the [`{{ target }}` variable](../dbt-jinja-functions/target.md) to change which database a snapshot table is built in.
@@ -73,8 +65,6 @@ dbt\_project.yml
 snapshots:
   +target_database: "{% if target.name == 'dev' %}dev{% else %}{{ target.database }}{% endif %}"
 ```
-
-Report incorrect code
 
 ### Use the same database-naming behavior as models
 
@@ -94,5 +84,3 @@ snapshots/orders\_snaphot.sql
     )
 }}
 ```
-
-Report incorrect code

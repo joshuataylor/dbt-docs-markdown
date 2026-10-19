@@ -14,8 +14,6 @@ models:
       +schema: marketing # models in the `models/marketing/` subdirectory will use the marketing schema
 ```
 
-Report incorrect code
-
 models/customers.sql
 
 ```sql
@@ -25,5 +23,3 @@ models/customers.sql
   )
 }}
 ```
-
-Report incorrect code

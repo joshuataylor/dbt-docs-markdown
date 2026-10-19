@@ -24,8 +24,6 @@ dbt\_project.yml
 version: version
 ```
 
-Report incorrect code
-
 ## `.yml` property file versions
 
 A version tag in a `.yml` property file provides the control tag, which informs how dbt processes property files.
@@ -45,8 +43,6 @@ models:
     ...
 ```
 
-Report incorrect code
-
 ### Resource property file without version specified
 
 \<any valid filename>.yml
@@ -56,8 +52,6 @@ Report incorrect code
 models: 
     ...
 ```
-
-Report incorrect code
 
 ## FAQS
 

@@ -21,8 +21,6 @@ flags:
   ai_provider: claude
 ```
 
-Report incorrect code
-
 Each provider has a directory it reads skills from. Most providers share `.agents/skills`; claude reads skills via its own directory. Supported providers are:
 
 | `ai_provider` value | Installs to      |
@@ -49,8 +47,6 @@ flags:
     - claude
 ```
 
-Report incorrect code
-
 dbt resolves `ai_provider` from three places, in order of precedence:
 
 1. The `--ai-provider` command-line option, which accepts a comma-separated list, for example `dbt deps --ai-provider claude,cursor`.
@@ -65,8 +61,6 @@ If your project or its packages ship skills and `ai_provider` isn't set, `dbt de
 [warning] [AiProviderUnset (dbt1801)]: Found 3 agent skill(s) in this project and its packages, but 'ai_provider' is not set, so none were installed. Set it in dbt_project.yml (flags: {ai_provider: claude}), via --ai-provider, or with DBT_ENGINE_AI_PROVIDER. Known providers: wizard, claude, openai, codex, cursor, gemini.
 ```
 
-Report incorrect code
-
 ## Ship skills in a package
 
 Create one directory per skill under your project's `skills` directory, each containing a `SKILL.md` file:
@@ -78,8 +72,6 @@ skills/
   add-a-data-test/
     SKILL.md
 ```
-
-Report incorrect code
 
 To keep skills somewhere other than `skills`, set [skill-paths](../../reference/project-configs/skill-paths.md).
 
@@ -102,8 +94,6 @@ Apply these prefixes when adding a new model:
 - Mart models use no prefix and are named for the business concept they expose.
 ```
 
-Report incorrect code
-
 For more detail on writing effective skills, refer to [Skill file format](./wizard-skills.md#skill-file-format).
 
 dbt reads a package's `SKILL.md` files and never modifies them. Only the installed copy is written to.
@@ -121,15 +111,11 @@ packages:
   - local: "../packages/demo_skills"
 ```
 
-Report incorrect code
-
 Then run `dbt deps`. dbt reports each skill it writes:
 
 ```shell
 dbt deps
 ```
-
-Report incorrect code
 
 ```text
 Installing packages
@@ -140,16 +126,12 @@ Installing add-a-data-test (demo_skills) -> .agents/skills
 Installing naming-conventions (demo_skills) -> .agents/skills
 ```
 
-Report incorrect code
-
 With more than one provider set, dbt writes a copy per directory:
 
 ```text
 Installing add-a-data-test (demo_skills) -> .agents/skills
 Installing add-a-data-test (demo_skills) -> .claude/skills
 ```
-
-Report incorrect code
 
 dbt installs skills whenever it installs packages, so `dbt build`, `dbt run`, and `dbt parse` install them too. You don't have to run `dbt deps` yourself.
 
@@ -177,8 +159,6 @@ metadata:
 ---
 ```
 
-Report incorrect code
-
 That record is the only way dbt recognizes a skill as its own, which has three consequences worth knowing:
 
 * **Skills you write by hand are never touched.** dbt only overwrites or removes a skill directory whose `SKILL.md` carries `dbt.managed_by: dbt`. Your own skills can sit in the same directory safely.
@@ -202,8 +182,6 @@ skills:
       +enabled: false
 ```
 
-Report incorrect code
-
 A package's own `skills` config sets the defaults for the skills it ships, and your root project's `skills` config overrides it. This works the same way as [enabling and disabling other resources](../../reference/resource-configs/enabled.md).
 
 ## More examples
@@ -220,8 +198,6 @@ skills:
     +enabled: false
 ```
 
-Report incorrect code
-
 Enable skills from only one package, and disable them from all others:
 
 dbt\_project.yml
@@ -232,8 +208,6 @@ skills:
   demo_skills:
     +enabled: true
 ```
-
-Report incorrect code
 
 Enable just two skills, and disable everything else:
 
@@ -249,8 +223,6 @@ skills:
       +enabled: true
 ```
 
-Report incorrect code
-
 Disable just two skills, and leave everything else enabled:
 
 dbt\_project.yml
@@ -264,8 +236,6 @@ skills:
       +enabled: false
 ```
 
-Report incorrect code
-
 Skill names must be unique
 
 Because skills install under their own name, two enabled skills with the same name would occupy the same directory. Rather than choose between them, dbt fails the command before writing anything:
@@ -275,8 +245,6 @@ Two or more agent skills are named 'naming-conventions' (this project, package
 'demo_skills'), so they would install into the same directory. Skill names must
 be unique across your project and its packages.
 ```
-
-Report incorrect code
 
 Resolve it the same way you'd resolve duplicate model names: disable all but one with `+enabled: false`, or ask the package maintainer to rename theirs.
 
@@ -288,14 +256,10 @@ Resolve it the same way you'd resolve duplicate model names: disable all but one
 dbt clean
 ```
 
-Report incorrect code
-
 ```text
   Removing add-a-data-test -> .agents/skills
   Removing naming-conventions -> .agents/skills
 ```
-
-Report incorrect code
 
 ## Related docs
 

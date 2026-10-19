@@ -82,5 +82,3 @@ renamed as (
 
 select * from renamed
 ```
-
-Report incorrect code

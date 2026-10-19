@@ -29,8 +29,6 @@ query {
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `owners`, you can use the following fields:

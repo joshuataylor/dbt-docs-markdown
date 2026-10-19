@@ -51,8 +51,6 @@ my-upsolver-db:
       threads: [1 or more]
 ```
 
-Report incorrect code
-
 ## Configurations
 
 The configs for Upsolver targets are shown below.

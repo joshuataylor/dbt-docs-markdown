@@ -55,8 +55,6 @@ models:
         alias_types: false  # true by default
 ```
 
-Report incorrect code
-
 ## Size, precision, and scale
 
 When dbt compares data types, it will not compare granular details such as size, precision, or scale. We don't think you should sweat the difference between `varchar(256)` and `varchar(257)`, because it doesn't really affect the experience of downstream queriers. You can accomplish a more-precise assertion by [writing or using a custom test](../../best-practices/writing-custom-generic-tests.md).
@@ -85,8 +83,6 @@ models:
         data_type: numeric(38,3)
 ```
 
-Report incorrect code
-
 Let's say your model is defined as:
 
 models/dim\_customers.sql
@@ -96,8 +92,6 @@ select
   'abc123' as customer_id,
   'My Best Customer' as customer_name
 ```
-
-Report incorrect code
 
 When you `dbt run` your model, *before* dbt has materialized it as a table in the database, you will see this error:
 
@@ -114,8 +108,6 @@ When you `dbt run` your model, *before* dbt has materialized it as a table in th
 20:53:45    > in macro assert_columns_equivalent (macros/materializations/models/table/columns_spec_ddl.sql)
 ```
 
-Report incorrect code
-
 #### Project YAML
 
 Use a contract enforcement in your `dbt_project.yml` to enforce contracts consistently across multiple models:
@@ -127,8 +119,6 @@ models:
     +contract:
       enforced: true
 ```
-
-Report incorrect code
 
 #### Properties YAML
 
@@ -150,8 +140,6 @@ models:
         data_type: string
 ```
 
-Report incorrect code
-
 #### SQL file config
 
 Enforce a contract in a model SQL file when you want to apply it to a single model and maintain fine-grained control:
@@ -168,8 +156,6 @@ select
   column_3_status       -- replace with your column
 from {{ source('property_management', 'rental_applications') }}  -- replace with your source name and table
 ```
-
-Report incorrect code
 
 Refer to [General configurations](../model-configs.md#general-configurations) for more information on the supported configs available for model SQL files, `dbt_project.yml` and `properties.yml`.
 

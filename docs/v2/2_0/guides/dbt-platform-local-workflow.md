@@ -45,8 +45,6 @@ dbtf build --select my_model      # Runs locally, on your installed v2 binary
 dbt-cli build --select my_model   # Runs on dbt platform, on your environment's release track
 ```
 
-Report incorrect code
-
 Follow these steps to set up an alias:
 
 1. Find out what `dbt` resolves to today, and whether more than one is installed:
@@ -54,8 +52,6 @@ Follow these steps to set up an alias:
    ```shell
    which -a dbt
    ```
-
-   Report incorrect code
 
 2. Install the tools you need:
 
@@ -71,15 +67,11 @@ Follow these steps to set up an alias:
    alias dbt-cli="/opt/homebrew/bin/dbt"
    ```
 
-   Report incorrect code
-
    Reload your shell profile:
 
    ```shell
    source ~/.zshrc   # or source ~/.bashrc
    ```
-
-   Report incorrect code
 
 4. Confirm each command resolves to the tool you expect and the two version strings differ:
 
@@ -87,8 +79,6 @@ Follow these steps to set up an alias:
    dbtf --version
    dbt-cli --version
    ```
-
-   Report incorrect code
 
 5. Decide which program opens when you run bare `dbt` on your machine and create a best practice for your team. Regardless, `dbtf` and `dbt-cli` clearly run the named program.
 
@@ -127,8 +117,6 @@ Find the path to pass it with:
 command -v dbtf
 ```
 
-Report incorrect code
-
 Keep machine-specific absolute paths in your user settings rather than committing them to workspace settings, so the setting doesn't break for teammates whose paths differ.
 
 ### Tell your coding agent which command to use
@@ -148,8 +136,6 @@ Replace the paths below with the output of `which -a dbt` on this machine.
 - Run dbt commands from the repository root.
 - Ask before running any command that creates or modifies warehouse objects.
 ```
-
-Report incorrect code
 
 Use absolute paths in agent instructions rather than the `dbtf` and `dbt-cli` aliases, because the agent's shell may not load your shell profile. Discover the real paths on the machine the agent runs on with `which -a dbt`, and update the instructions file when they change. On a remote agent virtual machine, confirm the paths inside a fresh session, because tools installed ad hoc in an earlier session may not persist.
 
@@ -182,8 +168,6 @@ If you get access to a new project, re-download the `dbt_cloud.yml` file before 
 dbt init
 ```
 
-Report incorrect code
-
 dbt v2 pulls down fields such as your **username**, **role**, **warehouse**, **database**, and **schema**, but never sensitive values like passwords or tokens. If your authentication mechanism is passwordless (such as `externalbrowser` or SSO-based OAuth), dbt v2 configures that too, so you can work without storing secrets locally.
 
 note
@@ -215,8 +199,6 @@ DBT_MY_SCHEMA=my_dev_schema
 DBT_TARGET_SCHEMA=analytics_dev
 ```
 
-Report incorrect code
-
 dbt v2 and the dbt VS Code extension automatically load values from this file. You can also view and override individual environment variables from the extension's settings UI.
 
 Reference these variables in your `profiles.yml` or elsewhere in your dbt project using the [`env_var` Jinja function](../reference/dbt-jinja-functions/env_var.md):
@@ -233,8 +215,6 @@ my_profile:
       schema: "{{ env_var('DBT_MY_SCHEMA') }}"
 ```
 
-Report incorrect code
-
 For a full walkthrough of `.env` file usage and variable precedence, see [Environment variables](../docs/build/environment-variables.md) for more information on where to find your configured variables and [Set environment variables locally](../docs/configure-dbt-extension.md?version=2.0#set-environment-variables-locally) for local configuration instructions.
 
 ### Keeping platform and local variables in sync
@@ -250,14 +230,10 @@ DBT_MY_SCHEMA=              # Your personal dev schema, for example dbt_yourname
 DBT_TARGET_SCHEMA=          # Target schema for dbt output
 ```
 
-Report incorrect code
-
 ```shell
 # Developer setup: copy the example and fill in your values
 cp .env.example .env
 ```
-
-Report incorrect code
 
 Do not commit .env
 
@@ -266,8 +242,6 @@ dbt v2 and the dbt VS Code extension only load from a file named exactly `.env`,
 ```shell
 echo ".env" >> .gitignore
 ```
-
-Report incorrect code
 
 When environment variables change in dbt platform (you add variables or rename values), update `.env.example` in the same pull request so local developers know to update their own `.env`.
 
@@ -300,23 +274,17 @@ By default, the dbt v2 [installation script](../docs/local/install-dbt.md) insta
 curl -fsSL https://downloads.getdbt.com/install/dbt-fusion.sh | sh
 ```
 
-Report incorrect code
-
 To update your self-hosted installation to the latest stable release at any time:
 
 ```shell
 dbt system update
 ```
 
-Report incorrect code
-
 To check your current version:
 
 ```shell
 dbt --version
 ```
-
-Report incorrect code
 
 ### Keeping versions in sync: dev containers (recommended)
 
@@ -334,8 +302,6 @@ To get started with their template:
 curl -fsSL https://raw.githubusercontent.com/brooklyn-data/dbt-fusion-devcontainer/main/setup.sh | sh
 ```
 
-Report incorrect code
-
 Then open your project in VS Code and select **Reopen in Container** when prompted. VS Code builds the image and installs the latest stable dbt v2 release automatically.
 
 Coming soon
@@ -350,8 +316,6 @@ If dev containers aren't an option for your team, run `dbt system update` at the
 dbt system update && dbt debug
 ```
 
-Report incorrect code
-
 Pinning to a specific version number does not work long term here: the **v2 Stable** track on dbt platform keeps advancing, and a pinned self-hosted installation falls behind. Aim to stay on **v2 Stable** instead of locking to one release.
 
 To make this easy to remember, add a `dev` target to your project's `Makefile`:
@@ -364,15 +328,11 @@ dev:
 	dbt debug
 ```
 
-Report incorrect code
-
 Then developers start their session with:
 
 ```shell
 make dev
 ```
-
-Report incorrect code
 
 You can also document this convention in your project's `CONTRIBUTING.md` so it's part of your onboarding checklist.
 
@@ -393,8 +353,6 @@ Downloading publication artifact for <upstream_project> (resolving cross-project
 Downloaded publication artifact for <upstream_project> to <path> (resolving cross-project refs)
 ```
 
-Report incorrect code
-
 dbt v2 caches downloaded publication artifacts for up to one hour, so subsequent runs in the same session skip the download and resolve refs from the local cache.
 
 Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present, dbt v2 defers to your project's configured deferral environment, so you build only modified models and their downstream dependencies while the rest resolve against the production state.
@@ -411,8 +369,6 @@ Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_c
   dbt run --no-defer
   dbt compile --no-defer
   ```
-
-  Report incorrect code
 
 ## Reference table
 

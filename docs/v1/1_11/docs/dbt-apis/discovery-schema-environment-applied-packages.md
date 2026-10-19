@@ -25,5 +25,3 @@ query {
   }
 }
 ```
-
-Report incorrect code

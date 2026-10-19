@@ -24,8 +24,6 @@ dbt Labs ran these benchmarks on SQLFluff 4.2.1 against dbt projects on the Snow
 dbt lint [FILE] [flags]
 ```
 
-Report incorrect code
-
 `[FILE]` is optional. When you omit `[FILE]`, `dbt lint` lints all SQL files in your project.
 
 ## Flags
@@ -53,15 +51,11 @@ Report incorrect code
 templater = dbt
 ```
 
-Report incorrect code
-
 If your `.sqlfluff` file doesn't set `templater = dbt`, each run logs the following warning and continues anyway:
 
 ```text
 [warning] [NotSupported (dbt9000)]: SQLFluff templater 'jinja' is not supported. dbt lint/format only supports SQLFluff templater 'dbt'. Continuing anyway.
 ```
-
-Report incorrect code
 
 Setting `templater = dbt` removes the warning.
 
@@ -77,8 +71,6 @@ templater = dbt
 dialect = your_dialect
 rules = DBT02,DBT03,DBT04,DBT05
 ```
-
-Report incorrect code
 
 | Code    | Dotted name                          | Rule                                                                                   |
 | ------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
@@ -114,16 +106,12 @@ select {{ cols | map(attribute='name') | join(', ') }}
 from {{ ref('orders') }}
 ```
 
-Report incorrect code
-
 renders, for linting purposes, as something like:
 
 ```sql
 select your_columns
 from orders
 ```
-
-Report incorrect code
 
 `dbt lint` doesn't report violations against the placeholder value itself, but it lints everything else in the query normally.
 
@@ -136,8 +124,6 @@ select
 from orders
 ```
 
-Report incorrect code
-
 The empty `select` list can produce SQL your project would never run, and `dbt lint` checks that unrealistic result instead. Compare `rendered` against `symbolic` when you're investigating an unexpected violation.
 
 ### Turbo
@@ -148,8 +134,6 @@ Never executes your Jinja. It reads the template syntactically, keeps the litera
 select your_expression
 from your_expression
 ```
-
-Report incorrect code
 
 Use it when rendering is too slow or fails outright on a model. It's the fastest mode, but it can't see anything a macro generates.
 
@@ -162,16 +146,12 @@ dbt lint --jinja-render-mode rendered
 dbt format --jinja-render-mode turbo
 ```
 
-Report incorrect code
-
 Set it for the whole project in the `[dbt]` section of your `.sqlfluff` file:
 
 ```ini
 [dbt]
 jinja_render_mode = rendered
 ```
-
-Report incorrect code
 
 The CLI flag takes precedence over the config file.
 
@@ -185,8 +165,6 @@ In `symbolic` and `turbo` modes, a single model can produce more than one candid
 [sqlfluff]
 render_variant_limit = 10
 ```
-
-Report incorrect code
 
 Raising the limit widens coverage at the cost of lint time, because each additional variant is another render of the template. Lowering it to `1` restricts `dbt lint` to a single variant per model.
 
@@ -202,8 +180,6 @@ dbt_packages/
 models/legacy/
 snapshots/
 ```
-
-Report incorrect code
 
 When you're ready to lint those paths, remove their entries from `.sqlfluffignore`.
 
@@ -244,8 +220,6 @@ dbt format [FILE] [flags]
 dbt fmt [FILE] [flags]
 ```
 
-Report incorrect code
-
 `[FILE]` is optional. When omitted, `dbt format` formats all SQL files in your project. You can also pass a single file or a directory to scope the run.
 
 `dbt format` logs a warning and continues when `.sqlfluff` does not set `templater = dbt`. Refer to [Templater requirement](#templater-requirement).
@@ -274,8 +248,6 @@ For example, to format with leading commas and a two-space indent:
 dbt format -l commas=leading -l indent=2
 ```
 
-Report incorrect code
-
 ### Check formatting in CI
 
 Use `--check` as a dry run to gate pull requests on formatting. If every file is formatted, the command exits with code `0`. If a file isn't formatted, the command exits with code `1`, leaves the file untouched, and returns an error like this:
@@ -284,15 +256,11 @@ Use `--check` as a dry run to gate pull requests on formatting. If every file is
 [error] [Generic (dbt1000)]: Formatting check failed for models/staging/stg_orders.sql. Run `dbt fmt` to format it.
 ```
 
-Report incorrect code
-
 ```shell
 dbt format --check                                # check all SQL files
 dbt format --check models/staging                 # check a directory
 dbt format --check models/staging/stg_orders.sql  # check a single file
 ```
-
-Report incorrect code
 
 To fix failures, run `dbt format` without `--check`.
 

@@ -34,8 +34,6 @@ Refer to [GitHub](https://github.com/dbt-labs/dbt/blob/HEAD/core/dbt/context/bas
         return ""
 ```
 
-Report incorrect code
-
 ```sql
 
 {% macro some_macro(arg1, arg2) %}
@@ -44,5 +42,3 @@ Report incorrect code
 
 {% endmacro %}
 ```
-
-Report incorrect code

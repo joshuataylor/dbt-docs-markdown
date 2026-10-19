@@ -103,8 +103,6 @@ target/semantic\_manifest.json
 }
 ```
 
-Report incorrect code
-
 ## Related docs
 
 * [Semantic Layer API](../../docs/dbt-apis/sl-api-overview.md)

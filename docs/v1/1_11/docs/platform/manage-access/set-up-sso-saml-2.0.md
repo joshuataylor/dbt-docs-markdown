@@ -123,8 +123,6 @@ After confirming your details, the IdP should show you the following values for 
     -----END CERTIFICATE-----
     ```
 
-    Report incorrect code
-
 ### Finish setup
 
 After creating the application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration.
@@ -461,8 +459,6 @@ dbt's [role-based access control](./about-user-access.md#role-based-access-contr
     1RcPb1JosS1ct5Mtjs41
     -----END CERTIFICATE-----
     ```
-
-    Report incorrect code
 
 ### Finish setup
 

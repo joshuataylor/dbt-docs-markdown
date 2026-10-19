@@ -24,15 +24,11 @@ The following configurations can be used with `test_type` selector to compile ma
 dbt test --select "test_type:unit"
 ```
 
-Report incorrect code
-
 **Run all data tests** (includes both generic and singular) — use this to skip unit tests entirely, for example in production pipelines:
 
 ```bash
 dbt test --select "test_type:data"
 ```
-
-Report incorrect code
 
 **Run only generic data tests** — use this to run schema-level assertions defined in `.yml` files (such as `not_null` and `unique`), without running custom SQL test files:
 
@@ -40,15 +36,11 @@ Report incorrect code
 dbt test --select "test_type:generic"
 ```
 
-Report incorrect code
-
 **Run only singular data tests** — use this to run only custom SQL test files from your `tests/` directory, without running generic schema tests:
 
 ```bash
 dbt test --select "test_type:singular"
 ```
-
-Report incorrect code
 
 In all cases, `test_type` checks a property of the test itself — these are forms of "direct" test selection.
 
@@ -109,8 +101,6 @@ dbt test --select "orders"
 dbt build --select "orders"
 ```
 
-Report incorrect code
-
 #### Buildable mode
 
 In this example, dbt executes tests that reference "orders" within the selected nodes (or their ancestors).
@@ -119,8 +109,6 @@ In this example, dbt executes tests that reference "orders" within the selected 
 dbt test --select "orders" --indirect-selection=buildable
 dbt build --select "orders" --indirect-selection=buildable
 ```
-
-Report incorrect code
 
 #### Cautious mode
 
@@ -131,8 +119,6 @@ dbt test --select "orders" --indirect-selection=cautious
 dbt build --select "orders" --indirect-selection=cautious
 ```
 
-Report incorrect code
-
 #### Empty mode
 
 This mode does not execute any tests, whether they are directly attached to the selected node or not.
@@ -142,8 +128,6 @@ This mode does not execute any tests, whether they are directly attached to the 
 dbt test --select "orders" --indirect-selection=empty
 dbt build --select "orders" --indirect-selection=empty
 ```
-
-Report incorrect code
 
 ### Test selection syntax examples
 
@@ -179,8 +163,6 @@ dbt test --select "config.materialized:table"
 dbt test --select "customers" --indirect-selection=cautious
 ```
 
-Report incorrect code
-
 The same principle can be extended to tests defined on other resource types. In these cases, we will execute all tests defined on certain sources via the `source:` selection method:
 
 ```bash
@@ -201,8 +183,6 @@ dbt test --select "source:jaffle_shop.customers"
 dbt test --exclude "source:*"
 ```
 
-Report incorrect code
-
 ### More complex selection
 
 Through the combination of direct and indirect selection, there are many ways to accomplish the same outcome. Let's say we have a data test named `assert_total_payment_amount_is_positive` that depends on a model named `payments`. All of the following would manage to select and execute that test specifically:
@@ -212,8 +192,6 @@ Through the combination of direct and indirect selection, there are many ways to
 dbt test --select "assert_total_payment_amount_is_positive" # directly select the test by name
 dbt test --select "payments,test_type:singular" # indirect selection, v1.2
 ```
-
-Report incorrect code
 
 As long as you can select a common property of a group of resources, indirect selection allows you to execute all the tests on those resources, too. In the example above, we saw it was possible to test all table-materialized models. This principle can be extended to other resource types, too:
 
@@ -227,8 +205,6 @@ dbt test --select "config.materialized:seed"
 # Run tests on all snapshots, which use the 'snapshot' materialization
 dbt test --select "config.materialized:snapshot"
 ```
-
-Report incorrect code
 
 Note that this functionality may change in future versions of dbt.
 
@@ -250,13 +226,9 @@ models:
           - unique
 ```
 
-Report incorrect code
-
 ```bash
 dbt test --select "tag:my_column_tag"
 ```
-
-Report incorrect code
 
 Currently, tests "inherit" tags applied to columns, sources, and source tables. They do *not* inherit tags applied to models, seeds, or snapshots. In all likelihood, those tests would still be selected indirectly, because the tag selects its parent. This is a subtle distinction, and it may change in future versions of dbt.
 
@@ -278,10 +250,6 @@ models:
               tags: [my_test_tag] # changed to config in v1.10
 ```
 
-Report incorrect code
-
 ```bash
 dbt test --select "tag:my_test_tag"
 ```
-
-Report incorrect code

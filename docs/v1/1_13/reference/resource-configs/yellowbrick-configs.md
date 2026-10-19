@@ -49,8 +49,6 @@ where
     stg.name is not null
 ```
 
-Report incorrect code
-
 gives the following model output:
 
 ```sql
@@ -72,8 +70,6 @@ where
 distribute REPLICATE
 sort on (stadium_capacity);
 ```
-
-Report incorrect code
 
 * `DISTRIBUTE` on a single column and define up to four `CLUSTER` columns...
 
@@ -109,8 +105,6 @@ from
 		inner join {{ source('premdb_public','season') }} s on (m.seasonid = s.seasonid)
 ```
 
-Report incorrect code
-
 gives the following model output:
 
 ```sql
@@ -140,8 +134,6 @@ from
 distribute on (match_key)
 cluster on (season_key, match_date_key, home_team_key, away_team_key);
 ```
-
-Report incorrect code
 
 ## Cross-database materializations
 

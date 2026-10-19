@@ -43,5 +43,3 @@ models:
                 to: ref('users')
                 field: id
 ```
-
-Report incorrect code

@@ -34,8 +34,6 @@ my\_macro.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 When dbt hits the `debug()` line, you'll see something like:
 
 (Applies to dbt v1.11 and later)
@@ -54,5 +52,3 @@ ipdb> l 9,12
      11     pass
      12     yield '%s\nselect * from %s' % (
 ```
-
-Report incorrect code

@@ -22,8 +22,6 @@ sources:
           <additional_property>: <additional_value>
 ```
 
-Report incorrect code
-
 ## Definition
 
 Use `external` on a source to describe a table that reads files in cloud storage, such as S3 or GCS. dbt stores these properties in the manifest, and the [`dbt-external-tables`](https://github.com/dbt-labs/dbt-external-tables) package uses them to create the table in your warehouse. There are optional built-in properties, with simple type validation, that roughly correspond to the Hive external table spec.
@@ -77,8 +75,6 @@ sources:
               expression: to_timestamp(substr(metadata$filename, 8, 13), 'YYYY/MM/DD/HH24')
 ```
 
-Report incorrect code
-
 `metadata$filename` is the file path. The `expression` pulls the hour out of it.
 
 ### BigQuery
@@ -98,8 +94,6 @@ sources:
             - name: collector_date
               data_type: date
 ```
-
-Report incorrect code
 
 BigQuery reads the partition from Hive-style folders, such as `gs://bucket/path/collector_date=2020-01-01/`. You only name the column and give its type.
 
@@ -122,7 +116,5 @@ sources:
                 - prod
               path_macro: dbt_external_tables.key_value
 ```
-
-Report incorrect code
 
 Redshift needs the values (`vals`) and a macro (`path_macro`) that turns each value into a folder path.

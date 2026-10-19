@@ -25,8 +25,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 ### Fetch credentials from context
 
 Instead of specifying credentials directly, you can use the `credential_chain` secret provider to use any supported AWS mechanism (for example, web identity tokens). Refer to the [DuckDB secret providers documentation](https://duckdb.org/docs/configuration/secrets_manager.html#secret-providers) for details.
@@ -36,8 +34,6 @@ secrets:
   - type: s3
     provider: credential_chain
 ```
-
-Report incorrect code
 
 ### Scoped credentials by storage prefix
 
@@ -53,8 +49,6 @@ secrets:
     region: us-west-2
     scope: "s3://bucket-in-us-region"
 ```
-
-Report incorrect code
 
 When fetching a secret for a path, the secret scopes are compared to the path. In the case of multiple matching secrets, the longest prefix is chosen.
 
@@ -80,8 +74,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 Each entry must include an `fs` property that identifies the `fsspec` protocol to load (`s3`, `gcs`, `abfs`, etc.) and can include additional key-value pairs to configure that implementation.
 
 ## Arbitrary ATTACH options
@@ -99,8 +91,6 @@ attach:
       threads: 4
       enable_fsst: true
 ```
-
-Report incorrect code
 
 If you specify the same option in both a direct field (`type`, `secret`, `read_only`) and in the `options` dict, `dbt-duckdb` raises an error to prevent conflicts.
 
@@ -121,8 +111,6 @@ CREATE DATABASE my_ducklake
   (TYPE ducklake, DATA_PATH 's3://...')
 ```
 
-Report incorrect code
-
 2. Configure your profile:
 
 ```yml
@@ -137,8 +125,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 You must identify DuckLake must with `is_ducklake: true` so that dbt applies safe DDL operations.
 
 For local DuckLake, use `ducklake:` in the path:
@@ -147,8 +133,6 @@ For local DuckLake, use `ducklake:` in the path:
 attach:
   - path: "ducklake:my_ducklake.ddb"
 ```
-
-Report incorrect code
 
 ### DuckLake table partitioning
 
@@ -163,8 +147,6 @@ select
   month(event_time) as month
 from {{ ref('upstream_model') }}
 ```
-
-Report incorrect code
 
 `partition_by` is accepted as an alias for `partitioned_by`. This setting is only applied for DuckLake relations; on non-DuckLake targets, it is ignored with a warning.
 
@@ -208,8 +190,6 @@ models:
       incremental_strategy: merge
       unique_key: id
 ```
-
-Report incorrect code
 
 **Enhanced configuration**
 

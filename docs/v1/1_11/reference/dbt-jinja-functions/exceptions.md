@@ -33,8 +33,6 @@ exceptions.sql
 {% endif %}
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.99 and earlier)
 
 ## raise\_database\_error
@@ -55,8 +53,6 @@ macros/validate\_relation.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 ## raise\_dependency\_error
 
 The `exceptions.raise_dependency_error` method raises an error when a package or dependency requirement is not met. To help protect sensitive information, dbt automatically removes secrets from the error message.
@@ -74,8 +70,6 @@ macros/check\_package.sql
   {% endif %}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 ## raise\_fail\_fast\_error
 
@@ -97,8 +91,6 @@ macros/materialized\_view\.sql
 {% endif %}
 ```
 
-Report incorrect code
-
 ## raise\_not\_implemented
 
 Use `exceptions.raise_not_implemented` to stop a dbt run when a macro or feature isn't supported by the current adapter.
@@ -117,8 +109,6 @@ macros/get\_columns\_in\_relation.sql
     'get_columns_in_relation macro not implemented for adapter ' ~ adapter.type()) }}
 {% endmacro %}
 ```
-
-Report incorrect code
 
 ## warn
 
@@ -140,5 +130,3 @@ warn.sql
   {% endif %}
 {% endif %}
 ```
-
-Report incorrect code

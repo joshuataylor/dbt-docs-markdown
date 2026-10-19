@@ -38,15 +38,11 @@ If previewing a model, dbt will always compile and run the compiled query from s
 dbt show --select "model_name.sql"
 ```
 
-Report incorrect code
-
 or
 
 ```text
 dbt show --inline "select * from {{ ref('model_name') }}"
 ```
-
-Report incorrect code
 
 The following is an example of `dbt show` output for a model named `stg_orders`:
 
@@ -66,8 +62,6 @@ dbt show --select "stg_orders"
 | 4        |          50 | 2023-01-04 | completed |
 | 5        |          64 | 2023-01-05 | completed |
 ```
-
-Report incorrect code
 
 For example, if you've just built a model that has a failing test, you can quickly preview the test failures right in the terminal, to find values of `id` that are duplicated:
 
@@ -96,13 +90,9 @@ $ dbt show -s "unique_my_model_with_duplicates_id"
 |            1 |         2 |
 ```
 
-Report incorrect code
-
 ```sh
 dbt show --inline "select 1" --output json --log-format json
 ```
-
-Report incorrect code
 
 Gives you a result like this:
 
@@ -125,5 +115,3 @@ Gives you a result like this:
   }
 }
 ```
-
-Report incorrect code

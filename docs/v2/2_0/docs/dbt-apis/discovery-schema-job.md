@@ -52,8 +52,6 @@ query JobQueryExample {
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying an `job`, you can use the following fields.

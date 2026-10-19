@@ -55,8 +55,6 @@ query AppliedModels($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 2. Get the most recent 20 run results for the longest running model. Review the results of the model across runs or you can go to the job/run or commit itself to investigate further.
 
 ```graphql
@@ -84,8 +82,6 @@ query ModelHistoricalRuns(
   }
 }
 ```
-
-Report incorrect code
 
 3. Use the query results to plot a graph of the longest running model’s historical run time and execution time trends.
 
@@ -157,8 +153,6 @@ plt.title(model_df['name'].iloc[0]+" Execution Time")
 plt.show()
 ```
 
-Report incorrect code
-
 Plotting examples:
 
 ![The plot of runElapsedTime over time](/img/docs/dbt-platform/discovery-api/plot-of-runelapsedtime.png?v=2 "The plot of runElapsedTime over time")The plot of runElapsedTime over time
@@ -205,8 +199,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### What happened with my job run?
 
 You can query the metadata at the job level to review results for specific runs. This is helpful for historical analysis of deployment performance or optimizing particular jobs.
@@ -228,8 +220,6 @@ query ($jobId: Int!, $runId: Int!) {
 }
 ```
 
-Report incorrect code
-
 New example:
 
 ```graphql
@@ -248,8 +238,6 @@ query ($jobId: BigInt!, $runId: BigInt!) {
 }
 ```
 
-Report incorrect code
-
 For jobs with many models, paginate with `first`, `after`, and `paginationCursor`. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) in the Discovery API querying guide.
 
 ```graphql
@@ -264,8 +252,6 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
   }
 }
 ```
-
-Report incorrect code
 
 ### What’s changed since the last run?
 
@@ -320,8 +306,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ## Quality
 
 You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](../deploy/webhooks.md), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
@@ -365,8 +349,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 2. Review the historical execution and test failure rate (up to 20 runs) for a given model, such as a frequently used and important dataset.
 
 ```graphql
@@ -386,8 +368,6 @@ query ($environmentId: BigInt!, $uniqueId: String!, $lastRunCount: Int) {
   }
 }
 ```
-
-Report incorrect code
 
 3. Identify the runs and plot the historical trends of failure/error rates.
 
@@ -448,8 +428,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ```python
 # Extract graph nodes from response
 def extract_nodes(data):
@@ -499,8 +477,6 @@ def create_freshness_graph(models_df, sources_df):
 
     return G
 ```
-
-Report incorrect code
 
 Graph example:
 
@@ -556,8 +532,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### What’s the test coverage and status?
 
 [Data tests](../build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
@@ -592,8 +566,6 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
-
-Report incorrect code
 
 ### How is this model contracted and versioned?
 
@@ -630,8 +602,6 @@ query {
   }
 }
 ```
-
-Report incorrect code
 
 ## Discovery
 
@@ -678,8 +648,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### What's the full data lineage at a model level?
 
 The Discovery API enables access to comprehensive model-level data lineage by exposing:
@@ -720,8 +688,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### Which metrics are available?
 
 You can define and query metrics using the [Semantic Layer](../build/about-metricflow.md), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
@@ -752,8 +718,6 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
-
-Report incorrect code
 
 ## Governance
 
@@ -802,8 +766,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### Who can use this model?
 
 You can enable people the ability to specify the level of access for a given model. In the future, public models will function like APIs to unify project lineage and enable reuse of models using cross-project refs.
@@ -827,8 +789,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ***
 
 ```graphql
@@ -846,8 +806,6 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
-
-Report incorrect code
 
 ## Development
 
@@ -894,8 +852,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-Report incorrect code
-
 ### How has this model changed over time?
 
 The Discovery API provides historical information about any resource in your project. For instance, you can view how a model has evolved over time (across recent runs) given changes to its shape and contents.
@@ -933,8 +889,6 @@ query (
 }
 ```
 
-Report incorrect code
-
 ### Which nodes depend on this data source?
 
 dbt lineage begins with data sources. For a given source, you can look at which nodes are its children then iterate downstream to get the full list of dependencies.
@@ -970,8 +924,6 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
-
-Report incorrect code
 
 ## Related docs
 

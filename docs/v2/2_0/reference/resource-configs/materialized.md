@@ -12,8 +12,6 @@ models:
     +materialized: <materialization_name>
 ```
 
-Report incorrect code
-
 ## Properties YAML file
 
 models/properties.yml
@@ -26,8 +24,6 @@ models:
       materialized: <materialization_name>
 ```
 
-Report incorrect code
-
 ## SQL file config
 
 models/\<model\_name>.sql
@@ -39,8 +35,6 @@ models/\<model\_name>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Definition
 

@@ -30,5 +30,3 @@ from raw_app_data.events
   where event_time > (select max(event_time) from {{ this }})
 {% endif %}
 ```
-
-Report incorrect code

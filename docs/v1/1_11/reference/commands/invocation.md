@@ -22,15 +22,11 @@ The `help` command provides you with the help output for the `invocation` comman
 dbt invocation help
 ```
 
-Report incorrect code
-
 or
 
 ```shell
 dbt help invocation
 ```
-
-Report incorrect code
 
 The command returns the following information:
 
@@ -56,8 +52,6 @@ Global Flags:
 Use "dbt invocation [command] --help" for more information about a command.
 ```
 
-Report incorrect code
-
 ### dbt invocation list
 
 The `list` command provides you with a list of active invocations in your dbt platform CLI. When a long-running session is active, you can use this command in a separate terminal window to view the active session to help debug the issue.
@@ -65,8 +59,6 @@ The `list` command provides you with a list of active invocations in your dbt pl
 ```shell
 dbt invocation list
 ```
-
-Report incorrect code
 
 The command returns the following information, including the `ID`, `status`, `type`, `arguments`, and `started at` time of the active session:
 
@@ -82,8 +74,6 @@ Active Invocations:
 
 ➜  jaffle-shop git:(test-cli) ✗ 
 ```
-
-Report incorrect code
 
 tip
 

@@ -16,8 +16,6 @@ $ dbt parse
 13:02:53  Performance info: target/perf_info.json
 ```
 
-Report incorrect code
-
 target/perf\_info.json
 
 ```json
@@ -83,5 +81,3 @@ target/perf\_info.json
     ]
 }
 ```
-
-Report incorrect code

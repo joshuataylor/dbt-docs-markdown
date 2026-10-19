@@ -6,8 +6,6 @@ dbt\_project.yml
 skill-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally specify a custom list of directories where [agent skills](../../docs/dbt-ai/package-skills.md) are located.
@@ -28,8 +26,6 @@ Paths specified in `skill-paths` must be relative to the location of your `dbt_p
     skill-paths: ["skills"]
     ```
 
-    Report incorrect code
-
 * ❌ **Don't**
 
   * Avoid absolute paths:
@@ -37,8 +33,6 @@ Paths specified in `skill-paths` must be relative to the location of your `dbt_p
     ```yml
     skill-paths: ["/Users/username/project/skills"]
     ```
-
-    Report incorrect code
 
 ## Examples
 
@@ -50,8 +44,6 @@ dbt\_project.yml
 skill-paths: ["agent-skills"]
 ```
 
-Report incorrect code
-
 ### Use more than one directory for skills
 
 dbt\_project.yml
@@ -59,5 +51,3 @@ dbt\_project.yml
 ```yml
 skill-paths: ["skills", "team-skills"]
 ```
-
-Report incorrect code

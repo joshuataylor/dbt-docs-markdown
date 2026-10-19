@@ -24,8 +24,6 @@ selectors:
     definition: ...
 ```
 
-Report incorrect code
-
 ## Definitions
 
 Each `definition` is comprised of one or more arguments, which can be one of the following:
@@ -43,8 +41,6 @@ definition:
   'tag:nightly'
 ```
 
-Report incorrect code
-
 This simple syntax supports use of the `+`, `@`, and `*` [graph](./graph-operators.md) operators, [set](./set-operators.md) operators, and `exclude`.
 
 ### Key-value
@@ -53,8 +49,6 @@ This simple syntax supports use of the `+`, `@`, and `*` [graph](./graph-operato
 definition:
   tag: nightly
 ```
-
-Report incorrect code
 
 This simple syntax does not support any [graph](./graph-operators.md) or [set](./set-operators.md) operators or `exclude`.
 
@@ -82,8 +76,6 @@ definition:
   indirect_selection: eager | cautious | buildable | empty # include all tests selected indirectly? eager by default
 ```
 
-Report incorrect code
-
 The `*` operator to select all nodes can be written as:
 
 ```yml
@@ -91,8 +83,6 @@ definition:
   method: fqn
   value: "*"
 ```
-
-Report incorrect code
 
 #### Exclude
 
@@ -105,8 +95,6 @@ The `exclude` keyword is only supported by fully-qualified dictionaries. It may 
     - "@tag:daily"
 ```
 
-Report incorrect code
-
 ```yml
 - union:
     - method: tag
@@ -115,8 +103,6 @@ Report incorrect code
        - method: tag
          value: daily
 ```
-
-Report incorrect code
 
 Note: The `exclude` argument in YAML selectors is subtly different from the `--exclude` CLI argument. Here, `exclude` *always* returns a [set difference](https://en.wikipedia.org/wiki/Complement_\(set_theory\)), and it is always applied *last* within its scope.
 
@@ -144,8 +130,6 @@ As a general rule, dbt will indirectly select *all* tests if they touch *any* re
       indirect_selection: empty  # will include tests for only the selected node and ignore all tests attached to model_d
 ```
 
-Report incorrect code
-
 If provided, a YAML selector's `indirect_selection` value will take precedence over the CLI flag `--indirect-selection`. Because `indirect_selection` is defined separately for *each* selection criterion, it's possible to mix eager/cautious/buildable/empty modes within the same definition, to achieve the exact behavior that you need. (Applies to dbt v1.11 and earlier) You can always test out your criteria with `dbt ls --selector`.
 
 See [test selection examples](./test-selection-examples.md) for more details about indirect selection.
@@ -157,8 +141,6 @@ Here are two ways to represent:
 ```bash
 $ dbt run --select @source:snowplow,tag:nightly models/export --exclude package:snowplow,config.materialized:incremental export_performance_timing
 ```
-
-Report incorrect code
 
 ### CLI-style
 
@@ -183,8 +165,6 @@ selectors:
                 - 'config.materialized:incremental'
             - export_performance_timing
 ```
-
-Report incorrect code
 
 ### Full YML
 
@@ -215,8 +195,6 @@ selectors:
               value: export_performance_timing
 ```
 
-Report incorrect code
-
 Then in our job definition:
 
 (Applies to dbt v1.11 and earlier)
@@ -224,8 +202,6 @@ Then in our job definition:
 ```bash
 dbt run --selector nightly_diet_snowplow
 ```
-
-Report incorrect code
 
 ## Default
 
@@ -245,8 +221,6 @@ selectors:
       value: <my_root_project_name>
 ```
 
-Report incorrect code
-
 If I run an "unqualified" command, dbt will use the selection criteria defined in `root_project_only`—that is, dbt will only build / freshness check / generate compiled SQL for resources defined in my root project.
 
 ```text
@@ -254,8 +228,6 @@ dbt build
 dbt source freshness
 dbt docs generate
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.11 and earlier)
 
@@ -272,8 +244,6 @@ selectors:
     default: "{{ target.name == 'prod' | as_bool }}"
     definition: ...
 ```
-
-Report incorrect code
 
 ### Selector inheritance
 
@@ -298,8 +268,6 @@ selectors:
             - method: tag
               value: buzz
 ```
-
-Report incorrect code
 
 **Note:** While selector inheritance allows the logic from another selector to be *reused*, it doesn't allow the logic from that selector to be *modified* by means of `parents`, `children`, `indirect_selection`, and so on.
 

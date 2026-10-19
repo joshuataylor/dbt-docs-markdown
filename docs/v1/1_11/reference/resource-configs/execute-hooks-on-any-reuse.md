@@ -11,8 +11,6 @@ models:
       execute_hooks_on_any_reuse: true | false
 ```
 
-Report incorrect code
-
 ## Properties YAML file
 
 models/\<filename>.yml
@@ -25,8 +23,6 @@ models:
         execute_hooks_on_any_reuse: true | false
 ```
 
-Report incorrect code
-
 ## SQL file config
 
 models/\<filename>.sql
@@ -38,8 +34,6 @@ models/\<filename>.sql
     }
 ) }}
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -71,8 +65,6 @@ models:
       post-hook:
         - "INSERT INTO audit_log VALUES ('{{ model.name }}', CURRENT_TIMESTAMP())"
 ```
-
-Report incorrect code
 
 ## Related docs
 

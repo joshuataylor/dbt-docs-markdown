@@ -25,8 +25,6 @@ analyses:
   - name: ... # declare properties of additional analyses
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.12 and later)
 
 To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](./global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
@@ -40,5 +38,3 @@ flags:
 analyses:
   +enabled: true | false
 ```
-
-Report incorrect code

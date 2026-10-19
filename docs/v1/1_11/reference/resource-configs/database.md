@@ -15,8 +15,6 @@ models:
       +database: reporting
 ```
 
-Report incorrect code
-
 This would result in the generated relation being located in the `reporting` database, so the full relation name would be `reporting.finance.sales_metrics` instead of the default target database.
 
 ## Seeds
@@ -33,8 +31,6 @@ seeds:
     product_categories:
       +database: staging
 ```
-
-Report incorrect code
 
 This would result in the generated relation being located in the `staging` database, so the full relation name would be `staging.finance.product_categories`.
 
@@ -55,8 +51,6 @@ snapshots:
       +database: snapshots
 ```
 
-Report incorrect code
-
 Or in a `snapshot_name.yml` file:
 
 snapshots/snapshot\_name.yml
@@ -68,8 +62,6 @@ snapshots:
     config:
       database: snapshots
 ```
-
-Report incorrect code
 
 This results in the generated relation being located in the `snapshots` database so the full relation name would be `snapshots.finance.your_snapshot` instead of the default target database.
 
@@ -86,8 +78,6 @@ data_tests:
   +store_failures: true
   +database: test_results
 ```
-
-Report incorrect code
 
 This would result in the test results being stored in the `test_results` database.
 

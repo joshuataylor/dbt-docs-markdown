@@ -38,8 +38,6 @@ models:
     +primary_key_config: [<column-name>]
 ```
 
-Report incorrect code
-
 #### Properties YAML file
 
 models/properties.yml
@@ -54,8 +52,6 @@ models:
       primary_key_config: [<column-name>]
 ```
 
-Report incorrect code
-
 #### SQL file config
 
 models/\<model\_name>.sql
@@ -68,8 +64,6 @@ models/\<model\_name>.sql
     primary_key_config=["<column-name>"]
 ) }}
 ```
-
-Report incorrect code
 
 #### Single column example
 
@@ -94,8 +88,6 @@ select
     order_status
 from {{ source('sales', 'orders') }}
 ```
-
-Report incorrect code
 
 #### Multiple columns example
 
@@ -122,8 +114,6 @@ select
     price
 from {{ source('sales', 'order_items') }}
 ```
-
-Report incorrect code
 
 info
 
@@ -170,8 +160,6 @@ models:
             expression: countries (country_id)
 ```
 
-Report incorrect code
-
 For more information on model contracts, refer to the [model contracts documentation](../../docs/mesh/govern/model-contracts.md).
 
 ## Timestamp format
@@ -190,8 +178,6 @@ outputs:
     # ... other settings
 ```
 
-Report incorrect code
-
 ### Microbatch strategy considerations
 
 When using the [`microbatch`](../../docs/build/incremental-microbatch.md) incremental strategy, Exasol requires timestamps without timezone suffix in model definitions:
@@ -203,8 +189,6 @@ TIMESTAMP '2024-01-01 10:00:00'
 -- ❌ Incorrect (will cause parse errors)
 TIMESTAMP '2024-01-01 10:00:00-0'
 ```
-
-Report incorrect code
 
 The dbt-exasol adapter automatically handles timestamp formatting for microbatch boundaries.
 
@@ -240,8 +224,6 @@ id,name,value
 id,name,value
 1,test,NULL  # NULL value in Exasol
 ```
-
-Report incorrect code
 
 ### Cross-database testing
 

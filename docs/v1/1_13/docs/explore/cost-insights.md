@@ -69,8 +69,6 @@ Formula:
 credits_per_query * price_per_credit
 ```
 
-Report incorrect code
-
 Where:
 
 * `credits_per_query` — Cloud services, compute, and query acceleration credits attributed to the query.
@@ -98,8 +96,6 @@ BigQuery does not expose per-query cost directly in system tables. Instead, dbt 
   data_processed_per_query * price_per_tib
   ```
 
-  Report incorrect code
-
   Where:
 
   * `data_processed_per_query` - Total data billed for the query (normalized to TiB). dbt sources this value from `information_schema.jobs.total_bytes_billed`. For more information, see the [BigQuery documentation](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs).
@@ -114,8 +110,6 @@ BigQuery does not expose per-query cost directly in system tables. Instead, dbt 
   ```text
   compute_time_per_query * price_per_slot_hour
   ```
-
-  Report incorrect code
 
   Where:
 
@@ -137,8 +131,6 @@ Formula:
 usage_per_query * cost_per_dbu
 ```
 
-Report incorrect code
-
 Where:
 
 * `usage_per_query` - DBUs attributed to the query.
@@ -157,8 +149,6 @@ Conceptually:
 ```text
 DBUs_in_window * (query_runtime / total_query_runtime_in_window)
 ```
-
-Report incorrect code
 
 dbt sums this across all overlapping windows to get `usage_per_query`.
 
@@ -180,8 +170,6 @@ On Redshift, dbt attributes query costs using the comments it automatically inje
   rpu_hours_per_query * rpu_price_per_hour
   ```
 
-  Report incorrect code
-
   Where:
 
   * `rpu_hours_per_query` - RPU-hours attributed to the query based on its proportional overlap with each billing period. dbt sources billing period data from `SYS_SERVERLESS_USAGE`. For more information, see the [Amazon Redshift documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-billing.html).
@@ -196,8 +184,6 @@ On Redshift, dbt attributes query costs using the comments it automatically inje
   ```text
   elapsed_time_hours * node_count * node_price_per_hour
   ```
-
-  Report incorrect code
 
   Where:
 
@@ -227,8 +213,6 @@ Formula:
 ```text
 average_cost_per_build * reuse_count
 ```
-
-Report incorrect code
 
 dbt calculates reductions per model and per deployment environment (production and staging), based on recent historical runs.
 

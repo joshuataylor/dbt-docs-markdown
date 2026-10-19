@@ -26,5 +26,3 @@ models:
     config:
       materialized: "{{ 'view' if target.name == 'dev' else 'table' }}"
 ```
-
-Report incorrect code

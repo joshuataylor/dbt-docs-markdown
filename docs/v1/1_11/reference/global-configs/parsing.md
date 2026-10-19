@@ -12,15 +12,11 @@ flags:
   partial_parse: true
 ```
 
-Report incorrect code
-
 Usage
 
 ```text
 dbt run --no-partial-parse
 ```
-
-Report incorrect code
 
 ### Static parser
 
@@ -33,7 +29,5 @@ profiles.yml
 config:
   static_parser: true
 ```
-
-Report incorrect code
 
 ### Opt-in v2 parser

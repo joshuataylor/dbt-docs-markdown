@@ -25,8 +25,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 ### Fetch credentials from context
 
 Instead of specifying credentials directly, you can use the `credential_chain` secret provider to use any supported AWS mechanism (for example, web identity tokens). Refer to the [DuckDB secret providers documentation](https://duckdb.org/docs/configuration/secrets_manager.html#secret-providers) for details.
@@ -36,8 +34,6 @@ secrets:
   - type: s3
     provider: credential_chain
 ```
-
-Report incorrect code
 
 ### Scoped credentials by storage prefix
 
@@ -53,8 +49,6 @@ secrets:
     region: us-west-2
     scope: "s3://bucket-in-us-region"
 ```
-
-Report incorrect code
 
 When fetching a secret for a path, the secret scopes are compared to the path. In the case of multiple matching secrets, the longest prefix is chosen.
 
@@ -80,8 +74,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 Each entry must include an `fs` property that identifies the `fsspec` protocol to load (`s3`, `gcs`, `abfs`, etc.) and can include additional key-value pairs to configure that implementation.
 
 ## Arbitrary ATTACH options
@@ -99,8 +91,6 @@ attach:
       threads: 4
       enable_fsst: true
 ```
-
-Report incorrect code
 
 If you specify the same option in both a direct field (`type`, `secret`, `read_only`) and in the `options` dict, `dbt-duckdb` raises an error to prevent conflicts.
 
@@ -121,8 +111,6 @@ CREATE DATABASE my_ducklake
   (TYPE ducklake, DATA_PATH 's3://...')
 ```
 
-Report incorrect code
-
 2. Configure your profile:
 
 ```yml
@@ -137,8 +125,6 @@ default:
   target: dev
 ```
 
-Report incorrect code
-
 You must identify DuckLake must with `is_ducklake: true` so that dbt applies safe DDL operations.
 
 For local DuckLake, use `ducklake:` in the path:
@@ -147,8 +133,6 @@ For local DuckLake, use `ducklake:` in the path:
 attach:
   - path: "ducklake:my_ducklake.ddb"
 ```
-
-Report incorrect code
 
 ### DuckLake table partitioning
 
@@ -163,8 +147,6 @@ select
   month(event_time) as month
 from {{ ref('upstream_model') }}
 ```
-
-Report incorrect code
 
 `partition_by` is accepted as an alias for `partitioned_by`. This setting is only applied for DuckLake relations; on non-DuckLake targets, it is ignored with a warning.
 
@@ -207,8 +189,6 @@ def model(dbt, session):
     return pa.RecordBatchReader.from_batches(batch_reader.schema, batch_iter)
 ```
 
-Report incorrect code
-
 ### Use local Python modules
 
 The `module_paths` profile setting lets you specify a list of filesystem paths containing additional Python modules. These paths are added to the dbt process's `sys.path`, which makes the modules importable within dbt. You can use this to include helper code in your project, such as custom `dbt-duckdb` plugins or shared libraries for Python models.
@@ -232,8 +212,6 @@ sources:
       - name: source2
 ```
 
-Report incorrect code
-
 Here, `config.meta.external_location` on `external_source` defines an f-string pattern for the location of any table defined for that source. For example, a dbt model like:
 
 ```sql
@@ -241,16 +219,12 @@ SELECT *
 FROM {{ source('external_source', 'source1') }}
 ```
 
-Report incorrect code
-
 Will be compiled as:
 
 ```sql
 SELECT *
 FROM 's3://my-bucket/my-sources/source1.parquet'
 ```
-
-Report incorrect code
 
 If one of the source tables deviates from the pattern, you can also set the `external_location` on the table itself:
 
@@ -267,8 +241,6 @@ sources:
           external_location: "read_parquet(['s3://my-bucket/my-sources/source2a.parquet', 's3://my-bucket/my-sources/source2b.parquet'])"
 ```
 
-Report incorrect code
-
 The `external_location` property does not need to be a path-like string; it can also be a function call, which is helpful for CSV files that require special handling:
 
 ```yml
@@ -280,8 +252,6 @@ sources:
           external_location: "read_csv('flights.csv', types={'FlightDate': 'DATE'}, names=['FlightDate', 'UniqueCarrier'])"
           formatter: oldstyle
 ```
-
-Report incorrect code
 
 The `formatter` configuration option indicates whether to use `newstyle` string formatting (the default), `oldstyle` string formatting, or `template` string formatting. The `oldstyle` formatter is needed here because `str.format` would interpret the `types={'FlightDate': 'DATE'}` argument as a template variable.
 
@@ -296,8 +266,6 @@ SELECT m.*, s.id IS NOT NULL as has_source_id
 FROM {{ ref('upstream_model') }} m
 LEFT JOIN {{ source('upstream', 'source') }} s USING (id)
 ```
-
-Report incorrect code
 
 | Option          | Default                   | Description                                                                                    |
 | --------------- | ------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -323,8 +291,6 @@ on-run-start:
   - "{{ register_upstream_external_models() }}"
 ```
 
-Report incorrect code
-
 ## `table_function` materialization
 
 `dbt-duckdb` provides a custom `table_function` materialization to use DuckDB's [Table Function / Table Macro](https://duckdb.org/docs/sql/statements/create_macro.html) feature to provide parameterized views.
@@ -346,15 +312,11 @@ Example `table_function` creation with zero parameters:
 select * from {{ ref("example_table") }}
 ```
 
-Report incorrect code
-
 Example invocation (parentheses are required even with zero parameters):
 
 ```sql
 select * from {{ ref("my_table_function") }}()
 ```
-
-Report incorrect code
 
 Example `table_function` with two parameters:
 
@@ -372,15 +334,11 @@ where 1=1
     and b = where_b
 ```
 
-Report incorrect code
-
 Example invocation with parameters:
 
 ```sql
 select * from {{ ref("my_table_function_with_parameters") }}(1, 2)
 ```
-
-Report incorrect code
 
 ## Incremental strategies
 
@@ -420,8 +378,6 @@ models:
       incremental_strategy: merge
       unique_key: id
 ```
-
-Report incorrect code
 
 **Enhanced configuration**
 
@@ -468,15 +424,11 @@ To start the interactive shell:
 python -m dbt.adapters.duckdb.cli
 ```
 
-Report incorrect code
-
 You can specify a profile with the `--profile` flag:
 
 ```bash
 python -m dbt.adapters.duckdb.cli --profile my_profile
 ```
-
-Report incorrect code
 
 The shell provides access to all standard dbt commands (`run`, `test`, `build`, `seed`, `snapshot`, `compile`, `parse`, `debug`, `deps`, `list`) and supports model name autocompletion if you install the optional `iterfzf` package.
 

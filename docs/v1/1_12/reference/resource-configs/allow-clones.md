@@ -12,8 +12,6 @@ my_project:
   target: dev
 ```
 
-Report incorrect code
-
 ## Definition
 
 `allow_clones` is a profile-level setting that controls whether dbt State is allowed to clone tables into a target environment. By default, dbt State can clone a table from any environment — including cloning a dev table into prod when the data and logic match. This behavior is intentional: if you built a model in dev and nothing changed, cloning it to prod saves compute compared to rebuilding.
@@ -27,8 +25,6 @@ For dbt platform users, set `allow_clones` as an [extended attribute](../../docs
 ```yaml
 allow_clones: true | false
 ```
-
-Report incorrect code
 
 ## Default
 

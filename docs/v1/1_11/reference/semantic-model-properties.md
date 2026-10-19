@@ -61,6 +61,4 @@ semantic_models:
       enabled: true | false
 ```
 
-Report incorrect code
-
 For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](../docs/build/semantic-models.md).

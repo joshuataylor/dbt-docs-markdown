@@ -58,7 +58,7 @@ MCP connectors give dbt Wizard context about your pipelines, BI tools, and orche
 
 If your project is connected to dbt platform, dbt Wizard connects to the [remote dbt MCP server](./mcp-quickstart-remote.md) by default and asks you to sign in with OAuth. This adds platform tools like job management, run status, and run errors. Use the toggle on this pane to turn it on or off for each dbt account.
 
-The remote dbt MCP server is available to dbt platform users only. dbt Wizard still uses its local [index](./wizard-how-it-works.md#native-metadata-engine) for project metadata.
+The remote dbt MCP server is available to dbt platform users only. dbt Wizard still uses its local [dbt Information Schema](../build/dbt-information-schema.md) for project metadata.
 
 Browsing and enabling other connectors from this pane is planned for future releases. Until then, add [MCP servers](./wizard-mcp.md) from the terminal:
 

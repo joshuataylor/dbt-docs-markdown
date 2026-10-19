@@ -322,7 +322,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
   * **New**: [dbt State pricing](../platform/billing/dbt-state-usage.md) is usage-based at $0.094 per daily unique reuse. New organizations receive a 30-day free trial with no usage limit.
   * **Behavior change**: State-aware orchestration is no longer being enabled for new customers. Refer to [Migrate to dbt State](../deploy/dbt-state-migration.md) for more information.
 
-* **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.
+* **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through the [dbt Information Schema](../build/dbt-information-schema.md), unlike general-purpose coding agents.
 
   * **New**: [Support for Anthropic as a BYOK provider for dbt AI](../platform/manage-dbt-ai.md#configure-ai-provider).
   * **New**: [`dbt login`](../../reference/commands/login.md?version=2.0) is a new CLI command available in dbt Core 2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.

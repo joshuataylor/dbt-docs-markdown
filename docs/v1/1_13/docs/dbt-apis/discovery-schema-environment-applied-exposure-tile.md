@@ -35,8 +35,6 @@ query {
 }
 ```
 
-Report incorrect code
-
 ### Fields
 
 When querying for `exposureTile`, you can use the following fields:

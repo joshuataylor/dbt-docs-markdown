@@ -40,8 +40,6 @@ snapshots:
     +hard_deletes: string
 ```
 
-Report incorrect code
-
 #### Property file
 
 (Applies to dbt v1.9 and later)
@@ -66,8 +64,6 @@ snapshots:
       dbt_valid_to_current: <string>
 ```
 
-Report incorrect code
-
 #### SQL file config
 
 info
@@ -87,8 +83,6 @@ Here's how you can do it:
    select * from my_snapshot_table;
    ```
 
-   Report incorrect code
-
    This allows you to restore your snapshot if anything goes wrong during migration.
 
 2. If you want to use the new configs, add required columns to your existing snapshot table using `alter` statements as needed. Here's an example of what to add if you're going to use `dbt_valid_to_current` and `snapshot_meta_column_names`:
@@ -98,8 +92,6 @@ Here's how you can do it:
    add column dbt_valid_from timestamp,
    add column dbt_valid_to timestamp;
    ```
-
-   Report incorrect code
 
 3. Then update your snapshot config:
 
@@ -116,8 +108,6 @@ Here's how you can do it:
            dbt_valid_from: start_date
            dbt_valid_to: end_date
    ```
-
-   Report incorrect code
 
 4. Test each change before adopting multiple new configs by running `dbt snapshot` in development or staging.
 
@@ -158,8 +148,6 @@ snapshots:
     +event_time: my_time_field
 ```
 
-Report incorrect code
-
 #### Property file
 
 (Applies to dbt v1.9 and later)
@@ -181,8 +169,6 @@ snapshots:
       grants: {<dictionary>}
       event_time: my_time_field
 ```
-
-Report incorrect code
 
 #### SQL file config
 
@@ -218,8 +204,6 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
     +unique_key: id
   ```
 
-  Report incorrect code
-
 * #### Apply configurations to all snapshots in your project
 
   To apply a configuration to all snapshots in your project only (for example, *excluding* any snapshots in installed packages), provide your project name as part of the resource path.
@@ -233,8 +217,6 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
     jaffle_shop:
       +unique_key: id
   ```
-
-  Report incorrect code
 
   Similarly, you can use the name of an installed package to configure snapshots in that package.
 
@@ -257,8 +239,6 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
          columns: true
   ```
 
-  Report incorrect code
-
   Pro-tip: Use sources in snapshots: `select * from {{ source('jaffle_shop', 'orders') }}`
 
   You can also use the full resource path (including the project name, and subdirectories) to configure an individual snapshot from your `dbt_project.yml` file.
@@ -277,8 +257,6 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
           +updated_at: updated_at
   ```
 
-  Report incorrect code
-
   You can also define some common configs in a snapshot's `config` block. However, we don't recommend this for a snapshot's required configuration.
 
   dbt\_project.yml
@@ -291,5 +269,3 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
         relation: true
         columns: true
   ```
-
-  Report incorrect code

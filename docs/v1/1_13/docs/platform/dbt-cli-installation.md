@@ -44,8 +44,6 @@ Before you begin, make sure you have [Homebrew installed](http://brew.sh/) in yo
 which dbt
 ```
 
-Report incorrect code
-
 If the output is `dbt not found`, then that confirms you don't have it installed.
 
 Run `pip uninstall dbt` to uninstall dbt v1
@@ -56,8 +54,6 @@ If you've installed dbt v1 globally in some other way, uninstall it first before
 pip uninstall dbt
 ```
 
-Report incorrect code
-
 2. Install the dbt platform CLI with Homebrew:
 
    * First, remove the `dbt-labs` tap, the separate repository for packages, from Homebrew. This prevents Homebrew from installing packages from that repository:
@@ -66,16 +62,12 @@ Report incorrect code
      brew untap dbt-labs/dbt
      ```
 
-     Report incorrect code
-
    * Then, add and install the dbt platform CLI as a package:
 
      ```bash
      brew tap dbt-labs/dbt-cli
      brew install dbt
      ```
-
-     Report incorrect code
 
      If you have multiple taps, use `brew install dbt-labs/dbt-cli/dbt`.
 
@@ -84,8 +76,6 @@ Report incorrect code
    ```bash
    The dbt CLI - an ELT tool for running SQL transformations and data models in dbt...
    ```
-
-   Report incorrect code
 
    If you don't see this output, check that you've deactivated pyenv or venv and don't have a global dbt version installed.
 
@@ -119,8 +109,6 @@ Note that if you're using VS Code, you must restart it to pick up modified envir
    The dbt CLI - an ELT tool for running SQL transformations and data models in dbt...
    ```
 
-   Report incorrect code
-
    If you don't see this output, check that you've deactivated pyenv or venv and don't have a global dbt version installed.
 
    * Note that you no longer need to run the `dbt deps` command when your environment starts. Previously, initialization required this step. However, you should still run `dbt deps` if you make any changes to your `packages.yml` file.
@@ -142,8 +130,6 @@ tar -xf dbt_0.29.9_linux_amd64.tar.gz
 ./dbt --version
 ```
 
-Report incorrect code
-
 info
 
 Advanced users can configure multiple projects to use the same dbt platform CLI executable by adding it to their PATH environment variable in their shell profile.
@@ -153,8 +139,6 @@ Advanced users can configure multiple projects to use the same dbt platform CLI 
    ```bash
    The dbt CLI - an ELT tool for running SQL transformations and data models in dbt...
    ```
-
-   Report incorrect code
 
    If you don't see this output, check that you've deactivated pyenv or venv and don't have a global dbt version installed.
 
@@ -192,8 +176,6 @@ Here's an example of a [local package](../build/packages.md#local-packages) conf
 packages:
   - local: ../shared_macros
 ```
-
-Report incorrect code
 
 In this example, `../shared_macros` is a relative path that tells dbt to look for:
 

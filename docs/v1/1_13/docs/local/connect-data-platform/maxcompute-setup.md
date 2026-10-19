@@ -41,8 +41,6 @@ dbt-maxcompute: # this needs to match the profile in your dbt_project.yml file
       access_key_secret: ACCESS_KEY_SECRET
 ```
 
-Report incorrect code
-
 Currently it supports the following parameters:
 
 | **Field**           | **Description**                                                                                    | Required? | **Example**                                            |
@@ -100,8 +98,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       access_key_secret: accessKeySecret # AccessKeySecret
 ```
 
-Report incorrect code
-
 #### STS
 
 Create a temporary security credential by applying Temporary Security Credentials (TSC) through the Security Token Service (STS).
@@ -120,8 +116,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       access_key_secret: accessKeySecret # AccessKeySecret
       security_token: securityToken  # STS Token
 ```
-
-Report incorrect code
 
 #### RAM Role ARN
 
@@ -145,8 +139,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       auth_policy: policy # Not required, limit the permissions of STS Token
       role_session_expiration: 3600 # Not required, limit the Valid time of STS Token
 ```
-
-Report incorrect code
 
 #### OIDC Role ARN
 
@@ -172,8 +164,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       auth_policy: policy # Not required, limit the permissions of STS Token
       role_session_expiration: 3600 # Not required, limit the Valid time of STS Token
 ```
-
-Report incorrect code
 
 #### ECS RAM Role
 
@@ -201,8 +191,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       disable_imds_v1: True # Optional, whether to forcibly disable IMDSv1, that is, to use IMDSv2 hardening mode, which can be set by the environment variable ALIBABA_CLOUD_IMDSV1_DISABLED
 ```
 
-Report incorrect code
-
 #### Credentials URI
 
 By specifying a credentials uri, get credential from the local or remote uri, the credential will be able to automatically request maintenance to keep it update.
@@ -219,8 +207,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       auth_type: credentials_uri # credential type
       credentials_uri: http://local_or_remote_uri/ # Credentials URI
 ```
-
-Report incorrect code
 
 #### Bearer
 
@@ -239,8 +225,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       bearer_token: bearerToken # BearerToken
 ```
 
-Report incorrect code
-
 ### Use the credential provider chain
 
 ```yaml
@@ -254,8 +238,6 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       endpoint: http://service.cn-shanghai.maxcompute.aliyun.com/api # Replace this with your maxcompute endpoint
       auth_type: chain
 ```
-
-Report incorrect code
 
 The default credential provider chain looks for available credentials, with following order:
 
@@ -300,8 +282,6 @@ The default credential provider chain looks for available credentials, with foll
    oidc_token_file_path = /xxx/xxx    # can be replaced by setting environment variable: ALIBABA_CLOUD_OIDC_TOKEN_FILE
    role_session_name = session_name   # optional
    ```
-
-   Report incorrect code
 
 3. Instance RAM Role
 

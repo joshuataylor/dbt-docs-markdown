@@ -39,5 +39,3 @@ def model(dbt, session):
     )
     return orders_df
 ```
-
-Report incorrect code

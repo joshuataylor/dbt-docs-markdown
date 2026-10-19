@@ -47,8 +47,6 @@ models:
       updates_on: any
 ```
 
-Report incorrect code
-
 **After (dbt State)**
 
 dbt\_project.yml
@@ -59,8 +57,6 @@ models:
     lag_tolerance: 1d
     require_fresh_data_from: any
 ```
-
-Report incorrect code
 
 **Model-level:**
 
@@ -79,8 +75,6 @@ models:
           updates_on: any
 ```
 
-Report incorrect code
-
 **After (dbt State)**
 
 models/my\_model.yml
@@ -93,8 +87,6 @@ models:
         lag_tolerance: 1d
         require_fresh_data_from: any
 ```
-
-Report incorrect code
 
 ## Testing the migration
 
@@ -113,8 +105,6 @@ models:
     lag_tolerance: 1d
     require_fresh_data_from: any
 ```
-
-Report incorrect code
 
 ## Known differences from state-aware orchestration
 

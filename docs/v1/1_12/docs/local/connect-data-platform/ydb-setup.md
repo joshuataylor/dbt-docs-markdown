@@ -57,8 +57,6 @@ profile-name:
       service_account_credentials_file: empty_string
 ```
 
-Report incorrect code
-
 ### All configurations
 
 | Config                              | Required? | Default        | Description                                                                   |

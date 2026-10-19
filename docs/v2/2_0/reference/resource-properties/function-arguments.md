@@ -17,8 +17,6 @@ functions:
         default_value: <string | boolean | integer> # optional, available in Snowflake and Postgres
 ```
 
-Report incorrect code
-
 ## Definition
 
 The `arguments` property is used to define the parameters that a resource can accept. Each argument can have a `name`, a `data_type` field, and optional properties such as `description` and `default_value`.
@@ -79,8 +77,6 @@ functions:
       data_type: integer
 ```
 
-Report incorrect code
-
 In this example:
 
 * `val1` has no `default_value`, so it’s required.
@@ -93,8 +89,6 @@ sum_2_values(5)                # val1 = 5, val2 = 0 (default value used since us
 sum_2_values(5, 10)            # val1 = 5, val2 = 10
 sum_2_values()                 # ❌ error: val1 is required and must be passed
 ```
-
-Report incorrect code
 
 ## Examples
 
@@ -113,8 +107,6 @@ functions:
     returns:
       data_type: boolean
 ```
-
-Report incorrect code
 
 ### Complex data types
 
@@ -136,8 +128,6 @@ functions:
       description: "The discounted price"
 ```
 
-Report incorrect code
-
 ### Array data types (BigQuery example)
 
 functions/schema.yml
@@ -154,8 +144,6 @@ functions:
       data_type: ARRAY<STRING>
       description: "An array of individual tag strings"
 ```
-
-Report incorrect code
 
 ## Related documentation
 

@@ -16,15 +16,11 @@ For example, a macro can reference a private model:
 {% endmacro %}
 ```
 
-Report incorrect code
-
 You can then run that macro using `dbt run-operation`:
 
 ```bash
 dbt run-operation example_macro
 ```
-
-Report incorrect code
 
 ## Usage
 
@@ -47,8 +43,6 @@ $ dbt run-operation --sql '{sql}'
                         Available in dbt v1.12+.
 ```
 
-Report incorrect code
-
 ## Using the `--sql` flag
 
 Starting dbt v1.12, you can use the `--sql` flag to execute ad hoc database statements directly against your warehouse, without defining a macro. This flag is useful for one-off operations like dropping or altering a table, applying grants, or running a data fix. The statement runs through the full Jinja compilation pipeline, so you have access to `ref()`, `source()`, `var()`, `target`, and all other context variables. When your SQL contains no Jinja, dbt skips manifest compilation entirely, making execution faster.
@@ -63,16 +57,12 @@ dbt run-operation --sql "DROP TABLE IF EXISTS my_schema.old_table"
 dbt run-operation --sql "GRANT SELECT ON {{ target.schema }}.my_table TO reporter"
 ```
 
-Report incorrect code
-
 dbt prints status lines to the terminal as the operation runs:
 
 ```text
 1 of 1 START executing inline_query ........... [RUN]
 1 of 1 OK executed inline_query ............... [SELECT 1 in 0.05s]
 ```
-
-Report incorrect code
 
 The operation is named `inline_query` in logs. If the operation fails, the status line shows `ERROR` instead of `OK`.
 
@@ -96,8 +86,6 @@ If you need to reuse the operation across environments or share it with your tea
   dbt run-operation clean_stale_models --args '{days: 7, dry_run: True}'
   ```
 
-  Report incorrect code
-
 * Use the `--sql` flag:
 
   ```bash
@@ -107,5 +95,3 @@ If you need to reuse the operation across environments or share it with your tea
   # Grant select on a dbt model using ref()
   dbt run-operation --sql "GRANT SELECT ON {{ ref('my_model') }} TO reporter"
   ```
-
-  Report incorrect code

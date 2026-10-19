@@ -29,8 +29,6 @@ models:
     latest_version: <version_identifier> 
 ```
 
-Report incorrect code
-
 The standard convention for naming model versions is `<model_name>_v<v>`. This holds for the file where dbt expects to find the model's definition (SQL or Python), and the alias it will use by default when materializing the model in the database.
 
 ### `v`
@@ -106,8 +104,6 @@ models:
             ...
 ```
 
-Report incorrect code
-
 By default, `include` is "all", and `exclude` is the empty list. This has the effect of including all columns from the base model in the versioned model.
 
 #### Example
@@ -153,8 +149,6 @@ models:
           - name: id
             data_type: int
 ```
-
-Report incorrect code
 
 Because `v4` has not specified any `columns`, it will include all of the top-level `columns`.
 
@@ -202,8 +196,6 @@ Breaking changes include:
       - table -> view
 ```
 
-Report incorrect code
-
 #### Example message for versioned models
 
 ```text
@@ -221,8 +213,6 @@ Breaking Change to Contract Error in model sometable (models/sometable.sql)
   Consider making an additive (non-breaking) change instead, if possible.
   Otherwise, create a new model version: https://docs.getdbt.com/docs/mesh/govern/model-versions
 ```
-
-Report incorrect code
 
 Additive changes are **not** considered breaking:
 

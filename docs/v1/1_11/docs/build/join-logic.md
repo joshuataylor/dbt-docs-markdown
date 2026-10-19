@@ -78,8 +78,6 @@ semantic_models:
         type: categorical
 ```
 
-Report incorrect code
-
 * MetricFlow uses `user_id` as the join key to link two semantic models, `transactions` and `user_signup`. This allows you to query the `average_purchase_price` metric in the `transactions` semantic model, grouped by the `type` dimension in the `user_signup` semantic model.
   * Note that the `average_purchase_price` measure is defined in `transactions`, where `user_id` is a foreign entity. However, `user_signup` has `user_id` as a primary entity.
 * Since `user_id` is a foreign key in `transactions` and a primary key in `user_signup`, MetricFlow performs a left join where `transactions` joins `user_signup` to access the `average_purchase_price` measure defined in `transactions`.
@@ -89,13 +87,9 @@ Report incorrect code
 dbt sl query --metrics average_purchase_price --group-by metric_time,user_id__type # In dbt platform />
 ```
 
-Report incorrect code
-
 ```yaml
 mf query --metrics average_purchase_price --group-by metric_time,user_id__type # In dbt v1
 ```
-
-Report incorrect code
 
 #### SQL examples
 
@@ -119,8 +113,6 @@ group by
   user_signup.type;
 ```
 
-Report incorrect code
-
 ##### SQL example for outer joins
 
 If you have multiple `fct` models, let's say `sales` and `returns`, MetricFlow uses full outer joins to ensure all data points are captured.
@@ -137,8 +129,6 @@ full outer join returns
   on sales.user_id = returns.user_id
 where sales.user_id is not null or returns.user_id is not null;
 ```
-
-Report incorrect code
 
 ## Multi-hop joins
 
@@ -196,8 +186,6 @@ semantic_models:
       - name: country_name
         type: categorical
 ```
-
-Report incorrect code
 
 ### Query multi-hop joins
 

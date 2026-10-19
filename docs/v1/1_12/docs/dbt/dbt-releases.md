@@ -40,8 +40,6 @@ Running the system update command without a version flag installs the `latest` s
 dbt system update
 ```
 
-Report incorrect code
-
 To install a specific channel or version, pass the `--version` flag:
 
 ```shell
@@ -49,8 +47,6 @@ dbt system update --version canary    # Install the canary release
 dbt system update --version dev       # Install the dev release
 dbt system update --version 2.0.0     # Install a specific version
 ```
-
-Report incorrect code
 
 ### Current versions
 

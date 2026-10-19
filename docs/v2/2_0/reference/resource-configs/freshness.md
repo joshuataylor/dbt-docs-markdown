@@ -39,8 +39,6 @@ sources:
         period: minute | hour | day
 ```
 
-Report incorrect code
-
 ### Property file
 
 models/\<filename>.yml
@@ -77,8 +75,6 @@ sources:
           loaded_at_field: <column_name_or_expression>
           loaded_at_query: <sql_expression>
 ```
-
-Report incorrect code
 
 Freshness blocks are applied hierarchically:
 
@@ -122,8 +118,6 @@ sources:
             warn_after: {count: 12, period: hour}
 ```
 
-Report incorrect code
-
 #### Using `loaded_at_query`
 
 (Applies to dbt v1.10 and later)
@@ -143,8 +137,6 @@ sources:
           freshness:
             warn_after: {count: 12, period: hour}
 ```
-
-Report incorrect code
 
 #### Complete example
 
@@ -175,8 +167,6 @@ sources:
           freshness: null # do not check freshness for this table
 ```
 
-Report incorrect code
-
 (Applies to dbt v2.0 and later)
 
 When running [`dbt freshness`](../commands/freshness.md), the following query will be run against the `orders` table:
@@ -191,8 +181,6 @@ from raw.jaffle_shop.orders
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
 
-Report incorrect code
-
 ##### Jinja SQL
 
 ```sql
@@ -204,8 +192,6 @@ from {{ source }}
 where {{ filter }}
 {% endif %}
 ```
-
-Report incorrect code
 
 *[Source code](https://github.com/dbt-labs/dbt-adapters/blob/main/dbt-adapters/src/dbt/include/global_project/macros/adapters/freshness.sql#L5-L16)*
 
@@ -232,8 +218,6 @@ models:
       error_after: {count: <positive_integer>, period: minute | hour | day}
 ```
 
-Report incorrect code
-
 ### Property file
 
 models/\<filename>.yml
@@ -247,8 +231,6 @@ models:
         warn_after: {count: 24, period: hour}
         error_after: {count: 48, period: hour}
 ```
-
-Report incorrect code
 
 ### SQL file config
 
@@ -265,8 +247,6 @@ models/\<filename>.sql
     )
 }}
 ```
-
-Report incorrect code
 
 Not all materializations support freshness checks the same way. dbt validates your config at parse time and raises an error for invalid combinations.
 
@@ -296,16 +276,12 @@ models:
         error_after: {count: 48, period: hour}
 ```
 
-Report incorrect code
-
 `project_b` depends on `orders`. To check whether `orders` data is fresh, run `dbt freshness` from `project_b` — no need to re-run `project_a`:
 
 ```bash
 # run from project_b
 dbt freshness --select project_a.orders
 ```
-
-Report incorrect code
 
 ### Examples
 
@@ -320,8 +296,6 @@ models:
         warn_after: {count: 24, period: hour}
 ```
 
-Report incorrect code
-
 #### Using `loaded_at_query`
 
 ```yaml
@@ -334,8 +308,6 @@ models:
         error_after: {count: 12, period: hour}
       loaded_at_query: "select max(_loaded_at) from {{ this }} where _batch_complete = true"
 ```
-
-Report incorrect code
 
 ### Scheduling builds
 
@@ -359,8 +331,6 @@ models:
         updates_on: any | all # optional, default is `any`
 ```
 
-Report incorrect code
-
 #### Property file
 
 models/\<filename>.yml
@@ -375,8 +345,6 @@ models:
           period: minute | hour | day
           updates_on: any | all # optional, default is `any`
 ```
-
-Report incorrect code
 
 #### SQL file config
 
@@ -395,8 +363,6 @@ models/\<filename>.sql
     )
 }}
 ```
-
-Report incorrect code
 
 The `build_after` config applies to state-aware orchestration (SAO), which is now deprecated. `build_after` rebuilds models *only when new source or upstream data is available*. This is useful for models that depend on other models but only need to be updated periodically.
 
@@ -435,8 +401,6 @@ build_after:
   updates_on: any
 ```
 
-Report incorrect code
-
 The default for `updates_on` is `any`. This means that by default, the model will be built every time a scheduled job runs for any amount of new data.
 
 #### Examples
@@ -464,8 +428,6 @@ models:
           period: hour
           updates_on: all
 ```
-
-Report incorrect code
 
 When the state-aware orchestration job triggers, dbt checks for two things:
 
@@ -496,8 +458,6 @@ models:
           updates_on: any
 ```
 
-Report incorrect code
-
 When the state-aware orchestration job runs, dbt checks two things:
 
 * If new source data is available on at least one upstream model.
@@ -525,8 +485,6 @@ dbt\_project.yml
     updates_on: any
 ```
 
-Report incorrect code
-
 ###### SQL file config
 
 models/\<filename>.sql
@@ -544,5 +502,3 @@ models/\<filename>.sql
     )
 }}
 ```
-
-Report incorrect code

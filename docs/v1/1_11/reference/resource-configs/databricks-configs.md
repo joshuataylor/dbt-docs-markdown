@@ -139,8 +139,6 @@ models:
           manage: []
 ```
 
-Report incorrect code
-
 ## Configuring columns
 
 *Available in versions 1.10 or higher*
@@ -175,8 +173,6 @@ models:
           using_columns: "customer_id, 'literal string'"
 ```
 
-Report incorrect code
-
 ## Setting row filters
 
 *Available in versions 1.12 or higher*
@@ -204,8 +200,6 @@ models:
         function: my_catalog.my_schema.region_filter
         columns: [region]
 ```
-
-Report incorrect code
 
 ## Incremental models
 
@@ -259,8 +253,6 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-Report incorrect code
-
 #### Run code
 
 databricks\_incremental.sql
@@ -277,8 +269,6 @@ create temporary view databricks_incremental__dbt_tmp as
 insert into table analytics.databricks_incremental
     select `date_day`, `users` from databricks_incremental__dbt_tmp
 ```
-
-Report incorrect code
 
 ### The `insert_overwrite` strategy
 
@@ -328,8 +318,6 @@ from new_events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 databricks\_incremental.sql
@@ -360,8 +348,6 @@ insert overwrite table analytics.databricks_incremental
     partition (date_day)
     select `date_day`, `users` from databricks_incremental__dbt_tmp
 ```
-
-Report incorrect code
 
 ### The `merge` strategy
 
@@ -405,8 +391,6 @@ from events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 target/run/merge\_incremental.sql
@@ -439,8 +423,6 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
     when matched then update set *
     when not matched then insert *
 ```
-
-Report incorrect code
 
 Beginning with 1.9, `merge` behavior can be modified with the following additional configuration options:
 
@@ -483,8 +465,6 @@ select
 from
     {{ ref('source_table') }} as s
 ```
-
-Report incorrect code
 
 ##### Run code
 
@@ -543,8 +523,6 @@ when not matched by source
     then delete
 ```
 
-Report incorrect code
-
 ### The `replace_where` strategy
 
 The `replace_where` incremental strategy requires:
@@ -588,8 +566,6 @@ from events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 target/run/replace\_where\_incremental.sql
@@ -620,8 +596,6 @@ insert into analytics.replace_where_incremental
     replace where user_id >= 10000
     table `replace_where__dbt_tmp`
 ```
-
-Report incorrect code
 
 ### The `delete+insert` strategy
 
@@ -679,8 +653,6 @@ from new_events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code (DBR 17.1+)
 
 target/run/delete\_insert\_incremental.sql
@@ -710,8 +682,6 @@ replace on (target.user_id <=> temp.user_id)
 (select `user_id`, `last_seen`
    from delete_insert_incremental__dbt_tmp where user_id >= 10000) as temp
 ```
-
-Report incorrect code
 
 #### Run code (DBR < 17.1)
 
@@ -749,8 +719,6 @@ from delete_insert_incremental__dbt_tmp
 where user_id >= 10000
 ```
 
-Report incorrect code
-
 ### The `microbatch` strategy
 
 *Available in versions 1.9 or higher*
@@ -786,8 +754,6 @@ from events
 group by 1, 2
 ```
 
-Report incorrect code
-
 #### Run code
 
 target/run/replace\_where\_incremental.sql
@@ -814,8 +780,6 @@ insert into analytics.replace_where_incremental
     table `replace_where__dbt_tmp`
 ```
 
-Report incorrect code
-
 ## Python model configuration
 
 The Databricks adapter supports Python models. Databricks uses PySpark as the processing framework for these models.
@@ -841,8 +805,6 @@ def model(dbt, session):
     ...
 ```
 
-Report incorrect code
-
 ```yml
 models:
   - name: my_python_model
@@ -852,8 +814,6 @@ models:
         spark_version: ...
         node_type_id: ...
 ```
-
-Report incorrect code
 
 ```yml
 # dbt_project.yml
@@ -865,8 +825,6 @@ models:
       +create_notebook: False
       +cluster_id: abcd-1234-wxyz
 ```
-
-Report incorrect code
 
 If not configured, `dbt-spark` will use the built-in defaults: the all-purpose cluster (based on `cluster` in your connection profile) without creating a notebook. The `dbt-databricks` adapter will default to the cluster configured in `http_path`. We encourage explicitly configuring the clusters for Python models in Databricks projects.
 
@@ -931,8 +889,6 @@ profile-name:
       ...
 ```
 
-Report incorrect code
-
 The new compute section is a map of user chosen names to objects with an http\_path property. Each compute is keyed by a name which is used in the model definition/configuration to indicate which compute you wish to use for that model/selection of models. We recommend choosing a name that is easily recognized as the compute resources you're using, such as the name of the compute resource inside the Databricks UI.
 
 note
@@ -949,8 +905,6 @@ compute:
   Compute2:
     http_path: /SOME/OTHER/PATH
 ```
-
-Report incorrect code
 
 ### Specifying the compute for models
 
@@ -972,8 +926,6 @@ snapshots:
   +databricks_compute: "Compute1"     # all Snapshot models are configured to use `Compute1`.
 ```
 
-Report incorrect code
-
 For an individual model the compute can be specified in the model config in your schema file.
 
 schema.yml
@@ -988,8 +940,6 @@ models:
       - name: id
         data_type: int
 ```
-
-Report incorrect code
 
 Alternatively the warehouse can be specified in the config of a model's SQL file.
 
@@ -1006,23 +956,17 @@ model.sql
 select * from {{ ref('seed') }}
 ```
 
-Report incorrect code
-
 To validate that the specified compute is being used, look for lines in your dbt.log like:
 
 ```text
 Databricks adapter ... using default compute resource.
 ```
 
-Report incorrect code
-
 or
 
 ```text
 Databricks adapter ... using compute resource <name of compute>.
 ```
-
-Report incorrect code
 
 ### Specifying compute for Python models
 
@@ -1039,8 +983,6 @@ def model(dbt, session):
      http_path="sql/protocolv1/..."
    )
 ```
-
-Report incorrect code
 
 If your default compute is a SQL Warehouse, you will need to specify an all purpose cluster `http_path` in this way.
 
@@ -1099,8 +1041,6 @@ your_profile_name:
       query_tags: '{"team": "analytics", "project": "customer_360"}'
 ```
 
-Report incorrect code
-
 #### Model-level query tags
 
 To set query tags for a specific model, use the `query_tags` config:
@@ -1115,8 +1055,6 @@ models/my\_model.sql
 select * from {{ ref('upstream_model') }}
 ```
 
-Report incorrect code
-
 You can also configure query tags in your `dbt_project.yml` for groups of models:
 
 dbt\_project.yml
@@ -1129,8 +1067,6 @@ models:
     finance:
       +query_tags: {'department': 'finance'}
 ```
-
-Report incorrect code
 
 ### Tag precedence and merging
 
@@ -1183,8 +1119,6 @@ snapshots:
   +file_format: delta # or hudi
 ```
 
-Report incorrect code
-
 ## Materialized views and streaming tables
 
 [Materialized views](https://docs.databricks.com/en/sql/user/materialized-views.html) and [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html) are alternatives to incremental tables that are powered by [Delta Live Tables](https://docs.databricks.com/en/delta-live-tables/index.html).
@@ -1201,8 +1135,6 @@ materialized\_view\.sql
  ) }}
 ```
 
-Report incorrect code
-
 or
 
 streaming\_table.sql
@@ -1212,8 +1144,6 @@ streaming\_table.sql
    materialized = 'streaming_table'
  ) }}
 ```
-
-Report incorrect code
 
 We support [on\_configuration\_change](./on_configuration_change.md) for most available properties of these materializations. The following table summarizes our configuration support. Refer to [Configuration details](#configuration-details) for more details on each config:
 
@@ -1248,8 +1178,6 @@ mv\_example.sql
 select * from {{ ref('my_seed') }}
 ```
 
-Report incorrect code
-
 ### Configuration details
 
 #### partition\_by
@@ -1277,8 +1205,6 @@ Report incorrect code
 ) }}
 ```
 
-Report incorrect code
-
 `dbt-databricks` v1.12+ adds support for key-only tags. To set a tag that has a key but no value, set the tag's value to an empty string `''` or to `None`:
 
 ```sql
@@ -1287,8 +1213,6 @@ Report incorrect code
     databricks_tags={'sensitive': '', 'reviewed': None}
 ) }}
 ```
-
-Report incorrect code
 
 This applies to both table-level and column-level `databricks_tags`. Non-string values, such as numbers or booleans, are converted to strings.
 
@@ -1314,8 +1238,6 @@ models:
       c: "project_value"
 ```
 
-Report incorrect code
-
 models/my\_model.sql
 
 ```sql
@@ -1323,8 +1245,6 @@ models/my\_model.sql
     databricks_tags={'c': 'model_value', 'k': 'v'}
 ) }}
 ```
-
-Report incorrect code
 
 The resulting tags are:
 
@@ -1391,8 +1311,6 @@ with\_table\_properties.sql
  ) }}
 ```
 
-Report incorrect code
-
 caution
 
 These properties are sent directly to Databricks without validation in dbt. You'll need to do a full refresh of incremental materializations if you change their `tblproperties`.
@@ -1407,7 +1325,5 @@ One use case is making `delta` tables compatible with `iceberg` readers using th
     }
  ) }}
 ```
-
-Report incorrect code
 
 `tblproperties` can be specified for Python models, but they're applied via an `ALTER` statement after table creation due to a PySpark limitation.

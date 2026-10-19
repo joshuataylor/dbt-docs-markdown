@@ -76,8 +76,6 @@ Run wizard non-interactively
 wizard exec [OPTIONS] <COMMAND> [ARGS]
 ```
 
-Report incorrect code
-
 **Arguments:**
 
 | Argument   | Description                                                                                                                                                                                                             |

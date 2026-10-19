@@ -6,8 +6,6 @@ dbt\_project.yml
 asset-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Optionally specify a custom list of directories to copy to the `target` directory as part of the `docs generate` command. This is useful for rendering images in your repository in your project documentation.
@@ -26,8 +24,6 @@ Paths specified in `asset-paths` must be relative to the location of your `dbt_p
     asset-paths: ["assets"]
     ```
 
-    Report incorrect code
-
 * ❌ **Don't**
 
   * Avoid absolute paths:
@@ -35,8 +31,6 @@ Paths specified in `asset-paths` must be relative to the location of your `dbt_p
     ```yml
     asset-paths: ["/Users/username/project/assets"]
     ```
-
-    Report incorrect code
 
 ## Examples
 
@@ -47,8 +41,6 @@ dbt\_project.yml
 ```yml
 asset-paths: ["assets"]
 ```
-
-Report incorrect code
 
 Any files included in this directory will be copied to the `target/` directory as part of `dbt docs generate`, making them accessible as images in your project documentation.
 

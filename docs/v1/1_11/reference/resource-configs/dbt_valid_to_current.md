@@ -13,8 +13,6 @@ snapshots:
       dbt_valid_to_current: "string"
 ```
 
-Report incorrect code
-
 snapshots/\<filename>.sql
 
 ```sql
@@ -28,8 +26,6 @@ snapshots/\<filename>.sql
 }}
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -37,8 +33,6 @@ snapshots:
   <resource-path>:
     +dbt_valid_to_current: "string"
 ```
-
-Report incorrect code
 
 ## Description
 
@@ -98,8 +92,6 @@ snapshots:
           this is either `NULL` or the value specified in `dbt_valid_to_current`
           (like `'9999-12-31'`).
 ```
-
-Report incorrect code
 
 The resulting snapshot table contains the configured dbt\_valid\_to column value:
 

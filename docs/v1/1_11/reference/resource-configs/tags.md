@@ -12,8 +12,6 @@ models:
     +tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 models/properties.yml
 
 ```yaml
@@ -31,8 +29,6 @@ models:
                 tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 models/\<modelname>.sql
 
 ```sql
@@ -42,8 +38,6 @@ models/\<modelname>.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ## Seeds
 
@@ -56,8 +50,6 @@ seeds:
   <resource-path>:
     +tags: <string> | [<string>]
 ```
-
-Report incorrect code
 
 seeds/properties.yml
 
@@ -76,8 +68,6 @@ seeds:
                 tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 ## Snapshots
 
 dbt\_project.yml
@@ -90,8 +80,6 @@ snapshots:
     +tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 (Applies to dbt v1.9 and later)
 
 snapshots/properties.yml
@@ -102,8 +90,6 @@ snapshots:
     config:
       tags: <string> | [<string>]
 ```
-
-Report incorrect code
 
 snapshots/\<filename>.sql
 
@@ -119,8 +105,6 @@ select ...
 {% endsnapshot %}
 ```
 
-Report incorrect code
-
 ## Saved queries
 
 dbt\_project.yml
@@ -133,8 +117,6 @@ saved-queries:
     +tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 models/semantic\_models.yml
 
 ```yaml
@@ -143,8 +125,6 @@ saved_queries:
     config:
       tags: <string> | [<string>]
 ```
-
-Report incorrect code
 
 ## Sources
 
@@ -157,8 +137,6 @@ sources:
   <resource-path>:
     +tags: <string> | [<string>]
 ```
-
-Report incorrect code
 
 models/properties.yml
 
@@ -181,8 +159,6 @@ sources:
                     tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 Note that for backwards compatibility, `tags` is supported as a top-level key for sources, but without the capabilities of config inheritance.
 
 ## Exposures
@@ -197,8 +173,6 @@ exposures:
     +tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 models/exposures.yml
 
 ```yaml
@@ -207,8 +181,6 @@ exposures:
     config:
       tags: <string> | [<string>] # changed to config in v1.10
 ```
-
-Report incorrect code
 
 Note that for backwards compatibility, `tags` is supported as a top-level key for exposures, but without the capabilities of config inheritance.
 
@@ -224,8 +196,6 @@ data_tests:
     +tags: <string> | [<string>]
 ```
 
-Report incorrect code
-
 models/properties.yml
 
 ```yaml
@@ -238,8 +208,6 @@ models:
               config:
                 tags: <string> | [<string>]
 ```
-
-Report incorrect code
 
 tests/\<filename>.sql
 
@@ -254,8 +222,6 @@ select ...
 
 {% endtest %}
 ```
-
-Report incorrect code
 
 ## Definition
 
@@ -322,8 +288,6 @@ models:
         - "published"
 ```
 
-Report incorrect code
-
 ### Apply tags to models
 
 This section demonstrates applying tags to models in the `dbt_project.yml`, `schema.yml`, and SQL files.
@@ -337,8 +301,6 @@ models:
   jaffle_shop:
     +tags: finance # jaffle_shop model is tagged with 'finance'.
 ```
-
-Report incorrect code
 
 To apply tags to a model in your `models/` directory YAML property file, you would add the following using the `config` property:
 
@@ -358,8 +320,6 @@ models:
           - unique
 ```
 
-Report incorrect code
-
 To apply tags to a model in your SQL file, you would add the following:
 
 models/staging/stg\_payments.sql
@@ -372,8 +332,6 @@ models/staging/stg\_payments.sql
 select ...
 ```
 
-Report incorrect code
-
 Run resources with specific tags (or exclude resources with specific tags) using the following commands:
 
 ```shell
@@ -383,8 +341,6 @@ Run resources with specific tags (or exclude resources with specific tags) using
 # Run all models tagged "daily", except those that are tagged hourly
   dbt run --select tag:daily --exclude tag:hourly
 ```
-
-Report incorrect code
 
 ### Apply tags to seeds
 
@@ -397,8 +353,6 @@ seeds:
       +tags: marketing
 ```
 
-Report incorrect code
-
 dbt\_project.yml
 
 ```yml
@@ -409,8 +363,6 @@ seeds:
         - marketing
         - hourly
 ```
-
-Report incorrect code
 
 ### Apply tags to saved queries
 
@@ -425,16 +377,12 @@ saved-queries:
       +tags: order_metrics
 ```
 
-Report incorrect code
-
 Then run resources with a specific tag using the following commands:
 
 ```shell
 # Run all resources tagged "order_metrics"
   dbt run --select tag:order_metrics
 ```
-
-Report incorrect code
 
 The second example shows how to apply multiple tags to a saved query in the `semantic_model.yml` file. The saved query is then tagged with `order_metrics` and `hourly`.
 
@@ -451,16 +399,12 @@ saved_queries:
         - hourly
 ```
 
-Report incorrect code
-
 Run resources with multiple tags using the following commands:
 
 ```shell
 # Run all resources tagged "order_metrics" and "hourly"
   dbt build --select tag:order_metrics tag:hourly
 ```
-
-Report incorrect code
 
 ## Usage notes
 
@@ -485,15 +429,11 @@ sources:
             my_tag: "my_value". # invalid
 ```
 
-Report incorrect code
-
 A warning is raised when the `tags` value is not a string. For example:
 
 ```text
 Field config.tags: {'my_tag': 'my_value'} is not valid for source (ecom)
 ```
-
-Report incorrect code
 
 ### Tags are additive
 
@@ -525,16 +465,12 @@ models:
                 tags: ['test_level'] # changed to config in v1.10
 ```
 
-Report incorrect code
-
 In the example above, the `unique` test would be selected by either of these tags:
 
 ```bash
 dbt test --select tag:column_level
 dbt test --select tag:test_level
 ```
-
-Report incorrect code
 
 ### Backwards compatibility for sources and exposures
 
@@ -567,5 +503,3 @@ sources:
             config:
               tags: ['column_level'] # changed to config in v1.10 and backported to 1.9
 ```
-
-Report incorrect code

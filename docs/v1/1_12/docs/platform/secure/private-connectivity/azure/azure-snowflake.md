@@ -37,8 +37,6 @@ USE ROLE ACCOUNTADMIN;
 SELECT SYSTEM$GET_PRIVATELINK_CONFIG();
 ```
 
-Report incorrect code
-
 2. Add the required information to the following template and submit your request to [dbt Support](mailto:support@getdbt.com):
 
  Support request email template
@@ -53,8 +51,6 @@ Subject: New Azure Multi-Tenant Private Link Request
   - Enable Internal Stage Private Link? Y/N (If Y, output must include privatelink-internal-stage)
 - dbt Azure multi-tenant environment (US or EMEA):
 ```
-
-Report incorrect code
 
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
@@ -71,8 +67,6 @@ USE ROLE ACCOUNTADMIN;
 -- Azure Private Link
 SELECT SYSTEM$AUTHORIZE_STAGE_PRIVATELINK_ACCESS ( 'AZURE_PRIVATE_ENDPOINT_RESOURCE_ID' );
 ```
-
-Report incorrect code
 
 ## Create connection in dbt
 
@@ -107,8 +101,6 @@ from
     )
   );
 ```
-
-Report incorrect code
 
 ### Using the UI
 
@@ -145,8 +137,6 @@ CREATE NETWORK RULE allow_dbt_cloud_access
   VALUE_LIST = ('<Azure Link ID>'); -- Replace '<Azure Link ID>' with the actual ID obtained above
 ```
 
-Report incorrect code
-
 2. Add the rule to a network policy with the following SQL:
 
 ```sql
@@ -154,5 +144,3 @@ Report incorrect code
 ALTER NETWORK POLICY <network_policy_name>
   ADD ALLOWED_NETWORK_RULE_LIST =('allow_dbt_cloud_access');
 ```
-
-Report incorrect code

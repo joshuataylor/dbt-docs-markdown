@@ -48,8 +48,6 @@ models:
   +incremental_strategy: "insert_overwrite"
 ```
 
-Report incorrect code
-
 or:
 
 models/my\_model.sql
@@ -66,8 +64,6 @@ models/my\_model.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ### Strategy-specific configs
 
@@ -90,8 +86,6 @@ models/my\_model.sql
 select ...
 ```
 
-Report incorrect code
-
 Alternatively, you can specify a list of columns to exclude from being updated by passing a list of column names to a `merge_exclude_columns` config.
 
 models/my\_model.sql
@@ -108,8 +102,6 @@ models/my\_model.sql
 
 select ...
 ```
-
-Report incorrect code
 
 ### About incremental\_predicates
 
@@ -133,8 +125,6 @@ models:
       # `DBT_INTERNAL_DEST` and `DBT_INTERNAL_SOURCE` are the standard aliases for the target table and temporary table, respectively, during an incremental run using the merge strategy. 
 ```
 
-Report incorrect code
-
 Alternatively, here are the same configurations configured within a model file:
 
 ```sql
@@ -155,8 +145,6 @@ Alternatively, here are the same configurations configured within a model file:
 ...
 ```
 
-Report incorrect code
-
 This will template (in the `dbt.log` file) a `merge` statement like:
 
 ```sql
@@ -172,8 +160,6 @@ merge into <existing_table> DBT_INTERNAL_DEST
     when not matched then insert ...
 ```
 
-Report incorrect code
-
 Limit the data scan of *upstream* tables within the body of their incremental model SQL, which will limit the amount of "new" data processed/transformed.
 
 ```sql
@@ -188,8 +174,6 @@ with large_source_table as (
 
 ...
 ```
-
-Report incorrect code
 
 info
 
@@ -235,8 +219,6 @@ macros/append.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 Define a model models/my\_model.sql:
 
 ```sql
@@ -247,8 +229,6 @@ Define a model models/my\_model.sql:
 
 select * from {{ ref("some_model") }}
 ```
-
-Report incorrect code
 
 #### About built-in incremental strategies
 
@@ -330,8 +310,6 @@ macros/my\_custom\_strategies.sql
 {% endmacro %}
 ```
 
-Report incorrect code
-
 models/my\_model.sql
 
 ```sql
@@ -343,8 +321,6 @@ models/my\_model.sql
 
 ...
 ```
-
-Report incorrect code
 
 If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](../../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
 
@@ -362,5 +338,3 @@ macros/my\_custom\_strategies.sql
     {% do return(example.get_incremental_merge_null_safe_sql(arg_dict)) %}
 {% endmacro %}
 ```
-
-Report incorrect code

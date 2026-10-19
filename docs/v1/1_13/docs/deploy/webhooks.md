@@ -97,15 +97,11 @@ signature = hmac.new(app_secret, request_body, hashlib.sha256).hexdigest()
 return signature == auth_header
 ```
 
-Report incorrect code
-
 Note that the destination system must support [Authorization headers](#troubleshooting) for the webhook to work correctly. You can test your endpoint's support by sending a request with curl and an Authorization header, like this:
 
 ```shell
 curl -H 'Authorization: 123' -X POST https://<your-webhook-endpoint>
 ```
-
-Report incorrect code
 
 ## Inspect HTTP requests
 
@@ -141,8 +137,6 @@ An example of a webhook payload for a run that's started:
 }
 ```
 
-Report incorrect code
-
 An example of a webhook payload for a completed run:
 
 ```json
@@ -171,8 +165,6 @@ An example of a webhook payload for a completed run:
   }
 }
 ```
-
-Report incorrect code
 
 An example of a webhook payload for an errored run:
 
@@ -203,8 +195,6 @@ An example of a webhook payload for an errored run:
 }
 ```
 
-Report incorrect code
-
 ## API for webhooks
 
 You can use the dbt API to create new webhooks that you want to subscribe to, get detailed information about your webhooks, and to manage the webhooks that are associated with your account. The following sections describe the API endpoints you can use for this.
@@ -222,8 +212,6 @@ List all webhooks that are available from a specific dbt account.
 ```shell
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscriptions
 ```
-
-Report incorrect code
 
 #### Path parameters
 
@@ -292,8 +280,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 #### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
@@ -322,8 +308,6 @@ Get detailed information about a specific webhook.
 ```shell
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
 ```
-
-Report incorrect code
 
 #### Path parameters
 
@@ -360,8 +344,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 #### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
@@ -390,8 +372,6 @@ Create a new outbound webhook and specify the endpoint URL that will be subscrib
 POST https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscriptions
 ```
 
-Report incorrect code
-
 ```json
 {
 	"event_types": [
@@ -407,8 +387,6 @@ Report incorrect code
 	]
 }
 ```
-
-Report incorrect code
 
 #### Path parameters
 
@@ -458,8 +436,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 #### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
@@ -488,8 +464,6 @@ Update the configuration details for a specific webhook.
 PUT https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
 ```
 
-Report incorrect code
-
 ```json
 {
 	"event_types": [
@@ -505,8 +479,6 @@ Report incorrect code
 	]
 }
 ```
-
-Report incorrect code
 
 #### Path parameters
 
@@ -555,8 +527,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 #### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
@@ -584,8 +554,6 @@ Test a specific webhook.
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}/test
 ```
 
-Report incorrect code
-
 #### Path parameters
 
 | Name              | Description                                     |
@@ -608,8 +576,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 ### Delete a webhook
 
 Delete a specific webhook.
@@ -619,8 +585,6 @@ Delete a specific webhook.
 ```shell
 DELETE https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
 ```
-
-Report incorrect code
 
 #### Path parameters
 
@@ -644,8 +608,6 @@ Report incorrect code
 }
 ```
 
-Report incorrect code
-
 ## Related docs
 
 * [dbt CI](./continuous-integration.md)
@@ -658,5 +620,3 @@ If your destination system isn't receiving dbt webhooks, ensure it allows Author
 ```shell
 curl -H 'Authorization: 123' -X POST https://<your-webhook-endpoint>
 ```
-
-Report incorrect code

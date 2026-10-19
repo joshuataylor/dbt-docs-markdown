@@ -65,8 +65,6 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-Report incorrect code
-
 #### Run code
 
 spark\_incremental.sql
@@ -83,8 +81,6 @@ create temporary view spark_incremental__dbt_tmp as
 insert into table analytics.spark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
-
-Report incorrect code
 
 ### The `insert_overwrite` strategy
 
@@ -135,8 +131,6 @@ from events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 spark\_incremental.sql
@@ -167,8 +161,6 @@ insert overwrite table analytics.spark_incremental
     partition (date_day)
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
-
-Report incorrect code
 
 ### The `merge` strategy
 
@@ -210,8 +202,6 @@ from events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 target/run/merge\_incremental.sql
@@ -245,8 +235,6 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
     when not matched then insert *
 ```
 
-Report incorrect code
-
 ## Persisting model descriptions
 
 Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](./persist_docs.md).
@@ -277,8 +265,6 @@ seeds:
 snapshots:
   +file_format: delta # or iceberg or hudi
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.11 and later)
 

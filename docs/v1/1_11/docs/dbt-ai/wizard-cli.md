@@ -82,17 +82,13 @@ macOS/Linux:
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
-Report incorrect code
-
 Windows (PowerShell):
 
 ```powershell
 irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
 
-Report incorrect code
-
-This installs dbt Wizard to `/usr/local/bin/wizard`, along with the dbt [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with the [dbt Information Schema](../build/dbt-information-schema.md) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
 
 ## Update
 
@@ -101,8 +97,6 @@ Run the following command to update dbt Wizard to the latest version:
 ```bash
 wizard update
 ```
-
-Report incorrect code
 
 Prefer to learn by video?
 
@@ -116,8 +110,6 @@ Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/db
    wizard system uninstall
    ```
 
-   Report incorrect code
-
 Uninstalling Wizard
 
 Removing `~/.dbt/wizard` deletes your local config, logs, and cache, and can't be undone. Your dbt profiles (`~/.dbt/`) and dbt projects aren't part of dbt Wizard and won't be touched.
@@ -127,8 +119,6 @@ Removing `~/.dbt/wizard` deletes your local config, logs, and cache, and can't b
    ```bash
    which wizard
    ```
-
-   Report incorrect code
 
 If no output path is returned, dbt Wizard is successfully uninstalled.
 

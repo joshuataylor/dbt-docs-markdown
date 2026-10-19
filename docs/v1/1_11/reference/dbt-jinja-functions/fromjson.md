@@ -15,5 +15,3 @@ The `fromjson` context method can be used to deserialize a JSON string into a Py
 
 {% do log(my_dict['abc']) %}
 ```
-
-Report incorrect code

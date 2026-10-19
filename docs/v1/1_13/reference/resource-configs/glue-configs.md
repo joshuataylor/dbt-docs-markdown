@@ -44,8 +44,6 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-Report incorrect code
-
 #### Run code
 
 glue\_incremental.sql
@@ -62,8 +60,6 @@ create view spark_incremental__dbt_tmp as
 insert into table analytics.spark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
-
-Report incorrect code
 
 ;
 
@@ -109,8 +105,6 @@ from events
 group by 1
 ```
 
-Report incorrect code
-
 #### Run code
 
 spark\_incremental.sql
@@ -146,8 +140,6 @@ insert overwrite table analytics.spark_incremental
 drop view spark_incremental__dbt_tmp
 ```
 
-Report incorrect code
-
 Specifying `insert_overwrite` as the incremental strategy is optional, since it's the default strategy used when none is specified.
 
 ### The `merge` strategy
@@ -162,8 +154,6 @@ You can add hudi libraries as extra jars in the classpath using extra\_jars opti
 ```yml
 extra_jars: "s3://dbt-glue-hudi/Dependencies/hudi-spark.jar,s3://dbt-glue-hudi/Dependencies/spark-avro_2.11-2.4.4.jar"
 ```
-
-Report incorrect code
 
 dbt will run an [atomic `merge` statement](https://hudi.apache.org/docs/writing_data#spark-datasource-writer) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
@@ -196,8 +186,6 @@ select
 from events
 group by 1
 ```
-
-Report incorrect code
 
 ## Persisting model descriptions
 

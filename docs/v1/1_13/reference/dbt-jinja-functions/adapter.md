@@ -57,8 +57,6 @@ models/example.sql
 {% endfor %}
 ```
 
-Report incorrect code
-
 ## expand\_target\_column\_types
 
 **Args**:
@@ -78,8 +76,6 @@ example.sql
 
 {% do adapter.expand_target_column_types(tmp_relation, target_relation) %}
 ```
-
-Report incorrect code
 
 ## get\_relation
 
@@ -105,8 +101,6 @@ example.sql
 {{ log("Source Relation: " ~ source_relation, info=true) }}
 ```
 
-Report incorrect code
-
 ## load\_relation
 
 **Args**:
@@ -129,8 +123,6 @@ example.sql
 {% endif %}
 ```
 
-Report incorrect code
-
 ## get\_columns\_in\_relation
 
 **Args**:
@@ -152,8 +144,6 @@ example.sql
 {% endfor %}
 ```
 
-Report incorrect code
-
 ## create\_schema
 
 **Args**:
@@ -171,8 +161,6 @@ example.sql
 {% do adapter.create_schema(api.Relation.create(database=target.database, schema="my_schema")) %}
 ```
 
-Report incorrect code
-
 ## drop\_schema
 
 **Args**:
@@ -189,8 +177,6 @@ example.sql
 
 {% do adapter.drop_schema(api.Relation.create(database=target.database, schema="my_schema")) %}
 ```
-
-Report incorrect code
 
 ## drop\_relation
 
@@ -210,8 +196,6 @@ example.sql
 
 {% do adapter.drop_relation(this) %}
 ```
-
-Report incorrect code
 
 ## rename\_relation
 
@@ -241,8 +225,6 @@ example.sql
 {% do adapter.rename_relation(old_relation, backup_relation) %}
 ```
 
-Report incorrect code
-
 ## quote
 
 **Args**:
@@ -260,8 +242,6 @@ select
       'abc' as {{ adapter.quote('table_name') }},
       'def' as {{ adapter.quote('group by') }} 
 ```
-
-Report incorrect code
 
 ## get\_columns\_in\_table
 
@@ -288,8 +268,6 @@ insert into {{ this }} ({{ dest_cols_csv }}) (
 );
 ```
 
-Report incorrect code
-
 ## already\_exists
 
 Deprecated
@@ -312,8 +290,6 @@ select * from {{ref('raw_table')}}
   where id > (select max(id) from {{this}})
 {% endif %}
 ```
-
-Report incorrect code
 
 ## adapter\_macro
 
@@ -345,5 +321,3 @@ macros/concat.sql
     {{ fields|join(' || ') }}
 {% endmacro %}
 ```
-
-Report incorrect code

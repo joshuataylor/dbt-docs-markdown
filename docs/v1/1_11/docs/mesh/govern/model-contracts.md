@@ -68,8 +68,6 @@ final as (
 select * from final
 ```
 
-Report incorrect code
-
 To enforce a model's contract, set `enforced: true` under the `contract` configuration.
 
 When enforced, your contract *must* include every column's `name` and `data_type` (where `data_type` matches one that your data platform understands).
@@ -93,8 +91,6 @@ models:
         data_type: string
       ...
 ```
-
-Report incorrect code
 
 When building a model with a defined contract, dbt will do two things differently:
 

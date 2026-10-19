@@ -62,8 +62,6 @@ query {
 }
 ```
 
-Report incorrect code
-
 You can combine `lastKnownResults` with other filters on `TestAppliedFilter`, such as `testTypes`:
 
 ```graphql
@@ -94,8 +92,6 @@ query {
   }
 }
 ```
-
-Report incorrect code
 
 ### Fields
 

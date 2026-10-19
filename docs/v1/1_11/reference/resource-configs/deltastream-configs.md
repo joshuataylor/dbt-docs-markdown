@@ -46,8 +46,6 @@ models:
     +materialized: table
 ```
 
-Report incorrect code
-
 **SQL configuration:**
 
 ```sql
@@ -59,8 +57,6 @@ SELECT
 FROM {{ ref('transactions') }}
 GROUP BY date
 ```
-
-Report incorrect code
 
 ### Stream materialization
 
@@ -79,8 +75,6 @@ models:
       key.type: 'VARCHAR'
       timestamp: 'event_time'
 ```
-
-Report incorrect code
 
 **SQL configuration:**
 
@@ -103,8 +97,6 @@ SELECT
 FROM {{ ref('source_stream') }}
 WHERE action = 'purchase'
 ```
-
-Report incorrect code
 
 #### Stream configuration options
 
@@ -133,8 +125,6 @@ models:
     +primary_key: [column_name]
 ```
 
-Report incorrect code
-
 **SQL configuration:**
 
 ```sql
@@ -153,8 +143,6 @@ SELECT
     updated_at
 FROM {{ ref('orders_stream') }}
 ```
-
-Report incorrect code
 
 #### Changelog configuration options
 
@@ -180,8 +168,6 @@ SELECT
 FROM {{ ref('purchase_events') }}
 GROUP BY product_id
 ```
-
-Report incorrect code
 
 ## YAML-only resource configurations
 
@@ -309,15 +295,11 @@ models:
         'tls.client.key_file': '@/path/to/tls_key'
 ```
 
-Report incorrect code
-
 **Note:** Due to current dbt limitations, managed YAML-only resources require a placeholder .sql file that doesn't contain a SELECT statement. For example, create `my_kafka_store.sql` with:
 
 ```sql
 -- Placeholder
 ```
-
-Report incorrect code
 
 ### Unmanaged resources (sources)
 
@@ -435,8 +417,6 @@ sources:
             'tls.client.key_file': '@/path/to/tls_key'
 ```
 
-Report incorrect code
-
 To create unmanaged resources:
 
 ```bash
@@ -446,8 +426,6 @@ dbt run-operation create_sources
 # Create a specific source
 dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
 ```
-
-Report incorrect code
 
 ## Store configurations
 
@@ -464,8 +442,6 @@ Report incorrect code
       tls.ca_cert_file: "@/certs/us-east-1/self-signed-kafka-ca.crt"
 ```
 
-Report incorrect code
-
 ### PostgreSQL store
 
 ```yaml
@@ -480,8 +456,6 @@ Report incorrect code
       postgres.password: "password"
 ```
 
-Report incorrect code
-
 ## Entity configuration
 
 ```yaml
@@ -492,8 +466,6 @@ Report incorrect code
     parameters:
       'kinesis.shards': 3
 ```
-
-Report incorrect code
 
 ## Compute pool configuration
 
@@ -506,8 +478,6 @@ Report incorrect code
       'compute_pool.timeout_min': 5
 ```
 
-Report incorrect code
-
 ## Referencing resources
 
 ### Managed resources
@@ -518,8 +488,6 @@ Use the standard `ref()` function:
 select * from {{ ref('my_kafka_stream') }}
 ```
 
-Report incorrect code
-
 ### Unmanaged resources
 
 Use the `source()` function:
@@ -527,8 +495,6 @@ Use the `source()` function:
 ```sql
 SELECT * FROM {{ source('infrastructure', 'user_events_stream') }}
 ```
-
-Report incorrect code
 
 ## Seeds
 
@@ -574,8 +540,6 @@ seeds:
       quote_columns: true  # Quote all columns
 ```
 
-Report incorrect code
-
 ### Usage
 
 1. Place CSV files in your `seeds/` directory
@@ -617,8 +581,6 @@ Creates a function source from a JAR file containing Java functions:
 SELECT 1 as placeholder
 ```
 
-Report incorrect code
-
 ### Descriptor source
 
 Creates a descriptor source from compiled protocol buffer descriptor files:
@@ -637,8 +599,6 @@ Creates a descriptor source from compiled protocol buffer descriptor files:
 SELECT 1 as placeholder
 ```
 
-Report incorrect code
-
 Note
 
 Descriptor sources require compiled `.desc` files, not raw `.proto` files. Compile your protobuf schemas using:
@@ -646,8 +606,6 @@ Descriptor sources require compiled `.desc` files, not raw `.proto` files. Compi
 ```bash
 protoc --descriptor_set_out=schemas/my_schemas.desc schemas/my_schemas.proto
 ```
-
-Report incorrect code
 
 ### Function
 
@@ -672,8 +630,6 @@ Creates a user-defined function that references a function source:
 SELECT 1 as placeholder
 ```
 
-Report incorrect code
-
 ### Schema registry
 
 Creates a schema registry connection:
@@ -697,8 +653,6 @@ Creates a schema registry connection:
 SELECT 1 as placeholder
 ```
 
-Report incorrect code
-
 ## Query management macros
 
 DeltaStream dbt adapter provides macros to help you manage and terminate running queries directly from dbt.
@@ -711,8 +665,6 @@ The `list_all_queries` macro displays all queries currently known to DeltaStream
 dbt run-operation list_all_queries
 ```
 
-Report incorrect code
-
 ### Describe query
 
 Use the `describe_query` macro to check the logs and details of a specific query:
@@ -720,8 +672,6 @@ Use the `describe_query` macro to check the logs and details of a specific query
 ```bash
 dbt run-operation describe_query --args '{query_id: "<QUERY_ID>"}'
 ```
-
-Report incorrect code
 
 ### Terminate a specific query
 
@@ -731,8 +681,6 @@ Use the `terminate_query` macro to terminate a query by its ID:
 dbt run-operation terminate_query --args '{query_id: "<QUERY_ID>"}'
 ```
 
-Report incorrect code
-
 ### Terminate all running queries
 
 Use the `terminate_all_queries` macro to terminate all currently running queries:
@@ -741,8 +689,6 @@ Use the `terminate_all_queries` macro to terminate all currently running queries
 dbt run-operation terminate_all_queries
 ```
 
-Report incorrect code
-
 ### Restart a query
 
 Use the `restart_query` macro to restart a failed query by its ID:
@@ -750,8 +696,6 @@ Use the `restart_query` macro to restart a failed query by its ID:
 ```bash
 dbt run-operation restart_query --args '{query_id: "<QUERY_ID>"}'
 ```
-
-Report incorrect code
 
 ## Application macro
 
@@ -769,8 +713,6 @@ dbt run-operation application --args '{
   ]
 }'
 ```
-
-Report incorrect code
 
 ## Troubleshooting
 
@@ -801,5 +743,3 @@ For problems with file attachments in function sources and descriptor sources:
    ```bash
    protoc --descriptor_set_out=output.desc input.proto
    ```
-
-   Report incorrect code

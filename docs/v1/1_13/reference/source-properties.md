@@ -85,8 +85,6 @@ sources:
   - name: ... # declare properties of additional sources
 ```
 
-Report incorrect code
-
 ## Example
 
 models/\<filename>.yml
@@ -139,5 +137,3 @@ sources:
             data_tests:
               - unique
 ```
-
-Report incorrect code

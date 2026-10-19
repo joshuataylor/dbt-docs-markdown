@@ -19,8 +19,6 @@ where status not in ('returned', 'return_pending')
 group by 1
 ```
 
-Report incorrect code
-
 This query using the Jaffle Shop’s `orders` table will return the rounded order amount per each order month:
 
 | order\_month | avg\_order\_amount |

@@ -24,8 +24,6 @@ To view deprecations from your CLI, run:
 dbt parse --no-partial-parse --show-all-deprecations
 ```
 
-Report incorrect code
-
 The `--no-partial-parse` flag ensures that even deprecations only picked up during parsing are included. The `--show-all-deprecations` flag ensures that each occurrence of the deprecations is listed instead of just the first.
 
 (Applies to dbt v2.0 and later)
@@ -42,8 +40,6 @@ For more information, refer to [Deprecated flags](../docs/dbt-versions/dbt-upgra
 Summary of encountered deprecations:
 - MFTimespineWithoutYamlConfigurationDeprecation: 1 occurrence
 ```
-
-Report incorrect code
 
 ### The dbt platform
 
@@ -74,8 +70,6 @@ To silence all deprecation warnings in dbt v1:
 ```bash
 dbt test --warn-error-options '{"silence": ["Deprecations"]}'
 ```
-
-Report incorrect code
 
 (Applies to dbt v2.0 and later)
 
@@ -109,8 +103,6 @@ models:
           expression: "order_items_subtotal = subtotal"
 ```
 
-Report incorrect code
-
 You should set the `require_generic_test_arguments_property` flag to `true` and nest any keyword arguments to your test under the new `arguments` property:
 
 model.yml
@@ -124,8 +116,6 @@ models:
             arguments: [1,2,3]
             expression: "order_items_subtotal = subtotal"
 ```
-
-Report incorrect code
 
 Alternatively, the original `arguments` keyword could be renamed to something else that does not collide with the new `arguments` key in the dbt framework. This renaming would also need to occur in the test macro definition, and the renamed key would still need to be specified within the `arguments` property to be valid syntactically. For example:
 
@@ -141,8 +131,6 @@ models:
             expression: "order_items_subtotal = subtotal"
 ```
 
-Report incorrect code
-
 ### ConfigDataPathDeprecation
 
 In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.0.md>) `data-paths` has been renamed to [seed-paths](./project-configs/model-paths.md). If you receive this deprecation warning, it means that `data-paths` is still being used in your project's `dbt_project.yml`.
@@ -156,8 +144,6 @@ CLI
 The `data-paths` config has been renamed to `seed-paths`. Please update your
 `dbt_project.yml` configuration to reflect this change.
 ```
-
-Report incorrect code
 
 #### ConfigDataPathDeprecation warning resolution
 
@@ -181,8 +167,6 @@ logs to a custom directory, please use the --log-path CLI flag or DBT_ENGINE_LOG
 env var instead.
 ```
 
-Report incorrect code
-
 #### ConfigLogPathDeprecation warning resolution
 
 Remove `log-path` from your `dbt_project.yml` and specify it via either the CLI flag `--log-path` or environment variable (Applies to dbt v1.11 and later) `DBT_ENGINE_LOG_PATH` [as documented here](./global-configs/logs.md#log-and-target-paths).
@@ -201,8 +185,6 @@ The `source-paths` config has been renamed to `model-paths`. Please update your
 `dbt_project.yml` configuration to reflect this change.
 23:03:47  Registered adapter: postgres=1.9.0
 ```
-
-Report incorrect code
 
 #### ConfigSourcePathDeprecation warning resolution
 
@@ -226,8 +208,6 @@ artifacts to a custom directory, please use the --target-path CLI flag or
 DBT_ENGINE_TARGET_PATH env var instead.
 ```
 
-Report incorrect code
-
 #### ConfigTargetPathDeprecation warning resolution
 
 Remove `target-path` from your `dbt_project.yml` and specify it via either the CLI flag `--target-path` or environment variable (Applies to dbt v1.11 and later) [`DBT_ENGINE_TARGET_PATH`](./global-configs/logs.md#log-and-target-paths).
@@ -245,8 +225,6 @@ models:
       custom_config_key: value
 ```
 
-Report incorrect code
-
 #### CustomKeyInConfigDeprecation warning resolution
 
 Nest custom keys under `meta` and ensure `meta` is nested under `config` (similar to [`PropertyMovedToConfigDeprecation`](#propertymovedtoconfigdeprecation)). For example:
@@ -258,8 +236,6 @@ models:
       meta:
         custom_config_key: value
 ```
-
-Report incorrect code
 
 ### CustomKeyInObjectDeprecation
 
@@ -297,8 +273,6 @@ models:
           some_key: some_value
 ```
 
-Report incorrect code
-
 Example of the resolution:
 
 ```yaml
@@ -313,8 +287,6 @@ models:
           meta:
             some_key: some_value
 ```
-
-Report incorrect code
 
 ##### Generic test definition
 
@@ -332,8 +304,6 @@ tests:
         description: The active timestamp for the model
 ```
 
-Report incorrect code
-
 Example of the resolution:
 
 ```yaml
@@ -348,8 +318,6 @@ tests:
             description: The active timestamp for the model
 ```
 
-Report incorrect code
-
 #### Accessing nested configurations
 
 To access custom configurations nested under attributes of `meta`, use `config.get('meta')` and then index the meta dictionary by the name of your custom attribute. Users will need to adjust their code that accesses the custom config keys directly as top-level keys.
@@ -360,15 +328,11 @@ Example before custom configurations were nested under meta:
 {% set my_custom_config = config.get('custom_config_key') %}
 ```
 
-Report incorrect code
-
 After configs are nested:
 
 ```jinja
 {% set my_custom_config = config.get('meta').custom_config_key %}
 ```
-
-Report incorrect code
 
 ### CustomOutputPathInSourceFreshnessDeprecation
 
@@ -411,8 +375,6 @@ custom_metadata:
   last_updated: "2025-07-01"
 ```
 
-Report incorrect code
-
 You should move the key under `config.meta`:
 
 dbt\_project.yml
@@ -432,8 +394,6 @@ config:
       description: "This project contains models for our analytics platform"
       last_updated: "2025-07-01"
 ```
-
-Report incorrect code
 
 ### DuplicateNameDistinctNodeTypesDeprecation
 
@@ -465,8 +425,6 @@ my_profile: # dbt would use this profile key
   outputs:
 ...
 ```
-
-Report incorrect code
 
 Note that in a future version, dbt will stop supporting duplicate keys with silent overwrite.
 
@@ -502,8 +460,6 @@ a human-friendly title. This will raise an error in a future version of
 dbt-core.
 ```
 
-Report incorrect code
-
 #### ExposureNameDeprecation warning resolution
 
 Ensure your exposure names only contain letters, numbers, and underscores. A more human-readable name can be put in the [`label`](./exposure-properties.md#overview) property of exposures.
@@ -530,8 +486,6 @@ macros/get\_custom\_schema.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 ### GenericJSONSchemaValidationDeprecation
 
 This deprecation type is a catch-all/fallback. dbt attempts to handle all JSON schema validation errors with specific deprecation event types, but it is possible that we missed something. Missing something means that either dbt failed to handle a specific case with a deprecation event *or* the JSON schema is incorrect in a particular area.
@@ -557,8 +511,6 @@ behavior changes:
 https://docs.getdbt.com/reference/global-configs/behavior-changes.
 ```
 
-Report incorrect code
-
 #### MFCumulativeTypeParamsDeprecation warning resolution
 
 Nest your `window` and `time_to_grain` under the `cumulative_type_params` property within the `type_params` of the relevant metric.
@@ -579,8 +531,6 @@ https://docs.getdbt.com/docs/build/metricflow-time-spine and behavior change
 documentation:
 https://docs.getdbt.com/reference/global-configs/behavior-changes
 ```
-
-Report incorrect code
 
 #### MFTimespineWithoutYamlConfigurationDeprecation warning resolution
 
@@ -606,8 +556,6 @@ models:
           expression: "order_items_subtotal = subtotal"
 ```
 
-Report incorrect code
-
 Or using the alternative `test_name` format:
 
 model.yml
@@ -622,8 +570,6 @@ models:
       where: "1=1"
 ```
 
-Report incorrect code
-
 You should now nest arguments under `arguments` and framework configurations under `config`:
 
 model.yml
@@ -636,8 +582,6 @@ models:
           arguments: 
             expression: "order_items_subtotal = subtotal"
 ```
-
-Report incorrect code
 
 Or with framework configurations:
 
@@ -655,8 +599,6 @@ models:
         where: "1=1"
 ```
 
-Report incorrect code
-
 ### MissingPlusPrefixDeprecation
 
 dbt has deprecated specifying configurations without [the `+` prefix](https://docs.getdbt.com/reference/dbt_project.yml#the--prefix) in `dbt_project.yml`. Only folder and file names can be specified without the `+` prefix within resource configurations in `dbt_project.yml`.
@@ -671,8 +613,6 @@ Missing '+' prefix on `tags` found at `my_path.sub_path.another_path.tags` in
 file `dbt_project.yml`. Hierarchical config
 values without a '+' prefix are deprecated in dbt_project.yml.
 ```
-
-Report incorrect code
 
 This deprecation warning is only raised for the following adapters:
 
@@ -693,8 +633,6 @@ models:
     materialized: table
 ```
 
-Report incorrect code
-
 You should now set it with the `+` prefix to disambiguate between paths:
 
 dbt\_project.yml
@@ -704,8 +642,6 @@ models:
   marts:
     +materialized: table
 ```
-
-Report incorrect code
 
 ### ModelParamUsageDeprecation
 
@@ -729,8 +665,6 @@ Usage of itertools modules is deprecated. Please use the built-in functions
 instead.
 ```
 
-Report incorrect code
-
 #### ModulesItertoolsUsageDeprecation warning resolution
 
 If you are currently using functions from the `itertools` module within Jinja SQL templates, use the available built-in [dbt functions](./dbt-jinja-functions-context-variables.md) and [Jinja methods](../docs/build/jinja-macros.md) instead.
@@ -749,8 +683,6 @@ models/itertools\_usage.sql
 {%- endfor -%}
 ```
 
-Report incorrect code
-
 Should be converted to use alternative built-in dbt Jinja methods. For example:
 
 macros/cartesian\_product.sql
@@ -767,8 +699,6 @@ macros/cartesian\_product.sql
 {%- endmacro -%}
 ```
 
-Report incorrect code
-
 models/itertools\_usage.sql
 
 ```sql
@@ -780,8 +710,6 @@ models/itertools\_usage.sql
   {{ item }}
 {%- endfor -%}
 ```
-
-Report incorrect code
 
 ### PackageInstallPathDeprecation
 
@@ -798,8 +726,6 @@ The default package install path has changed from `dbt_modules` to
 check `.gitignore`. Or, set `packages-install-path: dbt_modules`
 If you'd like to keep the current value.
 ```
-
-Report incorrect code
 
 #### PackageInstallPathDeprecation warning resolution
 
@@ -825,8 +751,6 @@ For example:
 {% endmaterialization %}
 ```
 
-Report incorrect code
-
 Once you've added the override for your package, remove the `require_explicit_package_overrides_for_builtin_materializations: false` flag from your `dbt_project.yml` to resolve the warning.
 
 ### PackageRedirectDeprecation
@@ -841,8 +765,6 @@ The `fishtown-analytics/dbt_utils` package is deprecated in favor of
 `dbt-labs/dbt_utils`. Please update your `packages.yml` configuration to use
 `dbt-labs/dbt_utils` instead.
 ```
-
-Report incorrect code
 
 #### PackageRedirectDeprecation warning resolution
 
@@ -860,8 +782,6 @@ CLI
 00:08:12  [WARNING]: Deprecated functionality
 User config should be moved from the 'config' key in profiles.yml to the 'flags' key in dbt_project.yml.
 ```
-
-Report incorrect code
 
 #### ProjectFlagsMovedDeprecation warning resolution
 
@@ -891,8 +811,6 @@ sources:
         period: hour
 ```
 
-Report incorrect code
-
 You should now set it under `config`:
 
 ```yaml
@@ -908,8 +826,6 @@ sources:
           period: hour
 ```
 
-Report incorrect code
-
 ### ResourceNamesWithSpacesDeprecation
 
 In [dbt 1.8](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.8.md#managing-changes-to-legacy-behaviors), allowing resource names to have spaces in them was deprecated. If you get this deprecation warning, dbt detected a resource name with a space in it.
@@ -921,8 +837,6 @@ CLI
 ```bash
 16:37:58  [WARNING]: Found spaces in the name of `model.jaffle_shop.stg supplies`
 ```
-
-Report incorrect code
 
 #### ResourceNamesWithSpacesDeprecation warning resolution
 
@@ -941,8 +855,6 @@ CLI
 will start running `on-run-start` and `on-run-end` hooks by default. For more
 information: https://docs.getdbt.com/reference/global-configs/legacy-behaviors
 ```
-
-Report incorrect code
 
 #### SourceFreshnessProjectHooksNotRun warning resolution
 
@@ -978,8 +890,6 @@ hello!
 {% endmacro %}
 ```
 
-Report incorrect code
-
 #### UnexpectedJinjaBlockDeprecation warning resolution
 
 Delete the unexpected Jinja blocks.
@@ -1005,8 +915,6 @@ For example:
         - NoNodesForSelectionCriteria
 ```
 
-Report incorrect code
-
 Should now be configured as:
 
 ```yaml
@@ -1016,5 +924,3 @@ Should now be configured as:
       error:
         - NoNodesForSelectionCriteria
 ```
-
-Report incorrect code

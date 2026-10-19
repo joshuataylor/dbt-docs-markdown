@@ -34,5 +34,3 @@ seeds:
 
   - name: ... # declare properties of additional seeds
 ```
-
-Report incorrect code

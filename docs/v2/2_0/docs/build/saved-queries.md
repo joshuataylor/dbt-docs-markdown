@@ -73,8 +73,6 @@ saved_queries:
           schema: my_export_schema_name
 ```
 
-Report incorrect code
-
 Note that you can set `export_as` to both the saved query and the exports [config](../../reference/resource-properties/config.md), with the exports config value taking precedence. If a key isn't set in the exports config, it will inherit the saved query config value.
 
 #### Where clause
@@ -95,8 +93,6 @@ filter: |
   {{ Metric('metric_name', group_by=['entity_name']) }}
 ```
 
-Report incorrect code
-
 #### Project-level saved queries
 
 To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](../../reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
@@ -109,8 +105,6 @@ saved-queries:
     +cache:
       enabled: true
 ```
-
-Report incorrect code
 
 For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](../../reference/dbt_project.yml.md#naming-convention).
 
@@ -159,8 +153,6 @@ saved_queries:
           alias: my_export_alias # Optional - defaults to Export name
           schema: my_export_schema_name # Optional - defaults to deployment schema           
 ```
-
-Report incorrect code
 
 ## Run exports
 

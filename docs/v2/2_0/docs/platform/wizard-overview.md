@@ -4,11 +4,11 @@ Local development | dbt platform
 
 Your personal dbt agent — wherever you work.
 
-dbt Wizard is an AI agent purpose-built for governed data development in dbt. Unlike general-purpose coding agents, it understands your dbt project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured index of lineage, model health, tests, contracts, run results, and semantic definitions.
+dbt Wizard is an AI agent purpose-built for governed data development in dbt. Unlike general-purpose coding agents, it understands your dbt project through the [dbt Information Schema](../build/dbt-information-schema.md) — a structured view of lineage, model health, tests, contracts, run results, and semantic definitions.
 
 Think of it like a map of your city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout. dbt Wizard comes with:
 
-* **Project understanding:** A native dbt metadata engine for lineage, contracts, tests, and runtime context
+* **Project understanding:** The dbt Information Schema for lineage, contracts, tests, and runtime context
 * **Impact awareness:** Checks upstream and downstream dependencies before you change code
 * **Safe validation:** Compiles and builds changes before review
 * **Complete workflow:** Investigate, change, validate, and review in one place
@@ -105,17 +105,13 @@ macOS/Linux:
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
-Report incorrect code
-
 Windows (PowerShell):
 
 ```powershell
 irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
 
-Report incorrect code
-
-This installs dbt Wizard to `/usr/local/bin/wizard`, along with the dbt [metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers.
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with the [dbt Information Schema](../build/dbt-information-schema.md) that powers dbt Wizard's project-aware answers.
 
 For first-run setup and billing, refer to [Use dbt Wizard locally](../dbt-ai/wizard-quickstart.md).
 

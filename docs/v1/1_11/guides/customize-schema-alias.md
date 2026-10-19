@@ -112,8 +112,6 @@ macros/generate\_schema\_name.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 This will generate the following outputs for a model called `my_model` with a custom schema of `marketing`, preventing any overlap of objects between dbt runs from different contexts.
 
 | Context     | Target database | Target schema | Resulting object                     |
@@ -166,8 +164,6 @@ macros/generate\_schema\_name.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 macros/generate\_alias\_name.sql
 
 ```jinja
@@ -210,8 +206,6 @@ macros/generate\_alias\_name.sql
 
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 This will generate the following outputs for a model called `my_model` with a custom schema of `marketing`, preventing any overlap of objects between dbt runs from different contexts.
 
@@ -267,8 +261,6 @@ macros/generate\_schema\_name.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 This will generate the following outputs for a model called `my_model` with a custom schema of `marketing`, preventing any overlap of objects between dbt runs from different contexts.
 
 | Context     | Branch       | Target database | Target schema | Resulting object                     |
@@ -316,8 +308,6 @@ macros/generate\_schema\_name.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 macros/generate\_alias\_name.sql
 
 ```jinja
@@ -363,8 +353,6 @@ macros/generate\_alias\_name.sql
 {%- endmacro %}
 ```
 
-Report incorrect code
-
 This will generate the following outputs for a model called `my_model` with a custom schema of `marketing`, preventing any overlap of objects between dbt runs from different contexts.
 
 | Context     | Target database | Target schema | Resulting object                                 |
@@ -406,8 +394,6 @@ macros/generate\_schema\_name.sql
 
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 While it may provide the expected output for production, where a dedicated database is used, it will generate conflicts anywhere people share a database.
 
@@ -486,5 +472,3 @@ macros/generate\_schema\_name.sql
 
 {%- endmacro %}
 ```
-
-Report incorrect code

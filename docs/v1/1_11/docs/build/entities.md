@@ -37,8 +37,6 @@ first_name
 last_name
 ```
 
-Report incorrect code
-
 In this case, `employee_id` is the primary key. Each `employee_id` is unique and represents one specific employee. There can be no duplicate `employee_id` and can't be null.
 
 ### Unique
@@ -55,8 +53,6 @@ email (unique key)
 first_name
 last_name
 ```
-
-Report incorrect code
 
 In this example, `email` is defined as a unique key. Each email address must be unique; however, multiple students can have null email addresses. This is because the unique key constraint allows for one or more null values, but non-null values must be unique. This then creates a set of records with unique emails (non-null) that could be a subset of the entire table, which includes all students.
 
@@ -75,8 +71,6 @@ customer_id (primary key)
 customer_name
 ```
 
-Report incorrect code
-
 orders table:
 
 ```sql
@@ -84,8 +78,6 @@ order_id (primary key)
 order_date
 customer_id (foreign key)
 ```
-
-Report incorrect code
 
 In this example, the `customer_id` in the `orders` table is a foreign key that references the `customer_id` in the `customers` table. This link means each order is associated with a specific customer. However, not every order must have a customer; the `customer_id` in the orders table can be null or have the same `customer_id` for multiple orders.
 
@@ -113,8 +105,6 @@ semantic_models:
           meta: {<dictionary>} Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.  ## Optional
 ```
 
-Report incorrect code
-
 Here's an example of how to define entities in a semantic model:
 
 (Applies to dbt v1.9 to v1.11)
@@ -141,8 +131,6 @@ entities:
         data_owner: "Finance team"
 ```
 
-Report incorrect code
-
 ## Combine columns with a key
 
 If a table doesn't have any key (like a primary key), use *surrogate combination* to form a key that will help you identify a record by combining two columns. This applies to any [entity type](./entities.md#entity-types). For example, you can combine `date_key` and `brand_code` from the `raw_brand_target_weekly` table to form a *surrogate key*. The following example creates a surrogate key by joining `date_key` and `brand_code` using a pipe (`|`) as a separator.
@@ -157,8 +145,6 @@ entities:
     expr: date_key || '|' || brand_code # Defines the expression for linking fields to form the surrogate key.
 ```
 
-Report incorrect code
-
 ## Examples
 
 As mentioned, entities serve as our join keys, using the unique entity name. Therefore, we can join a single `unique` key to multiple `foreign` keys.
@@ -171,8 +157,6 @@ date_day (unique key)
 fiscal_year_name
 ```
 
-Report incorrect code
-
 And an `orders` table with the following columns:
 
 ```sql
@@ -181,8 +165,6 @@ ordered_at
 delivered_at
 order_total
 ```
-
-Report incorrect code
 
 How might we define our Semantic Layer YAML so that we can query `order_total` by `ordered_at` `fiscal_year_name`, and `delivered_at` `fiscal_year_name`?
 
@@ -217,8 +199,6 @@ semantic_models:
     description: Formatted fiscal year string (for example, 'FY2025')
     type: categorical
 ```
-
-Report incorrect code
 
 (Applies to dbt v1.11 and earlier)
 
@@ -257,8 +237,6 @@ semantic_models:
         agg: sum
         create_metric: True
 ```
-
-Report incorrect code
 
 With this configuration, our semantic models can join on `ordered_at = date_day` via the `ordered_at_entity`, and on `delivered_at = date_day` via the `delivered_at_entity`. To validate our output, we can run:
 

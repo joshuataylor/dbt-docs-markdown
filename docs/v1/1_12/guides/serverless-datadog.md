@@ -33,23 +33,17 @@ Switch to the directory containing the repo you cloned in step 1:
 cd ~/Documents/GitHub/dbt-cloud-webhooks-datadog
 ```
 
-Report incorrect code
-
 Sign up for fly.io:
 
 ```shell
 flyctl auth signup
 ```
 
-Report incorrect code
-
 Your console should show `successfully logged in as YOUR_EMAIL` when you're done, but if it doesn't then sign in to fly.io from your command line:
 
 ```shell
 flyctl auth login
 ```
-
-Report incorrect code
 
 ## Launch your fly.io app
 
@@ -58,8 +52,6 @@ Launching your app publishes it to the web and makes it ready to catch webhook e
 ```shell
 flyctl launch
 ```
-
-Report incorrect code
 
 1. You will see a message saying that an existing `fly.toml` file was found. Type `y` to copy its configuration to your new app.
 
@@ -103,8 +95,6 @@ Set these secrets as follows, replacing `abc123` etc with actual values:
 ```shell
 flyctl secrets set DBT_CLOUD_SERVICE_TOKEN=abc123 DBT_CLOUD_AUTH_TOKEN=def456 DD_API_KEY=ghi789 DD_SITE=datadoghq.com
 ```
-
-Report incorrect code
 
 ## Deploy your app
 

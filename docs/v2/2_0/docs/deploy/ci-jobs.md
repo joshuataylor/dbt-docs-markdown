@@ -182,8 +182,6 @@ dbt build --select state:modified+
 dbt sl validate --select state:modified+
 ```
 
-Report incorrect code
-
 * The first command builds the modified models.
 * The second command validates the semantic nodes downstream of the modified models.
 
@@ -201,8 +199,6 @@ To only validate modified semantic nodes, use the following command (with [state
 dbt sl validate --select state:modified+
 ```
 
-Report incorrect code
-
 ![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-modified.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")Use state selection to validate modified metric definition models in your CI job.
 
 This will only validate semantic nodes. It will use the defer state set configured in your orchestration job, deferring to your production models.
@@ -214,8 +210,6 @@ Use the selector syntax to select the *specific* semantic node(s) you want to va
 ```bash
 dbt sl validate --select metric:revenue
 ```
-
-Report incorrect code
 
 ![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-select.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")Use state selection to validate modified metric definition models in your CI job.
 
@@ -230,8 +224,6 @@ To validate *all* semantic nodes in your project, add the following command to d
 ```bash
 dbt sl validate
 ```
-
-Report incorrect code
 
 ![Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-all.png?v=2 "Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.")Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.
 
@@ -306,8 +298,6 @@ Failed to checkout to specified revision.
 git checkout e845be54e6dc72342d5a8f814c8b3316ee220312
 fatal: reference is not a tree: e845be54e6dc72342d5a8f814c8b3316ee220312
 ```
-
-Report incorrect code
 
 Double-check that your PR isn't trying to merge using a commit that belongs to a fork of the repository attached to your dbt project.
 

@@ -120,8 +120,6 @@ trino:
       threads: [1 or more]
 ```
 
-Report incorrect code
-
 ### Kerberos
 
 The following table lists the authentication parameters to set for Kerberos.
@@ -163,8 +161,6 @@ trino:
       schema: public
 ```
 
-Report incorrect code
-
 ### JWT
 
 The following table lists the authentication parameters to set for JSON Web Token.
@@ -194,8 +190,6 @@ trino:
       port: [port number]
       threads: [1 or more]
 ```
-
-Report incorrect code
 
 ### Certificate
 
@@ -230,8 +224,6 @@ trino:
       threads: [1 or more]
 ```
 
-Report incorrect code
-
 ### OAuth
 
 The only authentication parameter to set for OAuth 2.0 is `method: oauth`. If you're using Starburst Enterprise or Starburst Galaxy, you must enable OAuth 2.0 in Starburst before you can use this authentication method.
@@ -254,8 +246,6 @@ sandbox-galaxy:
       schema: dataders
       port: 443
 ```
-
-Report incorrect code
 
 ### OAuth (console)
 
@@ -285,8 +275,6 @@ sandbox-galaxy:
       port: 443
 ```
 
-Report incorrect code
-
 ### None
 
 You don't need to set up authentication (`method: none`), however, dbt Labs strongly discourages people from using it in any real application. Its use case is only for toy purposes (as in to play around with it), like local examples such as running Trino and dbt entirely within a single Docker container.
@@ -308,5 +296,3 @@ trino:
       database: analytics
       schema: public
 ```
-
-Report incorrect code

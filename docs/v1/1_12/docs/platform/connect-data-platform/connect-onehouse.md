@@ -64,8 +64,6 @@ dbt\_project.yml template
          hoodie.table.type: mor | cow
 ```
 
-Report incorrect code
-
 A dbt\_project.yml example if using jaffle shop would be
 
 ```sql
@@ -80,5 +78,3 @@ models:
     marts:
       +materialized: table
 ```
-
-Report incorrect code

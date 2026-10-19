@@ -39,8 +39,6 @@ pwd
 # Example output: /Users/yourname/projects/my_dbt_project
 ```
 
-Report incorrect code
-
 ### Windows
 
 ```bash
@@ -52,8 +50,6 @@ where dbt
 cd
 # Example output: C:\Users\yourname\projects\my_dbt_project
 ```
-
-Report incorrect code
 
 Note: Use forward slashes in your configuration: `C:/Python39/Scripts/dbt.exe`
 
@@ -81,8 +77,6 @@ Replace the paths below with the values from Step 1:
 }
 ```
 
-Report incorrect code
-
 3. Save and restart Claude Desktop.
 
 Config file location:
@@ -100,8 +94,6 @@ claude mcp add dbt \
 -e DBT_PATH=/path/to/your/dbt/executable \
 -- uvx dbt-mcp
 ```
-
-Report incorrect code
 
 ### Cursor
 
@@ -138,8 +130,6 @@ VS Code uses `"servers"`, not `"mcpServers"`
 }
 ```
 
-Report incorrect code
-
 4. Save the file.
 
 ## Step 3: Test your setup
@@ -151,8 +141,6 @@ Ask your AI assistant to run a dbt command (for example, *"Run `dbt compile` on 
 ```bash
 uvx dbt-mcp
 ```
-
-Report incorrect code
 
 If there are no errors, your configuration is correct. Press `Ctrl+C` to stop the server.
 
@@ -196,8 +184,6 @@ Platform features like Semantic Layer, Discovery API, and metadata queries requi
   }
 }
 ```
-
-Report incorrect code
 
 Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 

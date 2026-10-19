@@ -37,8 +37,6 @@ models:
       name: fct_orders_semantic_model # optional override; defaults to value of model.name
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -46,8 +44,6 @@ semantic_models:
   - name: orders
      model: ref('orders')
 ```
-
-Report incorrect code
 
 Cross-project refs unsupported in latest SL YAML spec
 
@@ -90,8 +86,6 @@ models:
           type: categorical
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -114,8 +108,6 @@ semantic_models:
         type: categorical
         expr: order_status
 ```
-
-Report incorrect code
 
 ### Time dimension
 
@@ -157,8 +149,6 @@ models:
         agg_time_dimension: created_at # override to use created_at as the time dimension
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -190,8 +180,6 @@ metrics:
       measure: active_subscriptions
 ```
 
-Report incorrect code
-
 ### Simple metrics
 
 Measures are deprecated in the new spec and are replaced with simple metrics.
@@ -220,8 +208,6 @@ models:
         expr: amount_pretax
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -247,8 +233,6 @@ metrics:
     type_params:
       measure: lifetime_spend_pretax
 ```
-
-Report incorrect code
 
 ### Advanced metrics
 
@@ -286,8 +270,6 @@ metrics:
     denominator: sessions
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -310,8 +292,6 @@ metrics:
       numerator: { measure: orders }
       denominator: { measure: sessions }
 ```
-
-Report incorrect code
 
 ### `type_params`
 
@@ -340,8 +320,6 @@ models:
         percentile_type: discrete
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yml
@@ -353,8 +331,6 @@ metrics:
       percentile: 95.0
       percentile_type: discrete
 ```
-
-Report incorrect code
 
 For [derived metrics](./derived.md), `type_params.metrics` is renamed `input_metrics`.
 
@@ -375,8 +351,6 @@ metrics:
         alias: bookings_7_days_ago
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yaml
@@ -394,8 +368,6 @@ Report incorrect code
         alias: bookings_7_days_ago
 ```
 
-Report incorrect code
-
 For [ratio metrics](./ratio.md), `numerator` and `denominator` are now direct keys on the metric.
 
 #### New spec
@@ -408,8 +380,6 @@ metrics:
     denominator: sessions
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yaml
@@ -420,8 +390,6 @@ metrics:
       numerator: conversions
       denominator: sessions
 ```
-
-Report incorrect code
 
 For [cumulative metrics](./cumulative.md):
 
@@ -440,8 +408,6 @@ metrics:
     period_agg: sum
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yaml
@@ -455,8 +421,6 @@ metrics:
         grain_to_date: month
         period_agg: sum
 ```
-
-Report incorrect code
 
 For [conversion metrics](./conversion.md), the following `type_params.conversion_type_params` values are direct keys on the metric:
 
@@ -481,8 +445,6 @@ metrics:
         conversion_property: plan
 ```
 
-Report incorrect code
-
 #### Legacy spec
 
 ```yaml
@@ -498,8 +460,6 @@ metrics:
         constant_properties:
           plan: pro
 ```
-
-Report incorrect code
 
 ## Migrating to the latest spec
 
@@ -534,8 +494,6 @@ To update packages, a package maintainer should:
   dbt sl validate
   ```
 
-  Report incorrect code
-
   When using `dbt sl validate` locally, the command validates your local semantic manifest, and not the platform's manifest. This means your uncommitted local changes are included in the validation.
 
 * For dbt v2 CLI users not connected to dbt platform and using local MetricFlow:
@@ -544,8 +502,6 @@ To update packages, a package maintainer should:
   dbt parse
   mf validate-configs
   ```
-
-  Report incorrect code
 
 3. Release a new version of the package with the updated metrics definitions.
 
@@ -564,8 +520,6 @@ The [dbt-autofix tool](https://github.com/dbt-labs/dbt-autofix) rewrites legacy 
    dbt-autofix deprecations --semantic-layer
    ```
 
-   Report incorrect code
-
 2. Review the diff and resolve all flagged items.
 
 3. Run parsing and validations:
@@ -574,8 +528,6 @@ The [dbt-autofix tool](https://github.com/dbt-labs/dbt-autofix) rewrites legacy 
    dbt parse
    mf validate-configs
    ```
-
-   Report incorrect code
 
 ### Using the Studio IDE
 
@@ -590,7 +542,5 @@ Convert your metrics in the Studio IDE in the dbt platform without having to ins
    ```bash
    dbt-autofix deprecations --semantic-layer
    ```
-
-   Report incorrect code
 
 4. Click **Commit and sync** in the top left of the Studio IDE to commit these changes to the project repository.

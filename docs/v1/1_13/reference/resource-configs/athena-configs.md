@@ -57,8 +57,6 @@ models/schema.yml
 }}
 ```
 
-Report incorrect code
-
 ##### dbt\_project.yml
 
 dbt\_project.yml
@@ -75,8 +73,6 @@ dbt\_project.yml
     inherited_tags: [ tag1, tag2 ]
 ```
 
-Report incorrect code
-
 ##### Lake formation grants
 
 ```python
@@ -92,8 +88,6 @@ lf_grants={
         }
     }
 ```
-
-Report incorrect code
 
 Consider these limitations and recommendations:
 
@@ -173,8 +167,6 @@ select 'A'          as user_id,
        current_date as my_date
 ```
 
-Report incorrect code
-
 #### Iceberg bucketing
 
 Iceberg supports bucketing as hidden partitioning. Use the `partitioned_by` config with the `bucket` function to hash a column into a fixed number of buckets. The `bucketed_by` and `bucket_count` configs are ignored for Iceberg tables.
@@ -206,8 +198,6 @@ select 'A' as user_id,
        'pi' as name
 ```
 
-Report incorrect code
-
 You can combine bucketing with other partitions, for example `partitioned_by=['status', 'bucket(user_id, 5)']`.
 
 ##### Python model
@@ -225,8 +215,6 @@ def model(dbt, session):
 
     return session.createDataFrame([("A", "pi")], ["user_id", "name"])
 ```
-
-Report incorrect code
 
 You can combine bucketing with other partitions, for example `partitioned_by=['status', 'bucket(5, user_id)']`.
 
@@ -272,8 +260,6 @@ select 'A' as user_id,
        current_date as my_date
 ```
 
-Report incorrect code
-
 ##### update\_condition
 
 ```sql
@@ -307,8 +293,6 @@ select * from (
 {% endif %}
 ```
 
-Report incorrect code
-
 ##### insert\_condition
 
 ```sql
@@ -327,8 +311,6 @@ select * from (
     , (2, 1)
 ) as t (id, status)
 ```
-
-Report incorrect code
 
 #### AWS S3 Tables
 
@@ -353,8 +335,6 @@ In `dbt-athena` 1.11.1 and later, you can write Iceberg models to [Amazon S3 Tab
      use_catalogs_v2: true
    ```
 
-   Report incorrect code
-
 2. Define the catalog in [`catalogs.yml`](../../docs/build/iceberg/catalogs-yml.md). Set `catalog_database` to the catalog name Athena uses for your table bucket (`s3tablescatalog/YOUR_TABLE_BUCKET`). The model's schema maps to the S3 Tables namespace:
 
    catalogs.yml
@@ -369,8 +349,6 @@ In `dbt-athena` 1.11.1 and later, you can write Iceberg models to [Amazon S3 Tab
            catalog_database: s3tablescatalog/my-table-bucket
    ```
 
-   Report incorrect code
-
 3. Configure your model to use the catalog:
 
    ```sql
@@ -381,8 +359,6 @@ In `dbt-athena` 1.11.1 and later, you can write Iceberg models to [Amazon S3 Tab
 
    select 1 as id
    ```
-
-   Report incorrect code
 
 ##### Considerations
 
@@ -414,8 +390,6 @@ select 'b'        as user_id,
        'sh'       as user_name,
        'disabled' as status
 ```
-
-Report incorrect code
 
 ### HA known issues
 
@@ -458,8 +432,6 @@ models:
           meta: # changed to config in v1.10 and backported to 1.9
             primary_key: true
 ```
-
-Report incorrect code
 
 Refer to [persist\_docs](./persist_docs.md) for more details.
 
@@ -546,8 +518,6 @@ def model(dbt, session):
     return model_df
 ```
 
-Report incorrect code
-
 #### Simple Spark
 
 ```python
@@ -560,8 +530,6 @@ def model(dbt, spark_session):
 
     return df
 ```
-
-Report incorrect code
 
 #### Spark incremental
 
@@ -578,8 +546,6 @@ def model(dbt, spark_session):
 
     return df
 ```
-
-Report incorrect code
 
 #### Config Spark model
 
@@ -605,8 +571,6 @@ def model(dbt, spark_session):
 
     return df
 ```
-
-Report incorrect code
 
 #### PySpark UDF
 
@@ -639,8 +603,6 @@ def model(dbt, spark_session):
 
     return df.withColumn("udf_test_col", udf_with_import(col("alpha")))
 ```
-
-Report incorrect code
 
 ### Known issues in Python models
 

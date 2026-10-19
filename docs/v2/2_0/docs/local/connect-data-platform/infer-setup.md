@@ -37,8 +37,6 @@ The dbt-infer adapter is maintained via PyPi and installed with pip. To install 
 pip install dbt-infer
 ```
 
-Report incorrect code
-
 Versioning of dbt-infer follows the standard dbt versioning scheme - meaning if you are using dbt 1.2 the corresponding dbt-infer will be named 1.2.x where is the latest minor version number.
 
 Before using SQL-inf in your dbt models you need to setup an Infer account and generate an API-key for the connection. You can read how to do that in the [Getting Started Guide](https://docs.getinfer.io/docs/reference/integrations/dbt).
@@ -59,8 +57,6 @@ The profile configuration in `profiles.yml` for `dbt-infer` should look somethin
       data_config:
         [configuration for your underlying data warehouse]  
 ```
-
-Report incorrect code
 
 Note that you need to also have installed the adapter package for your underlying data warehouse. For example, if your data warehouse is BigQuery then you need to also have installed the appropriate `dbt-bigquery` package. The configuration of this goes into the `data_config` field.
 
@@ -97,8 +93,6 @@ infer_bigquery:
     type: bigquery
 ```
 
-Report incorrect code
-
 ## Usage
 
 You do not need to change anything in your existing dbt models when switching to use SQL-inf – they will all work the same as before – but you now have the ability to use SQL-inf commands as native SQL functions.
@@ -124,7 +118,5 @@ with predict_user_churn_input as (
 
 SELECT * FROM predict_user_churn_input PREDICT(has_churned, ignore=user_id)
 ```
-
-Report incorrect code
 
 Not that we ignore `user_id` from the prediction. This is because we think that the `user_id` might, and should, not influence our prediction of churn, so we remove it. We also use the convention of pulling together the inputs for our prediction in a CTE, named `predict_user_churn_input`.

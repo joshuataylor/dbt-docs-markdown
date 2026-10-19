@@ -59,8 +59,6 @@ Below is an example of the `requirements.txt` file alongside other key files lik
 └── requirements.txt
 ```
 
-Report incorrect code
-
 For more information, refer to the [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md).
 
 ### Local
@@ -71,16 +69,12 @@ For more information, refer to the [DuckDB setup](../docs/local/connect-data-pla
    git clone https://github.com/dbt-labs/jaffle_shop_duckdb.git
    ```
 
-   Report incorrect code
-
 2. Change into the `jaffle_shop_duckdb` directory from the command line:
 
    ```shell
 
    cd jaffle_shop_duckdb
    ```
-
-   Report incorrect code
 
 3. Install dbt v1 and DuckDB in a virtual environment.
 
@@ -95,8 +89,6 @@ For more information, refer to the [DuckDB setup](../docs/local/connect-data-pla
    source venv/bin/activate
    ```
 
-   Report incorrect code
-
     Example for Windows
 
    ```shell
@@ -108,8 +100,6 @@ For more information, refer to the [DuckDB setup](../docs/local/connect-data-pla
    venv\Scripts\activate.bat
    ```
 
-   Report incorrect code
-
     Example for Windows PowerShell
 
    ```shell
@@ -120,8 +110,6 @@ For more information, refer to the [DuckDB setup](../docs/local/connect-data-pla
    python -m pip install -r requirements.txt
    venv\Scripts\Activate.ps1
    ```
-
-   Report incorrect code
 
 4. Ensure your profile is setup correctly from the command line by running the following [dbt commands](../reference/dbt-commands.md).
 
@@ -160,8 +148,6 @@ Here's what a successful output will look like:
 15:10:15  Done. PASS=28 WARN=0 ERROR=0 SKIP=0 TOTAL=28
 ```
 
-Report incorrect code
-
 To query data, some useful commands you can run from the command line:
 
 * `dbt show --select "raw_orders"` — run a query against the data warehouse and preview the results in the terminal.
@@ -180,8 +166,6 @@ The steps will fail if you decide to run this project in your data warehouse (ou
 
 IO Error: Could not set lock on file "jaffle_shop.duckdb": Resource temporarily unavailable
 ```
-
-Report incorrect code
 
 This is a known issue in DuckDB. Try disconnecting from any sessions that are locking the database. If you are using DBeaver, this means shutting down DBeaver (disconnecting doesn't always work).
 
@@ -209,8 +193,6 @@ As a last resort, deleting the database file will get you back in action (*but* 
    /workspaces/test (main) $ dbt build
    ```
 
-   Report incorrect code
-
    You can also use the [duckcli](https://duckdb.org/docs/api/cli/overview.html) to write SQL against the warehouse from the command line or build reports in the [Evidence](https://evidence.dev/) project provided in the `reports` directory.
 
    For complete information, refer to the [dbt command reference](../reference/dbt-commands.md). Common commands are:
@@ -230,8 +212,6 @@ In this quickstart, the project is configured to use a file named `jaffle_shop.d
 ls -lah *.duckdb
 ```
 
-Report incorrect code
-
 You should see a `jaffle_shop.duckdb` file in your project directory. This file contains the tables and views built by dbt and persists between runs.
 
 If you delete the file:
@@ -239,8 +219,6 @@ If you delete the file:
 ```shell
 rm *.duckdb
 ```
-
-Report incorrect code
 
 Running `dbt build` again will recreate it.
 
@@ -258,15 +236,11 @@ If you'd like to work with a larger selection of Jaffle Shop data, you can gener
    python -m pip install jafgen
    ```
 
-   Report incorrect code
-
 2. When installation is done, run:
 
    ```shell
    jafgen NUMBER_OF_YEARS
    ```
-
-   Report incorrect code
 
    Replace `NUMBER_OF_YEARS` with the number of years you want to simulate. For example, to generate data for 6 years, run `jafgen 6`. This command builds the CSV files and stores them in the `jaffle-data` folder, and is automatically sourced based on the `sources.yml` file and the [dbt-duckdb](../docs/local/connect-data-platform/duckdb-setup.md) adapter.
 
@@ -303,8 +277,6 @@ git add .
 git commit -m "Your commit message"
 git push
 ```
-
-Report incorrect code
 
 2. Go back to your GitHub repository to verify your new files have been added.
 

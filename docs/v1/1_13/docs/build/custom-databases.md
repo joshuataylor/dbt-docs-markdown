@@ -29,8 +29,6 @@ models:
     # project: jaffle_shop
 ```
 
-Report incorrect code
-
 ### Configuring database overrides in a model file
 
 This config changes a specific model to be built into a database called `jaffle_shop`.
@@ -43,8 +41,6 @@ models/my\_model.sql
 
 select * from ...
 ```
-
-Report incorrect code
 
 ### generate\_database\_name
 
@@ -75,8 +71,6 @@ get\_custom\_database.sql
 
 {%- endmacro %}
 ```
-
-Report incorrect code
 
 💡 Use Jinja's whitespace control to tidy your macros!
 

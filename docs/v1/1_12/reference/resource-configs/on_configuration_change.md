@@ -23,8 +23,6 @@ models:
     +on_configuration_change: apply | continue | fail
 ```
 
-Report incorrect code
-
 ## Properties YAML file
 
 models/properties.yml
@@ -38,8 +36,6 @@ models:
       on_configuration_change: apply | continue | fail
 ```
 
-Report incorrect code
-
 ## SQL file config
 
 models/\<model\_name>.sql
@@ -50,8 +46,6 @@ models/\<model\_name>.sql
     on_configuration_change="apply" | "continue" | "fail"
 ) }}
 ```
-
-Report incorrect code
 
 ## Creation precedence
 

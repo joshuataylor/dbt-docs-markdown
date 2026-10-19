@@ -8,8 +8,6 @@ dbt\_project.yml
 check-paths: [directorypath]
 ```
 
-Report incorrect code
-
 ## Definition
 
 Specify custom directories where dbt looks for [checks](../../docs/build/checks.md).
@@ -24,8 +22,6 @@ dbt\_project.yml
 check-paths: ["checks"]
 ```
 
-Report incorrect code
-
 ## Examples
 
 Use a subdirectory named `project_rules` instead of `checks`:
@@ -36,8 +32,6 @@ dbt\_project.yml
 check-paths: ["project_rules"]
 ```
 
-Report incorrect code
-
 Use multiple directories:
 
 dbt\_project.yml
@@ -45,5 +39,3 @@ dbt\_project.yml
 ```yml
 check-paths: ["checks", "shared_checks"]
 ```
-
-Report incorrect code

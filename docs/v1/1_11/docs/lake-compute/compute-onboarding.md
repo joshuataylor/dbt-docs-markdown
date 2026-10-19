@@ -61,8 +61,6 @@ To use keypair authentication, follow Snowflake's guide to [key-pair authenticat
 ALTER USER USER_NAME SET RSA_PUBLIC_KEY='PUBLIC_KEY_BODY';
 ```
 
-Report incorrect code
-
 Replace `USER_NAME` with the Snowflake user dbt connects as, and `PUBLIC_KEY_BODY` with the body of the public key you generated. Save the private key somewhere so you can specify it in your `profiles.yml` later.
 
 Lake Compute connects to Snowflake in one of two ways:
@@ -95,8 +93,6 @@ SHOW PARAMETERS LIKE 'NETWORK_POLICY' IN ACCOUNT;
 SHOW PARAMETERS LIKE 'NETWORK_POLICY' IN USER USER_NAME;
 ```
 
-Report incorrect code
-
 * **If neither returns a policy:** Snowflake doesn't restrict egress by default, and no further action is needed — skip the rest of this section.
 * **If either returns a policy:** continue below. In Snowflake, a network policy attached to a user *replaces* the account-level policy for that user rather than supplementing it, so your existing policy already accounts for your own IP or VPN range — you only need to add Lake Compute's egress IPs to it.
 
@@ -114,8 +110,6 @@ CREATE NETWORK RULE lakecompute_ipv4
   );
 ```
 
-Report incorrect code
-
 2. Add `lakecompute_ipv4` to your existing policy's allowed rule list. `ALTER NETWORK POLICY ... SET ALLOWED_NETWORK_RULE_LIST` replaces the entire list, so include your existing rule(s) as well as the new one. Replace `EXISTING_POLICY_NAME` with your account's or user's existing policy, and `EXISTING_RULE_NAME` with the rule(s) already on that policy (check with `DESC NETWORK POLICY EXISTING_POLICY_NAME;`):
 
 ```sql
@@ -124,8 +118,6 @@ ALTER NETWORK POLICY EXISTING_POLICY_NAME SET ALLOWED_NETWORK_RULE_LIST = (
   'lakecompute_ipv4'
 );
 ```
-
-Report incorrect code
 
 note
 
@@ -149,8 +141,6 @@ dbt gates Lake Compute behind an experimental opt-in. Set this before you run an
 ```bash
 export DBT_ENGINE_EXPERIMENTAL_MULTI_ADAPTER=true
 ```
-
-Report incorrect code
 
 The variable gates `type: lakecompute` in `profiles.yml`, the `adapter` config on a node, and the `--adapter` flag. While it's off, dbt fails at parse time with a message naming the variable rather than falling back to your default adapter, and `DBT_ALLOW_EXPERIMENTAL_ADAPTERS` won't substitute for it. Refer to [Required environment variable](../lake-compute.md#required-environment-variable) for the full behavior.
 
@@ -181,8 +171,6 @@ my_profile:
         # database + schema are inherited from default adapter config 
 ```
 
-Report incorrect code
-
 With this profile, Lake Compute:
 
 * Uses the default Snowflake adapter config to create a PAT to Snowflake's managed catalog, Horizon
@@ -208,8 +196,6 @@ my_profile:
         schema: SCHEMA_NAME
 ```
 
-Report incorrect code
-
 This means:
 
 * **Every model in the project is configured `compute: 'lakecompute'` by default.**
@@ -227,8 +213,6 @@ lakecompute:
   fivetran_credential: "{{ env_var('DBT_ENV_SECRET_LAKE_COMPUTE_TOKEN') }}"
 method: self_signed_jwt
 ```
-
-Report incorrect code
 
 Don't put your token in Extended Attributes
 
@@ -272,8 +256,6 @@ Given a dbt DAG of `model_a -> model_b -> model_c`, you can configure:
 select 1 as id
 ```
 
-Report incorrect code
-
 ```sql
 -- models/model_b.sql
 {{ config(
@@ -283,14 +265,10 @@ Report incorrect code
 select * from {{ ref('model_a') }}
 ```
 
-Report incorrect code
-
 ```sql
 -- models/model_c.sql
 select * from {{ ref('model_b') }}
 ```
-
-Report incorrect code
 
 ### Use Lake Compute as your default adapter
 

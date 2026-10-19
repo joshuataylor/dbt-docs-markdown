@@ -26,8 +26,6 @@ bash
 dbt run --full-refresh
 ```
 
-Report incorrect code
-
 You can also supply the flag by its short name: `dbt run -f`.
 
 In the dbt compilation context, this flag will be available as [flags.FULL\_REFRESH](../dbt-jinja-functions/flags.md). Further, the `is_incremental()` macro will return `false` for *all* models in response when the `--full-refresh` flag is specified.
@@ -46,8 +44,6 @@ select * from all_events
    )
 {% endif %}
 ```
-
-Report incorrect code
 
 ## Running specific models
 
