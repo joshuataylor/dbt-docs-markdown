@@ -47,9 +47,16 @@ models:
   jaffle_shop:
     staging:
       +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: intermediate
     marts:
       +materialized: table
+      +schema: marts
 ```
+
+Refer to [Mapping project folders to warehouse schemas](./6-mapping-folders-to-warehouse.md) to understand how those `+schema` values land in the warehouse in development and production.
 
 Define your defaults.
 

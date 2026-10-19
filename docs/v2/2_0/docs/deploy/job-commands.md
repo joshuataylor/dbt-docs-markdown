@@ -31,6 +31,8 @@ Every job invocation automatically includes the [`dbt deps`](../../reference/com
 
 You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt v1" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt v1 or dbt CLI, and not in Studio IDE.
 
+To run linting in a job, enable **Linting** when you [set up a CI job](./ci-jobs.md#set-up-ci-jobs). Deploy jobs don't have this option, and you can't add the `dbt lint` command to the **Commands** list. Refer to [SQL linting](./continuous-integration.md#sql-linting) for details on how it works on v1 and v2, which files it checks, and what happens when it fails.
+
 (Applies to dbt v2.0 and later)
 
 For v2 jobs:

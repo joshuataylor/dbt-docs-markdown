@@ -2,7 +2,7 @@
 
 > **Using this guide with an AI assistant**
 >
-> * In the first reply, confirm the reader’s prerequisites and connection path before listing steps. Then give one step per reply and confirm its success check before continuing.
+> * In the first reply, confirm the reader’s prerequisites and connection path before listing steps. Then default to one guide section per reply (combine two or three short sections), with all its steps, labeled Step 1, Step 2, and so on, and confirm the success check before continuing. If the reader asks for a different pace, follow it.
 > * This guide uses dbt platform. Don’t switch the reader to a local setup. If the reader wants to set up dbt locally, use the <https://docs.getdbt.com/guides/dbt> guide instead
 > * Never ask for passwords or keys in chat.
 > * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=redshift-qs>
@@ -23,10 +23,6 @@ In this quickstart guide, you'll learn how to use dbt with Redshift. It will sho
 * Document your models.
 * Schedule a job to run.
 
-Videos for you
-
-Check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
-
 ### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
@@ -39,6 +35,10 @@ Check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) 
 * [Deploy jobs](../docs/deploy/deploy-jobs.md)
 * [Job notifications](../docs/deploy/job-notifications.md)
 * [Source freshness](../docs/deploy/source-freshness.md)
+
+Videos for you
+
+Check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
 ## Create a Redshift cluster
 

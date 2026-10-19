@@ -4,7 +4,7 @@
 
 # dbt Jinja functions and context variables
 
-In addition to the standard Jinja library, we've added additional functions and variables to the Jinja context that are useful when working with a dbt project. Note that dependencies.yml is not Jinja rendered and therefore does not support Jinja.
+In addition to the standard Jinja library, we've added additional functions and variables to the Jinja context that are useful when working with a dbt project. For a file-by-file overview, refer to Jinja support by file type. Note that dependencies.yml is not Jinja rendered in dbt v1 and therefore, does not support Jinja.
 
 ## [adapter](./dbt-jinja-functions/adapter.md)
 
@@ -198,9 +198,9 @@ In addition to the standard Jinja library, we've added additional functions and 
 
 [Use this context method to return an iterator of tuples.](./dbt-jinja-functions/zip.md)
 
-[Previous](../category/jinja-reference.md)
+[Previous](./jinja-file-support.md)
 
-[Jinja reference](../category/jinja-reference.md)
+[Jinja support by file type](./jinja-file-support.md)
 
 [Next](./dbt-jinja-functions/adapter.md)
 

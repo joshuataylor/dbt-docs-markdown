@@ -41,6 +41,8 @@ For every job, you have the option to select the [Generate docs on run](../explo
 
 You can add or remove as many dbt commands as necessary for every job. However, you need to have at least one dbt command. There are few commands listed as "dbt CLI" or "dbt v1" in the [dbt Command reference page](../../reference/dbt-commands.md) page. This means they are meant for use in dbt v1 or dbt CLI, and not in Studio IDE.
 
+To run linting in a job, enable **Linting** when you [set up a CI job](./ci-jobs.md#set-up-ci-jobs). Deploy jobs don't have this option, and you can't add the `dbt lint` command to the **Commands** list. Refer to [SQL linting](./continuous-integration.md#sql-linting) for details on how it works on v1 and v2, which files it checks, and what happens when it fails.
+
 Using selectors
 
 Use [selectors](../../reference/node-selection/syntax.md) as a powerful way to select and execute portions of your project in a job run. For example, to run tests for `one_specific_model`, use the selector: `dbt test --select one_specific_model`. The job will still run if a selector doesn't match any models.

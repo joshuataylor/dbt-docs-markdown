@@ -7,7 +7,7 @@ Learn how dbt Labs approaches building projects through our current viewpoints o
 
 ## [How we structure our dbt projects](./best-practices/how-we-structure/1-guide-overview.md)
 
-[4 items](./best-practices/how-we-structure/1-guide-overview.md)
+[5 items](./best-practices/how-we-structure/1-guide-overview.md)
 
 ## [How we style our dbt projects](./best-practices/how-we-style/0-how-we-style-our-dbt-projects.md)
 

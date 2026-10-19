@@ -2,10 +2,11 @@
 
 > **Using this guide with an AI assistant**
 >
-> * In the first reply, confirm the reader's prerequisites and connection path before listing steps. Then give one step per reply and confirm its success check before continuing.
+> * In the first reply, confirm the reader's prerequisites and connection path before listing steps. Then default to one guide section per reply (combine two or three short sections), with all its steps, labeled Step 1, Step 2, and so on, and confirm the success check before continuing. If the reader asks for a different pace, follow it.
 > * This guide uses dbt platform. Don't switch the reader to a local setup. If the reader wants to set up dbt locally, use the <https://docs.getdbt.com/guides/dbt> guide instead
 > * Never ask for passwords or keys in chat.
 > * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=snowflake-qs>
+> * Ask rather than guess when something is unclear.
 
 [Back to guides](https://docs.getdbt.com/guides)
 
@@ -26,12 +27,6 @@ In this quickstart guide, you'll learn how to use dbt with Snowflake. It will sh
 
 Snowflake also provides a quickstart for you to learn how to use dbt. It makes use of a different public dataset (Knoema Economy Data Atlas) than what's shown in this guide. For more information, refer to [Accelerating Data Teams with dbt & Snowflake](https://quickstarts.snowflake.com/guide/accelerating_data_teams_with_snowflake_and_dbt_cloud_hands_on_lab/) in the Snowflake docs.
 
-Videos for you
-
-You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
-
-You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.com/watch?v=kbCkwhySV_I\&list=PL0QYlrC86xQm7CoOH6RS7hcgLnd3OQioG).
-
 ### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
@@ -45,6 +40,12 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 * [Deploy jobs](../docs/deploy/deploy-jobs.md)
 * [Job notifications](../docs/deploy/job-notifications.md)
 * [Source freshness](../docs/deploy/source-freshness.md)
+
+Videos for you
+
+You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
+
+You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.com/watch?v=kbCkwhySV_I\&list=PL0QYlrC86xQm7CoOH6RS7hcgLnd3OQioG).
 
 ## Create a new Snowflake SQL file
 

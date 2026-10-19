@@ -196,6 +196,7 @@ For more information, consult the [managing environments in dbt](../local/dbt-en
 
 ## Related docs
 
+* [Mapping project folders to warehouse schemas](../../best-practices/how-we-structure/6-mapping-folders-to-warehouse.md) to map staging, intermediate, and marts folders to warehouse schemas
 * [Customize dbt models database, schema, and alias](../../guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
 * [Custom database](./custom-databases.md) to learn how to customize dbt model database
 * [Custom aliases](./custom-aliases.md) to learn how to customize dbt model alias name

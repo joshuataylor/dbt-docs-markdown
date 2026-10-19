@@ -11,12 +11,15 @@ If you're developing with the Studio IDE, you can refer to the [keyboard shortcu
 
 ## YAML tips
 
-This section clarifies where you can use [Jinja](./jinja-macros.md), nest [vars](../../reference/dbt-jinja-functions/var.md) and [`env_var`](../../reference/dbt-jinja-functions/env_var.md) in your YAML files.
+This section clarifies where you can use [Jinja](./jinja-macros.md), nest [vars](../../reference/dbt-jinja-functions/var.md) and [`env_var`](../../reference/dbt-jinja-functions/env_var.md) in your YAML files. For a full file-by-file reference, refer to [Jinja support by file type](../../reference/jinja-file-support.md).
 
-* You can use Jinja in almost every YAML file in dbt *except* the [`dependencies.yml` file](./packages.md#use-cases). This is because the `dependencies.yml` file doesn't support Jinja.
-* Use `vars` in any YAML file that supports Jinja (like `schema.yml`, `snapshots.yml`). However, note that:
+(Applies to dbt v2.0 and later)
+
+* You can use Jinja in almost every YAML file in dbt, including `dependencies.yml` on the dbt v2. If your project must also run on dbt v1, use `packages.yml` for Jinja-based package specs instead to maintain backwards compatibility.
+
+- Use `vars` in any YAML file that supports Jinja (like `schema.yml`, `snapshots.yml`). However, note that:
   * In `dbt_project.yml`, `packages.yml`, and `profiles.yml` files, you must pass `vars` through the CLI using `--vars`, not defined inside the `vars:` block in the YAML file. This is because these files are parsed before Jinja is rendered.
-* You can use `env_var()` in all YAML files that support Jinja. Only `profiles.yml` and `packages.yml` support environment variables for secure values (using the `DBT_ENV_SECRET_` prefix). These are masked in logs and intended for credentials or secrets.
+- You can use `env_var()` in all YAML files that support Jinja. Only `profiles.yml` and `packages.yml` support environment variables for secure values (using the `DBT_ENV_SECRET_` prefix). These are masked in logs and intended for credentials or secrets.
 
 For additional information, check out [dbt v1's context docs](https://github.com/dbt-labs/dbt/blob/1.latest/core/dbt/context/README.md).
 

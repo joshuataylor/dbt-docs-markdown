@@ -3,5 +3,6 @@
 If you are stuck with a Jinja issue, it can get confusing where to check for more information. We recommend you check (in order):
 
 1. [Jinja's Template Designer Docs](https://jinja.palletsprojects.com/page/templates/): This is the best reference for most of the Jinja you'll use
-2. [Our Jinja function reference](../../reference/dbt-jinja-functions-context-variables.md): This documents any additional functionality we've added to Jinja in dbt.
-3. [Agate's table docs](https://agate.readthedocs.io/page/api/table.html): If you're operating on the result of a query, dbt will pass it back to you as an agate table. This means that the methods you call on the table belong to the Agate library rather than Jinja or dbt.
+2. [Jinja support by file type](../../reference/jinja-file-support.md): This maps which file types support Jinja expressions, built-in functions, and custom macros.
+3. [Our Jinja function reference](../../reference/dbt-jinja-functions-context-variables.md): This documents any additional functionality we've added to Jinja in dbt.
+4. [Agate's table docs](https://agate.readthedocs.io/page/api/table.html): If you're operating on the result of a query, dbt will pass it back to you as an agate table. This means that the methods you call on the table belong to the Agate library rather than Jinja or dbt.

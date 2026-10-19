@@ -39,15 +39,20 @@ However, you may be able to consolidate both into a single `dependencies.yml` fi
 
 #### About packages.yml and dependencies.yml
 
-The `dependencies.yml`. file can contain both types of dependencies: "package" and "project" dependencies.
+The `dependencies.yml` file can contain both types of dependencies: "package" and "project" dependencies.
 
 * [Package dependencies](../../build/packages.md#how-do-i-add-a-package-to-my-project) lets you add source code from someone else's dbt project into your own, like a library.
 * Project dependencies provide a different way to build on top of someone else's work in dbt.
-* Private packages are not supported in `dependencies.yml` because they intentionally don't support Jinja rendering or conditional configuration. This is to maintain static and predictable configuration and ensures compatibility with other services, like dbt.
+* For private Git packages that need Jinja (for example the [Git token method](../../build/packages.md#git-token-method)), use `packages.yml` on dbt v1, which supports Jinja in package specs. dbt v2 also supports Jinja in `dependencies.yml`, but use `packages.yml` if the project must also run on dbt v1. Refer to [Jinja support by file type](../../../reference/jinja-file-support.md).
 
-If your dbt project doesn't require the use of Jinja within the package specifications, you can simply rename your existing `packages.yml` to `dependencies.yml`. However, something to note is if your project's package specifications use Jinja, particularly for scenarios like adding an environment variable or a [Git token method](../../build/packages.md#git-token-method) in a private Git package specification, you should continue using the `packages.yml` file name.
+For private packages without Jinja tokens, you can use [native private packages](../../build/packages.md#native-private-packages) in `packages.yml` or `dependencies.yml`.
 
-Use the following toggles to understand the differences and determine when to use `dependencies.yml` or `packages.yml` (or both). Refer to the [FAQs](#faqs) for more info.
+If your dbt project doesn't require Jinja in package specifications, you can rename `packages.yml` to `dependencies.yml`. If you need Jinja in package specs (for example an environment variable or the [Git token method](../../build/packages.md#git-token-method)):
+
+* On dbt v1, keep using `packages.yml`. dbt v1 does not render Jinja in `dependencies.yml`.
+* On the dbt v2, you can use Jinja in `dependencies.yml`. It is recommended to use `packages.yml` if the project must also run on dbt v1.
+
+Refer to [Jinja support by file type](../../../reference/jinja-file-support.md) for the full matrix. Use the following toggles to understand the differences and determine when to use `dependencies.yml` or `packages.yml` (or both). Refer to the [FAQs](#faqs) for more info.
 
  When to use Project dependencies
 
@@ -64,7 +69,7 @@ Package dependencies allow you to add source code from someone else's dbt projec
 * If you only use packages like those from the [dbt Hub](https://hub.getdbt.com/), remain with `packages.yml`.
 * Use `packages.yml` when you want to download dbt packages, such as dbt projects, into your root or parent dbt project. Something to note is that it doesn't contribute to the dbt Mesh workflow.
 * Use `packages.yml` to include packages in your project's dependencies. This includes both public packages, such as those from the [dbt Hub](https://hub.getdbt.com/), and private packages. dbt now supports [native private packages](../../build/packages.md#native-private-packages).
-* [`packages.yml` supports Jinja rendering](../../build/dbt-tips.md#yaml-tips) for historical reasons, allowing dynamic configurations. This can be useful if you need to insert values, like a [Git token method](../../build/packages.md#git-token-method) from an environment variable, into your package specifications.
+* [`packages.yml` supports Jinja rendering](../../build/dbt-tips.md#yaml-tips) for historical reasons, allowing dynamic configurations. This can be useful if you need to insert values, like a [Git token method](../../build/packages.md#git-token-method) from an environment variable, into your package specifications. dbt v2 also supports Jinja in `dependencies.yml`; refer to [Jinja support by file type](../../../reference/jinja-file-support.md).
 
 Previously, to use private Git repositories in dbt, you needed to use a workaround that involved embedding a Git token with Jinja. This is not ideal as it requires extra steps like creating a user and sharing a Git token. We’ve introduced support for [native private packages](../../build/packages.md#native-private-packages-) to address this.
 
@@ -193,7 +198,7 @@ Can I define private packages in the dependencies.yml file?
 It depends on how you're accessing your private packages:
 
 * If you're using [native private packages](../../build/packages.md#native-private-packages), you can define them in the `dependencies.yml` file.
-* If you're using the [git token method](../../build/packages.md#git-token-method), you must define them in the `packages.yml` file instead of the `dependencies.yml` file. This is because conditional rendering (like Jinja-in-yaml) is not supported in `dependencies.yml`.
+* If you're using the [git token method](../../build/packages.md#git-token-method), use `packages.yml` on dbt v1 because Jinja isn't supported in `dependencies.yml`. On dbt v2, you can use `dependencies.yml`, but we recommend using `packages.yml` if your project must also run on dbt v1. Refer to [Jinja support by file type](../../../reference/jinja-file-support.md).
 
 Why doesn’t an indirectly referenced upstream public model appear in Explorer?
 

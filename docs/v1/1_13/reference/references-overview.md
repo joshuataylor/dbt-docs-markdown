@@ -34,6 +34,12 @@ Learn how to add more configurations to your dbt project or adapter, use propert
 
 [Outlines the commands supported by dbt and their relevant flags.](./dbt-commands.md)
 
+[![](/img/icons/computer.svg)](./jinja-file-support.md)
+
+#### [Jinja support by file type](./jinja-file-support.md)
+
+[Which dbt file types support Jinja expressions, built-in functions, and custom macros.](./jinja-file-support.md)
+
 [![](/img/icons/computer.svg)](./dbt-jinja-functions-context-variables.md)
 
 #### [dbt Jinja functions and context variables](./dbt-jinja-functions-context-variables.md)
