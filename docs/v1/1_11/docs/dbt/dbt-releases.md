@@ -52,9 +52,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Dev
 
-[`v2.1.0.dev20261017`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261017 "View this version in the dbt v2 changelog")
+[`v2.1.0.dev20261019`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this version in the dbt v2 changelog")
 
-2026-10-17
+2026-10-19
 
 #### Canary
 
@@ -76,6 +76,12 @@ Released by: **github-merge-queue**Oct 17, 2026, 09:05 AM
 
 Automated promotion
 
+[v2.1.0.dev20261019](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this release in the dbt v2 changelog")GoodDevnightly
+
+Released by: **chayac**Oct 19, 2026, 07:08 PM
+
+Automated promotion
+
 [v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
 
 Released by: **mach-kernel**Oct 16, 2026, 04:58 PM
@@ -84,7 +90,7 @@ Promote v2.0.9 from dev/nightly to canary after Datadog review
 
 [v2.0.8](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **johnchappelledbt**Oct 15, 2026, 09:05 PM
+Released by: **johnchappelledbt**Oct 19, 2026, 06:29 PM
 
 Automated ST snapshot
 
@@ -186,7 +192,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **johnchappelledbt**Oct 15, 2026, 09:05 PM
+Released by: **johnchappelledbt**Oct 19, 2026, 06:29 PM
 
 Automated ST snapshot
 
