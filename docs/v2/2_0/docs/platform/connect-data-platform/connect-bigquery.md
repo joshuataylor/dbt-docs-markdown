@@ -11,6 +11,15 @@ dbt user accounts need the following permissions to read from and create tables 
 * BigQuery Data Editor
 * BigQuery User
 
+(Applies to dbt v1.12 and later)
+
+dbt lists and looks up BigQuery routines (functions and stored procedures) when it scans datasets. If you use a custom IAM role instead of a predefined role, also grant:
+
+* `bigquery.routines.list`: list routines in a dataset
+* `bigquery.routines.get`: read routine metadata
+
+Without these, dbt can miss existing tables or fail on some lookups. Predefined roles such as BigQuery Data Editor typically already include them.
+
 For BigQuery with dbt v2, users also need:
 
 * BigQuery Read Session User (for Storage Read API access)
@@ -56,6 +65,8 @@ The following permissions are required for fundamental dbt features::
 | `bigquery.tables.list`       | List tables in dataset         |
 | `bigquery.tables.update`     | Update table schema            |
 | `bigquery.tables.updateData` | Insert, update, or delete rows |
+| `bigquery.routines.get`      | Read routine metadata          |
+| `bigquery.routines.list`     | List routines in a dataset     |
 | `bigquery.jobs.create`       | Run queries                    |
 
 The following are optional permissions for additional dbt features:
@@ -84,13 +95,13 @@ For Storage Read API access with dbt v2, also grant **BigQuery Read Session User
 
 The following are required for fundamental dbt features:
 
-| Query type       | SQL or API used             | Required permission        |
-| ---------------- | --------------------------- | -------------------------- |
-| Get table schema | `get_table_schema` API      | `bigquery.tables.get`      |
-| List relations   | Query against dataset       | `bigquery.tables.list`     |
-| Source freshness | Query `__TABLES__` metadata | `bigquery.tables.get`      |
-| Get table stats  | Query `INFORMATION_SCHEMA`  | `bigquery.tables.get`      |
-| Create dataset   | `CREATE SCHEMA`             | `bigquery.datasets.create` |
+| Query type       | SQL or API used             | Required permission                              |
+| ---------------- | --------------------------- | ------------------------------------------------ |
+| Get table schema | `get_table_schema` API      | `bigquery.tables.get`                            |
+| List relations   | Query against dataset       | `bigquery.tables.list`, `bigquery.routines.list` |
+| Source freshness | Query `__TABLES__` metadata | `bigquery.tables.get`                            |
+| Get table stats  | Query `INFORMATION_SCHEMA`  | `bigquery.tables.get`                            |
+| Create dataset   | `CREATE SCHEMA`             | `bigquery.datasets.create`                       |
 
 ### INFORMATION\_SCHEMA and metadata views
 

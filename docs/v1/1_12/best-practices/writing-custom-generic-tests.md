@@ -77,7 +77,7 @@ You can add a description to the Jinja macro that provides the core logic for a 
 
 Here's an example:
 
-macros/generic/schema.yml
+tests/generic/schema.yml
 
 ```yaml
 macros:
