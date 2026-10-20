@@ -21,7 +21,7 @@ You should pin to a major release. See [pin to a range](#pin-to-a-range) for mor
 
 dbt release tracks
 
-Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
+When you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
 
 dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt. We also recommend these best practices:
 

@@ -158,9 +158,7 @@ Platform features like Semantic Layer, Discovery API, and metadata queries requi
 
 ## Troubleshooting
 
- Can't find the uvx executable
-
- Can't find the uvx executable
+Can't find the uvx executable
 
 **Symptoms:** Error messages like `Could not connect to MCP server dbt-mcp`, `Error: spawn uvx ENOENT`, or `spawn uvx ENOENT` in your MCP client.
 
@@ -191,9 +189,7 @@ Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 
 For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full path in the `command` field.
 
- Server not starting
-
- Server not starting
+Server not starting
 
 **Symptoms:** The MCP server shows as disconnected or unavailable in your client.
 
@@ -205,11 +201,11 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 **Common causes:**
 
-* Missing or incorrect `DBT_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
+* Missing or incorrect (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
 * Invalid or expired authentication tokens — generate a new token and update your config.
 * Missing required environment variables for the toolset you're trying to use — see [Tool requirements](../docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
 
-For all troubleshooting topics, see [MCP troubleshooting](../docs/dbt-ai/mcp-troubleshooting.md).
+For all troubleshooting topics, see [dbt MCP FAQs and troubleshooting](../docs/dbt-ai/mcp-troubleshooting.md).
 
 ## Next steps
 

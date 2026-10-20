@@ -73,6 +73,10 @@ Our Frequently Asked Questions (FAQs) section is a space where you can find an a
 
 [8 items](../category/warehouse.md)
 
+## [dbt MCP](../category/dbt-mcp.md)
+
+[1 item](../category/dbt-mcp.md)
+
 [Next](../category/accounts.md)
 
 [Accounts](../category/accounts.md)

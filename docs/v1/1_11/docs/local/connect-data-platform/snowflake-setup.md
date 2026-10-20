@@ -4,10 +4,6 @@
 
 Local development
 
-Snowflake enforcing strong authentication
-
-Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
-
 [dbt v2 compatible](./snowflake-setup.md?version=2 "dbt v2 compatible") connection also available.
 
 * **Maintained by**: dbt Labs

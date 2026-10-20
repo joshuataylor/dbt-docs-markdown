@@ -4,10 +4,6 @@
 
 Local development
 
-Snowflake enforcing strong authentication
-
-Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
-
 You can configure the Snowflake adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type. To check out which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
 The Snowflake adapter for dbt v2 supports the following [authentication methods](#supported-authentication-types):

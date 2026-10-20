@@ -344,9 +344,7 @@ If you only need to run dbt commands locally (with or without a dbt platform acc
 
 ## Troubleshooting
 
- Can't find the uvx executable
-
- Can't find the uvx executable
+Can't find the uvx executable
 
 **Symptoms:** Error messages like `Could not connect to MCP server dbt-mcp`, `Error: spawn uvx ENOENT`, or `spawn uvx ENOENT` in your MCP client.
 
@@ -377,9 +375,7 @@ Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 
 For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full path in the `command` field.
 
- OAuth login not initiating
-
- OAuth login not initiating
+OAuth login not initiating
 
 **Symptoms:** The OAuth browser window never opens, or authentication appears to hang.
 
@@ -398,9 +394,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/manage-dbt-ai.md).
 
- Server not starting
-
- Server not starting
+Server not starting
 
 **Symptoms:** The MCP server shows as disconnected or unavailable in your client.
 
@@ -412,13 +406,11 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 
 **Common causes:**
 
-* Missing or incorrect `DBT_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
+* Missing or incorrect (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
 * Invalid or expired authentication tokens — generate a new token and update your config.
 * Missing required environment variables for the toolset you're trying to use — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 
- execute\_sql tool not working
-
- execute\_sql tool not working
+execute\_sql tool not working
 
 **Symptoms:** The `execute_sql` tool returns an authentication error or is unavailable.
 
@@ -435,9 +427,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 3. For token-based remote MCP, add the PAT to the `Authorization` header as `Token YOUR_PAT`. For local MCP, set the PAT as your `DBT_TOKEN` value.
 4. Also ensure `DBT_DEV_ENV_ID` and `DBT_USER_ID` are set (local MCP) or `x-dbt-dev-environment-id` and `x-dbt-user-id` headers are set (remote MCP). Refer to [Finding your IDs](./mcp-find-ids.md) for details.
 
- Toolset unavailable or showing as disabled
-
- Toolset unavailable or showing as disabled
+Toolset unavailable or showing as disabled
 
 **Symptoms:** A toolset (Semantic Layer, Discovery, Admin API) is not available in your AI client even though you've configured credentials.
 
@@ -450,9 +440,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 3. If you're using enable mode (`DBT_MCP_ENABLE_*`), make sure the toolset you need is listed.
 4. Set `DBT_MCP_LOG_LEVEL=DEBUG` to see which toolsets are active at startup.
 
- Pasting full URLs instead of IDs
-
- Pasting full URLs instead of IDs
+Pasting full URLs instead of IDs
 
 **Symptoms:** Authentication errors, unexpected behavior, or the server failing to connect to the right environment.
 
@@ -473,9 +461,7 @@ DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 
 See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
- Multi-cell account connection issues
-
- Multi-cell or static subdomain account connection issues
+Multi-cell or static subdomain account connection issues
 
 **Symptoms:** Connection errors when your account URL includes a prefix (for example, `abc123.us1.dbt.com`).
 
@@ -489,7 +475,7 @@ DBT_ACCOUNT_ID=12345  # required for PAT-based auth
 
 You no longer need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. If you have these set from an older configuration, remove them.
 
-For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).
+For all troubleshooting topics, see [dbt MCP FAQs and troubleshooting](./mcp-troubleshooting.md).
 
 ## Next steps
 

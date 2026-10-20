@@ -12,7 +12,7 @@ Available in v1
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
-Starting in 2024, dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **v1 Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt v1.10! If you have selected the **v1 Compatible** release track, you will have access in the next monthly **v1 Compatible** release after the dbt v1.10 final release.
+dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **v1 Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt v1.10! If you have selected the **v1 Compatible** release track, you will have access in the next monthly **v1 Compatible** release after the dbt v1.10 final release.
 
 ## New and changed features and functionality
 

@@ -470,9 +470,7 @@ To see more detail about what’s happening inside the MCP server and help debug
 
 ## Troubleshooting
 
- Can't find the uvx executable
-
- Can't find the uvx executable
+Can't find the uvx executable
 
 **Symptoms:** Error messages like `Could not connect to MCP server dbt-mcp`, `Error: spawn uvx ENOENT`, or `spawn uvx ENOENT` in your MCP client.
 
@@ -503,9 +501,7 @@ Example on macOS with Homebrew: `"command": "/opt/homebrew/bin/uvx"`
 
 For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full path in the `command` field.
 
- OAuth login not initiating
-
- OAuth login not initiating
+OAuth login not initiating
 
 **Symptoms:** The OAuth browser window never opens, or authentication appears to hang.
 
@@ -524,4 +520,4 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/manage-dbt-ai.md).
 
-For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).
+For all troubleshooting topics, see [dbt MCP FAQs and troubleshooting](./mcp-troubleshooting.md).

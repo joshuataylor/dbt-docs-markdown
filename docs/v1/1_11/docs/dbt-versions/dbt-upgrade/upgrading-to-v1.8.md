@@ -14,7 +14,7 @@ dbt Labs is committed to providing backward compatibility for all versions 1.x, 
 
 ## Release tracks
 
-Starting in 2024, dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. Select a release track in your development, staging, and production [environments](../../deploy/deploy-environments.md) to access everything in dbt v1.8+ and more. To upgrade an environment in the [dbt Admin API](../../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the string `latest`.
+dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. Select a release track in your development, staging, and production [environments](../../deploy/deploy-environments.md) to access everything in dbt v1.8+ and more. To upgrade an environment in the [dbt Admin API](../../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the string `latest`.
 
 ## New and changed features and functionality
 

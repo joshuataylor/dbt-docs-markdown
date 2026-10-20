@@ -158,16 +158,12 @@ Models that use custom materializations follow these same rules, with one except
 The [`static_analysis`](../../reference/resource-configs/static-analysis.md) config options are:
 
 * `baseline` (default): Statically analyze SQL. This is the recommended starting point for users transitioning from dbt v1, providing a smooth migration experience while still catching most SQL errors.
-* `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
+* `strict`: Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
 * `off`: Skip SQL analysis on this model and its descendants.
 
 (Applies to dbt v2.0 and later)
 
 Any run that uses `strict` mode requires authentication using [`dbt login`](../../reference/commands/login.md?version=2.0), whether `strict` is set with the `--static-analysis strict` CLI flag or in `dbt_project.yml`. Unauthenticated runs fall back to `baseline`.
-
-Deprecated values
-
-The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use `strict` instead.
 
 When you disable static analysis, features of the VS Code extension which depend on SQL comprehension will be unavailable.
 

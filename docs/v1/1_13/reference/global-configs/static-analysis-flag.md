@@ -5,12 +5,8 @@ Use the `--static-analysis` flag to override model-level `static_analysis` behav
 Values:
 
 * `baseline` (default): Statically analyze SQL for all models in the run. This is the recommended starting point for users transitioning from dbt v1.
-* `strict` (previously `on`): Statically analyze all SQL before execution begins. Provides maximum validation guarantees — nothing runs until the entire project is proven valid.
+* `strict`: Statically analyze all SQL before execution begins. Provides maximum validation guarantees — nothing runs until the entire project is proven valid.
 * `off`: Disable static analysis for all models in the run.
-
-Deprecated values
-
-The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use `strict` instead.
 
 If not set, dbt v2 defaults to `baseline` mode, which provides a smooth transition from dbt v1 while still catching most SQL errors. See [Configuring `static_analysis`](../../docs/build/about-static-analysis.md#configuring-static_analysis) for more information on incrementally opting in to stricter analysis.
 

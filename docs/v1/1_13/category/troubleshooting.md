@@ -2,7 +2,7 @@
 * [Frequently asked questions](../docs/faqs.md)
 * Troubleshooting
 
-# Troubleshooting FAQs
+# dbt MCP troubleshooting FAQs
 
 ## [Generate HAR files](../faqs/Troubleshooting/generate-har-file.md)
 

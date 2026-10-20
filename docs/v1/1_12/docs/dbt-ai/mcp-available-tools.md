@@ -140,3 +140,28 @@ These tools provide information about the MCP server itself.
 ### Find jobs across project environments
 
 Use the `list_jobs` [tool](#admin-api) with a `project_id` to list jobs across every environment in a dbt project. This is useful when you need to inspect jobs outside the configured production environment. Without `project_id`, `list_jobs` continues to use the configured production environment, or lists jobs across the account when no production environment is configured.
+
+## FAQs
+
+ What does execute\_sql do?
+
+`execute_sql` lets your AI assistant run a SQL query against your data warehouse and read the results. It's part of the SQL toolset and runs on dbt platform, so you don't need dbt installed locally.
+
+Here's what happens when your assistant calls it:
+
+1. The assistant writes a SQL query and calls `execute_sql`.
+2. The dbt MCP server forwards the request to dbt platform, along with your token, development environment ID, and user ID.
+3. dbt platform compiles the SQL (including any Jinja, such as `ref()`) and runs it in your warehouse using your development credentials.
+4. The results come back to your assistant as a table.
+
+![The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.](/img/docs/dbt-ai/mcp-execute-sql-flow.svg?v=2 "The AI assistant calls execute_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.")The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.
+
+ Is execute\_sql read-only?
+
+No. `execute_sql` doesn't block write statements. What a query can do depends on the permissions of the warehouse credentials it runs with. Use least-privilege warehouse roles for each user's development credentials.
+
+ Whose warehouse credentials does execute\_sql use?
+
+Your personal development credentials for the project's development environment, not your production deployment credentials.
+
+For more answers about `execute_sql` or troubleshooting help, refer to [dbt MCP FAQs and troubleshooting](./mcp-troubleshooting.md).
