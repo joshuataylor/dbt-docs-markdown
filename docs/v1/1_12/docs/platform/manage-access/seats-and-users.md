@@ -136,7 +136,11 @@ Great work! After completing these steps, your dbt user count and billing count 
 
 ## Managing license types
 
-Licenses can be assigned to users individually or through group membership. To assign a license via group membership, you can manually add a user to a group during the invitation process or assign them to a group after they’ve enrolled in dbt. Alternatively, with [SSO configuration](./sso-overview.md) and [role-based access control](./about-user-access.md#role-based-access-control-) (Enterprise-tier only), users can be automatically assigned to groups. By default, new users in an account are assigned a Developer license.
+You can assign licenses to users individually or through group membership. Add users to groups when inviting them or after they join dbt.
+
+On Enterprise plans, you can also automatically assign users to groups using [SSO config](./sso-overview.md) and [role-based access control](./about-user-access.md#role-based-access-control-).
+
+New users receive your account's default license. Admins can check the default and update it as needed. Refer to [set a different default license](#default-license-for-new-users) for more info.
 
 ### Manual configuration
 
@@ -150,6 +154,22 @@ To manually assign a specific type of license to a user on your team:
 **Note:** You will need to have an available license ready to allocate for the user. If your account does not have an available license to allocate, you will need to add more licenses to your plan to complete the license change.
 
 ![Manually assigning licenses](/img/docs/dbt-platform/access-control/license-manual.png?v=2 "Manually assigning licenses")Manually assigning licenses
+
+### Default license for new users [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+
+Users who aren't assigned a license through SSO, SCIM, or license mapping receive your account's default license. Admins should check the current default and change it to **Read-Only**, **Developer**, or **Analyst** (if available) as needed.
+
+To set the default license:
+
+1. Click your account name in the left side menu and select **Account settings**.
+2. Go to **Groups & Licenses** and scroll to the **Default license type** section.
+3. Click **Edit**.
+4. Select **Developer**, **Read-Only**, or **Analyst**.
+5. Click **Save**.
+
+The **IT** license can't be set as the default.
+
+![Set the default license for new users](/img/docs/dbt-platform/access-control/default-license.png?v=2 "Set the default license for new users")Set the default license for new users
 
 ### Mapped configuration [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -166,7 +186,7 @@ If your account is connected to an Identity Provider (IdP) for [Single Sign On](
 
 #### Fundamental licensing rules
 
-* **Default assignment**: All new members of a dbt account are assigned a Developer license unless you configure otherwise.
+* **Default assignment**: New members without a mapped license receive your account's [default license](#default-license-for-new-users), unless an admin changes it.
 * **Mapping basis**: License type mappings are based on *IdP groups* (groups in your identity provider), not *dbt groups*. Check group memberships in your IdP when configuring or troubleshooting.
 * **When changes take effect**: License types are adjusted when users sign into dbt using single sign-on. Changes to license type mappings take effect the next time users sign in.
 
@@ -176,14 +196,14 @@ When a user belongs to multiple IdP groups, the Developer license takes preceden
 
 | In a Developer license-mapped group? | In a Read-Only license-mapped group? | License assigned                       |
 | ------------------------------------ | ------------------------------------ | -------------------------------------- |
-| No                                   | No                                   | Developer (default)                    |
+| No                                   | No                                   | Account default license                |
 | No                                   | Yes                                  | Read-Only                              |
 | Yes                                  | No                                   | Developer                              |
 | Yes                                  | Yes                                  | Developer (Developer takes precedence) |
 
 note
 
-If a user's IdP groups do not match *any* license type mappings, dbt assigns a Developer license by default.
+If a user's IdP groups do not match *any* license type mappings, dbt assigns your account's [default license](#default-license-for-new-users). Admins can check the default and update as needed.
 
 ## Granular permissioning [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
