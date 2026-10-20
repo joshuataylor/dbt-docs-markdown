@@ -52,9 +52,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Dev
 
-[`v2.1.0.dev20261019`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this version in the dbt v2 changelog")
+[`v2.1.0.dev20261020`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261020 "View this version in the dbt v2 changelog")
 
-2026-10-19
+2026-10-20
 
 #### Canary
 
@@ -79,6 +79,12 @@ Automated promotion
 [v2.1.0.dev20261019](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this release in the dbt v2 changelog")GoodDevnightly
 
 Released by: **chayac**Oct 19, 2026, 07:08 PM
+
+Automated promotion
+
+[v2.1.0.dev20261020](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261020 "View this release in the dbt v2 changelog")GoodDevnightly
+
+Released by: **github-merge-queue**Oct 20, 2026, 09:10 AM
 
 Automated promotion
 
