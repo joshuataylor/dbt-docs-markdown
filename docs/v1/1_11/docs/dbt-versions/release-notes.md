@@ -15,34 +15,66 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## October 2026
 
+* **New:** dbt State trial and DATT allowance updates:
+
+  * **New:** Self-hosted dbt users using dbt State now get a free plan after their trial ends, with 1,000 daily active target tables (DATT) per month at no cost. Developer and paid dbt platform accounts also receive a monthly DATT allowance, with amounts and availability varying by plan. For more information, refer to [dbt State usage](../platform/billing/dbt-state-usage.md).
+  * **New:** When your dbt State trial ends, you’ll receive an email confirming your plan, monthly DATT allowance, and allowance end date if your plan has one.
+  * **New:** If your dbt State trial has ended, dbt State is now active again on your account with your plan’s free monthly DATT allowance. No action is required.
+
 * **New:** Admins can now set the [default license](../platform/manage-access/seats-and-users.md#default-license-for-new-users) for new users who aren't assigned a license through SSO, SCIM, or license mapping. Choose Developer, Read-Only, or Analyst. Admins can check their settings and update the default as needed. This is available for all multi-tenant and single-tenant accounts.
+
 * **Enhancement:** You can now sort columns, search by connection name, and filter by connection type, credentials, and connection method (private link or OAuth).
-* **Enhancement:** When a dbt State trial ends, you'll get an email that communicates your Consumption, Developer, Starter, Legacy Teams, or Enterprise plan and includes the allowance end date when your plan has one.
+
 * **Fix:** Charts now show dates such as `2026-01` or `2026-01-15` from oldest to newest. Tables keep your query's row order until you sort a column.
+
 * **Behavior change:** You can no longer create a System for Cross-domain Identity Management (SCIM) token with a personal access token or a service token. Sign in to dbt and [create a SCIM token](../platform/manage-access/scim.md#set-up-dbt).
+
 * **New:** The jobs list API endpoint (`GET /api/v2/accounts/{account_id}/jobs/`) now accepts a `pk__in` query parameter, letting you retrieve up to 500 specific jobs by ID in a single request.
+
 * **New:** You can now specify `clickhouse_v0` as the adapter\_version when creating connections and credentials, filtering connections, and retrieving adapter schemas in the Administrative API v3. Contact your account representative to enable.
+
 * **New:** The `metrics` and `metricsPaginated` GraphQL queries now accept a `searchTerms` argument, letting you filter metrics by multiple terms in a single request with correct pagination. Note: `search` and `searchTerms` cannot be combined, and a maximum of 20 terms is allowed.
+
 * **New:** In dbt Wizard Desktop, you can attach files and images to a chat. Drag them in, paste them, or copy them from Finder into the composer, then preview them before you send. Sent files show up as readable cards.
+
 * **New:** In dbt Wizard Desktop, projects connected to dbt platform now connect to the remote dbt MCP server by default, using OAuth sign-in. This adds platform tools like job management, run status, and run errors. Go to **Settings** → **Connectors** to turn it on or off for each dbt account.
+
 * **New:** In dbt Wizard Desktop, you can pin chats and environments to a section at the top of the sidebar and reorder them.
+
 * **New:** In dbt Wizard Desktop, you can open SQL from a chat in the **Queries** pane.
+
 * **New:** In dbt Wizard Desktop, you can pick the Jaffle Shop sample project during onboarding.
+
 * **Enhancement:** Workspace @-mention queries now use server-side fuzzy matching instead of filtering a local list, returning better-ranked results for large repositories. The context file picker also prevents selecting stale results while a search is still in flight.
+
 * **Enhancement:** You can now add a `table` block type to `compose_report` reports to render query results as formatted, scrollable tables. Columns can be narrowed and reordered using the `columns` field, and the display caps at 50 rows on screen with a truncation notice for clipped results.
+
 * **Enhancement:** You can use the new transformation type badge on column cards to see how each column is derived.
+
 * **Enhancement:** The webhook subscription job picker now searches and paginates server-side. You see a search box with debounced filtering and scroll-to-load pagination instead of a slow or frozen dropdown when your account has many jobs.
+
 * **Enhancement:** The dbt State navigation option no longer carries a "Preview" badge. Incomplete projects (those without a repository or skipped setup) are also excluded from automatic project selection on the dbt State home page.
+
 * **Enhancement:** The GET, POST, and PATCH endpoints for Microsoft Entra applications now return `client_id` and `tenant_id` in their responses, giving you visibility into your Azure DevOps (ADO) integration configuration.
+
 * **Enhancement:** dbt Wizard Desktop now installs and manages `uv` itself when a project's Python requirement blocks setup.
+
 * **Enhancement:** dbt Wizard Desktop chats in the sidebar now show PR status, unread, and running indicators.
+
 * **Enhancement:** dbt Wizard follows updated dbt best practices, including better use of the Semantic Layer.
+
 * **Behavior change:** Pull requests that dbt Wizard creates now say in their description that dbt Wizard made them.
+
 * **Fix:** dbt Wizard now detects when deferral isn't working because the upstream model doesn't exist in production, and recommends turning off deferral for the session.
+
 * **Fix:** dbt Wizard Desktop now handles dbt platform sign-in errors better, fixes issues with the **Changes** and **Summary** panes (including generating a new summary when non-agent changes are detected), and fixes edge cases when creating environments with a missing adapter.
+
 * **Fix:** When the Wizard receives a malformed diff patch, it now displays a "Couldn't parse diff" error badge instead of crashing.
+
 * **Fix:** Charts with decimal data values (for example, 25.43 minutes) no longer push the y-axis name outside the visible canvas area. The axis gap is now calculated from rounded tick values.
+
 * **Fix:** The x-axis name, grid bottom margin, and legend centering on horizontal bar charts are now computed correctly so the axis label no longer overlaps the legend.
+
 * **Fix:** The Cost Insights dashboard no longer shows a perpetual loading spinner when partial cost data exists. You now see available cost data even when some rows have not been fully processed.
 
 ## September 2026
@@ -147,8 +179,8 @@ Two other things moved:
 
 * **New:** [dbt State](../deploy/dbt-state-about.md) onboarding and billing updates:
 
-  * **New:** New users can now sign up for a free dbt platform account and start a 30-day dbt State trial through a guided onboarding flow. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md?type=platform-signup).
-  * **New:** dbt v1.7-1.12 users who are using the dbt State plugin can now create a free dbt platform account to start a 30-day dbt State trial. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md).
+  * **New:** New users can now sign up for a free dbt platform account and start a 30-day dbt State trial through a guided onboarding flow. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md?user-type=self-hosted).
+  * **New:** dbt v1.7-1.12 users who are using the dbt State plugin can now create a free dbt platform account to start a 30-day dbt State trial. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md?user-type=self-hosted\&version=1.12).
   * **New:** dbt State billing is now available for self-serve accounts. You can set up usage-based billing in the **Usage-based features** dashboard. Note that you're billed per target table that dbt State reuses each day, not per dbt platform seat. Refer to [Setting up usage-based billing](../deploy/dbt-state-trial.md#setting-up-usage-based-billing) for more information.
   * **Behavior change**: The standalone dbt State app (`app.state.dbt.com`) is being retired and is no longer accepting new users. Existing dbt State app users should [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
 
