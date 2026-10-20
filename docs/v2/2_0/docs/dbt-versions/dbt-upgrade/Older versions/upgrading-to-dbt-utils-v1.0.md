@@ -30,7 +30,7 @@ Just like the switch to dbt 1.0 last year, there are some breaking changes as we
 
 * `surrogate_key()` has been replaced by `generate_surrogate_key()`. The original treated null values and blank strings the same, which could lead to duplicate keys being created. `generate_surrogate_key()` does not have this flaw. Compare the [surrogate keys calculated for these columns](https://docs.google.com/spreadsheets/d/1qWfdbieUOSgkzdY0kmJ9iCgdqyWccA0R-6EW0EgaMQc/edit#gid=0):
 
-![A table comparing the behavior of surrogate\_key and generate\_surrogate\_key](/assets/images/surrogate_key_behaviour-2248a1a7c8bfa9df30140fadc6021a99.png)
+![A table comparing the behavior of surrogate\_key and generate\_surrogate\_key](/img/guides/migration/versions/surrogate_key_behaviour.png?v=2 "A table comparing the behavior of surrogate_key and generate_surrogate_key")A table comparing the behavior of surrogate\_key and generate\_surrogate\_key
 
 Changing the calculation method for surrogate keys, even for the better, could have significant consequences in downstream uses (such as snapshots and incremental models which use this column as their `unique_key`). As a result, it's possible to opt into the legacy behavior by setting the following variable in your dbt project:
 

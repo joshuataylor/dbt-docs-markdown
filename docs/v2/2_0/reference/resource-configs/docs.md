@@ -176,7 +176,7 @@ The custom `node_color` attribute isn't applicable in Catalog. Instead, Explorer
 
 Add custom `node_colors` to models that support it within subdirectories based on hex codes or a plain color name.
 
-![Example](/assets/images/node_color_example-80b597978b6a0f15b6db30ce0d3375ed.png)
+![Example](/img/node_color_example.png?v=2 "Example")Example
 
 `marts/core/fct_orders.sql` with `node_color: red` overrides `dbt_project.yml` with `node_color: gold`
 

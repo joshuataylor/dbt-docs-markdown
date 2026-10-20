@@ -1328,7 +1328,7 @@ We’d recommend *against* boilerplate announcements and encourage finding a uni
 
 This can vary substantially depending on the nature of the release but a good baseline is the types of release messages that [we put out in the #dbt-releases](https://getdbt.slack.com/archives/C37J8BQEL/p1651242161526509) channel.
 
-![Full Release Post](/assets/images/0-full-release-notes-1cc8cb263cb178df48deda1f69875c99.png)
+![Full release post](/img/adapter-guide/0-full-release-notes.png?v=2 "Full release post")Full release post
 
 Breaking this down:
 

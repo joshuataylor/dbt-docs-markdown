@@ -33,7 +33,7 @@ If you aren’t using dbt, that’s okay! We don’t get a fancy visualization o
 
 If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you’ve seen some output like below. Let’s take a closer look at how to read this.
 
-![CLI output from a dbt build command](/assets/images/dbt-build-output-a00c7bf04a1e0b13c2b797ca5fcb4676.png)
+![CLI output from a dbt build command](/img/best-practices/materializations/dbt-build-output.png?v=2 "CLI output from a dbt build command")CLI output from a dbt build command
 
 * There are two entries per model, the **start** of a model’s build and the **completion**, which will include **how long** the model took to run. The **type** of model is included as well. For example:
 

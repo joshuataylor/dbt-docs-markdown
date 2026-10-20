@@ -93,7 +93,7 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
    * Username: admin
    * Password: admin
 
-   ![Airflow login screen](/assets/images/airflow-login-56d38c8b37cf6d5cfe9672e8274a2d19.png)
+   ![Airflow login screen](/img/guides/orchestration/airflow-and-dbt-platform/airflow-login.png?v=2 "Airflow login screen")Airflow login screen
 
 [Wistia video](https://fast.wistia.net/embed/iframe/2rzsjo0uml?seo=false\&videoFoam=true)
 
@@ -125,15 +125,15 @@ Now you have all the working pieces to get up and running with Airflow + dbt. It
 
 1. From the Airflow interface, navigate to Admin and click on **Connections**
 
-   ![Airflow connections menu](/assets/images/airflow-connections-menu-71e1784305b7249eba5892141dde3d98.png)
+   ![Airflow connections menu](/img/guides/orchestration/airflow-and-dbt-platform/airflow-connections-menu.png?v=2 "Airflow connections menu")Airflow connections menu
 
 2. Click on the `+` sign to add a new connection, then click on the drop down to search for the dbt Connection Type.
 
-   ![Connection type](/assets/images/connection-type-42874161269a9c455e01c5734c4aaf64.png)
+   ![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type.png?v=2 "Connection type")Connection type
 
 3. Add in your connection details and your default dbt account id. This is found in your dbt URL after the accounts route section (`/accounts/{YOUR_ACCOUNT_ID}`), for example the account with id 16173 would see this in their URL: `https://YOUR_ACCESS_URL/#/accounts/16173/projects/36467/jobs/65767/`
 
-   ![Connection type](/assets/images/connection-type-configured-f0be2b2ee60d8192f0cf0bbeac03528b.png)
+   ![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type-configured.png?v=2 "Connection type")Connection type
 
 ## Update the placeholders in the sample code
 
@@ -155,9 +155,11 @@ JOB_ID = "65767"
 
 Turn on the DAG and trigger it to run. Verify the job succeeded after running.
 
-![Airflow DAG](/assets/images/airflow-dag-d7d6a6fe556ac6e8a7970ae7305a5bc3.png)
+![Airflow DAG](/img/guides/orchestration/airflow-and-dbt-platform/airflow-dag.png?v=2 "Airflow DAG")Airflow DAG
 
-Click **Monitor Job Run** to open the run details in dbt. ![Task run instance](/assets/images/task-run-instance-936ac2e4ef47727b434363656900a99d.png)
+Click **Monitor Job Run** to open the run details in dbt.
+
+![Task run instance](/img/guides/orchestration/airflow-and-dbt-platform/task-run-instance.png?v=2 "Task run instance")Task run instance
 
 ## Cleaning up
 

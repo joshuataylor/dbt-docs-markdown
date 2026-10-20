@@ -27,7 +27,7 @@ Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. 
 
 Press **Continue**, then copy the webhook URL.
 
-![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
+![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/img/guides/orchestration/webhooks/zapier-common/catch-raw-hook.png?v=2 "Screenshot of the Zapier UI, showing the webhook URL ready to be copied")Screenshot of the Zapier UI, showing the webhook URL ready to be copied
 
 ## Configure a new webhook in dbt
 
@@ -72,7 +72,7 @@ Select **Code by Zapier** as the App, and **Run Python** as the Event.
 
 In the **Set up action** area, add two items to **Input Data**: `raw_body` and `auth_header`. Map those to the `1. Raw Body` and `1. Headers Http Authorization` fields from the **Catch Raw Hook** step above.
 
-![Screenshot of the Zapier UI, showing the mappings of raw\_body and auth\_header](/assets/images/run-python-40333883c6a20727c02d25224d0e40a4.png)
+![Screenshot of the Zapier UI, showing the mappings of raw\_body and auth\_header](/img/guides/orchestration/webhooks/zapier-common/run-python.png?v=2 "Screenshot of the Zapier UI, showing the mappings of raw_body and auth_header")Screenshot of the Zapier UI, showing the mappings of raw\_body and auth\_header
 
 In the **Code** field, paste the following code, replacing `YOUR_SECRET_HERE` in the StoreClient constructor with the secret you created when setting up the Storage by Zapier integration (not your dbt secret), and setting the `account_username` and `report_token` variables to actual values.
 

@@ -6,7 +6,7 @@ A [version control](https://en.wikipedia.org/wiki/Version_control) system allows
 
 In a distributed version control system, every developer has a full copy of the project and project history. Git is one of the most popular distributed version control systems and is commonly used for both open source and commercial software development, with great benefits for individuals, teams and businesses.
 
-![ overview](/assets/images/git-overview-77b8a2fbc084935621ee6e247a1abde9.png)
+![Git overview](/img/docs/dbt-platform/platform-ide/git-overview.png?v=2 "Git overview")Git overview
 
 Git allows developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
 

@@ -10,7 +10,7 @@ Before you set up dbt State, make sure you have:
 
 * **A supported dbt version**: dbt State is natively available in dbt platform, dbt v2, and dbt v1.13. It's also available as a plugin for dbt v1.7–1.12.
 * **A supported data platform**: Snowflake, Databricks, BigQuery, or Redshift. More warehouses are on the roadmap.
-* **A dbt account**: dbt State uses your dbt account for authentication, even if you're running dbt locally or in a non-interactive environment like CI/CD pipelines or an external orchestrator. Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) for sign-up details, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](../platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
+* **A dbt account**: dbt State uses your dbt account for authentication, even if you're running dbt locally or in a non-interactive environment like CI/CD pipelines or an external orchestrator. Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) for sign-up details, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details.
 
 ## Setting up dbt State
 
