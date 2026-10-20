@@ -64,9 +64,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Latest
 
-[`v2.0.8`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this version in the dbt v2 changelog")
+[`v2.0.9`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this version in the dbt v2 changelog")
 
-2026-10-09
+2026-10-19
 
 ### All releases
 
@@ -82,11 +82,11 @@ Released by: **chayac**Oct 19, 2026, 07:08 PM
 
 Automated promotion
 
-[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatest
 
-Released by: **mach-kernel**Oct 16, 2026, 04:58 PM
+Released by: **chayac**Oct 19, 2026, 10:36 PM
 
-Promote v2.0.9 from dev/nightly to canary after Datadog review
+Planned promotion
 
 [v2.0.8](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
