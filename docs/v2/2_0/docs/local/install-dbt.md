@@ -69,7 +69,7 @@ To upgrade later, run `dbt system update`.
 
 Refer to the [dbt VS Code extension docs](../about-dbt-extension.md) for more info.
 
-If you or your org has a strict requirement to use the open-source runtime, install it [here](./install-dbt-v2.md).
+If you or your org has a strict requirement to use the open-source runtime, refer to [Install dbt OSS](./install-dbt-v2.md). Note that `dbt-oss` and `dbt` cannot share a Python environment.
 
 ## Troubleshooting
 
@@ -77,6 +77,7 @@ Common issues and resolutions:
 
 * **dbt command not found:** Add the installation location to your `$PATH`.
 * **Version conflicts:** Check that no other self-hosted dbt or dbt platform CLI versions are installed or active on your machine.
+* **`dbt-oss` conflict:** `dbt-oss` and `dbt` cannot share a Python environment. If you need to run both, create an alias as described in [Run dbt-oss alongside other dbt installs](./install-dbt-v2.md#run-dbt-oss-alongside-other-dbt-installs).
 * **Installation permissions:** Make sure your user account can install software locally.
 
 ## FAQs
