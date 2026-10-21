@@ -121,6 +121,8 @@ To update at any time:
 3. If there's a new version, select **Install version** and wait for the install progress to finish.
 4. Select **Restart to finish update**. The app won't restart on its own.
 
+You can also enable automatic updates by clicking on the **Automatic updates** toggle in the same section.
+
 ## Coming from the CLI?
 
 It's the same dbt Wizard you already know, running the same engine as the [dbt Wizard CLI](./wizard-quickstart.md). The app has a built-in terminal, so you can keep running dbt commands the way you always have, and you can select **Open in** at any time to jump to the same branch in iTerm, Terminal, VS Code, Cursor, or Finder.

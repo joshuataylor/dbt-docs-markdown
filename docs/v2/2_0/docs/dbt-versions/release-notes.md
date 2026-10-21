@@ -15,6 +15,30 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## October 2026
 
+* **New:** In dbt Wizard Desktop, you can search the current chat and jump between matches, including text in code blocks.
+
+* **New:** In dbt Wizard Desktop, use `/new`, `/clear`, and `/rename` to manage conversations. `/new` accepts an optional starting prompt and works while another response is running.
+
+* **New:** In dbt Wizard Desktop, you can discard all uncommitted changes and remove new files in one confirmed action. Conflicted files are left alone.
+
+* **New:** In dbt Wizard Desktop, you can opt into automatic background updates, choose the Stable or Unstable channel in **General** settings, and relaunch when an update is ready. Refer to [Update the app](../dbt-ai/wizard-desktop.md#update-the-app).
+
+* **Enhancement:** Question cards in dbt Wizard Desktop now let you answer multiple questions, write your own response, or skip a question. You can also reply in the composer while questions are waiting, with masked inputs for sensitive answers.
+
+* **Enhancement:** In dbt Wizard Desktop, **Changes** and the target branch now follow the base branch of your open pull request.
+
+* **Enhancement:** In dbt Wizard Desktop, expand **Show error details** to see why a response failed, including provider errors and spending limits.
+
+* **Fix:** dbt Wizard Desktop now uses browser sign-in by default for OpenAI subscriptions, including for workspaces that disable device-code login. Expired or revoked credentials no longer block startup, and you get clearer reconnect guidance.
+
+* **Fix:** dbt Wizard Desktop keeps model, lineage, and metric lookups current after you edit files or run dbt outside dbt Wizard.
+
+* **Fix:** dbt Wizard validation now skips runs when no changed dbt models are in scope and explains why.
+
+* **Fix:** dbt Wizard Desktop now shows clearer ownership and trust prompts for shared repositories. You can also start chats and terminals in trusted repositories owned by another user, including on Windows subsystems for Linux (WSL).
+
+* **Fix:** Subagent approval requests in dbt Wizard Desktop now appear in the chat that owns them and name the requesting agent.
+
 * **New:** Billing admins now receive proactive email notifications about dbt State usage, including a warning at 80% of the monthly allowance (with a projected run-out date), a notification when the allowance is fully used and State is paused, and a reminder 7 days before a trial expires. All emails include plan-specific messaging and calls to action.
 
 * **New:** Account admins now receive an email when Cost Insights ingestion has been failing for 3 or more cycles, with follow-up emails at 14 and 28 days if it continues.
@@ -326,21 +350,43 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 
 ## June 2026
 
+* **New:** The list users API endpoint (`GET /api/v3/accounts/{account_id}/users/`) supports new query parameters to help find users in large accounts without paging through the full list:
+
+  * `search`: Matches email, first name, last name, or full name (case-insensitive).
+  * `group_id`: Returns only active members of that group.
+  * `license_type`: Filters by license, for example `developer` or `read_only`.
+
+  You can combine them with `limit` and `offset`, and `total_count` reflects the filtered results.
+
 * **Enhancement:** [Column-level tags](../../reference/resource-configs/tags.md) defined in your dbt project now appear on the **Columns** tab of resource details pages in Catalog. You can click any tag badge to filter the lineage view, or search for columns directly by tag name. Refer to [View resource details](../explore/explore-projects.md#view-resource-details).
+
 * **Enhancement:** You can now enable [dbt State](../deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on environments and jobs](../deploy/dbt-state-enable-env-jobs.md).
+
 * **Enhancement**: The [Cost Insights](../explore/cost-insights.md) table view now includes **All** and **Jobs** buttons to switch between an aggregated cost view and a per-job cost breakdown. Available in the project dashboard and the **Model performance** section in Catalog. When **Jobs** is selected, the CSV export includes job-level data. For more information, refer to [Explore cost data](../explore/explore-cost-data.md).
+
 * **Enhancement:** [dbt Wizard](../platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](../platform/wizard-home.md).
+
 * **Enhancement:** You can now download files from the Studio IDE File explorer. Right-click a file and select **Download** to save it to your computer. For more information, refer to the [Studio IDE user interface](../platform/studio-ide/ide-user-interface.md#basic-layout).
+
 * **Fix:** If you use the Administrator API to manage [SCIM](../platform/manage-access/scim.md) to sync users from your identity provider, the `/api/v3/accounts/{account_id}/scim/v2/Users` response now returns `value` and `display` on each embedded group reference. `id` and `displayName` are retained so existing integrations keep working — this is a non-breaking change.
+
 * **Enhancement**: The [Administrative API v3](https://docs.getdbt.com/dbt-cloud/api-v3) now supports private endpoint operations — [`list`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/List%20Private%20Endpoints), [`create`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Create%20Private%20Endpoint), [`retrieve`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Retrieve%20Private%20Endpoint), [`update`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Update%20Private%20Endpoint), and [`delete`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Delete%20Private%20Endpoint). Use these endpoints to manage private connectivity programmatically.
+
 * **Enhancement**: You can [download OpenTelemetry (OTel) logs](../deploy/run-visibility.md#access-logs) for individual dbt command steps in Fusion job runs.
+
 * **Enhancement**: You can now configure [dbt State](../deploy/dbt-state-about.md) for the Studio IDE directly in the dbt platform UI — either as a team-wide default on your development environment, or as a personal override. For more information, refer to [Enabling dbt State in Studio](../deploy/dbt-state-enable-studio.md).
+
 * **New:** [Model query history](../explore/model-query-history.md) for Redshift and Databricks is now generally available (GA).
+
 * **Behavior change:** On September 1, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [About behavior changes](../../reference/global-configs/behavior-changes.md) to see which flags may affect your project and how to opt out before then.
+
 * **Beta:** dbt v2 now supports the Salesforce Data 360 connection in the dbt platform. For more information, refer to [Connect Salesforce Data 360](../platform/connect-data-platform/connect-salesforce.md).
+
 * **Private beta**: The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is available for Enterprise plans.
   * Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources. The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../dbt-ai/about-mcp.md)) is available to use, while the Analyst read permission set and read-only permission changes are in private beta. To enable them, contact your account manager.
+
 * **Beta**: Workspace-level Private Link for Microsoft Fabric is now available in beta. Configure a private connection between the dbt platform and your Fabric workspace so SQL traffic stays on Azure's private network. For more information, refer to [Configuring Private Link for Microsoft Fabric](../platform/secure/private-connectivity/azure/azure-fabric.md).
+
 * **Beta**: [Cost Insights](../explore/cost-insights.md) now supports Amazon Redshift Serverless and provisioned clusters. Configure your platform metadata credentials with the `sys:monitor` role or `SYSLOG ACCESS UNRESTRICTED` permission to allow dbt to read cross-user query history, then set your pricing in Cost Insights settings. For more information, refer to [Set up Cost Insights](../explore/set-up-cost-insights.md).
 
 ### Snowflake Summit 2026 announcements

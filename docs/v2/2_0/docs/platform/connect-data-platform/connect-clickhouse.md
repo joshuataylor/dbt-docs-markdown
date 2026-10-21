@@ -1,4 +1,4 @@
-# Connect ClickHouse [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") Fusion compatible
+# Connect ClickHouse [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
 
 Available in v2 | dbt platform
 
