@@ -39,6 +39,7 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 * When using DuckDB with dbt v1, you'll need to use the CLI. Currently, DuckDB is not supported in dbt platform.
 * It's important that you know some basics of the terminal. In particular, you should understand `cd`, `ls` , and `pwd` to navigate through the directory structure of your computer easily.
 * You have a [GitHub account](https://github.com/join).
+* You have Python 3.12 or later. Earlier versions can fail when you install its `requirements.txt` (for example, `networkx` 3.7 needs Python 3.12 or later).
 
 ## Set up DuckDB for dbt v1
 
