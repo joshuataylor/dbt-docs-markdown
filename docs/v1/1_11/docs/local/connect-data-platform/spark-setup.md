@@ -27,9 +27,7 @@ For the Databricks version of this page, refer to [Databricks setup](#databricks
 
 ## Installing dbt-spark
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-spark`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-spark`
 
 ## Configuring dbt-spark
 

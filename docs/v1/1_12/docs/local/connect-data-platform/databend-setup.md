@@ -17,9 +17,7 @@ Some [core functionality](https://github.com/databendcloud/dbt-databend#supporte
 
 ## Installing dbt-databend-cloud
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-databend-cloud`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-databend-cloud`
 
 ## Configuring dbt-databend-cloud
 

@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-cratedb2
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-cratedb2`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-cratedb2`
 
 ## Configuring dbt-cratedb2
 

@@ -17,9 +17,7 @@ Local development
 
 ## Installing dbt-bigquery
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-bigquery`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-bigquery`
 
 ## Configuring dbt-bigquery
 

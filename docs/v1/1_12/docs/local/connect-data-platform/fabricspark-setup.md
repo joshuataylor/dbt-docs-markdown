@@ -21,9 +21,7 @@ To learn how to set up dbt using Fabric Warehouse, refer to [Microsoft Fabric Da
 
 ## Installing dbt-fabricspark
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-fabricspark`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-fabricspark`
 
 ## Configuring dbt-fabricspark
 

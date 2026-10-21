@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-alibaba-cloud-hologres
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-alibaba-cloud-hologres`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-alibaba-cloud-hologres`
 
 ## Configuring dbt-alibaba-cloud-hologres
 

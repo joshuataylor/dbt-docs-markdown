@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-hive
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-hive`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-hive`
 
 ## Configuring dbt-hive
 

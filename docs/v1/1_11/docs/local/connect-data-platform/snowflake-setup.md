@@ -17,9 +17,7 @@ Local development
 
 ## Installing dbt-snowflake
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-snowflake`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-snowflake`
 
 ## Configuring dbt-snowflake
 

@@ -17,9 +17,7 @@ Local development
 
 ## Installing dbt-databricks
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-databricks`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-databricks`
 
 ## Configuring dbt-databricks
 

@@ -21,9 +21,7 @@ Refer to [Configuring dbt-watsonx-presto](https://www.ibm.com/docs/en/watsonx/wa
 
 ## Installing dbt-watsonx-presto
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-watsonx-presto`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-watsonx-presto`
 
 ## Configuring dbt-watsonx-presto
 

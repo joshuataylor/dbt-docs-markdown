@@ -21,9 +21,7 @@ Refer to [Configuring ibm-dbt-db2](https://github.com/IBM/db2-dbt) to learn more
 
 ## Installing ibm-dbt-db2
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install ibm-dbt-db2`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install ibm-dbt-db2`
 
 ## Configuring ibm-dbt-db2
 

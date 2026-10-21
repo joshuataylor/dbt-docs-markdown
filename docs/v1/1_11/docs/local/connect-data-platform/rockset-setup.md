@@ -17,9 +17,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 
 ## Installing dbt-rockset
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-rockset`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-rockset`
 
 ## Configuring dbt-rockset
 

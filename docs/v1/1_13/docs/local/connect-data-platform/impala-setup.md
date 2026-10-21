@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-impala
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-impala`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-impala`
 
 ## Configuring dbt-impala
 

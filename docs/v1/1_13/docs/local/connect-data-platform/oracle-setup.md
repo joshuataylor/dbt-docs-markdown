@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-oracle
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-oracle`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-oracle`
 
 ## Configuring dbt-oracle
 

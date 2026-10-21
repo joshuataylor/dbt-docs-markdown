@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-dremio
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-dremio`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-dremio`
 
 ## Configuring dbt-dremio
 

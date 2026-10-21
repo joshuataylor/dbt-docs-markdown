@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-layer-bigquery
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-layer-bigquery`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-layer-bigquery`
 
 ## Configuring dbt-layer-bigquery
 

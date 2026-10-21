@@ -21,9 +21,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 
 ## Installing dbt-clickhouse
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-clickhouse`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-clickhouse`
 
 ## Configuring dbt-clickhouse
 

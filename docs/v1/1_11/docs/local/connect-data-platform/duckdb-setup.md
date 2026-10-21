@@ -21,9 +21,7 @@ Some functionality may be limited. If you're interested in contributing, check o
 
 ## Installing dbt-duckdb
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-duckdb`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-duckdb`
 
 ## Configuring dbt-duckdb
 

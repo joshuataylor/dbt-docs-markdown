@@ -17,9 +17,7 @@ If you're interested in contributing, check out the source code for each reposit
 
 ## Installing dbt-vertica
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-vertica`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-vertica`
 
 ## Configuring dbt-vertica
 

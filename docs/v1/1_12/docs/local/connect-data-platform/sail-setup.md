@@ -11,9 +11,7 @@
 
 ## Installing dbt-sail
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-sail`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-sail`
 
 ## Configuring dbt-sail
 

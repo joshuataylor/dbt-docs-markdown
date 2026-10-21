@@ -20,9 +20,7 @@ Refer to [Configuring dbt-ibm-netezza](https://github.com/IBM/nz-dbt?tab=readme-
 
 ## Installing dbt-ibm-netezza
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-ibm-netezza`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-ibm-netezza`
 
 ## Configuring dbt-ibm-netezza
 

@@ -17,9 +17,7 @@ Some features may be limited. To contribute, refer to the source repository belo
 
 ## Installing dbt-confluent
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-confluent`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-confluent`
 
 ## Configuring dbt-confluent
 

@@ -19,9 +19,7 @@ For Microsoft Fabric setup with dbt, refer to [Microsoft Fabric Data Warehouse](
 
 ## Installing dbt-synapse
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-synapse`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-synapse`
 
 ## Configuring dbt-synapse
 

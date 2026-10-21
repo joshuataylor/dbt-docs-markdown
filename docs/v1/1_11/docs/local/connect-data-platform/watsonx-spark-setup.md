@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-watsonx-spark
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-watsonx-spark`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-watsonx-spark`
 
 ## Configuring dbt-watsonx-spark
 

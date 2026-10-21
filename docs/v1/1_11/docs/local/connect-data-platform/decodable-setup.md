@@ -17,9 +17,7 @@ Some core functionality may be limited. If you're interested in contributing, se
 
 ## Installing dbt-decodable
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-decodable`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-decodable`
 
 ## Configuring dbt-decodable
 

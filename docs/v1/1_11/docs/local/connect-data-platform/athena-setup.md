@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-athena
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-athena`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-athena`
 
 ## Configuring dbt-athena
 

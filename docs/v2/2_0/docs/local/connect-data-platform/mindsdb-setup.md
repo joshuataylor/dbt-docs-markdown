@@ -17,9 +17,7 @@ The dbt-mindsdb package allows dbt to connect to [MindsDB](https://github.com/mi
 
 ## Installing dbt-mindsdb
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-mindsdb`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-mindsdb`
 
 ## Configuring dbt-mindsdb
 

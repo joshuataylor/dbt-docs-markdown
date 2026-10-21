@@ -2,7 +2,7 @@
 
 dbt platform | Enterprise, Enterprise+
 
-If you use the Studio IDE or dbt CLI to collaborate on your team's Azure DevOps dbt repo, you need to [link your dbt profile to Azure DevOps](#link-your-dbt-cloud-profile-to-azure-devops), which provides an extra layer of authentication.
+If you use the Studio IDE or dbt CLI to collaborate on your team's Azure DevOps dbt repo, you need to [link your dbt profile to Azure DevOps](#link-your-dbt-profile-to-azure-devops), which provides an extra layer of authentication.
 
 ## Link your dbt profile to Azure DevOps
 
@@ -23,6 +23,26 @@ Connect your dbt profile to Azure DevOps using OAuth:
    ![Azure DevOps Authorization Screen](</img/docs/dbt-platform/connecting-azure-devops/OAuth Acceptance.png?v=2> "Azure DevOps Authorization Screen")Azure DevOps Authorization Screen
 
 You will be directed back to dbt, and your profile should be linked. You are now ready to develop in dbt!
+
+## Troubleshooting
+
+Use these troubleshooting steps for common issues when authenticating with Azure DevOps.
+
+ Missing Azure user error when starting Studio
+
+If the Studio IDE fails to start and displays the following error, your personal Azure DevOps account isn't linked to dbt:
+
+`Missing Azure user; link your Azure DevOps account in your personal profile`
+
+To resolve it, [link your dbt profile to Azure DevOps](#link-your-dbt-profile-to-azure-devops).
+
+ Azure Service User not found error when starting Studio
+
+If the Studio IDE fails to start and displays the following error, the account-level service user isn't connected:
+
+`Failed to start server. The project is not fully set up: Azure Service User not found`
+
+This applies to accounts that use the legacy service user authentication. An account admin needs to reconnect the service user, which is also required when an account has had no scheduled, API, or CI runs for over 90 days. Refer to [Connect a service user](./setup-service-user.md#connect-a-service-user) for more details.
 
 ## FAQs
 

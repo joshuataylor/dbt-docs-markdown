@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-maxcompute
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-maxcompute`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-maxcompute`
 
 ## Configuring dbt-maxcompute
 

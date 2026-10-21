@@ -17,9 +17,7 @@ Certain core functionality may vary. If you would like to report a bug, request 
 
 ## Installing dbt-infer
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-infer`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-infer`
 
 ## Configuring dbt-infer
 

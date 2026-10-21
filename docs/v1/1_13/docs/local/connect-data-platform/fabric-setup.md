@@ -23,9 +23,7 @@ To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azu
 
 ## Installing dbt-fabric
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-fabric`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-fabric`
 
 ## Configuring dbt-fabric
 

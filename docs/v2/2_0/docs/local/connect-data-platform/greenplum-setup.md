@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-greenplum
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-greenplum`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-greenplum`
 
 ## Configuring dbt-greenplum
 

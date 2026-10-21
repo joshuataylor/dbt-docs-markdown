@@ -19,9 +19,7 @@ If you're using dbt platform, you don't need to create a `profiles.yml` file. Th
 
 ## Installing dbt-teradata
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-teradata`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-teradata`
 
 ## Configuring dbt-teradata
 

@@ -17,9 +17,7 @@ Some [core functionality](https://github.com/pingcap/dbt-tidb/blob/main/README.m
 
 ## Installing dbt-tidb
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-tidb`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-tidb`
 
 ## Configuring dbt-tidb
 

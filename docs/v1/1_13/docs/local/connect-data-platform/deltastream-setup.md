@@ -13,9 +13,7 @@ Local development
 
 ## Installing dbt-deltastream
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-deltastream`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-deltastream`
 
 ## Configuring dbt-deltastream
 

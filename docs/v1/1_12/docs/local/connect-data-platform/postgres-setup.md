@@ -17,9 +17,7 @@ If you're using dbt platform, you don't need to create a `profiles.yml` file. Th
 
 ## Installing dbt-postgres
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-postgres`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-postgres`
 
 ## Configuring dbt-postgres
 

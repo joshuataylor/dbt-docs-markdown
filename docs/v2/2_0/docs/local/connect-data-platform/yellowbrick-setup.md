@@ -17,9 +17,7 @@ Some core functionality may be limited.
 
 ## Installing dbt-yellowbrick
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-yellowbrick`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-yellowbrick`
 
 ## Configuring dbt-yellowbrick
 

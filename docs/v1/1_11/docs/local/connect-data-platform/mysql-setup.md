@@ -17,9 +17,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 
 ## Installing dbt-mysql
 
-Use `pip` to install the adapter. Use the following command for installation:
-
-`python -m pip install dbt-mysql`
+Use \`pip\` to install the adapter. Use the following command for installation: `python -m pip install dbt-mysql`
 
 ## Configuring dbt-mysql
 
