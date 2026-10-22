@@ -185,6 +185,10 @@ default:
       threads: 4
 ```
 
+## Identifier case
+
+Redshift lowercases names, including quoted names, unless `enable_case_sensitive_identifier` is set to `true` in the cluster's parameter group or the Serverless workgroup's configuration. dbt doesn't enable this setting. Refer to [Configuring quoting](../../../reference/project-configs/quoting.md#redshift).
+
 ## More information
 
 Find Redshift-specific configuration information in the [Redshift adapter reference guide](../../../reference/resource-configs/redshift-configs.md).

@@ -198,6 +198,10 @@ default:
 
 ## Redshift notes
 
+### Identifier case
+
+Redshift lowercases names, including quoted names, unless `enable_case_sensitive_identifier` is set to `true` in the cluster's parameter group or the Serverless workgroup's configuration. dbt doesn't enable this setting. Refer to [Configuring quoting](../../../reference/project-configs/quoting.md#redshift).
+
 ### `sslmode` change
 
 Before dbt-redshift 1.5, `psycopg2` was used as the driver. `psycopg2` accepts `disable`, `prefer`, `allow`, `require`, `verify-ca`, `verify-full` as valid inputs of `sslmode`, and does not have an `ssl` parameter, as indicated in PostgreSQL [doc](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING:~:text=%2Dencrypted%20connection.-,sslmode,-This%20option%20determines).
