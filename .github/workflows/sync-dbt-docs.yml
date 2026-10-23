@@ -1,9 +1,5 @@
 name: Sync dbt docs
 
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
-
 on:
   schedule:
     - cron: '0 */2 * * *'
@@ -12,9 +8,16 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   DOCS_REMOTE: https://github.com/dbt-labs/docs.getdbt.com.git
   DOCS_CLONE_DIR: ${{ github.workspace }}/docs.getdbt.com
+  # Cache keys are immutable, so prepare saves under a per-run key and restores
+  # the most recent one via the shared prefix.
+  GIT_CACHE_KEY: docs-getdbt-git-${{ github.run_id }}
 
 jobs:
   prepare:
@@ -23,22 +26,15 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       upstream_sha: ${{ steps.update.outputs.upstream_sha }}
+      changes: ${{ steps.update.outputs.changes }}
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
-        with:
-          node-version: 20
-
       - name: Restore docs.getdbt.com git cache
-        id: cache-docs-restore
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           # Cache only .git -- the working tree is rebuilt from it via reset --hard,
           # which keeps the cache small (no build artifacts or checked-out files).
           path: ${{ env.DOCS_CLONE_DIR }}/.git
-          # Cache keys are immutable, so save under a per-run key and restore the
-          # most recent one via the shared prefix.
-          key: docs-getdbt-git-${{ github.run_id }}
+          key: ${{ env.GIT_CACHE_KEY }}
           restore-keys: docs-getdbt-git-
 
       - name: Clone or update docs.getdbt.com and record commit range
@@ -65,30 +61,32 @@ jobs:
           # upstream moves while the matrix is running.
           echo "upstream_sha=$upstream_sha" >> "$GITHUB_OUTPUT"
 
-          # Build the commit log for the message body. Each line: short SHA + subject.
-          {
+          # Commit message body. Each line: short SHA + subject.
+          changes=$(
             echo "Upstream docs.getdbt.com changes since last sync:"
             echo
             if [[ -z "$last_synced_sha" ]]; then
               echo "(no recorded baseline -- listing latest 20 upstream commits)"
               git log --no-merges --max-count=20 --pretty=format:'- %h %s' "$upstream_sha"
-              echo
             elif [[ "$last_synced_sha" == "$upstream_sha" ]]; then
               echo "(no new upstream commits -- rebuild only)"
             else
               git log --no-merges --pretty=format:'- %h %s' "${last_synced_sha}..${upstream_sha}"
-              echo
             fi
-          } > "$RUNNER_TEMP/upstream-changes.txt"
-
-          echo "--- Commit body preview ---"
-          cat "$RUNNER_TEMP/upstream-changes.txt"
+          )
+          echo "Commit body preview:"
+          echo "$changes"
+          {
+            echo "changes<<CHANGES_EOF"
+            echo "$changes"
+            echo "CHANGES_EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Save docs.getdbt.com git cache
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/.git
-          key: docs-getdbt-git-${{ github.run_id }}
+          key: ${{ env.GIT_CACHE_KEY }}
 
       - name: Derive build matrix
         id: matrix
@@ -107,35 +105,26 @@ jobs:
           const { products } = require('./dbt-versions');
           const out = [];
           for (const product of products) {
-            const versionsSeen = new Set();
-            for (const sp of product.subProducts) {
-              if (versionsSeen.has(sp.version)) continue;
-              versionsSeen.add(sp.version);
-              const chosen = product.subProducts.find(s => s.version === sp.version && !s.isBeta) || sp;
+            for (const version of new Set(product.subProducts.map(sp => sp.version))) {
+              const forVersion = product.subProducts.filter(sp => sp.version === version);
+              const chosen = forVersion.find(sp => !sp.isBeta) || forVersion[0];
               out.push({
                 name: product.name.toLowerCase(),
-                version: sp.version.replace(/\./g, '_'),
+                version: version.replace(/\./g, '_'),
                 subproduct: chosen.name,
-                blog: false,
               });
             }
           }
-          out.push({ name: 'blog', version: 'all', subproduct: out[0].subproduct, blog: true });
+          out.push({ name: 'blog', version: 'all', subproduct: out[0].subproduct });
           process.stdout.write(JSON.stringify(out));
           JSEOF
           )
           echo "Build matrix: $matrix"
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
 
-      - name: Upload commit-range notes
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: upstream-changes
-          path: ${{ runner.temp }}/upstream-changes.txt
-          retention-days: 1
-
-  # One shard per (product, version). Each rebuilds the working tree from the
-  # shared .git cache at the pinned SHA, then runs a single Docusaurus build.
+  # One shard per (product, version), plus the blog. Each rebuilds the working
+  # tree from the shared .git cache at the pinned SHA, then runs a single
+  # Docusaurus build.
   build:
     name: Build ${{ matrix.build.name }} ${{ matrix.build.version }}
     needs: prepare
@@ -155,7 +144,7 @@ jobs:
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/.git
           # Exact hit on the cache prepare just saved for this run.
-          key: docs-getdbt-git-${{ github.run_id }}
+          key: ${{ env.GIT_CACHE_KEY }}
           restore-keys: docs-getdbt-git-
 
       - name: Rebuild working tree at pinned SHA
@@ -163,8 +152,9 @@ jobs:
         env:
           UPSTREAM_SHA: ${{ needs.prepare.outputs.upstream_sha }}
         run: |
-          # Normally an exact cache hit already has the pinned commit. If the
-          # restore fell back to an older prefix cache, fetch it before resetting.
+          # Normally an exact cache hit already has the pinned commit. On a
+          # re-run, prepare can't overwrite this run's key, so the restored
+          # .git may predate the pinned SHA. Fetch it before resetting.
           if ! git reset --hard --quiet "$UPSTREAM_SHA" 2>/dev/null; then
             git fetch --quiet origin
             git reset --hard --quiet "$UPSTREAM_SHA"
@@ -176,7 +166,7 @@ jobs:
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
-          key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
+          key: docs-node-modules-${{ hashFiles('docs.getdbt.com/website/package-lock.json') }}
 
       - name: Install npm dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -192,7 +182,7 @@ jobs:
             "https://github.com/joshuataylor/docs.getdbt.com/compare/dbt-labs:current...feature/fix-markdown.diff" \
             | git apply --3way --allow-empty
 
-      - name: Build version docs
+      - name: Build docs
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
         env:
           SKIP_LINK_CHECK: "true"
@@ -200,70 +190,67 @@ jobs:
           NAME: ${{ matrix.build.name }}
           VERSION: ${{ matrix.build.version }}
           SUBPRODUCT: ${{ matrix.build.subproduct }}
-          BUILD_BLOG: ${{ matrix.build.blog }}
+          BUILD_BLOG: ${{ matrix.build.name == 'blog' }}
           MD_STAGE: ${{ runner.temp }}/md
         run: |
-          echo "--- Building $NAME $VERSION (subProduct: $SUBPRODUCT) ---"
-
-          # Restore VersionContext.js (discarding any patch edits to it) then set the
-          # desired default subProduct so SSR renders version- and product-appropriate
-          # content for this pass.
-          git checkout -- src/stores/VersionContext.js
+          # Set the default subProduct so SSR renders version- and product-appropriate
+          # content for this pass, and turn on blog markdown for the blog shard.
+          # Fail loudly if upstream changes either line, rather than silently
+          # building the wrong content.
           python3 - <<'PYEOF'
           import os
           import sys
-          with open('src/stores/VersionContext.js') as f:
-              content = f.read()
-          content = content.replace(
-              'const defaultSubProductName = getDefaultSubProductName();',
-              'const defaultSubProductName = "' + os.environ['SUBPRODUCT'] + '";'
-          )
-          with open('src/stores/VersionContext.js', 'w') as f:
-              f.write(content)
-          print('Patched VersionContext for', os.environ['SUBPRODUCT'])
 
-          # Turn on blog markdown for the one shard that builds it. Fail loudly if
-          # upstream changes the option, rather than silently dropping the blog.
-          if os.environ['BUILD_BLOG'] == 'true':
-              with open('docusaurus.config.js') as f:
+          def replace_once(path, old, new):
+              with open(path) as f:
                   content = f.read()
-              if content.count('includeBlog: false,') != 1:
-                  sys.exit('Expected exactly one "includeBlog: false," in docusaurus.config.js')
-              content = content.replace('includeBlog: false,', 'includeBlog: true,')
-              with open('docusaurus.config.js', 'w') as f:
-                  f.write(content)
+              if content.count(old) != 1:
+                  sys.exit(f'Expected exactly one {old!r} in {path}')
+              with open(path, 'w') as f:
+                  f.write(content.replace(old, new))
+
+          subproduct = os.environ['SUBPRODUCT']
+          replace_once(
+              'src/stores/VersionContext.js',
+              'const defaultSubProductName = getDefaultSubProductName();',
+              f'const defaultSubProductName = "{subproduct}";',
+          )
+          print('Patched VersionContext for', subproduct)
+
+          if os.environ['BUILD_BLOG'] == 'true':
+              replace_once('docusaurus.config.js', 'includeBlog: false,', 'includeBlog: true,')
               print('Enabled blog markdown')
           PYEOF
 
           npm exec -- docusaurus clear
           npm run build -- --no-minify
 
-          # The commit job rebuilds docs/ from scratch, so a shard that copies
-          # nothing would delete its output from the repo. Fail instead.
           if [[ "$BUILD_BLOG" == "true" ]]; then
             # Posts only: the list, pagination, tag, author and archive pages are chrome.
-            rsync -a -m --exclude='/page/' --exclude='/tags/' --exclude='/authors/' \
-              --exclude='/tags.md' --exclude='/authors.md' --exclude='/archive*' \
-              --include='*/' --include='*.md' --exclude='*' build/blog/ "$MD_STAGE/blog/"
-            blog_count=$(find "$MD_STAGE/blog" -type f -name "*.md" 2>/dev/null | wc -l)
-            echo "Copied $blog_count blog posts"
-            if (( blog_count == 0 )); then
-              echo "ERROR: blog build produced no posts"
-              exit 1
-            fi
+            src=build/blog/
+            dest="$MD_STAGE/blog"
+            filters=(--exclude='/page/' --exclude='/tags/' --exclude='/authors/'
+              --exclude='/tags.md' --exclude='/authors.md' --exclude='/archive*')
           else
             # img/ only holds static assets, one of which happens to be a .md file.
-            DEST="$MD_STAGE/$NAME/$VERSION"
-            mkdir -p "$DEST"
-            rsync -a -m --exclude='/img/' \
-              --include='/llms.txt' --include='/llms-full.txt' \
-              --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
-            md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
-            echo "Copied $md_count markdown files for $NAME/$VERSION"
-            if [[ ! -s "$DEST/llms.txt" ]]; then
-              echo "ERROR: build did not produce llms.txt"
-              exit 1
-            fi
+            src=build/
+            dest="$MD_STAGE/$NAME/$VERSION"
+            filters=(--exclude='/img/' --include='/llms.txt' --include='/llms-full.txt')
+          fi
+          mkdir -p "$dest"
+          rsync -a -m "${filters[@]}" --include='*/' --include='*.md' --exclude='*' "$src" "$dest/"
+          md_count=$(find "$dest" -type f -name '*.md' | wc -l)
+          echo "Copied $md_count markdown files to ${dest#"$MD_STAGE"/}"
+
+          # The commit job rebuilds docs/ from scratch, so a shard that copies
+          # nothing would delete its output from the repo. Fail instead.
+          if (( md_count == 0 )); then
+            echo "ERROR: build produced no markdown"
+            exit 1
+          fi
+          if [[ "$BUILD_BLOG" != "true" && ! -s "$dest/llms.txt" ]]; then
+            echo "ERROR: build did not produce llms.txt"
+            exit 1
           fi
 
       - name: Upload markdown
@@ -277,7 +264,7 @@ jobs:
   # Merge every shard's markdown into docs/ and push a single commit.
   commit:
     name: Commit and push
-    needs: build
+    needs: [prepare, build]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -287,18 +274,10 @@ jobs:
         with:
           ref: main
 
-      - name: Download commit-range notes
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        with:
-          name: upstream-changes
-          path: ${{ runner.temp }}
-
+      # Rebuild docs/ from scratch so removed upstream pages are dropped
+      # (git add -A below stages the deletions).
       - name: Reset docs directory
-        run: |
-          # Rebuild docs/ from scratch so removed upstream pages are dropped
-          # (git add -A below stages the deletions).
-          rm -rf docs
-          mkdir -p docs
+        run: rm -rf docs
 
       - name: Download markdown shards
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -308,6 +287,8 @@ jobs:
           path: docs
 
       - name: Commit and push to main
+        env:
+          UPSTREAM_CHANGES: ${{ needs.prepare.outputs.changes }}
         run: |
           touch docs/.gitkeep
           git config user.name "github-actions[bot]"
@@ -317,12 +298,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            timestamp=$(TZ='UTC' date +'%Y_%m_%d__%H_%M_%S')
-            {
-              echo "Regenerate dbt documentation as of $timestamp"
-              echo
-              cat "$RUNNER_TEMP/upstream-changes.txt"
-            } > "$RUNNER_TEMP/commit-message.txt"
-            git commit -F "$RUNNER_TEMP/commit-message.txt"
+            timestamp=$(date -u +'%Y_%m_%d__%H_%M_%S')
+            printf 'Regenerate dbt documentation as of %s\n\n%s\n' "$timestamp" "$UPSTREAM_CHANGES" \
+              | git commit -F -
             git push origin main
           fi
