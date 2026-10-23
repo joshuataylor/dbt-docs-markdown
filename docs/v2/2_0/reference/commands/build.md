@@ -22,7 +22,7 @@ In DAG order, for selected resources or an entire project.
 dbt build --generate-info-schema
 ```
 
-To populate column types and column-level lineage in `dbt.node_columns` and `dbt.column_lineage`, combine with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Without it, `dbt.node_columns` and `dbt.column_lineage` contain no column types and no lineage.
+To populate inferred model column types and column-level lineage, combine with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Without it, `dbt.node_columns` contains only YAML-declared columns and `dbt.column_lineage` contains no lineage.
 
 ```shell
 dbt build --generate-info-schema --static-analysis strict

@@ -4,7 +4,7 @@
 
 **Produced by:** (Applies to dbt v1.99 and earlier) [`docs generate`](../commands/cmd-docs.md)
 
-This file contains information from your data warehouse about the tables and views produced and defined by the resources in your project. Today, dbt uses this file to populate metadata, such as column types and table statistics, in the [docs site](../../docs/explore/build-and-view-your-docs.md).
+This file contains information from your data warehouse about the tables and views produced and defined by the resources in your project. (Applies to dbt v1.99 and earlier) dbt uses this file to populate metadata, such as column types and table statistics, in the [docs site](../../docs/explore/build-and-view-your-docs.md).
 
 ### Top-level keys
 

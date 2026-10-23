@@ -15,39 +15,39 @@ The dbt Information Schema v1 generates tables across these namespaces:
 
 The `dbt` namespace tables contain metadata about your project's structure, resources, and configuration.
 
-| Table                        | Description                                                      |
-| ---------------------------- | ---------------------------------------------------------------- |
-| `dbt.dag_nodes`              | All DAG participants with `unique_id` and `resource_type`        |
-| `dbt.project`                | Project-level metadata                                           |
-| `dbt.packages`               | Installed packages, one row per package                          |
-| `dbt.project_vars`           | Project variables, one row per (project scope, variable name)    |
-| `dbt.project_env_vars`       | Environment variables used in the project                        |
-| `dbt.models`                 | All models                                                       |
-| `dbt.seeds`                  | All seeds                                                        |
-| `dbt.sources`                | All sources                                                      |
-| `dbt.snapshots`              | All snapshots                                                    |
-| `dbt.functions`              | All user-defined functions                                       |
-| `dbt.analyses`               | All analyses                                                     |
-| `dbt.hooks`                  | All `on-run-start` and `on-run-end` hook operations              |
-| `dbt.checks`                 | All checks                                                       |
-| `dbt.data_tests`             | All data tests (generic and singular)                            |
-| `dbt.unit_tests`             | All unit tests                                                   |
-| `dbt.macros`                 | All macros                                                       |
-| `dbt.groups`                 | All groups                                                       |
-| `dbt.exposures`              | All exposures                                                    |
-| `dbt.metrics`                | All metrics                                                      |
-| `dbt.docs_blocks`            | All docs blocks                                                  |
-| `dbt.saved_queries`          | All saved queries                                                |
-| `dbt.semantic_models`        | All semantic models                                              |
-| `dbt.semantic_entities`      | Semantic model entities                                          |
-| `dbt.semantic_measures`      | Semantic model measures                                          |
-| `dbt.semantic_dimensions`    | Semantic model dimensions                                        |
-| `dbt.semantic_relationships` | Relationships between semantic models                            |
-| `dbt.time_spines`            | Time spine definitions                                           |
-| `dbt.classifiers`            | Resource classifiers                                             |
-| `dbt.edges`                  | DAG edges (parent → child)                                       |
-| `dbt.node_columns`           | Column names, types, and descriptions for all nodes              |
-| `dbt.column_lineage`         | Column-level lineage (populated with `--static-analysis strict`) |
+| Table                        | Description                                                                                                                                                                                                                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dbt.dag_nodes`              | All DAG participants with `unique_id` and `resource_type`                                                                                                                                                                                                                                         |
+| `dbt.project`                | Project-level metadata                                                                                                                                                                                                                                                                            |
+| `dbt.packages`               | Installed packages, one row per package                                                                                                                                                                                                                                                           |
+| `dbt.project_vars`           | Project variables, one row per (project scope, variable name)                                                                                                                                                                                                                                     |
+| `dbt.project_env_vars`       | Environment variables used in the project                                                                                                                                                                                                                                                         |
+| `dbt.models`                 | All models                                                                                                                                                                                                                                                                                        |
+| `dbt.seeds`                  | All seeds                                                                                                                                                                                                                                                                                         |
+| `dbt.sources`                | All sources                                                                                                                                                                                                                                                                                       |
+| `dbt.snapshots`              | All snapshots                                                                                                                                                                                                                                                                                     |
+| `dbt.functions`              | All user-defined functions                                                                                                                                                                                                                                                                        |
+| `dbt.analyses`               | All analyses                                                                                                                                                                                                                                                                                      |
+| `dbt.hooks`                  | All `on-run-start` and `on-run-end` hook operations                                                                                                                                                                                                                                               |
+| `dbt.checks`                 | All checks                                                                                                                                                                                                                                                                                        |
+| `dbt.data_tests`             | All data tests (generic and singular)                                                                                                                                                                                                                                                             |
+| `dbt.unit_tests`             | All unit tests                                                                                                                                                                                                                                                                                    |
+| `dbt.macros`                 | All macros                                                                                                                                                                                                                                                                                        |
+| `dbt.groups`                 | All groups                                                                                                                                                                                                                                                                                        |
+| `dbt.exposures`              | All exposures                                                                                                                                                                                                                                                                                     |
+| `dbt.metrics`                | All metrics                                                                                                                                                                                                                                                                                       |
+| `dbt.docs_blocks`            | All docs blocks                                                                                                                                                                                                                                                                                   |
+| `dbt.saved_queries`          | All saved queries                                                                                                                                                                                                                                                                                 |
+| `dbt.semantic_models`        | All semantic models                                                                                                                                                                                                                                                                               |
+| `dbt.semantic_entities`      | Semantic model entities                                                                                                                                                                                                                                                                           |
+| `dbt.semantic_measures`      | Semantic model measures                                                                                                                                                                                                                                                                           |
+| `dbt.semantic_dimensions`    | Semantic model dimensions                                                                                                                                                                                                                                                                         |
+| `dbt.semantic_relationships` | Relationships between semantic models                                                                                                                                                                                                                                                             |
+| `dbt.time_spines`            | Time spine definitions                                                                                                                                                                                                                                                                            |
+| `dbt.classifiers`            | Resource classifiers                                                                                                                                                                                                                                                                              |
+| `dbt.edges`                  | DAG edges (parent → child)                                                                                                                                                                                                                                                                        |
+| `dbt.node_columns`           | Column names, types, and descriptions for nodes; for sources, only columns declared in YAML are included (use [`--write-catalog`](../docs/build/dbt-information-schema.md#generating-the-information-schema) to include all columns from sources used by the selected nodes) |
+| `dbt.column_lineage`         | Column-level lineage (populated with `--static-analysis strict`)                                                                                                                                                                                                                                  |
 
 ### `dbt_rt` namespace
 

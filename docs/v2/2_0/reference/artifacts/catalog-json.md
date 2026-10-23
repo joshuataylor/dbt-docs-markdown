@@ -2,9 +2,9 @@
 
 **Current schema**: [`v1`](https://schemas.getdbt.com/dbt/catalog/v1.json)
 
-**Produced by:** (Applies to dbt v2.0 and later) [`--write-catalog`](../commands/cmd-docs.md) flag
+**Produced by:** (Applies to dbt v2.0 and later) [`--write-catalog`](../commands/cmd-docs.md#--write-catalog-flag) flag
 
-This file contains information from your data warehouse about the tables and views produced and defined by the resources in your project. Today, dbt uses this file to populate metadata, such as column types and table statistics, in the [docs site](../../docs/explore/build-and-view-your-docs.md).
+This file contains information from your data warehouse about the tables and views produced and defined by the resources in your project. (Applies to dbt v2.0 and later) [dbt Docs v2](../commands/cmd-docs.md#dbt-docs-v2) reads the [dbt Information Schema](../../docs/build/dbt-information-schema.md) rather than this file. `catalog.json` remains available as a separate artifact for [Catalog](../../docs/explore/explore-projects.md) and external tools.
 
 ### Top-level keys
 

@@ -40,12 +40,14 @@ dbt docs generate --no-compile
 
 #### Column lineage and richer metadata
 
-Column-level lineage and richer column metadata require an index built with [`--static-analysis strict`](../../docs/build/about-static-analysis.md). Because `dbt docs generate` runs a standard compile by default, build the index with strict static analysis first when you want column lineage, then export it:
+To include model column types inferred from your SQL and column-level lineage, run `dbt build`, `dbt run`, or `dbt compile` with [`--generate-info-schema`](../../docs/build/dbt-information-schema.md) and [`--static-analysis strict`](../../docs/build/about-static-analysis.md), then export the site:
 
 ```shell
-dbt build --write-index --static-analysis strict
+dbt build --generate-info-schema --static-analysis strict
 dbt docs generate --no-compile
 ```
+
+`--no-compile` skips the default compile step in `dbt docs generate` and exports the existing index.
 
 If you generate the site without column lineage, dbt Docs v2 hides those features instead of showing empty data.
 
@@ -57,7 +59,7 @@ To preview the site locally, run:
 dbt docs serve
 ```
 
-Use `dbt docs serve` to view your documentation locally on your own machine. In dbt platform, use Catalog to explore your project. Refer to [platform behavior](#platform-behavior) for details.
+Use `dbt docs serve` to view your documentation locally on your own machine. In dbt platform, use Catalog to explore your project. Refer to [platform behavior](#dbt-platform-behavior) for details.
 
 `dbt docs serve` generates the site if it's missing or older than the index, then serves the static files. The server starts on port `8580` by default and opens in your browser. Use `--port` to change the port:
 
@@ -115,6 +117,53 @@ Both write artifacts, but only `dbt docs generate` builds a documentation site y
 | What it produces | `catalog.json`, plus the artifacts the command already generates                                               | `index.html`, `assets/`, and the index files                                        |
 | What it's for    | Metadata for [Catalog](../../docs/explore/build-and-view-your-docs.md) and the metadata APIs | A static site you can preview with `dbt docs serve` or host anywhere                |
 | Where it works   | Locally and in dbt platform. The command is added automatically in dbt platform jobs on dbt v2.                | Locally only in v2. dbt platform job runs use `dbt compile --write-catalog` instead |
+
+## Commands for generating metadata
+
+Each flag targets different metadata and addresses different use cases. Find the right command for your use case in the following list. The [Flag reference](#flag-reference) section breaks down what each flag generates and where it writes.
+
+* To display inferred model column types and column-level lineage in [dbt Docs v2](#dbt-docs-v2):
+
+  ```shell
+  dbt build --generate-info-schema --static-analysis strict
+  dbt docs generate --no-compile
+  ```
+
+* To generate the [dbt Information Schema](../../docs/build/dbt-information-schema.md) with inferred model column types and column-level lineage:
+
+  ```shell
+  dbt build --generate-info-schema --static-analysis strict
+  ```
+
+* To generate the dbt Information Schema with inferred model column types and column-level lineage, plus warehouse types and all columns from sources used by the selected nodes:
+
+  ```shell
+  dbt build --generate-info-schema --static-analysis strict --write-catalog
+  ```
+
+* To generate the dbt Information Schema with warehouse column types only:
+
+  ```shell
+  dbt build --generate-info-schema --write-catalog
+  ```
+
+* To generate [`catalog.json`](../artifacts/catalog-json.md) with warehouse column types:
+
+  ```shell
+  dbt build --write-catalog
+  ```
+
+#### Flag reference
+
+The following table explains what each flag generates and where the metadata is stored:
+
+| Flag                                                                                      | Description                                                                                                                                                                                                                                                                                                     | Output location                                                                              |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [`--generate-info-schema`](../../docs/build/dbt-information-schema.md)  | Generates the [dbt Information Schema](../../docs/build/dbt-information-schema.md). Add `--static-analysis strict` to include inferred model column types and column-level lineage.                                                                                                           | `target/info_schema/v1/`                                                                     |
+| [`--static-analysis strict`](../../docs/build/about-static-analysis.md) | Enables inferred column types and column-level lineage when used with `--generate-info-schema`.                                                                                                                                                                                                                 | Depends on the flag it's combined with                                                       |
+| [`--write-catalog`](#--write-catalog-flag)                                                | Generates [`catalog.json`](../artifacts/catalog-json.md) with warehouse column types.<br /><br />When combined with `--generate-info-schema` on `dbt build` or `dbt run`, writes warehouse column types and all source columns for selected nodes to the dbt Information Schema. | `target/catalog.json` (and `target/info_schema/v1/` when used with `--generate-info-schema`) |
+
+dbt Docs v2 reads metadata from the dbt Information Schema, not from `catalog.json`. The `catalog.json` file is a separate artifact for external tools.
 
 ## dbt platform behavior
 
