@@ -101,6 +101,11 @@ jobs:
           # For each product, picks the first non-beta subProduct per version (falling
           # back to the first beta if no non-beta exists for that product+version).
           # This mirrors resolveSubProductFromProductAndVersion() in VersionContext.js.
+          #
+          # The blog doesn't vary by version, so it gets one extra shard of its own,
+          # rendered as the first product. It's kept apart from the version shards
+          # because the llms-txt plugin's include options apply to llms.txt too, and
+          # turning the blog on there would add it to that version's llms files.
           matrix=$(node - <<'JSEOF'
           const { products } = require('./dbt-versions');
           const out = [];
@@ -114,9 +119,11 @@ jobs:
                 name: product.name.toLowerCase(),
                 version: sp.version.replace(/\./g, '_'),
                 subproduct: chosen.name,
+                blog: false,
               });
             }
           }
+          out.push({ name: 'blog', version: 'all', subproduct: out[0].subproduct, blog: true });
           process.stdout.write(JSON.stringify(out));
           JSEOF
           )
@@ -196,6 +203,7 @@ jobs:
           NAME: ${{ matrix.build.name }}
           VERSION: ${{ matrix.build.version }}
           SUBPRODUCT: ${{ matrix.build.subproduct }}
+          BUILD_BLOG: ${{ matrix.build.blog }}
           MD_STAGE: ${{ runner.temp }}/md
         run: |
           echo "--- Building $NAME $VERSION (subProduct: $SUBPRODUCT) ---"
@@ -206,6 +214,7 @@ jobs:
           git checkout -- src/stores/VersionContext.js
           python3 - <<'PYEOF'
           import os
+          import sys
           with open('src/stores/VersionContext.js') as f:
               content = f.read()
           content = content.replace(
@@ -215,17 +224,50 @@ jobs:
           with open('src/stores/VersionContext.js', 'w') as f:
               f.write(content)
           print('Patched VersionContext for', os.environ['SUBPRODUCT'])
+
+          # Turn on blog markdown for the one shard that builds it. Fail loudly if
+          # upstream changes the option, rather than silently dropping the blog.
+          if os.environ['BUILD_BLOG'] == 'true':
+              with open('docusaurus.config.js') as f:
+                  content = f.read()
+              if content.count('includeBlog: false,') != 1:
+                  sys.exit('Expected exactly one "includeBlog: false," in docusaurus.config.js')
+              content = content.replace('includeBlog: false,', 'includeBlog: true,')
+              with open('docusaurus.config.js', 'w') as f:
+                  f.write(content)
+              print('Enabled blog markdown')
           PYEOF
 
           npm exec -- docusaurus clear
           npm run build -- --no-minify
 
-          DEST="$MD_STAGE/$NAME/$VERSION"
-          mkdir -p "$DEST"
-          rsync -a -m --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
-
-          md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
-          echo "Copied $md_count markdown files for $NAME/$VERSION"
+          # The commit job rebuilds docs/ from scratch, so a shard that copies
+          # nothing would delete its output from the repo. Fail instead.
+          if [[ "$BUILD_BLOG" == "true" ]]; then
+            # Posts only: the list, pagination, tag, author and archive pages are chrome.
+            rsync -a -m --exclude='/page/' --exclude='/tags/' --exclude='/authors/' \
+              --exclude='/tags.md' --exclude='/authors.md' --exclude='/archive*' \
+              --include='*/' --include='*.md' --exclude='*' build/blog/ "$MD_STAGE/blog/"
+            blog_count=$(find "$MD_STAGE/blog" -type f -name "*.md" 2>/dev/null | wc -l)
+            echo "Copied $blog_count blog posts"
+            if (( blog_count == 0 )); then
+              echo "ERROR: blog build produced no posts"
+              exit 1
+            fi
+          else
+            # img/ only holds static assets, one of which happens to be a .md file.
+            DEST="$MD_STAGE/$NAME/$VERSION"
+            mkdir -p "$DEST"
+            rsync -a -m --exclude='/img/' \
+              --include='/llms.txt' --include='/llms-full.txt' \
+              --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
+            md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
+            echo "Copied $md_count markdown files for $NAME/$VERSION"
+            if [[ ! -s "$DEST/llms.txt" ]]; then
+              echo "ERROR: build did not produce llms.txt"
+              exit 1
+            fi
+          fi
 
       - name: Upload markdown
         uses: actions/upload-artifact@v7
