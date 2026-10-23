@@ -17,9 +17,6 @@ env:
   DOCS_CLONE_DIR: ${{ github.workspace }}/docs.getdbt.com
 
 jobs:
-  # Update the upstream clone once, record the commit range, and derive the list
-  # of (product, version, subProduct) builds. The .git cache saved here is reused
-  # by every build shard so they all build the exact same upstream commit.
   prepare:
     name: Prepare
     runs-on: ubuntu-24.04
@@ -28,13 +25,13 @@ jobs:
       upstream_sha: ${{ steps.update.outputs.upstream_sha }}
     steps:
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 20
 
       - name: Restore docs.getdbt.com git cache
         id: cache-docs-restore
-        uses: actions/cache/restore@v6
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           # Cache only .git -- the working tree is rebuilt from it via reset --hard,
           # which keeps the cache small (no build artifacts or checked-out files).
@@ -88,7 +85,7 @@ jobs:
           cat "$RUNNER_TEMP/upstream-changes.txt"
 
       - name: Save docs.getdbt.com git cache
-        uses: actions/cache/save@v6
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/.git
           key: docs-getdbt-git-${{ github.run_id }}
@@ -131,7 +128,7 @@ jobs:
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
 
       - name: Upload commit-range notes
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: upstream-changes
           path: ${{ runner.temp }}/upstream-changes.txt
@@ -149,12 +146,12 @@ jobs:
         build: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 20
 
       - name: Restore docs.getdbt.com git cache
-        uses: actions/cache/restore@v6
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/.git
           # Exact hit on the cache prepare just saved for this run.
@@ -176,7 +173,7 @@ jobs:
 
       - name: Cache docs.getdbt.com node_modules
         id: cache-node-modules
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
           key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -270,7 +267,7 @@ jobs:
           fi
 
       - name: Upload markdown
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: md-${{ matrix.build.name }}-${{ matrix.build.version }}
           path: ${{ runner.temp }}/md
@@ -286,12 +283,12 @@ jobs:
       contents: write
     steps:
       - name: Fetch Sources
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
 
       - name: Download commit-range notes
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: upstream-changes
           path: ${{ runner.temp }}
@@ -304,7 +301,7 @@ jobs:
           mkdir -p docs
 
       - name: Download markdown shards
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: md-*
           merge-multiple: true
