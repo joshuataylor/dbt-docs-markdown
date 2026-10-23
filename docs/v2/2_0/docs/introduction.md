@@ -108,4 +108,4 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 * [Supported features matrix](./dbt/supported-features.md)
 * [AI and agents](./dbt-ai/about-dbt-ai.md)
 * [Licensing](./dbt-licensing.md)
-* [v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [v2 license agreement](https://www.getdbt.com/dbt-product-license-agreement)

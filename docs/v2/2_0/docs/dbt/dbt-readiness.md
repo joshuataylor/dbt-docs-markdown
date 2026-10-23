@@ -54,7 +54,7 @@ dbt v2 supports nearly all built-in data platform functions out of the box. Howe
 If you see the error `dbt0209: No function <function name>`, you can resolve it depending on whether the function is a UDF or a built-in function:
 
 * [ ] **For custom UDFs:** Recreate it as a [native dbt UDF](../build/udfs.md#defining-udfs-in-dbt) to get the full dbt v2 experience. With `static_analysis: baseline` (the default), most UDFs will work out of the box.
-* [ ] **For Warehouse-native functions:** Submit a [GitHub issue](https://github.com/dbt-labs/dbt-fusion). dbt v2's `baseline` mode handles most cases, but will throw warnings and not errors. You can set `static_analysis: off` for specific models if needed.
+* [ ] **For Warehouse-native functions:** Submit a [GitHub issue](https://github.com/dbt-labs/dbt). dbt v2's `baseline` mode handles most cases, but will throw warnings and not errors. You can set `static_analysis: off` for specific models if needed.
 
 For more information about using `strict` in development and `baseline` in deployment, refer to [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md).
 

@@ -13,7 +13,7 @@ If you have a older project that isn’t ready to move to v2, continue using v1.
 
 ## Which one should I use?
 
-For most people: dbt v2. It has more [capabilities](./dbt/dbt-availability.md?version=2.0#what-you-get-with-fusion) out of the box than the open source v2 — including a built-in high-performance SQL linter — even if you never create a dbt account.
+For most people: dbt v2. It has more [capabilities](./dbt/dbt-availability.md?version=2.0#what-you-get-with-v2) out of the box than the open source v2 — including a built-in high-performance SQL linter — even if you never create a dbt account.
 
 We recommend everyone to just [install dbt](./local/install-dbt.md) and get dbt v2 by default.
 
@@ -42,7 +42,7 @@ To check which distribution you're using, run `dbt --version` in the command lin
 
 ## Licensing details
 
-[dbt v1](https://github.com/dbt-labs/dbt) is released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). dbt v2 is proprietary to dbt Labs, made available under the [dbt Product Licensing Agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement).
+[dbt v1](https://github.com/dbt-labs/dbt) is released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). dbt v2 is proprietary to dbt Labs, made available under the [dbt Product Licensing Agreement](https://www.getdbt.com/dbt-product-license-agreement).
 
 For the full breakdown of what's permitted under each license — source visibility, contributions, modifications, self-hosting, and redistribution — see the [dbt Licensing FAQ](https://www.getdbt.com/licenses-faq).
 

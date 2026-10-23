@@ -484,7 +484,7 @@ If a job has not run in the last 7 days, you must run it once for the debugging 
 
 In the Studio IDE, run dbt v2 in your development environment to review project warnings and errors:
 
-1. Click **Debug in Studio**. dbt sets your user-level `DBT_DEVELOP_CORE_VERSION` environment variable to `latest-fusion`, then opens the Studio IDE with the **Problems** tab selected.
+1. Click **Debug in Studio**. dbt sets your user-level `DBT_DEVELOP_CORE_VERSION` environment variable to `v2-stable`, then opens the Studio IDE with the **Problems** tab selected.
 
 ![Running v2 in development](/img/v2/v2-ide.png?v=2 "Running v2 in development")Running v2 in development
 

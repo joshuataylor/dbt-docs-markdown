@@ -267,11 +267,11 @@ On dbt platform, dbt v2 follows a versionless release track model. The default r
 
 ### Versions installed locally
 
-By default, the dbt v2 [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **v2 Stable** release track on dbt platform:
+By default, the dbt v2 [installation instructions](../docs/local/install-dbt.md) install the latest stable release, the same version that ships with the **v2 Stable** release track on dbt platform:
 
 ```shell
 # macOS / Linux
-curl -fsSL https://downloads.getdbt.com/install/dbt-fusion.sh | sh
+pip install dbt
 ```
 
 To update your self-hosted installation to the latest stable release at any time:

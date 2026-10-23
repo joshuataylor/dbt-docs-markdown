@@ -203,7 +203,7 @@ Every missing case is a compile error, so the AI always has a precise specificat
 
 * **Hallucinated file paths** — AI often invents v2 paths. Use the file breakdown below as ground truth.
 * **Always verify with the type checker** — run `cargo check -p <crate>` after any AI-generated changes.
-* **SQL macro patterns from v1** may not apply cleanly in dbt v2. Compare against the reference `adapters.sql` in `crates/dbt-loader/src/dbt_macro_assets/dbt-exasol/macros/adapters.sql` in [dbt-labs/dbt-fusion](https://github.com/dbt-labs/dbt-fusion).
+* **SQL macro patterns from v1** may not apply cleanly in dbt v2. Compare against the reference `adapters.sql` in `crates/dbt-loader/src/dbt_macro_assets/dbt-exasol/macros/adapters.sql` in [dbt-labs/dbt](https://github.com/dbt-labs/dbt).
 
 ***
 

@@ -73,10 +73,10 @@ If you're ready to get started, let's begin!
 
 Now that you've run `dbt-autofix`, let's test your package with dbt v2 to ensure it's compatible before [updating](https://docs.getdbt.com/guides/dbt-package-compat?step=6) your `require-dbt-version` config. Refer to the [dbt v2 limitations documentation](../docs/dbt/supported-features.md#limitations) for more information on what to look out for. You can test your package two ways:
 
-* [Running your integration tests with dbt v2](#running-your-integration-tests-with-fusion) — Use if your package has [integration tests](https://docs.getdbt.com/guides/building-packages?step=4) using an `integration_tests/` folder.
+* [Running your integration tests with dbt v2](#running-your-integration-tests-with-v2) — Use if your package has [integration tests](https://docs.getdbt.com/guides/building-packages?step=4) using an `integration_tests/` folder.
 * [Manually validating your package](#manually-validating-your-package) — Use if your package doesn't have [integration tests](https://docs.getdbt.com/guides/building-packages?step=4). Consider creating one to help validate your package.
 
-#### Running your integration tests with dbt v2
+#### Running your integration tests with v2
 
 If your package includes an `integration_tests/` folder ([like `dbt-utils`](https://github.com/dbt-labs/dbt-utils/tree/main/integration_tests)), follow these steps:
 

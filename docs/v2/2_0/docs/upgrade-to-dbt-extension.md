@@ -44,7 +44,7 @@ Next, [sign in](./sign-in-dbt-extension.md) to a dbt platform account if you wan
 * From your terminal, run:
 
   ```shell
-  dbt init --fusion-upgrade
+  dbt init --v2-upgrade
   ```
 
 The upgrade tool guides you through a series of prompts:

@@ -24,8 +24,7 @@ For connection examples and shared profile settings, refer to [Connecting to Duc
 
 Some features available in the `dbt-duckdb` adapter for dbt v1 are not yet supported.
 
-* Current adapter feature parity work is tracked in [dbt-fusion#1593](https://github.com/dbt-labs/dbt-fusion/issues/1593).
-* Current SQL analysis gaps are tracked in [dbt-fusion#1464](https://github.com/dbt-labs/dbt-fusion/issues/1464).
+Current adapter feature parity work and SQL analysis gaps are tracked in [dbt#14393](https://github.com/dbt-labs/dbt/issues/14393).
 
 #### Static analysis and local flat files
 
