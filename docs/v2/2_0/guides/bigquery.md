@@ -86,7 +86,7 @@ In order to let dbt connect to your warehouse, you'll need to generate a keyfile
 2. Create a service account for your new project from the [Service accounts page](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?supportedpurview=project). For more information, refer to [Create a service account](https://developers.google.com/workspace/guides/create-credentials#create_a_service_account) in the Google Cloud docs. As an example for this guide, you can:
 
    * Type `dbt-user` as the **Service account name**
-   * From the **Select a role** dropdown, choose **BigQuery Job User** and **BigQuery Data Editor** roles and click **Continue**
+   * From the **Select a role** dropdown, choose **BigQuery Job User**, **BigQuery Read Session User**, and **BigQuery Data Editor** roles and click **Continue**
    * Leave the **Grant users access to this service account** fields blank
    * Click **Done**
 
