@@ -88,6 +88,10 @@ Then each developer on the account needs to [relink their GitHub profile](#relin
 
 ### Register a GitHub application
 
+Repo availability
+
+dbt platform doesn’t support concurrent integrations with public and private GitHub repositories. To register a GitHub App, you need a private repository. Disconnect your configured public repository before you follow the steps in this section.
+
 We recommend creating the app in your GitHub organization instead of a personal account to ensure the connection doesn't break should a person leave. For the full walkthrough on the GitHub side, check out GitHub's guide to [registering a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 1. In dbt, go to **Account settings** > **Integrations** > **Git** and expand the **GitHub** section. Select **Copy** next to **Redirect URL** — you need it in the next step.
