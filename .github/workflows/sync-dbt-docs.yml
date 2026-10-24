@@ -253,6 +253,73 @@ jobs:
             exit 1
           fi
 
+      - name: Prefix blog posts with their date
+        if: matrix.build.name == 'blog'
+        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        env:
+          BLOG_DIR: ${{ runner.temp }}/md/blog
+        run: |
+          # Rename each post to YYYY-MM-DD-<slug>.md so they sort chronologically,
+          # and point post-to-post links at the new names. The date comes from the
+          # metadata Docusaurus writes per post, which has already resolved front
+          # matter vs filename dates (they differ for some posts).
+          python3 - <<'PYEOF'
+          import glob
+          import json
+          import os
+          import re
+          import sys
+
+          blog_dir = os.path.normpath(os.environ['BLOG_DIR'])
+
+          dates = {}
+          for path in glob.glob('.docusaurus/docusaurus-plugin-content-blog/*/*.json'):
+              with open(path) as f:
+                  meta = json.load(f)
+              if isinstance(meta, dict) and 'date' in meta and 'permalink' in meta:
+                  dates[meta['permalink'].strip('/').removeprefix('blog/')] = meta['date'][:10]
+
+          posts = sorted(glob.glob(f'{blog_dir}/**/*.md', recursive=True))
+          renames = {}
+          for path in posts:
+              slug = os.path.relpath(path, blog_dir).removesuffix('.md')
+              if slug not in dates:
+                  print(f'::warning::No date for blog/{slug}.md, leaving its name as is')
+                  continue
+              head, name = os.path.split(path)
+              renames[path] = os.path.join(head, f'{dates[slug]}-{name}')
+          if not renames:
+              sys.exit('No blog post dates found in .docusaurus')
+
+          link = re.compile(r'\]\(([^)\s#]+\.md)(?=[)#\s])')
+          for path in posts:
+              here = os.path.dirname(path)
+              new_here = os.path.dirname(renames.get(path, path))
+
+              def relink(m):
+                  target = m[1]
+                  if '://' in target or target.startswith('/'):
+                      return m[0]
+                  resolved = os.path.normpath(os.path.join(here, target))
+                  if resolved not in renames:
+                      return m[0]
+                  new = os.path.relpath(renames[resolved], new_here)
+                  if target.startswith('./') and not new.startswith('.'):
+                      new = './' + new
+                  return f']({new}'
+
+              with open(path) as f:
+                  content = f.read()
+              relinked = link.sub(relink, content)
+              if relinked != content:
+                  with open(path, 'w') as f:
+                      f.write(relinked)
+
+          for old, new in renames.items():
+              os.rename(old, new)
+          print(f'Dated {len(renames)} of {len(posts)} blog posts')
+          PYEOF
+
       - name: Upload markdown
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
