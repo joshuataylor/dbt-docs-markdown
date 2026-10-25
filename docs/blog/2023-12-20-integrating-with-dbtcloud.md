@@ -1,3 +1,5 @@
+On this page
+
 # How to integrate with dbt
 
 December 20, 2023 · 9 min read
@@ -7,8 +9,6 @@ December 20, 2023 · 9 min read
 [Amy Chen](./authors/amy-chen.md)
 
 Product Manager at dbt Labs
-
-[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
 
 ## Overview
 
@@ -121,3 +121,11 @@ dbt Core only users will have no access to the above integration points. For dbt
 * [dbt Cloud](./tags/dbt-cloud.md)
 * [Integrations](./tags/integrations.md)
 * [APIs](./tags/ap-is.md)
+
+[Newer post](./2024-01-09-defer-to-prod.md)
+
+[More time coding, less time waiting: Mastering defer in dbt](./2024-01-09-defer-to-prod.md)
+
+[Older post](./2023-12-12-product-analytics-pipeline-with-dbt-semantic-layer.md)
+
+[How we built consistent product launch metrics with the dbt Semantic Layer](./2023-12-12-product-analytics-pipeline-with-dbt-semantic-layer.md)

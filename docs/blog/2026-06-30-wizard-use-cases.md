@@ -1,3 +1,5 @@
+On this page
+
 # No babysitting, not today
 
 June 30, 2026 · 9 min read
@@ -7,8 +9,6 @@ June 30, 2026 · 9 min read
 [Alex Noonan](./authors/alex-noonan.md)
 
 Senior Developer Experience Advocate
-
-[](https://x.com/alexnoonan6 "X")[](https://www.linkedin.com/in/alexander-noonan/ "LinkedIn")
 
 We recently released [dbt Wizard](../docs/platform/wizard-overview.md), a CLI for doing agentic data work on dbt. This is a harness specifically built for data work and as such I was excited to spend an afternoon running dbt Wizard across a personal project with about 100 models or so that I've been maintaining for a while. You can use this project to see firsthand some of the differentiators for Wizard, particularly how the validation loop works.
 
@@ -23,7 +23,7 @@ These are a good mix of pretty standard data work (have you done your annual mig
 
 I was pleasantly surprised with my experience in that I didn't have to babysit Wizard or build any additional workflows on top of it. Because it has a native understanding of what a dbt project is, and its ability to set up validation subagents that match the task made it easy for me to just pop in when needed and I didn't have to babysit the whole process and I accomplished all of my objectives.
 
-[![a loop showing how wizard validates changes ](/img/blog/2026-06-25-wizard-use-case/wizard-loop.jpg?v=2)](#)
+![a loop showing how wizard validates changes ](/img/blog/2026-06-25-wizard-use-case/wizard-loop.jpg?v=2)
 
 The repo is public, so you can read the prs that Wizard authored:
 
@@ -70,7 +70,7 @@ This was Wizard’s first attempt, pretty simple. It failed during the validatio
 
 For validation Wizard had to work within the following constraints:
 
-\- Fusion needed to discover metrics colocated with model YAML.<br />- dbt Core/Dagster needed to parse the project without choking on newer semantic syntax. (I ended up fixing this [later](https://github.com/C00ldudeNoonan/economic-data-project/pull/100) to be Fusion across the board but it was a fun challenge to see Wizard deal with)<br />- CI needed a stable project parse/build path.<br />- dbt Platform needed deployed artifacts that the hosted Semantic Layer could actually expose.
+\- Fusion needed to discover metrics colocated with model YAML. - dbt Core/Dagster needed to parse the project without choking on newer semantic syntax. (I ended up fixing this [later](https://github.com/C00ldudeNoonan/economic-data-project/pull/100) to be Fusion across the board but it was a fun challenge to see Wizard deal with) - CI needed a stable project parse/build path. - dbt Platform needed deployed artifacts that the hosted Semantic Layer could actually expose.
 
 Wizard tried again with an older MetricFlow-style shape. Which was suboptimal in that it worked for one parser but didn't work for another.
 
@@ -91,7 +91,7 @@ The ratio logic moved into the expr, the nullif kills the divide-by-zero, and it
 
 For this process, I didn't have to look up any documentation and only had to go back and forth with Wizard a few times, mostly for my understanding. This was a success for me since I now have a simple metric, that matches the expected formula, and has both parser compatibility and a hosted semantic layer deployment path. I also only had to see on diff, which was the final one, the dead ends and iterations happened off screen so I only needed to be tapped in when necessary.
 
-[![claude result of querying the mcp for the annualized volatility ratio metric from the semantic layer ](/img/blog/2026-06-25-wizard-use-case/mcp-validation.png?v=2)](#)
+![claude result of querying the mcp for the annualized volatility ratio metric from the semantic layer ](/img/blog/2026-06-25-wizard-use-case/mcp-validation.png?v=2)
 
 ## Why it could run unattended
 
@@ -132,3 +132,11 @@ The [Wizard docs](../docs/platform/wizard-overview.md) cover setup, and [how it 
 
 * [analytics craft](./tags/analytics-craft.md)
 * [ai](./tags/ai.md)
+
+[Newer post](./2026-07-23-dbt-mcp-server-claude.md)
+
+[The dbt MCP server comes to Claude: governed context, one sign-in away](./2026-07-23-dbt-mcp-server-claude.md)
+
+[Older post](./2026-06-25-how-dbt-state-works.md)
+
+[How dbt State actually works to save your compute costs](./2026-06-25-how-dbt-state-works.md)

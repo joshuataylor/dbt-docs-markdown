@@ -1,3 +1,5 @@
+On this page
+
 # The new dbt VS Code extension: The experience we've all been waiting for
 
 June 25, 2025 · 7 min read
@@ -54,9 +56,9 @@ There was no question what I was picking first. No more waiting for your platfor
 
 This is because Fusion doesn't treat SQL code as just a string anymore; it really understands it. It also shows you some helpful information about the error.
 
-[![Showing function errors.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_function_error.png?v=2 "Showing function errors.")](#)Showing function errors.
+![Showing function errors.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_function_error.png?v=2 "Showing function errors.")Showing function errors.
 
-[![Showing column name errors.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_column_error.png?v=2 "Showing column name errors.")](#)Showing column name errors.
+![Showing column name errors.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_column_error.png?v=2 "Showing column name errors.")Showing column name errors.
 
 This is the greatest improvement of this engine, IMHO.
 
@@ -66,13 +68,13 @@ My next favorite feature is the lineage view. If you were a dbt platform user, y
 
 Now there's a tab lineage tab that shows your project’s lineage directly in VS Code. It’s interactive and live. You can use the lenses feature, that's pretty cool to have a good visualization of your project by different attributes like resource\_type, or materialization.
 
-[![Project Lineage.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_project_lineage.png?v=2 "Project Lineage.")](#)Project Lineage.
+![Project Lineage.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_project_lineage.png?v=2 "Project Lineage.")Project Lineage.
 
 And something I was not expecting to be here, but thankfully it is, column-level lineage! Not just where columns come from, but also how they change: renamed, transformed, or passed through.
 
 This is incredibly helpful for debugging transformations or understanding how that key metric is shaped across models.
 
-[![Column-level Lineage.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_cll.png?v=2 "Column-level Lineage.")](#)Column-level Lineage.
+![Column-level Lineage.](/img/blog/2025-06-16-the-new-dbt-vscode-extension/vs_code_extension_cll.png?v=2 "Column-level Lineage.")Column-level Lineage.
 
 ### Instant refactoring
 
@@ -108,3 +110,11 @@ This new extension will be constantly updated, so stay tuned for more improvemen
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2025-07-11-train-linear-dbt-bigframes.md)
+
+[How to train a linear regression model with dbt and BigFrames](./2025-07-11-train-linear-dbt-bigframes.md)
+
+[Older post](./2025-05-28-dbt-fusion-engine-components.md)
+
+[The Components of the dbt Fusion engine and how they fit together](./2025-05-28-dbt-fusion-engine-components.md)

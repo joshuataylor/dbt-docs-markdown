@@ -1,3 +1,5 @@
+On this page
+
 # Enforcing rules at scale with pre-commit-dbt
 
 August 3, 2022 · 13 min read
@@ -7,8 +9,6 @@ August 3, 2022 · 13 min read
 [Benoit Perigaud](./authors/benoit-perigaud.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/benoit-perigaud/ "LinkedIn")
 
 *Editor's note — since the creation of this post, the package pre-commit-dbt's ownership has moved to another team and it has been renamed to [dbt-checkpoint](https://github.com/dbt-checkpoint/dbt-checkpoint). A redirect has been set up, meaning that the code example below will still work. It is also possible to replace `repo: https://github.com/offbi/pre-commit-dbt` with `repo: https://github.com/dbt-checkpoint/dbt-checkpoint` in your `.pre-commit-config.yaml` file.*
 
@@ -37,7 +37,7 @@ Let’s take the example of a project with more than 300 models. Dozens of peopl
 
 To remediate this let’s follow those 4 steps:
 
-[![Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.](/img/blog/2022-07-26-pre-commit-dbt/define-strategy.png?v=2 "Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.")](#)Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.
+![Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.](/img/blog/2022-07-26-pre-commit-dbt/define-strategy.png?v=2 "Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.")Flow graph that describes the steps in defining a strategy for implementing this package on a dbt project with more than 300 models.
 
 ### 1. Define our rules and create a pre-commit config file
 
@@ -93,7 +93,7 @@ A normal next step after installing pre-commit is to run a `pre-commit install` 
 
 Instead, we can do a `pre-commit run --all-files`, which will run all the tests defined in our configuration file on all the files in our dbt project.
 
-[![Animation showing the output in the Terminal after running the above commands](/img/blog/2022-07-26-pre-commit-dbt/pre-commit-run-all-files.gif?v=2 "Animation showing the output in the Terminal after running the above commands")](#)Animation showing the output in the Terminal after running the above commands
+![Animation showing the output in the Terminal after running the above commands](/img/blog/2022-07-26-pre-commit-dbt/pre-commit-run-all-files.gif?v=2 "Animation showing the output in the Terminal after running the above commands")Animation showing the output in the Terminal after running the above commands
 
 In my case, I can see that my model called `customers.sql` has not been added to any YAML file and has no test defined.
 
@@ -124,7 +124,7 @@ For that reason, we will need our CI step to execute this command, which will re
 In our case, let’s create a file called `profiles.yml` at the root of our dbt project, with the following information:
 
 ```yaml
-​​jaffle_shop:
+jaffle_shop:
   target: ci
   outputs:
     ci:
@@ -224,15 +224,15 @@ Once we push those changes to our repo to a custom branch and create a PR to mai
 
 The GitHub action is running:
 
-[![Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test](/img/blog/2022-07-26-pre-commit-dbt/testing-running.png?v=2 "Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test")](#)Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test
+![Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test](/img/blog/2022-07-26-pre-commit-dbt/testing-running.png?v=2 "Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test")Screenshot of a GitHub action executing on a PR that is running the pre-commit-check test
 
 The step fails because I missed some tests and it tells me what model is failing:
 
-[![Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously](/img/blog/2022-07-26-pre-commit-dbt/error-logs.png?v=2 "Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously")](#)Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously
+![Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously](/img/blog/2022-07-26-pre-commit-dbt/error-logs.png?v=2 "Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously")Screenshot of the errors logs for the failed pre-commit-check test on the PR shown previously
 
 The result of the check is also shown in the PR directly:
 
-[![Screenshot of the failed test shown directly in the PR "checks" interface](/img/blog/2022-07-26-pre-commit-dbt/checks-failed.png?v=2 "Screenshot of the failed test shown directly in the PR \"checks\" interface")](#)Screenshot of the failed test shown directly in the PR "checks" interface
+![Screenshot of the failed test shown directly in the PR "checks" interface](/img/blog/2022-07-26-pre-commit-dbt/checks-failed.png?v=2 "Screenshot of the failed test shown directly in the PR \"checks\" interface")Screenshot of the failed test shown directly in the PR "checks" interface
 
 With that information, I could now go back to dbt, document my model customers and push those new changes to my repo for another check to be performed.
 
@@ -253,7 +253,7 @@ Those two configurations are not exclusive but complementary.
 * Having the hooks set up locally ensures that all our models follow our conventions even before pushing them to our repo, ensuring that the CI step will pass correctly.
 * And the GitHub action as CI test is a great safeguard for people using the dbt Cloud IDE or local developers who either have not installed the hooks or tried to push changes with the `--no-verify` flag
 
-[![A meme that reads "Why not both?"](/img/blog/2022-07-26-pre-commit-dbt/why-not-both-meme.png?v=2 "A meme that reads \"Why not both?\"")](#)A meme that reads "Why not both?"
+![A meme that reads "Why not both?"](/img/blog/2022-07-26-pre-commit-dbt/why-not-both-meme.png?v=2 "A meme that reads \"Why not both?\"")A meme that reads "Why not both?"
 
 ## Taking this solution further
 
@@ -263,7 +263,7 @@ What next? Going back to the diagram at the beginning of this post, we can now t
 
 It is important though to keep in mind a good balance between setting enough rules and automation to ensure a project of good quality and setting too many of them, taking time from more value-added work and potentially slowing down the overall analytics development process.
 
-[![A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.](/img/blog/2022-07-26-pre-commit-dbt/next-strategy.png?v=2 "A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.")](#)A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.
+![A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.](/img/blog/2022-07-26-pre-commit-dbt/next-strategy.png?v=2 "A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.")A diagram that adds additional steps to the original diagram shown in the beginning of the article. This solution includes a cyclical step for continuously adding new rules and leveraging a SQL linter.
 
 * We could for example add SQLFluff as a SQL Linter to show us what SQL code is not following the rules that we have defined
 * Or we could add more pre-commit-dbt checks like check-model-name-contract to make sure that all our model names are following the correct naming convention
@@ -274,3 +274,11 @@ If you have any questions about this process or want to share how you are using 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-08-18-how-we-shaved-90-minutes-off-model.md)
+
+[How we shaved 90 minutes off our longest running model](./2022-08-18-how-we-shaved-90-minutes-off-model.md)
+
+[Older post](./2022-07-26-configuring-grants.md)
+
+[Updating our permissioning guidelines: grants as configs in dbt Core v1.2](./2022-07-26-configuring-grants.md)

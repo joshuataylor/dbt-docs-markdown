@@ -1,3 +1,5 @@
+On this page
+
 # Why we're deprecating the dbt\_metrics package
 
 April 26, 2023 · 5 min read
@@ -7,8 +9,6 @@ April 26, 2023 · 5 min read
 [Callum McCann](./authors/callum-mccann.md)
 
 Senior Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/callum-mccann-38628a89/ "LinkedIn")
 
 Hello, my dear data people.
 
@@ -65,3 +65,11 @@ MetricFlow is a more flexible foundation through which we can provide our integr
 So as we bid farewell to the `dbt_metrics` package, we say hello to MetricFlow and all the opportunities and advancements that come with it. This is the next era for the Semantic Layer.
 
 With the migration tools and resources coming soon, we're committed to supporting you through this transition. We extend our gratitude to everyone who has used, contributed to, or supported dbt\_metrics, and we invite you all to join us on this exciting journey toward a brighter future in data analytics. If you're interested in discussing, please come on over to [#dbt-core-metrics](https://getdbt.slack.com/archives/C02CCBBBR1D)!
+
+[Newer post](./2023-05-01-evolving-data-engineer-craft.md)
+
+[Data engineers + dbt v1.5: Evolving the craft for scale](./2023-05-01-evolving-data-engineer-craft.md)
+
+[Older post](./2023-04-25-framework-refactor-alteryx-dbt.md)
+
+[How we reduced a 6-hour runtime in Alteryx to 9 minutes with dbt and Snowflake](./2023-04-25-framework-refactor-alteryx-dbt.md)

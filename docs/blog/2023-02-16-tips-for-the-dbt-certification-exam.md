@@ -1,3 +1,5 @@
+On this page
+
 # Tips and advice to study for, and pass, the dbt Certification exam
 
 February 16, 2023 · 9 min read
@@ -83,3 +85,11 @@ You can learn more about the dbt Certification [here](https://www.getdbt.com/blo
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2023-03-10-bigquery-ingestion-time-partitioning-and-partition-copy-with-dbt.md)
+
+[BigQuery ingestion-time partitioning and partition copy with dbt](./2023-03-10-bigquery-ingestion-time-partitioning-and-partition-copy-with-dbt.md)
+
+[Older post](./2023-01-24-aggregating-test-failures-with-dbt.md)
+
+[How we cut our tests by 80% while increasing data quality: the power of aggregating test failures in dbt](./2023-01-24-aggregating-test-failures-with-dbt.md)

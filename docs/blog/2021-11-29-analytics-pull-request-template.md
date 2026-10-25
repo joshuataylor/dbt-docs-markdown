@@ -1,3 +1,5 @@
+On this page
+
 # The Exact GitHub Pull Request Template We Use at dbt Labs
 
 November 29, 2021 · 9 min read
@@ -7,8 +9,6 @@ November 29, 2021 · 9 min read
 [Jess Williams](./authors/jess-williams.md)
 
 Head of Professional Services at dbt Labs
-
-[](https://www.linkedin.com/in/jessdwilliams/ "LinkedIn")
 
 Having a GitHub pull request template is one of the most important and frequently overlooked aspects of creating an efficient and scalable dbt-centric analytics workflow. Opening a pull request is the final step of your modeling process - a process which typically involves a lot of complex work!
 
@@ -23,6 +23,8 @@ Now imagine you are paired with 2-3 different people on 2-3 projects. Absent som
 Let’s jump into the exact PR template we use internally at dbt Labs.
 
 ## The GitHub PR template we use
+
+[Wistia video](https://fast.wistia.net/embed/iframe/r3u04isgxf?seo=false\&videoFoam=true)
 
 Our PR template ([view markdown file in GitHub](https://github.com/dbt-labs/dbt-init/blob/master/starter-project/.github/pull_request_template.md)) is composed of 6 sections:
 
@@ -53,7 +55,7 @@ Remember, you know more about this PR **right now** than you will in a couple of
 
 This is where we add the relevant sections from our DAG! This is one of my favorite features of dbt, as I’m a very visual learner. So when I open a PR, I take a quick look at the relevant sections of the DAG (aka dependency graph) to help me conceptualize the modeling.
 
-[![dbt dag check](/img/blog/pr-template-dag-check.png?v=2 "dbt dag check")](#)dbt dag check
+![dbt dag check](/img/blog/pr-template-dag-check.png?v=2 "dbt dag check")dbt dag check
 
 Checking for things like modularity and 1:1 relationships between sources and staging models is much easier done visually via the DAG than trying to look at code and visualize the relationships.
 
@@ -63,7 +65,7 @@ Checking for things like modularity and 1:1 relationships between sources and st
 
 This section should show something to confirm that your model is doing what you intended it to do. This could be a [dbt test](../docs/build/data-tests.md) like uniqueness or not null, or could be an ad-hoc query that you wrote to validate your data. Here is a screenshot from a test run on a local development branch:
 
-[![Test validation](/img/blog/pr-template-test-validation.png?v=2 "Test validation")](#)Test validation
+![Test validation](/img/blog/pr-template-test-validation.png?v=2 "Test validation")Test validation
 
 Adding uniqueness tests shows that you have put thought into the grain of each of your models, and then ensures that those assumptions hold true over time.
 
@@ -89,7 +91,7 @@ This also makes things much easier on your reviewer. Reviewing a PR with multipl
 
 Think of yourself! What if you need to roll back a change, but in a moment of post-coding fogginess, you made a massive commit of unrelated concepts that “updated all the things”. Woof.
 
-[![Woof](/img/blog/pr-template-woof.gif?v=2 "Woof")](#)Woof
+![Woof](/img/blog/pr-template-woof.gif?v=2 "Woof")Woof
 
 **My SQL follows the [dbt Labs style guide](https://github.com/dbt-labs/corp/blob/master/dbt_style_guide.md).**
 
@@ -105,9 +107,9 @@ Documentation follows the same reasoning as the PR description. You will know mo
 
 This is all about performance. Our ultimate goal is to model data such that end users can easily and efficiently query the resulting database objects.
 
-[![Choose your materializations wisely](/img/blog/pr-template-fct-meme.jpeg?v=2 "Choose your materializations wisely")](#)Choose your materializations wisely
+![Choose your materializations wisely](/img/blog/pr-template-fct-meme.jpeg?v=2 "Choose your materializations wisely")Choose your materializations wisely
 
-**I have updated the README file.**<br />Last but not least, the README. This doesn’t need to be updated with every single PR.
+**I have updated the README file.** Last but not least, the README. This doesn’t need to be updated with every single PR.
 
 In general, your README contains information about things such as how to get going with contributing to your dbt project, who to go to for database access, additional development resources, etc. If any of this changes as a result of your PR, make sure to update the README!
 
@@ -243,3 +245,11 @@ To dive deeper into how we use it as part of the analytics engineering workflow,
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2021-12-06-how-to-build-a-mature-dbt-project-from-scratch.md)
+
+[How to Build a Mature dbt Project from Scratch](./2021-12-06-how-to-build-a-mature-dbt-project-from-scratch.md)
+
+[Older post](./2021-11-29-dbt-production-commands.md)
+
+[The Exact dbt Commands We Run in Production](./2021-11-29-dbt-production-commands.md)

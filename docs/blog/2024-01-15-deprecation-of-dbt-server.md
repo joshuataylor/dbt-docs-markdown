@@ -1,3 +1,5 @@
+On this page
+
 # Deprecation of dbt Server
 
 January 15, 2024 · 2 min read
@@ -7,8 +9,6 @@ January 15, 2024 · 2 min read
 [Roxi Dahlke](./authors/roxi-dahlke.md)
 
 Product Manager at dbt Labs
-
-[](https://www.linkedin.com/in/roxanna-dahlke-pourzand-445a3035/ "LinkedIn")
 
 ## Summary
 
@@ -27,3 +27,11 @@ The deprecation of dbt Server and updates to the Semantic Layer signify the evol
 **Tags:**
 
 * [dbt Server](./tags/dbt-server.md)
+
+[Newer post](./2024-01-15-serverless-dlt-dbt-stack.md)
+
+[Serverless, free-tier data stack with dlt + dbt core.](./2024-01-15-serverless-dlt-dbt-stack.md)
+
+[Older post](./2024-01-09-defer-to-prod.md)
+
+[More time coding, less time waiting: Mastering defer in dbt](./2024-01-09-defer-to-prod.md)

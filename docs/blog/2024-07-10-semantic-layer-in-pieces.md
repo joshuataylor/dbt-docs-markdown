@@ -1,3 +1,5 @@
+On this page
+
 # How to build a Semantic Layer in pieces: step-by-step for busy analytics engineers
 
 July 10, 2024 · 10 min read
@@ -7,8 +9,6 @@ July 10, 2024 · 10 min read
 [Gwen Windflower](./authors/gwen-windflower.md)
 
 Senior Developer Experience Advocate
-
-[](https://www.linkedin.com/in/gwenwindflower/ "LinkedIn")[](https://github.com/gwenwindflower "GitHub")
 
 The [dbt Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) is founded on the idea that data transformation should be both *flexible*, allowing for on-the-fly aggregations grouped and filtered by definable dimensions and *version-controlled and tested*. Like any other codebase, you should have confidence that your transformations express your organization’s business logic correctly. Historically, you had to choose between these options, but the dbt Semantic Layer brings them together. This has required new paradigms for *how* you express your transformations though.
 
@@ -47,7 +47,7 @@ So now we’ve established the system, let’s dig into the *plan* for how we ca
 
 4. **Create a parallel version of your data product that points to Semantic Layer artifacts, audit, and then publish.** Creating in parallel takes the pressure off, allowing you to fix any issues and publish gracefully. You’ll keep the existing Data Product as-is while swapping the clone to be supplied with data from the Semantic Layer.
 
-[![Elsa iterates rapidly.](/img/blog/2024-07-09-semantic-layer-in-pieces/elsa_meme.jpg?v=2 "Elsa iterates rapidly.")](#)Elsa iterates rapidly.
+![Elsa iterates rapidly.](/img/blog/2024-07-09-semantic-layer-in-pieces/elsa_meme.jpg?v=2 "Elsa iterates rapidly.")Elsa iterates rapidly.
 
 These steps constitute an **iterative piece** you will ship as you **progressively** move code into your Semantic Layer. As we dig into how to do this, we’ll discuss the **immediate value** this provides to your team and stakeholders. Broadly, it enables you to drastically increase [**iteration velocity**](https://www.linkedin.com/posts/rauchg_iteration-velocity-is-the-right-metric-to-activity-7087498430226313216-BVIP?utm_source=share\&utm_medium=member_desktop).
 
@@ -65,7 +65,7 @@ This is the most **technical, detailed, and specific section of this article**, 
    * ❌ `active_accounts_per_week` — this is built on top of the above, and something we want to generate dynamically in the dbt Semantic Layer.
    * Put another way: `customers` and `orders` are **normalized building blocks**, `active_accounts_per_week` is a **rollup** and we always want to *migrate those to the Semantic Layer*.
 
-     [![A frozen rollup built on normalized marts.](/img/blog/2024-07-09-semantic-layer-in-pieces/rollup_dag.png?v=2 "A frozen rollup built on normalized marts.")](#)A frozen rollup built on normalized marts.
+     ![A frozen rollup built on normalized marts.](/img/blog/2024-07-09-semantic-layer-in-pieces/rollup_dag.png?v=2 "A frozen rollup built on normalized marts.")A frozen rollup built on normalized marts.
 
 ### 2. Catalog the inputs
 
@@ -110,3 +110,11 @@ dbt Labs’ mission is to create and disseminate organizational knowledge. This 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2024-09-30-hybrid-mesh.md)
+
+[How Hybrid Mesh unlocks dbt collaboration at scale](./2024-09-30-hybrid-mesh.md)
+
+[Older post](./2024-06-14-dag-on-the-internet.md)
+
+[Putting Your DAG on the internet](./2024-06-14-dag-on-the-internet.md)

@@ -1,3 +1,5 @@
+On this page
+
 # Making dbt Cloud API calls using dbt-cloud-cli
 
 May 3, 2022 · 13 min read
@@ -7,8 +9,6 @@ May 3, 2022 · 13 min read
 [Simo Tumelius](./authors/simo-tumelius.md)
 
 Freelance Data and Analytics Engineer
-
-[](https://www.linkedin.com/in/simo-tumelius-00a27a162/ "LinkedIn")
 
 Different from dbt Cloud CLI
 
@@ -317,3 +317,11 @@ PS. There are still API endpoints that haven’t been implemented in the CLI. If
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2022-05-06-slim-ci-cd-with-bitbucket-pipelines.md)
+
+[Slim CI/CD with Bitbucket Pipelines for dbt Core](./2022-05-06-slim-ci-cd-with-bitbucket-pipelines.md)
+
+[Older post](./2022-04-05-when-backend-devs-spark-joy.md)
+
+[From the Slack Archives: When Backend Devs Spark Joy for Data Folks](./2022-04-05-when-backend-devs-spark-joy.md)

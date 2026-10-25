@@ -1,3 +1,5 @@
+On this page
+
 # Why you should specify a production environment in dbt Cloud
 
 November 14, 2023 · 5 min read
@@ -7,8 +9,6 @@ November 14, 2023 · 5 min read
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 You can now specify a Staging environment too!
 
@@ -54,7 +54,7 @@ By using the environment as the arbiter of state, any time a change is made to y
 
 ## The easiest way to break apart your jobs
 
-[![A chart showing the interplay of Data Warehouse, git repo and dbt Cloud project across Dev, CI and Prod environments.](/img/blog/2023-11-06-differentiate-prod-and-staging-environments/data-landscape.png?v=2 "Your organization's data landscape should separate Dev, CI and Prod environments. To achieve this, configure your data warehouse, git repo and dbt Cloud account as shown above.")](#)Your organization's data landscape should separate Dev, CI and Prod environments. To achieve this, configure your data warehouse, git repo and dbt Cloud account as shown above.
+![A chart showing the interplay of Data Warehouse, git repo and dbt Cloud project across Dev, CI and Prod environments.](/img/blog/2023-11-06-differentiate-prod-and-staging-environments/data-landscape.png?v=2 "Your organization's data landscape should separate Dev, CI and Prod environments. To achieve this, configure your data warehouse, git repo and dbt Cloud account as shown above.")Your organization's data landscape should separate Dev, CI and Prod environments. To achieve this, configure your data warehouse, git repo and dbt Cloud account as shown above.
 
 For most projects, changing from a job-centric to environment-centric approach to metadata is straightforward and immediately pays dividends as described above. Assuming that your Staging/CI and Production jobs are currently intermingled, you can extricate them as follows:
 
@@ -73,3 +73,11 @@ Take a few minutes to clean up your environments - it'll make all the difference
 **Tags:**
 
 * [dbt Cloud](./tags/dbt-cloud.md)
+
+[Newer post](./2023-12-12-product-analytics-pipeline-with-dbt-semantic-layer.md)
+
+[How we built consistent product launch metrics with the dbt Semantic Layer](./2023-12-12-product-analytics-pipeline-with-dbt-semantic-layer.md)
+
+[Older post](./2023-10-31-to-defer-or-to-clone.md)
+
+[To defer or to clone, that is the question](./2023-10-31-to-defer-or-to-clone.md)

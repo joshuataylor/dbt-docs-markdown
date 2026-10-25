@@ -8,15 +8,11 @@ July 3, 2023 · 15 min read
 
 Analytics Engineer at Infinite Lambda
 
-[](https://www.linkedin.com/in/rastislav-zdechovan/ "LinkedIn")
-
 [![Sean McIntyre](/img/blog/authors/sean_mcintyre.jpg)](./authors/sean-mcintyre.md)
 
 [Sean McIntyre](./authors/sean-mcintyre.md)
 
 Senior Solutions Architect at dbt Labs
-
-[](https://www.linkedin.com/in/boxysean/ "LinkedIn")
 
 Data Vault 2.0 is a data modeling technique designed to help scale large data warehousing projects. It is a rigid, prescriptive system detailed vigorously in [a book](https://www.amazon.com/Building-Scalable-Data-Warehouse-Vault/dp/0128025107) that has become the bible for this technique.
 
@@ -30,7 +26,7 @@ A new development in the city? No problem! Just hook up the new pipes to the res
 
 Data Vault is the dam and reservoir: it is the well-engineered data model to structure an organization’s data from source systems for use by downstream data projects – rather than each team collecting data straight from the source. The Data Vault data model is designed using a few well-applied principles, and in practice, pools source data so it is available for use by all downstream consumers. This promotes a scalable data warehouse through reusability and modularity.
 
-[![Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney](/img/blog/2023-07-03-data-vault-2-0-with-dbt-cloud/reservoir-dam-hallucination.png?v=2 "Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney")](#)Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney
+![Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney](/img/blog/2023-07-03-data-vault-2-0-with-dbt-cloud/reservoir-dam-hallucination.png?v=2 "Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney")Artist depiction of Data Vault reservoir and dam analogy courtesy of Gwen Windflower and Midjourney
 
 ## Data Vault components
 
@@ -143,7 +139,7 @@ Within the [dq\_tools](https://hub.getdbt.com/infinitelambda/dq_tools/latest/) \
 
 To help you get started, [we have created a template GitHub project](https://github.com/infinitelambda/dbt-data-vault-template) you can utilize to understand the basic principles of building Data Vault with dbt Cloud using one of the abovementioned packages. But if you need help building your Data Vault, get in touch.
 
-[![Friends don't let friends make a data dungeon](/img/blog/2023-07-03-data-vault-2-0-with-dbt-cloud/data-dungeon-meme.jpeg?v=2 "Friends don't let friends make a data dungeon")](#)Friends don't let friends make a data dungeon
+![Friends don't let friends make a data dungeon](/img/blog/2023-07-03-data-vault-2-0-with-dbt-cloud/data-dungeon-meme.jpeg?v=2 "Friends don't let friends make a data dungeon")Friends don't let friends make a data dungeon
 
 ### Entity Relation Diagrams (ERDs) and dbt
 
@@ -159,3 +155,11 @@ Choosing the right methodology for building your data warehouse is crucial for y
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2023-07-18-create-dbt-documentation-10x-faster-with-ChatGPT.md)
+
+[Create dbt Documentation and Tests 10x faster with ChatGPT](./2023-07-18-create-dbt-documentation-10x-faster-with-ChatGPT.md)
+
+[Older post](./2023-06-13-historical-user-segmentation.md)
+
+[Building a historical user segmentation model with dbt](./2023-06-13-historical-user-segmentation.md)

@@ -1,3 +1,5 @@
+On this page
+
 # The Catalog Linked Database Diaries: On Freshness and Writes
 
 March 26, 2026 · 7 min read
@@ -91,3 +93,11 @@ And finally, we can’t close without giving a nod to the Unity Catalog team for
 
 * [iceberg](./tags/iceberg.md)
 * [catalogs](./tags/catalogs.md)
+
+[Newer post](./2026-04-07-semantic-layer-vs-text-to-sql-2026.md)
+
+[Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update](./2026-04-07-semantic-layer-vs-text-to-sql-2026.md)
+
+[Older post](./2026-02-05-dbt-agent-skills.md)
+
+[Make your AI better at data work with dbt's agent skills](./2026-02-05-dbt-agent-skills.md)

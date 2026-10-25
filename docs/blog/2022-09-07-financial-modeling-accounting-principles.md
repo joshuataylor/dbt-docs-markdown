@@ -1,3 +1,5 @@
+On this page
+
 # Leverage Accounting Principles when Modeling Financial Data
 
 September 7, 2022 · 14 min read
@@ -7,8 +9,6 @@ September 7, 2022 · 14 min read
 [Joe Markiewicz](./authors/joe-markiewicz.md)
 
 Analytics Engineering Manager (Fivetran dbt package maintainer) at Fivetran
-
-[](https://www.linkedin.com/in/joseph-markiewicz-8224a990/ "LinkedIn")[](https://x.com/JoeMarkiewicz17 "X")
 
 Analyzing financial data is rarely ever “fun.” In particular, generating and analyzing financial statement data can be extremely difficult and leaves little room for error. If you've ever had the misfortune of having to generate financial reports for multiple systems, then you will understand how incredibly frustrating it is to reinvent the wheel each time.
 
@@ -50,7 +50,7 @@ Similarly, the header and line item detail table schema version is great for und
 
 Regardless of which scenario you find your financial data in, it is best to take some time to gain an understanding of the schema design. The next step is going to involve using the raw table(s) to begin the financial modeling journey.
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/hobbit-adventure.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/hobbit-adventure.gif?v=2)
 
 ## Step 2: Generating the General Ledger/Transaction Detail Report
 
@@ -94,7 +94,7 @@ Once you ensure you’re properly accounting for the double entry method in the 
 
 At this point, regardless of which schema design you began with, you should be at the same place with a single table that contains all your transactions (and their offsetting entry) across the company! Now you can start joining in your dimensional fields such as vendor name, account name, account type, and account classification to name a few. Okay, now that I mention account classification, it is a crucial component for building your end financial models and I should talk more about it.
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/top-gun-classified.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/top-gun-classified.gif?v=2)
 
 ## Step 3: Verify the Account Classifications
 
@@ -104,7 +104,7 @@ Sometimes you will get lucky and the account classification will be provided wit
 
 Once you verify, or create, the account classification field, you are safe to join the account (and other dimensional) tables with your General Ledger table. Now that everything is joined together, you will start to see the tapestry of the financial history unfolding before your eyes. Beautiful, isn’t it. Time really flies when you are having fun. Actually, now that I am on the topic of time, I can’t wait to talk about the next step. Aggregating your General Ledger data by a date period!
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/office-its-a-date.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/office-its-a-date.gif?v=2)
 
 ## Step 4: General Ledger by Period and the Date Spine
 
@@ -126,7 +126,7 @@ I recommend referencing the dbt\_quickbooks [general\_ledger\_balances](https://
 
 There has been a lot to retain up to this point, but you are almost ready to finish the process and generate the final financial statements without any additional adjustments. Before you get there, you need to capture the Retained Earnings/Adjusted Income entries!
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/crown-adjustment.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/crown-adjustment.gif?v=2)
 
 ## Step 5: Retained Earnings / Adjusted Income
 
@@ -136,7 +136,7 @@ Thankfully, the bulk of the heavy lifting has already been completed in Step 4 a
 
 With that, you are finally at the last piece of aggregating the General Ledger by Period! Combining the Retained Earnings/Adjusted Income model with the General Ledger by Period model.
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/captain-planet-combine.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/captain-planet-combine.gif?v=2)
 
 ## Step 6: Finish the General Ledger by Period Model
 
@@ -144,7 +144,7 @@ Union the General Ledger by Period model with your Retained Earnings/Adjusted In
 
 Now you can finally move into the last steps and generate the Balance Sheet and Income Statement/Profit and Loss statements.
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/devil-prada-glacial-pace.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/devil-prada-glacial-pace.gif?v=2)
 
 ## Step 7: Generate the Balance Sheet Report
 
@@ -152,7 +152,7 @@ To create the Balance Sheet, you can now simply reference your General Ledger by
 
 Wow that was easy. It can’t be that simple to generate the Income Statement/Profit and Loss report, right?
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/supranos-bada-bing.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/supranos-bada-bing.gif?v=2)
 
 ## Step 8: Generate the Income Statement / Profit and Loss Report
 
@@ -160,13 +160,13 @@ To create the Income Statement/Profit and Loss report you can now simply referen
 
 Geez, I wasn't kidding. It really is that easy!
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/supranos-boom.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/supranos-boom.gif?v=2)
 
 # That’s a wrap!
 
 You just walked through a *quick* 8 step process to take your financial data from raw to comprehensive financial statements. I have little doubts you are currently being given a calzone party by your entire Finance team for generating the perfect financial reports!
 
-[![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/parks-and-rec-ben-wyatt.gif?v=2)](#)
+![](/img/blog/2022-09-07-leverage-accounting-principles-when-financial-modeling/parks-and-rec-ben-wyatt.gif?v=2)
 
 This is by no means a simple process, but the silver lining is that this is similarly performed by countless other analysts. You now have the knowledge to go forth and wrangle your own financial data with the same principles other analysts have used. Additionally, with the advent of dbt packages you can directly leverage the past work of other analysts by using the pre-built financial models without any modifications on your end!
 
@@ -177,3 +177,11 @@ In the end, these outlined core principles and packages are intended to be lever
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-09-08-marie-kondo-query-migration.md)
+
+[KonMari your data: Planning a query migration using the Marie Kondo method](./2022-09-08-marie-kondo-query-migration.md)
+
+[Older post](./2022-08-31-dbt-product-update-2022-august.md)
+
+[August 2022 dbt Update: v1.3 beta, Tech Partner Program, and Coalesce!](./2022-08-31-dbt-product-update-2022-august.md)

@@ -1,3 +1,5 @@
+On this page
+
 # Why I wish I had a control plane for my renovation
 
 January 21, 2025 · 4 min read
@@ -8,11 +10,9 @@ January 21, 2025 · 4 min read
 
 Senior Solutions Architect at dbt Labs
 
-[](https://www.linkedin.com/in/markwwan/ "LinkedIn")
-
 When my wife and I renovated our home, we chose to take on the role of owner-builder. It was a bold (and mostly naive) decision, but we wanted control over every aspect of the project. What we didn’t realize was just how complex and exhausting managing so many moving parts would be.
 
-[![My wife pondering our sanity](/img/blog/2024-12-22-why-i-wish-i-had-a-control-plane-for-my-renovation/control-plane.png?v=2 "My wife pondering our sanity")](#)My wife pondering our sanity
+![My wife pondering our sanity](/img/blog/2024-12-22-why-i-wish-i-had-a-control-plane-for-my-renovation/control-plane.png?v=2 "My wife pondering our sanity")My wife pondering our sanity
 
 We had to coordinate multiple elements:
 
@@ -67,3 +67,11 @@ dbt Cloud is like having that design-and-build firm for your data pipelines. It�
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data\_ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2025-01-23-the-levels-of-sql-comprehension.md)
+
+[The Three Levels of SQL Comprehension: What they are and why you need to know about them](./2025-01-23-the-levels-of-sql-comprehension.md)
+
+[Older post](./2024-12-09-test-smarter-where-tests-should-go.md)
+
+[Test smarter not harder: Where should tests go in your pipeline?](./2024-12-09-test-smarter-where-tests-should-go.md)

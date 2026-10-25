@@ -1,3 +1,5 @@
+On this page
+
 # How Hybrid Mesh unlocks dbt collaboration at scale
 
 September 30, 2024 · 7 min read
@@ -7,8 +9,6 @@ September 30, 2024 · 7 min read
 [Jason Ganz](./authors/jason-ganz.md)
 
 Director of Community, Developer Experience & AI at dbt Labs
-
-[](https://x.com/jasnonaz "X")
 
 One of the most important things that dbt does is unlock the ability for teams to collaborate on creating and disseminating organizational knowledge.
 
@@ -34,7 +34,7 @@ The flexibility of dbt Mesh means that it can support [a wide variety of pattern
 
 Each team will fully own its dbt code, from development through deployment, using the product that is appropriate to their needs and capabilities *while sharing data products across teams using both dbt Core and dbt Cloud.*
 
-[![A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.](/img/blog/2024-09-30-hybrid-mesh/hybrid-mesh.png?v=2 "A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.")](#)A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.
+![A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.](/img/blog/2024-09-30-hybrid-mesh/hybrid-mesh.png?v=2 "A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.")A before and after diagram highlighting how a Hybrid Mesh allows central data teams using dbt Core to work with domain data teams using dbt Cloud.
 
 Creating a Hybrid Mesh is mostly the same as creating any other [dbt Mesh](../guides/mesh-qs.md?step=1) workflow — there are a few considerations but mostly *it just works*. We anticipate it will continue to see adoption as more central data teams look to onboard their downstream domain teams.
 
@@ -97,3 +97,11 @@ In a world where organizations have complex and ever-changing data needs, there 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2024-10-04-icebeg-is-an-implementation-detail.md)
+
+[Iceberg Is An Implementation Detail](./2024-10-04-icebeg-is-an-implementation-detail.md)
+
+[Older post](./2024-07-10-semantic-layer-in-pieces.md)
+
+[How to build a Semantic Layer in pieces: step-by-step for busy analytics engineers](./2024-07-10-semantic-layer-in-pieces.md)

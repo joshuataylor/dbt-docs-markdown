@@ -1,3 +1,5 @@
+On this page
+
 # Modernizing the Semantic Layer Spec
 
 January 21, 2026 · 5 min read
@@ -7,8 +9,6 @@ January 21, 2026 · 5 min read
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
-
-[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 ## New engine, who dis?
 
@@ -130,3 +130,11 @@ We’re eager for feedback! Reach out in dbt Community Slack in the [`#dbt-seman
 
 * [ai](./tags/ai.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2026-02-05-dbt-agent-skills.md)
+
+[Make your AI better at data work with dbt's agent skills](./2026-02-05-dbt-agent-skills.md)
+
+[Older post](./2025-08-26-building-the-remote-dbt-mcp-server.md)
+
+[Building the Remote dbt MCP Server](./2025-08-26-building-the-remote-dbt-mcp-server.md)

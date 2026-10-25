@@ -1,3 +1,5 @@
+On this page
+
 # Maximum override: Configuring unique connections in dbt Cloud
 
 April 22, 2024 · 6 min read
@@ -7,8 +9,6 @@ April 22, 2024 · 6 min read
 [Gwen Windflower](./authors/gwen-windflower.md)
 
 Senior Developer Experience Advocate
-
-[](https://www.linkedin.com/in/gwenwindflower/ "LinkedIn")[](https://github.com/gwenwindflower "GitHub")
 
 dbt Cloud now includes a suite of new features that enable configuring precise and unique connections to data platforms at the environment and user level. These enable more sophisticated setups, like connecting a project to multiple warehouse accounts, first-class support for [staging environments](../docs/deploy/deploy-environments.md#staging-environment), and user-level [overrides for specific dbt versions](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version). This gives dbt Cloud developers the features they need to tackle more complex tasks, like Write-Audit-Publish (WAP) workflows and safely testing dbt version upgrades. While you still configure a default connection at the project level and per-developer, you now have tools to get more advanced in a secure way. Soon, dbt Cloud will take this even further allowing multiple connections to be set globally and reused with *global connections*.
 
@@ -26,7 +26,7 @@ The **Extended attributes** option is available as a textbox on the **Environmen
 
 The most pressing use case for dbt Cloud users is the ability to use different account connections for different teams or development stages in their pipelines. Let’s consider a team that has a typical dev, staging, production setup (known as a WAP workflow): development for active work with small datasets, staging to promote and vet changes against cloned production data, and production for the final deployed code that feeds BI tools. For this hypothetical team though, these are separate *accounts* in their data platform with their own sets of RBAC and other settings. This is a perfect use case for extended attributes. Let’s take a look at how this team might set this up for a company that uses multiple BigQuery accounts, projects, and datasets (projects and datasets are analogous to databases and schemas on other platforms like Snowflake) to separate dev, staging, and prod:
 
-[![The extended attributes textbox at the bottom of the environment settings.](/img/blog/2024-04-10-extended-attributes/ext_attr.png?v=2 "The extended attributes textbox at the bottom of the environment settings.")](#)The extended attributes textbox at the bottom of the environment settings.
+![The extended attributes textbox at the bottom of the environment settings.](/img/blog/2024-04-10-extended-attributes/ext_attr.png?v=2 "The extended attributes textbox at the bottom of the environment settings.")The extended attributes textbox at the bottom of the environment settings.
 
 ### Development
 
@@ -70,9 +70,9 @@ Earlier, we touched on staging environments in discussing extended attributes bu
 
 All you need to do is configure an environment as staging and enable the **Defer to staging/production** option in the dbt Cloud IDE. Doing this will favor a staging environment over prod if you have one set up.
 
-[![Setting an environment to staging type.](/img/blog/2024-04-10-extended-attributes/env_settings.png?v=2 "Setting an environment to staging type.")](#)Setting an environment to staging type.
+![Setting an environment to staging type.](/img/blog/2024-04-10-extended-attributes/env_settings.png?v=2 "Setting an environment to staging type.")Setting an environment to staging type.
 
-[![Toggle to turn on deferral to staging or production environment.](/img/blog/2024-04-10-extended-attributes/defer_to_stage.png?v=2 "Toggle to turn on deferral to staging or production environment.")](#)Toggle to turn on deferral to staging or production environment.
+![Toggle to turn on deferral to staging or production environment.](/img/blog/2024-04-10-extended-attributes/defer_to_stage.png?v=2 "Toggle to turn on deferral to staging or production environment.")Toggle to turn on deferral to staging or production environment.
 
 ## Upgrading on a curve
 
@@ -82,13 +82,13 @@ Lastly, let’s consider a more specialized use case. Imagine we have a "tiger t
 
 By default, the development environment is configured to be version 1.6:
 
-[![Development environments configured to v1.6 by default.](/img/blog/2024-04-10-extended-attributes/dbt_version.png?v=2 "Development environments configured to v1.6 by default.")](#)Development environments configured to v1.6 by default.
+![Development environments configured to v1.6 by default.](/img/blog/2024-04-10-extended-attributes/dbt_version.png?v=2 "Development environments configured to v1.6 by default.")Development environments configured to v1.6 by default.
 
 ### Development connection settings
 
 Dave's development connection settings are:
 
-[![Dave's development environment override.](/img/blog/2024-04-10-extended-attributes/dave_version.png?v=2 "Dave's development environment override.")](#)Dave's development environment override.
+![Dave's development environment override.](/img/blog/2024-04-10-extended-attributes/dave_version.png?v=2 "Dave's development environment override.")Dave's development environment override.
 
 ## Launch special
 
@@ -100,3 +100,11 @@ I encourage you to take these new features for a spin by creating a staging envi
 
 * [analytics\_craft](./tags/analytics-craft.md)
 * [dbt\_tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2024-05-02-latest-dbt-stability.md)
+
+[How we're making sure you can confidently switch to the "Latest" release track in dbt Cloud](./2024-05-02-latest-dbt-stability.md)
+
+[Older post](./2024-03-19-dbt-models-with-snowflake-cortex.md)
+
+[LLM-powered Analytics Engineering: How we're using AI inside of our dbt project, today, with no new tools.](./2024-03-19-dbt-models-with-snowflake-cortex.md)

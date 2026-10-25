@@ -1,3 +1,5 @@
+On this page
+
 # To defer or to clone, that is the question
 
 October 31, 2023 · 6 min read
@@ -7,8 +9,6 @@ October 31, 2023 · 6 min read
 [Kshitij Aranke](./authors/kshitij-aranke.md)
 
 Senior Software Engineer at dbt Labs
-
-[](https://www.linkedin.com/in/aranke/ "LinkedIn")
 
 [![Doug Beatty](/img/blog/authors/dbeatty.jpeg)](./authors/doug-beatty.md)
 
@@ -122,3 +122,11 @@ Thanks for reading, and I look forward to seeing what you build with `dbt clone`
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2023-11-14-specify-prod-environment.md)
+
+[Why you should specify a production environment in dbt Cloud](./2023-11-14-specify-prod-environment.md)
+
+[Older post](./2023-08-03-announcing-materialized-views.md)
+
+[Optimizing Materialized Views with dbt](./2023-08-03-announcing-materialized-views.md)

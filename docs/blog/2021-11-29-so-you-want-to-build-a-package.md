@@ -8,8 +8,6 @@ November 29, 2021 · 11 min read
 
 Product Manager at dbt Labs
 
-[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
-
 Packages are the easiest way for a dbt user to contribute code to the dbt community. This is a belief that I hold close as someone who is a contributor to packages and has helped many partners create their own during my time here at dbt Labs.
 
 The reason is simple: packages, as an inherent part of dbt, follow our principle of being built by and for analytics engineers. They’re easy to install, accessible and at the end of the day, it’s just SQL (with sprinklings of git and jinja). You can either share your package with the community or just use it among your teams at your org.
@@ -151,7 +149,7 @@ This is basically pineapple on pizza. It’s an alternative use case where you m
 
 Here is a diagram that shows the workflow. You might notice that this looks a lot like how you might work on a dbt project and you would be absolutely right. Once again, you just need to know dbt and SQL to create a package :)
 
-[![Image alt text](/img/blog/how_to_build_a_package_image_0.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/how_to_build_a_package_image_0.png?v=2 "Image alt text")Image alt text
 
 Now let’s deep dive into what happens in this flow.
 
@@ -208,3 +206,11 @@ Many thanks to our package creators and maintainers that allow me to interview t
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2021-11-29-upgrade-dbt-without-fear.md)
+
+[How to Upgrade dbt Versions (Mostly) Without Fear](./2021-11-29-upgrade-dbt-without-fear.md)
+
+[Older post](./2021-11-29-welcome.md)
+
+[Welcome to the dbt Developer Blog](./2021-11-29-welcome.md)

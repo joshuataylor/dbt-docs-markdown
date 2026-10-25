@@ -1,3 +1,5 @@
+On this page
+
 # LLM-powered Analytics Engineering: How we're using AI inside of our dbt project, today, with no new tools.
 
 March 19, 2024 · 10 min read
@@ -7,8 +9,6 @@ March 19, 2024 · 10 min read
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 ## Cloud Data Platforms make new things possible; dbt helps you put them into production
 
@@ -54,7 +54,7 @@ We already pull Slack data into Snowflake for basic analytics, but having a tria
 
 Once it was finished, it looked like this:
 
-[![An example of some summarized threads for review (lightly edited for anonymity).](/img/blog/2024-02-29-cortex-slack/slack-summaries.png?v=2 "An example of some summarized threads for review (lightly edited for anonymity).")](#)An example of some summarized threads for review (lightly edited for anonymity).
+![An example of some summarized threads for review (lightly edited for anonymity).](/img/blog/2024-02-29-cortex-slack/slack-summaries.png?v=2 "An example of some summarized threads for review (lightly edited for anonymity).")An example of some summarized threads for review (lightly edited for anonymity).
 
 Up to once a day, we'll get a post in our internal Slack with links to a handful of interesting threads for each person's focus areas and a brief summary of the discussion so far. From there, we can go deeper by diving into the thread ourselves, wherever it happens to take place. While developing this I found multiple threads that I wouldn't have found any other way (which was itself a problem, since my model filters out threads once a dbt Labs employee is participating in it, so I kept losing all my testing data).
 
@@ -220,3 +220,11 @@ select * from final
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2024-04-22-configuring-unique-connections-in-dbt-cloud.md)
+
+[Maximum override: Configuring unique connections in dbt Cloud](./2024-04-22-configuring-unique-connections-in-dbt-cloud.md)
+
+[Older post](./2024-02-13-dbt-explorer.md)
+
+[Column-Level Lineage, Model Performance, and Recommendations: ship trusted data products with dbt Explorer](./2024-02-13-dbt-explorer.md)

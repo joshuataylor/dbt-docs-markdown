@@ -1,3 +1,5 @@
+On this page
+
 # dbt + Machine Learning: What makes a great baton pass?
 
 March 10, 2022 · 11 min read
@@ -7,8 +9,6 @@ March 10, 2022 · 11 min read
 [Sung Won Chung](./authors/sung-chung.md)
 
 Solutions Architect at dbt Labs
-
-[](https://www.linkedin.com/in/sungwonchung1/ "LinkedIn")
 
 [![Izzy Erekson](/img/blog/authors/izzy.jpeg)](./authors/izzy-erekson.md)
 
@@ -49,7 +49,7 @@ After some initial planning, I knew we had this raw data living somewhere in our
 
 The ML engineer stepped in from here. She was used to doing her statistics and preprocessing in python [pandas](https://pandas.pydata.org/) and [scikit-learn](https://scikit-learn.org/stable/index.html). Before she opened up her Jupyter notebook, we had a heart-to-heart conversation and realized the same work could be done through dbt. Preprocessing could be done through this [open source dbt package](https://github.com/omnata-labs/dbt-ml-preprocessing/tree/1.1.0/#dbt-ml-preprocessing) and there were plenty of others like it in the [package registry](https://hub.getdbt.com/).
 
-[![Image of table with macro names and connector compatibility](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/macro-names.png?v=2 "Image of table with macro names and connector compatibility")](#)Image of table with macro names and connector compatibility
+![Image of table with macro names and connector compatibility](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/macro-names.png?v=2 "Image of table with macro names and connector compatibility")Image of table with macro names and connector compatibility
 
 The ML engineer got the preprocessing steps (think: one-hot encoding, feature scaling, imputation) finalized. She used SQL to read the dbt models (tables) into a Jupyter notebook to perform model training. After iterating on the machine learning models and tracking model fit (think: AUC/Precision/Recall (for classification)), she ran the model over dbt-created tables and output the predicted results as a table in the database. To keep documentation clean, she [configured a source](../docs/build/sources.md) within the dbt project to reflect this predicted results table. It wasn’t intuitive, but it was better than leaving it out of dbt docs.
 
@@ -59,7 +59,7 @@ Finally, she created a dashboard on top of this table to publicize model accurac
 
 Let’s parse out the job-to-be-done we’re seeing in our story.
 
-[![Image flowchart of the story's Jobs to be Done workflow](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/JTBD-workflow.png?v=2 "Image flowchart of the story's Jobs to be Done workflow")](#)Image flowchart of the story's Jobs to be Done workflow
+![Image flowchart of the story's Jobs to be Done workflow](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/JTBD-workflow.png?v=2 "Image flowchart of the story's Jobs to be Done workflow")Image flowchart of the story's Jobs to be Done workflow
 
 | Jobs to be Done                                                                                   | Intended Results                                                             | Role                                               |
 | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -101,9 +101,9 @@ Gluing together notebooks and dbt isn’t the most elegant experience today. It�
 
 My ML engineer would know the quality of input data created by dbt before starting machine learning development. I could schedule this notebook in sync with my dbt jobs and know instantly if my **ML model drift is caused by data quality vs. model logic.** Also, I would create a data app (in Hex) where users plug in different input scenarios that feed into the predictive model. Even better, I could track versions of my ML models deployed over time in Modelbit + Hex and deploy ML external functions as [dbt macros](../docs/build/jinja-macros.md) (by the way: how is this not more normal?!).
 
-[![Image showing the notebook and dbt synchronization](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/notebook-dbt-sync.png?v=2 "Image showing the notebook and dbt synchronization")](#)Image showing the notebook and dbt synchronization
+![Image showing the notebook and dbt synchronization](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/notebook-dbt-sync.png?v=2 "Image showing the notebook and dbt synchronization")Image showing the notebook and dbt synchronization
 
-[![Screenshot of code snippet for modelbit api integration](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/modelbit-api.png?v=2 "Screenshot of code snippet for modelbit api integration")](#)Screenshot of code snippet for modelbit api integration
+![Screenshot of code snippet for modelbit api integration](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/modelbit-api.png?v=2 "Screenshot of code snippet for modelbit api integration")Screenshot of code snippet for modelbit api integration
 
 #### What are the tradeoffs?
 
@@ -135,7 +135,7 @@ My ML engineer and I would get to unite on SQL even more. Wherever the pipeline 
 
 Beyond fixing problems once they arise, this workflow would avoid much of the complexity involved in building ML Ops pipelines: massive amounts of [extra infrastructure](https://dl.acm.org/doi/10.5555/2969442.2969519) (think: where does my python code run?). As a ML engineer, I want to live in a world where I can manage exploration, training, versioning, and inference from one control plane. **In-warehouse ML has the potential to make that real.**
 
-[![Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/lineage-graph.png?v=2 "Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL")](#)Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL
+![Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL](/img/blog/2022-02-18-machine-learning-dbt-baton-pass/lineage-graph.png?v=2 "Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL")Image of lineage graph for unified machine learning and analytics engineering DAG expressed in SQL
 
 #### What are the tradeoffs?
 
@@ -168,3 +168,11 @@ I’m less interested in the tools than understanding if this problem is one we 
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2022-04-05-when-backend-devs-spark-joy.md)
+
+[From the Slack Archives: When Backend Devs Spark Joy for Data Folks](./2022-04-05-when-backend-devs-spark-joy.md)
+
+[Older post](./2022-03-02-founding-an-analytics-engineering-team-smartsheet.md)
+
+[Founding an Analytics Engineering Team](./2022-03-02-founding-an-analytics-engineering-team-smartsheet.md)

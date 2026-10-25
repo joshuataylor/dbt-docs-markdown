@@ -1,3 +1,5 @@
+On this page
+
 # Path to GA: How the dbt Fusion engine rolls out from beta to production
 
 May 28, 2025 · 13 min read
@@ -13,8 +15,6 @@ Principal Product Manager at dbt Labs
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 Today, we announced that the dbt Fusion engine is [available in beta](https://getdbt.com/blog/get-to-know-the-new-dbt-fusion-engine-and-vs-code-extension).
 
@@ -130,7 +130,7 @@ It's worth noting that *resolution* doesn't necessarily mean identical behaviour
 
 Here's a point-in-time snapshot of how we expect to tackle the known remaining work. Please refer to the [repository's issues page](https://github.com/dbt-labs/dbt-fusion/issues) as the source of truth:
 
-[![An indication of the dbt Fusion engine's path to GA](/img/blog/2025-05-28-dbt-v2-engine-path-to-ga/indicative-timeline.png?v=2 "An indication of the dbt Fusion engine's path to GA")](#)An indication of the dbt Fusion engine's path to GA
+![An indication of the dbt Fusion engine's path to GA](/img/blog/2025-05-28-dbt-v2-engine-path-to-ga/indicative-timeline.png?v=2 "An indication of the dbt Fusion engine's path to GA")An indication of the dbt Fusion engine's path to GA
 
 ### Surprise unimplemented features
 
@@ -187,3 +187,11 @@ The path to GA for Fusion is a Community-wide effort. We want to hear from you, 
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2025-05-28-dbt-fusion-engine-components.md)
+
+[The Components of the dbt Fusion engine and how they fit together](./2025-05-28-dbt-fusion-engine-components.md)
+
+[Older post](./2025-05-28-dbt-fusion-engine.md)
+
+[Meet the dbt Fusion Engine: the new Rust-based, industrial-grade engine for dbt](./2025-05-28-dbt-fusion-engine.md)

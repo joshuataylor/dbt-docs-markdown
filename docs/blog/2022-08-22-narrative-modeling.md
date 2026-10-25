@@ -1,3 +1,5 @@
+On this page
+
 # Narrative modeling: How structure can tell a story
 
 August 22, 2022 · 15 min read
@@ -7,8 +9,6 @@ August 22, 2022 · 15 min read
 [Ian Fahey](./authors/ian-fahey.md)
 
 Analytics Engineer at dbt Labs
-
-[](https://www.linkedin.com/in/ianmfahey/ "LinkedIn")
 
 The larger a data ecosystem gets, the more its users and stakeholders expect consistency. As the ratio of data models to team members (to say nothing of stakeholders to team members) skyrockets, an agreed-upon modeling pattern often acts as scaffolding around that growth.
 
@@ -144,7 +144,7 @@ One of the most powerful ways for stakeholders to conceptualize the flow of data
 
 ### Dimensional modeling
 
-[![Untitled](/img/blog/2022-08-22-narrative-modeling/dimensional-modeling-dag.png?v=2 "Untitled")](#)Untitled
+![Untitled](/img/blog/2022-08-22-narrative-modeling/dimensional-modeling-dag.png?v=2 "Untitled")Untitled
 
 In this approach, we have the standard `fct` and `dim` tables and a clean DAG flow. Let’s consider some possible shortcomings:
 
@@ -155,7 +155,7 @@ In general, the dimensional DAG can begin to feel like it’s not for a user who
 
 ### Narrative modeling
 
-[![Untitled](/img/blog/2022-08-22-narrative-modeling/narrative-modeling-dag.png?v=2 "Untitled")](#)Untitled
+![Untitled](/img/blog/2022-08-22-narrative-modeling/narrative-modeling-dag.png?v=2 "Untitled")Untitled
 
 How does this compare to the above?
 
@@ -248,3 +248,11 @@ And so, in the face of battalions of business questions, we can become a host un
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-08-24-managing-surrogate-keys.md)
+
+[Surrogate keys in dbt: Integers or hashes?](./2022-08-24-managing-surrogate-keys.md)
+
+[Older post](./2022-08-18-how-we-shaved-90-minutes-off-model.md)
+
+[How we shaved 90 minutes off our longest running model](./2022-08-18-how-we-shaved-90-minutes-off-model.md)

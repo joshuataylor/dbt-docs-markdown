@@ -1,3 +1,5 @@
+On this page
+
 # Audit\_helper in dbt: Bringing data auditing to a higher level
 
 March 24, 2023 · 15 min read
@@ -28,7 +30,7 @@ It is common for analytics engineers (AE) and data analysts to have to refactor 
 
 Not only is that approach time-consuming, but it is also prone to naive assumptions that values match based on aggregate measures (such as counts or sums). To provide a better, more accurate approach to auditing, dbt Labs has created the `audit_helper` package. `audit_helper` is a package for dbt whose main purpose is to audit data by comparing two tables (the original one versus a refactored model). It uses a simple and intuitive query structure that enables quickly comparing tables based on the column values, row amount, and even column types (for example, to make sure that a given column is numeric in both your table and the original one). Figure 1 graphically displays the workflow and where `audit_helper` is positioned in the refactoring process.
 
-[![Figure 1 — Workflow of auditing process using audit\_helper](/img/blog/2023-03-23-audit-helper/image1.png?v=2 "Figure 1 — Workflow of auditing process using audit_helper")](#)Figure 1 — Workflow of auditing process using audit\_helper
+![Figure 1 — Workflow of auditing process using audit\_helper](/img/blog/2023-03-23-audit-helper/image1.png?v=2 "Figure 1 — Workflow of auditing process using audit_helper")Figure 1 — Workflow of auditing process using audit\_helper
 
 Now that it is clear where the `audit_helper` package is positioned in the refactoring process, it is important to highlight the benefits of using audit\_helper (and ultimately, of auditing refactored models). Among the benefits, we can mention:
 
@@ -71,11 +73,11 @@ According to the `audit_helper` package documentation, this macro comes in handy
 
 When you run the dbt audit model, it will compare all columns, row by row. To count for the match, every column in a row from one source must exactly match a row from another source, as illustrated in the example in Figure 2 below:
 
-[![Figure 2 — Workflow of auditing rows (compare\_queries) using audit\_helper](/img/blog/2023-03-23-audit-helper/image5.png?v=2 "Figure 2 — Workflow of auditing rows (compare_queries) using audit_helper")](#)Figure 2 — Workflow of auditing rows (compare\_queries) using audit\_helper
+![Figure 2 — Workflow of auditing rows (compare\_queries) using audit\_helper](/img/blog/2023-03-23-audit-helper/image5.png?v=2 "Figure 2 — Workflow of auditing rows (compare_queries) using audit_helper")Figure 2 — Workflow of auditing rows (compare\_queries) using audit\_helper
 
 As shown in the example, the model is compared line by line, and in this case, all lines in both models are equivalent and the result should be 100%. Figure 3 below depicts a row in which two of the three columns are equal and only the last column of row 1 has divergent values. In this case, despite the fact that most of row 1 is identical, that row will not be counted towards the final result. In this example, only row 2 and row 3 are valid, yielding a 66.6% match in the total of analyzed rows.
 
-[![Figure 3 — Example of different values](/img/blog/2023-03-23-audit-helper/image4.png?v=2 "Figure 3 — Example of different values")](#)Figure 3 — Example of different values
+![Figure 3 — Example of different values](/img/blog/2023-03-23-audit-helper/image4.png?v=2 "Figure 3 — Example of different values")Figure 3 — Example of different values
 
 As previously stated, for the match to be valid, all column values of a model’s row must be equal to the other model. This is why we sometimes need to exclude columns from the comparison (such as date columns, which can have a time zone difference from the original model to the refactored — we will discuss tips like these below).
 
@@ -120,13 +122,13 @@ Let’s understand the arguments used in the `compare_queries` macro:
 
 3. Replace the sources from the example with your own
 
-   [![Figure 4 — Replace sources path](/img/blog/2023-03-23-audit-helper/image8.png?v=2 "Figure 4 — Replace sources path")](#)Figure 4 — Replace sources path
+   ![Figure 4 — Replace sources path](/img/blog/2023-03-23-audit-helper/image8.png?v=2 "Figure 4 — Replace sources path")Figure 4 — Replace sources path
 
    As illustrated in Figure 4, using the `ref` statements allows you to easily refer to your development model, and using the full data warehouse path makes it easy to refer to the original table (which will be useful when you are refactoring a SQL Server Stored Procedure or Alteryx Workflow that is already being materialized in the data warehouse).
 
 4. Specify your comparison columns
 
-   [![Figure 5 — Delete and write columns name](/img/blog/2023-03-23-audit-helper/image6.png?v=2 "Figure 5 — Delete and write columns name")](#)Figure 5 — Delete and write columns name
+   ![Figure 5 — Delete and write columns name](/img/blog/2023-03-23-audit-helper/image6.png?v=2 "Figure 5 — Delete and write columns name")Figure 5 — Delete and write columns name
 
    Delete the example columns and replace them with the columns of your models, exactly as they are written in each model. You should rename/alias the columns to match, as well as ensuring they are in the same order within the `select` clauses.
 
@@ -148,21 +150,17 @@ Let’s understand the arguments used in the `compare_queries` macro:
 
    The output will be the similar to the one shown in Figure 6 below:
 
-   [![Figure 6 — Output example of compare queries audit model](/img/blog/2023-03-23-audit-helper/image2.png?v=2 "Figure 6 — Output example of compare queries audit model")](#)Figure 6 — Output example of compare queries audit model
-
-   <br />
+   ![Figure 6 — Output example of compare queries audit model](/img/blog/2023-03-23-audit-helper/image2.png?v=2 "Figure 6 — Output example of compare queries audit model")Figure 6 — Output example of compare queries audit model
 
    The output is presented in table format, with each column explained below:
 
-   <br />
+* **IN\_A**: Data present in model A
 
-* **IN\_A**: Data present in model A<br />
+* **IN\_B**: Data present in model B
 
-* **IN\_B**: Data present in model B<br />
+* **COUNT**: Count of number of rows
 
-* **COUNT**: Count of number of rows<br />
-
-* **PERCENT\_OF\_TOTAL**: Percentage of total for all rows<br />
+* **PERCENT\_OF\_TOTAL**: Percentage of total for all rows
 
   In the first row we can see `TRUE` in the column `IN_A` and `TRUE` in the column `IN_B`, which means that in both models, there are 1,966,215 rows with all columns matching values, accounting for 97.65% of the total. The second row shows 20,543 lines from model A that do not directly match with any row in model B, and the third row states conclusively that there are 26,720 lines from model B that do not directly match with any row in model A.
 
@@ -180,7 +178,7 @@ While we can surely rely on that overview to validate the final refactored model
 
 A really useful way to check out which specific columns are driving down the match percentage between tables is the `compare_column_values` macro that allows us to audit column values. This macro requires a primary key column to be set, so it can be used as an anchor to compare entries between the refactored dbt model column and the legacy table column. Figure 7 illustrates how the `compare_column_value`s macro works.
 
-[![Figure 7 — Workflow of auditing rows (compare\_column\_values) using audit\_helper](/img/blog/2023-03-23-audit-helper/image7.png?v=2 "Figure 7 — Workflow of auditing rows (compare_column_values) using audit_helper")](#)Figure 7 — Workflow of auditing rows (compare\_column\_values) using audit\_helper
+![Figure 7 — Workflow of auditing rows (compare\_column\_values) using audit\_helper](/img/blog/2023-03-23-audit-helper/image7.png?v=2 "Figure 7 — Workflow of auditing rows (compare_column_values) using audit_helper")Figure 7 — Workflow of auditing rows (compare\_column\_values) using audit\_helper
 
 The macro’s output summarizes the status of column compatibility, breaking it down into different categories: perfect match, both are null, values do not match, value is null in A only, value is null in B only, missing from A and missing from B. This level of detailing makes it simpler for the AE or data analyst to figure out what can be causing incompatibility issues between the models. While refactoring a model, it is common that some keys used to join models are inconsistent, bringing up unwanted null values on the final model as a result, and that would cause the audit row query to fail, without giving much more detail.
 
@@ -249,7 +247,7 @@ Also, we can see that the example code includes a table printing option enabled 
 
    But unlike from the `compare_queries` macro, if you have kept the printing function enabled, you should expect a table to be printed in the command line when you run the model, as shown in Figure 8. Otherwise, it will be materialized on your data warehouse like this:
 
-   [![Figure 8 — Example of table printed in command line](/img/blog/2023-03-23-audit-helper/image3.png?v=2 "Figure 8 — Example of table printed in command line")](#)Figure 8 — Example of table printed in command line
+   ![Figure 8 — Example of table printed in command line](/img/blog/2023-03-23-audit-helper/image3.png?v=2 "Figure 8 — Example of table printed in command line")Figure 8 — Example of table printed in command line
 
    The `compare_column_values` macro separates column auditing results in seven different labels:
 
@@ -275,3 +273,11 @@ Below, we listed the main references we consulted while writing this article, an
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2023-03-29-guide-to-jinja-debug.md)
+
+[The missing guide to debug() in dbt](./2023-03-29-guide-to-jinja-debug.md)
+
+[Older post](./2023-03-10-bigquery-ingestion-time-partitioning-and-partition-copy-with-dbt.md)
+
+[BigQuery ingestion-time partitioning and partition copy with dbt](./2023-03-10-bigquery-ingestion-time-partitioning-and-partition-copy-with-dbt.md)

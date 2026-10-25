@@ -1,3 +1,5 @@
+On this page
+
 # From the Slack Archives: When Backend Devs Spark Joy for Data Folks
 
 April 5, 2022 · 5 min read
@@ -7,8 +9,6 @@ April 5, 2022 · 5 min read
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
-
-[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 *"I forgot to mention we dropped that column and created a new one for it!”*
 
@@ -22,7 +22,7 @@ Backend developers work incredibly hard. They create the database and tables tha
 
 So what makes strong collaboration possible between analytics engineers and backend application developers?
 
-[![A screenshot of the conversation that started the thread](/img/blog/2022-04-05-when-backend-devs-spark-joy/slack_thread_screenshot.png?v=2 "A screenshot of the conversation that started the thread")](#)A screenshot of the conversation that started the thread
+![A screenshot of the conversation that started the thread](/img/blog/2022-04-05-when-backend-devs-spark-joy/slack_thread_screenshot.png?v=2 "A screenshot of the conversation that started the thread")A screenshot of the conversation that started the thread
 
 *A screenshot of the conversation that started the thread*
 
@@ -73,3 +73,11 @@ Want to read more about what makes data modeling a joy? Make sure to join the [d
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-05-03-making-dbt-cloud-api-calls-using-dbt-cloud-cli.md)
+
+[Making dbt Cloud API calls using dbt-cloud-cli](./2022-05-03-making-dbt-cloud-api-calls-using-dbt-cloud-cli.md)
+
+[Older post](./2022-03-10-maching-learning-dbt-baton-pass.md)
+
+[dbt + Machine Learning: What makes a great baton pass?](./2022-03-10-maching-learning-dbt-baton-pass.md)

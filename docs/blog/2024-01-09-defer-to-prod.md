@@ -1,3 +1,5 @@
+On this page
+
 # More time coding, less time waiting: Mastering defer in dbt
 
 January 9, 2024 · 9 min read
@@ -7,8 +9,6 @@ January 9, 2024 · 9 min read
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
-
-[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 Picture this — you’ve got a massive dbt project, thousands of models chugging along, creating actionable insights for your stakeholders. A ticket comes your way — a model needs to be refactored! "No problem," you think to yourself, "I will simply make that change and test it locally!" You look at your lineage, and realize this model is many layers deep, buried underneath a long chain of tables and views.
 
@@ -49,15 +49,15 @@ Let’s think back to the hypothetical above — what if we made use of the prod
 
 Let’s take a look at a simplified example — let’s say your project looks like this in production:
 
-[![A simplified dbt project running in production.](/img/blog/2024-01-09-defer-in-development/prod-environment-plain.png?v=2 "A simplified dbt project running in production.")](#)A simplified dbt project running in production.
+![A simplified dbt project running in production.](/img/blog/2024-01-09-defer-in-development/prod-environment-plain.png?v=2 "A simplified dbt project running in production.")A simplified dbt project running in production.
 
 And you’re tasked with making changes to `model_f`. Without defer, you would need to make sure to at minimum execute a `dbt run -s +model_f` to ensure all the upstream dependencies of `model_f` are present in your development schema so that you can start to run `model_f`.\* You just spent a whole bunch of time and money duplicating your models, and now your warehouse looks like this:
 
-[![The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!](/img/blog/2024-01-09-defer-in-development/prod-and-dev-full.png?v=2 "The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!")](#)The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!
+![The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!](/img/blog/2024-01-09-defer-in-development/prod-and-dev-full.png?v=2 "The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!")The whole project has been rebuilt into the dev schema, which can be time consuming and expensive!
 
 With defer, we should not build anything other than the models that have changed, and are now different from their production counterparts! Let’s tell dbt to use production metadata to resolve our refs, and only build the model I have changed — that command would be `dbt run -s model_f --defer` .\*\*
 
-[![Using defer, we can only build one single model](/img/blog/2024-01-09-defer-in-development/prod-and-dev-defer.png?v=2 "Using defer, we can only build one single model")](#)Using defer, we can only build one single model
+![Using defer, we can only build one single model](/img/blog/2024-01-09-defer-in-development/prod-and-dev-defer.png?v=2 "Using defer, we can only build one single model")Using defer, we can only build one single model
 
 This results in a *much slimmer build* — we read data in directly from the production version of `model_b` and `model_c`, and don’t have to worry about building anything other than what we selected!
 
@@ -71,7 +71,7 @@ dbt Cloud offers a seamless deferral experience in both the dbt Cloud IDE and th
 
 In the dbt Cloud IDE, there’s as simple toggle switch labeled `Defer to production`. Simply enabling this toggle will defer your command to the production environment when you run any dbt command in the IDE!
 
-[![The defer to prod toggle in the IDE](/img/blog/2024-01-09-defer-in-development/defer-toggle.png?v=2 "The defer to prod toggle in the IDE")](#)The defer to prod toggle in the IDE
+![The defer to prod toggle in the IDE](/img/blog/2024-01-09-defer-in-development/defer-toggle.png?v=2 "The defer to prod toggle in the IDE")The defer to prod toggle in the IDE
 
 The cloud CLI has this setting *on by default* — there’s nothing else you need to do to set this up! If you prefer not to defer, you can pass the `--no-defer` flag to override this behavior. You can also set an environment other than your production environment as the deferred to environment in your `dbt-cloud` settings in your `dbt_project.yml` :
 
@@ -91,13 +91,13 @@ One of the major gotchas in the defer workflow is that when you’re in defer mo
 
 Let’s take a look at that example above again, and pretend that some time before we went to make this edit, we did some work on `model_c`, and we have a local copy of `model_c` hanging out in our development schema:
 
-[![Hypothetical starting point, with a development copy of model\_c in the development schema at the start of the development cycle.](/img/blog/2024-01-09-defer-in-development/prod-and-dev-model-c.png?v=2 "Hypothetical starting point, with a development copy of model_c in the development schema at the start of the development cycle.")](#)Hypothetical starting point, with a development copy of model\_c in the development schema at the start of the development cycle.
+![Hypothetical starting point, with a development copy of model\_c in the development schema at the start of the development cycle.](/img/blog/2024-01-09-defer-in-development/prod-and-dev-model-c.png?v=2 "Hypothetical starting point, with a development copy of model_c in the development schema at the start of the development cycle.")Hypothetical starting point, with a development copy of model\_c in the development schema at the start of the development cycle.
 
 When you run `dbt run -s model_f --defer` , dbt will detect the development copy of `model_c` and say “Hey, y’know, I bet Dave is working on that model too, and he probably wants to make sure his changes to `model_c` work together with his changes to `model_f` . Because I am a kind and benevolent data transformation tool, i’ll make sure his `{{ ref('model_c') }]` function compiles to his development changes!” Thanks dbt!
 
 As a result, we’ll effectively see this behavior when we run our command:
 
-[![With a development version of model\_a in our dev schema, dbt will preferentially use that version instead of deferring](/img/blog/2024-01-09-defer-in-development/prod-and-dev-mixed.png?v=2 "With a development version of model_a in our dev schema, dbt will preferentially use that version instead of deferring")](#)With a development version of model\_a in our dev schema, dbt will preferentially use that version instead of deferring
+![With a development version of model\_a in our dev schema, dbt will preferentially use that version instead of deferring](/img/blog/2024-01-09-defer-in-development/prod-and-dev-mixed.png?v=2 "With a development version of model_a in our dev schema, dbt will preferentially use that version instead of deferring")With a development version of model\_a in our dev schema, dbt will preferentially use that version instead of deferring
 
 Where our code would compile from
 
@@ -146,10 +146,18 @@ While defer is a faster and cheaper option for most folks in most situations, de
 
 ### Call me Willem Defer
 
-[![Willem Dafoe after using the \`-—defer\` flag](/img/blog/2024-01-09-defer-in-development/willem.png?v=2 "Willem Dafoe after using the `-—defer` flag")](#)Willem Dafoe after using the \`-—defer\` flag
+![Willem Dafoe after using the \`-—defer\` flag](/img/blog/2024-01-09-defer-in-development/willem.png?v=2 "Willem Dafoe after using the `-—defer` flag")Willem Dafoe after using the \`-—defer\` flag
 
 Defer to prod is a powerful way to improve your development velocity with dbt, and dbt Cloud makes it easier than ever to make use of this feature! You too could look this cool while you’re saving time and money developing on your dbt projects!
 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2024-01-15-deprecation-of-dbt-server.md)
+
+[Deprecation of dbt Server](./2024-01-15-deprecation-of-dbt-server.md)
+
+[Older post](./2023-12-20-integrating-with-dbtcloud.md)
+
+[How to integrate with dbt](./2023-12-20-integrating-with-dbtcloud.md)

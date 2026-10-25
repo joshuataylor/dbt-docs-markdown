@@ -1,3 +1,5 @@
+On this page
+
 # October 2021 dbt Update: Metrics and Hat Tricks 🎩
 
 October 15, 2021 · 5 min read
@@ -7,8 +9,6 @@ October 15, 2021 · 5 min read
 [Lauren Craigie](./authors/lauren-craigie.md)
 
 Product Marketing at dbt Labs
-
-[](https://x.com/crai_fish "X")
 
 February 2024 Update
 
@@ -93,4 +93,12 @@ The Model Timing tab in dbt Cloud highlights models taking particularly long to 
 
 That's all for now! Thanks for reading, and as always, *let me know if there's anything else you want to see in these updates!*
 
-*Lauren Craigie*<br />*Director of Product Marketing, dbt Labs*
+*Lauren Craigie* *Director of Product Marketing, dbt Labs*
+
+[Newer post](./2021-11-15-dbt-product-update-2021-november.md)
+
+[November 2021 dbt Update: v1.0, Environment Variables, and a Question About the Size of Waves 🌊](./2021-11-15-dbt-product-update-2021-november.md)
+
+[Older post](./2021-09-15-dbt-product-update-2021-september.md)
+
+[September 2021 dbt Update: DAG in the IDE + Metadata API in GA](./2021-09-15-dbt-product-update-2021-september.md)

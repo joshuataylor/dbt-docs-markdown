@@ -1,3 +1,5 @@
+On this page
+
 # How to Configure Your dbt Repository (One or Many)?
 
 February 9, 2021 · 8 min read
@@ -7,8 +9,6 @@ February 9, 2021 · 8 min read
 [Amy Chen](./authors/amy-chen.md)
 
 Product Manager at dbt Labs
-
-[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
 
 At dbt Labs, as more folks adopt dbt, we have started to see more and more use cases that push the boundaries of our established best practices. This is especially true to those adopting dbt in the enterprise space.
 
@@ -51,7 +51,7 @@ The answers to these questions should help you navigate through the four options
 
 ***
 
-[![One repository](/img/blog/monorepo-52954083da8268c53f27a578b4b5722b35803b03_2_624x439.png?v=2 "One repository")](#)One repository
+![One repository](/img/blog/monorepo-52954083da8268c53f27a578b4b5722b35803b03_2_624x439.png?v=2 "One repository")One repository
 
 This is the most common structure we see for dbt repository configuration. Though the illustration separates models by business unit, all of the SQL files are stored and organized in a single repository.
 
@@ -77,7 +77,7 @@ This is our most time tested option and our most recommended. However, we have s
 
 ***
 
-[![Separate repository](/img/blog/monorepo-3d6f91c1ab275d953417d2239f66e8f81bad7078_2_600x217.png?v=2 "Separate repository")](#)Separate repository
+![Separate repository](/img/blog/monorepo-3d6f91c1ab275d953417d2239f66e8f81bad7078_2_600x217.png?v=2 "Separate repository")Separate repository
 
 This is one of the first structures we see people move toward when they “outgrow” the mono repo: there is one “core” repository that is incorporated into team specific repositories as a package. If you aren’t familiar with packages, [see the documentation](https://docs.getdbt.com/docs/build/packages/) for more information.
 
@@ -111,7 +111,7 @@ This is the option I recommend the most when one must stray away from Option 2. 
 
 ***
 
-[![Completely separate repos](/img/blog/monorepo-7f6c787766d980479e44a0419e845bc2fc80fa1a_2_296x390.png?v=2 "Completely separate repos")](#)Completely separate repos
+![Completely separate repos](/img/blog/monorepo-7f6c787766d980479e44a0419e845bc2fc80fa1a_2_296x390.png?v=2 "Completely separate repos")Completely separate repos
 
 Then, there is the “don’t allow any overlap” complete separation of repositories within a single organization.
 
@@ -133,7 +133,7 @@ There is a time and a place where this makes sense but you start to lose the reu
 
 ***
 
-[![Separate team repositories](/img/blog/monorepo-275ba0c84ef31370a57f125ac13a0cbcb808af9a_2_600x365.png?v=2 "Separate team repositories")](#)Separate team repositories
+![Separate team repositories](/img/blog/monorepo-275ba0c84ef31370a57f125ac13a0cbcb808af9a_2_600x365.png?v=2 "Separate team repositories")Separate team repositories
 
 This approach is nearly identical to the former (completely separate repositories) but solves one of the weaknesses (“incomplete lineage/documentation”) by introducing an additional repository. If you need something akin to Option 3, this is the better approach.
 
@@ -166,3 +166,11 @@ All of the above configurations “work”. And as detailed, they each solve for
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2021-09-15-dbt-product-update-2021-september.md)
+
+[September 2021 dbt Update: DAG in the IDE + Metadata API in GA](./2021-09-15-dbt-product-update-2021-september.md)
+
+[Older post](./2020-07-01-how-to-create-near-real-time-models-with-just-dbt-sql.md)
+
+[How to Create Near Real-time Models With Just dbt + SQL](./2020-07-01-how-to-create-near-real-time-models-with-just-dbt-sql.md)

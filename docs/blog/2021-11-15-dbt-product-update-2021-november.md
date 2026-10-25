@@ -1,3 +1,5 @@
+On this page
+
 # November 2021 dbt Update: v1.0, Environment Variables, and a Question About the Size of Waves 🌊
 
 November 15, 2021 · 3 min read
@@ -7,8 +9,6 @@ November 15, 2021 · 3 min read
 [Lauren Craigie](./authors/lauren-craigie.md)
 
 Product Marketing at dbt Labs
-
-[](https://x.com/crai_fish "X")
 
 Hi there,
 
@@ -67,4 +67,12 @@ Hear their take, and share your own by [registering here](https://coalesce.getdb
 
 That's all for now! See you at Coalesce!
 
-*Lauren Craigie*<br />*Director of Product Marketing, dbt Labs*
+*Lauren Craigie* *Director of Product Marketing, dbt Labs*
+
+[Newer post](./2021-11-15-sql-union-all.md)
+
+[Towards an Error-free UNION ALL](./2021-11-15-sql-union-all.md)
+
+[Older post](./2021-10-15-dbt-product-update-2021-october.md)
+
+[October 2021 dbt Update: Metrics and Hat Tricks 🎩](./2021-10-15-dbt-product-update-2021-october.md)

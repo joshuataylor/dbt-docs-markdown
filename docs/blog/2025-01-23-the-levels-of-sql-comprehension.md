@@ -1,3 +1,5 @@
+On this page
+
 # The Three Levels of SQL Comprehension: What they are and why you need to know about them
 
 January 23, 2025 · 9 min read
@@ -7,8 +9,6 @@ January 23, 2025 · 9 min read
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 Ever since [dbt Labs acquired SDF Labs last week](https://www.getdbt.com/blog/dbt-labs-acquires-sdf-labs), I've been head-down diving into their technology and making sense of it all. The main thing I knew going in was "SDF understands SQL". It's a nice pithy quote, but the specifics are *fascinating.*
 
@@ -56,7 +56,7 @@ To tools at lower levels of comprehension, some elements of a query are effectiv
 
 ### Level 1: Parsing
 
-[![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_1.png?v=2)](#)
+![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_1.png?v=2)
 
 A parser recognizes that a function called `dateadd` has been called with three arguments, and knows the contents of those arguments.
 
@@ -66,7 +66,7 @@ Parsers are intentionally flexible in what they will consume - their purpose is 
 
 ### Level 2: Compiling
 
-[![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_2.png?v=2)](#)
+![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_2.png?v=2)
 
 Extending beyond a parser, a compiler *does* know the function signatures. It knows that on Snowflake, `dateadd` is a function which takes three arguments: a `datepart`, an `integer`, and an `expression` (in that order).
 
@@ -74,7 +74,7 @@ A compiler also knows what types a function can return without actually running 
 
 ### Level 3: Executing
 
-[![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_3.png?v=2)](#)
+![](/img/blog/2025-01-23-levels-of-sql-comprehension/level_3.png?v=2)
 
 A tool with execution capabilities knows everything about this query and the data that is passed into it, including how functions are implemented. Therefore it can perfectly represent the results as run on Snowflake. Again, that’s what databases do. A database is a Level 3 tool.
 
@@ -82,7 +82,7 @@ A tool with execution capabilities knows everything about this query and the dat
 
 Let’s review the increasing validation capabilities unlocked by each level of comprehension, and notice that over time **the black boxes completely disappear**:
 
-[![](/img/blog/2025-01-23-levels-of-sql-comprehension/validation_all_levels.png?v=2)](#)
+![](/img/blog/2025-01-23-levels-of-sql-comprehension/validation_all_levels.png?v=2)
 
 In a toy example like this one, the distinctions between the different levels might feel subtle. As you move away from a single query and into a full-scale project, the functionality gaps become more pronounced. That’s hard to demonstrate in a blog post, but fortunately there’s another easier option: look at some failing queries. How the query is broken impacts what level of tool is necessary to recognize the error.
 
@@ -149,3 +149,11 @@ This is a special moment for the industry and the community. It's alive with pos
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2025-01-24-sql-comprehension-technologies.md)
+
+[The key technologies behind SQL Comprehension](./2025-01-24-sql-comprehension-technologies.md)
+
+[Older post](./2025-01-21-wish-i-had-a-control-plane-for-my-renovation.md)
+
+[Why I wish I had a control plane for my renovation](./2025-01-21-wish-i-had-a-control-plane-for-my-renovation.md)

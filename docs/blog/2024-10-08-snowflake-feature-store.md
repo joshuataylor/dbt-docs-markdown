@@ -1,3 +1,5 @@
+On this page
+
 # Snowflake feature store and dbt: A bridge between data pipelines and ML
 
 October 8, 2024 · 14 min read
@@ -8,15 +10,11 @@ October 8, 2024 · 14 min read
 
 Senior Partner Sales Engineer at Snowflake
 
-[](https://www.linkedin.com/in/randypettus/ "LinkedIn")
-
 [![Luis Leon](/img/blog/authors/luis-leon.png)](./authors/luis-leon.md)
 
 [Luis Leon](./authors/luis-leon.md)
 
 Partner Solutions Architect at dbt Labs
-
-[](https://www.linkedin.com/in/luis-leon-03965463/ "LinkedIn")
 
 Flying home into Detroit this past week working on this blog post on a plane and saw for the first time, the newly connected deck of the Gordie Howe International [bridge](https://www.freep.com/story/news/local/michigan/detroit/2024/07/24/gordie-howe-bridge-deck-complete-work-moves-to-next-phase/74528258007/) spanning the Detroit River and connecting the U.S. and Canada. The image stuck out because, in one sense, a feature store is a bridge between the clean, consistent datasets and the machine learning models that rely upon this data. But, more interesting than the bridge itself is the massive process of coordination needed to build it. This construction effort — I think — can teach us more about processes and the need for feature stores in machine learning (ML).
 
@@ -200,7 +198,7 @@ customer_transactions_fv = fs.register_feature_view(
 
 Now, with features created, teams can view their features directly in the Snowflake UI, as shown below. This enables teams to easily search and browse features, all governed through Snowflake’s role-based access control (RBAC).
 
-[![Example of Snowflake UI](/img/blog/example-snowflake-ui.png?v=2 "Example of Snowflake UI")](#)Example of Snowflake UI
+![Example of Snowflake UI](/img/blog/example-snowflake-ui.png?v=2 "Example of Snowflake UI")Example of Snowflake UI
 
 ### Generate training dataset
 
@@ -229,7 +227,7 @@ train_dataset = fs.generate_dataset(
 
 Now that we have produced the training dataset, let’s see what it looks like.
 
-[![Example of training dataset](/img/blog/example-training-data-set.png?v=2 "Example of training dataset")](#)Example of training dataset
+![Example of training dataset](/img/blog/example-training-data-set.png?v=2 "Example of training dataset")Example of training dataset
 
 ### Train and deploy a model
 
@@ -259,7 +257,7 @@ inference_dataset.to_pandas()
 
 Here’s an example view of our features produced for model inferencing.
 
-[![Example of training data set](/img/blog/example-features-produced.png?v=2 "Example of training data set")](#)Example of training data set
+![Example of training data set](/img/blog/example-features-produced.png?v=2 "Example of training data set")Example of training data set
 
 ## Conclusion
 
@@ -270,3 +268,11 @@ The code used in the examples above is publicly available on [GitHub](https://gi
 **Tags:**
 
 * [snowflake ML](./tags/snowflake-ml.md)
+
+[Newer post](./2024-11-11-test-smarter-not-harder.md)
+
+[Test smarter not harder: add the right tests to your dbt project](./2024-11-11-test-smarter-not-harder.md)
+
+[Older post](./2024-10-04-icebeg-is-an-implementation-detail.md)
+
+[Iceberg Is An Implementation Detail](./2024-10-04-icebeg-is-an-implementation-detail.md)

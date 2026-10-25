@@ -1,3 +1,5 @@
+On this page
+
 # dbt Core v2 is here: still open source, now rebuilt for what's next
 
 June 1, 2026 · 9 min read
@@ -8,15 +10,11 @@ June 1, 2026 · 9 min read
 
 Staff Developer Experience Advocate at dbt Labs
 
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
-
 [![Grace Goheen](/img/blog/authors/grace-goheen.jpeg)](./authors/grace-goheen.md)
 
 [Grace Goheen](./authors/grace-goheen.md)
 
 Product Manager, dbt Core at dbt Labs
-
-[](https://www.linkedin.com/in/gracegoheen/ "LinkedIn")
 
 Today, we published the **first alpha release of dbt Core version 2.0**, raising the baseline for what dbt users can expect from their transformation tool. As always, dbt Core's code is completely open source under the Apache 2.0 license. What makes this release significant is that dbt Core 2.0 is now built on the same foundations as the [dbt Fusion engine](https://www.getdbt.com/product/fusion) – we've open-sourced a lot of Fusion code for the first time.
 
@@ -45,7 +43,7 @@ But as Fusion's GA approaches, it's clear that its underlying technologies (like
 
 Revisit the same list of goals with one extra requirement – no bifurcated engine – and it comes out looking like this:
 
-[![Side-by-side table comparing the original 2025 licensing decisions to the new decisions for each goal: broader adoption (including via other dbt-as-a-service platforms), commercial protection without blocking premium opt-in, and a dbt Core becoming the shared runtime code from the dbt Fusion engine.](/img/blog/2026-06-01-dbt-core-v2-is-here/licensing-decisions-2025-vs-2026.png?v=2)](#)
+![Side-by-side table comparing the original 2025 licensing decisions to the new decisions for each goal: broader adoption (including via other dbt-as-a-service platforms), commercial protection without blocking premium opt-in, and a dbt Core becoming the shared runtime code from the dbt Fusion engine.](/img/blog/2026-06-01-dbt-core-v2-is-here/licensing-decisions-2025-vs-2026.png?v=2)
 
 ## Better defining dbt Core's role in the ecosystem
 
@@ -70,7 +68,7 @@ We think this is great for everyone in the dbt ecosystem, and a significant impr
 
 ## Recap: what's changing, what's staying the same
 
-[![Animated comparison of three GitHub repositories: dbt-core (Apache 2.0, Python); dbt-fusion (ELv2, Rust); and dbt-fusion-private (Proprietary, Rust). Large sections of code move from the private repo into the dbt-fusion repo, where they are relicensed to Apache 2.0, and moved into the dbt-core repo. The dbt-fusion repo fades away, indicating it has been archived.](/img/blog/2026-06-01-dbt-core-v2-is-here/dbt-repo-structure.gif?v=2 "A high level visualization of the GitHub repositories as they were, and as they are now.")](#)A high level visualization of the GitHub repositories as they were, and as they are now.
+![Animated comparison of three GitHub repositories: dbt-core (Apache 2.0, Python); dbt-fusion (ELv2, Rust); and dbt-fusion-private (Proprietary, Rust). Large sections of code move from the private repo into the dbt-fusion repo, where they are relicensed to Apache 2.0, and moved into the dbt-core repo. The dbt-fusion repo fades away, indicating it has been archived.](/img/blog/2026-06-01-dbt-core-v2-is-here/dbt-repo-structure.gif?v=2 "A high level visualization of the GitHub repositories as they were, and as they are now.")A high level visualization of the GitHub repositories as they were, and as they are now.
 
 **What's new:**
 
@@ -98,3 +96,11 @@ If you have further questions, leaders from the newly-combined Fivetran + dbt La
 
 * [dbt platform](./tags/dbt-platform.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2026-06-25-how-dbt-state-works.md)
+
+[How dbt State actually works to save your compute costs](./2026-06-25-how-dbt-state-works.md)
+
+[Older post](./2026-05-15-the-devil-in-the-docs.md)
+
+[The devil is in the docs](./2026-05-15-the-devil-in-the-docs.md)

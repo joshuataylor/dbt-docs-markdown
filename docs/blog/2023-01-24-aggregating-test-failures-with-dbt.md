@@ -1,3 +1,5 @@
+On this page
+
 # How we cut our tests by 80% while increasing data quality: the power of aggregating test failures in dbt
 
 January 24, 2023 · 8 min read
@@ -44,8 +46,6 @@ models:
 
 *Example Data Integrity Tests in a YAML file — the alias argument is an important piece that will be touched on later.*
 
-<br />
-
 Context Driven Tests are more complex and look a lot more like models. Essentially, they’re data models that select bad data or records we don’t want, defined as SQL files that live in the `dbt/tests` directory. An example is shown below —
 
 ```sql
@@ -64,8 +64,6 @@ WHERE purchase_date < '1900-01-01'
 ```
 
 *The above test selects all customers who have made a purchase before 1900. The idea is that any customer that exists before 1900 probably isn't real.*
-
-<br />
 
 Importantly, we leverage [Test Aliasing](https://docs.getdbt.com/reference/resource-configs/alias) to ensure that our tests all follow a standard and predictable naming convention; our naming convention for Data Integrity tests is *table\_name\_ \_column\_name\_\_test\_name*, and our naming convention for Context Driven Tests is *ad\_hoc\_\_test\_name*. Finally, to ensure all of our tests can then be aggregated, we modify the `dbt_project.yml` file  and [set the `store_failures` tag to ‘TRUE’](https://docs.getdbt.com/reference/resource-configs/store_failures), thus persisting test failures into SQL tables.
 
@@ -118,8 +116,6 @@ WHERE m.is_active is TRUE
 
 *Example Metadata + Test Failure Aggregation Base Model.*
 
-<br />
-
 Some key components:
 
 * We materialize our base model as incremental, set `full_refresh` to *false* within the `dbt_project.yml`, and partition our table by date to ensure that we keep historical data.
@@ -139,3 +135,11 @@ As with any framework, it’s always a work in progress — we still encounter i
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2023-02-16-tips-for-the-dbt-certification-exam.md)
+
+[Tips and advice to study for, and pass, the dbt Certification exam](./2023-02-16-tips-for-the-dbt-certification-exam.md)
+
+[Older post](./2023-01-17-grouping-data-tests.md)
+
+[Power up your data quality with grouped checks](./2023-01-17-grouping-data-tests.md)

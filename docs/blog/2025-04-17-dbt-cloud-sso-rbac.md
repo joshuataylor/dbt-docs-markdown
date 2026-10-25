@@ -1,3 +1,5 @@
+On this page
+
 # Establishing dbt Cloud: Securing your account through SSO & RBAC
 
 April 17, 2025 · 9 min read
@@ -7,8 +9,6 @@ April 17, 2025 · 9 min read
 [Brian Jan](./authors/brian-jan.md)
 
 Lead Cloud Onboarding Architect
-
-[](https://www.linkedin.com/in/brian-jan-3990a723/ "LinkedIn")
 
 As a dbt Cloud admin, you’ve just upgraded to dbt Cloud on the [Enterprise plan](https://www.getdbt.com/pricing) - **congrats**! dbt Cloud has a lot to offer such as [CI/CD](../docs/deploy/about-ci.md), [Orchestration](../docs/deploy/deployments.md), [dbt Explorer](../docs/explore/explore-projects.md), [dbt Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), [dbt Mesh](../best-practices/how-we-mesh/mesh-1-intro.md), [Visual Editor](../docs/platform/canvas.md), [dbt Copilot](../docs/platform/wizard-platform.md), and so much more. ***But where should you begin?***
 
@@ -34,7 +34,7 @@ Keep in mind that whatever you set, the slug will be appended to the end of the 
 
 At first glance, this screen has a lot of info and fields — but with the [SSO docs](../docs/platform/manage-access/sso-overview.md) in hand, dbt Cloud admins are ready to start setting up smooth, scalable workflows.
 
-[![dbt Cloud's SSO configuration page](/img/blog/2025-04-10-sso-and-rbac/1_sso_config.png?v=2 "dbt Cloud's SSO configuration page")](#)dbt Cloud's SSO configuration page
+![dbt Cloud's SSO configuration page](/img/blog/2025-04-10-sso-and-rbac/1_sso_config.png?v=2 "dbt Cloud's SSO configuration page")dbt Cloud's SSO configuration page
 
 Let’s break this down at a high level to make it more digestible:
 
@@ -63,7 +63,7 @@ Once you've set up SSO successfully, you have additional ways to onboard your us
 * Provide users the SSO login URL to access dbt Cloud. This is also known as the *SP-initiated flow* (SP stands for Service Provider; in this case, it would be dbt Cloud).
 * Provision the dbt Cloud for users to access on their IdP’s dashboard. This is also known as the *IdP-initiated flow*.
 
-[![SSO flows into dbt Cloud](/img/blog/2025-04-10-sso-and-rbac/2_sso_flows.png?v=2 "SSO flows into dbt Cloud")](#)SSO flows into dbt Cloud
+![SSO flows into dbt Cloud](/img/blog/2025-04-10-sso-and-rbac/2_sso_flows.png?v=2 "SSO flows into dbt Cloud")SSO flows into dbt Cloud
 
 Get stuck setting up SSO? [Open a support ticket](mailto:support@getdbt.com), and one of our Customer Solutions Engineers will be happy to help you!
 
@@ -86,7 +86,7 @@ There are three [license types](../docs/platform/manage-access/seats-and-users.m
 
 Odds are that the majority of your users will be developers or analysts who’ll need Developer licenses. You can assign default licenses to users based on the groups that they’re in on the IdP side under **Account Settings** --> **Groups & Licenses** --> **License mappings**.
 
-[![An example license mapping](/img/blog/2025-04-10-sso-and-rbac/3_license_mapping_example.png?v=2 "An example license mapping")](#)An example license mapping
+![An example license mapping](/img/blog/2025-04-10-sso-and-rbac/3_license_mapping_example.png?v=2 "An example license mapping")An example license mapping
 
 If a user is in multiple groups with different license types assigned, they will be granted the highest license type — Developer.
 
@@ -98,7 +98,7 @@ Keep in mind group permissions are additive in nature for users that belong to m
 
 Navigating to Groups & Licenses page in dbt Cloud, you’ll see three default groups — Everyone, Member, and Owner. There’s also an option to create your own groups on the top right.
 
-[![The out-of-the-box dbt Cloud groups you may use](/img/blog/2025-04-10-sso-and-rbac/4_default_dbt_cloud_groups.png?v=2 "The out-of-the-box dbt Cloud groups you may use")](#)The out-of-the-box dbt Cloud groups you may use
+![The out-of-the-box dbt Cloud groups you may use](/img/blog/2025-04-10-sso-and-rbac/4_default_dbt_cloud_groups.png?v=2 "The out-of-the-box dbt Cloud groups you may use")The out-of-the-box dbt Cloud groups you may use
 
 Here’s a brief primer on the default groups:
 
@@ -118,7 +118,7 @@ To help get you started, these are the main permission sets that should be assig
 
 You can also use groups to control which projects and environments users can access.
 
-[![Creating a new dbt Cloud group](/img/blog/2025-04-10-sso-and-rbac/5_new_dbt_cloud_group.png?v=2 "Creating a new dbt Cloud group")](#)Creating a new dbt Cloud group
+![Creating a new dbt Cloud group](/img/blog/2025-04-10-sso-and-rbac/5_new_dbt_cloud_group.png?v=2 "Creating a new dbt Cloud group")Creating a new dbt Cloud group
 
 ## Role-Based Access Control via IdP
 
@@ -126,7 +126,7 @@ If you made it this far, thanks for staying with me here! We’re now ready to c
 
 As an example, let’s say that I want specific users in this group where the SSO group mapping is `dbt-developer`. Note that you can also specify more than one.
 
-[![Configuring a SSO group mapping within a group](/img/blog/2025-04-10-sso-and-rbac/6_sso_group_mapping.png?v=2 "Configuring a SSO group mapping within a group")](#)Configuring a SSO group mapping within a group
+![Configuring a SSO group mapping within a group](/img/blog/2025-04-10-sso-and-rbac/6_sso_group_mapping.png?v=2 "Configuring a SSO group mapping within a group")Configuring a SSO group mapping within a group
 
 Here’s what we do to make it happen:
 
@@ -139,7 +139,7 @@ Easy enough, right? Just make sure these two conditions are checked for RBAC to 
 * Group names must be an exact match
 * Group names have the same casing
 
-[![Making a SSO group mapping work with your identity provider](/img/blog/2025-04-10-sso-and-rbac/7_okta_sso_group_mapping_example.png?v=2 "Making a SSO group mapping work with your identity provider")](#)Making a SSO group mapping work with your identity provider
+![Making a SSO group mapping work with your identity provider](/img/blog/2025-04-10-sso-and-rbac/7_okta_sso_group_mapping_example.png?v=2 "Making a SSO group mapping work with your identity provider")Making a SSO group mapping work with your identity provider
 
 ## Automate SSO & RBAC: Introducing SCIM
 
@@ -159,3 +159,11 @@ Not only does it keep your data safe, it allows you to onboard users into your a
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2025-04-21-introducing-dbt-mcp-server.md)
+
+[Introducing the dbt MCP Server – Bringing Structured Data to AI Workflows and Agents](./2025-04-21-introducing-dbt-mcp-server.md)
+
+[Older post](./2025-03-10-git-branching-strategies-with-dbt.md)
+
+[Getting Started with git Branching Strategies and dbt](./2025-03-10-git-branching-strategies-with-dbt.md)

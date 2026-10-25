@@ -1,3 +1,5 @@
+On this page
+
 # How We Calculate Time on Task, the Business Hours Between Two Dates
 
 February 3, 2022 · 10 min read
@@ -7,8 +9,6 @@ February 3, 2022 · 10 min read
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
-
-[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 Measuring the number of business hours between two dates using SQL is one of those classic problems that sounds simple yet has [plagued analysts since time immemorial](https://www.sqlteam.com/forums/topic.asp?TOPIC_ID=74645).
 
@@ -53,19 +53,19 @@ This approach works great for the case where we have a standard business schedul
 
 Let’s assume that your customer support team always works Monday to Friday, and from 8am to 8pm, and your schedule looks something like this:
 
-[![Image alt text](/img/blog/2022-01-12-time-on-task/image_0.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/2022-01-12-time-on-task/image_0.png?v=2 "Image alt text")Image alt text
 
 And let’s say you have a few tickets that come in, and your team works through them diligently, as always:
 
-[![Image alt text](/img/blog/2022-01-12-time-on-task/image_1.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/2022-01-12-time-on-task/image_1.png?v=2 "Image alt text")Image alt text
 
 Our schedule-aware metric should only capture the non-grey time:
 
-[![Image alt text](/img/blog/2022-01-12-time-on-task/image_2.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/2022-01-12-time-on-task/image_2.png?v=2 "Image alt text")Image alt text
 
 How do we get there? For any of these tickets, the general formula to get the answer we want can be boiled down to subtracting non-working time from the total amount of time between the dates (i.e. a regular ol’ datediff):
 
-[![Image alt text](/img/blog/2022-01-12-time-on-task/image_3.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/2022-01-12-time-on-task/image_3.png?v=2 "Image alt text")Image alt text
 
 Those blocks of non-working time can be broken down into two sections: overnights and weekends. But how can we dynamically count the number of overnights or weekend days? Enter the weekday macro!
 
@@ -77,7 +77,7 @@ This ends up being helpful twice - the result of the weekdays macro is the same 
 
 We can use this result to measure the number of weekend days between the two dates – subtracting the number of weekdays from the total number of days between the two dates gives you the number of weekend days. Let’s focus on our example ticket that was opened on Friday and closed on Monday to explain:
 
-[![Image alt text](/img/blog/2022-01-12-time-on-task/image_4.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/2022-01-12-time-on-task/image_4.png?v=2 "Image alt text")Image alt text
 
 You might have already picked up the huge caveat here — a consistent schedule is baked into this calculation, and that’s usually not the case. Throw in a public holiday, or a new hire in a different time zone, and suddenly these calculations stop reflecting reality! Some edge cases and how we deal with them:
 
@@ -165,3 +165,11 @@ Special thanks to Claire Carroll and Erica Louie for helping on this work! Some 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-02-08-customer-360-view-identity-resolution.md)
+
+[The JaffleGaggle Story: Data Modeling for a Customer 360 View](./2022-02-08-customer-360-view-identity-resolution.md)
+
+[Older post](./2021-12-06-how-to-build-a-mature-dbt-project-from-scratch.md)
+
+[How to Build a Mature dbt Project from Scratch](./2021-12-06-how-to-build-a-mature-dbt-project-from-scratch.md)

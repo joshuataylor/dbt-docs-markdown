@@ -1,3 +1,5 @@
+On this page
+
 # How to Build a Mature dbt Project from Scratch
 
 December 6, 2021 · 15 min read
@@ -7,8 +9,6 @@ December 6, 2021 · 15 min read
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
-
-[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 > *\[We would love to have] A maturity curve of an end-to-end dbt implementation for each version of dbt .... There are so many features in dbt now but it'd be great to understand, "what is the minimum set of dbt features/components that need to go into a base-level dbt implementation?...and then what are the things that are extra credit?"* -*Will Weld on dbt Community Slack*
 
@@ -26,7 +26,7 @@ In working alongside teams on their dbt journey, we’ve noticed that there tend
 
 We can break the concept of maturity down into two categories. The first is\*\* feature\*\* **completeness**, or the number of distinct dbt features you are using. The other is\*\* feature depth\*\*, the level of sophistication within the use of individual features. For example, adding the source feature to your project would be increasing the completeness of your project, but adding the source freshness feature to the sources you already defined would be a way to add depth to your project. Walking along this matrix we can watch a teeny tiny baby project grow into a fully mature production grade dbt pipeline.
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_0.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_0.png?v=2 "Image alt text")Image alt text
 
 **How do we do this?**
 
@@ -52,7 +52,7 @@ Let’s pretend that we are an analytics engineer at Seeq Wellness, a hypothetic
 
 * Execute your first [dbt run](../reference/commands/run.md)
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_1.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_1.png?v=2 "Image alt text")Image alt text
 
 **Themes and Goals**
 
@@ -70,7 +70,7 @@ In order to learn the basics, we’re going to [port over the SQL file](../guide
 
 We have one single SQL model in our models folder, and really, that's it. At this stage, the README and dbt\_project.yml are just artifacts from the [dbt init command](../reference/commands/init.md), and don’t yet have specific documentation or configuration. At this stage of our journey, we just want to get up and running with a functional dbt project.
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_2.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_2.png?v=2 "Image alt text")Image alt text
 
 The most important thing we’re introducing when your project is an infant is the modern, version-controlled, collaborative approach to analytics that dbt offers. The thrill of executing your first successful dbt run is all you need to do to understand how dbt can be massively impactful to your analytics team.
 
@@ -84,7 +84,7 @@ The most important thing we’re introducing when your project is an infant is t
 
 * [Document](../docs/build/documentation.md) and [test](../docs/build/data-tests.md) your first models
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_3.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_3.png?v=2 "Image alt text")Image alt text
 
 **Themes and Goals**
 
@@ -106,7 +106,7 @@ Let's check in on the growth of [our project](https://github.com/dbt-labs/dbt-pr
 
 We also added our first [YML files](https://circleci.com/blog/what-is-yaml-a-beginner-s-guide/). Here, we have one YAML file to [configure our sources](https://github.com/dbt-labs/dbt-project-maturity/blob/main/2-toddlerhood/models/source.yml), and one YAML file to [describe our models](https://github.com/dbt-labs/dbt-project-maturity/blob/main/2-toddlerhood/models/schema.yml). We're just starting with basic declarations of our sources, primary key testing using dbt built in tests, and a model-level description -- these are the first steps of a project just learning to walk!
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_4.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_4.png?v=2 "Image alt text")Image alt text
 
 Leveling up from infant to toddler is a huge jump in terms of feature completeness! By adding in sources and refs, we’ve really started to take advantage of what makes dbt special.
 
@@ -122,7 +122,7 @@ Leveling up from infant to toddler is a huge jump in terms of feature completene
 
 * [Deploy your project](../docs/deploy/deployments.md)!
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_5.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_5.png?v=2 "Image alt text")Image alt text
 
 **Themes and Goals**
 
@@ -140,7 +140,7 @@ We've added project-level documentation to [our repo](https://github.com/dbt-lab
 
 Let's look at our models — we went from a early stage DAG, starting to get a feel for modularity, to a clean, standardized and logically organized DAG — we can now see logical layers of modeling that correspond to the file tree structure we saw before — we can even see the model naming conventions lining up with these layers (stg, int, fct). Defining the standards in how we organize our models in our project level has resulted in a cleaner, easier to understand DAG too!
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_6.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_6.png?v=2 "Image alt text")Image alt text
 
 Even though we haven't changed the function of a lot of our features *codifying and standardizing the use of these features is a huge step forward for project maturity.* Getting to this level of maturity is when we generally start to think about running this project in production. With these guardrails in place, we can be confident our project isn’t going to fall out of bed at night and hurt itself -- it’s ready to take on a little bit of independence!
 
@@ -154,7 +154,7 @@ Even though we haven't changed the function of a lot of our features *codifying 
 
 * Reduce dbt production build times with [advanced materializations](../docs/build/materializations.md)
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_7.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_7.png?v=2 "Image alt text")Image alt text
 
 **Themes and Goals**
 
@@ -166,7 +166,7 @@ I want to also call out that a "feature" to introduce at this stage is engagemen
 
 We can see the major development at [this stage](https://github.com/dbt-labs/dbt-project-maturity/tree/main/4-adolescence) is adding additional models that make our original claims report a lot more flexible -- we had only shown our users a subset of patient and doctor information in our fact model. Now, we have a more Kimball-ish-style marts setup, and we can leave selecting the dimensions up to our BI tool.
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_8.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_8.png?v=2 "Image alt text")Image alt text
 
 Other enhancements not seen in the DAG at this stage include new custom macros to make SQL writing more dynamic and less repetitive. We can also see a packages.yml file, and we can start leveraging tests, macros, and even models developed by the dbt community. Leveraging package code is a key way to shrink our development time! We've also leveled up to using incremental logic for our largest data sets to speed up our runs and deliver insights faster. We're also interested in surfacing a little bit of the metadata from our project — we can start by enhancing our marts with data about its recency by enabling the source freshness feature. Knowing that the data in our dashboard is up to date and reliable can massively improve consumer confidence in our stack.
 
@@ -180,7 +180,7 @@ We've spent this level focused on deepening and optimizing our feature set — w
 
 * Advanced use of metadata
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_9.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_9.png?v=2 "Image alt text")Image alt text
 
 **Themes and Goals**
 
@@ -196,7 +196,7 @@ Additionally, we’ve added an exposures file to formally define the use of our 
 
 That end to end awareness is visible on the DAG too — we can see the dashboard we declared in our exposures file here in orange!
 
-[![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_10.png?v=2 "Image alt text")](#)Image alt text
+![Image alt text](/img/blog/building-a-mature-dbt-project-from-scratch/image_10.png?v=2 "Image alt text")Image alt text
 
 Making the jump to thinking about metadata is a really powerful way to find areas for improvement in your project. For example, you can develop macros to measure things like your test coverage, and test to model ratio. You can look into packages like dbt\_meta\_testing to ensure your hitting minimum testing and documentation requirements.
 
@@ -209,3 +209,11 @@ Life is truly a highway. We’ve traced the growth of the Seeq Wellness dbt proj
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2022-02-03-measuring-business-hours-sql-time-on-task.md)
+
+[How We Calculate Time on Task, the Business Hours Between Two Dates](./2022-02-03-measuring-business-hours-sql-time-on-task.md)
+
+[Older post](./2021-11-29-analytics-pull-request-template.md)
+
+[The Exact GitHub Pull Request Template We Use at dbt Labs](./2021-11-29-analytics-pull-request-template.md)

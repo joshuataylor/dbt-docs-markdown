@@ -1,3 +1,5 @@
+On this page
+
 # How we're making sure you can confidently switch to the "Latest" release track in dbt Cloud
 
 May 2, 2024 · 10 min read
@@ -8,23 +10,17 @@ May 2, 2024 · 10 min read
 
 Staff Software Engineer at dbt Labs
 
-[](https://www.linkedin.com/in/michelle-ark/ "LinkedIn")
-
 [![Chenyu Li](/img/blog/authors/chenyu-li.png)](./authors/chenyu-li.md)
 
 [Chenyu Li](./authors/chenyu-li.md)
 
 Staff Software Engineer at dbt Labs
 
-[](https://www.linkedin.com/in/chenyu-li-450b06a8/ "LinkedIn")
-
 [![Colin Rogers](/img/blog/authors/colin-rogers.jpeg)](./authors/colin-rogers.md)
 
 [Colin Rogers](./authors/colin-rogers.md)
 
 Senior Software Engineer at dbt Labs
-
-[](https://www.linkedin.com/in/ckrogers/ "LinkedIn")
 
 Versionless is now the "latest" release track
 
@@ -50,7 +46,7 @@ We're very confident in the robustness of this process\*\*. We also know that we
 
 Any new change to dbt-core and adapters goes through the following steps before it's available to customers in dbt Cloud:
 
-[![Testing and deploy pipeline](/img/blog/2024-05-22-latest-dbt/testing-deploy-pipeline.png?v=2 "Testing and deploy pipeline")](#)Testing and deploy pipeline
+![Testing and deploy pipeline](/img/blog/2024-05-22-latest-dbt/testing-deploy-pipeline.png?v=2 "Testing and deploy pipeline")Testing and deploy pipeline
 
 ### **Step 1: Unit & functional tests in dbt Core + adapters**
 
@@ -141,3 +137,11 @@ As we continue to enhance dbt Cloud, our commitment remains firm: to provide a s
 **Tags:**
 
 * [dbt Cloud](./tags/dbt-cloud.md)
+
+[Newer post](./2024-05-02-semantic-layer-cortex.md)
+
+[Conversational Analytics: A Natural Language Interface to your Snowflake Data](./2024-05-02-semantic-layer-cortex.md)
+
+[Older post](./2024-04-22-configuring-unique-connections-in-dbt-cloud.md)
+
+[Maximum override: Configuring unique connections in dbt Cloud](./2024-04-22-configuring-unique-connections-in-dbt-cloud.md)

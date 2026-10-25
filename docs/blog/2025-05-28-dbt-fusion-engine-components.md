@@ -1,3 +1,5 @@
+On this page
+
 # The Components of the dbt Fusion engine and how they fit together
 
 May 28, 2025 · 10 min read
@@ -8,15 +10,11 @@ May 28, 2025 · 10 min read
 
 Director of Community, Developer Experience & AI at dbt Labs
 
-[](https://x.com/jasnonaz "X")
-
 [![Joel Labes](/img/blog/authors/jlabes.png)](./authors/joel-labes.md)
 
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 Today, we announced the [dbt Fusion engine](./2025-05-28-dbt-fusion-engine.md).
 
@@ -111,7 +109,7 @@ The dbt VS Code extension is one of the first product experiences built on top o
 
 The Language Server is built on top of a subset of the technology powering the extended Fusion engine: as an example, it can quickly compile SQL and interact with databases, but it defers to the dbt binary when it's time to actually run a model.
 
-[![The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.](/img/blog/2025-05-28-dbt-v2-engine-components/vscode-ext-binary-roles.png?v=2 "The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.")](#)The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.
+![The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.](/img/blog/2025-05-28-dbt-v2-engine-components/vscode-ext-binary-roles.png?v=2 "The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.")The VS Code extension interacts with the Language Server to understand your SQL, and the Fusion binary to execute your SQL.
 
 ### The dbt Authoring Layer
 
@@ -203,3 +201,11 @@ If you need a hand wrapping your head around any of these new components, drop b
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2025-06-25-vscode-extension-experience.md)
+
+[The new dbt VS Code extension: The experience we've all been waiting for](./2025-06-25-vscode-extension-experience.md)
+
+[Older post](./2025-05-28-dbt-fusion-engine-path-to-ga.md)
+
+[Path to GA: How the dbt Fusion engine rolls out from beta to production](./2025-05-28-dbt-fusion-engine-path-to-ga.md)

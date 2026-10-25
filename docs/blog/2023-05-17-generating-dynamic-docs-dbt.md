@@ -1,3 +1,5 @@
+On this page
+
 # Accelerate your documentation workflow: Generate docs for whole folders at once
 
 May 17, 2023 · 9 min read
@@ -29,7 +31,7 @@ This results in a lot of the same columns (e.g. `account_id`) existing in differ
 
 In fact, I found a better way using some CLI commands, the dbt Codegen package and docs blocks. I also made the following meme in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/) channel #memes-and-off-topic-chatter to encapsulate this method:
 
-[![Meme of writing documentation](/img/blog/2023-05-04-generating-dynamic-docs/1.png?v=2 "Meme of writing documentation")](#)Meme of writing documentation
+![Meme of writing documentation](/img/blog/2023-05-04-generating-dynamic-docs/1.png?v=2 "Meme of writing documentation")Meme of writing documentation
 
 ## What pain is being solved?
 
@@ -279,7 +281,7 @@ To confirm the formatting works, run the following command to get dbt Docs up an
 $ dbt docs && dbt docs serve
 ```
 
-[![dbt Docs UI](/img/blog/2023-05-04-generating-dynamic-docs/2.jpg?v=2 "dbt Docs UI")](#)dbt Docs UI
+![dbt Docs UI](/img/blog/2023-05-04-generating-dynamic-docs/2.jpg?v=2 "dbt Docs UI")dbt Docs UI
 
 Here, you can confirm that the column descriptions using the doc blocks are working as intended.
 
@@ -327,7 +329,7 @@ user_id
 
 Now, open your code editor, and replace `(.*)` with `{% docs column__activity_based_interest__$1 %}\n\n{% enddocs %}\n`, which will result in the following in your markdown file:
 
-[![Replace content in your markdown file](/img/blog/2023-05-04-generating-dynamic-docs/3.png?v=2 "Replace content in your markdown file")](#)Replace content in your markdown file
+![Replace content in your markdown file](/img/blog/2023-05-04-generating-dynamic-docs/3.png?v=2 "Replace content in your markdown file")Replace content in your markdown file
 
 Now you can add documentation to each of your columns.
 
@@ -335,7 +337,7 @@ Now you can add documentation to each of your columns.
 
 You can programmatically identify all columns, and have them point towards the newly-created documentation. In your code editor, replace `\s{6}- name: (.*)\n description: ""` with `- name: $1\n description: "{{ doc('column__activity_based_interest__$1') }}`:
 
-[![Replace descriptions with dynamic doc blocks](/img/blog/2023-05-04-generating-dynamic-docs/4.png?v=2 "Replace descriptions with dynamic doc blocks")](#)Replace descriptions with dynamic doc blocks
+![Replace descriptions with dynamic doc blocks](/img/blog/2023-05-04-generating-dynamic-docs/4.png?v=2 "Replace descriptions with dynamic doc blocks")Replace descriptions with dynamic doc blocks
 
 ⚠️ Some of your columns may already be available in existing docs blocks. In this example, the following replacements are done:
 
@@ -346,7 +348,7 @@ You can programmatically identify all columns, and have them point towards the n
 
 Run `dbt docs generate`. If there are syntax errors, this will be found out at this stage. If successful, we can run `dbt docs serve` to perform a smoke test and ensure everything looks right:
 
-[![dbt Docs UI showing successful documentation leveraging docs blocks](/img/blog/2023-05-04-generating-dynamic-docs/5.jpg?v=2 "dbt Docs UI showing successful documentation leveraging docs blocks")](#)dbt Docs UI showing successful documentation leveraging docs blocks
+![dbt Docs UI showing successful documentation leveraging docs blocks](/img/blog/2023-05-04-generating-dynamic-docs/5.jpg?v=2 "dbt Docs UI showing successful documentation leveraging docs blocks")dbt Docs UI showing successful documentation leveraging docs blocks
 
 ## Additional considerations
 
@@ -370,3 +372,11 @@ Run `dbt docs generate`. If there are syntax errors, this will be found out at t
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2023-06-13-historical-user-segmentation.md)
+
+[Building a historical user segmentation model with dbt](./2023-06-13-historical-user-segmentation.md)
+
+[Older post](./2023-05-02-modeling-ragged-time-varying-hierarchies.md)
+
+[Modeling ragged time-varying hierarchies](./2023-05-02-modeling-ragged-time-varying-hierarchies.md)

@@ -1,3 +1,5 @@
+On this page
+
 # Make your AI better at data work with dbt's agent skills
 
 February 5, 2026 · 14 min read
@@ -8,25 +10,21 @@ February 5, 2026 · 14 min read
 
 Staff Developer Experience Advocate at dbt Labs
 
-[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
-
 [![Jason Ganz](/img/blog/authors/jasnonaz.jpeg)](./authors/jason-ganz.md)
 
 [Jason Ganz](./authors/jason-ganz.md)
 
 Director of Community, Developer Experience & AI at dbt Labs
 
-[](https://x.com/jasnonaz "X")
-
 Community-driven creation and curation of best practices is perhaps *the* driving factor behind dbt and analytics engineering’s rise - transferable workflows and processes enable everyone to create and disseminate organizational knowledge. In the early days, ~~dbt Labs’~~ Fishtown Analytics’ [dbt\_style\_guide.md](https://github.com/dbt-labs/corp/blob/773079cc140e8636403771e0c9f56ab9be528597/dbt_style_guide.md) contained foundational guidelines for anyone adopting the dbt viewpoint for the first time.
 
 Today we released a collection of [dbt agent skills](https://github.com/dbt-labs/dbt-agent-skills) so that AI agents (like Claude Code, OpenAI's Codex, Cursor, Factory or Kilo Code) can follow the same dbt best practices you would expect of any collaborator in your codebase. This matters because by extending their baseline capabilities, **skills can transform generalist coding agents into highly capable data agents**.
 
-[![Diagram showing how dbt agent skills transform generalist coding agents into specialized data agents capable of analytics engineering, semantic layer definition, testing, debugging, natural language querying, and migration workflows](/img/blog/2026-02-03-dbt-agent-skills/skills-blog-infographic.png?v=2 "dbt agent skills allow you to transform generalist coding agents into highly capable data agents")](#)dbt agent skills allow you to transform generalist coding agents into highly capable data agents
+![Diagram showing how dbt agent skills transform generalist coding agents into specialized data agents capable of analytics engineering, semantic layer definition, testing, debugging, natural language querying, and migration workflows](/img/blog/2026-02-03-dbt-agent-skills/skills-blog-infographic.png?v=2 "dbt agent skills allow you to transform generalist coding agents into highly capable data agents")dbt agent skills allow you to transform generalist coding agents into highly capable data agents
 
 These skills encapsulate a broad swathe of hard-won knowledge from the dbt Community and the dbt Labs Developer Experience team. Collectively, they represent dozens of hours of focused work by dbt experts, backed by years of using dbt.
 
-[![A gif showing Claude using the analytics engineering skill to validate its work](/img/blog/2026-02-03-dbt-agent-skills/with_skill.gif?v=2 "With access to skills, agents like Claude take a systematic approach to tasks")](#)With access to skills, agents like Claude take a systematic approach to tasks
+![A gif showing Claude using the analytics engineering skill to validate its work](/img/blog/2026-02-03-dbt-agent-skills/with_skill.gif?v=2 "With access to skills, agents like Claude take a systematic approach to tasks")With access to skills, agents like Claude take a systematic approach to tasks
 
 The ecosystem is rapidly evolving for both authors of skills and the agents that consume them. We believe these skills are very useful today, *and* that they will become more useful over the coming weeks and months as:
 
@@ -102,7 +100,7 @@ A better question than *what* might be *why*. From the [agent skills site](https
 
 Here’s an [example skill from Anthropic](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills):
 
-[![Anthropic’s diagram showing how agent skills use progressive disclosure with YAML frontmatter, markdown content, and reference files](/img/blog/2026-02-03-dbt-agent-skills/anthropic-skills-architecture.png?v=2 "An example SKILL.md file for working with PDFs, which also contains references to more complex workflows to load on-demand")](#)An example SKILL.md file for working with PDFs, which also contains references to more complex workflows to load on-demand
+![Anthropic’s diagram showing how agent skills use progressive disclosure with YAML frontmatter, markdown content, and reference files](/img/blog/2026-02-03-dbt-agent-skills/anthropic-skills-architecture.png?v=2 "An example SKILL.md file for working with PDFs, which also contains references to more complex workflows to load on-demand")An example SKILL.md file for working with PDFs, which also contains references to more complex workflows to load on-demand
 
 ### How do skills interact with MCP?
 
@@ -121,7 +119,7 @@ So then why does the dbt MCP also have tools that call into the CLI? For interfa
 
 To summarize, the best way to think of skills is as a layered training manual. If you took a very smart generalist off the street, what would they need to be able to use and implement *your organization's workflows?*
 
-[![A pyramid diagram showing three layers: Coding Agent at the base (takes autonomous actions, runs dbt commands, and looks up docs), dbt best practice skills in the middle (knows dbt best practices and workflows), and Project skills at the top (knows workflows unique to your team and data model)](/img/blog/2026-02-03-dbt-agent-skills/skills-blog-diagram.png?v=2 "Skills provide layered context that builds on an agent's baseline capabilities")](#)Skills provide layered context that builds on an agent's baseline capabilities
+![A pyramid diagram showing three layers: Coding Agent at the base (takes autonomous actions, runs dbt commands, and looks up docs), dbt best practice skills in the middle (knows dbt best practices and workflows), and Project skills at the top (knows workflows unique to your team and data model)](/img/blog/2026-02-03-dbt-agent-skills/skills-blog-diagram.png?v=2 "Skills provide layered context that builds on an agent's baseline capabilities")Skills provide layered context that builds on an agent's baseline capabilities
 
 ## Why skills matter
 
@@ -186,7 +184,7 @@ Nothing beats hands-on usage and so we’ve tested each skill to see how it perf
 
 We were particularly thrilled when we asked the agent to make performance recommendations on one of the largest tables in our dbt project, with and without the skill. While both results gave plausible recommendations, the recommendations with the skill were more tailored and relevant to our use case as determined by our internal data team.
 
-[![A Slack screenshot from @brandon, who says 'that version excites me much, much more. the recommendations on incremental filtering on all refs, pre-aggregated int models etc. i think would make a huge impact.'](/img/blog/2026-02-03-dbt-agent-skills/skills-validation-feedback.png?v=2)](#)
+![A Slack screenshot from @brandon, who says 'that version excites me much, much more. the recommendations on incremental filtering on all refs, pre-aggregated int models etc. i think would make a huge impact.'](/img/blog/2026-02-03-dbt-agent-skills/skills-validation-feedback.png?v=2)
 
 ### Custom suite for A/B testing skills
 
@@ -214,11 +212,11 @@ Notably, we found **significant benefits in tasks which require iterative work**
 
 **Without skills**
 
-[![Without skills, agents may skip important validation steps](/img/blog/2026-02-03-dbt-agent-skills/without_skill.gif?v=2 "Without skills, agents may skip important validation steps")](#)Without skills, agents may skip important validation steps
+![Without skills, agents may skip important validation steps](/img/blog/2026-02-03-dbt-agent-skills/without_skill.gif?v=2 "Without skills, agents may skip important validation steps")Without skills, agents may skip important validation steps
 
 **With skills**
 
-[![With access to skills, agents take a systematic approach to tasks](/img/blog/2026-02-03-dbt-agent-skills/with_skill.gif?v=2 "With access to skills, agents take a systematic approach to tasks")](#)With access to skills, agents take a systematic approach to tasks
+![With access to skills, agents take a systematic approach to tasks](/img/blog/2026-02-03-dbt-agent-skills/with_skill.gif?v=2 "With access to skills, agents take a systematic approach to tasks")With access to skills, agents take a systematic approach to tasks
 
 For example, when asked to [produce multiple models based on their schema.yml definition](https://github.com/dbt-labs/ade-bench/blob/main/tasks/airbnb007/task.yaml), the baseline agent created 6 models at once and declared victory. The skill-using agent worked iteratively, and successfully completed the task every time.
 
@@ -242,3 +240,11 @@ The best way to stay involved is to share what you're discovering in [#topic-age
 
 * [ai](./tags/ai.md)
 * [data\_ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2026-03-26-catalog-linked-databases.md)
+
+[The Catalog Linked Database Diaries: On Freshness and Writes](./2026-03-26-catalog-linked-databases.md)
+
+[Older post](./2026-01-21-modernizing-the-semantic-layer-spec.md)
+
+[Modernizing the Semantic Layer Spec](./2026-01-21-modernizing-the-semantic-layer-spec.md)

@@ -1,3 +1,5 @@
+On this page
+
 # Getting Started with git Branching Strategies and dbt
 
 March 10, 2025 · 33 min read
@@ -30,21 +32,15 @@ Hi! We’re Christine and Carol, Resident Architects at dbt Labs. Our day-to-day
 
 The information we’re about to share isn't just from our experiences - we frequently collaborate with other experts like Taylor Dunlap and Steve Dowling who have greatly contributed to the amalgamation of this guidance. Their work lies in being the critical bridge for teams between implementation and business outcomes, ultimately leading teams to align on a comprehensive technical vision through identification of problems and solutions.
 
-**Why are we here?**<br />We help teams with dbt architecture, which encompasses the tools, processes and configurations used to start developing and deploying with dbt. There’s a lot of decision making that happens behind the scenes to standardize on these pieces - much of which is informed by understanding what we want the development workflow to look like. The focus on having the ***perfect*** workflow often gets teams stuck in heaps of planning and endless conversations, which slows down or even stops momentum on development. If you feel this, we’re hoping our guidance will give you a great sense of comfort in taking steps to unblock development - even when you don’t have everything figured out yet!
+**Why are we here?** We help teams with dbt architecture, which encompasses the tools, processes and configurations used to start developing and deploying with dbt. There’s a lot of decision making that happens behind the scenes to standardize on these pieces - much of which is informed by understanding what we want the development workflow to look like. The focus on having the ***perfect*** workflow often gets teams stuck in heaps of planning and endless conversations, which slows down or even stops momentum on development. If you feel this, we’re hoping our guidance will give you a great sense of comfort in taking steps to unblock development - even when you don’t have everything figured out yet!
 
 There are three major tools that play an important role in dbt development:
 
-* **A repository**
-  <br />
-  Contains the code we want to change or deploy, along with tools for change management processes.
-* **A data platform**
-  <br />
-  Contains data for our inputs (loaded from other systems) and databases/schemas for our outputs, as well as permission management for data objects.
-* **A dbt project**
-  <br />
-  Helps us manage development and deployment processes of our code to our data platform (and other cool stuff!)
+* **A repository** Contains the code we want to change or deploy, along with tools for change management processes.
+* **A data platform** Contains data for our inputs (loaded from other systems) and databases/schemas for our outputs, as well as permission management for data objects.
+* **A dbt project** Helps us manage development and deployment processes of our code to our data platform (and other cool stuff!)
 
-[![dbt's relationship to git and the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/1_dbt_eco.png?v=2 "dbt's relationship to git and the data platform")](#)dbt's relationship to git and the data platform
+![dbt's relationship to git and the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/1_dbt_eco.png?v=2 "dbt's relationship to git and the data platform")dbt's relationship to git and the data platform
 
 No matter how you end up **defining** your development workflow, these major steps are always present:
 
@@ -91,7 +87,7 @@ There are *many* ways to configure each tool (especially dbt) to accomplish what
 
 **Direct promotion** means we only keep one long-lived branch in our repository — in our case, `main`. Here’s the workflow for this strategy:
 
-[![Direct promotion branching strategy](/img/blog/2025-01-28-git-branching-strategies-and-dbt/2_direct_git.png?v=2 "Direct promotion branching strategy")](#)Direct promotion branching strategy
+![Direct promotion branching strategy](/img/blog/2025-01-28-git-branching-strategies-and-dbt/2_direct_git.png?v=2 "Direct promotion branching strategy")Direct promotion branching strategy
 
 ### How does the development workflow look to a team?
 
@@ -122,7 +118,7 @@ At a minimum, we like to set up:
 
 Here’s our branching strategy again, but now with the dbt Cloud processes we want to incorporate:
 
-[![Direct Promotion strategy with dbt cloud processes denoted](/img/blog/2025-01-28-git-branching-strategies-and-dbt/3_direct_dbt_deployment.png?v=2 "Direct Promotion strategy with dbt cloud processes denoted")](#)Direct Promotion strategy with dbt cloud processes denoted
+![Direct Promotion strategy with dbt cloud processes denoted](/img/blog/2025-01-28-git-branching-strategies-and-dbt/3_direct_dbt_deployment.png?v=2 "Direct Promotion strategy with dbt cloud processes denoted")Direct Promotion strategy with dbt cloud processes denoted
 
 In order to create the jobs in our diagram, we need dbt Cloud environments. Here are the common configurations for this setup:
 
@@ -136,7 +132,7 @@ In order to create the jobs in our diagram, we need dbt Cloud environments. Here
 
 Now we need to focus on where we want to build things in our data platform. For that, we need to set our **database** and **schema** settings on the environments. Here’s our diagram again, but now mapping how we want our objects to populate from our branches to our data platform:
 
-[![Direct Promotion strategy with branch relations to data platform objects](/img/blog/2025-01-28-git-branching-strategies-and-dbt/4_direct_data_population.png?v=2 "Direct Promotion strategy with branch relations to data platform objects")](#)Direct Promotion strategy with branch relations to data platform objects
+![Direct Promotion strategy with branch relations to data platform objects](/img/blog/2025-01-28-git-branching-strategies-and-dbt/4_direct_data_population.png?v=2 "Direct Promotion strategy with branch relations to data platform objects")Direct Promotion strategy with branch relations to data platform objects
 
 Taking the table we created previously for our dbt Cloud environment, let's further map environment configurations to our data platform:
 
@@ -153,6 +149,8 @@ We are showing environment configurations here, but a default database will be s
 ### Direct promotion example
 
 *In this example, Steve uses the term “QA” for defining the environment which builds the changed code from feature branch pull requests. This is equivalent to our ‘Continuous Integration’ environment — this is a great example of defining names which make the most sense for your team!*
+
+[Loom video](https://www.loom.com/embed/59c71a9549b5497f99ef86622aad945e)
 
 ## Indirect promotion
 
@@ -179,7 +177,7 @@ We’ll be calling our middle branch `qa` from throughout the rest of this artic
 
 Here’s the workflow for this strategy:
 
-[![Indirect Promotion branching strategy](/img/blog/2025-01-28-git-branching-strategies-and-dbt/6_indirect_git.png?v=2 "Indirect Promotion branching strategy")](#)Indirect Promotion branching strategy
+![Indirect Promotion branching strategy](/img/blog/2025-01-28-git-branching-strategies-and-dbt/6_indirect_git.png?v=2 "Indirect Promotion branching strategy")Indirect Promotion branching strategy
 
 ### How does the development workflow look to a developer?
 
@@ -217,7 +215,7 @@ At a minimum, we like to set up:
 
 Here’s our branching strategy again, but now with the dbt Cloud processes we want to incorporate:
 
-[![Indirect Promotion strategy with dbt cloud processes denoted](/img/blog/2025-01-28-git-branching-strategies-and-dbt/7_indirect_dbt_deployment.png?v=2 "Indirect Promotion strategy with dbt cloud processes denoted")](#)Indirect Promotion strategy with dbt cloud processes denoted
+![Indirect Promotion strategy with dbt cloud processes denoted](/img/blog/2025-01-28-git-branching-strategies-and-dbt/7_indirect_dbt_deployment.png?v=2 "Indirect Promotion strategy with dbt cloud processes denoted")Indirect Promotion strategy with dbt cloud processes denoted
 
 In order to create the jobs in our diagram, we need dbt Cloud environments. Here are the common configurations for this setup:
 
@@ -239,7 +237,7 @@ We are showing environment configurations here, but a default database will be s
 
 * **Configuration 1**: A 1:1 of `qa` and `main` assets In this pattern, the CI schemas are populated in a database *outside* of Production and QA. This is usually done to keep the databases aligned to what’s been merged on their corresponding branches. Here’s our diagram, now mapping to the data platform with this pattern:
 
-  [![Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/8_indirect_data_population.png?v=2 "Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform")](#)Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform
+  ![Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/8_indirect_data_population.png?v=2 "Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform")Indirect Promotion branches and how they relate to 1\\:1 organization in the data platform
 
   Here are our configurations for this pattern:
 
@@ -255,7 +253,7 @@ We are showing environment configurations here, but a default database will be s
 
   In this pattern, the CI schemas populate in a `qa` database because it’s a step in quality assurance. Here’s our diagram, now mapping to the data platform with this pattern:
 
-  [![Indirect Promotion branches and how they relate to workflow initiative organization in the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/9_alt_indirect_data_population.png?v=2 "Indirect Promotion branches and how they relate to workflow initiative organization in the data platform")](#)Indirect Promotion branches and how they relate to workflow initiative organization in the data platform
+  ![Indirect Promotion branches and how they relate to workflow initiative organization in the data platform](/img/blog/2025-01-28-git-branching-strategies-and-dbt/9_alt_indirect_data_population.png?v=2 "Indirect Promotion branches and how they relate to workflow initiative organization in the data platform")Indirect Promotion branches and how they relate to workflow initiative organization in the data platform
 
   Here are our configurations for this pattern:
 
@@ -270,6 +268,8 @@ We are showing environment configurations here, but a default database will be s
 ### Indirect promotion example
 
 *In this example, Steve uses the term “UAT” to define the automatic deployment of the middle branch and “QA” to define what’s built from feature branch pull requests. He also defines a database for each (with four databases total - one for development schemas, one for CI schemas, one for middle branch deployments, and one for production deployments) — we wanted to show you this example as it speaks to how configurable these processes are apart from our standard examples.*
+
+[Loom video](https://www.loom.com/embed/0e03faf9f8f7434fbe01eaf7b818e507)
 
 ## What did indirect promotion change?
 
@@ -411,7 +411,7 @@ Hierarchical promotion introduces changes that may not be ready for production y
 
 The process of choosing specific commits to move to another branch is called **Cherry Picking**.
 
-[![Cherry Picking diagram](/img/blog/2025-01-28-git-branching-strategies-and-dbt/11_cherry_picking.png?v=2 "Cherry Picking diagram")](#)Cherry Picking diagram
+![Cherry Picking diagram](/img/blog/2025-01-28-git-branching-strategies-and-dbt/11_cherry_picking.png?v=2 "Cherry Picking diagram")Cherry Picking diagram
 
 You may be tempted to change to a less standard branching strategy to avoid this - our colleague Grace Goheen has [written some thoughts on this](https://docs.getdbt.com/blog/the-case-against-git-cherry-picking) and provided examples - it’s a worthwhile read!
 
@@ -433,7 +433,7 @@ The process of fixing `main` directly is called a **hotfix**. This needs to be d
 
 The pattern for hotfixes in hierarchical promotion looks like this:
 
-[![Hotfix diagram](/img/blog/2025-01-28-git-branching-strategies-and-dbt/12_hotfixes.png?v=2 "Hotfix diagram")](#)Hotfix diagram
+![Hotfix diagram](/img/blog/2025-01-28-git-branching-strategies-and-dbt/12_hotfixes.png?v=2 "Hotfix diagram")Hotfix diagram
 
 Here’s how it’s typically performed:
 
@@ -448,7 +448,7 @@ What if we want to use more than one middle branch in our strategy?
 
 In our experience, using more than one middle branch is rarely needed. The more steps you are away from main, the more hurdles you’ll need to jump through getting back to it. If your team isn’t properly equipped, this ends up putting a lot of overhead on development operations. For this reason, we don’t recommend more branches if you can help it. The teams who are successful with more trunks are built with plenty of folks who can properly dedicate the time and management to these processes.
 
-[![A git strategy with more branches](/img/blog/2025-01-28-git-branching-strategies-and-dbt/13_more_branches.png?v=2 "A git strategy with more branches")](#)A git strategy with more branches
+![A git strategy with more branches](/img/blog/2025-01-28-git-branching-strategies-and-dbt/13_more_branches.png?v=2 "A git strategy with more branches")A git strategy with more branches
 
 This structure is mostly desired when there are requirements for using different versions data (i.e scrubbed data) by different teams, but working with the same code changes. This structure allows each team to have a dedicated environment for deployments. Example:
 
@@ -460,11 +460,11 @@ To show a comparison, this same use case can be covered with a more simple branc
 
 * Indirect Promotion:
 
-  [![Tagging in Indirect Promotion](/img/blog/2025-01-28-git-branching-strategies-and-dbt/14_indirect_tagging.png?v=2 "Tagging in Indirect Promotion")](#)Tagging in Indirect Promotion
+  ![Tagging in Indirect Promotion](/img/blog/2025-01-28-git-branching-strategies-and-dbt/14_indirect_tagging.png?v=2 "Tagging in Indirect Promotion")Tagging in Indirect Promotion
 
 * Direct Promotion:
 
-  [![Tagging in Direct Promotion](/img/blog/2025-01-28-git-branching-strategies-and-dbt/15_direct_tagging.png?v=2 "Tagging in Direct Promotion")](#)Tagging in Direct Promotion
+  ![Tagging in Direct Promotion](/img/blog/2025-01-28-git-branching-strategies-and-dbt/15_direct_tagging.png?v=2 "Tagging in Direct Promotion")Tagging in Direct Promotion
 
 Whichever option you decide depends on how your team would like to manage the changes. No matter the reason for more branches, these points are always relevant to plan out:
 
@@ -489,7 +489,9 @@ We can use the pinning method to create our middle environment. Example:
 * We specify `v2` as our branch in our Production environment’s **custom branch** setting. Jobs using Production will now check out code at `v2`.
 * We set up an environment called “QA”, with the **custom branch** setting as `main`. For the database and schema, we specify the `qa` database and `analytics` schema. Jobs created using this environment will check out code from `main` and build it to `qa.analytics`.
 
-[![Tagging in Direct Promotion to create a middle environment](/img/blog/2025-01-28-git-branching-strategies-and-dbt/16_direct_tagging_middle_env.png?v=2 "Tagging in Direct Promotion to create a middle environment")](#)Tagging in Direct Promotion to create a middle environment
+![Tagging in Direct Promotion to create a middle environment](/img/blog/2025-01-28-git-branching-strategies-and-dbt/16_direct_tagging_middle_env.png?v=2 "Tagging in Direct Promotion to create a middle environment")Tagging in Direct Promotion to create a middle environment
+
+[Loom video](https://www.loom.com/embed/dfe057bf92b2498eb1e653c32fc72e93)
 
 How do we change from a direct promotion strategy to an indirect promotion strategy?
 
@@ -524,3 +526,11 @@ Here’s the additional setup steps in a nutshell (using the name `qa` for our m
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2025-04-17-dbt-cloud-sso-rbac.md)
+
+[Establishing dbt Cloud: Securing your account through SSO & RBAC](./2025-04-17-dbt-cloud-sso-rbac.md)
+
+[Older post](./2025-02-19-faster-project-parsing-with-rust.md)
+
+[Parser, Better, Faster, Stronger: A peek at the new dbt engine](./2025-02-19-faster-project-parsing-with-rust.md)

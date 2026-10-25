@@ -8,21 +8,17 @@ May 4, 2025 · 7 min read
 
 Senior Director, Partner Engineering
 
-[](https://www.linkedin.com/in/k-dempsey/ "LinkedIn")
-
 [![Luis Leon](/img/blog/authors/luis-leon.png)](./authors/luis-leon.md)
 
 [Luis Leon](./authors/luis-leon.md)
 
 Partner Solutions Architect at dbt Labs
 
-[](https://www.linkedin.com/in/luis-leon-03965463/ "LinkedIn")
-
-**The AI revolution is here—but are we ready?**<br />Across the world, the excitement around AI is undeniable. Discussions on large language models, agentic workflows, and how AI is set to transform every industry abound, yet real-world use cases of AI in production remain few and far between.
+**The AI revolution is here—but are we ready?** Across the world, the excitement around AI is undeniable. Discussions on large language models, agentic workflows, and how AI is set to transform every industry abound, yet real-world use cases of AI in production remain few and far between.
 
 A common issue blocking people from moving AI use cases to production is an ability to evaluate the validity of AI responses in a systematic and well governed way. Moving AI workflows from prototype to production requires rigorous evaluation, and most organizations do not have a framework to ensure AI outputs remain high-quality, trustworthy, and actionable.
 
-**Why AI Evaluation Matters**<br />The more conversations we have with data teams, the clearer the problem becomes: Companies don’t want to move AI into production unless they can monitor and ensure its quality once it's there -- the fear of a ‘rogue AI’ still exceeds perceived benefits.
+**Why AI Evaluation Matters** The more conversations we have with data teams, the clearer the problem becomes: Companies don’t want to move AI into production unless they can monitor and ensure its quality once it's there -- the fear of a ‘rogue AI’ still exceeds perceived benefits.
 
 The core challenge isn’t just building AI use cases; it’s about continuously monitoring their performance and ensuring the same level of quality and reliability we’ve come to expect from other data assets. To trust AI in production, we need structured workflows that:
 
@@ -42,25 +38,25 @@ Let’s walk through a simple example using **dbt and Snowflake Cortex** for AI 
 * **Define Pass/Fail Criteria** We configure a custom dbt test to set an accuracy threshold (e.g., 75% accuracy). If AI sentiment predictions fall below this level, the test triggers a warning or error.
 * **Store and Visualize Results** Native dbt functionality can easily store test failures in the warehouse providing traceability for further investigation, and data for reporting on AI accuracy.
 
-**Scaling AI Evaluation with dbt**<br />This workflow naturally extends dbt’s native testing capabilities and leverages the powerful ability to embed Snowflake Cortex calls in SQL models. In this way users can combine the power of Snowflake Cortex with the established governance and quality framework of dbt to address the issues stated above.
+**Scaling AI Evaluation with dbt** This workflow naturally extends dbt’s native testing capabilities and leverages the powerful ability to embed Snowflake Cortex calls in SQL models. In this way users can combine the power of Snowflake Cortex with the established governance and quality framework of dbt to address the issues stated above.
 
 By using dbt to evaluate AI, organizations can apply the same rigorous testing principles they already use for data pipelines to ensure their AI models are production-ready and maintain quality and governance of all data assets centrally.
 
 **What we Built** Let's walk through this example step by step to give you a sense of how it all works. For this example, we start with a test data set which contains the input to our AI workflow, as well as a true measurement given by a human reviewer -- in this example our input is the text review of different movies and the `actual_sentiment` contains a -1 for negative reviews and 1 for positive reviews. Finally we include a time stamp indicating when our AI provided the response. This time stamp will allow us to track our AI accuracy over time.
 
-[![our input data set, including actual sentiment](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_one.png?v=2 "our input data set, including actual sentiment")](#)our input data set, including actual sentiment
+![our input data set, including actual sentiment](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_one.png?v=2 "our input data set, including actual sentiment")our input data set, including actual sentiment
 
 The next step is to create another output table containing both the true measurement from our dataset and the value returned by our AI. Since we can embed the Snowflake Cortex call directly in a SQL model we can easily build this in dbt using a simple reference function.
 
-[![results of our agentic workflow](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_two.png?v=2 "results of our agentic workflow")](#)results of our agentic workflow
+![results of our agentic workflow](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_two.png?v=2 "results of our agentic workflow")results of our agentic workflow
 
 We also include the input to our AI workflow along with the AI calculated and human determined measurement for the data set. Including all these data points, while not strictly necessary, allows for clear understanding of what was fed into the AI workflow and easy traceability of specific responses. We will follow this same pattern again, using a dbt reference function to create one last dbt model where we build the evaluation prompt and use Cortex Complete to give this prompt to Cortex and store the results. The lionshare of the work building this model was the prompt engineering for the evaluation prompt. We initially built the prompt directly in Snowflake Cortex to ensure it was returning the type of response needed before moving the prompt into dbt.
 
-[![AI generated results automatically evaluated by one or more models](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_three.png?v=2 "AI generated results automatically evaluated by one or more models")](#)AI generated results automatically evaluated by one or more models
+![AI generated results automatically evaluated by one or more models](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_three.png?v=2 "AI generated results automatically evaluated by one or more models")AI generated results automatically evaluated by one or more models
 
 We chose to define our prompt as a Jinja variable as opposed to listing it directly in each dbt model. This has the upside of increasing model readability, but obscures the text of what the prompt is from someone reading the model. To address this issue and provide full traceability, we materialize the prompt as a column in this table. This means that each output row contains not only the evaluation score but also the exact prompt given to produce it. Regardless of where you define your evaluation prompt, by including it as part of your dbt project it will benefit from the same change management and version control processes as the rest of your dbt project, ensuring strong governance of your AI workflows. Another great benefit of this approach and the flexibility provided by dbt and Snowflake Cortex is that you can easily toggle the model you are using to run the evaluation. In this example we use Snowflake Llama, but using any other [supported model](https://docs.snowflake.com/en/sql-reference/functions/complete-snowflake-cortex) is as easy as changing a function parameter. You can even run multiple evaluations using different models to assess accuracy by simply adding additional columns to your dbt model.
 
-[![dbt Testing evaluates AI accuracry along side data quality](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_four.png?v=2 "dbt Testing evaluates AI accuracry along side data quality")](#)dbt Testing evaluates AI accuracry along side data quality
+![dbt Testing evaluates AI accuracry along side data quality](/img/blog/2025-04-04-ai-evaluation-and-how-dbt-can-help/ai_eval_blog_image_four.png?v=2 "dbt Testing evaluates AI accuracry along side data quality")dbt Testing evaluates AI accuracry along side data quality
 
 The final step here is writing a dbt [custom test](../best-practices/writing-custom-generic-tests.md) to find any responses failing to meet our accuracy threshold. By creating this dbt test we can ensure issues with AI accuracy are caught and flagged as part of our standard dbt runs and quality checks. We can also easily leverage dbt’s ability to [store test failures](../reference/resource-configs/store_failures.md) to record quality issues found in AI processes for further investigation and triage.
 
@@ -71,3 +67,11 @@ Ready to bring AI evaluation into your dbt workflow? Get started with the dbt MC
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2025-05-28-dbt-fusion-engine.md)
+
+[Meet the dbt Fusion Engine: the new Rust-based, industrial-grade engine for dbt](./2025-05-28-dbt-fusion-engine.md)
+
+[Older post](./2025-05-01-scaling-data-pipelines-fintech.md)
+
+[Scaling Data Pipelines for a Growth-Stage Fintech with Incremental Models](./2025-05-01-scaling-data-pipelines-fintech.md)

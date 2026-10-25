@@ -1,3 +1,5 @@
+On this page
+
 # An introduction to unit testing your dbt Packages
 
 August 25, 2022 · 7 min read
@@ -7,8 +9,6 @@ August 25, 2022 · 7 min read
 [Yu Ishikawa](./authors/yu-ishikawa.md)
 
 Senior Data Privacy Engineer at Ubie
-
-[](https://www.linkedin.com/in/yuishikawa0301/ "LinkedIn")
 
 *Editors note - this post assumes working knowledge of dbt Package development. For an introduction to dbt Packages check out [So You Want to Build a dbt Package](https://docs.getdbt.com/blog/so-you-want-to-build-a-package).*
 
@@ -220,3 +220,11 @@ Hopefully this is helpful to you in your dbt Package development journey.
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2022-08-31-dbt-product-update-2022-august.md)
+
+[August 2022 dbt Update: v1.3 beta, Tech Partner Program, and Coalesce!](./2022-08-31-dbt-product-update-2022-august.md)
+
+[Older post](./2022-08-24-managing-surrogate-keys.md)
+
+[Surrogate keys in dbt: Integers or hashes?](./2022-08-24-managing-surrogate-keys.md)

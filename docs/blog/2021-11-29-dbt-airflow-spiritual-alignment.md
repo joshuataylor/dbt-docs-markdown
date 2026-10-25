@@ -1,3 +1,5 @@
+On this page
+
 # The Spiritual Alignment of dbt + Airflow
 
 November 29, 2021 · 13 min read
@@ -7,8 +9,6 @@ November 29, 2021 · 13 min read
 [Sung Won Chung](./authors/sung-chung.md)
 
 Solutions Architect at dbt Labs
-
-[](https://www.linkedin.com/in/sungwonchung1/ "LinkedIn")
 
 Airflow and dbt are often framed as either / or:
 
@@ -81,7 +81,7 @@ Many of us define roles like [data engineer](https://www.getdbt.com/data-teams/h
 
 So instead of getting bogged down in defining roles, let’s focus on hard skills I’ve seen in practice.
 
-[![Airflow and dbt skills required](/img/blog/airflow-dbt-skills.png?v=2 "Airflow and dbt skills required")](#)Airflow and dbt skills required
+![Airflow and dbt skills required](/img/blog/airflow-dbt-skills.png?v=2 "Airflow and dbt skills required")Airflow and dbt skills required
 
 The common skills needed for implementing any flavor of dbt (Core or Cloud) are:
 
@@ -111,7 +111,7 @@ If your team’s dbt users are analysts rather than engineers, they still may ne
 
 Having your upstream extract + load jobs configured in Airflow means that analysts can pop open the Airflow UI to monitor for issues (as they would a GUI-based ETL tool), rather than opening a ticket or bugging an engineer in Slack. The Airflow UI provides the common interface that analysts need to self-serve, up to the point of action needing to be taken.
 
-[![Airflow dashboard](/img/blog/airflow-dbt-dashboard.png?v=2 "Airflow dashboard")](#)Airflow dashboard
+![Airflow dashboard](/img/blog/airflow-dbt-dashboard.png?v=2 "Airflow dashboard")Airflow dashboard
 
 ### Transformation observability for engineers
 
@@ -171,11 +171,11 @@ You can see more examples [here](https://docs.getdbt.com/docs/best-practices#run
 
 This means that whether you’re actively developing or you simply want to rerun a scheduled job (because of, say, permission errors or timeouts in your database), you now have a unified approach to doing both.
 
-[![Airflow dbt run select](/img/blog/2021-11-29-dbt-airflow-spiritual-alignment/airflow-dbt-run-select.png?v=2 "Airflow dbt run select")](#)Airflow dbt run select
+![Airflow dbt run select](/img/blog/2021-11-29-dbt-airflow-spiritual-alignment/airflow-dbt-run-select.png?v=2 "Airflow dbt run select")Airflow dbt run select
 
 [In an Airflow context](https://registry.astronomer.io/dags/dbt-core-run-from-failure-pattern), you can use this command with TriggerRules to make it so that, in the event that your initial model fails, you can keep rerunning it from the point of failure without leaving the Airflow UI. This can be especially convenient when the reason your model fails isn't related to the model code itself (permissions for certain schemas, bad data, etc.)
 
-[![Airflow dbt run select](/img/blog/2021-11-29-dbt-airflow-spiritual-alignment/dbt-airflow-tree-graph.png?v=2 "Airflow dbt run select")](#)Airflow dbt run select
+![Airflow dbt run select](/img/blog/2021-11-29-dbt-airflow-spiritual-alignment/dbt-airflow-tree-graph.png?v=2 "Airflow dbt run select")Airflow dbt run select
 
 ### dbt Cloud + Airflow
 
@@ -202,3 +202,11 @@ But there are no right or wrong decisions here! Any combination of tools that so
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
+
+[Newer post](./2021-11-29-welcome.md)
+
+[Welcome to the dbt Developer Blog](./2021-11-29-welcome.md)
+
+[Older post](./2021-11-29-open-source-community-growth-analysis.md)
+
+[How I Study Open Source Community Growth with dbt](./2021-11-29-open-source-community-growth-analysis.md)

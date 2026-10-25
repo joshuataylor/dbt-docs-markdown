@@ -1,3 +1,5 @@
+On this page
+
 # Your Essential dbt Project Checklist
 
 June 20, 2020 · 10 min read
@@ -8,15 +10,11 @@ June 20, 2020 · 10 min read
 
 Product Manager at dbt Labs
 
-[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
-
 [![Dave Connors](/img/blog/authors/dconnors.jpeg)](./authors/dave-connors.md)
 
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
-
-[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 If you’ve been using dbt for over a year, your project is out-of-date. This is natural.
 
@@ -53,7 +51,7 @@ This post is the checklist I created to guide our internal work, and I’m shari
 * Do you use post-hooks to grant permissions to other transformers and BI users?
   * If no, you should! This will ensure that any changes made will be accessible to your collaborators and be utilized on the BI layer.
 
-    [![On run end](/img/blog/checklist-on-run-end.png?v=2 "On run end")](#)On run end
+    ![On run end](/img/blog/checklist-on-run-end.png?v=2 "On run end")On run end
 
 * Are you utilizing tags in your project?
 
@@ -148,7 +146,7 @@ This post is the checklist I created to guide our internal work, and I’m shari
 
   * Make sure nothing is querying off of raw tables, etc.
 
-    [![No querying raw tables](/img/blog/checklist-8ddc2f76de24c98690ef986dcc7974bff09adb59.png?v=2 "No querying raw tables")](#)No querying raw tables
+    ![No querying raw tables](/img/blog/checklist-8ddc2f76de24c98690ef986dcc7974bff09adb59.png?v=2 "No querying raw tables")No querying raw tables
 
 * Do you regularly run `dbt test` as part of your workflow and production jobs?
 
@@ -254,13 +252,13 @@ Are you using the IDE and if so, how well?
 
     * All sources should have a corresponding staging model to clean and standardize the data structure. They should not look like the image below.
 
-      [![Bad dag](/img/blog/checklist-28c75101367e272fbc2db2ebb1a1ec030517bb5e_2_517x250.jpeg?v=2 "Bad dag")](#)Bad dag
+      ![Bad dag](/img/blog/checklist-28c75101367e272fbc2db2ebb1a1ec030517bb5e_2_517x250.jpeg?v=2 "Bad dag")Bad dag
 
   * Do sources join directly together?
 
     * All sources should have a corresponding staging model to clean and standardize the data structure. They should not look like the image below.
 
-      [![Bad dag 2](/img/blog/checklist-5d8ad45deb695eb6771003e010b242c0a3c122b9_2_517x220.jpeg?v=2 "Bad dag 2")](#)Bad dag 2
+      ![Bad dag 2](/img/blog/checklist-5d8ad45deb695eb6771003e010b242c0a3c122b9_2_517x220.jpeg?v=2 "Bad dag 2")Bad dag 2
 
   * Are there any rejoining of upstream concepts?
 
@@ -270,7 +268,7 @@ Are you using the IDE and if so, how well?
 
       * a new intermediate model is necessary to join the concepts for use in both places
 
-        [![Bad dag 2](/img/blog/checklist-acd57c0e781b1eaf75a65b5063f97ac3ddc5c493_2_517x136.jpeg?v=2 "Bad dag 2")](#)Bad dag 2
+        ![Bad dag 2](/img/blog/checklist-acd57c0e781b1eaf75a65b5063f97ac3ddc5c493_2_517x136.jpeg?v=2 "Bad dag 2")Bad dag 2
 
   * Are there any “bending connections”?
 
@@ -278,7 +276,7 @@ Are you using the IDE and if so, how well?
 
     * This may indicate a change in naming is necessary, or the model should reference further upstream models
 
-      [![Bad dag 3](/img/blog/checklist-0532fd13a7d63e3e5df71d025700c4d9c158a7ff_2_517x155.jpeg?v=2 "Bad dag 3")](#)Bad dag 3
+      ![Bad dag 3](/img/blog/checklist-0532fd13a7d63e3e5df71d025700c4d9c158a7ff_2_517x155.jpeg?v=2 "Bad dag 3")Bad dag 3
 
   * Are there model fan outs of intermediate/dimension/fact models?
 
@@ -286,7 +284,7 @@ Are you using the IDE and if so, how well?
 
     * Your dbt project needs a defined end point!
 
-      [![Bad dag 4](/img/blog/checklist-33fcd7c4922233412d1364b39227c876d0cb8215_2_517x111.jpeg?v=2 "Bad dag 4")](#)Bad dag 4
+      ![Bad dag 4](/img/blog/checklist-33fcd7c4922233412d1364b39227c876d0cb8215_2_517x111.jpeg?v=2 "Bad dag 4")Bad dag 4
 
   * Is there repeated logic found in multiple models?
 
@@ -307,3 +305,7 @@ This is a quick overview of things to think about in your project. We’ll keep 
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2020-07-01-how-to-create-near-real-time-models-with-just-dbt-sql.md)
+
+[How to Create Near Real-time Models With Just dbt + SQL](./2020-07-01-how-to-create-near-real-time-models-with-just-dbt-sql.md)

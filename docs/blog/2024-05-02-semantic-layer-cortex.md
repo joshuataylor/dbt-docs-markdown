@@ -1,3 +1,5 @@
+On this page
+
 # Conversational Analytics: A Natural Language Interface to your Snowflake Data
 
 May 2, 2024 · 12 min read
@@ -8,15 +10,15 @@ May 2, 2024 · 12 min read
 
 Senior Solutions Architect at dbt Labs
 
-[](https://github.com/dpguthrie "GitHub")[](https://www.linkedin.com/in/doug-guthrie-07994a48/ "LinkedIn")
-
 ## Introduction
 
 As a solutions architect at dbt Labs, my role is to help our customers and prospects understand how to best utilize the dbt Cloud platform to solve their unique data challenges. That uniqueness presents itself in different ways - organizational maturity, data stack, team size and composition, technical capability, use case, or some combination of those. With all those differences though, there has been one common thread throughout most of my engagements: Generative AI and Large Language Models (LLMs). Data teams are either 1) proactively thinking about applications for it in the context of their work or 2) being pushed to think about it by their stakeholders. It has become the elephant in every single (zoom) room I find myself in.
 
-[![Gen AI Everywhere!](/img/blog/2024-05-02-semantic-layer-llm/gen-ai-everywhere.png?v=2 "Gen AI Everywhere!")](#)Gen AI Everywhere!
+![Gen AI Everywhere!](/img/blog/2024-05-02-semantic-layer-llm/gen-ai-everywhere.png?v=2 "Gen AI Everywhere!")Gen AI Everywhere!
 
 Clearly, this technology is not going away. There are already countless number of use cases and applications already showing very real improvements to efficiency, productivity, and creativity. Inspired by the common problem faced by data teams I'm talking to, I built a [Streamlit app](https://dbt-semantic-layer.streamlit.app/) which uses Snowflake Cortex and the dbt Semantic Layer to answer free-text questions accurately and consistently. You can preview examples of the questions it's able to answer below:
+
+[Loom video](https://www.loom.com/embed/3b5cc878ef53488583691c390159007d?t=0)
 
 ## Why Build This
 
@@ -297,3 +299,11 @@ Finally, to see the entire code, from Snowflake to Streamlit, check out the repo
 
 * [llm](./tags/llm.md)
 * [semantic-layer](./tags/semantic-layer.md)
+
+[Newer post](./2024-05-07-announcing-unit-testing.md)
+
+[Unit testing in dbt for test-driven development](./2024-05-07-announcing-unit-testing.md)
+
+[Older post](./2024-05-02-latest-dbt-stability.md)
+
+[How we're making sure you can confidently switch to the "Latest" release track in dbt Cloud](./2024-05-02-latest-dbt-stability.md)

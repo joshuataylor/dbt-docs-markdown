@@ -1,3 +1,5 @@
+On this page
+
 # Tackling the complexity of joining snapshots
 
 May 26, 2022 · 16 min read
@@ -7,8 +9,6 @@ May 26, 2022 · 16 min read
 [Lauren Benezra](./authors/lauren-benezra.md)
 
 Analytics Engineer at dbt Labs
-
-[](https://www.linkedin.com/in/lbenezra/ "LinkedIn")
 
 Let’s set the scene. You are an [analytics engineer](https://www.getdbt.com/what-is-analytics-engineering/) at your company. You have several relational datasets flowing through your warehouse, and, of course, you can easily access and transform these tables through dbt. You’ve joined together the tables appropriately and have near-real time reporting on the relationships for each `entity_id` as it currently exists.
 
@@ -85,7 +85,7 @@ This boils down to the following steps:
 
 So let’s dive in! Head first! Step 1 is outlined in this blog post: [How to deduplicate partial duplicates](https://docs.getdbt.com/blog/how-we-remove-partial-duplicates). It only needs to be implemented if you are dealing with dupes in your data. If you don’t have duplicates in your data (wow! send me the number of your Data Engineer *ASAP*), you can skip this step.
 
-[![backtothefuture.gif](/img/blog/2022-05-24-joining-snapshot-complexity/backtothefuture.gif?v=2 "backtothefuture.gif")](#)backtothefuture.gif
+![backtothefuture.gif](/img/blog/2022-05-24-joining-snapshot-complexity/backtothefuture.gif?v=2 "backtothefuture.gif")backtothefuture.gif
 
 ## Step 1: Ensure your data tables are duplicate free
 
@@ -95,7 +95,7 @@ Step 1 walks you through how to build a surrogate key from column values using a
 
 Why is this step important? Because you’ll be joining so many rows on the same id, and the valid timestamps for each row will determine the exact place to join one table to another. We cannot do this accurately with duplicates! (But also, you should be checking for dupes anyway because we are analytics engineers, right?)
 
-[![clean-data-meme.png](/img/blog/2022-05-24-joining-snapshot-complexity/clean-data-meme.png?v=2 "clean-data-meme.png")](#)clean-data-meme.png
+![clean-data-meme.png](/img/blog/2022-05-24-joining-snapshot-complexity/clean-data-meme.png?v=2 "clean-data-meme.png")clean-data-meme.png
 
 See [this blog post for deduping partial duplicates](https://docs.getdbt.com/blog/how-we-remove-partial-duplicates)!
 
@@ -284,3 +284,11 @@ Friend, you're an absolute star. You’ve determined that you need to join sever
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-07-13-datediff-sql-love-letter.md)
+
+[DATEDIFF SQL function: Why we love it](./2022-07-13-datediff-sql-love-letter.md)
+
+[Older post](./2022-05-23-star-sql-love-letter.md)
+
+[A star (generator) is born](./2022-05-23-star-sql-love-letter.md)

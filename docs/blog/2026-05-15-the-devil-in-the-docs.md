@@ -1,3 +1,5 @@
+On this page
+
 # The devil is in the docs
 
 May 15, 2026 · 12 min read
@@ -7,8 +9,6 @@ May 15, 2026 · 12 min read
 [Mirna Wong](./authors/mirna-wong.md)
 
 Senior Technical Writer at dbt Labs
-
-[](https://www.linkedin.com/in/mirnawong/ "LinkedIn")
 
 > *"By all means, move at a glacial pace."* — Miranda Priestly, *[The Devil Wears Prada](https://en.wikipedia.org/wiki/The_Devil_Wears_Prada_\(film\))*
 
@@ -41,7 +41,7 @@ That is a little similar to the relationship between the [dbt MCP server](../doc
 
 So when an agent was asked *"how do I configure incremental models?"*, it could absolutely in theory reach the docs with its own browsing tools, but the experience was inconsistent. Sometimes it fetched a page via web search, sometimes it leaned on training data, or pieced an answer together; and when it *did* fetch, it usually pulled rendered HTML rather than the Markdown source — heavier, noisier, and less token-efficient. There was no direct, native path inside the server that pointed agents at the canonical docs in their cleanest form by default.
 
-[![Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-meme.png?v=2 "Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)")](#)Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)
+![Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-meme.png?v=2 "Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)")Miranda mad at AI for hallucinating about incremental models (but for real an actual response I received from AI when I was adding the docs tools to the MCP server)
 
 ## The research: using the data to make better decisions
 
@@ -103,7 +103,7 @@ Alongside this, [dbt agent skills](https://skills.sh/dbt-labs/dbt-agent-skills) 
 
 We also added the product docs toolset to dbt's [Developer agent](../docs/dbt-ai/wizard-ide.md) experience — bringing the docs closer to users in dbt platform and the Studio IDE. 🎉
 
-[![Developer agent using the product docs tools](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-dev-agent.png?v=2 "Developer agent using the product docs tools")](#)Developer agent using the product docs tools
+![Developer agent using the product docs tools](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-dev-agent.png?v=2 "Developer agent using the product docs tools")Developer agent using the product docs tools
 
 The Book arrived. No context switch required.
 
@@ -111,13 +111,13 @@ So since we've added the docs toolsets in March, over **1000 unique dbt accounts
 
 And it's growing fast: **338** docs-tool calls in March (the month they launched), **1,113** in April, and over **6,000** so far in May.
 
-[dbt MCP docs-tool calls per month](/charts/mcp-docs-usage.html)
+[dbt MCP docs-tool calls per month](https://docs.getdbt.com/charts/mcp-docs-usage)
 
 And those calls are mostly coming from *agents* — autonomous, multi-step tools fetching the docs on a user's behalf while they work through a task. That's a different shape of usage than a chat assistant answering a one-off question: the docs aren't just being looked up, they're being pulled into the work itself.
 
 For analysts exploring a shared project, it means understanding what a model does without navigating to a separate tab. For teams working across different dbt setups, it means consistent, authoritative answers regardless of where they're working or who's asking. For the docs team, it means the work we put into writing and maintaining docs.getdbt.com is doing more than it was before — reaching users where they actually are.
 
-[![Emily happier that docs are in the MCP server](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-wear-chanel.png?v=2 "Emily happier that docs are in the MCP server")](#)Emily happier that docs are in the MCP server
+![Emily happier that docs are in the MCP server](/img/blog/2026-04-30-the-devil-is-in-the-docs/dwp-wear-chanel.png?v=2 "Emily happier that docs are in the MCP server")Emily happier that docs are in the MCP server
 
 ## What's next
 
@@ -151,3 +151,11 @@ We're no longer moving at a glacial pace. The current runs *fast*. And the devil
 * [ai](./tags/ai.md)
 * [docs](./tags/docs.md)
 * [mcp](./tags/mcp.md)
+
+[Newer post](./2026-06-01-dbt-core-v2-is-here.md)
+
+[dbt Core v2 is here: still open source, now rebuilt for what's next](./2026-06-01-dbt-core-v2-is-here.md)
+
+[Older post](./2026-04-15-building-a-better-data-agent-benchmark.md)
+
+[Building a better data agent benchmark](./2026-04-15-building-a-better-data-agent-benchmark.md)

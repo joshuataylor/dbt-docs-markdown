@@ -1,3 +1,5 @@
+On this page
+
 # Demystifying event streams: Transforming events into tables with dbt
 
 November 4, 2022 · 13 min read
@@ -7,8 +9,6 @@ November 4, 2022 · 13 min read
 [Charlie Summers](./authors/charlie-summers.md)
 
 Staff Software Engineer at Merit
-
-[](https://www.linkedin.com/in/charliesummers/ "LinkedIn")
 
 Let’s discuss how to convert events from an event-driven microservice architecture into relational tables in a warehouse like Snowflake. Here are a few things we’ll address:
 
@@ -22,11 +22,11 @@ At Merit, we’re building the leading verified identity platform. One key focus
 
 Under the hood, the Merit platform consists of a series of microservices. Each of these microservices has its own database. We use Snowflake as our data warehouse where we build dashboards both for internal use and for customers.
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform.png?v=2)
 
 In the past we relied upon an ETL tool (Stitch) to pull data out of microservice databases and into Snowflake. This data would become the main dbt sources used by our report models in BI.
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-stitch.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-stitch.png?v=2)
 
 This approach worked well, but as engineering velocity increased, we came up with a new policy that required we rethink this approach: **no service should directly access another microservice’s database**. This rule empowers microservices to change their database schemas however they like without worrying about breaking other systems.
 
@@ -42,7 +42,7 @@ So our solution was to start using an intentional contract: **Events**.
 
 What are Events? Events are facts about what happened within your service. For example, somebody logged in or a new user was created. At Merit (and at many companies), we use an Event-Driven Architecture. That means that microservices primarily communicate information through events, often leveraging messaging platforms like Kafka.
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-kafka.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-kafka.png?v=2)
 
 Microservices consume messages from others that they’re interested in. We choose to use **thick messages** that store as much information as possible about each event - this means that consuming microservices can store and refer to event data instead of requesting fresh data from microservices. For distributed systems nerds: this improves Availability at the cost of Consistency.
 
@@ -64,11 +64,11 @@ One very useful feature of the Kafka Schema Registry is it can restrict changes 
 
 So we started consuming events from Kafka into Snowflake using [Kafka’s Snowflake Connector](https://docs.snowflake.com/en/user-guide/kafka-connector.html).
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-kafka-load.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/merit-platform-kafka-load.png?v=2)
 
 The Snowflake Connector creates a new table for every Kafka topic and adds a new row for every event. In each row there’s a record\_metadata column and a record\_content column. Each column is a variant type in Snowflake.
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/kafka-topic-table.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/kafka-topic-table.png?v=2)
 
 Since we use **thick messages** we actually can consider ourselves done. The messages have as much information as the underlying database, so we could make queries against tables like the above.
 
@@ -97,7 +97,7 @@ The OMG contract states that every Kafka message related to a domain model:
 
 We now can run obvious model generation streams processing on all data that complies with the OMG contract.
 
-[![](/img/blog/2022-10-24-demystifying-event-streams/omg-contract.png?v=2)](#)
+![](/img/blog/2022-10-24-demystifying-event-streams/omg-contract.png?v=2)
 
 ## Generic table pipelines via dbt macros
 
@@ -280,3 +280,11 @@ We’ve used dbt macros to transform event streams into tables so that we don’
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-11-22-wasila-foundry-experience.md)
+
+[A journey through the Foundry: Becoming an analytics engineer at dbt Labs](./2022-11-22-wasila-foundry-experience.md)
+
+[Older post](./2022-10-18-polyglot-dbt-python-dataframes-sql.md)
+
+[Stronger together: Python, dataframes, and SQL](./2022-10-18-polyglot-dbt-python-dataframes-sql.md)

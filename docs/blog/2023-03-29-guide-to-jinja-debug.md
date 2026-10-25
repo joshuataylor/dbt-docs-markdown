@@ -1,3 +1,5 @@
+On this page
+
 # The missing guide to debug() in dbt
 
 March 29, 2023 · 7 min read
@@ -7,8 +9,6 @@ March 29, 2023 · 7 min read
 [Benoit Perigaud](./authors/benoit-perigaud.md)
 
 Staff Developer Experience Advocate at dbt Labs
-
-[](https://www.linkedin.com/in/benoit-perigaud/ "LinkedIn")
 
 *Editor's note—this post assumes intermediate knowledge of Jinja and macros development in dbt. For an introduction to Jinja in dbt check out [the documentation](https://docs.getdbt.com/docs/build/jinja-macros) and the free self-serve course on [Jinja, Macros, Packages](https://learn.getdbt.com/courses/jinja-macros-and-packages).*
 
@@ -30,6 +30,8 @@ Runtime Error
 ```
 
 That's it!?!?
+
+[Embedded video](https://giphy.com/embed/l4JyNPwLCWt6mSxlS)
 
 [via GIPHY](https://giphy.com/gifs/comedy-bbc-three-l4JyNPwLCWt6mSxlS)
 
@@ -163,3 +165,11 @@ I hope that this short guide gave you an idea of how `debug()` could help you de
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2023-04-17-dbt-squared.md)
+
+[dbt Squared: Leveraging dbt Core and dbt Cloud together at scale](./2023-04-17-dbt-squared.md)
+
+[Older post](./2023-03-24-audit-helper-for-migration.md)
+
+[Audit\_helper in dbt: Bringing data auditing to a higher level](./2023-03-24-audit-helper-for-migration.md)

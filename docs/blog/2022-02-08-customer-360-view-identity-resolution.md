@@ -1,3 +1,5 @@
+On this page
+
 # The JaffleGaggle Story: Data Modeling for a Customer 360 View
 
 February 8, 2022 · 16 min read
@@ -7,8 +9,6 @@ February 8, 2022 · 16 min read
 [Donny Flynn](./authors/donny-flynn.md)
 
 Customer Data Architect at Census
-
-[](https://x.com/donmandonguy "X")[](https://www.linkedin.com/in/donny-flynn-578149a4/ "LinkedIn")
 
 *Editor's note: In this tutorial, Donny walks through the fictional story of a SaaS company called JaffleGaggle, who needs to group their freemium individual users into company accounts (aka a customer 360 view) in order to drive their product-led growth efforts.*
 
@@ -22,13 +22,13 @@ In short, a jaffle is:
 
 > "A toasted sandwich with crimped, sealed edges. Invented in Bondi in 1949, the humble jaffle is an Australian classic. The sealed edges allow jaffle-eaters to enjoy liquid fillings inside the sandwich, which reach temperatures close to the core of the earth during cooking. Often consumed at home after a night out, the most classic filling is tinned spaghetti, while my personal favourite is leftover beef stew with melted cheese."
 
-[![Freshly-toasted jaffles](/img/blog/2022-02-08-customer-360-view/image_0.jpg?v=2 "Freshly-toasted jaffles")](#)Freshly-toasted jaffles
+![Freshly-toasted jaffles](/img/blog/2022-02-08-customer-360-view/image_0.jpg?v=2 "Freshly-toasted jaffles")Freshly-toasted jaffles
 
 *See above: Tasty, tasty jaffles.*
 
-Jaffle Shop is a demo repo referenced in [dbt’s Getting Started Guide](../guides.md), and its jaffles hold a special place in the dbt community’s hearts, as well as on Data Twitter™.
+Jaffle Shop is a demo repo referenced in [dbt’s Getting Started Guide](https://docs.getdbt.com/guides), and its jaffles hold a special place in the dbt community’s hearts, as well as on Data Twitter™.
 
-[![Jaffles on data twitter](/img/blog/2022-02-08-customer-360-view/image_1.png?v=2 "Jaffles on data twitter")](#)Jaffles on data twitter
+![Jaffles on data twitter](/img/blog/2022-02-08-customer-360-view/image_1.png?v=2 "Jaffles on data twitter")Jaffles on data twitter
 
 So, I thought it only apt to build on the collective reverence for these tasty, crunchy snacks to talk about customer 360 views.
 
@@ -54,7 +54,7 @@ JaffleGaggle is growing rapidly and has just bought a CRM (yay!), but it’s cur
 
 As people invite more of their peers to their Gaggle, they’re able to unlock even more recipes and jaffles.
 
-[![A live look at jafflegaggle](/img/blog/2022-02-08-customer-360-view/jafflegaggle_screenshot.png?v=2 "A live look at jafflegaggle")](#)A live look at jafflegaggle
+![A live look at jafflegaggle](/img/blog/2022-02-08-customer-360-view/jafflegaggle_screenshot.png?v=2 "A live look at jafflegaggle")A live look at jafflegaggle
 
 **Seen above**: One of the many, many delicious jaffle recipes that await teams on JaffleGaggle.
 
@@ -98,15 +98,15 @@ To use our CRM, we’ll need to **upload data for the following**:
 
 * **Contacts** (contacts that are unique by email address)
 
-[![Contacts in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_2.png?v=2 "Contacts in the dbt DAG")](#)Contacts in the dbt DAG
+![Contacts in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_2.png?v=2 "Contacts in the dbt DAG")Contacts in the dbt DAG
 
 * **Gaggles** (understanding the activity of a workspace)
 
-[![Gaggles in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_3.png?v=2 "Gaggles in the dbt DAG")](#)Gaggles in the dbt DAG
+![Gaggles in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_3.png?v=2 "Gaggles in the dbt DAG")Gaggles in the dbt DAG
 
 * **Accounts** (companies our sales team can track and prioritize)
 
-[![Accounts in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_4.png?v=2 "Accounts in the dbt DAG")](#)Accounts in the dbt DAG
+![Accounts in the dbt DAG](/img/blog/2022-02-08-customer-360-view/image_4.png?v=2 "Accounts in the dbt DAG")Accounts in the dbt DAG
 
 ## Step 2: Model the contact
 
@@ -235,7 +235,7 @@ Now to generate dbt docs and view our DAG, we can run:
 
 This gives us access to the DAG for `jafflegaggle_contacts.sql` which can serve as the source of truth for the JaffleGaggle Ops team about where the analytics definitions live for the contacts in the system.
 
-[![Jafflegaggle contacts DAG](/img/blog/2022-02-08-customer-360-view/image_6.png?v=2 "Jafflegaggle contacts DAG")](#)Jafflegaggle contacts DAG
+![Jafflegaggle contacts DAG](/img/blog/2022-02-08-customer-360-view/image_6.png?v=2 "Jafflegaggle contacts DAG")Jafflegaggle contacts DAG
 
 ## Step 3: Model the Gaggle
 
@@ -282,11 +282,11 @@ gaggle_total_facts as (
 
 I know, that’s a ton of code. Check out the dbt docs for the project for an explanation of the fields. Here’s the output of final `jafflegaggle_facts` table:
 
-[![Jafflegaggle facts query output screenshot](/img/blog/2022-02-08-customer-360-view/image_7.png?v=2 "Jafflegaggle facts query output screenshot")](#)Jafflegaggle facts query output screenshot
+![Jafflegaggle facts query output screenshot](/img/blog/2022-02-08-customer-360-view/image_7.png?v=2 "Jafflegaggle facts query output screenshot")Jafflegaggle facts query output screenshot
 
 Referring to the DAG from the dbt docs, you can see how we are already benefiting from merging at the user level for analytics information related to `jafflegaggle_contacts`.
 
-[![DAG of gaggle modeling](/img/blog/2022-02-08-customer-360-view/image_8.png?v=2 "DAG of gaggle modeling")](#)DAG of gaggle modeling
+![DAG of gaggle modeling](/img/blog/2022-02-08-customer-360-view/image_8.png?v=2 "DAG of gaggle modeling")DAG of gaggle modeling
 
 We also use an upstream table of `stg_gaggles` which pulls in information about the creation of the Gaggle and its name.
 
@@ -298,7 +298,7 @@ We want to **join the characteristics for different gaggles that share the same 
 
 By looking at the dbt docs, we see that every model is an upstream source for [`jafflegaggle_corporate_accounts`](https://github.com/dflynn20/jaffle_gaggle/blob/main/models/jafflegaggle_corporate_accounts.sql).
 
-[![Jagglegaggle corporate accounts](/img/blog/2022-02-08-customer-360-view/image_9.png?v=2 "Jagglegaggle corporate accounts")](#)Jagglegaggle corporate accounts
+![Jagglegaggle corporate accounts](/img/blog/2022-02-08-customer-360-view/image_9.png?v=2 "Jagglegaggle corporate accounts")Jagglegaggle corporate accounts
 
 At this level we **coalesce the company for the merged domain** as we did with the `merged_users` previously. Here’s the code for this step:
 
@@ -320,7 +320,7 @@ Note: This is not the only place where we reference the `merged_company_domain` 
 
 Here is an output of the final corporate accounts table:
 
-[![Corporate accounts table](/img/blog/2022-02-08-customer-360-view/image_10.png?v=2 "Corporate accounts table")](#)Corporate accounts table
+![Corporate accounts table](/img/blog/2022-02-08-customer-360-view/image_10.png?v=2 "Corporate accounts table")Corporate accounts table
 
 ### Step 4.1: Identify power users for an account
 
@@ -390,7 +390,7 @@ In terms of data architecture, there are four things you need to do to get this 
 3. Leverage ETL/ELT to get CRM data back into the data warehouse
 4. Design for how you can extend the current merging solution
 
-[![Customer 360 view architecture diagram](/img/blog/2022-02-08-customer-360-view/image_11.png?v=2 "Customer 360 view architecture diagram")](#)Customer 360 view architecture diagram
+![Customer 360 view architecture diagram](/img/blog/2022-02-08-customer-360-view/image_11.png?v=2 "Customer 360 view architecture diagram")Customer 360 view architecture diagram
 
 If you’ve made it this far, you’ve gone from having three raw source tables to a business-specific source of truth within your own data warehouse featuring human-in-the-loop identity resolution, email domain dbt macro magic, and best practices for operationalizing B2B product-led growth. You most definitely deserve a jaffle. 🥪
 
@@ -401,3 +401,11 @@ PS: @clrclr don’t hate me. 🙏🏻
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
+
+[Newer post](./2022-03-02-founding-an-analytics-engineering-team-smartsheet.md)
+
+[Founding an Analytics Engineering Team](./2022-03-02-founding-an-analytics-engineering-team-smartsheet.md)
+
+[Older post](./2022-02-03-measuring-business-hours-sql-time-on-task.md)
+
+[How We Calculate Time on Task, the Business Hours Between Two Dates](./2022-02-03-measuring-business-hours-sql-time-on-task.md)

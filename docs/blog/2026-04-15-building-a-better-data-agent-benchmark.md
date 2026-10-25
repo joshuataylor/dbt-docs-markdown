@@ -1,3 +1,5 @@
+On this page
+
 # Building a better data agent benchmark
 
 April 15, 2026 · 15 min read
@@ -7,8 +9,6 @@ April 15, 2026 · 15 min read
 [Benn Stancil](./authors/benn-stancil.md)
 
 Founder at Mode
-
-[](https://benn.website/ "website")
 
 It's the multitrillion-dollar question that's haunting everyone, from senior software developers and junior lawyers to Hollywood writers and, of course, data analysts and engineers: Can the robots do our jobs?
 
@@ -166,3 +166,11 @@ We're excited to keep working on that project, to keep experimenting with new wa
 **Tags:**
 
 * [ai](./tags/ai.md)
+
+[Newer post](./2026-05-15-the-devil-in-the-docs.md)
+
+[The devil is in the docs](./2026-05-15-the-devil-in-the-docs.md)
+
+[Older post](./2026-04-07-semantic-layer-vs-text-to-sql-2026.md)
+
+[Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update](./2026-04-07-semantic-layer-vs-text-to-sql-2026.md)

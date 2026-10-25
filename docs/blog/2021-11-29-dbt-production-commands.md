@@ -1,3 +1,5 @@
+On this page
+
 # The Exact dbt Commands We Run in Production
 
 November 29, 2021 · 6 min read
@@ -7,8 +9,6 @@ November 29, 2021 · 6 min read
 [Andrew Escay](./authors/andrew-escay.md)
 
 Analytics Engineer at dbt Labs
-
-[](https://x.com/_aescay "X")
 
 February 2024 Update
 
@@ -36,6 +36,8 @@ You’re probably familiar with a bunch of [dbt commands](https://docs.getdbt.co
 In production, reliability and consistency are key. This guarantees that your stakeholders have data that could be meaningfully used. In order to ensure reliability and consistency, here are a few principles we believe you should keep in mind when designing your deployment commands:
 
 ## Principles of dbt deployment commands
+
+[Wistia video](https://fast.wistia.net/embed/iframe/7em2tj62yo?seo=false\&videoFoam=true)
 
 ### 1) Always test your data
 
@@ -115,3 +117,11 @@ As long as you remember the core principles I shared earlier (mostly keep things
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
+
+[Newer post](./2021-11-29-analytics-pull-request-template.md)
+
+[The Exact GitHub Pull Request Template We Use at dbt Labs](./2021-11-29-analytics-pull-request-template.md)
+
+[Older post](./2021-11-29-primary-key-testing.md)
+
+[What's a Primary Key and Why Do We Test Them?](./2021-11-29-primary-key-testing.md)
