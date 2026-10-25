@@ -1,5 +1,3 @@
-On this page
-
 # The dbt MCP server comes to Claude: governed context, one sign-in away
 
 July 23, 2026 · 8 min read
@@ -9,6 +7,8 @@ July 23, 2026 · 8 min read
 [Alex Noonan](./authors/alex-noonan.md)
 
 Senior Developer Experience Advocate
+
+[](https://x.com/alexnoonan6 "X")[](https://www.linkedin.com/in/alexander-noonan/ "LinkedIn")
 
 When we open-sourced the dbt MCP server in [April 2025](./2025-04-21-introducing-dbt-mcp-server.md), it was an experimental, locally hosted project with a clear thesis behind it: structured data is going to be deeply integrated into AI workflows, and dbt is the layer that provides the governed context those workflows run on. [Anthropic](https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude) has helped validate our thesis. Naturally, it made sense to have a cloud-hosted version with remote OAuth, so you can use it with whatever AI tool you are most comfortable with.
 
@@ -37,7 +37,7 @@ This quick demo shows how I use the dbt MCP server to understand the capabilitie
 
 ## Composition of tools
 
-![Tool Time hosts Tim Taylor and Al Borland pointing toward the show's logo](/img/blog/2026-07-23-dbt-mcp-server-claude/tool-time-workflows.jpg?v=2 "The dbt MCP server lets Claude combine governed data with the other tools in your workflow.")The dbt MCP server lets Claude combine governed data with the other tools in your workflow.
+[![Tool Time hosts Tim Taylor and Al Borland pointing toward the show's logo](/img/blog/2026-07-23-dbt-mcp-server-claude/tool-time-workflows.jpg?v=2 "The dbt MCP server lets Claude combine governed data with the other tools in your workflow.")](#)The dbt MCP server lets Claude combine governed data with the other tools in your workflow.
 
 Almost every process benefits from a trustworthy answer to "What is actually happening in the business?" A campaign plan needs acquisition numbers. A goal needs a baseline. A weekly update needs last week's actuals. Going back to the dashboard is one option, but that context switch is another opportunity to get distracted and takes you out of the decision loop.
 
@@ -53,7 +53,7 @@ In a past life, I was a marketer. As a budding data analyst, I wanted to make as
 
 ### 2. Goal setting and periodic reviews
 
-![A character explaining that projections are hopes and dreams derived from reality](/img/blog/2026-07-23-dbt-mcp-server-claude/projections-and-goals.jpeg?v=2 "Ground projections, goals, and periodic reviews in governed metrics.")Ground projections, goals, and periodic reviews in governed metrics.
+[![A character explaining that projections are hopes and dreams derived from reality](/img/blog/2026-07-23-dbt-mcp-server-claude/projections-and-goals.jpeg?v=2 "Ground projections, goals, and periodic reviews in governed metrics.")](#)Ground projections, goals, and periodic reviews in governed metrics.
 
 Targets and recurring updates lean on the same governed metrics, which makes them a natural fit for the server. Set quarterly goals anchored to Semantic Layer baselines, and record them in Google Sheets or Notion. Then, on your preferred cadence, have Claude generate a business review that measures actuals against those targets and post it to a Slack channel. The real unlock is being able to interrogate the numbers and riff with Claude on possible interpretations and strategies. You arrive at the meeting informed, prepared for follow-up questions, and ready with solutions.
 
@@ -100,11 +100,3 @@ Join the conversation in `#tools-dbt-mcp` in the dbt community Slack.
 
 * [ai](./tags/ai.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2026-09-16-dbt-v2-is-ga.md)
-
-[dbt v2.0 is GA](./2026-09-16-dbt-v2-is-ga.md)
-
-[Older post](./2026-06-30-wizard-use-cases.md)
-
-[No babysitting, not today](./2026-06-30-wizard-use-cases.md)

@@ -1,5 +1,3 @@
-On this page
-
 # How I Study Open Source Community Growth with dbt
 
 November 29, 2021 · 20 min read
@@ -9,6 +7,8 @@ November 29, 2021 · 20 min read
 [Ross Turk](./authors/ross-turk.md)
 
 VP Marketing at Datakin
+
+[](https://x.com/rossturk "X")[](https://github.com/rossturk "GitHub")
 
 Most organizations spend at least *some* of their time contributing to an open source project. 100% of them, though, depend in some way on the output of open source communities.
 
@@ -454,7 +454,7 @@ Emitted 16 openlineage events
 
 A lineage graph of the entire pipeline can now be viewed in Marquez, which shows the relationships between datasets and provides detail about the run history.
 
-![Marquez dashboard](/img/blog/community-growth-marquez.png?v=2 "Marquez dashboard")Marquez dashboard
+[![Marquez dashboard](/img/blog/community-growth-marquez.png?v=2 "Marquez dashboard")](#)Marquez dashboard
 
 ## Visualizing the Results
 
@@ -466,7 +466,7 @@ Once the database connection was in place, I created datasets for each of my `*_
 
 With the database and datasets configured, I was able to use the charting interface to explore the various measures and dimensions in the warehouse. After about fifteen minutes, I had created a dashboard that shows the evolution of the communities where my colleagues and I do our work.
 
-![Community growth dashboard](/img/blog/community-growth-dashboard.png?v=2 "Community growth dashboard")Community growth dashboard
+[![Community growth dashboard](/img/blog/community-growth-dashboard.png?v=2 "Community growth dashboard")](#)Community growth dashboard
 
 This overall view is interesting - it suggests acceleration in activity across every channel during the summer of 2021, which makes a lot of sense. That is when the first release of OpenLineage happened, and also when a few talks and podcasts were released. Things have slowed down as the holiday approaches, which also checks out. Unless you're in the retail business, that kind of thing happens.
 
@@ -474,7 +474,7 @@ Indeed, you can see a familiar pattern happen every year on the PyPI chart. That
 
 Something else can be learned from this PyPI data, something more specific to my project. Over the summer, several integrations were moved from the Marquez project to the OpenLineage project. That means that `marquez-airflow` has become `openlineage-airflow`. I'd like to know whether the old packages are still being used. When I create a chart using `num_downloads` as a metric and `package` as a dimension, with monthly granularity, it shows:
 
-![Community growth trends](/img/blog/community-growth-trend.png?v=2 "Community growth trends")Community growth trends
+[![Community growth trends](/img/blog/community-growth-trend.png?v=2 "Community growth trends")](#)Community growth trends
 
 The shift began in August, and as of right now the Marquez packages still account for about half of the total downloads. That means we have some work to do. Likely there is some old documentation still out there to be found and updated.
 
@@ -491,11 +491,3 @@ To view the entire thing (including a Dockerfile I use to containerize it all) c
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2021-11-29-dbt-airflow-spiritual-alignment.md)
-
-[The Spiritual Alignment of dbt + Airflow](./2021-11-29-dbt-airflow-spiritual-alignment.md)
-
-[Older post](./2021-11-29-design-for-analytics-towards-analytical-applications.md)
-
-[The (Missing) Role of Design in Analytics](./2021-11-29-design-for-analytics-towards-analytical-applications.md)

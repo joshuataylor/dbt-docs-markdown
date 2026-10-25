@@ -1,5 +1,3 @@
-On this page
-
 # August 2022 dbt Update: v1.3 beta, Tech Partner Program, and Coalesce!
 
 August 31, 2022 · 5 min read
@@ -9,6 +7,8 @@ August 31, 2022 · 5 min read
 [Lauren Craigie](./authors/lauren-craigie.md)
 
 Product Marketing at dbt Labs
+
+[](https://x.com/crai_fish "X")
 
 Semantic layer, Python model support, the new dbt Cloud UI and IDE… there’s a lot our product team is excited to share with you at [Coalesce](https://coalesce.getdbt.com/register?utm_medium=email\&utm_source=hs_email\&utm_campaign=q3-2023_coalesce-2022_awareness\&utm_content=connect_product-update_) in a few weeks.
 
@@ -53,17 +53,9 @@ I just discovered the treasure trove of excellent resources from dbt Labs consul
 
 * **Reduce ETL costs:** I’ve only just seen [this blog](https://www.mighty.digital/blog/how-dbt-helped-us-reduce-our-etl-costs-significantly) from Mighty Digital, but found it to be a super practical (and concise) introductory guide to rethinking your ETL pipeline with dbt.
 * **Explore data:** [Part two of a series on exploring data](https://vivanti.com/2022/07/28/exploring-data-with-dbt-part-2-extracting/) brought to you by Vivanti. This post focuses on working with JSON objects in dbt, but I also recommend the preceding post if you want to see how they spun up their stack.
-* **Track historical changes:** Snapshots are a pretty handy feature for tracking changes in dbt, but they’re often overlooked during initial onboarding. [Montreal Analytics explains how to set them up](https://blog.montrealanalytics.com/using-dbt-snapshots-with-dev-prod-environments-e5ed63b2c343) in dev/prod environments
+* **Track historical changes:** [](https://blog.montrealanalytics.com/using-dbt-snapshots-with-dev-prod-environments-e5ed63b2c343)Snapshots are a pretty handy feature for tracking changes in dbt, but they’re often overlooked during initial onboarding. [Montreal Analytics explains how to set them up](https://blog.montrealanalytics.com/using-dbt-snapshots-with-dev-prod-environments-e5ed63b2c343) in dev/prod environments
 * **Learn dbt:** Have some new faces on the data team that might need an introduction to dbt? Our friends at GoDataDriven are hosting a [virtual dbt Learn Sept 12-14](https://www.tickettailor.com/events/dbtlabs/752537).
 
 Thank you!
 
 *This month’s newsletter was brought to you by: Joel, Gloria, Azzam, Amos, and me (Lauren)*
-
-[Newer post](./2022-09-07-financial-modeling-accounting-principles.md)
-
-[Leverage Accounting Principles when Modeling Financial Data](./2022-09-07-financial-modeling-accounting-principles.md)
-
-[Older post](./2022-08-25-unit-testing-dbt-packages.md)
-
-[An introduction to unit testing your dbt Packages](./2022-08-25-unit-testing-dbt-packages.md)

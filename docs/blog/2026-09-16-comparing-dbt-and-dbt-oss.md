@@ -1,5 +1,3 @@
-On this page
-
 # What's the difference between dbt and dbt OSS?
 
 September 16, 2026 · 10 min read
@@ -9,6 +7,8 @@ September 16, 2026 · 10 min read
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
+
+[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 As part of [releasing dbt v2 to general availability](./2026-09-16-dbt-v2-is-ga.md), we've renamed the two distributions to reflect their positions in the ecosystem. The **dbt Fusion engine is now just called dbt**, and **dbt Core v2 is now called dbt OSS**. We expect that most people adopting dbt v2 will adopt the primary dbt distribution, which is free to use and locally installable.
 
@@ -122,11 +122,3 @@ These FAQs are based on the questions we've received about the two v2 distributi
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2026-09-16-dbt-context-engineering.md)
-
-[dbt\_context\_engineering: modeling the context your AI agents read](./2026-09-16-dbt-context-engineering.md)
-
-[Older post](./2026-09-16-dbt-v2-is-ga.md)
-
-[dbt v2.0 is GA](./2026-09-16-dbt-v2-is-ga.md)

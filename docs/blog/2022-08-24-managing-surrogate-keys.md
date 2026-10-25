@@ -1,5 +1,3 @@
-On this page
-
 # Surrogate keys in dbt: Integers or hashes?
 
 August 24, 2022 · 12 min read
@@ -9,6 +7,8 @@ August 24, 2022 · 12 min read
 [Dave Connors](./authors/dave-connors.md)
 
 Product Manager at dbt Labs
+
+[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
 
 Those who have been building data warehouses for a long time have undoubtedly encountered the challenge of building surrogate keys on their data models. Having a column that uniquely represents each entity helps ensure your data model is complete, does not contain duplicates, and able to join across different data models in your warehouse.
 
@@ -228,11 +228,3 @@ Big thanks to [Mike Fuller](https://github.com/mikegfuller) and [Bennie Regenold
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-08-25-unit-testing-dbt-packages.md)
-
-[An introduction to unit testing your dbt Packages](./2022-08-25-unit-testing-dbt-packages.md)
-
-[Older post](./2022-08-22-narrative-modeling.md)
-
-[Narrative modeling: How structure can tell a story](./2022-08-22-narrative-modeling.md)

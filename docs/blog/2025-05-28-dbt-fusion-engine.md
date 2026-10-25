@@ -1,5 +1,3 @@
-On this page
-
 # Meet the dbt Fusion Engine: the new Rust-based, industrial-grade engine for dbt
 
 May 28, 2025 · 11 min read
@@ -9,6 +7,8 @@ May 28, 2025 · 11 min read
 [Jason Ganz](./authors/jason-ganz.md)
 
 Director of Community, Developer Experience & AI at dbt Labs
+
+[](https://x.com/jasnonaz "X")
 
 ## TL;DR: What You Need to Know
 
@@ -32,7 +32,7 @@ dbt came to represent many things:
   * An authoring layer: The schema, spec, and definitions for a dbt project written in SQL, YML, and Jinja
   * An engine: The tooling via which the authoring layer was built and executed against a data platform, resolving templated code into executable SQL, building your dependency graph, and more.
 
-![dbt is made up of two different things: authoring layer and engine.](/img/blog/2025-05-28-dbt-v2-engine/engine-and-authoring-layer.png?v=2 "dbt is made up of two different things: authoring layer and engine.")dbt is made up of two different things: authoring layer and engine.
+[![dbt is made up of two different things: authoring layer and engine.](/img/blog/2025-05-28-dbt-v2-engine/engine-and-authoring-layer.png?v=2 "dbt is made up of two different things: authoring layer and engine.")](#)dbt is made up of two different things: authoring layer and engine.
 
 While the authoring layer has continued to evolve nicely, giving dbt developers ever-more functionality to work with, the engine itself, dbt Core, is still built on the same technology and uses the same primary design principles that it started with in 2016. This causes two primary problems that cannot be iteratively solved:
 
@@ -69,7 +69,7 @@ Fusion:
 
 Based on the technology from [SDF](https://www.getdbt.com/blog/dbt-labs-acquires-sdf-labs), Fusion represents a step change increase in the technical capabilities of dbt.
 
-![Familiar Authoring Layer, Powerful New Engine.](/img/blog/2025-05-28-dbt-v2-engine/familiar-authoring-powerful-new-engine.png?v=2 "Familiar Authoring Layer, Powerful New Engine.")Familiar Authoring Layer, Powerful New Engine.
+[![Familiar Authoring Layer, Powerful New Engine.](/img/blog/2025-05-28-dbt-v2-engine/familiar-authoring-powerful-new-engine.png?v=2 "Familiar Authoring Layer, Powerful New Engine.")](#)Familiar Authoring Layer, Powerful New Engine.
 
 As a result of these capabilities, Fusion can deliver new experiences. Some of these we’re releasing today, like real-time error detection in VS Code and significant cost savings in project execution. dbt now knows about your code!
 
@@ -81,7 +81,7 @@ As a result of these capabilities, Fusion can deliver new experiences. Some of t
 
 You can think of Fusion as the same dbt you know and love, but better and faster, and you're going to see it show up in a lot of places!
 
-![Functionality powered by the dbt Fusion Engine and its components](/img/blog/2025-05-28-dbt-v2-engine/next-gen-star.png?v=2 "Functionality powered by the dbt Fusion Engine and its components")Functionality powered by the dbt Fusion Engine and its components
+[![Functionality powered by the dbt Fusion Engine and its components](/img/blog/2025-05-28-dbt-v2-engine/next-gen-star.png?v=2 "Functionality powered by the dbt Fusion Engine and its components")](#)Functionality powered by the dbt Fusion Engine and its components
 
 So how and why should you adopt Fusion for your dbt project?
 
@@ -102,7 +102,7 @@ There’s a whole host of features in the VS Code extension. Some early favorite
 
   * How many time have you hit `dbt run` only to realize that you typed `select * from`, misspelled a column name or tried to sum the unsummable? No more! With the LSP-powered VS Code extension, you can immediately see when pesky errors sneak into your code.
 
-    ![You wouldn't sum a datetime.](/img/blog/2025-05-28-dbt-v2-engine/you-wouldnt-sum-a-datetime.png?v=2 "You wouldn't sum a datetime.")You wouldn't sum a datetime.
+    [![You wouldn't sum a datetime.](/img/blog/2025-05-28-dbt-v2-engine/you-wouldnt-sum-a-datetime.png?v=2 "You wouldn't sum a datetime.")](#)You wouldn't sum a datetime.
 
   * Similarly — is it `dateadd` or `date_add`? And which way around do the arguments go again? Just start typing and you'll see contextual prompts and autocomplete.
 
@@ -162,11 +162,3 @@ So get involved!
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2025-05-28-dbt-fusion-engine-path-to-ga.md)
-
-[Path to GA: How the dbt Fusion engine rolls out from beta to production](./2025-05-28-dbt-fusion-engine-path-to-ga.md)
-
-[Older post](./2025-05-04-ai-eval-in-dbt.md)
-
-[AI Evaluation in dbt](./2025-05-04-ai-eval-in-dbt.md)

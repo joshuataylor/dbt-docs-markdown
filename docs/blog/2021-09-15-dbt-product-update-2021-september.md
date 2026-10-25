@@ -1,5 +1,3 @@
-On this page
-
 # September 2021 dbt Update: DAG in the IDE + Metadata API in GA
 
 September 15, 2021 · 4 min read
@@ -9,6 +7,8 @@ September 15, 2021 · 4 min read
 [Lauren Craigie](./authors/lauren-craigie.md)
 
 Product Marketing at dbt Labs
+
+[](https://x.com/crai_fish "X")
 
 February 2024 Update
 
@@ -84,12 +84,4 @@ Give Jeremy a win and check out the [blog](http://blog.getdbt.com/getting-ready
 
 Hey, thanks for reading. I appreciate you.
 
-*Lauren Craigie* *Director of Product Marketing, dbt Labs*
-
-[Newer post](./2021-10-15-dbt-product-update-2021-october.md)
-
-[October 2021 dbt Update: Metrics and Hat Tricks 🎩](./2021-10-15-dbt-product-update-2021-october.md)
-
-[Older post](./2021-02-09-how-to-configure-your-dbt-repository-one-or-many.md)
-
-[How to Configure Your dbt Repository (One or Many)?](./2021-02-09-how-to-configure-your-dbt-repository-one-or-many.md)
+*Lauren Craigie*<br />*Director of Product Marketing, dbt Labs*

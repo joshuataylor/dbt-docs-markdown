@@ -1,5 +1,3 @@
-On this page
-
 # How to Create Near Real-time Models With Just dbt + SQL
 
 July 1, 2020 · 9 min read
@@ -9,6 +7,8 @@ July 1, 2020 · 9 min read
 [Amy Chen](./authors/amy-chen.md)
 
 Product Manager at dbt Labs
+
+[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
 
 More up-to-date information available
 
@@ -63,13 +63,13 @@ The idea of lambda views comes from lambda architecture. This [Wikipedia page](h
 
 Taking that approach, a lambda view is essentially the union of a historical table and a current view. The model where the union takes place is the lambda view. Here is a diagram that might be helpful:
 
-![Lambda views](/img/blog/real-time-9eb7699399fe576a2a20b13bcf523a1e8b96cf09_2_624x244.png?v=2 "Lambda views")Lambda views
+[![Lambda views](/img/blog/real-time-9eb7699399fe576a2a20b13bcf523a1e8b96cf09_2_624x244.png?v=2 "Lambda views")](#)Lambda views
 
 The lambda view can be queried for always up-to-date data, no matter how often you have run your dbt models. Since the majority of the records in the lambda view come directly from a table, it should be relatively fast to query. And since the most recent rows come from the view, transformations are run on a small subset of data which shouldn’t take long in the lambda view. This provides a performant and always up-to-date model.
 
 The SQL in the lambda view is simple (just a `union all`), but there’s a bit of work to get to the unioned model. To better understand this, it is important to think about the flow of transformations as demonstrated below.
 
-![Lambda view flow](/img/blog/real-time-5ab4b384ec36ed52d422e3ffcf238a4446dc3ba5_2_624x345.jpeg?v=2 "Lambda view flow")Lambda view flow
+[![Lambda view flow](/img/blog/real-time-5ab4b384ec36ed52d422e3ffcf238a4446dc3ba5_2_624x345.jpeg?v=2 "Lambda view flow")](#)Lambda view flow
 
 What is essentially happening is a series of parallel transformations from the raw data. Looking at the blue and red boxes that represent the creation of both the current view and historical table, you can see that they are the same transformations. The only key difference is that one flow is always using views as the materialization versus the other is materialized as tables. Often, those tables are incrementally built to improve performance.
 
@@ -191,11 +191,3 @@ I also want to give a special thanks to Ben from JetBlue who has been essential 
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
-
-[Newer post](./2021-02-09-how-to-configure-your-dbt-repository-one-or-many.md)
-
-[How to Configure Your dbt Repository (One or Many)?](./2021-02-09-how-to-configure-your-dbt-repository-one-or-many.md)
-
-[Older post](./2020-06-20-essential-dbt-project-checklist.md)
-
-[Your Essential dbt Project Checklist](./2020-06-20-essential-dbt-project-checklist.md)

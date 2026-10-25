@@ -1,5 +1,3 @@
-On this page
-
 # How to train a linear regression model with dbt and BigFrames
 
 July 11, 2025 · 5 min read
@@ -9,6 +7,8 @@ July 11, 2025 · 5 min read
 [Jialuo Chen](./authors/jialuo-chen.md)
 
 Software Engineer at Google
+
+[](https://www.linkedin.com/in/jialuo-chen-31680789/ "LinkedIn")
 
 ## Introduction to dbt and BigFrames
 
@@ -62,7 +62,7 @@ Develop a machine learning model to predict atmospheric ozone levels using histo
 * A Google Cloud account
 * A dbt platform or Core setup
 * Basic to intermediate SQL and Python
-* Familiarity with dbt using [Beginner dbt guides](https://docs.getdbt.com/guides?level=Beginner)
+* Familiarity with dbt using [Beginner dbt guides](../guides.md?level=Beginner)
 
 ### Sample `profiles.yml` for BigFrames
 
@@ -209,11 +209,3 @@ By integrating **BigFrames** into your **dbt workflows**, you can build scalable
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2025-08-26-building-the-remote-dbt-mcp-server.md)
-
-[Building the Remote dbt MCP Server](./2025-08-26-building-the-remote-dbt-mcp-server.md)
-
-[Older post](./2025-06-25-vscode-extension-experience.md)
-
-[The new dbt VS Code extension: The experience we've all been waiting for](./2025-06-25-vscode-extension-experience.md)

@@ -1,5 +1,3 @@
-On this page
-
 # A star (generator) is born
 
 May 23, 2022 · 3 min read
@@ -9,6 +7,8 @@ May 23, 2022 · 3 min read
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
+
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 We’ve likely been here: Table A has 56 columns and we want to select all but one of them (`column_56`). So here we go, let’s get started…
 
@@ -72,18 +72,10 @@ Now, this will return all fields from `table_a` with the `my_new_alias.field_nam
 
 It’s no hidden fact: the Data Team at dbt Labs loves to use dbt util’s macros and tests when appropriate. We like dbt utils so much we created a March Madness Utils Bracket for them (not taking questions at this time) and we used the `star` macro alone over 30 times in our internal dbt repository.
 
-![](/img/blog/2022-07-13-star-sql-love-letter/utils-madness-1.png?v=2)
+[![](/img/blog/2022-07-13-star-sql-love-letter/utils-madness-1.png?v=2)](#)
 
 Overall, the `star` macro is a great way to dip your toes into the dbt utils package, write DRY code, and reduce your carpal tunnel.
 
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2022-05-26-joining-snapshot-complexity.md)
-
-[Tackling the complexity of joining snapshots](./2022-05-26-joining-snapshot-complexity.md)
-
-[Older post](./2022-05-19-redshift-configurations-dbt-model-optimizations.md)
-
-[Optimizing dbt Models with Redshift Configurations](./2022-05-19-redshift-configurations-dbt-model-optimizations.md)

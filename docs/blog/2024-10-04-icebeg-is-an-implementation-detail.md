@@ -1,5 +1,3 @@
-On this page
-
 # Iceberg Is An Implementation Detail
 
 October 4, 2024 · 6 min read
@@ -9,6 +7,8 @@ October 4, 2024 · 6 min read
 [Amy Chen](./authors/amy-chen.md)
 
 Product Manager at dbt Labs
+
+[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
 
 If you haven’t paid attention to the data industry news cycle, you might have missed the recent excitement centered around an open table format called Apache Iceberg™. It’s one of many open table formats like Delta Lake, Hudi, and Hive. These formats are changing the way data is stored and metadata accessed. They are groundbreaking in many ways.
 
@@ -29,7 +29,7 @@ If you have been in the industry, you also know that everything I just wrote abo
 
 At the same time, the industry is converging on Apache Iceberg. [Iceberg has the highest availability of read and write support](https://medium.com/sundeck/2024-lakehouse-format-rundown-7edd75015428).
 
-![Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support](/img/blog/2024-10-04-iceberg-blog/2024-10-03-iceberg-support.png?v=2 "Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support")Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support
+[![Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support](/img/blog/2024-10-04-iceberg-blog/2024-10-03-iceberg-support.png?v=2 "Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support")](#)Credit to Jacques at Sundeck for creating this fantastic chart of all the Iceberg Support
 
 Snowflake launched Iceberg support in 2022. Databricks launched Iceberg support via Uniform last year. Microsoft announced Fabric support for Iceberg in September 2024 at Fabric Con. **Customers are demanding interoperability, and vendors are listening**.
 
@@ -53,7 +53,7 @@ One of the biggest hurdles is managing Iceberg’s metadata layer. This metadata
 
 With support for Iceberg Table Format, it is now easier to convert your dbt models using proprietary table formats to Iceberg by updating your configuration. After you have set up your external storage for Iceberg and connected it to your platforms, you will be able to jump into your dbt model and update the configuration to look something like this:
 
-![Iceberg Table Format Support on dbt for Snowflake](/img/blog/2024-10-04-iceberg-blog/iceberg_materialization.png?v=2 "Iceberg Table Format Support on dbt for Snowflake")Iceberg Table Format Support on dbt for Snowflake
+[![Iceberg Table Format Support on dbt for Snowflake](/img/blog/2024-10-04-iceberg-blog/iceberg_materialization.png?v=2 "Iceberg Table Format Support on dbt for Snowflake")](#)Iceberg Table Format Support on dbt for Snowflake
 
 It is available on these adapters:
 
@@ -82,11 +82,3 @@ And this work doesn’t stop at Iceberg. The framework we are building is also c
 
 * [table formats](./tags/table-formats.md)
 * [iceberg](./tags/iceberg.md)
-
-[Newer post](./2024-10-08-snowflake-feature-store.md)
-
-[Snowflake feature store and dbt: A bridge between data pipelines and ML](./2024-10-08-snowflake-feature-store.md)
-
-[Older post](./2024-09-30-hybrid-mesh.md)
-
-[How Hybrid Mesh unlocks dbt collaboration at scale](./2024-09-30-hybrid-mesh.md)

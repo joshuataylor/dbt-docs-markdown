@@ -1,5 +1,3 @@
-On this page
-
 # What's a Primary Key and Why Do We Test Them?
 
 November 29, 2021 · 6 min read
@@ -10,17 +8,23 @@ November 29, 2021 · 6 min read
 
 Analytics Engineer at dbt Labs
 
+[](https://x.com/sqlsanj "X")
+
 [![Jason Ganz](/img/blog/authors/jasnonaz.jpeg)](./authors/jason-ganz.md)
 
 [Jason Ganz](./authors/jason-ganz.md)
 
 Director of Community, Developer Experience & AI at dbt Labs
 
+[](https://x.com/jasnonaz "X")
+
 [![David Krevitt](/img/blog/authors/dkrevitt.jpg)](./authors/david-krevitt.md)
 
 [David Krevitt](./authors/david-krevitt.md)
 
 Marketing at dbt Labs
+
+[](https://x.com/dkrevitt "X")
 
 We’ve all done it: fanned out data during a join to produce duplicate records (sometimes duplicated in multiple).
 
@@ -29,8 +33,6 @@ That time when historical revenue numbers doubled on Monday? Classic fanout.
 Could it have been avoided? Yes, very simply: by defining the uniqueness grain for a table with a primary key and enforcing it with a dbt test.
 
 So let’s dive deep into: what primary keys are, which cloud analytics warehouses support them, and how you can test them in your warehouse to enforce uniqueness.
-
-[Wistia video](https://fast.wistia.net/embed/iframe/hnkw6j7m2t?seo=false\&videoFoam=true)
 
 ## What’s a primary key?
 
@@ -140,11 +142,3 @@ If you’re looking for a deeper dive on testing primary keys, definitely check 
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2021-11-29-dbt-production-commands.md)
-
-[The Exact dbt Commands We Run in Production](./2021-11-29-dbt-production-commands.md)
-
-[Older post](./2021-11-29-sql-surrogate-keys.md)
-
-[Generating Surrogate Keys Across Warehouses](./2021-11-29-sql-surrogate-keys.md)

@@ -1,5 +1,3 @@
-On this page
-
 # Modeling ragged time-varying hierarchies
 
 May 2, 2023 · 18 min read
@@ -10,6 +8,8 @@ May 2, 2023 · 18 min read
 
 Sr Staff Data Engineer at Mainspring Energy
 
+[](https://www.linkedin.com/in/sterlingparamore/ "LinkedIn")
+
 This article covers an approach to handling time-varying ragged hierarchies in a dimensional model. These kinds of data structures are commonly found in manufacturing, where components of a product have both parents and children of arbitrary depth and those components may be replaced over the product's lifetime. The strategy described here simplifies many common types of analytical and reporting queries.
 
 To help visualize this data, we're going to pretend we are a company that manufactures and rents out eBikes in a ride share application. When we build a bike, we keep track of the serial numbers of the components that make up the bike. Any time something breaks and needs to be replaced, we track the old parts that were removed and the new parts that were installed. We also precisely track the mileage accumulated on each of our bikes. Our primary analytical goal is to be able to report on the expected lifetime of each component, so we can prioritize improving that component and reduce costly maintenance.
@@ -18,7 +18,7 @@ To help visualize this data, we're going to pretend we are a company that manufa
 
 Obviously, a real bike could have a hundred or more separate components. To keep things simple for this article, let's just consider the bike, the frame, a wheel, the wheel rim, tire, and tube. Our component hierarchy looks like:
 
-![eBike Hierarchy](/img/blog/2023-05-02-modeling-ragged-time-varying-hierarchies/hierarchy.png?v=2 "eBike Hierarchy")eBike Hierarchy
+[![eBike Hierarchy](/img/blog/2023-05-02-modeling-ragged-time-varying-hierarchies/hierarchy.png?v=2 "eBike Hierarchy")](#)eBike Hierarchy
 
 This hierarchy is *ragged* because different paths through the hierarchy terminate at different depths. It is *time-varying* because specific components can be added and removed.
 
@@ -442,11 +442,3 @@ If you have any questions or comments, please reach out to me by commenting on t
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-05-17-generating-dynamic-docs-dbt.md)
-
-[Accelerate your documentation workflow: Generate docs for whole folders at once](./2023-05-17-generating-dynamic-docs-dbt.md)
-
-[Older post](./2023-05-01-evolving-data-engineer-craft.md)
-
-[Data engineers + dbt v1.5: Evolving the craft for scale](./2023-05-01-evolving-data-engineer-craft.md)

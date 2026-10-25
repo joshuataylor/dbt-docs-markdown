@@ -1,5 +1,3 @@
-On this page
-
 # BigQuery ingestion-time partitioning and partition copy with dbt
 
 March 10, 2023 · 8 min read
@@ -122,7 +120,7 @@ In both cases, the operation can be done on a single partition at a time so it r
 
 On a 192 GB partition here is how the different methods compare:
 
-![](/img/blog/2023-02-01-ingestion-time-partitioning-bigquery/merge-vs-select.png?v=2)
+[![](/img/blog/2023-02-01-ingestion-time-partitioning-bigquery/merge-vs-select.png?v=2)](#)
 
 Also, the `SELECT` statement consumed more than 10 hours of slot time while `MERGE` statement took days of slot time.
 
@@ -198,11 +196,3 @@ Lastly, I wanted to share [Jeremy Cohen’s post](https://discourse.getdbt.com/
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-03-24-audit-helper-for-migration.md)
-
-[Audit\_helper in dbt: Bringing data auditing to a higher level](./2023-03-24-audit-helper-for-migration.md)
-
-[Older post](./2023-02-16-tips-for-the-dbt-certification-exam.md)
-
-[Tips and advice to study for, and pass, the dbt Certification exam](./2023-02-16-tips-for-the-dbt-certification-exam.md)

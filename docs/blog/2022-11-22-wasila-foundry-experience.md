@@ -1,5 +1,3 @@
-On this page
-
 # A journey through the Foundry: Becoming an analytics engineer at dbt Labs
 
 November 22, 2022 · 6 min read
@@ -51,11 +49,3 @@ If you’re looking for resources to help a hopeful analytics engineer (whether 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-11-23-moving-spreadsheet-data.md)
-
-[How to move data from spreadsheets into your data warehouse](./2022-11-23-moving-spreadsheet-data.md)
-
-[Older post](./2022-11-04-demystifying-event-streams.md)
-
-[Demystifying event streams: Transforming events into tables with dbt](./2022-11-04-demystifying-event-streams.md)

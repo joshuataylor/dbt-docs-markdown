@@ -1,5 +1,3 @@
-On this page
-
 # Towards an Error-free UNION ALL
 
 November 15, 2021 · 4 min read
@@ -9,6 +7,8 @@ November 15, 2021 · 4 min read
 [David Krevitt](./authors/david-krevitt.md)
 
 Marketing at dbt Labs
+
+[](https://x.com/dkrevitt "X")
 
 It is a thankless but necessary task. In SQL, often we’ll need to UNION ALL two or more tables vertically, to combine their values.
 
@@ -101,11 +101,3 @@ If you’re interested in going deeper on how dbt macros work, the `union_relati
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2021-11-15-sql-dateadd.md)
-
-[DATEADD SQL Function Across Data Warehouses](./2021-11-15-sql-dateadd.md)
-
-[Older post](./2021-11-15-dbt-product-update-2021-november.md)
-
-[November 2021 dbt Update: v1.0, Environment Variables, and a Question About the Size of Waves 🌊](./2021-11-15-dbt-product-update-2021-november.md)

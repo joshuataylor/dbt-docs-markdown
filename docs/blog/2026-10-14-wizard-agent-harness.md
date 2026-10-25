@@ -1,5 +1,3 @@
-On this page
-
 # Inside the dbt Wizard harness: building an agent that thinks in DAGs
 
 October 14, 2026 · 15 min read
@@ -10,17 +8,23 @@ October 14, 2026 · 15 min read
 
 Senior Software Engineer
 
+[](https://www.linkedin.com/in/jasonlin45/ "LinkedIn")
+
 [![Alex Noonan](/img/blog/authors/alex-noonan.jpg)](./authors/alex-noonan.md)
 
 [Alex Noonan](./authors/alex-noonan.md)
 
 Senior Developer Experience Advocate
 
+[](https://x.com/alexnoonan6 "X")[](https://www.linkedin.com/in/alexander-noonan/ "LinkedIn")
+
 [![Sam Ferguson](/img/blog/authors/sam-ferguson.jpg)](./authors/sam-ferguson.md)
 
 [Sam Ferguson](./authors/sam-ferguson.md)
 
 Staff Product Designer
+
+[](https://www.linkedin.com/in/novaksam/ "LinkedIn")
 
 Ask an analytics engineer to rename a column and they won't start with the SQL. They'll check what reads it downstream, which tests and dashboards will break, build only what changed, and compare the data before anyone reviews it. The [dbt MCP server](../docs/dbt-ai/about-mcp.md) and [agent skills](./2026-02-05-dbt-agent-skills.md) can teach a coding agent those steps, but they can't make sure it follows them every time, builds on what's changed, or shows you the data diff before you review the changes.
 
@@ -46,7 +50,7 @@ Think of the harness as a runtime that answers questions on every task:
 
 Wizard's harness is built in layers: metadata and context, tools, skills and memory, subagent orchestration, and safety and review. But the layers alone aren't the interesting part. The loops are.
 
-![The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.](/img/blog/2026-10-14-wizard-agent-harness/wizard-harness-agent-loop.png?v=2 "The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.")The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.
+[![The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.](/img/blog/2026-10-14-wizard-agent-harness/wizard-harness-agent-loop.png?v=2 "The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.")](#)The harness wraps every turn of the agent loop: context feeds the model, the model calls permission-checked tools, and finished work goes through scoped validation before you review impact and data diffs.
 
 ## Validation in the loop
 
@@ -63,7 +67,7 @@ Wizard validates in two stages.
   * [Wizard Desktop](https://www.getdbt.com/wizard-desktop-waitlist) and [CLI](../docs/dbt-ai/wizard-cli.md): Choose the validation depth, from a quick compile-and-test check to a full prod-vs-dev comparison. In Desktop, start from the **Validation** panel. A dedicated validation agent runs builds and tests only for the models you approved. It won't widen the selection, change targets, or do a [full refresh](../reference/resource-configs/full_refresh.md).
   * [dbt platform](../docs/platform/wizard-platform.md): Wizard takes a simpler, more proactive approach. Wizard decides which commands to run to validate its changes and runs them automatically if you've already approved them.
 
-![A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.](/img/blog/2026-10-14-wizard-agent-harness/wizard-validation-plan.png?v=2 "A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.")A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.
+[![A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.](/img/blog/2026-10-14-wizard-agent-harness/wizard-validation-plan.png?v=2 "A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.")](#)A Wizard validation plan at the Medium depth: compile and lint, materialize, test, and build downstream dependents for the models in scope, with automatic deferral.
 
 If any check fails, the harness routes that failure back into the model as context, the model revises, and the loop runs again.
 
@@ -73,7 +77,7 @@ The core idea is that the model writes something, dbt gives it real compiler and
 
 Another reason the validation loop is a first-class citizen in the agent lifecycle is cost. Wizard explores your project and checks its work more than a typical agent, so we carefully control which commands it can run. In our experiments, agents, especially at higher reasoning levels, liked to compile and build against the full dev schema to verify each change, which burns warehouse compute and congests dev environments. Access to dbt commands through the MCP server or the shell doesn't prevent that.
 
-![An agent rebuilds the entire dev schema after being asked to rename one column 🥲](/img/blog/wizard-this-is-fine.png?v=2 "An agent rebuilds the entire dev schema after being asked to rename one column 🥲")An agent rebuilds the entire dev schema after being asked to rename one column 🥲
+[![An agent rebuilds the entire dev schema after being asked to rename one column 🥲](/img/blog/wizard-this-is-fine.png?v=2 "An agent rebuilds the entire dev schema after being asked to rename one column 🥲")](#)An agent rebuilds the entire dev schema after being asked to rename one column 🥲
 
 To avoid this behavior, Wizard routes every dbt command through its own tools instead of the shell, applies deferral automatically, and keeps validation runs to the approved scope.
 
@@ -81,7 +85,7 @@ To avoid this behavior, Wizard routes every dbt command through its own tools in
 
 Wizard [handles deferral for you](../docs/dbt-ai/wizard-how-it-works.md#deferral-and-state) by default, and it also works with [dbt State](../docs/deploy/dbt-state-about.md) or a manual setup if you already have one. Either way, validation runs against realistic state without the cost of a full rebuild.
 
-![How Wizard uses deferral: after an agent edits fct\_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.](/img/blog/2026-10-14-wizard-agent-harness/wizard-deferral-animation.gif?v=2 "How Wizard uses deferral: after an agent edits fct_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.")How Wizard uses deferral: after an agent edits fct\_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.
+[![How Wizard uses deferral: after an agent edits fct\_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.](/img/blog/2026-10-14-wizard-agent-harness/wizard-deferral-animation.gif?v=2 "How Wizard uses deferral: after an agent edits fct_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.")](#)How Wizard uses deferral: after an agent edits fct\_orders, rebuilding everything builds four models in dev, while deferring to prod reuses the upstream production copies, builds only the changed model, and adds a data diff and downstream impact check.
 
 Validation in dbt was never just "does this file parse?" The real question is whether the change can run in a real warehouse without blowing up cost, run time, dependencies, contracts, or downstream models. That's what the loop is built to answer.
 
@@ -95,19 +99,19 @@ Fixes made up 57% of all merged PRs. That ratio barely moved as the platform gre
 
 When a run errors, the defect is found fast, in a median of one day here. A run that succeeds with the wrong number is a different story. In a sample of well-documented defects, silent ones took a median of 65 days to find, with some taking as long as 361 days. One liquidity metric (that was never queried) was off by 1,000× for 210 days. A non-trivial number of these came from upstream data quality issues from the vendor.
 
-![Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.](/img/blog/2026-10-14-wizard-agent-harness/silent-vs-loud-defect-detection.png?v=2 "Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.")Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.
+[![Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.](/img/blog/2026-10-14-wizard-agent-harness/silent-vs-loud-defect-detection.png?v=2 "Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.")](#)Median days to detect a defect: loud defects where the run errors were found in 1 day, while silent defects where the run is green but the number is wrong took 65 days.
 
 The busiest week of the period, when an analytics agent was hooked up to the platform, had 104 merged PRs and kept run success at 98%. That same week produced 36 correctness fixes, a third of the month's total. Passing CI isn't the bar either: about 90% of agent-written PRs passed CI on the first try, whichever model wrote them. The defects that cost the most passed CI and code review.
 
 Since August, Wizard ([running GLM 5.3](../docs/dbt-ai/wizard-billing-faqs.md#dbt-managed-inference)) has taken an increased role in authoring any change that touches the platform. Our theory was that the validation loop and native project understanding would catch data quality issues earlier and introduce fewer errors. To test it, we analyzed every PR from that period by harness and model. Wizard running GLM had a 5% follow-up fix rate, lower than every other model and harness we measured, including frontier models with stronger reasoning. That's a huge benefit to developer throughput and stakeholder trust, and it lowers total AI token usage, CI minutes, and warehouse consumption.
 
-![PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.](/img/blog/2026-10-14-wizard-agent-harness/follow-up-fix-rate-by-harness.png?v=2 "PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.")PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.
+[![PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.](/img/blog/2026-10-14-wizard-agent-harness/follow-up-fix-rate-by-harness.png?v=2 "PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.")](#)PRs needing a follow-up fix within 14 days, by model and harness: Wizard had the lowest rate at 5%.
 
 ## Metadata-first, not file-first
 
 One key piece of tooling we introduce to aid Wizard with context discovery is the [dbt Information Schema](../docs/build/dbt-information-schema.md) for your dbt project. It's pre-built and ready before your first prompt, so instead of reading files to work out how your project fits together, Wizard queries the dbt Information Schema. It also checks upstream and downstream dependencies before it changes code.
 
-![dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.](/img/blog/2026-10-14-wizard-agent-harness/dbt-index-metadata-engine.png?v=2 "dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.")dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.
+[![dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.](/img/blog/2026-10-14-wizard-agent-harness/dbt-index-metadata-engine.png?v=2 "dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.")](#)dbt build artifacts (manifest, catalog, run results, and semantic manifest) feed the dbt Information Schema, a set of DuckDB views over parquet artifacts that Wizard queries for impact analysis, health checks, validation planning, and data profiling.
 
 That metadata includes models, columns, refs, lineage (including [column-level lineage](../docs/explore/column-level-lineage.md)), tests, [contracts](../reference/resource-configs/contract.md), [semantic definitions](../docs/use-dbt-semantic-layer/dbt-sl.md), run results, and model health. When you ask Wizard "what breaks if I rename this column?", it can answer immediately from the project graph without needing to hunt down every model in the lineage and read all their contents.
 
@@ -187,7 +191,3 @@ To see Wizard work through real tasks on a personal project, read [No babysittin
 **Tags:**
 
 * [ai](./tags/ai.md)
-
-[Older post](./2026-09-16-dbt-context-engineering.md)
-
-[dbt\_context\_engineering: modeling the context your AI agents read](./2026-09-16-dbt-context-engineering.md)

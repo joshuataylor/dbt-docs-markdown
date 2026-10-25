@@ -1,5 +1,3 @@
-On this page
-
 # Generating Surrogate Keys Across Warehouses
 
 November 29, 2021 · 7 min read
@@ -10,17 +8,23 @@ November 29, 2021 · 7 min read
 
 Analytics Engineer at dbt Labs
 
+[](https://x.com/sqlsanj "X")
+
 [![Jason Ganz](/img/blog/authors/jasnonaz.jpeg)](./authors/jason-ganz.md)
 
 [Jason Ganz](./authors/jason-ganz.md)
 
 Director of Community, Developer Experience & AI at dbt Labs
 
+[](https://x.com/jasnonaz "X")
+
 [![David Krevitt](/img/blog/authors/dkrevitt.jpg)](./authors/david-krevitt.md)
 
 [David Krevitt](./authors/david-krevitt.md)
 
 Marketing at dbt Labs
+
+[](https://x.com/dkrevitt "X")
 
 ### Why primary keys are important
 
@@ -38,8 +42,6 @@ Sometimes, however, you find yourself in a situation where you don’t have a ti
 For example, maybe you have joined your users to the set of features that they use in your product, such that your data should be expected to be unique on the `user_id` + `product_id` basis.
 
 The question is - in this situation, how are you supposed to set a primary key? Meet the *surrogate key*.
-
-[Wistia video](https://fast.wistia.net/embed/iframe/anuo7x4w3a?seo=false\&videoFoam=true)
 
 ### What’s a surrogate key?
 
@@ -68,7 +70,7 @@ md5 ( concat ( coalesce(column1, '_this_used_to_be_null_'), coalesce(column2, '_
 
 You'll notice that instead of coalescing to a blank string, there is a long replacement string. It doesn't matter what this string is, as long as it's consistent across your project and doesn't appear in any of your data. When you coalesce to a blank string, you can't differentiate between `null` and `''` which sometimes has semantic meaning. Compare the results of these surrogate keys:
 
-![A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.](/img/blog/2021-11-22-sql-surrogate-keys/surrogate_key_comparison.png?v=2 "A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.")A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.
+[![A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.](/img/blog/2021-11-22-sql-surrogate-keys/surrogate_key_comparison.png?v=2 "A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.")](#)A table with two columns, comparing surrogate keys when nulls and blank strings are treated the same and differently.
 
 [Databricks](https://docs.databricks.com/sql/language-manual/functions/concat.html)’ concat function docs don’t specifically reference returning null for the concat if one column is null, but I believe that’s what’s meant by `The result type matches the argument types`.
 
@@ -250,11 +252,3 @@ Well, you simply don’t have to think about your surrogate keys all that much. 
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2021-11-29-primary-key-testing.md)
-
-[What's a Primary Key and Why Do We Test Them?](./2021-11-29-primary-key-testing.md)
-
-[Older post](./2021-11-29-upgrade-dbt-without-fear.md)
-
-[How to Upgrade dbt Versions (Mostly) Without Fear](./2021-11-29-upgrade-dbt-without-fear.md)

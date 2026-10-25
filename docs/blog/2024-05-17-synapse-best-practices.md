@@ -1,5 +1,3 @@
-On this page
-
 # Up and Running with Azure Synapse on dbt Cloud
 
 May 17, 2024 · 11 min read
@@ -9,6 +7,8 @@ May 17, 2024 · 11 min read
 [Anders Swanson](./authors/anders-swanson.md)
 
 Senior Developer Experience Advocate at dbt Labs
+
+[](https://www.linkedin.com/in/andersswanson/ "LinkedIn")
 
 At dbt Labs, we’ve always believed in meeting analytics engineers where they are. That’s why we’re so excited to announce that today, analytics engineers within the Microsoft Ecosystem can use dbt Cloud with not only Microsoft Fabric but also Azure Synapse Analytics Dedicated SQL Pools (ASADSP).
 
@@ -187,11 +187,3 @@ As we look ahead, we're excited about the possibilities that Microsoft Fabric ho
 * [Microsoft](./tags/microsoft.md)
 * [dbt Core](./tags/dbt-core.md)
 * [dbt Cloud](./tags/dbt-cloud.md)
-
-[Newer post](./2024-06-14-dag-on-the-internet.md)
-
-[Putting Your DAG on the internet](./2024-06-14-dag-on-the-internet.md)
-
-[Older post](./2024-05-07-announcing-unit-testing.md)
-
-[Unit testing in dbt for test-driven development](./2024-05-07-announcing-unit-testing.md)

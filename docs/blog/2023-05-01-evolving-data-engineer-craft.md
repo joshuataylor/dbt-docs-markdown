@@ -1,5 +1,3 @@
-On this page
-
 # Data engineers + dbt v1.5: Evolving the craft for scale
 
 May 1, 2023 · 12 min read
@@ -10,11 +8,15 @@ May 1, 2023 · 12 min read
 
 Solutions Architect at dbt Labs
 
+[](https://www.linkedin.com/in/sungwonchung1/ "LinkedIn")
+
 [![Kira Furuichi](/img/blog/authors/kira-furuichi.png)](./authors/kira-furuichi.md)
 
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
+
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 I, Sung, entered the data industry by chance in Fall 2014. I was using this thing called audit command language (ACL) to automate debits equal credits for accounting analytics (yes, it’s as tedious as it sounds). I remember working my butt off in a hotel room in Des Moines, Iowa where the most interesting thing there was a Panda Express. It was late in the AM. I’m thinking about 2 am. And I took a step back and thought to myself, “Why am I working so hard for something that I just don’t care about with tools that hurt more than help?”
 
@@ -193,11 +195,3 @@ If it’s anything like the imagined future we have for you below, then we all w
 * Watch the [Community recording on contracts](https://www.loom.com/share/375dee38aa9448deaed860a06487f8ff)—a great way to see them live in action—or [watch the recording from Staging](https://www.getdbt.com/resources/staging-april-2023/) to see dbt v1.5 features come to life!
 * Comment directly in this post on thoughts of v1.5 or this article!
 * Join the [#multi-project channel](https://getdbt.slack.com/archives/C04FP5LQA15) in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/)—start sparking up conversations with people like myself around the pains and gains of multi-deployment dbt projects. Validate if the constructs in v1.5 translate well to a multi-project future.
-
-[Newer post](./2023-05-02-modeling-ragged-time-varying-hierarchies.md)
-
-[Modeling ragged time-varying hierarchies](./2023-05-02-modeling-ragged-time-varying-hierarchies.md)
-
-[Older post](./2023-04-26-deprecating-dbt-metrics.md)
-
-[Why we're deprecating the dbt\_metrics package](./2023-04-26-deprecating-dbt-metrics.md)

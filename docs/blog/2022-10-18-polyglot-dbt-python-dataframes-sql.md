@@ -1,5 +1,3 @@
-On this page
-
 # Stronger together: Python, dataframes, and SQL
 
 October 18, 2022 · 13 min read
@@ -330,11 +328,3 @@ We are excited to hear what you discover and build! Please share with us in the 
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
-
-[Newer post](./2022-11-04-demystifying-event-streams.md)
-
-[Demystifying event streams: Transforming events into tables with dbt](./2022-11-04-demystifying-event-streams.md)
-
-[Older post](./2022-09-29-analysts-make-the-best-aes.md)
-
-[Analysts make the best analytics engineers](./2022-09-29-analysts-make-the-best-aes.md)

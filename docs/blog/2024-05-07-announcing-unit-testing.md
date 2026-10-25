@@ -1,5 +1,3 @@
-On this page
-
 # Unit testing in dbt for test-driven development
 
 May 7, 2024 · 9 min read
@@ -44,7 +42,7 @@ Let's dive into the details...
 
 ## Hello, unit testing world
 
-![Hello unit testing world](/img/blog/2024-05-07-unit-testing/hello-world.png?v=2 "Hello unit testing world")Hello unit testing world
+[![Hello unit testing world](/img/blog/2024-05-07-unit-testing/hello-world.png?v=2 "Hello unit testing world")](#)Hello unit testing world
 
 A key way that I build self-confidence is starting out with the [simplest example possible](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). Once I've gotten the initial thing to work, then I can tweak it to take on more complicated use-cases (scroll down to the ["real world example"](#real-world-example) section below for something more realistic!). So here's a super simple example that you can use to get your feet wet. Afterwards, I'll explain more about each of the main components and how you can apply them to your own test cases.
 
@@ -83,7 +81,7 @@ Finally, run the model and all its tests in a single command like this:
 dbt build --select hello_world
 ```
 
-![Terminal output of hello world unit test](/img/blog/2024-05-07-unit-testing/unit-test-terminal-output.png?v=2 "Terminal output of hello world unit test")Terminal output of hello world unit test
+[![Terminal output of hello world unit test](/img/blog/2024-05-07-unit-testing/unit-test-terminal-output.png?v=2 "Terminal output of hello world unit test")](#)Terminal output of hello world unit test
 
 Voilà! We can see that a single unit test ran and it passed.
 
@@ -208,7 +206,7 @@ group by 1
 
 You can see that we changed `count` to `sum` in the SQL code:
 
-![SQL changes in code](/img/blog/2024-05-07-unit-testing/changed_code.png?v=2 "SQL changes in code")SQL changes in code
+[![SQL changes in code](/img/blog/2024-05-07-unit-testing/changed_code.png?v=2 "SQL changes in code")](#)SQL changes in code
 
 ### Caveats and pro-tips
 
@@ -238,11 +236,3 @@ There's more details about the syntax which you can access in our [documentation
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2024-05-17-synapse-best-practices.md)
-
-[Up and Running with Azure Synapse on dbt Cloud](./2024-05-17-synapse-best-practices.md)
-
-[Older post](./2024-05-02-semantic-layer-cortex.md)
-
-[Conversational Analytics: A Natural Language Interface to your Snowflake Data](./2024-05-02-semantic-layer-cortex.md)

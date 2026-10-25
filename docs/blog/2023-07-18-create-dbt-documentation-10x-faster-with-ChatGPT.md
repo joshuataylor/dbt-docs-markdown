@@ -8,6 +8,8 @@ July 18, 2023 · 8 min read
 
 Product Analyst at Sage
 
+[](https://www.linkedin.com/in/pbritosa/ "LinkedIn")
+
 Whether you are creating your pipelines into dbt for the first time or just adding a new model once in a while, **good documentation and testing should always be a priority** for you and your team. Why do we avoid it like the plague then? Because it’s a hassle having to write down each individual field, its description in layman terms and figure out what tests should be performed to ensure the data is fine and dandy. How can we make this process faster and less painful?
 
 By now, everyone knows the wonders of the GPT models for code generation and pair programming so this shouldn’t come as a surprise. But **ChatGPT really shines** at inferring the context of verbosely named fields from database table schemas. So in this post I am going to help you 10x your documentation and testing speed by using ChatGPT to do most of the leg work for you.
@@ -48,7 +50,7 @@ We all know how ChatGPT can digest very complex prompts, but as this is a tool f
 
 Opening ChatGPT with GPT4, my first prompt is usually along these lines:
 
-![ChatGPT request for YAML file](/img/blog/2023-07-17-GPT-and-dbt-test/image1.png?v=2 "ChatGPT request for YAML file")ChatGPT request for YAML file
+[![ChatGPT request for YAML file](/img/blog/2023-07-17-GPT-and-dbt-test/image1.png?v=2 "ChatGPT request for YAML file")](#)ChatGPT request for YAML file
 
 And the output of this simple prompt is nothing short of amazing:
 
@@ -111,7 +113,7 @@ Back in my day (5 months ago), ChatGPT with GPT 3.5 didn’t have much context o
 
 A prompt for it would look something like:
 
-![ChatGPT request to memorize dbt-style YAML](/img/blog/2023-07-17-GPT-and-dbt-test/image2.png?v=2 "ChatGPT request to memorize dbt-style YAML")ChatGPT request to memorize dbt-style YAML
+[![ChatGPT request to memorize dbt-style YAML](/img/blog/2023-07-17-GPT-and-dbt-test/image2.png?v=2 "ChatGPT request to memorize dbt-style YAML")](#)ChatGPT request to memorize dbt-style YAML
 
 ## Specify details on generic tests in your prompts
 
@@ -126,7 +128,7 @@ Accepted\_values and relationships are slightly trickier but the model can be ad
 
 One way of doing this is with a prompt like this:
 
-![ChatGPT request to write dbt-style YAML with generic tests](/img/blog/2023-07-17-GPT-and-dbt-test/image3.png?v=2 "ChatGPT request to write dbt-style YAML with generic tests")ChatGPT request to write dbt-style YAML with generic tests
+[![ChatGPT request to write dbt-style YAML with generic tests](/img/blog/2023-07-17-GPT-and-dbt-test/image3.png?v=2 "ChatGPT request to write dbt-style YAML with generic tests")](#)ChatGPT request to write dbt-style YAML with generic tests
 
 Which results in the following output:
 
@@ -209,11 +211,3 @@ I hope that these simple tips help you be more motivated and efficient in creati
 
 * [analytics craft](./tags/analytics-craft.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2023-08-03-announcing-materialized-views.md)
-
-[Optimizing Materialized Views with dbt](./2023-08-03-announcing-materialized-views.md)
-
-[Older post](./2023-07-03-data-vault-with-dbt-cloud.md)
-
-[Data Vault 2.0 with dbt Cloud](./2023-07-03-data-vault-with-dbt-cloud.md)

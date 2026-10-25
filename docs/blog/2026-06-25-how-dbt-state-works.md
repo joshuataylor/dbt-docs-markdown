@@ -1,5 +1,3 @@
-On this page
-
 # How dbt State actually works to save your compute costs
 
 June 25, 2026 · 8 min read
@@ -10,11 +8,15 @@ June 25, 2026 · 8 min read
 
 Staff Developer Experience Advocate at dbt Labs
 
+[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
+
 [![Toby Mao](/img/blog/authors/toby-mao.png)](./authors/toby-mao.md)
 
 [Toby Mao](./authors/toby-mao.md)
 
 Director, Engineering at Fivetran
+
+[](https://www.linkedin.com/in/toby-mao/ "LinkedIn")
 
 When building a dbt project, you start with the simplest strategy and only add complexity when you need more speed or reduced cost. At a model-by-model level, this is the view → table → incremental materialization pattern. At a project-wide level, optimizations used to require a lot more complexity - rebuilding only the relevant parts of a project meant you spent a lot of mental energy chaining together selectors like `state:modified`, `source_status:fresher`, or `config.materialized:view` and ensuring fresh JSON artifacts were distributed across your organization.
 
@@ -74,7 +76,7 @@ Let's go a bit deeper into how dbt State decides what to do with each node in th
 
 dbt’s normal `state:modified` selector hashes the contents of a file. dbt State is better because it [parses the query into a syntax tree](./2025-01-24-sql-comprehension-technologies.md#level-1-parsing), and then calculates a hash of the query. This means it won’t rebuild on a syntactically equivalent change, like removing whitespace, adding a comment, or changing a table’s alias.
 
-![Two semantically equivalent SQL files produce different file hashes without dbt State, but normalizing each into a syntax tree yields the same comparison hash with dbt State](/img/blog/2026-06-17-how-dbt-state-works/query-normalisation-hash-comparison.png?v=2 "dbt State considers queries to be equivalent despite cosmetic differences")dbt State considers queries to be equivalent despite cosmetic differences
+[![Two semantically equivalent SQL files produce different file hashes without dbt State, but normalizing each into a syntax tree yields the same comparison hash with dbt State](/img/blog/2026-06-17-how-dbt-state-works/query-normalisation-hash-comparison.png?v=2 "dbt State considers queries to be equivalent despite cosmetic differences")](#)dbt State considers queries to be equivalent despite cosmetic differences
 
 The purpose of this normalization is to ensure that your model only gets rebuilt when its logic or data changes. One wrinkle in this is volatile SQL functions, like `current_timestamp()` or `random()`. Are they logic, like every other piece of code? Or are they themselves data, and when they change the model is invalidated and should be rebuilt?
 
@@ -142,11 +144,3 @@ Using dbt State feels very familiar to the normal way of developing with dbt, bu
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2026-06-30-wizard-use-cases.md)
-
-[No babysitting, not today](./2026-06-30-wizard-use-cases.md)
-
-[Older post](./2026-06-01-dbt-core-v2-is-here.md)
-
-[dbt Core v2 is here: still open source, now rebuilt for what's next](./2026-06-01-dbt-core-v2-is-here.md)

@@ -1,5 +1,3 @@
-On this page
-
 # Building the Remote dbt MCP Server
 
 August 26, 2025 · 7 min read
@@ -9,6 +7,8 @@ August 26, 2025 · 7 min read
 [Devon Fulcher](./authors/devon-fulcher.md)
 
 Senior Software Engineer at dbt Labs
+
+[](https://www.linkedin.com/in/devonfulcher/ "LinkedIn")
 
 In April, we released the local [dbt MCP (Model Context Protocol) server](./2025-04-21-introducing-dbt-mcp-server.md) as an open source project to connect AI agents and LLMs with direct, governed access to trusted dbt assets. The dbt MCP server provides a [universal, open standard](https://docs.anthropic.com/en/docs/mcp) for bridging AI systems with your structured context that keeps your agents accurate, governed, and trustworthy. Learn more in [About dbt Model Context Protocol](../docs/dbt-ai/about-mcp.md).
 
@@ -30,7 +30,7 @@ Hosting your own remote MCP server is non-trivial. While a local MCP server only
 
 At the same time, we want the remote dbt MCP server to have similar functionality as the local dbt MCP server without entirely reimplementing the tools. We implemented these requirements by running a Streamable HTTP MCP server and adding proxied versions of each dbt MCP tool to this server. The proxied version of each tool has the same tool parameters, description, and implementation as the open source version, ensuring a consistent experience. The difference is that the proxied versions are configured via HTTP headers rather than environment variables and these tools connect directly to our internal APIs which reduces latency.
 
-![The remote dbt MCP architecture](/img/blog/2025-08-26-building-the-remote-dbt-mcp-server/remote-dbt-mcp.png?v=2 "The remote dbt MCP architecture")The remote dbt MCP architecture
+[![The remote dbt MCP architecture](/img/blog/2025-08-26-building-the-remote-dbt-mcp-server/remote-dbt-mcp.png?v=2 "The remote dbt MCP architecture")](#)The remote dbt MCP architecture
 
 ## The Remote dbt MCP Server in Action
 
@@ -138,11 +138,3 @@ We are continuing to invest in remote dbt MCP, with upcoming features like OAuth
 
 * [ai](./tags/ai.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2026-01-21-modernizing-the-semantic-layer-spec.md)
-
-[Modernizing the Semantic Layer Spec](./2026-01-21-modernizing-the-semantic-layer-spec.md)
-
-[Older post](./2025-07-11-train-linear-dbt-bigframes.md)
-
-[How to train a linear regression model with dbt and BigFrames](./2025-07-11-train-linear-dbt-bigframes.md)

@@ -1,5 +1,3 @@
-On this page
-
 # Putting Your DAG on the internet
 
 June 14, 2024 · 5 min read
@@ -10,17 +8,23 @@ June 14, 2024 · 5 min read
 
 Senior Solutions Architect at dbt Labs
 
+[](https://www.linkedin.com/in/eongaro/ "LinkedIn")
+
 [![Sebastian Stan](/img/blog/authors/sebastian-eqt.png)](./authors/sebastian-stan.md)
 
 [Sebastian Stan](./authors/sebastian-stan.md)
 
 Data Engineer at EQT Group
 
+[](https://www.linkedin.com/in/sebastian-lindblom/ "LinkedIn")
+
 [![Filip Byrén](/img/blog/authors/filip-eqt.png)](./authors/filip-byren.md)
 
 [Filip Byrén](./authors/filip-byren.md)
 
 VP and Software Architect at EQT Group
+
+[](https://www.linkedin.com/in/filip-byr%C3%A9n/ "LinkedIn")
 
 ## New in dbt: allow Snowflake Python models to access the internet
 
@@ -107,7 +111,7 @@ from raw,
 
 The result is a model that will keep track of dbt invocations, and the current UK carbon intensity levels.
 
-![Preview in dbt Cloud IDE of output](/img/blog/2024-06-12-putting-your-dag-on-the-internet/image1.png?v=2 "Preview in dbt Cloud IDE of output")Preview in dbt Cloud IDE of output
+[![Preview in dbt Cloud IDE of output](/img/blog/2024-06-12-putting-your-dag-on-the-internet/image1.png?v=2 "Preview in dbt Cloud IDE of output")](#)Preview in dbt Cloud IDE of output
 
 ## dbt best practices
 
@@ -128,11 +132,3 @@ dbt Labs staff and community members would love to chat more about it in the [#d
 * [analytics craft](./tags/analytics-craft.md)
 * [APIs](./tags/ap-is.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2024-07-10-semantic-layer-in-pieces.md)
-
-[How to build a Semantic Layer in pieces: step-by-step for busy analytics engineers](./2024-07-10-semantic-layer-in-pieces.md)
-
-[Older post](./2024-05-17-synapse-best-practices.md)
-
-[Up and Running with Azure Synapse on dbt Cloud](./2024-05-17-synapse-best-practices.md)

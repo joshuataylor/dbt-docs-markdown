@@ -1,5 +1,3 @@
-On this page
-
 # Serverless, free-tier data stack with dlt + dbt core.
 
 January 15, 2024 · 8 min read
@@ -9,6 +7,8 @@ January 15, 2024 · 8 min read
 [Euan Johnston](./authors/euan-johnston.md)
 
 Freelance Business Intelligence manager
+
+[](https://www.linkedin.com/in/euan-johnston-610a05a8/ "LinkedIn")[](https://github.com/euanjohnston-dev "GitHub")
 
 ## The problem, the builder and tooling
 
@@ -43,7 +43,7 @@ The solution has pretty standard components:
 
 These elements are reflected in the diagram below and further clarified in greater detail later in the article:
 
-![Project architecture](/img/blog/serverless-free-tier-data-stack-with-dlt-and-dbt-core/architecture_diagram.png?v=2 "Project architecture")Project architecture
+[![Project architecture](/img/blog/serverless-free-tier-data-stack-with-dlt-and-dbt-core/architecture_diagram.png?v=2 "Project architecture")](#)Project architecture
 
 ### Ingesting the data
 
@@ -91,7 +91,7 @@ def notify_on_completion(hook):
 
 The outcome was first and foremost a visualisation highlighting the unique properties available in my specific area of search. The map shown on the left of the page gives a live overview of location, number of duplicates (bubble size) and price (bubble colour) which can amongst other features be filtered using the sliders on the right. This represents a much better decluttered solution from which to observe the actual inventory available.
 
-![Dashboard mapping overview](/img/blog/serverless-free-tier-data-stack-with-dlt-and-dbt-core/map_screenshot.png?v=2 "Dashboard mapping overview")Dashboard mapping overview
+[![Dashboard mapping overview](/img/blog/serverless-free-tier-data-stack-with-dlt-and-dbt-core/map_screenshot.png?v=2 "Dashboard mapping overview")](#)Dashboard mapping overview
 
 Further charts highlight additional metrics which – now that deduplication is complete – can be accurately measured including most importantly, the development over time of “average price/square metre” and those properties which have been inferred to have been sold.
 
@@ -155,11 +155,3 @@ While I had used cloud functions before, I had never previously set them up for 
 dlt feels like the perfect solution for anyone who has scratched the surface of python development. To be able to have schemas ready for transformation in such a short space of time is truly… transformational. As a freelancer, being able to accelerate the development of pipelines is a huge benefit within companies who are often frustrated with the amount of time it takes to start ‘showing value’.
 
 I’d welcome the chance to discuss what’s been built to date or collaborate on any potential further development in the comments below.
-
-[Newer post](./2024-02-13-dbt-explorer.md)
-
-[Column-Level Lineage, Model Performance, and Recommendations: ship trusted data products with dbt Explorer](./2024-02-13-dbt-explorer.md)
-
-[Older post](./2024-01-15-deprecation-of-dbt-server.md)
-
-[Deprecation of dbt Server](./2024-01-15-deprecation-of-dbt-server.md)

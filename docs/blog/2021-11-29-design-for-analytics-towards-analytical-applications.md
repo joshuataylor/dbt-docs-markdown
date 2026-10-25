@@ -1,5 +1,3 @@
-On this page
-
 # The (Missing) Role of Design in Analytics
 
 November 29, 2021 · 6 min read
@@ -9,6 +7,8 @@ November 29, 2021 · 6 min read
 [Seth Rosen](./authors/seth-rosen.md)
 
 Co-Founder & CEO at TopCoat Data
+
+[](https://x.com/sethrosen "X")[](https://www.linkedin.com/in/sdrosen/ "LinkedIn")
 
 If you’ve spoken to me lately, follow me on [Twitter](https://twitter.com/sethrosen), or have taken my order at [Wendy’s](https://i.ytimg.com/vi/_oMc4eD9-XM/maxresdefault.jpg), you probably know how much I hate traditional dashboards. My dad, a psychotherapist, has been working with me to get to the root of my upbringing that led to this deep-rooted feeling.
 
@@ -84,11 +84,11 @@ Let’s take a look at one of the OG analytical applications: the weather foreca
 
 Like most people, I rely on weather apps to make all sorts of decisions throughout the day. We are fortunate to have very smart and talented user experience designers working on these apps.
 
-![Twitter screenshot](/img/blog/analyst-ux-twitter.png?v=2 "Twitter screenshot")Twitter screenshot
+[![Twitter screenshot](/img/blog/analyst-ux-twitter.png?v=2 "Twitter screenshot")](#)Twitter screenshot
 
 Here are a few examples from AccuWeather and the decisions it enables me to make:
 
-![Weather app screenshots](/img/blog/analyst-ux-weather.png?v=2 "Weather app screenshots")Weather app screenshots
+[![Weather app screenshots](/img/blog/analyst-ux-weather.png?v=2 "Weather app screenshots")](#)Weather app screenshots
 
 While the data being presented in the weather app could technically be presented in any dashboarding tool, the designers of this app agonized about every screen, interaction, and component to build a bespoke experience.
 
@@ -111,11 +111,3 @@ I encourage you to explore these new tools as much as possible and to work desig
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2021-11-29-open-source-community-growth-analysis.md)
-
-[How I Study Open Source Community Growth with dbt](./2021-11-29-open-source-community-growth-analysis.md)
-
-[Older post](./2021-11-29-on-the-importance-of-naming.md)
-
-[On the Importance of Naming: Model Naming Conventions (Part 1)](./2021-11-29-on-the-importance-of-naming.md)

@@ -1,5 +1,3 @@
-On this page
-
 # The key technologies behind SQL Comprehension
 
 January 24, 2025 · 16 min read
@@ -10,6 +8,8 @@ January 24, 2025 · 16 min read
 
 Product Manager at dbt Labs
 
+[](https://github.com/dave-connors-3 "GitHub")[](https://www.linkedin.com/in/daveconnors3/ "LinkedIn")
+
 You ever wonder what’s *really* going on in your database when you fire off a (perfect, efficient, full-of-insight) SQL query to your database?
 
 OK, probably not 😅. Your personal tastes aside, we’ve been talking a *lot* about SQL Comprehension tools at dbt Labs in the wake of our acquisition of SDF Labs, and think that the community would benefit if we included them in the conversation too! We recently published a [blog that talked about the different levels of SQL Comprehension tools](https://docs.getdbt.com/blog/the-levels-of-sql-comprehension). If you read that, you may have encountered a few new terms you weren’t super familiar with.
@@ -18,13 +18,13 @@ In this post, we’ll talk about the technologies that underpin SQL Comprehensio
 
 Here’s a quick refresher on the levels of SQL comprehension:
 
-![The three levels of SQL Comprehension, with example SQL.](/img/blog/2025-01-23-levels-of-sql-comprehension/validation_all_levels.png?v=2 "The three levels of SQL Comprehension, with example SQL.")The three levels of SQL Comprehension, with example SQL.
+[![The three levels of SQL Comprehension, with example SQL.](/img/blog/2025-01-23-levels-of-sql-comprehension/validation_all_levels.png?v=2 "The three levels of SQL Comprehension, with example SQL.")](#)The three levels of SQL Comprehension, with example SQL.
 
 Each of these levels is powered by a distinct set of technologies. It’s useful to explore these technologies in the context of the SQL Comprehension tool you are probably most familiar with: a database! A database, as you might have guessed, has the deepest possible SQL comprehension abilities as well as SQL *execution* abilities — it contains all necessary technology to translate a SQL query text into rows and columns.
 
 Here’s a simplified diagram to show your query’s fantastic voyage of translation into tabular data:
 
-![A flow chart showing a SQL query's journey to raw data.](/img/blog/2025-01-24-sql-comprehension-technologies/full_translation_flow.png?v=2 "A flow chart showing a SQL query's journey to raw data.")A flow chart showing a SQL query's journey to raw data.
+[![A flow chart showing a SQL query's journey to raw data.](/img/blog/2025-01-24-sql-comprehension-technologies/full_translation_flow.png?v=2 "A flow chart showing a SQL query's journey to raw data.")](#)A flow chart showing a SQL query's journey to raw data.
 
 First, databases use a **parser** to translate SQL code into a **syntax tree.** This enables syntax validation + error handling.
 
@@ -38,7 +38,7 @@ Let’s explore each of these levels in more depth!
 
 At Level 1, SQL comprehension tools use a **parser** to translate SQL code into a **syntax tree.** This enables syntax validation + error handling. *Key Concepts: Intermediate Representations, Parsers, Syntax Trees*
 
-![Parsers can model the grammar and structure of code.](/img/blog/2025-01-24-sql-comprehension-technologies/parser.png?v=2 "Parsers can model the grammar and structure of code.")Parsers can model the grammar and structure of code.
+[![Parsers can model the grammar and structure of code.](/img/blog/2025-01-24-sql-comprehension-technologies/parser.png?v=2 "Parsers can model the grammar and structure of code.")](#)Parsers can model the grammar and structure of code.
 
 ### Intermediate representations
 
@@ -79,7 +79,7 @@ Your first introduction to understanding syntactical rules probably came when yo
 
 By parsing this sentence according to the rules of the English language, we can get this syntax tree:
 
-![Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example](/img/blog/2025-01-24-sql-comprehension-technologies/sentence_syntax_tree.png?v=2 "Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example")Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example
+[![Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example](/img/blog/2025-01-24-sql-comprehension-technologies/sentence_syntax_tree.png?v=2 "Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example")](#)Apologies to my mother, an english teacher, who likely takes umbrage with this simplified example
 
 Let’s do the same thing with simple SQL query:
 
@@ -95,7 +95,7 @@ group by 1
 
 By parsing this query according to the rules of the SQL language, we get something that looks like this:
 
-![This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!](/img/blog/2025-01-24-sql-comprehension-technologies/sql_syntax_tree.png?v=2 "This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!")This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!
+[![This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!](/img/blog/2025-01-24-sql-comprehension-technologies/sql_syntax_tree.png?v=2 "This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!")](#)This is a simplified syntax tree — This was made by hand, and may not be exactly what the output of a real SQL parser looks like!
 
 The syntax trees produced by parsers are a very valuable type of intermediate representation; with a syntax tree, you can power features like syntax validation, code linting, and code formatting, since those tools only need knowledge of the *syntax* of the code you’ve written to work.
 
@@ -109,7 +109,7 @@ That’s a perfectly valid, diagrammable, parsable sentence according to the rul
 
 At Level 2, SQL comprehension tools use a **compiler** to **bind** metadata to the syntax tree to create a fully validated **logical plan.** *Key concepts: Binders, Logical Plans, Compilers*
 
-![](/img/blog/2025-01-24-sql-comprehension-technologies/compiler.png?v=2)
+[![](/img/blog/2025-01-24-sql-comprehension-technologies/compiler.png?v=2)](#)
 
 ### Binders
 
@@ -123,7 +123,7 @@ Binders are responsible for this process of resolution. They must bind additiona
 
 In the case of SQL binders, a major part of its job is to add *warehouse schema information,* like column *datatypes*, with the *type signatures* of warehouse operators described by the syntax tree to bring full *type awareness* to the syntax tree. It’s one thing to recognize a `substring` function in a query; it’s another to *understand* that a `substring` *must* operate on string data, and *always* produces string data, and will fail if you pass it an integer.
 
-![](/img/blog/2025-01-24-sql-comprehension-technologies/binder.png?v=2)
+[![](/img/blog/2025-01-24-sql-comprehension-technologies/binder.png?v=2)](#)
 
 In this example, while the syntax tree knows that the `x` column is aliased as `u`, the binder has the knowledge that `x` is indeed a column of type `int` and therefore, the resulting column `u` must also be of type `int`. Similarly, it knows that the filter condition specified will produce a `bool` value, and therefore must have compatible datatypes as its two arguments. Luckily, the binder can also see that `x` and `0` are both of type int, so we're confident this is a fully valid expression. This layer of validation, powered by metadata, is referred to as *type awareness.*
 
@@ -139,7 +139,7 @@ The intermediate representation output by a binder is a richer intermediate repr
 
 Critically, as a result of the binder’s work of mapping data types to the syntax tree, logical plans have *full data type awareness* — logical plans can tell you precisely how data flows through an analysis, and can pinpoint when datatypes may change as a result of, say, an aggregation operation.
 
-![](/img/blog/2025-01-24-sql-comprehension-technologies/logical_plan.png?v=2)
+[![](/img/blog/2025-01-24-sql-comprehension-technologies/logical_plan.png?v=2)](#)
 
 You can see we’ve gotten a more specific description of how to generate the dataset. Rather than simply mapping the SQL keywords and their dependencies, we have a resolved set of operations, in this case scanning a table, filtering the result, and projecting the values in the `x` column with an alias of `u`.
 
@@ -232,11 +232,3 @@ That’s probably more about databases that you bargained for! I know this is a 
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2025-02-19-faster-project-parsing-with-rust.md)
-
-[Parser, Better, Faster, Stronger: A peek at the new dbt engine](./2025-02-19-faster-project-parsing-with-rust.md)
-
-[Older post](./2025-01-23-the-levels-of-sql-comprehension.md)
-
-[The Three Levels of SQL Comprehension: What they are and why you need to know about them](./2025-01-23-the-levels-of-sql-comprehension.md)

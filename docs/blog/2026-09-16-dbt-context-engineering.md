@@ -1,5 +1,3 @@
-On this page
-
 # dbt\_context\_engineering: modeling the context your AI agents read
 
 September 16, 2026 · 14 min read
@@ -9,6 +7,8 @@ September 16, 2026 · 14 min read
 [Stephen Thibeault](./authors/stephen-thibeault.md)
 
 Senior Resident Architect
+
+[](https://www.linkedin.com/in/stephen-thibeault-62841789/ "LinkedIn")
 
 Every company is trying to put AI to work on its own data right now, and most are discovering the same thing: the model isn't the hard part. An agent's answer is only ever as good as the context behind it, and in most organizations that context was never modeled for a machine to read.
 
@@ -26,7 +26,7 @@ Let's think about the metrics layer and where it gets you today:
 * The data team models it out, tests it, and then deploys it so it's available to everyone
 * When someone asks about the number (say, "the revenue last quarter"), they always arrive at the same answer as the next person who asks it. They both get one governed, reliable answer
 
-![A diagram tracing rows of deal data through an aggregate step into a single Q2 win-rate metric on a dashboard](/img/blog/2026-09-13-dbt-context-engineering/metrics-rollup-rows-to-dashboard.png?v=2)
+[![A diagram tracing rows of deal data through an aggregate step into a single Q2 win-rate metric on a dashboard](/img/blog/2026-09-13-dbt-context-engineering/metrics-rollup-rows-to-dashboard.png?v=2)](#)
 
 We can ask something like *why did revenue drop*, and the LLM will try to piece together an answer from whatever other sources it can access outside of the warehouse, but there's no governed layer serving that information to the agent. The context it needs is scattered across your organization: call transcripts, support threads, contracts, dispatch notes, and more.
 
@@ -34,7 +34,7 @@ This unstructured free-text data has been around a long time, but it hasn't been
 
 AI in the data platform changes this. We now have not-exactly-deterministic-but-equally-valuable functionality at our fingertips that can reason about a conversation tied to a ticket (or a cluster of similar tickets) and help us pin down what's actually driving the number. That is context engineering, the practice of modeling the data that AI agents read.
 
-![A diagram showing follow-up questions to a win-rate metric routed to an AI agent that reads the underlying tables and returns a cited answer](/img/blog/2026-09-13-dbt-context-engineering/ai-agent-answers-beyond-the-metric.png?v=2)
+[![A diagram showing follow-up questions to a win-rate metric routed to an AI agent that reads the underlying tables and returns a cited answer](/img/blog/2026-09-13-dbt-context-engineering/ai-agent-answers-beyond-the-metric.png?v=2)](#)
 
 ## What is a reliable answer, anyway?
 
@@ -97,7 +97,7 @@ Embed those chunks and search them and you've got a working corpus. The full ver
 
 The pattern we trust most, and the one we'd start a team on, is semantic search. Three models, run in a simple DAG:
 
-![A three-step DAG: chunk raw text into token-bounded pieces, embed them into governed vectors, then search with ranked cosine retrieval](/img/blog/2026-09-13-dbt-context-engineering/semantic-search-dag-chunk-embed-search.png?v=2)
+[![A three-step DAG: chunk raw text into token-bounded pieces, embed them into governed vectors, then search with ranked cosine retrieval](/img/blog/2026-09-13-dbt-context-engineering/semantic-search-dag-chunk-embed-search.png?v=2)](#)
 
 Chunk breaks long text into pieces that keep a citation to the rows they came from. Embed turns each piece into a vector. Search takes a query, ranks the text by similarity, and returns the closest passages with their citations attached. Three dbt models built with three macros.
 
@@ -188,11 +188,3 @@ The fastest way to shape where this goes is to get your hands on it. What have y
 * [ai](./tags/ai.md)
 * [context engineering](./tags/context-engineering.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2026-10-14-wizard-agent-harness.md)
-
-[Inside the dbt Wizard harness: building an agent that thinks in DAGs](./2026-10-14-wizard-agent-harness.md)
-
-[Older post](./2026-09-16-comparing-dbt-and-dbt-oss.md)
-
-[What's the difference between dbt and dbt OSS?](./2026-09-16-comparing-dbt-and-dbt-oss.md)

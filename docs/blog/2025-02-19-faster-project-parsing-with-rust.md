@@ -1,5 +1,3 @@
-On this page
-
 # Parser, Better, Faster, Stronger: A peek at the new dbt engine
 
 February 19, 2025 · 5 min read
@@ -10,9 +8,11 @@ February 19, 2025 · 5 min read
 
 Staff Developer Experience Advocate at dbt Labs
 
+[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
+
 Remember how dbt felt when you had a small project? You pressed enter and stuff just happened immediately? We're bringing that back.
 
-![Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it](/img/blog/2025-02-19-faster-project-parsing-with-rust/parsing_10k.gif?v=2 "Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it")Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it
+[![Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it](/img/blog/2025-02-19-faster-project-parsing-with-rust/parsing_10k.gif?v=2 "Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it")](#)Benchmarking tip: always try to get data that's good enough that you don't need to do statistics on it
 
 After a [series of deep dives](./2025-01-23-the-levels-of-sql-comprehension.md) into the [guts of SQL comprehension](./2025-01-24-sql-comprehension-technologies.md), let's talk about speed a little bit. Specifically, I want to talk about one of the most annoying slowdowns as your project grows: project parsing.
 
@@ -32,7 +32,7 @@ This is kinda slow. Not so much as a one-off, but a project with 10,000 nodes mi
 
 Since running the code is slow, one way to get results faster is to not run the code. Since v1.0, dbt's parser has [used a static analyzer](https://github.com/dbt-labs/dbt/blob/1.latest/docs/guides/parsing-vs-compilation-vs-runtime.md#:~:text=Simple%20Jinja%2DSQL%20models%20\(using%20just%20ref\(\)%2C%20source\(\)%2C%20%26/or%20config\(\)%20with%20literal%20inputs\)%20are%20also%20statically%20analyzed%2C%20using%20a%20thing%20we%20built.%20This%20is%20very%20fast%20\(~0.3%20ms\)) to resolve refs when possible, which is [about 3x faster](https://docs.getdbt.com/reference/parsing#:~:text=For%20now%2C%20the%20static%20parser,speedup%20in%20the%20model%20parser) than going through the whole rigmarole above.
 
-![](/img/blog/2025-02-19-faster-project-parsing-with-rust/evaluation_strategies_1.png?v=2)
+[![](/img/blog/2025-02-19-faster-project-parsing-with-rust/evaluation_strategies_1.png?v=2)](#)
 
 The other way you could get the result faster is to run the code faster.
 
@@ -40,7 +40,7 @@ The original author of Jinja also wrote [minijinja](https://github.com/mitsuhiko
 
 This is not the post for a deep dive on *why* Rust and Python have such different performance characteristics, but the key takeaway is that [minijinja can *fully evaluate* a ref 30 times faster](https://github.com/mitsuhiko/minijinja/tree/main/benchmarks) than today's dbt can even *statically analyze* it.
 
-![](/img/blog/2025-02-19-faster-project-parsing-with-rust/evaluation_strategies_2.png?v=2)
+[![](/img/blog/2025-02-19-faster-project-parsing-with-rust/evaluation_strategies_2.png?v=2)](#)
 
 Our analysis in the leadup to dbt v1.0 showed that the static analyzer could handle 60% of models. Evaluating refs 30x faster in 60% of models would itself be great.
 
@@ -52,13 +52,13 @@ But recall that static analysis was the workaround for evaluating Jinja being sl
 
 As you saw at the top of the post, I've been running some synthetic projects against an early build of the new dbt engine, and it's pretty snappy - **parsing a 10,000 model project in under 600ms**. Let's see how it goes with some other common project sizes:
 
-![You might have to squint, but I promise there's a yellow line on each of those groups](/img/blog/2025-02-19-faster-project-parsing-with-rust/parse_time_comparison_linear.png?v=2 "You might have to squint, but I promise there's a yellow line on each of those groups")You might have to squint, but I promise there's a yellow line on each of those groups
+[![You might have to squint, but I promise there's a yellow line on each of those groups](/img/blog/2025-02-19-faster-project-parsing-with-rust/parse_time_comparison_linear.png?v=2 "You might have to squint, but I promise there's a yellow line on each of those groups")](#)You might have to squint, but I promise there's a yellow line on each of those groups
 
 Even a 20,000-model project finished parsing in about a second. The equivalent cold parse takes well over a minute, and a partial parse (with no changed files) took about 12 seconds.
 
 Let's look at one more comparison: **100k models. I need to break out the log scale for this one:**
 
-![](/img/blog/2025-02-19-faster-project-parsing-with-rust/parse_time_comparison_log.png?v=2)
+[![](/img/blog/2025-02-19-faster-project-parsing-with-rust/parse_time_comparison_log.png?v=2)](#)
 
 The new dbt engine parsed our 100,000 model example project in under 10 seconds, compared with almost 20 minutes.
 
@@ -76,11 +76,3 @@ The teams are still hard at work integrating the two tools, and we'll have more 
 **Tags:**
 
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2025-03-10-git-branching-strategies-with-dbt.md)
-
-[Getting Started with git Branching Strategies and dbt](./2025-03-10-git-branching-strategies-with-dbt.md)
-
-[Older post](./2025-01-24-sql-comprehension-technologies.md)
-
-[The key technologies behind SQL Comprehension](./2025-01-24-sql-comprehension-technologies.md)

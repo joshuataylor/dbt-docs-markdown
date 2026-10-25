@@ -1,5 +1,3 @@
-On this page
-
 # How to Upgrade dbt Versions (Mostly) Without Fear
 
 November 29, 2021 · 9 min read
@@ -9,6 +7,8 @@ November 29, 2021 · 9 min read
 [Joel Labes](./authors/joel-labes.md)
 
 Staff Developer Experience Advocate at dbt Labs
+
+[](https://www.linkedin.com/in/joel-labes/ "LinkedIn")[](https://bsky.app/profile/joellab.es "Bluesky")
 
 February 2024 Update
 
@@ -190,11 +190,3 @@ Thanks to [Claire](https://twitter.com/clairebcarroll) and [Winnie](https://twit
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
-
-[Newer post](./2021-11-29-sql-surrogate-keys.md)
-
-[Generating Surrogate Keys Across Warehouses](./2021-11-29-sql-surrogate-keys.md)
-
-[Older post](./2021-11-29-so-you-want-to-build-a-package.md)
-
-[So You Want to Build a dbt Package](./2021-11-29-so-you-want-to-build-a-package.md)

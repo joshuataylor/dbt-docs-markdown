@@ -1,5 +1,3 @@
-On this page
-
 # Updating our permissioning guidelines: grants as configs in dbt Core v1.2
 
 July 26, 2022 · 7 min read
@@ -222,11 +220,3 @@ This is just a sample of the issues we've seen:
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
-
-[Newer post](./2022-08-03-enforcing-rules-pre-commit-dbt.md)
-
-[Enforcing rules at scale with pre-commit-dbt](./2022-08-03-enforcing-rules-pre-commit-dbt.md)
-
-[Older post](./2022-07-20-migrating-from-stored-procs.md)
-
-[Migrating from Stored Procedures to dbt](./2022-07-20-migrating-from-stored-procs.md)

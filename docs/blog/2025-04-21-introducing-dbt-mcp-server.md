@@ -1,5 +1,3 @@
-On this page
-
 # Introducing the dbt MCP Server – Bringing Structured Data to AI Workflows and Agents
 
 April 21, 2025 · 16 min read
@@ -10,6 +8,8 @@ April 21, 2025 · 16 min read
 
 Director of Community, Developer Experience & AI at dbt Labs
 
+[](https://x.com/jasnonaz "X")
+
 dbt is the standard for creating governed, trustworthy datasets on top of your structured data. [MCP](https://www.anthropic.com/news/model-context-protocol) is showing increasing promise as the standard for providing context to LLMs to allow them to function at a high level in real world, operational scenarios.
 
 Today, we are open sourcing an experimental version of the [dbt MCP server](https://github.com/dbt-labs/dbt-mcp/tree/main). We expect that over the coming years, structured data is going to become heavily integrated into AI workflows and that dbt will play a key role in building and provisioning this data.
@@ -17,8 +17,6 @@ Today, we are open sourcing an experimental version of the [dbt MCP server](http
 In particular, we expect both [Business Intelligence](https://roundup.getdbt.com/p/how-ai-will-disrupt-bi-as-we-know) and [Data Engineering](https://roundup.getdbt.com/p/how-ai-will-disrupt-data-engineering) will be driven by AI operating on top of the context defined in your dbt projects.
 
 **We are committed to building the data control plane that enables AI to reliably access structured data from across your entire data lineage.** Over the coming months and years, data teams will increasingly focus on building the rich context that feeds into the dbt MCP server. Both AI agents and business stakeholders will then operate on top of LLM-driven systems hydrated by the dbt MCP context.
-
-[Loom video](https://www.loom.com/embed/28cd33da8bcc41ccbe43338d327e73d8)
 
 Today’s system is not a full realization of the vision in the posts shared above, but it is a meaningful step towards safely integrating your structured enterprise data into AI workflows. In this post, we’ll walk through what the dbt MCP server can do today, some tips for getting started and some of the limitations of the current implementation.
 
@@ -49,7 +47,7 @@ The dbt MCP server provides access to a set of *tools* that operate on top of yo
 
 There are three primary functions of the dbt MCP server today.
 
-![Three use‑case pillars of the dbt MCP server](/img/blog/2025-04-18-dbt-mcp-server/mcp_use_cases.png?v=2 "Three use‑case pillars of the dbt MCP server")Three use‑case pillars of the dbt MCP server
+[![Three use‑case pillars of the dbt MCP server](/img/blog/2025-04-18-dbt-mcp-server/mcp_use_cases.png?v=2 "Three use‑case pillars of the dbt MCP server")](#)Three use‑case pillars of the dbt MCP server
 
 * Data discovery: Understand what data assets exist in your dbt project.
 
@@ -60,7 +58,7 @@ There are three primary functions of the dbt MCP server today.
 
 * Run and perform commands within dbt: Access the dbt CLI to run a project and perform other operations
 
-![How the dbt MCP server fits between data sources and MCP‑enabled clients](/img/blog/2025-04-18-dbt-mcp-server/mcp_architecture_overview.png?v=2 "How the dbt MCP server fits between data sources and MCP‑enabled clients")How the dbt MCP server fits between data sources and MCP‑enabled clients
+[![How the dbt MCP server fits between data sources and MCP‑enabled clients](/img/blog/2025-04-18-dbt-mcp-server/mcp_architecture_overview.png?v=2 "How the dbt MCP server fits between data sources and MCP‑enabled clients")](#)How the dbt MCP server fits between data sources and MCP‑enabled clients
 
 ❓Do I need to be a dbt Cloud customer to use the dbt MCP server?
 
@@ -159,11 +157,11 @@ To get this working:
 * Follow the instructions in the Readme to install the MCP server
 * Validate that you have added the MCP config to your Claude desktop config. You should see ‘dbt’ when you go to Claude→Settings→Developer
 
-![Claude Desktop – MCP server running in Developer settings](/img/blog/2025-04-18-dbt-mcp-server/claudedesktop_settings_dbt_mcp.png?v=2 "Claude Desktop – MCP server running in Developer settings")Claude Desktop – MCP server running in Developer settings
+[![Claude Desktop – MCP server running in Developer settings](/img/blog/2025-04-18-dbt-mcp-server/claudedesktop_settings_dbt_mcp.png?v=2 "Claude Desktop – MCP server running in Developer settings")](#)Claude Desktop – MCP server running in Developer settings
 
 * Create a new project called “analytics”. Give it a description of how an end user might interact with it.
 
-![Example Claude Desktop project connected to the dbt MCP server](/img/blog/2025-04-18-dbt-mcp-server/claudedesktop_project_card.png?v=2 "Example Claude Desktop project connected to the dbt MCP server")Example Claude Desktop project connected to the dbt MCP server
+[![Example Claude Desktop project connected to the dbt MCP server](/img/blog/2025-04-18-dbt-mcp-server/claudedesktop_project_card.png?v=2 "Example Claude Desktop project connected to the dbt MCP server")](#)Example Claude Desktop project connected to the dbt MCP server
 
 * **Add a custom prompt explaining that questions in this project will likely be routed through the dbt MCP server.** You’ll likely want to customize this to your particular organizational context.
   * For example: This conversation is connected to and knows about the information in your dbt Project via the dbt MCP server. When you receive a question that plausibly needs data from an external data source, you will likely want to use the tools available via the dbt MCP server to provide it.
@@ -209,11 +207,3 @@ To join the conversation, head over to #tools-dbt-mcp in the dbt Community Slack
 
 * [ai](./tags/ai.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2025-05-01-scaling-data-pipelines-fintech.md)
-
-[Scaling Data Pipelines for a Growth-Stage Fintech with Incremental Models](./2025-05-01-scaling-data-pipelines-fintech.md)
-
-[Older post](./2025-04-17-dbt-cloud-sso-rbac.md)
-
-[Establishing dbt Cloud: Securing your account through SSO & RBAC](./2025-04-17-dbt-cloud-sso-rbac.md)

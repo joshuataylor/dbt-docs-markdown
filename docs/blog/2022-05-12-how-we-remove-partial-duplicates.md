@@ -1,5 +1,3 @@
-On this page
-
 # How we remove partial duplicates: Complex deduplication to refine your models' grain
 
 May 12, 2022 · 11 min read
@@ -9,6 +7,8 @@ May 12, 2022 · 11 min read
 [Lauren Benezra](./authors/lauren-benezra.md)
 
 Analytics Engineer at dbt Labs
+
+[](https://www.linkedin.com/in/lbenezra/ "LinkedIn")
 
 Hey data champion — so glad you’re here! Sometimes datasets need a **team** of engineers to tackle their deduplification (totz a real word), and that’s why we wrote this down. *For you*, friend, *we wrote it down for you*. You’re welcome!
 
@@ -177,18 +177,10 @@ To recap, we took the following steps to identify and eliminate partial duplicat
 
 These kinds of transformations not only help clean up your data, but they play a bigger part in crafting your data sets into what you need to capture in order to generate real value *and* contribute to real understanding of datasets among your data consumers. Remember that these datasets work for **you** — you are skilled enough to mold these datasets into your vision, to reflect the questions you and your customers want to answer. Nobody puts Baby in a corner! Not even data.
 
-![Dirty dancing - nobody puts baby in a corner!](/img/blog/2022-04-19-complex-deduplication/dancing-baby.gif?v=2 "Dirty dancing - nobody puts baby in a corner!")Dirty dancing - nobody puts baby in a corner!
+[![Dirty dancing - nobody puts baby in a corner!](/img/blog/2022-04-19-complex-deduplication/dancing-baby.gif?v=2 "Dirty dancing - nobody puts baby in a corner!")](#)Dirty dancing - nobody puts baby in a corner!
 
 You don’t have to be pigeon-holed by the grain of the source data or the massive number of value changes captured by history tables. You decide what a clean dataset looks like, which columns are of value, and use those sweet, sweet analytics-engineering skills to build a model how you see fit. We’re all so proud of you! Carry on, friend.
 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-05-15-extract-sql-love-letter.md)
-
-[EXTRACT SQL function: Why we love it](./2022-05-15-extract-sql-love-letter.md)
-
-[Older post](./2022-05-11-lower-sql-love-letter.md)
-
-[LOWER SQL function: Why we love it](./2022-05-11-lower-sql-love-letter.md)

@@ -1,5 +1,3 @@
-On this page
-
 # Scaling Data Pipelines for a Growth-Stage Fintech with Incremental Models
 
 May 1, 2025 · 16 min read
@@ -9,6 +7,8 @@ May 1, 2025 · 16 min read
 [Adedamola Onabanjo](./authors/adedamola-onabanjo.md)
 
 BI Manager at Kuda
+
+[](https://www.linkedin.com/in/adedamola-onabanjo/ "LinkedIn")
 
 ## Introduction
 
@@ -261,11 +261,3 @@ If you’re at a growing company struggling with slow or expensive data jobs, gi
 * [dbt Cloud](./tags/dbt-cloud.md)
 * [fintech](./tags/fintech.md)
 * [BigQuery](./tags/big-query.md)
-
-[Newer post](./2025-05-04-ai-eval-in-dbt.md)
-
-[AI Evaluation in dbt](./2025-05-04-ai-eval-in-dbt.md)
-
-[Older post](./2025-04-21-introducing-dbt-mcp-server.md)
-
-[Introducing the dbt MCP Server – Bringing Structured Data to AI Workflows and Agents](./2025-04-21-introducing-dbt-mcp-server.md)

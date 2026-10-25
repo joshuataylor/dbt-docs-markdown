@@ -1,5 +1,3 @@
-On this page
-
 # LOWER SQL function: Why we love it
 
 May 11, 2022 · 4 min read
@@ -9,6 +7,8 @@ May 11, 2022 · 4 min read
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
+
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 We’ve all been there:
 
@@ -79,11 +79,3 @@ There will most likely never be 100% consistency in your data models, but doing 
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2022-05-12-how-we-remove-partial-duplicates.md)
-
-[How we remove partial duplicates: Complex deduplication to refine your models' grain](./2022-05-12-how-we-remove-partial-duplicates.md)
-
-[Older post](./2022-05-08-coalesce-sql-love-letter.md)
-
-[COALESCE SQL function: Why we love it](./2022-05-08-coalesce-sql-love-letter.md)

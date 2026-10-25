@@ -1,5 +1,3 @@
-On this page
-
 # Optimizing Materialized Views with dbt
 
 August 3, 2023 · 11 min read
@@ -9,6 +7,8 @@ August 3, 2023 · 11 min read
 [Amy Chen](./authors/amy-chen.md)
 
 Product Manager at dbt Labs
+
+[](https://www.linkedin.com/in/yuanamychen/ "LinkedIn")
 
 note
 
@@ -96,7 +96,7 @@ When we talk about using materialized views in development, the question to thin
 
 Outside of the scheduling part, development will be pretty standard. Your pipeline is likely going to look something like this:
 
-![A Real Time Pipeline](/img/blog/2023-08-01-announcing-materialized-views/streaming-pipeline.png?v=2 "A Real Time Pipeline")A Real Time Pipeline
+[![A Real Time Pipeline](/img/blog/2023-08-01-announcing-materialized-views/streaming-pipeline.png?v=2 "A Real Time Pipeline")](#)A Real Time Pipeline
 
 This is assuming you have a near real time pipeline where you are pulling from a streaming data source like a Kafka Topic via an ingestion tool of your choice like Snowpipe for Streaming into your data platform. After your data is in the data platform, you will:
 
@@ -229,11 +229,3 @@ Well, I’m excited for everyone to remove the lines in your packages.yml that i
 * [analytics craft](./tags/analytics-craft.md)
 * [dbt product updates](./tags/dbt-product-updates.md)
 * [data ecosystem](./tags/data-ecosystem.md)
-
-[Newer post](./2023-10-31-to-defer-or-to-clone.md)
-
-[To defer or to clone, that is the question](./2023-10-31-to-defer-or-to-clone.md)
-
-[Older post](./2023-07-18-create-dbt-documentation-10x-faster-with-ChatGPT.md)
-
-[Create dbt Documentation and Tests 10x faster with ChatGPT](./2023-07-18-create-dbt-documentation-10x-faster-with-ChatGPT.md)

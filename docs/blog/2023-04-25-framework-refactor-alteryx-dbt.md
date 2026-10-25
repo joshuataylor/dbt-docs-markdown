@@ -1,5 +1,3 @@
-On this page
-
 # How we reduced a 6-hour runtime in Alteryx to 9 minutes with dbt and Snowflake
 
 April 25, 2023 · 12 min read
@@ -28,7 +26,7 @@ Alteryx is a visual data transformation platform with a user-friendly interface 
 
 Transforming data to follow business rules can be a complex task, especially with the increasing amount of data collected by companies. To reduce such complexity, data transformation solutions designed as drag-and-drop tools can be seen as more intuitive, since analysts can visualize the steps taken to transform data. One example of a popular drag-and-drop transformation tool is Alteryx which allows business analysts to transform data by dragging and dropping operators in a canvas. The graphic interface of Alteryx Designer is presented in **Figure 1**.
 
-![Figure 1 — Alteryx Designer workflow interface](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure1.png?v=2 "Figure 1 — Alteryx Designer workflow interface")Figure 1 — Alteryx Designer workflow interface
+[![Figure 1 — Alteryx Designer workflow interface](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure1.png?v=2 "Figure 1 — Alteryx Designer workflow interface")](#)Figure 1 — Alteryx Designer workflow interface
 
 Nonetheless, as data workflows become more complex, Alteryx lacks the modularity, documentation, and version control capabilities that these flows require. In this sense, dbt may be a more suitable solution to building resilient and modular data pipelines due to its focus on data modeling.
 
@@ -75,7 +73,7 @@ This blog post reports a consulting project for a major client at Indicium Tech�
 
 When the client hired Indicium, they had dozens of Alteryx workflows built and running daily solely for the marketing team, which was the focus of the project. For the marketing team, the Alteryx workflows had to be executed in the correct order since they were interdependent, which means one Alteryx workflow used the outcome of the previous one, and so on. The main Alteryx workflows run daily by the marketing team took about 6 hours to run. Another important aspect to consider was that if a model had not finished running when the next one downstream began to run, the data would be incomplete, requiring the workflow to be run again. The execution of all models was usually scheduled to run overnight and by early morning, so the data would be up to date the next day. But if there was an error the night before, the data would be incorrect or out of date. **Figure 3** exemplifies the scheduler.
 
-![Figure 3 — Example of Alteryx schedule workflow](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure3.png?v=2 "Figure 3 — Example of Alteryx schedule workflow")Figure 3 — Example of Alteryx schedule workflow
+[![Figure 3 — Example of Alteryx schedule workflow](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure3.png?v=2 "Figure 3 — Example of Alteryx schedule workflow")](#)Figure 3 — Example of Alteryx schedule workflow
 
 Data lineage was a point that added a lot of extra labor because it was difficult to identify which models were dependent on others with so many Alteryx workflows built. When the number of workflows increased, it required a long time to create a view of that lineage in another software. So, if a column's name changed in a model due to a change in the model's source, the marketing analysts would have to map which downstream models were impacted by such change to make the necessary adjustments. Because model lineage was mapped manually, it was a challenge to keep it up to date.
 
@@ -85,7 +83,7 @@ One of our main objectives was to refactor the Alteryx workflows that the market
 
 Below we provide a high-level framework with the steps we followed to refactor the Alteryx workflows into dbt:
 
-![Figure 4 — Steps followed for Alteryx to dbt model refactoring](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure4.png?v=2 "Figure 4 — Steps followed for Alteryx to dbt model refactoring")Figure 4 — Steps followed for Alteryx to dbt model refactoring
+[![Figure 4 — Steps followed for Alteryx to dbt model refactoring](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure4.png?v=2 "Figure 4 — Steps followed for Alteryx to dbt model refactoring")](#)Figure 4 — Steps followed for Alteryx to dbt model refactoring
 
 **
 
@@ -105,7 +103,7 @@ The first step is to validate all data sources and create one common table expre
 
 It is essential to click on each data source (the green book icons on the leftmost side of **Figure 5**) and examine whether any transformations have been done inside that data source query. It is very common for a source icon to contain more than one data source or filter, which is why this step is important. The next step is to follow the workflow and transcribe the transformations into SQL queries in the dbt models to replicate the same data transformations as in the Alteryx workflow.
 
-![Figure 5 — Alteryx workflow](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure5.png?v=2 "Figure 5 — Alteryx workflow")Figure 5 — Alteryx workflow
+[![Figure 5 — Alteryx workflow](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure5.png?v=2 "Figure 5 — Alteryx workflow")](#)Figure 5 — Alteryx workflow
 
 For this step, we identified which operators were used in the data source (for example, joining data, order columns, group by, etc). Usually the Alteryx operators are pretty self-explanatory and all the information needed for understanding appears on the left side of the menu. We also checked the documentation to understand how each Alteryx operator works behind the scenes.
 
@@ -117,7 +115,7 @@ Auditing large models, with sometimes dozens of columns and millions of rows, ca
 
 In this project, we used [the `audit_helper` package](https://github.com/dbt-labs/dbt-audit-helper), because it provides more robust auditing macros and offers more automation possibilities for our use case. To that end, we needed to have both the legacy Alteryx workflow output table and the refactored dbt model materialized in the project’s data warehouse. Then we used the macros available in `audit_helper` to compare query results, data types, column values, row numbers and many more things that are available within the package. For an in-depth explanation and tutorial on how to use the `audit_helper` package, check out [this blog post](https://docs.getdbt.com/blog/audit-helper-for-migration). **Figure 6** graphically illustrates the validation logic behind audit\_helper.
 
-![Figure 6 - Audit\_helper data validation logic](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure6.png?v=2 "Figure 6 - Audit_helper data validation logic")Figure 6 - Audit\_helper data validation logic
+[![Figure 6 - Audit\_helper data validation logic](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure6.png?v=2 "Figure 6 - Audit_helper data validation logic")](#)Figure 6 - Audit\_helper data validation logic
 
 #### Step 4: Duplicate reports and connect them to the dbt refactored models
 
@@ -135,7 +133,7 @@ The conversion proved to be of great value to the client due to three main aspec
 * Improved workflow visibility: dbt’s support for documentation and testing, associated with dbt Cloud, allows for great visibility of the workflow’s lineage execution, accelerating errors and data inconsistencies identification and troubleshooting. More than once, our team was able to identify the impact of one column’s logic alteration in downstream models much earlier than these Alteryx models.
 * Workflow simplification: dbt’s modularized approach of data modeling, aside from accelerating total run time of the data workflow, simplified the construction of new tables, based on the already existing modules, and improved code readability.
 
-![Figure 7 — Run time comparison, in minutes](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure7.png?v=2 "Figure 7 — Run time comparison, in minutes")Figure 7 — Run time comparison, in minutes
+[![Figure 7 — Run time comparison, in minutes](/img/blog/2023-04-24-framework-refactor-alteryx-dbt/Figure7.png?v=2 "Figure 7 — Run time comparison, in minutes")](#)Figure 7 — Run time comparison, in minutes
 
 As we can see, refactoring Alteryx to dbt was an important step in the direction of data availability, and allowed for much more agile processes for the client’s data team. With less time dedicated to manually executing sequential Alteryx workflows that took hours to complete, and searching for errors in each individual file, the analysts could focus on what they do best: **getting insights from the data and generating value from them**.
 
@@ -150,11 +148,3 @@ As we can see, refactoring Alteryx to dbt was an important step in the direction
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-04-26-deprecating-dbt-metrics.md)
-
-[Why we're deprecating the dbt\_metrics package](./2023-04-26-deprecating-dbt-metrics.md)
-
-[Older post](./2023-04-20-kimball-dimensional-model.md)
-
-[Building a Kimball dimensional model with dbt](./2023-04-20-kimball-dimensional-model.md)

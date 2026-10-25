@@ -1,5 +1,3 @@
-On this page
-
 # Power up your data quality with grouped checks
 
 January 17, 2023 · 7 min read
@@ -9,6 +7,8 @@ January 17, 2023 · 7 min read
 [Emily Riederer](./authors/emily-riederer.md)
 
 Senior Manager Analytics at Capital One
+
+[](https://www.linkedin.com/in/emilyriederer/ "LinkedIn")[](https://x.com/emilyriederer "X")[](https://github.com/emilyriederer "GitHub")[](https://emilyriederer.com "newsletter")
 
 Imagine you were responsible for monitoring the safety of a subway system. Where would you begin? Most likely, you'd start by thinking about the key risks like collision or derailment, contemplate what causal factors like scheduling software and track conditions might contribute to bad outcomes, and institute processes and metrics to detect if those situations arose. What you wouldn't do is blindly apply irrelevant industry standards like testing for problems with the landing gear (great for planes, irrelevant for trains) or obsessively worry about low probability events like accidental teleportation before you'd locked down the fundamentals. 
 
@@ -42,11 +42,11 @@ So what do we discover when we validate our data by group?
 
 Testing for monotonicity, we find many poorly behaved turnstiles. Unlike the well-behaved dark blue line, other turnstiles seem to *decrement* versus *increment* with each rotation while still others cyclically increase and plummet to zero – perhaps due to maintenance events, replacements, or glitches in communication with the central server.
 
-![A chart with three lines: one in dark blue trending up and to the right, one in light blue trending down and to the right, and one in very light blue which tracks up and then suddenly drops, repeating in a sawtooth pattern.](/img/blog/2023-01-17-grouping-data-tests/1-monotonicity.png?v=2 "Cumulative Entries by Turnstile for 3 Turnstiles")Cumulative Entries by Turnstile for 3 Turnstiles
+[![A chart with three lines: one in dark blue trending up and to the right, one in light blue trending down and to the right, and one in very light blue which tracks up and then suddenly drops, repeating in a sawtooth pattern.](/img/blog/2023-01-17-grouping-data-tests/1-monotonicity.png?v=2 "Cumulative Entries by Turnstile for 3 Turnstiles")](#)Cumulative Entries by Turnstile for 3 Turnstiles
 
 Similarly, while no expected timestamp is missing from the data altogether, a more rigorous test of timestamps *by turnstile* reveals between roughly 50-100 missing observations for any given period.
 
-![A dot plot showing 50-100 turnstiles are missing entries for each period between January and May, the range shown on the x axis.](/img/blog/2023-01-17-grouping-data-tests/2-missing.png?v=2 "Number of Missing Turnstiles by Recording Time Period")Number of Missing Turnstiles by Recording Time Period
+[![A dot plot showing 50-100 turnstiles are missing entries for each period between January and May, the range shown on the x axis.](/img/blog/2023-01-17-grouping-data-tests/2-missing.png?v=2 "Number of Missing Turnstiles by Recording Time Period")](#)Number of Missing Turnstiles by Recording Time Period
 
 *Check out this [GitHub gist](https://gist.github.com/emilyriederer/4dcc6a05ea53c82db175e15f698a1fb6) to replicate these views locally.*
 
@@ -95,11 +95,3 @@ And what should you do if your new data tests fail? This actually reveals the fi
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-01-24-aggregating-test-failures-with-dbt.md)
-
-[How we cut our tests by 80% while increasing data quality: the power of aggregating test failures in dbt](./2023-01-24-aggregating-test-failures-with-dbt.md)
-
-[Older post](./2022-12-15-sam-foundry-experience.md)
-
-[Making the leap from accountant to analytics engineer](./2022-12-15-sam-foundry-experience.md)

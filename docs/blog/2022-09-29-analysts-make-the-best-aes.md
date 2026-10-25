@@ -1,5 +1,3 @@
-On this page
-
 # Analysts make the best analytics engineers
 
 September 29, 2022 · 11 min read
@@ -10,13 +8,15 @@ September 29, 2022 · 11 min read
 
 Manager, Analytics & Insights at Degreed
 
+[](https://www.linkedin.com/in/brittanykrauth/ "LinkedIn")
+
 When you were in grade school, did you ever play the “Telephone Game”? The first person would whisper a word to the second person, who would then whisper a word to the third person, and so on and so on. At the end of the line, the final person would loudly announce the word that they heard, and alas! It would have morphed into a new word completely incomprehensible from the original word. That’s how life feels without an analytics engineer on your team.
 
 So let’s say that you have a business question, you have the raw data in your data warehouse, and you’ve got dbt up and running. You’re in the perfect position to get this curated dataset completed quickly! Or are you?
 
 You’ve got three steps that stand between you and your finished curated dataset. *If you don’t have an analytics engineer*, then the work may be split up like this:
 
-![The in series development workflow](/img/blog/2022-09-28-analyst-to-ae/old_workflow.png?v=2 "The in series development workflow")The in series development workflow
+[![The in series development workflow](/img/blog/2022-09-28-analyst-to-ae/old_workflow.png?v=2 "The in series development workflow")](#)The in series development workflow
 
 The first step is that your analyst will start researching the stakeholder’s request and will try to boil it down to a high-impact question that will drive the business. What do they really want to know? For example, your stakeholder might come to you with the following:
 
@@ -40,11 +40,11 @@ From there, the analyst will build out the initial documentation and write down 
 
 The first time that a team of analysts and data engineers builds a curated dataset, they will often expect this process to be a straight line to completion. Expectations are that the process will look something like this:
 
-![The expectation](/img/blog/2022-09-28-analyst-to-ae/first_loop.png?v=2 "The expectation")The expectation
+[![The expectation](/img/blog/2022-09-28-analyst-to-ae/first_loop.png?v=2 "The expectation")](#)The expectation
 
 What quickly becomes apparent is that this push for a linear process often ends up creating three unanticipated “loops”:
 
-![The reality](/img/blog/2022-09-28-analyst-to-ae/multiple_loops.png?v=2 "The reality")The reality
+[![The reality](/img/blog/2022-09-28-analyst-to-ae/multiple_loops.png?v=2 "The reality")](#)The reality
 
 ## Loop 1: Reacting to findings in the raw data
 
@@ -142,7 +142,7 @@ In the second example, the documentation is written with the stakeholder and bus
 
 Teach your analyst to be an analytics engineer, so they can do their own model building for curated datasets. You’ll start to see their process evolve into multiple smaller iterations, as they add fields and test them as they build. No loops, no hand-offs, and no Telephone Game. Your new workflow will look a little like this:
 
-![Parallel development](/img/blog/2022-09-28-analyst-to-ae/new_workflow.png?v=2 "Parallel development")Parallel development
+[![Parallel development](/img/blog/2022-09-28-analyst-to-ae/new_workflow.png?v=2 "Parallel development")](#)Parallel development
 
 Instead of trying to define all the various groups of `Active Users` at once, an analytics engineer can be validating the `Group A` rows, while adding `Group B` to their local environment, while still working with the stakeholder on the definition of `Group C`.
 
@@ -161,11 +161,3 @@ Learn more on how to apply a fresh framework to existing analytics projects to u
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-10-18-polyglot-dbt-python-dataframes-sql.md)
-
-[Stronger together: Python, dataframes, and SQL](./2022-10-18-polyglot-dbt-python-dataframes-sql.md)
-
-[Older post](./2022-09-13-the-case-against-git-cherry-picking.md)
-
-[The case against \`git cherry pick\`: Recommended branching strategy for multi-environment dbt projects](./2022-09-13-the-case-against-git-cherry-picking.md)

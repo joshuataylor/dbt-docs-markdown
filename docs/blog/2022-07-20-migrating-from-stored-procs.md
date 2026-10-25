@@ -1,5 +1,3 @@
-On this page
-
 # Migrating from Stored Procedures to dbt
 
 July 20, 2022 · 11 min read
@@ -9,6 +7,8 @@ July 20, 2022 · 11 min read
 [Matt Winkler](./authors/matt-winkler.md)
 
 Senior Solutions Architect at dbt Labs
+
+[](https://www.linkedin.com/in/matt-winkler-4024263a/ "LinkedIn")
 
 Stored procedures are widely used throughout the data warehousing world. They’re great for encapsulating complex transformations into units that can be scheduled and respond to conditional logic via parameters. However, as teams continue building their transformation logic using the stored procedure approach, we see more data downtime, increased data warehouse costs, and incorrect / unavailable data in production. All of this leads to more stressed and unhappy developers, and consumers who have a hard time trusting their data.
 
@@ -42,7 +42,7 @@ Some of the drawbacks to using stored procedures may not have been apparent hist
 
 We might visualize this situation as something like this:
 
-![Diagram of what a stored procedure data flow would look like. Hint: it's complicated](/img/blog/2022-07-19-migrating-from-stored-procs/stored-procs-diagram.png?v=2 "Diagram of what a stored procedure data flow would look like. Hint: it's complicated")Diagram of what a stored procedure data flow would look like. Hint: it's complicated
+[![Diagram of what a stored procedure data flow would look like. Hint: it's complicated](/img/blog/2022-07-19-migrating-from-stored-procs/stored-procs-diagram.png?v=2 "Diagram of what a stored procedure data flow would look like. Hint: it's complicated")](#)Diagram of what a stored procedure data flow would look like. Hint: it's complicated
 
 ## Why consider dbt as an alternative?
 
@@ -50,7 +50,7 @@ dbt offers an approach that is self-documenting, testable, and encourages code r
 
 With dbt, we work towards creating simpler, more transparent data pipelines like this:
 
-![Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.](/img/blog/2022-07-19-migrating-from-stored-procs/dbt-diagram.png?v=2 "Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.")Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.
+[![Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.](/img/blog/2022-07-19-migrating-from-stored-procs/dbt-diagram.png?v=2 "Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.")](#)Diagram of what data flows look like with dbt. It's easier to trace lineage in this setup.
 
 Tight [version control integration](https://docs.getdbt.com/docs/best-practices#version-control-your-dbt-project) is an added benefit of working with dbt. By leveraging the power of git-based tools, dbt enables you to integrate and test changes to transformation pipelines much faster than you can with other approaches. We often see teams who work in stored procedures making changes to their code without any notion of tracking those changes over time. While that’s more of an issue with the team’s chosen workflow than a problem with stored procedures per se, it does reflect how legacy tooling makes analytics work harder than necessary.
 
@@ -198,7 +198,7 @@ select * from unioned
 
 We’ve just created a modular, documentable, and testable approach to manage the same transformations as an alternative.
 
-![A dbt DAG that shows the output of the code you just implemented](/img/blog/2022-07-19-migrating-from-stored-procs/dbt-approach-model.png?v=2 "A dbt DAG that shows the output of the code you just implemented")A dbt DAG that shows the output of the code you just implemented
+[![A dbt DAG that shows the output of the code you just implemented](/img/blog/2022-07-19-migrating-from-stored-procs/dbt-approach-model.png?v=2 "A dbt DAG that shows the output of the code you just implemented")](#)A dbt DAG that shows the output of the code you just implemented
 
 ### Step 4: Audit your results
 
@@ -224,11 +224,3 @@ dbt Labs has developed a number of related resources you can use to learn more a
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-07-26-configuring-grants.md)
-
-[Updating our permissioning guidelines: grants as configs in dbt Core v1.2](./2022-07-26-configuring-grants.md)
-
-[Older post](./2022-07-14-change-data-capture.md)
-
-[Strategies for change data capture in dbt](./2022-07-14-change-data-capture.md)

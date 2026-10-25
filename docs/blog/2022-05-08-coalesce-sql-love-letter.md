@@ -1,5 +1,3 @@
-On this page
-
 # COALESCE SQL function: Why we love it
 
 May 8, 2022 · 4 min read
@@ -9,6 +7,8 @@ May 8, 2022 · 4 min read
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
+
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 It’s inevitable in the field of analytics engineering: you’re going to encounter moments when there’s mysterious or unhelpful blank values in your data. Null values surely have their time and place, but when you need those null values filled with more meaningful data, COALESCE comes to the rescue.
 
@@ -79,11 +79,3 @@ Thank you COALESCE for always finding our moments of emptiness, and filling them
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2022-05-11-lower-sql-love-letter.md)
-
-[LOWER SQL function: Why we love it](./2022-05-11-lower-sql-love-letter.md)
-
-[Older post](./2022-05-06-slim-ci-cd-with-bitbucket-pipelines.md)
-
-[Slim CI/CD with Bitbucket Pipelines for dbt Core](./2022-05-06-slim-ci-cd-with-bitbucket-pipelines.md)

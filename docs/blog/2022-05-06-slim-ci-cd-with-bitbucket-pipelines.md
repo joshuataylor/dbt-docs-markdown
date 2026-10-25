@@ -1,5 +1,3 @@
-On this page
-
 # Slim CI/CD with Bitbucket Pipelines for dbt Core
 
 May 6, 2022 · 11 min read
@@ -9,6 +7,8 @@ May 6, 2022 · 11 min read
 [Simon Podhajsky](./authors/simon-podhajsky.md)
 
 Data Lead at iLife Technologies
+
+[](https://www.linkedin.com/in/simonpodhajsky/ "LinkedIn")[](https://x.com/sim_pod "X")
 
 Set up CI/CD with dbt Cloud
 
@@ -279,7 +279,7 @@ As with the earlier steps, these specific instructions are for Bitbucket but the
 1. Determine the values of all of the variables in `.ci/profiles.yml` (`DB_{CI,PROD}_{HOST,PORT,USER,PWD,DBNAME,SCHEMA}`)
 2. Go to Repository > Repository Settings > Repository Variables in Bitbucket and define them there, making sure to store any confidential values as “Secured”.
 
-![Bitbucket repository variables settings screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-2.png?v=2 "Bitbucket repository variables settings screenshot")Bitbucket repository variables settings screenshot
+[![Bitbucket repository variables settings screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-2.png?v=2 "Bitbucket repository variables settings screenshot")](#)Bitbucket repository variables settings screenshot
 
 ### Bitbucket Downloads authentication
 
@@ -290,13 +290,13 @@ As with the earlier steps, these specific instructions are for Bitbucket but the
    1. `BITBUCKET_USERNAME`, which is not your sign-up e-mail, but rather the username found by clicking your avatar in the top left > Personal settings > Account settings page, under Bitbucket Profile Settings.
    2. `BITBUCKET_APP_PASSWORD`, making sure to store it as “Secured”
 
-![Bitbucket repository app password scope settings screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-1.png?v=2 "Bitbucket repository app password scope settings screenshot")Bitbucket repository app password scope settings screenshot
+[![Bitbucket repository app password scope settings screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-1.png?v=2 "Bitbucket repository app password scope settings screenshot")](#)Bitbucket repository app password scope settings screenshot
 
 ### Enable Bitbucket Pipelines
 
 Lastly, under Repository > Repository Settings > Pipelines Settings, check “Enable Pipelines”.
 
-![Bitbucket pipeline settings enabling screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-3.png?v=2 "Bitbucket pipeline settings enabling screenshot")Bitbucket pipeline settings enabling screenshot
+[![Bitbucket pipeline settings enabling screenshot](/img/blog/2022-04-14-add-ci-cd-to-bitbucket/2022-04-14-add-ci-cd-to-bitbucket-image-3.png?v=2 "Bitbucket pipeline settings enabling screenshot")](#)Bitbucket pipeline settings enabling screenshot
 
 ## Step 4: Test
 
@@ -314,11 +314,3 @@ Plus, it’s a good time, and it’s fun to watch the test lights turn green. Di
 **Tags:**
 
 * [dbt tutorials](./tags/dbt-tutorials.md)
-
-[Newer post](./2022-05-08-coalesce-sql-love-letter.md)
-
-[COALESCE SQL function: Why we love it](./2022-05-08-coalesce-sql-love-letter.md)
-
-[Older post](./2022-05-03-making-dbt-cloud-api-calls-using-dbt-cloud-cli.md)
-
-[Making dbt Cloud API calls using dbt-cloud-cli](./2022-05-03-making-dbt-cloud-api-calls-using-dbt-cloud-cli.md)

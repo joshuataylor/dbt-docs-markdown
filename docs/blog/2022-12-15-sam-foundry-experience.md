@@ -1,5 +1,3 @@
-On this page
-
 # Making the leap from accountant to analytics engineer
 
 December 15, 2022 · 9 min read
@@ -57,11 +55,3 @@ The best part is: I’m not alone. I was lucky to have [Wasila Quader](https://d
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-01-17-grouping-data-tests.md)
-
-[Power up your data quality with grouped checks](./2023-01-17-grouping-data-tests.md)
-
-[Older post](./2022-11-30-align-with-dbt-project-evaluator.md)
-
-[Introducing the dbt\_project\_evaluator: Automatically evaluate your dbt project for alignment with best practices](./2022-11-30-align-with-dbt-project-evaluator.md)

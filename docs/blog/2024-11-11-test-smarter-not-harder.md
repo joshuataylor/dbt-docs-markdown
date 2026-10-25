@@ -1,5 +1,3 @@
-On this page
-
 # Test smarter not harder: add the right tests to your dbt project
 
 November 11, 2024 · 11 min read
@@ -10,11 +8,15 @@ November 11, 2024 · 11 min read
 
 Senior Technical Instructor at dbt Labs
 
+[](https://www.linkedin.com/in/faithlierheimer/ "LinkedIn")
+
 [![Jerrie Kumalah Kenney](/img/blog/authors/jerrie.jpg)](./authors/jerrie-kumalah-kenney.md)
 
 [Jerrie Kumalah Kenney](./authors/jerrie-kumalah-kenney.md)
 
 Resident Architect at dbt Labs
+
+[](https://www.linkedin.com/in/jerriekumalah/ "LinkedIn")
 
 The [Analytics Development Lifecycle (ADLC)](https://www.getdbt.com/resources/guides/the-analytics-development-lifecycle) is a workflow for improving data maturity and velocity. Testing is a key phase here. Many dbt developers tend to focus on [primary keys and source freshness.](https://www.getdbt.com/blog/building-a-data-quality-framework-with-dbt-and-dbt-cloud) We think there is a more holistic and in-depth path to tread. Testing is a key piece of the ADLC, and it should drive data quality.
 
@@ -169,11 +171,3 @@ As you try these ideas out, come to the dbt Community Slack and let us know what
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2024-12-09-test-smarter-where-tests-should-go.md)
-
-[Test smarter not harder: Where should tests go in your pipeline?](./2024-12-09-test-smarter-where-tests-should-go.md)
-
-[Older post](./2024-10-08-snowflake-feature-store.md)
-
-[Snowflake feature store and dbt: A bridge between data pipelines and ML](./2024-10-08-snowflake-feature-store.md)

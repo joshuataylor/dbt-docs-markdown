@@ -1,5 +1,3 @@
-On this page
-
 # Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update
 
 April 7, 2026 · 11 min read
@@ -10,11 +8,15 @@ April 7, 2026 · 11 min read
 
 Director of Community, Developer Experience & AI at dbt Labs
 
+[](https://x.com/jasnonaz "X")
+
 [![Benoit Perigaud](/img/blog/authors/benoit-perigaud.jpeg)](./authors/benoit-perigaud.md)
 
 [Benoit Perigaud](./authors/benoit-perigaud.md)
 
 Staff Developer Experience Advocate at dbt Labs
+
+[](https://www.linkedin.com/in/benoit-perigaud/ "LinkedIn")
 
 There are two primary ways to get answers from your data using LLMs today: have the model write SQL directly, or have it query through a structured ontology like the dbt Semantic Layer. Both work. Companies are getting real value from each. But they fail in very different ways, and understanding those failure modes is what actually matters when you're deciding which to use.
 
@@ -31,6 +33,8 @@ In 2023, [we ran a benchmark](https://roundup.getdbt.com/p/semantic-layer-as-the
 | claude-sonnet-4-6 | Semantic Layer | 98.2%      |
 | gpt-5.3-codex     | Text-to-SQL    | 84.1%      |
 | gpt-5.3-codex     | Semantic Layer | 100.0%     |
+
+<br />
 
 * **Models are getting much better at text-to-SQL.** The improvement from GPT-4 era to today is dramatic.
 * **For queries covered by a well-modeled Semantic Layer, accuracy approaches or hits 100%.** The Semantic Layer's deterministic query generation means the LLM can't produce subtly wrong results.
@@ -60,7 +64,7 @@ We tested four configurations:
 * **Modeled Semantic Layer:** A reworked project with proper modeling conforming to dbt best practices.
 * **Text-to-SQL on top of modeled data:** The agent is asked to create queries from scratch but it now has access to the same new models created for the previous use case.
 
-![Diagram showing the four benchmark configurations: Text-to-SQL, Minimal Semantic Layer, Modeled Semantic Layer, and Text-to-SQL on modeled data](/img/blog/2026-04-07-semantic-layer-vs-text-to-sql-2026/benchmark-configurations.png?v=2)
+[![Diagram showing the four benchmark configurations: Text-to-SQL, Minimal Semantic Layer, Modeled Semantic Layer, and Text-to-SQL on modeled data](/img/blog/2026-04-07-semantic-layer-vs-text-to-sql-2026/benchmark-configurations.png?v=2)](#)
 
 The most "real world" comparison for dbt users is text-to-SQL vs. Semantic Layer on the modeled project. An important caveat: to make text-to-SQL work, we loaded the entire schema as context, which isn't practical for larger datasets. Keep that in mind as you read the numbers.
 

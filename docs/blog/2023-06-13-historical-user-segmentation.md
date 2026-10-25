@@ -1,5 +1,3 @@
-On this page
-
 # Building a historical user segmentation model with dbt
 
 June 13, 2023 · 14 min read
@@ -10,6 +8,8 @@ June 13, 2023 · 14 min read
 
 Data Analytics Leader at MODO
 
+[](https://www.linkedin.com/in/santiago-jauregui/ "LinkedIn")
+
 ## Introduction
 
 Most data modeling approaches for customer segmentation are based on a wide table with user attributes. This table only stores the current attributes for each user, and is then loaded into the various SaaS platforms via Reverse ETL tools.
@@ -18,7 +18,7 @@ Take for example a Customer Experience (CX) team that uses Salesforce as a CRM. 
 
 An improvement to this would be to prioritize the tickets based on the customer segment, answering our most valuable customers first. An Analytics Engineer can build a segmentation to identify the power users (for example with an RFM approach) and store it in the data warehouse. The Data Engineering team can then export that user attribute to the CRM, allowing the customer experience team to build rules on top of it.
 
-![Example of an RFM user segmentation](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-segments-example.png?v=2 "Example of an RFM user segmentation")Example of an RFM user segmentation
+[![Example of an RFM user segmentation](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-segments-example.png?v=2 "Example of an RFM user segmentation")](#)Example of an RFM user segmentation
 
 ## Problems
 
@@ -55,7 +55,7 @@ The goal of RFM analysis is to segment customers into groups based on how recent
 
 We are going to use just the Recency and Frequency matrix, and use the Monetary value as an accessory attribute. This is a common approach in companies where the Frequency and the Monetary Value are highly correlated.
 
-![Example of a Recency and Frequency matrix](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-segmentation-matrix.png?v=2 "Example of a Recency and Frequency matrix")Example of a Recency and Frequency matrix
+[![Example of a Recency and Frequency matrix](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-segmentation-matrix.png?v=2 "Example of a Recency and Frequency matrix")](#)Example of a Recency and Frequency matrix
 
 ### RFM model for current segment
 
@@ -387,7 +387,7 @@ FROM current_segments
 
 With the new approach, our dependency graph would look like this:
 
-![RFM models dependency graph](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-models-dependency-graph.png?v=2 "RFM models dependency graph")RFM models dependency graph
+[![RFM models dependency graph](/img/blog/2023-05-08-building-a-historical-user-segmentation-model-with-dbt/rfm-models-dependency-graph.png?v=2 "RFM models dependency graph")](#)RFM models dependency graph
 
 * For analysts that want to see how the segments changed over time, they can query the historical model. There is also an option to build an aggregated model before loading it in a Business Intelligence tool.
 * For ML model training, data scientists and machine learning practitioners can import this model into their notebooks or their feature store, instead of rebuilding the attributes from scratch.
@@ -410,11 +410,3 @@ This design has trade-offs, notably longer build-time and harder explainability.
 * [analytics craft](./tags/analytics-craft.md)
 * [dbt tutorials](./tags/dbt-tutorials.md)
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2023-07-03-data-vault-with-dbt-cloud.md)
-
-[Data Vault 2.0 with dbt Cloud](./2023-07-03-data-vault-with-dbt-cloud.md)
-
-[Older post](./2023-05-17-generating-dynamic-docs-dbt.md)
-
-[Accelerate your documentation workflow: Generate docs for whole folders at once](./2023-05-17-generating-dynamic-docs-dbt.md)

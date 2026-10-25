@@ -1,5 +1,3 @@
-On this page
-
 # dbt Squared: Leveraging dbt Core and dbt Cloud together at scale
 
 April 17, 2023 · 12 min read
@@ -10,17 +8,23 @@ April 17, 2023 · 12 min read
 
 Lead Data Engineer, Global Product Strategy at Roche
 
+[](https://www.linkedin.com/in/jo%C3%A3o-bernardo-pires-antunes/ "LinkedIn")
+
 [![Yannick Misteli](/img/blog/authors/yannick_misteli.jpg)](./authors/yannick-misteli.md)
 
 [Yannick Misteli](./authors/yannick-misteli.md)
 
 Head of Engineering, Global Product Strategy at Roche
 
+[](https://www.linkedin.com/in/yannick-misteli-b86129105/ "LinkedIn")
+
 [![Sean McIntyre](/img/blog/authors/sean_mcintyre.jpg)](./authors/sean-mcintyre.md)
 
 [Sean McIntyre](./authors/sean-mcintyre.md)
 
 Senior Solutions Architect at dbt Labs
+
+[](https://www.linkedin.com/in/boxysean/ "LinkedIn")
 
 Teams thrive when each team member is provided with the tools that best complement and enhance their skills. You wouldn’t hand Cristiano Ronaldo a tennis racket and expect a perfect serve! At Roche, getting the right tools in the hands of our teammates was critical to our ability to grow our data team from 10 core engineers to over 100 contributors in just two years. We embraced both dbt Core and dbt Cloud at Roche (a dbt-squared solution, if you will!) to quickly scale our data platform.
 
@@ -60,11 +64,11 @@ We needed a way to make this architecture manageable when dozens of downstream t
 
 The second architectural decision was whether or not to create a single dbt project for all 50+ country teams, or to follow a multi-project approach in which each country would have its own separate dbt project in the shared repo. It was critical that each country team was able to move at different paces and have full control over their domains. This would avoid issues like model name collisions across countries and remove dependencies that would risk cascading errors between countries. Therefore, we opted for a one project per country approach.
 
-![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-project-tree.png?v=2 "Roche project structure as seen in the repository")Roche project structure as seen in the repository
+[![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-project-tree.png?v=2 "Roche project structure as seen in the repository")](#)Roche project structure as seen in the repository
 
 The resulting data flow from core to country teams now follows this pattern. The *Sources* database holds all of the raw data in the Redshift cluster and the *Integrated* database contains the curated and ready-for-consumption outputs from the core dbt project. These outputs are termed Source Data Products (SDPs). These SDPs are then leveraged by the core team to build Global Data Products—products tailored to answering business questions for global stakeholders. They are also filtered at the country-level and used as sources to the country-specific Data Products managed by the country teams. These, in turn, are hosted in the respective `affiliate_db_<country>` database. Segregating at the database-level facilitates data governance and privacy management.
 
-![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-db-diagram.png?v=2 "Roche project structure as seen in the repository")Roche project structure as seen in the repository
+[![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-db-diagram.png?v=2 "Roche project structure as seen in the repository")](#)Roche project structure as seen in the repository
 
 ### People
 
@@ -78,7 +82,7 @@ The success of this program relied on adopting DevOps practices from the start. 
 
 Often overlooked, this third pillar of process can be the key to success when scaling a global platform. Simple things, such as accounting for time zone differences, can determine whether a message gets across the board. To facilitate the communication and coordination between Global and Country teams, all the teams follow the same sprint cycle, and we hold weekly scrum of scrums. We needed to set up extensive onboarding documentation, ensure newcomers had proper training and guidance, and create dedicated slack channels for announcements, incident reporting, and occasional random memes, helping build a community that stretches from Brazil to Malaysia.
 
-![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-meme.png?v=2 "Roche project structure as seen in the repository")Roche project structure as seen in the repository
+[![Roche project structure as seen in the repository](/img/blog/2023-04-17-dbt-squared/roche-meme.png?v=2 "Roche project structure as seen in the repository")](#)Roche project structure as seen in the repository
 
 ## The solution: dbt Squared
 
@@ -127,11 +131,3 @@ While successful scaling requires good technology, it also requires empowering y
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2023-04-20-kimball-dimensional-model.md)
-
-[Building a Kimball dimensional model with dbt](./2023-04-20-kimball-dimensional-model.md)
-
-[Older post](./2023-03-29-guide-to-jinja-debug.md)
-
-[The missing guide to debug() in dbt](./2023-03-29-guide-to-jinja-debug.md)

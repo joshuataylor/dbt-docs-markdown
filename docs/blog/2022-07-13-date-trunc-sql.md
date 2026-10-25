@@ -8,6 +8,8 @@ July 13, 2022 · 5 min read
 
 Technical Writer at dbt Labs
 
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
+
 In general, data people prefer the more granular over the less granular. [Timestamps > dates](https://docs.getdbt.com/blog/when-backend-devs-spark-joy#signs-the-data-is-sparking-joy), daily data > weekly data, etc.; having data at a more granular level always allows you to zoom in. However, you’re likely looking at your data at a somewhat zoomed-out level—weekly, monthly, or even yearly. To do that, you’re going to need a handy dandy function that helps you round out date or time fields.
 
 The DATE\_TRUNC function will truncate a date or time to the first instance of a given date part. Wordy, wordy, wordy! What does this really mean? If you were to truncate `2021-12-13` out to its month, it would return `2021-12-01` (the first day of the month).
@@ -94,11 +96,3 @@ TL;DR – DATE\_TRUNC is a handy, widely-used SQL function—and dbt has made it
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2022-07-14-change-data-capture.md)
-
-[Strategies for change data capture in dbt](./2022-07-14-change-data-capture.md)
-
-[Older post](./2022-07-13-datediff-sql-love-letter.md)
-
-[DATEDIFF SQL function: Why we love it](./2022-07-13-datediff-sql-love-letter.md)

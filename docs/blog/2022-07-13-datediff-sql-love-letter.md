@@ -1,5 +1,3 @@
-On this page
-
 # DATEDIFF SQL function: Why we love it
 
 July 13, 2022 · 5 min read
@@ -9,6 +7,8 @@ July 13, 2022 · 5 min read
 [Kira Furuichi](./authors/kira-furuichi.md)
 
 Technical Writer at dbt Labs
+
+[](https://www.linkedin.com/in/kira-furuichi/ "LinkedIn")
 
 *“How long has it been since this customer last ordered with us?”*
 
@@ -88,11 +88,3 @@ Under the hood, this macro is taking your inputs and creating the appropriate SQ
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2022-07-13-date-trunc-sql.md)
-
-[DATE\_TRUNC SQL function: Why we love it](./2022-07-13-date-trunc-sql.md)
-
-[Older post](./2022-05-26-joining-snapshot-complexity.md)
-
-[Tackling the complexity of joining snapshots](./2022-05-26-joining-snapshot-complexity.md)

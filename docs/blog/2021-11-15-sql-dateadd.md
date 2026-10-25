@@ -1,5 +1,3 @@
-On this page
-
 # DATEADD SQL Function Across Data Warehouses
 
 November 15, 2021 · 4 min read
@@ -9,6 +7,8 @@ November 15, 2021 · 4 min read
 [David Krevitt](./authors/david-krevitt.md)
 
 Marketing at dbt Labs
+
+[](https://x.com/dkrevitt "X")
 
 I’ve used the dateadd SQL function thousands of times.
 
@@ -68,7 +68,7 @@ Switching back and forth between those SQL syntaxes, at least for me, usually re
 
 So I made this handy 2 x 2 matrix to help sort the differences out:
 
-![Blank 2x2 matrix](/img/blog/dateadd_matrix.png?v=2 "Blank 2x2 matrix")Blank 2x2 matrix
+[![Blank 2x2 matrix](/img/blog/dateadd_matrix.png?v=2 "Blank 2x2 matrix")](#)Blank 2x2 matrix
 
 I am sorry - that’s just a blank 2x2 matrix. I've surrendered to just searching for the docs.
 
@@ -143,11 +143,3 @@ Enjoy! FYI I've used dateadd macro in dbt-utils on BigQuery, Postgres, Redshift 
 **Tags:**
 
 * [sql magic](./tags/sql-magic.md)
-
-[Newer post](./2021-11-29-on-the-importance-of-naming.md)
-
-[On the Importance of Naming: Model Naming Conventions (Part 1)](./2021-11-29-on-the-importance-of-naming.md)
-
-[Older post](./2021-11-15-sql-union-all.md)
-
-[Towards an Error-free UNION ALL](./2021-11-15-sql-union-all.md)

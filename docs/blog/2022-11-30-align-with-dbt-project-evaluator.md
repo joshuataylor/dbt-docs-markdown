@@ -1,5 +1,3 @@
-On this page
-
 # Introducing the dbt\_project\_evaluator: Automatically evaluate your dbt project for alignment with best practices
 
 November 30, 2022 · 7 min read
@@ -10,13 +8,15 @@ November 30, 2022 · 7 min read
 
 Product Manager, dbt Core at dbt Labs
 
+[](https://www.linkedin.com/in/gracegoheen/ "LinkedIn")
+
 ## Why we built this: A brief history of the dbt Labs Professional Services team
 
 If you attended [Coalesce 2022](https://www.youtube.com/watch?v=smbRwmcM1Ok), you’ll know that the secret is out — the dbt Labs Professional Services team is not just [a group of experienced data consultants](https://www.getdbt.com/dbt-labs/services/); we’re also an intergalactic group of aliens traveling the Milky Way on a mission to enable analytics engineers to successfully adopt and manage dbt throughout the galaxy.
 
 Don’t believe me??? Here’s photographic proof.
 
-![Rare photographic evidence of the dbt Labs Professional Services team](/img/blog/2022-11-30-dbt-project-evaluator/proserv_aliens.png?v=2 "Rare photographic evidence of the dbt Labs Professional Services team")Rare photographic evidence of the dbt Labs Professional Services team
+[![Rare photographic evidence of the dbt Labs Professional Services team](/img/blog/2022-11-30-dbt-project-evaluator/proserv_aliens.png?v=2 "Rare photographic evidence of the dbt Labs Professional Services team")](#)Rare photographic evidence of the dbt Labs Professional Services team
 
 Since the inception of dbt Labs, our team has been embedded with a variety of different data teams — from an over-stretched-data-team-of-one to a data-mesh-multiverse.
 
@@ -106,22 +106,14 @@ To add this package as a CI check:
 
 To watch a full demo of using this package in greater detail, make sure to check out [my Coalesce talk below](https://youtu.be/smbRwmcM1Ok) \[demo starts at 7:35].
 
-[YouTube video](https://www.youtube.com/embed/smbRwmcM1Ok)
+<br />
 
 If something isn’t working quite right or you have ideas for future functionality, [open an issue in the Github repository](https://github.com/dbt-labs/dbt-project-evaluator/issues) or even contribute code of your own!
 
 Together, we can ensure that dbt projects across the galaxy are set up for success as they grow to infinity and beyond.
 
-![Alien Graceline beams back to dbt Labs’ mission control center…for now](/img/blog/2022-11-30-dbt-project-evaluator/grace_at_coalesce.png?v=2 "Alien Graceline beams back to dbt Labs’ mission control center…for now")Alien Graceline beams back to dbt Labs’ mission control center…for now
+[![Alien Graceline beams back to dbt Labs’ mission control center…for now](/img/blog/2022-11-30-dbt-project-evaluator/grace_at_coalesce.png?v=2 "Alien Graceline beams back to dbt Labs’ mission control center…for now")](#)Alien Graceline beams back to dbt Labs’ mission control center…for now
 
 **Tags:**
 
 * [analytics craft](./tags/analytics-craft.md)
-
-[Newer post](./2022-12-15-sam-foundry-experience.md)
-
-[Making the leap from accountant to analytics engineer](./2022-12-15-sam-foundry-experience.md)
-
-[Older post](./2022-11-23-moving-spreadsheet-data.md)
-
-[How to move data from spreadsheets into your data warehouse](./2022-11-23-moving-spreadsheet-data.md)
