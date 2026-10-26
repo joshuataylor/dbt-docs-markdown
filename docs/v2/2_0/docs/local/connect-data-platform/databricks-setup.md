@@ -11,6 +11,7 @@ The Databricks adapter for dbt v2 supports the following [authentication methods
 * Personal access token (for individual users)
 * Service Principal token (for service users)
 * OAuth
+* OAuth token federation using OIDC
 
 ## Warehouse permissions for dbt v2
 
@@ -107,7 +108,7 @@ Enter your personal access token (PAT) for the Databricks environment. For more 
 
 profiles.yml
 
-```yml
+```yaml
 default:
   target: dev
   outputs:
@@ -130,7 +131,7 @@ Enter your Service Principal token for the Databricks environment. For more info
 
 profiles.yml
 
-```yml
+```yaml
 default:
   target: dev
   outputs:
@@ -153,7 +154,7 @@ Selecting the OAuth option will create a connection to your Databricks environme
 
 profiles.yml
 
-```yml
+```yaml
 default:
   target: dev
   outputs:
@@ -164,6 +165,54 @@ default:
       host: YOUR.HOST.COM
       http_path: YOUR/PATH/HERE
       auth_type: oauth
+      threads: 16
+```
+
+### OAuth token federation
+
+To use OAuth token federation, you may provide an OIDC token either in an environment variable or a file.
+
+#### Example OIDC configuration using an environment variable
+
+To provide the OIDC token using an environment variable, set `auth_type: env-oidc` in `profiles.yml`, and provide the OIDC token in `DATABRICKS_OIDC_TOKEN`.
+
+profiles.yml
+
+```yaml
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: TRANSFORMING
+      schema: JANE_SMITH
+      host: YOUR.HOST.COM
+      http_path: YOUR/PATH/HERE
+      auth_type: env-oidc
+      client_id: CLIENT_ID
+      threads: 16
+```
+
+#### Example OIDC configuration using a token file
+
+To provide the OIDC token using a token file, set `auth_type: file-oidc` in `profiles.yml` and provide the file path in `oidc_token_filepath`.
+
+You can instead leave `oidc_token_filepath` out of `profiles.yml` and set the path in the `DATABRICKS_OIDC_TOKEN_FILE` or `DATABRICKS_OIDC_TOKEN_FILEPATH` environment variable. dbt uses the environment variable only when `oidc_token_filepath` isn't in `profiles.yml`. When both are set, dbt only uses the `profiles.yml` setting and never falls back to the environment variable. We recommend setting the path in `profiles.yml`.
+
+profiles.yml
+
+```yaml
+default:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: TRANSFORMING
+      schema: JANE_SMITH
+      host: YOUR.HOST.COM
+      http_path: YOUR/PATH/HERE
+      auth_type: file-oidc
+      client_id: CLIENT_ID
+      oidc_token_filepath: PATH/TO/TOKEN/FILE
       threads: 16
 ```
 
@@ -185,7 +234,7 @@ The following example sets `connect_timeout` to `600` (10 minutes) so dbt can wa
 
 profiles.yml
 
-```yml
+```yaml
 outputs:
   dev:
     type: databricks
