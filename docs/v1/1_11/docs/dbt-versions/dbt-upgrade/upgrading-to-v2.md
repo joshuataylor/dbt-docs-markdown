@@ -2,7 +2,7 @@
 
 Available in v2
 
-v2 is the current era of dbt, delivered through dbt v2. When you install dbt, you get dbt v2 by default. This guide walks you through upgrading a v1 project to v2.
+dbt v2 is the latest major version of the dbt framework. When you install dbt, you get dbt v2 by default. This guide walks you through upgrading a v1 project to v2.
 
 v2 is faster and stricter, but your existing project language and DAG semantics carry over, so once you upgrade, your project works as before — just faster.
 
@@ -26,7 +26,7 @@ Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://get
 
 ## Install dbt
 
-Upgrading to v2 is an install step. Install dbt using `pip` to get dbt v2 for v2:
+dbt v2 has a new PyPI name: `dbt`. When installing with a package manager like `pip`, use the `dbt` namespace to get the free, fully-featured distribution:
 
 ```shell
 python -m pip install dbt

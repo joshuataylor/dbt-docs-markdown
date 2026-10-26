@@ -55,9 +55,10 @@ The allowance works the same way on every plan:
 
 #### Plans with a permanent allowance
 
-| Plan                                   | Monthly allowance | When you reach the limit                                                                                                                                                           |
-| -------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Self-hosted dbt (free plan), Developer | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](../../deploy/dbt-state-trial.md#setting-up-usage-based-billing) to resume. |
+| Plan                        | Monthly allowance | When you reach the limit                                                                                                                                                                                                                   |
+| --------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Self-hosted dbt (free plan) | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](../../deploy/dbt-state-trial.md#setting-up-usage-based-billing) to resume.                                                         |
+| Developer                   | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](../../deploy/dbt-state-trial.md#setting-up-usage-based-billing) to resume, which moves your account to the Developer (Usage) plan. |
 
 #### Paid plans with a temporary allowance
 
