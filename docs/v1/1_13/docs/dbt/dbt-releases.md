@@ -124,9 +124,9 @@ Released by: **kczimm**Oct 27, 2026, 10:41 PM
 
 FS alpha release 2.1.0a2
 
-[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
+[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stable
 
-Released by: **johnchappelledbt**Oct 26, 2026, 07:07 PM
+Released by: **johnchappelledbt**Oct 28, 2026, 09:11 PM
 
 Automated ST snapshot
 
@@ -234,7 +234,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **johnchappelledbt**Oct 26, 2026, 07:07 PM
+Released by: **johnchappelledbt**Oct 28, 2026, 09:11 PM
 
 Automated ST snapshot
 
