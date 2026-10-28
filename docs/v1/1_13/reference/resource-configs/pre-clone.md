@@ -9,6 +9,11 @@ models:
   <resource-path>:
     +state:
       pre_clone: never | if_missing | always
+
+snapshots:
+  <resource-path>:
+    +state:
+      pre_clone: never | if_missing | always
 ```
 
 ## Properties YAML file
@@ -18,6 +23,17 @@ models/\<filename>.yml
 ```yaml
 models:
   - name: my_model
+    config:
+      state:
+        pre_clone: never | if_missing | always
+```
+
+snapshots/\<filename>.yml
+
+```yaml
+snapshots:
+  - name: my_snapshot
+    relation: source('my_source', 'my_table')
     config:
       state:
         pre_clone: never | if_missing | always

@@ -11,12 +11,17 @@ You use the same credentials for both APIs: [personal access tokens](./user-toke
 This page summarizes the default rate limits across the main API and integration surfaces:
 
 * [Administrative API](./admin-api.md): 5,000 requests per minute per account (`/api/`).
-* [Discovery API](./discovery-api.md) (GraphQL): 500 requests per minute (`/graphql/`).
+* [Discovery API](./discovery-api.md) (GraphQL): 500 requests per minute (`/graphql/` on the `metadata` host).
+* [Semantic Layer APIs](#semantic-layer-apis): Limited separately and not governed by the Discovery API limit.
 * [SCIM and IdP provisioning](#scim-and-idp-provisioning): 20 requests every 5 seconds per account.
 * [Remote MCP](#remote-mcp): 5,000 requests per minute per IP (global API rate limit).
 * [Self-hosted MCP](#local-mcp): Uses the Administrative and Discovery API limits above.
 
 For SCIM scope, throttling responses, and identity provider behavior, see [SCIM and IdP provisioning](#scim-and-idp-provisioning) and [Set up SCIM](../platform/manage-access/scim.md). For MCP integration and usage patterns, see [Remote MCP](#remote-mcp) and [Self-hosted MCP](#local-mcp).
+
+Discovery API and Semantic Layer GraphQL endpoints
+
+The Discovery API limit applies only to the metadata endpoint. The [Semantic Layer GraphQL API](./sl-graphql.md) uses a different host and has its own rate limiting.
 
 ## Pagination and the Discovery API
 
@@ -38,6 +43,10 @@ For configuration steps, use [Set up SCIM](../platform/manage-access/scim.md). F
 
 Treat remote MCP automation like any other API client: avoid retrying without pausing between attempts. When you receive a `429` response, wait before trying again, and wait longer between retries if you continue to receive `429` responses.
 
+## Semantic Layer APIs
+
+dbt rate limits the [Semantic Layer APIs](./sl-api-overview.md) (GraphQL, JDBC, and Python SDK) independently of the Administrative API and Discovery API. The Semantic Layer limit is shared across all clients, users, and accounts in the same instance (for example, every account in US1 shares a single limit), so your own request volume isn't the only factor that determines whether you hit it.
+
 ## Self-hosted MCP
 
 [Self-hosted MCP](../dbt-ai/about-mcp.md) calls the public [Administrative API](./admin-api.md) and [Discovery API](./discovery-api.md) directly, so those limits apply: 5,000 requests per minute per account for `/api/` and 500 requests per minute for `/graphql/`, as summarized above.
@@ -45,3 +54,16 @@ Treat remote MCP automation like any other API client: avoid retrying without pa
 ## Exceeding the rate limit
 
 For the [Administrative API](./admin-api.md) and [Discovery API](./discovery-api.md), if you exceed the limit, dbt returns `429 Too Many Requests` and enforces a five-minute cooldown. After five minutes, you can send requests again as usual.
+
+This cooldown doesn't apply to the Semantic Layer API.
+
+### Exceeding the rate limit for the Semantic Layer API
+
+If you receive a `429 Too Many Requests` error, you exceeded the Semantic Layer limit. There's no cooldown period, so requests succeed again as soon as shared usage drops back under the limit. To reduce your own request footprint:
+
+* Batch multiple metrics into a single query.
+* Retry with exponential backoff and jitter instead of polling at a fixed interval.
+* Use preset date ranges instead of custom ranges so dbt can reuse cached results.
+* Pre-materialize metrics that can be pre-aggregated by using [exports](../use-dbt-semantic-layer/exports.md) or [saved queries](../build/saved-queries.md). Metrics that can't be pre-aggregated, such as distinct counts, still run live.
+
+These steps reduce your own usage but might not prevent every `429` error if other clients share the same limit. For dedicated options, contact your account team.

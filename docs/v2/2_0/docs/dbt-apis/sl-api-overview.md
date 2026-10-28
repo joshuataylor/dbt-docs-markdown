@@ -14,6 +14,10 @@ You can use the Semantic Layer for a variety of tools and applications of data. 
 * Data discovery and cataloging
 * Machine learning and data science
 
+## Rate limits
+
+Semantic Layer APIs have their own rate limits, which are shared across clients and users and are separate from the Discovery API limit that applies to the `metadata` GraphQL endpoint. Refer to [API rate limits](./rate-limits.md#semantic-layer-apis) for details.
+
 [![](/img/icons/dbt-bit.svg)](./sl-graphql.md)
 
 #### [GraphQL API](./sl-graphql.md)
