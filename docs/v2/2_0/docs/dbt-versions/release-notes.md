@@ -15,6 +15,8 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## October 2026
 
+* **New:** You can now [route cross-project `ref()`](../mesh/govern/project-dependencies.md#route-environments-across-projects) to a specific upstream environment, such as Staging, instead of only the default Production or Staging environment.
+
 * **New:** In dbt Wizard Desktop, you can search the current chat and jump between matches, including text in code blocks.
 
 * **New:** In dbt Wizard Desktop, use `/new`, `/clear`, and `/rename` to manage conversations. `/new` accepts an optional starting prompt and works while another response is running.

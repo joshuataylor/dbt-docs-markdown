@@ -82,7 +82,7 @@ If your dbt project relies on models from another project, you can define that r
 3. (Optional) Define the specific models you expect from that upstream project to make the dependency explicit.
 4. Use [`ref()`](../../../reference/dbt-jinja-functions/ref.md) with the project name to reference upstream models in your SQL.
 5. Commit the changes and ensure the dependency is configured in dbt.
-6. dbt will resolve the dependency, ensure upstream projects are built first, and surface cross-project lineage in the lineage and DAG (Directed Acyclic Graph) views.
+6. dbt resolves the dependency using public model metadata from the selected upstream environment and surfaces cross-project lineage in the lineage and DAG (Directed Acyclic Graph) views. Run upstream deployment jobs separately, or configure [job chaining](../../deploy/deploy-jobs.md#trigger-on-job-completion) if you need coordinated execution.
 
 ### Example
 
@@ -124,7 +124,7 @@ When you're building on top of another team's work, resolving the references in 
 
 * You're using an intentional interface designated by the model's maintainer with `access: public`.
 * You're keeping the scope of your project narrow, and avoiding unnecessary resources and complexity. This is faster for you and faster for dbt.
-* You don't need to mirror any conditional configuration of the upstream project such as `vars`, environment variables, or `target.name`. You can reference them directly wherever the Finance team is building their models in production. Even if the Finance team makes changes like renaming the model, changing the name of its schema, or [bumping its version](./model-versions.md), your `ref` would still resolve successfully.
+* You don't need to mirror any conditional configuration of the upstream project such as `vars`, environment variables, or `target.name`. You can reference the Finance team's public models in the upstream environment selected for this dependency. Even if the Finance team makes changes like renaming the model, changing the name of its schema, or [bumping its version](./model-versions.md), your `ref` would still resolve successfully.
 * You eliminate the risk of accidentally building those models with `dbt run` or `dbt build`. While you can select those models, you can't actually build them. This prevents unexpected warehouse costs and permissions issues. This also ensures proper ownership and cost allocation for each team's models.
 
 ### How to write cross-project ref
@@ -166,11 +166,11 @@ For more guidance on how to use Mesh, refer to the dedicated [Mesh guide](../../
 
 ### Safeguarding production data with staging environments
 
-When working in a Development environment, cross-project `ref`s normally resolve to the Production environment of the project. However, to protect production data, set up a [Staging deployment environment](../../deploy/deploy-environments.md#staging-environment) within your projects.
+To protect production data, set up a [Staging deployment environment](../../deploy/deploy-environments.md#staging-environment) within your projects.
 
-With a staging environment integrated into the project, Mesh automatically fetches public model information from the producer’s staging environment if the consumer is also in staging. Similarly, Mesh fetches from the producer’s production environment if the consumer is in production. This ensures consistency between environments and adds a layer of security by preventing access to production data during development workflows.
+When the upstream project has a Staging environment, cross-project `ref`s from downstream Development and Staging environments resolve to the upstream Staging environment. When the upstream project has no Staging environment, they resolve to the upstream Production environment. By default, references from downstream Production environments resolve to the upstream Production environment. This ensures consistency between environments and adds a layer of security by preventing access to production data during development workflows.
 
-Read [Why use a staging environment](../../deploy/deploy-environments.md#why-use-a-staging-environment) for more information about the benefits.
+Read [Why use a staging environment](../../deploy/deploy-environments.md#why-use-a-staging-environment) for more information about the benefits. To override this automatic selection, refer to [Route environments across projects](#route-environments-across-projects).
 
 #### Staging with downstream dependencies
 
@@ -182,6 +182,86 @@ To avoid causing downtime for downstream developers, you should define and trigg
 2. Define a job in that environment.
 3. Trigger the job to run, and ensure it completes successfully.
 4. Update the environment to mark it as **Staging**.
+
+### Route environments across projects
+
+By default, dbt picks the upstream environment for a cross-project `ref` using the production and staging rules detailed in the previous section. To customize which upstream environment is used, edit the `dependencies.yml` file in the *downstream* project and add the `mesh_environment_routing` field under each upstream project you want to route. You don't change anything in the upstream project. The `ref` in your model code remains unchanged.
+
+Availability
+
+Environment routing is available on the dbt platform dbt v1 Latest and Compatible, and on dbt v2 Stable and Nightly [release tracks](../../dbt-versions/dbt-release-tracks.md). It ships to the Extended tracks in November 2026.
+
+#### How routing works
+
+You set routes per upstream project in the downstream `dependencies.yml`, so one downstream run can point at different environments for different projects. The following table compares the upstream environment dbt uses for each downstream environment:
+
+| Downstream environment | Default without routing                              | With routing                                                                  |
+| ---------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Production             | Upstream production                                  | Upstream environment you choose                                               |
+| Staging                | Upstream staging if configured; otherwise production | Upstream environment you choose, such as production                           |
+| General                | Upstream staging if configured; otherwise production | Upstream environment you choose, such as a specific general environment by ID |
+| Development            | Upstream staging if configured; otherwise production | Upstream environment you choose                                               |
+
+If a downstream environment doesn't match a route, dbt uses that project's `default_upstream_environment` (if you set one). With no matching route and no default, dbt keeps the default behavior for that project. You don't need to route every environment.
+
+#### Configure routes
+
+In the following example:
+
+* `orders_project` sends staging runs to its production environment, sends development runs to whichever environment the `DBT_ROUTE_TO_ID` environment variable names, and sends the downstream general environment to a specific upstream general environment. Any other environment uses production because of the default.
+* `finance_project` has no default, so downstream environments other than `12001` keep the automatic behavior.
+
+dependencies.yml
+
+```yml
+projects:
+  - name: orders_project
+    default_upstream_environment: production
+    mesh_environment_routing:
+      - in_this_project_environment: staging
+        use_upstream_environment: production
+      - in_this_project_environment: development
+        use_upstream_environment: DBT_ROUTE_TO_ID
+      - in_this_project_environment: 12001  # Downstream general environment ID
+        use_upstream_environment: 34002      # orders_project general environment ID
+  - name: finance_project
+    mesh_environment_routing:
+      - in_this_project_environment: 12001
+        use_upstream_environment: production
+```
+
+The following table describes each key:
+
+| Key                            | Description                                                                                                | Valid values                                                                                          |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `name`                         | The upstream project. Must match the `name` in its `dbt_project.yml`.                                      | An existing project name (case-sensitive).                                                            |
+| `mesh_environment_routing`     | Ordered, explicit routes for this upstream project. Optional.                                              | A YAML list of route pairs.                                                                           |
+| `in_this_project_environment`  | The downstream environment where dbt runs.                                                                 | A numeric environment ID; `production`, `staging`, or `development`; or an environment variable name. |
+| `use_upstream_environment`     | The environment in the upstream project to resolve the `ref` against.                                      | A numeric *deployment* environment ID; `production` or `staging`; or an environment variable name.    |
+| `default_upstream_environment` | The upstream environment to use when no route matches. Set it beside `mesh_environment_routing`. Optional. | Same values as `use_upstream_environment`.                                                            |
+
+Keep the following rules in mind when configuring routes:
+
+* The first matching route in a project entry takes precedence. Avoid duplicate selectors.
+* A matching route takes precedence over the project's `default_upstream_environment`.
+* To target a general or other custom deployment environment, use its environment ID. `general` isn't a keyword.
+* Write the bare variable name (`DBT_ROUTE_TO_ID`), not Jinja delimiters such as `{{ env_var('DBT_ROUTE_TO_ID') }}`.
+* Define `DBT_ROUTE_TO_ID` in the downstream run or development environment.
+* Set its value to `production`, `staging`, or the ID of a deployment environment in `orders_project`.
+
+#### Validate routes
+
+Routing changes which upstream environment resolves the `ref`. It doesn't copy data or grant access. Before you rely on a route, check the following:
+
+* The upstream model is [public](./model-access.md).
+* The selected upstream environment has public model metadata from a successful job.
+* Warehouse permissions allow the downstream query.
+
+Run `dbt compile --select YOUR_DOWNSTREAM_MODEL` and check the database and schema in the compiled SQL or `target/manifest.json`. Then run `dbt build --select YOUR_DOWNSTREAM_MODEL` to validate warehouse access.
+
+Routing isn't deferral
+
+Mesh routing chooses an environment in *another project* for a cross-project `ref`. The Studio IDE **Defer** menu and [`--defer`](../../../reference/node-selection/defer.md) use state to resolve unbuilt or unselected nodes in the *current project*. You can use both in the same development workflow.
 
 ### Comparison
 
