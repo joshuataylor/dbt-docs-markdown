@@ -118,6 +118,12 @@ Released by: **kczimm**Oct 27, 2026, 05:56 PM
 
 first promotion
 
+[v2.1.0a2](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a2 "View this release in the dbt v2 changelog")Goodpreview
+
+Released by: **kczimm**Oct 27, 2026, 10:41 PM
+
+FS alpha release 2.1.0a2
+
 [v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
 
 Released by: **johnchappelledbt**Oct 26, 2026, 07:07 PM
