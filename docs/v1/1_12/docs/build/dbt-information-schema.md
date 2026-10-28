@@ -22,7 +22,7 @@ dbt Wizard also uses the Information Schema to understand your project. Refer to
 
 ## Generating the Information Schema
 
-Use `--generate-info-schema` with `dbt build`, `dbt run`, `dbt compile`, or `dbt parse`. By default, the `dbt.node_columns` table contains only YAML-declared columns for both models and sources.
+Use `--generate-info-schema` or `DBT_ENGINE_GENERATE_INFO_SCHEMA=true` with `dbt build`, `dbt run`, `dbt compile`, or `dbt parse`. By default, the `dbt.node_columns` table contains only YAML-declared columns for both models and sources.
 
 * To include inferred model column types and column-level lineage, add `--static-analysis strict`:
 
@@ -49,7 +49,7 @@ The Information Schema Parquet files live in a versioned subdirectory under your
 
 #### Overriding the output directory
 
-Use `--info-schema-dir` to write the Information Schema to a custom directory. The versioned subdirectory (`v1/`) is still appended under whatever directory you set.
+Use `--info-schema-dir` or `DBT_ENGINE_INFO_SCHEMA_DIR` to write the Information Schema to a custom directory. The versioned subdirectory (`v1/`) is still appended under whatever directory you set.
 
 ```shell
 dbt build --generate-info-schema --info-schema-dir /tmp/my_schema
