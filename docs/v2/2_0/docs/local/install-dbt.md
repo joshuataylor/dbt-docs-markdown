@@ -61,7 +61,7 @@ To upgrade later, run `dbt system update`.
 
 * With dbt v2, you can start using it right away. For the best v2 editor experience, install the dbt VS Code extension to use features like autocomplete, inline errors, and lineage.
 
-  For full LSP features and other richer dbt v2 capabilities, run `dbt login` to sign in with a free dbt platform account:
+  For full LSP features and other dbt platform-based capabilities, run `dbt login` to sign in with a free dbt platform account:
 
   ```shell
   dbt login

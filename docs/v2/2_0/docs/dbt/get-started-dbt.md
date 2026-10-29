@@ -18,7 +18,7 @@ Once you've caught up on everything [dbt has to offer](../introduction.md), star
 
 #### [Sign up for the dbt platform](https://www.getdbt.com/signup)
 
-[Create a dbt platform account to unlock the full dbt feature set.](https://www.getdbt.com/signup)
+[Create a dbt platform account to access dbt platform-based capabilities.](https://www.getdbt.com/signup)
 
 ### Already using dbt? Start here
 

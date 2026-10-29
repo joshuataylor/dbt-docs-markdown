@@ -1,6 +1,6 @@
 # Feature availability
 
-Get started with many dbt features right away when you install dbt v2 and the dbt VS Code extension. Unlock advanced capabilities when you sign in with any dbt platform account, even the free developer tier!
+Get started with many dbt features right away when you install dbt v2 and the dbt VS Code extension. Access dbt platform-based capabilities when you sign in with any dbt platform account, even the free developer tier!
 
 ## What you get with v2
 

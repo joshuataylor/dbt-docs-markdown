@@ -108,9 +108,9 @@ Automated promotion
 
 [v2.1.0.dev20261024](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261024 "View this release in the dbt v2 changelog")GoodDevnightly
 
-Released by: **github-merge-queue**Oct 24, 2026, 09:04 AM
+Released by: **kczimm**Oct 29, 2026, 04:02 PM
 
-Automated promotion
+Revert nightly track that the v2.0.10 patch rollout moved
 
 [v2.1.0a1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a1 "View this release in the dbt v2 changelog")Goodpreview
 

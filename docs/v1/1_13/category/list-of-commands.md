@@ -48,7 +48,7 @@ The list of commands available in dbt.
 
 ## [login](../reference/commands/login.md)
 
-[Use dbt login to authenticate and unlock advanced features across dbt tools.](../reference/commands/login.md)
+[Use dbt login to authenticate and access dbt platform-based capabilities across dbt tools.](../reference/commands/login.md)
 
 ## [parse](../reference/commands/parse.md)
 

@@ -558,7 +558,6 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Enhancement:** The `defer-env-id` setting for choosing which deployment environment to defer to is [now available](../platform/about-defer.md#configure-deferral-environment-id) in the Studio IDE. Previously, this configuration only worked for the dbt platform CLI
 
 * **Beta:** The [Analyst agent](../explore/navigate-dbt-insights.md#dbt-copilot) in dbt Insights is now in beta.
-
   * dbt dbt Wizard's AI assistant in Insights now uses a dropdown menu to select between **Agent** and **Generate SQL**, replacing the previous tab interface.
 
 * **Enhancement:** The [Studio IDE](../platform/studio-ide/ide-user-interface.md#search-your-project) now includes search and replace functionality and a command palette, enabling you to quickly find and replace text across your project, navigate files, jump to symbols, and run IDE configuration commands. This feature is being rolled out in phases and will become available to all dbt platform accounts by mid-February.
@@ -566,23 +565,17 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Enhancement:** [State-aware orchestration](../deploy/state-aware-about.md) improvements:
 
   * When a model fails a data test, state-aware orchestration rebuilds it on subsequent runs instead of reusing it from prior state to ensure dbt reevaluates data quality issues.
-  * State-aware orchestration now detects and rebuilds models whose tables are deleted from the warehouse, even when there are no code or data changes. Previously, tables deleted externally were not detected, and therefore not rebuilt, unless code or data had changed. For more information, review [Handling deleted tables](../deploy/state-aware-about.md#handling-deleted-tables).
-
-  State-aware orchestration is in private preview. refer to the [prerequisites for using the feature](../deploy/state-aware-setup.md#prerequisites).
+  * State-aware orchestration now detects and rebuilds models whose tables are deleted from the warehouse, even when there are no code or data changes. Previously, tables deleted externally were not detected, and therefore not rebuilt, unless code or data had changed. For more information, review [Handling deleted tables](../deploy/state-aware-about.md#handling-deleted-tables). State-aware orchestration is in private preview. refer to the [prerequisites for using the feature](../deploy/state-aware-setup.md#prerequisites).
 
 * **Enhancement:** [dbt dbt Wizard](../platform/wizard-platform.md) correctly detects column names across various `schema.yml` files, adds only missing descriptions, and preserves existing ones.
 
 * **Enhancement**: v2 now automatically reads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. This provides a simple way to manage credentials and configuration without hardcoding them in your `profiles.yml`. The [dbt VS Code extension](../about-dbt-extension.md) also supports `.env` files and LSP-powered features. For more information, refer to [Configure environment variables](../local/configure-environment-variables.md).
 
-* **New**: The new Semantic Layer YAML specification creates an open standard for defining metrics and dimensions that works across multiple platforms. The new spec is now live in dbt v2.
-
-  Key changes:
+* **New**: The new Semantic Layer YAML specification creates an open standard for defining metrics and dimensions that works across multiple platforms. The new spec is now live in dbt v2. Key changes:
 
   * Semantic models are now embedded within model YAML entries. This removes the need to manage YAML entries across multiple files.
   * Measures are now simple metrics.
-  * Frequently used options are now top-level keys, reducing YAML nesting depth.
-
-  For an overview of the changes and steps how to migrate to the latest YAML spec, check [Migrate to the latest YAML spec](../build/latest-metrics-spec.md).
+  * Frequently used options are now top-level keys, reducing YAML nesting depth. For an overview of the changes and steps how to migrate to the latest YAML spec, check [Migrate to the latest YAML spec](../build/latest-metrics-spec.md).
 
 * **Fix:** Debug logs in the **Run summary** tab are now properly truncated to improve performance and user interface responsiveness. Previously, debug logs were not truncated correctly, causing slower page loads. You can access the full debug logs by clicking **Download > Download all debug logs**. For more information, review [Run visibility](../deploy/run-visibility.md#run-summary-tab).
 

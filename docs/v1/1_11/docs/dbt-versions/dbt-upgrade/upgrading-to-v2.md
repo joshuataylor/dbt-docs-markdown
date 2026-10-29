@@ -207,7 +207,7 @@ Or pass `--static-analysis baseline` on the CLI. For details, refer to [About st
 
 #### Strict static analysis
 
-Strict mode fully resolves column types and validates references across your entire project before execution begins; nothing runs until the project is proven valid. It is required to produce [column-level lineage](../../explore/column-level-lineage.md) and unlocks additional LSP features like column go-to-definition and type checking. Strict mode requires authentication through [`dbt login`](../../../reference/commands/login.md?version=2.0); unauthenticated runs fall back to baseline.
+Strict mode fully resolves column types and validates references across your entire project before execution begins; nothing runs until the project is proven valid. It is required to produce [column-level lineage](../../explore/column-level-lineage.md) and unlocks additional LSP features like column go-to-definition and type checking.
 
 Enable it per-model or project-wide:
 

@@ -85,7 +85,7 @@ v2 has also removed some deprecated features and introduced more rigorous valida
 
 dbt v2 gives your team faster development workflows with semantic and syntax error detection, a faster linter, column-level lineage, language server and VS Code integration, docs v2 (full), and data diff. The dbt VS Code extension adds editor features like IntelliSense, hover info, and inline errors on top, powered by the LSP.
 
-Most v2 features work right away, with no login required. A few more unlock once you sign in with a dbt platform account — free to create, no paid plan needed. For the full free-vs-login breakdown, refer to [v2 feature availability](./dbt-availability.md). For LSP features specifically, refer to [About dbt LSP](../about-dbt-lsp.md).
+Most v2 features work right away, with no login required. A few dbt platform-based capabilities become available once you sign in with a dbt platform account — free to create, no paid plan needed. For the full free-vs-login breakdown, refer to [v2 feature availability](./dbt-availability.md). For LSP features specifically, refer to [About dbt LSP](../about-dbt-lsp.md).
 
 tip
 
