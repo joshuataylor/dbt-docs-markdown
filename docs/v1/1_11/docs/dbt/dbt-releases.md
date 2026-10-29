@@ -130,9 +130,9 @@ Released by: **chayac**Oct 28, 2026, 11:39 PM
 
 Planned orchestration promotion
 
-[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stable
+[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **johnchappelledbt**Oct 28, 2026, 09:11 PM
+Released by: **johnchappelledbt**Oct 29, 2026, 09:55 PM
 
 Automated ST snapshot
 
@@ -240,7 +240,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **johnchappelledbt**Oct 28, 2026, 09:11 PM
+Released by: **johnchappelledbt**Oct 29, 2026, 09:55 PM
 
 Automated ST snapshot
 
