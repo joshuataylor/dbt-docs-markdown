@@ -4,7 +4,7 @@
 
 ## [Get started with Wizard Desktop](../docs/dbt-ai/wizard-desktop.md)
 
-Sign up to get the download link for Wizard Desktop, download it, and start your first session with rich data visualizations, data diffs, and lineage.
+Download Wizard Desktop and start your first session with rich data visualizations, data diffs, and lineage.
 
 ## [How to use prompts for dbt Wizard](../guides/prompt-cookbook.md)
 

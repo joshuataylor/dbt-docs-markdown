@@ -34,7 +34,7 @@ The following table shows where dbt Wizard is available, the AI keys each surfac
 | [dbt platform: Studio IDE](../dbt-ai/wizard-ide.md)         | Public preview | dbt managed or BYOK                       |
 | [dbt platform: Wizard home tab](./wizard-home.md) | Public preview | dbt managed or BYOK                       |
 | [Locally: Wizard terminal (CLI)](../dbt-ai/wizard-cli.md)   | Public beta    | dbt managed, BYOK, or OpenAI subscription |
-| [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)      | Private beta   | dbt managed or BYOK                       |
+| [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)      | Public beta    | dbt managed or BYOK                       |
 
 Prefer to learn by video?
 
@@ -79,6 +79,7 @@ For pricing and how billing works, refer to [Models and pricing](../dbt-ai/prici
 You can get started with Wizard wherever you work, whether it's the terminal or dbt platform:
 
 * [Wizard in the CLI](#wizard-in-the-cli)
+* [Wizard Desktop](#wizard-desktop)
 * [Wizard in dbt platform](#wizard-in-dbt-platform)
 
 (Be warned, the wizard has been known to cast spells
@@ -125,13 +126,22 @@ New to the terminal?
 
 If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for some helpful tips to help you get started!
 
-### Wizard Desktop [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Wizard Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Wizard Desktop is Wizard as a native app. Wizard Desktop runs the same engine as the dbt Wizard CLI, but you get the full view: charts, tables, diffs, and lineage render right in the app, so you can see the work, steer it, and keep several chats moving at once, each on its own branch.
 
-Available in Private beta
+What you get with Desktop:
 
-Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
+* **Parallel chats:** each chat gets its own Git worktree, so several pieces of work run at once without conflicts.
+* **Visible validation:** see structured results, including a `dbt-compare` view of what your changes did to the data.
+* **Contextual comments:** hover almost anything to comment on that exact spot, then send several together.
+* **Charts and tables:** ask a question about your data and see the answer inline.
+* **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
+* **Lineage, file, and metrics browsing:** browse your project right alongside the chat.
+
+[Download for macOSFor Apple silicon Macs · .dmg](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-apple-darwin.dmg)[Download for WindowsFor x64 processors · .exe](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-pc-windows-msvc.exe)[Download for LinuxFor x86\_64, Ubuntu and Debian · .deb](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-unknown-linux-gnu.deb)
+
+Need a different build? [Intel Mac (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-apple-darwin.dmg) · [Linux ARM64 (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-unknown-linux-gnu.deb)
 
 To learn more, refer to [Get started with Wizard Desktop](../dbt-ai/wizard-desktop.md).
 

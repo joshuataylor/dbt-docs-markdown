@@ -1,16 +1,10 @@
-# Wizard Desktop settings [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Wizard Desktop settings [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 Open **Settings** from the bottom left of the app to change how dbt Wizard behaves. Settings are grouped into General, Account, AI providers, Connectors, Appearance, Shortcuts, and version control.
 
 Settings that also exist in the Wizard CLI are shared. Changing them here changes them for `wizard` in your terminal too. Refer to [the config reference](./wizard-config.md) for the underlying files.
-
-Private beta access
-
-Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
-
-Available on macOS, Linux, or Windows.
 
 ## General
 

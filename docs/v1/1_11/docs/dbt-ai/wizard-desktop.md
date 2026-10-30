@@ -1,27 +1,25 @@
-# Get started with Wizard Desktop [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Get started with Wizard Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 Wizard Desktop is dbt Wizard as a native app. View rich data visualizations, data diffs, lineage, and more to get to your results faster than ever before.
 
-Desktop is powered by the same technology as the [dbt Wizard CLI](./wizard-quickstart.md), with a visual interface to help you follow the work, guide it, and manage several threads at once. This means:
-
-* **Parallel chats**: each project chat gets its own Git worktree automatically, so several pieces of work run at once without conflicting.
-* **Validation you can see:** run validation and get structured results back, including a `dbt-compare` view of what your changes did to the data.
-* **Contextual commenting:** hover almost anything to leave a comment on that exact spot, then send several together for more detailed feedback.
-* **Charts and visualizations:** ask a question about your data and see the answer as inline charts and tables.
-* **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
-* **Lineage, file, and metrics browsing:** browse the project you're in right alongside the chat.
-
-Private beta access
-
-Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
-
-Available on macOS, Linux, or Windows.
-
 This page walks you through installing the app, connecting it to the services it needs, and starting your first session. For everything the app can do, refer to [Use Wizard Desktop](./wizard-desktop-use.md). Be warned, the wizard has been known to cast spells
 
 .
+
+[Download for macOSFor Apple silicon Macs · .dmg](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-apple-darwin.dmg)[Download for WindowsFor x64 processors · .exe](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-pc-windows-msvc.exe)[Download for LinuxFor x86\_64, Ubuntu and Debian · .deb](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-unknown-linux-gnu.deb)
+
+Need a different build? [Intel Mac (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-apple-darwin.dmg) · [Linux ARM64 (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-unknown-linux-gnu.deb)
+
+Desktop is powered by the same technology as the [dbt Wizard CLI](./wizard-quickstart.md), with a visual interface to help you follow the work, guide it, and manage several threads at once:
+
+* **Parallel chats:** each chat gets its own Git worktree, so several pieces of work run at once without conflicts.
+* **Visible validation:** see structured results, including a `dbt-compare` view of what your changes did to the data.
+* **Contextual comments:** hover almost anything to comment on that exact spot, then send several together.
+* **Charts and tables:** ask a question about your data and see the answer inline.
+* **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
+* **Lineage, file, and metrics browsing:** browse your project right alongside the chat.
 
 ![The dbt Wizard home screen](/img/wizard/desktop/wizard-desktop-intro.png?v=2 "The dbt Wizard home screen")The dbt Wizard home screen
 
@@ -36,14 +34,17 @@ To use Wizard Desktop, you'll need:
 * A local copy of your dbt project on your machine if you want dbt Wizard to work on project files. The app scans for existing projects, and you can also select a project folder yourself.
 * Warehouse credentials if you want dbt Wizard to run your project or query data. You don't need to configure them before opening the app.
 
-## Install and open Wizard Desktop
+## Install Wizard Desktop
 
-Wizard Desktop is in private beta, so you need to sign up to get the download link.
+1. Download the installer for your operating system:
 
-1. [Sign up for Wizard Desktop access](https://www.getdbt.com/wizard-desktop-waitlist). After you sign up, dbt Labs sends you a download link.
-2. Open the download link and install the app for your operating system.
-3. Open Wizard Desktop and select **Get started** on the welcome screen.
-4. Follow the onboarding prompts. When prompted, create a free dbt account or sign in to an existing account.
+   * [macOS, Apple silicon (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-apple-darwin.dmg) or [macOS, Intel (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-apple-darwin.dmg)
+   * [Windows, x64 (.exe)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-pc-windows-msvc.exe)
+   * [Linux, x86\_64 (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-unknown-linux-gnu.deb) or [Linux, ARM64 (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-unknown-linux-gnu.deb)
+
+2. Open Wizard Desktop and select **Get started** on the welcome screen.
+
+3. Follow the onboarding prompts. When prompted, create a free dbt account or sign in to an existing account.
 
 ## Add your dbt projects
 
@@ -127,7 +128,7 @@ You can also enable automatic updates by clicking on the **Automatic updates** t
 
 It's the same dbt Wizard you already know, running the same engine as the [dbt Wizard CLI](./wizard-quickstart.md). The app has a built-in terminal, so you can keep running dbt commands the way you always have, and you can select **Open in** at any time to jump to the same branch in iTerm, Terminal, VS Code, Cursor, or Finder.
 
-Wizard Desktop is in private beta, so [sign up to get the download link](https://www.getdbt.com/wizard-desktop-waitlist) and install the app.
+[Download Wizard Desktop](#install-and-open-wizard-desktop) and install the app.
 
 Refer to [the config reference](./wizard-config.md) for the configuration files used by the CLI.
 
@@ -138,7 +139,7 @@ Refer to [the config reference](./wizard-config.md) for the configuration files 
 | Rendered tables, charts, and diffs | Yes                                                   | Plain text in your terminal                                     | Yes                                                                      |
 | Parallel work                      | Yes, each chat gets its own worktree                  | One session per terminal                                        | Yes                                                                      |
 | Chat history                       | Kept in the app                                       | Resume a past session with `wizard resume`                      | Kept in your dbt account                                                 |
-| Availability                       | Private beta, sign up for access                      | Public beta, install the CLI                                    | Public preview, in your dbt account                                      |
+| Availability                       | Public beta, download the app                         | Public beta, install the CLI                                    | Public preview, in your dbt account                                      |
 
 ## What's next
 

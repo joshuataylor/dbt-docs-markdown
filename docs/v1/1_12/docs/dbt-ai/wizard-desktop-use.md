@@ -1,4 +1,4 @@
-# Use Wizard Desktop [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Use Wizard Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
@@ -7,12 +7,6 @@ Navigate Wizard Desktop and learn how to work in a session with dbt Wizard — w
 This page is your map of the app: where everything lives, how a session works, what to do when dbt Wizard proposes a change, and how it conjures its magic
 
 .
-
-Private beta access
-
-Wizard Desktop is in private beta. [Sign up to get an invite](https://www.getdbt.com/wizard-desktop-waitlist), and dbt Labs emails you the download page to get started!
-
-Available on macOS, Linux, or Windows.
 
 ## Tour the app
 

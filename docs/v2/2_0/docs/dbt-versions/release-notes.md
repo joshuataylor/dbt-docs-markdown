@@ -15,6 +15,8 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## October 2026
 
+* **New:** dbt Wizard Desktop is now in public beta. [Download the app](../dbt-ai/wizard-desktop.md#install-and-open-wizard-desktop) for macOS, Windows, or Linux and start your first session.
+
 * **New:** If your GitHub Enterprise Server can only be reached over a private connection (PrivateLink), you can now save that connection on the GitHub app. Set `private_link_endpoint_id` when you create or update the app through the API, and dbt routes the connection over your private network.
 
 * **New:** **Filter the Model timing table:** On the Model timing tab, you can now filter [Resource details](../deploy/run-visibility.md#resource-details) to find what's slowing a run down. Use the **Est. critical path** filter to show only the resources on the longest chain of dependent resources, which sets the minimum run time (Yes), or everything else (No). Use the resource type filter to narrow the list to **Model**, **Test**, **Snapshot**, or **Exposure**. You can still search by name.

@@ -12,7 +12,7 @@ Use dbt Wizard in the Studio IDE to write or refactor dbt models from natural la
 
 ## [Get started with Wizard Desktop](../docs/dbt-ai/wizard-desktop.md)
 
-Sign up to get the download link for Wizard Desktop, download it, and start your first session with rich data visualizations, data diffs, and lineage.
+Download Wizard Desktop and start your first session with rich data visualizations, data diffs, and lineage.
 
 ## [Use Wizard Desktop](../docs/dbt-ai/wizard-desktop-use.md)
 
