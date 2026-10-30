@@ -166,6 +166,14 @@ From the team
 
 Deep dives, changelogs, best practices, and new feature highlights from dbt Labs.
 
+### [Have dbt skills been bitter lesson’d?](https://docs.getdbt.com/blog/do-coding-agents-still-need-dbt-skills)
+
+Models have improved a lot since we shipped dbt agent skills, so I ran Claude Opus, Sonnet, and Haiku 5.5, and then Sonnet 4.5, through a...
+
+[ai](https://docs.getdbt.com/blog/tags/ai)
+
+[Read more](https://docs.getdbt.com/blog/do-coding-agents-still-need-dbt-skills)
+
 ### [Inside the dbt Wizard harness: building an agent that thinks in DAGs](https://docs.getdbt.com/blog/wizard-agent-harness)
 
 Wizard works like an analytics engineer: it thinks in DAGs, tests and fixes its own work, and keeps you in flow, so you review a working...
@@ -181,11 +189,3 @@ dbt-context-engineering is a new package, published by dbt, that helps you creat
 [ai](https://docs.getdbt.com/blog/tags/ai)[context engineering](https://docs.getdbt.com/blog/tags/context-engineering)[data ecosystem](https://docs.getdbt.com/blog/tags/data-ecosystem)
 
 [Read more](https://docs.getdbt.com/blog/dbt-context-engineering)
-
-### [What's the difference between dbt and dbt OSS?](https://docs.getdbt.com/blog/comparing-dbt-and-dbt-oss)
-
-The free distribution of dbt v2 is our default recommendation over dbt OSS: it has more capabilities, and its license permits the same...
-
-[data ecosystem](https://docs.getdbt.com/blog/tags/data-ecosystem)
-
-[Read more](https://docs.getdbt.com/blog/comparing-dbt-and-dbt-oss)

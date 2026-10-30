@@ -188,6 +188,10 @@ To see Wizard work through real tasks on a personal project, read [No babysittin
 
 * [ai](./tags/ai.md)
 
+[Newer post](./2026-10-30-do-coding-agents-still-need-dbt-skills.md)
+
+[Have dbt skills been bitter lesson’d?](./2026-10-30-do-coding-agents-still-need-dbt-skills.md)
+
 [Older post](./2026-09-16-dbt-context-engineering.md)
 
 [dbt\_context\_engineering: modeling the context your AI agents read](./2026-09-16-dbt-context-engineering.md)
