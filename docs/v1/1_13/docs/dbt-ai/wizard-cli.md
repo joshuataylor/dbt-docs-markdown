@@ -90,6 +90,10 @@ irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 
 This installs dbt Wizard to `/usr/local/bin/wizard`, along with the [dbt Information Schema](../build/dbt-information-schema.md) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
 
+Need to re-run setup?
+
+To re-authenticate, reset project config, or retrigger the trusted folder prompt, refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
+
 ## Update
 
 Run the following command to update dbt Wizard to the latest version:
@@ -134,7 +138,7 @@ Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../b
 
 ## Related docs
 
-* [Use dbt Wizard locally](./wizard-quickstart.md): Install dbt Wizard and start a local terminal session
+* [Overview of dbt Wizard](../platform/wizard-overview.md): Where dbt Wizard is available and how to get started
 * [Configure BYOK](./wizard-byok.md): Manage your API key and choose an AI model
 * [Command reference](./wizard-cli-reference.md): Full reference for all `wizard` subcommands and global flags
 * [Use cases and examples](./wizard-use-cases.md): Realistic analytics engineering scenarios

@@ -1,4 +1,4 @@
-# 40 docs tagged with "AI"
+# 39 docs tagged with "AI"
 
 [View all tags](../tags.md)
 
@@ -113,10 +113,6 @@ Start a dbt Wizard trial, set a spend limit, and manage Wizard billing for the d
 ## [Understanding a dbt project with dbt Wizard](../best-practices/how-to-use-wizard/wizard-2-understand-project.md)
 
 Use dbt Wizard CLI to map an unfamiliar dbt project, investigate model behavior, and identify downstream impact.
-
-## [Use dbt Wizard locally](../docs/dbt-ai/wizard-quickstart.md)
-
-Install the dbt Wizard local CLI, complete first-run onboarding, and send your first prompt from the terminal.
 
 ## [Use MCP servers with dbt Wizard in dbt platform](../docs/dbt-ai/wizard-platform-mcp.md)
 

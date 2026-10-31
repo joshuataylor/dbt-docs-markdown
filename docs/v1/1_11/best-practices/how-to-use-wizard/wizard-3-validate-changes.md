@@ -12,7 +12,7 @@ The validation levels on this page are available in dbt Wizard CLI. Validation c
 
 Before you begin:
 
-* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-quickstart.md).
+* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-cli.md).
 * Open your dbt project in the terminal and start dbt Wizard from the project root.
 * Make sure the project has a current `target/manifest.json`. Run `dbt parse`, `dbt compile`, or `dbt build` if needed.
 * Configure a development target that dbt Wizard can use for commands that query or materialize data.

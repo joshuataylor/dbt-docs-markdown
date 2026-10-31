@@ -223,6 +223,6 @@ Use a separate session for each discrete unit of work, such as building one mode
 
 * [dbt Wizard overview](../platform/wizard-overview.md)
 * [dbt Wizard in dbt platform](../platform/wizard-platform.md)
-* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [Use dbt Wizard locally](../platform/wizard-overview.md#get-started)
 * [dbt Wizard command reference](./wizard-cli-reference.md)
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows

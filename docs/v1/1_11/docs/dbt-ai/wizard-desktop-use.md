@@ -203,7 +203,7 @@ The app only scans Git repos in your home folder. If your project lives somewher
 
 * [Get started with Wizard Desktop](./wizard-desktop.md)
 * [Wizard Desktop settings](./wizard-desktop-settings.md)
-* [Use dbt Wizard locally (CLI)](./wizard-quickstart.md)
+* [Use dbt Wizard locally (CLI)](./wizard-cli.md)
 * [dbt Wizard config reference](./wizard-config.md)
 * [Data use and telemetry](./wizard-telemetry.md)
 

@@ -4,7 +4,7 @@ Local development
 
 Move from Claude Code to dbt Wizard while keeping your project conventions.
 
-dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with [Use dbt Wizard locally](./wizard-quickstart.md).
+dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, check out the [dbt Wizard overview](../platform/wizard-overview.md).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ And if your conventions aren't applied, check:
 
 ## Related docs
 
-* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [Use dbt Wizard locally](../platform/wizard-overview.md#get-started)
 * [Skills](./wizard-skills.md)
 * [Configure BYOK](./wizard-byok.md)
 * [Use cases and examples](./wizard-use-cases.md)

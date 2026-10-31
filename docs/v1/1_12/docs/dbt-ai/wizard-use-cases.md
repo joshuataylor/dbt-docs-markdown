@@ -18,7 +18,7 @@ Start a new [chat or session](../../best-practices/how-to-use-wizard/wizard-1-in
 * [Validate before shipping](#validate-before-shipping)
 * [Add a semantic model](#add-a-semantic-model)
 
-These prompts work the same across surfaces — the [CLI](./wizard-quickstart.md), the [Wizard Desktop](./wizard-desktop.md), and dbt Wizard in [dbt platform](../platform/wizard-platform.md). For examples specific to the Studio IDE, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](./wizard-cli-reference.md).
+These prompts work the same across surfaces — the [CLI](./wizard-cli.md), the [Wizard Desktop](./wizard-desktop.md), and dbt Wizard in [dbt platform](../platform/wizard-platform.md). For examples specific to the Studio IDE, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](./wizard-cli-reference.md).
 
 Best practices for using dbt Wizard
 
@@ -244,7 +244,7 @@ For version-specific examples and validation steps, refer to [Build Semantic Lay
 
 ## Related docs
 
-* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [Get started with dbt Wizard](../platform/wizard-overview.md#get-started)
 * [Understand a dbt project](../../best-practices/how-to-use-wizard/wizard-2-understand-project.md)
 * [Validate dbt changes](../../best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
 * [Add data-informed tests](../../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md)

@@ -12,7 +12,7 @@ The built-in `test_writer` agent is available in dbt Wizard CLI. Refer to [Use s
 
 Before you begin:
 
-* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-quickstart.md).
+* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-cli.md).
 * Start dbt Wizard from a dbt project with a current `target/manifest.json`.
 * Configure a development connection that can query the models you want to inspect.
 * Build the relevant models if their development relations don't exist.

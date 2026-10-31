@@ -1,4 +1,4 @@
-# 5 docs tagged with "dbt Wizard"
+# 4 docs tagged with "dbt Wizard"
 
 [View all tags](../tags.md)
 
@@ -9,10 +9,6 @@ Download Wizard Desktop and start your first session with rich data visualizatio
 ## [How to use prompts for dbt Wizard](../guides/prompt-cookbook.md)
 
 A cookbook of prompts and real-world examples to use dbt Wizard efficiently.
-
-## [Use dbt Wizard locally](../docs/dbt-ai/wizard-quickstart.md)
-
-Install the dbt Wizard local CLI, complete first-run onboarding, and send your first prompt from the terminal.
 
 ## [Use Wizard Desktop](../docs/dbt-ai/wizard-desktop-use.md)
 

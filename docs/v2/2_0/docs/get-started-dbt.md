@@ -97,7 +97,7 @@ You can use self-hosted tools with or without a dbt platform account. With an ac
 
 You don't have to choose between learning dbt and using AI — you can absolutely pair them from day one:
 
-* Use the dbt Wizard and ask it to build, refactor, or document a model in natural language, grounded in your project's real lineage and tests. [Get started with dbt Wizard](./dbt-ai/wizard-quickstart.md).
+* Use the dbt Wizard and ask it to build, refactor, or document a model in natural language, grounded in your project's real lineage and tests. [Get started with dbt Wizard](./platform/wizard-overview.md#get-started).
 * Set up the dbt MCP server to connect to Claude, Cursor, or another AI tool to query your project, run dbt commands, and pull metrics directly. [Connect the dbt MCP server](./dbt-ai/about-mcp.md).
 * Connect to the Fivetran context layer to give any AI tool richer context about your data, so its answers are grounded in what your data actually means. [Explore the context layer](https://fivetran.com/docs/context-layer).
 

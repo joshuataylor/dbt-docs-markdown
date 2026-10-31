@@ -6,7 +6,7 @@ This quickstart walks you through connecting dbt MCP server to your local dbt pr
 
 If you'd like to connect to dbt platform with the CLI, see the [OAuth quickstart](./mcp-quickstart-oauth.md).
 
-To connect to dbt Wizard, see the [dbt Wizard quickstart](./wizard-quickstart.md).
+To connect to dbt Wizard, see the [dbt Wizard overview](../platform/wizard-overview.md#get-started).
 
 No clone required
 

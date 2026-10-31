@@ -127,13 +127,13 @@ To solve this issue, do one of the following:
 
 ## dbt Wizard
 
-The dbt VS Code extension and [dbt Wizard](./dbt-ai/wizard-quickstart.md) are designed to work together. The extension gives you fast parsing, inline error detection, and IntelliSense. [dbt Wizard](./dbt-ai/wizard-quickstart.md) adds an AI layer on top — one that works with a live understanding of your project through the [dbt Information Schema](./build/dbt-information-schema.md), a structured view of your [lineage](./explore/explore-projects.md), model health, test coverage, and semantic definitions.
+The dbt VS Code extension and [dbt Wizard](./platform/wizard-overview.md#get-started) are designed to work together. The extension gives you fast parsing, inline error detection, and IntelliSense. dbt Wizard adds an AI layer on top — one that works with a live understanding of your project through the [dbt Information Schema](./build/dbt-information-schema.md), a structured view of your [lineage](./explore/explore-projects.md), model health, test coverage, and semantic definitions.
 
 * **Build and refactor from natural language**: Describe what you want, review the diff, approve or redirect before anything is saved.
 * **Validate changes before they land**: The agent compiles and runs against your warehouse in a tight loop — not just editor linting.
 * **Work with your full project map**: Traverse the [DAG](./explore/explore-projects.md), understand downstream impact, and keep tests and YAML in sync as models change.
 
-For data practitioners, combining the extension's dbt-powered editor experience with dbt Wizard's project-aware agent means less manual YAML, fewer context switches, and faster iteration on complex modeling work. See [dbt Wizard quickstart](./dbt-ai/wizard-quickstart.md) to get started.
+For data practitioners, combining the extension's dbt LSP-powered editor experience with dbt Wizard's project-aware agent means less manual YAML, fewer context switches, and faster iteration on complex modeling work. See [dbt Wizard quickstart](./platform/wizard-overview.md#get-started) to get started.
 
 ## Support
 

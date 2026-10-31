@@ -16,11 +16,11 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 [Purpose-built AI for governed data development in dbt platform, Desktop, and CLI.](../platform/wizard-overview.md)
 
-[![](/img/icons/wizard.svg)](./wizard-quickstart.md)
+[![](/img/icons/wizard.svg)](../platform/wizard-overview.md#get-started)
 
-#### [Use dbt Wizard locally](./wizard-quickstart.md)
+#### [Use dbt Wizard locally](../platform/wizard-overview.md#get-started)
 
-[Install dbt Wizard locally and start a terminal session.](./wizard-quickstart.md)
+[Install dbt Wizard locally and start a terminal session.](../platform/wizard-overview.md#get-started)
 
 [![](/img/icons/wizard.svg)](../platform/wizard-platform.md)
 

@@ -20,13 +20,13 @@ The [dbt VS Code extension](../about-dbt-extension.md) lets you develop dbt proj
 
 ## dbt Wizard
 
-[dbt Wizard](../dbt-ai/wizard-quickstart.md) is a natural next step for local dbt development. It works with dbt and adds an AI agent that understands your full project through the [dbt Information Schema](../build/dbt-information-schema.md), a structured view of your [lineage](../explore/explore-projects.md), model health, test coverage, and semantic definitions.
+[dbt Wizard](../platform/wizard-overview.md#get-started) is a natural next step for local dbt development. It works with dbt and adds an AI agent that understands your full project through the [dbt Information Schema](../build/dbt-information-schema.md), a structured view of your [lineage](../explore/explore-projects.md), model health, test coverage, and semantic definitions.
 
 * **Build and refactor from natural language:** Describe the change, get a reviewable diff, approve before anything is written.
 * **Validate in a tight loop:** Every proposed change compiles and runs against your warehouse, catching issues before production.
 * **Navigate with full project context:** Traverse the [DAG](../explore/explore-projects.md), surface downstream impact, and keep tests and YAML in sync as models evolve.
 
-For data practitioners, dbt Wizard adds an AI layer that knows your project, not just your code. Refer to the [dbt Wizard quickstart](../dbt-ai/wizard-quickstart.md) to get started.
+For data practitioners, dbt Wizard adds an AI layer that knows your project, not just your code. Refer to the [dbt Wizard overview](../platform/wizard-overview.md#get-started) to get started.
 
 ## dbt MCP server
 

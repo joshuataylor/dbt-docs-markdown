@@ -4,7 +4,7 @@
 
 * [Adapter creation2](./tags/adapter-creation.md)
 * [Agents5](./tags/agents.md)
-* [AI40](./tags/ai.md)
+* [AI39](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst2](./tags/analyst.md)
 * [API2](./tags/api.md)
@@ -27,7 +27,7 @@
 
 * [Canvas1](./tags/canvas.md)
 * [CI2](./tags/ci.md)
-* [CLI2](./tags/cli.md)
+* [CLI1](./tags/cli.md)
 * [CLL1](./tags/cll.md)
 * [Configuration1](./tags/configuration.md)
 * [Copilot1](./tags/copilot.md)
@@ -51,7 +51,7 @@
 * [dbt State20](./tags/dbt-state.md)
 * [dbt v16](./tags/dbt-v-1.md)
 * [dbt v213](./tags/dbt-v-2.md)
-* [dbt Wizard5](./tags/dbt-wizard.md)
+* [dbt Wizard4](./tags/dbt-wizard.md)
 * [Dremio1](./tags/dremio.md)
 * [DuckDB2](./tags/duck-db.md)
 

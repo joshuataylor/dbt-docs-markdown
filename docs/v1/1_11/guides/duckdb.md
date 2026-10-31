@@ -32,7 +32,7 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 * [Create a GitHub repository](./manual-install.md?step=2)
 * [Build your first models](./manual-install.md?step=3)
 * [Test and document your project](./manual-install.md?step=4)
-* [Use dbt Wizard locally](../docs/dbt-ai/wizard-quickstart.md) to build models with AI instead of by hand
+* [Get started with dbt Wizard](../docs/platform/wizard-overview.md#get-started) to build models with AI instead of by hand
 
 ## Prerequisites
 

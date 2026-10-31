@@ -24,4 +24,4 @@ To begin configuring dbt now, select the option that is right for you.
 
 Pair your setup with AI
 
-Whichever option you choose, you can pair it with dbt Wizard to build models faster. [Get started with dbt Wizard](./dbt-ai/wizard-quickstart.md).
+Whichever option you choose, you can pair it with dbt Wizard to build models faster. [Get started with dbt Wizard](./platform/wizard-overview.md#get-started).

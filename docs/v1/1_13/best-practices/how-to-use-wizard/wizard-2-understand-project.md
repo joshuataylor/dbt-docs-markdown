@@ -6,7 +6,7 @@ This workflow helps when you join a project, review an unfamiliar area of the DA
 
 ## Prerequisites
 
-Start dbt Wizard from the dbt project root, and make sure the project has a current `target/manifest.json`. Refer to [Use dbt Wizard locally](../../docs/dbt-ai/wizard-quickstart.md) for setup.
+Start dbt Wizard from the dbt project root, and make sure the project has a current `target/manifest.json`. Refer to [Install dbt Wizard CLI](../../docs/dbt-ai/wizard-cli.md) for setup.
 
 If you want dbt Wizard to inspect warehouse results, you also need a working development connection and permission to query the relevant relations.
 

@@ -28,10 +28,11 @@ Every new account gets free dbt Wizard usage credits to start. What you get, and
 * Legacy Enterprise plans get the same dbt Wizard access and monthly usage credits as current Enterprise. Only legacy Team has no access.
 * Enterprise and Enterprise+ usage credits are granted automatically — there's no trial to start and no credit card required. Credits don't roll over or get prorated, and if you downgrade out of Enterprise or Enterprise+, any unused credits are removed at the plan change.
 * Enterprise and Enterprise+ accounts should add a committed spend amount to their contract to keep using dbt Wizard. You may lose access to dbt Wizard without this commit in place. If you've set an optional monthly dbt Wizard spend limit, that still applies and pauses usage once reached.
+* If you [bring your own key (BYOK)](../wizard-byok.md), you don't need a dbt account or a trial. Your AI provider bills you directly.
 
-Running dbt Wizard from the CLI against a self-hosted dbt project?
+Using dbt Wizard with a self-hosted dbt project?
 
-The trial is opt-in here too — running `dbt login` (or `wizard login`) is how you opt in. The command creates your free dbt account and starts the same 30-day trial, and that account is where you manage usage and spend limits.
+The trial is opt-in here too. In the CLI, running `dbt login` (or `wizard login`) is how you opt in. In Wizard Desktop, signing in to a dbt acount during onboarding does the same. Either way, you get a free dbt account and the same 30-day trial, and that account is where you manage usage and spend limits.
 
 Everything on this page describes dbt managed billing — usage that dbt Labs bills through your dbt account. If you bring your own key, your AI provider bills you directly and none of this applies. Refer to [BYOK for dbt platform](../../platform/wizard-byok-platform.md) or [BYOK for the CLI](../wizard-byok.md) instead.
 
@@ -55,7 +56,7 @@ No credit card is required. Your 30-day trial with $100 in usage credits starts 
 
 There's no **Start trial** button in the CLI. Logging in is what starts your trial — one command creates your free dbt account, if you don't have one, and provisions the 30-day trial with $100 in usage credits for your account at the same time. The $100 is per account, not per user, so it's shared with anyone else on your account.
 
-1. [Install dbt Wizard](../wizard-quickstart.md).
+1. [Install dbt Wizard](../wizard-cli.md).
 
 2. Run `dbt login` and complete the browser sign-in, or create a new account to manage your dbt Wizard spend limits:
 
@@ -65,7 +66,7 @@ There's no **Start trial** button in the CLI. Logging in is what starts your tri
 
 3. Run `wizard` in your project and choose **dbt-managed** when onboarding asks how AI usage is billed. You don't need an AI provider key.
 
-You don't need a paid dbt platform plan, so this path is the same whether you're on a dbt platform plan or running against a self-hosted dbt project. Refer to [Use dbt Wizard locally](../wizard-quickstart.md) for the full onboarding walkthrough.
+You don't need a paid dbt platform plan, so this path is the same whether you're on a dbt platform plan or running against a self-hosted dbt project. Refer to [Use dbt Wizard locally](../wizard-cli.md) for the full onboarding walkthrough.
 
 ## Set up paid usage
 

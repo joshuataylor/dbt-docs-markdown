@@ -6,7 +6,7 @@
 
 This quickstart uses the local MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs local dbt.
 
-For self-hosted CLI only (with or without a dbt platform account), see [Run self-hosted dbt](../docs/dbt-ai/mcp-quickstart-cli.md) or [Run self-hosted dbt Wizard](../docs/dbt-ai/wizard-quickstart.md).
+For self-hosted CLI only (with or without a dbt platform account), see [Run self-hosted dbt](../docs/dbt-ai/mcp-quickstart-cli.md) or [Run self-hosted dbt Wizard](../docs/platform/wizard-overview.md#get-started).
 
 To configure or disable specific tools, see the [Environment variables reference](../docs/dbt-ai/mcp-environment-variables.md).
 

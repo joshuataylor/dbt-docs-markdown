@@ -94,7 +94,7 @@ dbt-fusion 2.0.1
 
 ## Common issues
 
-**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt v1](../docs/local/install-dbt.md) or [dbt Wizard CLI](../docs/dbt-ai/wizard-quickstart.md).
+**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt v1](../docs/local/install-dbt.md) or [dbt Wizard CLI](../docs/dbt-ai/wizard-cli.md).
 
 **`Permission denied`** You may need to run the command with elevated permissions, or check that the file is executable.
 
@@ -102,6 +102,6 @@ dbt-fusion 2.0.1
 
 ## Next steps
 
-* [dbt Wizard quickstart](../docs/dbt-ai/wizard-quickstart.md) — use the dbt Wizard CLI in your terminal
+* [Install the dbt Wizard CLI](../docs/dbt-ai/wizard-cli.md) — use the dbt Wizard CLI in your terminal
 * [Install dbt](../docs/local/install-dbt.md) — set up dbt v2 or dbt v1 locally
 * [dbt commands reference](../reference/dbt-commands.md) — all available dbt CLI commands
