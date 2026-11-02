@@ -55,7 +55,7 @@ For more information on distkeys and sortkeys, view Amazon's docs:
 * [AWS Documentation » Amazon Redshift » Database Developer Guide » Designing Tables » Choosing a Data Distribution Style](https://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)
 * [AWS Documentation » Amazon Redshift » Database Developer Guide » Designing Tables » Choosing Sort Keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html)
 
-## Datasharing [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Datasharing
 
 Previously, the Redshift adapter used PostgreSQL-compatible catalog tables (for example, `pg_*`, `information_schema`) for metadata operations such as listing relations, schemas, and columns. These tables only surface objects within the currently connected database, which prevents cross-database operations needed for [Redshift Datasharing](https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html).
 
