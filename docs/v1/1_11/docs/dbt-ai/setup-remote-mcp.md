@@ -87,6 +87,15 @@ The first time you connect, dbt shows a consent screen listing the scopes (the s
 
 For the full list of scopes and what each one allows, refer to [Scopes and consent](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent). For sessions, refresh tokens, revoking access, and audit logging, refer to [Connect apps with OAuth](../platform/manage-access/connect-apps-oauth.md).
 
+### Read-only users and warehouse credentials
+
+Read-only users need warehouse credentials to run queries, such as `query_metrics`, through remote MCP. They have two options:
+
+* **Analytics credential (recommended):** An admin sets up one shared [analytics credential](../platform/wizard-read-only-users.md#set-up-analytics-credentials) on the connection. Read-only users who haven't set up personal credentials use it automatically, so they never need to log in to dbt platform.
+* **Personal credentials:** Users with the [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set can add their own on **Your profile** → **Credentials**. If they have personal credentials, those take priority.
+
+If a user has neither, the query fails and asks them to set up credentials or contact an admin.
+
 ### Limitations
 
 * Remote MCP doesn't support self-hosted dbt CLI commands (like `dbt run`, `dbt build`, `dbt test`, and more) or local project access; use the [self-hosted MCP server](./setup-local-mcp.md) for those workflows.

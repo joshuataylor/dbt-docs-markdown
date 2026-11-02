@@ -23,6 +23,21 @@ Shows the dbt accounts dbt Wizard uses for hosted models and platform access, an
 
 * **Connected dbt accounts** lists each dbt platform account you've connected, with the platform account hostname, such as `abc123.us1.dbt.com`. Connect more than one account by clicking on **+Add account** and switch between them without signing in again. Each account has its own **Sign out**. To pick which account powers AI models, go to [AI providers](#ai-providers).
 
+* **Sign-in or Advanced sign-in options** lets you choose where dbt Wizard signs in to dbt platform. Most people don't need this. Use it if signing in sends you to a registration page, or the page says your user already exists. To set it up:
+
+  1. Go to **Settings** → **Account**, and then click **Sign-in options**.
+  2. Enter your account's [Access URL](../platform/about-platform/access-regions-ip-addresses.md) in **dbt account host**, such as `ab123.us1.dbt.com`. You can find it in your dbt platform account settings.
+  3. (Optional) Enter your **dbt account ID**. To find it, go to **Account settings** → **Account** in dbt platform.
+  4. Click **Save**.
+
+  ![Sign-in options in Wizard Desktop](/img/wizard/desktop/wizard-desktop-sign-in-options.png?v=2 "Sign-in options in Wizard Desktop")Sign-in options in Wizard Desktop
+
+  You can also set the account host from the dbt Wizard CLI with the `DBT_CLOUD_LOGIN_HOST` environment variable. For example:
+
+  ```shell
+  export DBT_CLOUD_LOGIN_HOST=ab123.us1.dbt.com
+  ```
+
 * **Maintenance** reclaims disk space or returns dbt Wizard to a clean state. This will affect the Wizard CLI too:
 
   | Action                | What it does                                                                                                                                                                                        |

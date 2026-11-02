@@ -5,8 +5,12 @@
 VS Code can connect to either the **self-hosted** dbt MCP server (runs on your machine, supports CLI commands like `dbt run`) or the **remote** dbt MCP server (HTTP, no install, consumption-focused). Before starting, make sure you have:
 
 * VS Code installed with the latest updates.
+
 * For self-hosted MCP: completed the [self-hosted MCP setup](./setup-local-mcp.md) and configured your dbt project paths.
+
 * For remote MCP: your **MCP URL** from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform.
+
+* Once an admin sets up a shared [analytics credential](../platform/wizard-read-only-users.md#set-up-analytics-credentials), read-only users can use it instead of their own developer credentials.
 
 ## Set up with self-hosted dbt MCP server
 

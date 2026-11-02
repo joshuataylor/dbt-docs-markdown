@@ -13,8 +13,11 @@ Both interfaces can connect to either:
 ## Prerequisites
 
 * You use Claude for AI or agentic work
+
 * For OAuth (self-hosted or remote), use your [access URL with a static subdomain](../platform/about-platform/access-regions-ip-addresses.md).
   * Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
+
+* Once an admin sets up a shared [analytics credential](../platform/wizard-read-only-users.md#set-up-analytics-credentials), read-only users can use it instead of their own developer credentials.
 
 Static subdomains required
 

@@ -48,6 +48,10 @@ info
 
 Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.
 
+Read-only users
+
+Read-only users can query metrics through remote MCP using a shared [analytics credential](../platform/wizard-read-only-users.md#set-up-analytics-credentials) without having to log in to dbt platform to set up their own warehouse credentials. Refer to [Read-only users and warehouse credentials](./setup-remote-mcp.md#read-only-users-and-warehouse-credentials).
+
 ### 4. Get your MCP URL and IDs
 
 You can copy your full **MCP URL** from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform, and paste it directly into your AI tool.

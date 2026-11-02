@@ -75,7 +75,10 @@ Then update `env-file-path` with the absolute path to your `.env` file (for exam
 Remote MCP supports **OAuth** or **token-based** headers.
 
 * *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
+
 * For either method, the MCP URL is `https://<Access URL>/api/ai/v1/mcp`. You can find the URL in dbt platform under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
+
+* Once an admin sets up a shared [analytics credential](../platform/wizard-read-only-users.md#set-up-analytics-credentials), read-only users can use it instead of their own developer credentials.
 
 **Before you connect**
 
