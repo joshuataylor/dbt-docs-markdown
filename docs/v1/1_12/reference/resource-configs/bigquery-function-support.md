@@ -268,6 +268,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [REGEXP\_CONTAINS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_contains)                                      | Built-in | ✓               |
 | [REGEXP\_EXTRACT](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract)                                        | Built-in | ✓               |
 | [REGEXP\_EXTRACT\_ALL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract_all)                               | Built-in | ✓               |
+| [REGEXP\_EXTRACT\_GROUPS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract_groups)                         | Built-in | —               |
 | [REGEXP\_INSTR](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_instr)                                            | Built-in | ✓               |
 | [REGEXP\_REPLACE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_replace)                                        | Built-in | ✓               |
 | [REGEXP\_SUBSTR](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_substr)                                          | Built-in | ✓               |
