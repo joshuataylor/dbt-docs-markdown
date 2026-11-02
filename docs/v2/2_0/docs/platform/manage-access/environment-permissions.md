@@ -28,7 +28,9 @@ dbt has four different environment types per project:
 
 ### Environment write permissions
 
-Environment write permissions grant access to create, edit, and delete runs and jobs within an environment. However, they don't grant users access to create or delete environments themselves. See [Enterprise permissions](./enterprise-permissions.md) for more information about elevated permission sets.
+Environment write permissions apply only to the permission sets listed below. These are the sets marked with an asterisk in the [project permission sets table](./enterprise-permissions.md#project-access-for-project-permissions).
+
+For those sets, this setting grants group members create, edit, and delete permissions on jobs and runs in the environment types you choose. It doesn’t let them create or delete the environments themselves. Those actions require an elevated permission set, such as Admin or Job admin.
 
 Environment write permissions can be specified for the following roles:
 

@@ -194,6 +194,7 @@ Job admin is an administrative permission set for users who create, run, and man
 Notable features:
 
 * Job admin is a project-level set.
+* Job admins can create and delete environments.
 * Job admins can create and edit jobs, runs, environment variables, and data warehouse configs.
 * Job admins can set up project integrations, including [Tableau lineage](../../platform-integrations/semantic-layer/tableau.md).
 * Read-only access to project configs.
@@ -447,7 +448,7 @@ Key:
 | Runs                        | W     | R\*     | -                  | -                   | -                    | R\*            | R\*       | -                  | R\*       | W         | R\*         | W          | R          | -                             | -              | R                     | R\*        |
 | Semantic Layer config       | W     | R       | R                  | -                   | -                    | W              | R         | -                  | R         | R         | R           | -          | -          | -                             | W              | R                     | R          |
 
-\*These permissions are `R`ead-only by default, but may be changed to `W`rite with [environment permissions](./environment-permissions.md#environments-and-roles).
+\*These permissions are `R`ead-only by default, but may be changed to `W`rite with [environment permissions](./environment-permissions.md#environment-write-permissions). That setting lets those sets create, edit, and delete jobs and runs. It does not let them create or delete the environment. Write (`W`) on Environments is a different right. Admin and Job admin have it, and it includes creating and deleting environments.
 
 \*\*Custom env. variables for the `Developer` and `Analyst` roles are set in the **Credentials** section of **Account settings**.
 

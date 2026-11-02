@@ -66,7 +66,7 @@ There's no **Start trial** button in the CLI. Logging in is what starts your tri
 
 3. Run `wizard` in your project and choose **dbt-managed** when onboarding asks how AI usage is billed. You don't need an AI provider key.
 
-You don't need a paid dbt platform plan, so this path is the same whether you're on a dbt platform plan or running against a self-hosted dbt project. Refer to [Use dbt Wizard locally](../wizard-cli.md) for the full onboarding walkthrough.
+This CLI setup is the same whether you're on a dbt platform plan (free or paid) or running against a self-hosted dbt project. Refer to [Use the dbt Wizard CLI](../wizard-cli.md) for the full onboarding walkthrough.
 
 ## Set up paid usage
 
