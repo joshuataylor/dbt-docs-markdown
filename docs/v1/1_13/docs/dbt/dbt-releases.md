@@ -136,6 +136,12 @@ Released by: **github-merge-queue**Oct 31, 2026, 09:06 AM
 
 Automated promotion
 
+[v2.1.0a3](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a3 "View this release in the dbt v2 changelog")Goodpreview
+
+Released by: **github-merge-queue**Nov 3, 2026, 05:32 AM
+
+FS alpha release 2.1.0a3
+
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
 
 Released by: **lottaquestions**Nov 3, 2026, 02:00 AM
