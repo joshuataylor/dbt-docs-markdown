@@ -90,9 +90,7 @@ irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 
 This installs dbt Wizard to `/usr/local/bin/wizard`, along with the [dbt Information Schema](../build/dbt-information-schema.md) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
 
-Need to re-run setup?
-
-To re-authenticate, reset project config, or retrigger the trusted folder prompt, refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
+Need to re-run setup? To re-authenticate, reset project config, or retrigger the trusted folder prompt, refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
 
 ## Update
 
@@ -113,8 +111,6 @@ Check out the free [dbt Wizard video course](https://learn.getdbt.com/courses/db
    ```shell
    wizard system uninstall
    ```
-
-Uninstalling Wizard
 
 Removing `~/.dbt/wizard` deletes your local config, logs, and cache, and can't be undone. Your dbt profiles (`~/.dbt/`) and dbt projects aren't part of dbt Wizard and won't be touched.
 
@@ -145,11 +141,3 @@ Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../b
 * [Migrate from another AI agent](./wizard-migrate.md): Migrate from another AI agent to dbt Wizard
 * [CLI data use and telemetry](./wizard-telemetry.md): What dbt Wizard CLI collects and how to opt out
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
-
-See it in action and share your feedback
-
-Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube.com/watch?v=-lIzh1xQWMA).
-
-We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
-
-Thanks so much for your help in improving dbt Wizard and dbt data development!
