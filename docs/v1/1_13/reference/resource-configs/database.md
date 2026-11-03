@@ -81,6 +81,32 @@ data_tests:
 
 This would result in the test results being stored in the `test_results` database.
 
+## Functions
+
+Specify a custom database for a function in your `dbt_project.yml` or a properties YAML file.
+
+For example, to create a function in a database called `analytics` instead of the target database:
+
+dbt\_project.yml
+
+```yml
+functions:
+  your_project:
+    calculate_tax:
+      +database: analytics
+```
+
+functions/properties.yml
+
+```yaml
+functions:
+  - name: calculate_tax
+    config:
+      database: analytics
+```
+
+This results in the function being located in the `analytics` database, so the full relation name would be `analytics.finance.calculate_tax` instead of the default target database.
+
 ## Definition
 
 Optionally specify a custom database for a [model](../../docs/build/sql-models.md), [seed](../../docs/build/seeds.md), [snapshot](../../docs/build/snapshots.md), or [data test](../../docs/build/data-tests.md).

@@ -1,6 +1,6 @@
 # alias
 
-Specify a custom alias for a model, data test, snapshot, or seed and give it a more user-friendly name in the database.
+Specify a custom alias for a model, data test, snapshot, seed, or function and give it a more user-friendly name in the database.
 
 ## Models
 
@@ -168,9 +168,51 @@ tests/unique\_order\_id\_test.sql
 
 When using [`store_failures_as`](./store_failures_as.md), this would return the name `analytics.dbt_test__audit.orders_order_id_unique_order_id_test` in the database.
 
+## Functions
+
+Configure a function's alias in your project YAML file (`dbt_project.yml`), a properties YAML file (for example, `functions/properties.yml`), or in a SQL file config block.
+
+The following examples demonstrate how to `alias` a function named `calculate_tax` to `tax_calculator`.
+
+In the `dbt_project.yml` file at the project level:
+
+dbt\_project.yml
+
+```yml
+functions:
+  your_project:
+    calculate_tax:
+      +alias: tax_calculator
+```
+
+In `functions/properties.yml`:
+
+functions/properties.yml
+
+```yml
+functions:
+  - name: calculate_tax
+    config:
+      alias: tax_calculator
+```
+
+In `functions/calculate_tax.sql`:
+
+functions/calculate\_tax.sql
+
+```sql
+{{ config(
+    alias="tax_calculator"
+) }}
+```
+
+This creates the function as `analytics.finance.tax_calculator` in the database. Without an alias, dbt uses the function name (`calculate_tax`) as the identifier.
+
+When referencing the function in your project, use `{{ function('calculate_tax') }}`. dbt looks up the function name and returns the fully-qualified name using the alias, for example `analytics.finance.tax_calculator`.
+
 ## Definition
 
-Optionally specify a custom alias for a [model](../../docs/build/models.md), [data test](../../docs/build/data-tests.md), [snapshot](../../docs/build/snapshots.md), or [seed](../../docs/build/seeds.md).
+Optionally specify a custom alias for a [model](../../docs/build/models.md), [data test](../../docs/build/data-tests.md), [snapshot](../../docs/build/snapshots.md), [seed](../../docs/build/seeds.md), or [function](../../docs/build/udfs.md).
 
 When dbt creates a relation (table/view) in a database, it creates it as: `{{ database }}.{{ schema }}.{{ identifier }}`, e.g. `analytics.finance.payments`
 

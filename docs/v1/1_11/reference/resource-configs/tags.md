@@ -223,6 +223,33 @@ select ...
 {% endtest %}
 ```
 
+## Functions
+
+dbt\_project.yml
+
+```yml
+functions:
+  <resource-path>:
+    +tags: <string> | [<string>]
+```
+
+functions/properties.yml
+
+```yaml
+functions:
+  - name: function_name
+    config:
+      tags: <string> | [<string>]
+```
+
+functions/\<filename>.sql
+
+```sql
+{{ config(
+    tags="<string>" | ["<string>"]
+) }}
+```
+
 ## Definition
 
 Apply a tag (or list of tags) to a resource.

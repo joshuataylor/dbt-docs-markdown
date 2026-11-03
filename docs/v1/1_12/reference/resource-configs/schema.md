@@ -107,6 +107,32 @@ data_tests:
 
 This would result in the test results being stored in the `test_results` schema.
 
+## Functions
+
+Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a function in your `dbt_project.yml` or properties file.
+
+For example, if you want to place a function in a schema called `finance` instead of the target schema, you can configure it in the `dbt_project.yml` or `properties.yml` file:
+
+dbt\_project.yml
+
+```yml
+functions:
+  your_project:
+    calculate_tax:
+      +schema: finance
+```
+
+functions/properties.yml
+
+```yaml
+functions:
+  - name: calculate_tax
+    config:
+      schema: finance
+```
+
+This results in the function being located in the `target_schema_finance` schema, so the full relation name would be `analytics.target_schema_finance.calculate_tax`.
+
 Refer to [Usage](#usage) for more examples.
 
 ## Definition

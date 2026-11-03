@@ -251,6 +251,25 @@ saved_queries:
       enabled: true | false
 ```
 
+## Functions
+
+dbt\_project.yml
+
+```yaml
+functions:
+  <resource-path>:
+    +enabled: true | false
+```
+
+functions/properties.yml
+
+```yaml
+functions:
+  - name: [<function-name>]
+    config:
+      enabled: true | false
+```
+
 ## Skills
 
 (Applies to dbt v2.0 and later)
