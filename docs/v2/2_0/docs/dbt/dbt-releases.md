@@ -148,11 +148,11 @@ Released by: **github-merge-queue**Nov 3, 2026, 09:06 AM
 
 Automated promotion
 
-[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
 
-Released by: **lottaquestions**Nov 3, 2026, 02:00 AM
+Released by: **lottaquestions**Nov 3, 2026, 08:12 PM
 
-Update canary to v2.0.11
+Scheduled release of v2.0.11 to prod
 
 [v2.0.10](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2010 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
 

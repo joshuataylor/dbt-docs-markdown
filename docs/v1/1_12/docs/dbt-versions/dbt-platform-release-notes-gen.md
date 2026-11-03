@@ -13,6 +13,36 @@ Release notes are grouped by date for single-tenant environments.
 
 ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/feeds/release-notes-st-rss.xml), [Atom](https://docs.getdbt.com/feeds/release-notes-st-atom.xml), or [JSON Feed](https://docs.getdbt.com/feeds/release-notes-st-rss.json).
 
+## November 4, 2026
+
+## Enhancements
+
+### Catalog
+
+* **More rows in the Marts table**: The [**Marts**](../explore/explore-projects.md#catalog-overview) table on the Catalog project landing page now shows 20 rows per page by default, up from 5. The page size dropdown includes a **20 Rows** option, so you move through the list with fewer page turns.
+
+### APIs, Identity, and Administration
+
+* **Add or remove a user from specific groups**: The [Assign User to Groups API](https://docs.getdbt.com/dbt-cloud/api-v3?version=2#/operations/Assign%20User%20to%20Groups) (`POST /api/v3/accounts/{account_id}/assign-groups/`) now accepts `add_group_ids` and `remove_group_ids`. Use these fields to add a user to groups, or remove them from groups, without replacing every group they belong to. Sending `desired_group_ids` still replaces the full list.
+
+## Fixes
+
+### Catalog
+
+* **Parent models in another project show in the Discovery API**: In the [Discovery API](../dbt-apis/discovery-api.md), a model's parents used to leave out models that live in another project ([Mesh](../mesh/about-mesh.md)). Those parent models are included now. Lineage already listed these parents.
+
+### APIs, Identity, and Administration
+
+* **All assigned groups show for accounts with many groups**: When an account had more than 1,000 groups, some of a user's assigned [groups](../platform/manage-access/about-user-access.md#groups) were missing from the user details view. All assigned groups now appear checked. Saving with `POST /api/v3/accounts/{id}/assign-groups/` also keeps the full list of groups.
+
+* **Clearer errors for an invalid IP restriction**: Creating or updating an [IP restriction](../platform/secure/ip-restrictions.md) with a missing or invalid `type` now returns a 400 error (the request was invalid) and a message that describes the problem, instead of a 500 server error. A missing `name` is rejected with a 400 error too. Before this fix, dbt saved that missing name as the word None.
+
+## Behavior changes
+
+### dbt platform
+
+* **dbt v2 runs in Studio IDE use your thread count**: These runs now follow the [`threads`](../running-a-dbt-project/using-threads.md) value in your [user credentials](../dbt-platform-environments.md#set-user-credentials) instead of the dbt v2 default (for example, 48 on Snowflake). The same change also applies to Canvas runs. Jobs, dbt v1 runs, and editor features such as autocomplete are unchanged.
+
 ## October 28, 2026
 
 ## New
