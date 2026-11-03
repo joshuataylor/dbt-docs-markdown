@@ -127,6 +127,10 @@ dbt parse --warn-error-options '{"silence": ["Deprecations"]}'
   * `query_timeout`: Adds an overall timeout (in seconds) for query execution. If a query exceeds the set duration during polling, it raises a `DbtRuntimeError`. This helps prevent indefinitely hanging queries.
   * `query_retries`: Handles connection loss during query polling by automatically retrying.
 
+### Starburst/Trino
+
+* The Starburst/Trino adapter supports scalar SQL [UDFs](../../build/udfs.md). For configuration details and limitations, refer to [Starburst/Trino configurations](../../../reference/resource-configs/trino-configs.md#user-defined-functions).
+
 ## Quick hits
 
 You will find these quick hits in dbt v1.11:

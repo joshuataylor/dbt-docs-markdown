@@ -7,7 +7,7 @@ Local development
 If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use v1 or v2 locally. To learn more about v2 prerequisites, refer to [Supported features](../../dbt/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 * **Maintained by**: Starburst Data, Inc.
-* **Authors**: Marius Grama, Przemek Denkiewicz, Michiel de Smet, Damian Owsianny
+* **Authors**: Starburst Team
 * **GitHub repo**: [starburstdata/dbt-trino](https://github.com/starburstdata/dbt-trino) [![](https://img.shields.io/github/stars/starburstdata/dbt-trino?style=for-the-badge)](https://github.com/starburstdata/dbt-trino)
 * **PyPI package**: `dbt-trino` [![](https://badge.fury.io/py/dbt-trino.svg)](https://badge.fury.io/py/dbt-trino)
 * **Slack channel**: [#db-starburst-and-trino](https://getdbt.slack.com/archives/CNNPBQ24R)
