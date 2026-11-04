@@ -521,6 +521,8 @@ The `incremental_strategy` config can be set to one of the following values:
 * `insert_overwrite`
 * [`microbatch`](../../docs/build/incremental-microbatch.md)
 
+(Applies to dbt v1.99 and earlier)
+
 ### Change history
 
 The `enable_change_history` parameter enables [BigQuery's change history feature](https://cloud.google.com/bigquery/docs/change-history) which tracks changes made to a BigQuery table. When enabled, you can use the change history to audit and debug the behavior of your incremental models.

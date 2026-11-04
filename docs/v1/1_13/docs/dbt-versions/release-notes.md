@@ -15,6 +15,7 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## November 2026
 
+* **New:** dbt Wizard now automatically switches to AWS Bedrock if an AI model provider (OpenAI, Anthropic, or Fireworks) has an outage, so you can keep working. Available for dbt platform accounts hosted on AWS that use dbt managed models. Learn more about [automatic backup during outages](../dbt-ai/pricing-billing/overview.md#automatic-backup-during-outages).
 * **Enhancement:** The [**Marts**](../explore/explore-projects.md#catalog-overview) table on the Catalog project landing page now shows 20 rows per page by default, up from 5. The page size dropdown includes a **20 Rows** option, so you move through the list with fewer page turns.
 * **Enhancement:** The [Assign User to Groups API](https://docs.getdbt.com/dbt-cloud/api-v3?version=2#/operations/Assign%20User%20to%20Groups) (`POST /api/v3/accounts/{account_id}/assign-groups/`) now accepts `add_group_ids` and `remove_group_ids`. Use these fields to add a user to groups, or remove them from groups, without replacing every group they belong to. Sending `desired_group_ids` still replaces the full list.
 * **Fix:** In the [Discovery API](../dbt-apis/discovery-api.md), a model's parents used to leave out models that live in another project ([Mesh](../mesh/about-mesh.md)). Those parent models are included now. Lineage already listed these parents.

@@ -74,6 +74,8 @@ You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 For pricing and how billing works, refer to [Models and pricing](../dbt-ai/pricing-billing/overview.md).
 
+If AI model provider (OpenAI, Anthropic, or Fireworks) has an outage, dbt managed traffic switches to a [backup provider](../dbt-ai/pricing-billing/overview.md#automatic-backup-during-outages) in dbt platform, so dbt Wizard keeps working.
+
 ## Get started
 
 You can get started with Wizard wherever you work, whether it's the terminal or dbt platform:
