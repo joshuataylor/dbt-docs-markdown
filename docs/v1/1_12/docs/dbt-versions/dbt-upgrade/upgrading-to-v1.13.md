@@ -10,6 +10,10 @@ Available in v1
 
 ## What to know before upgrading
 
+info
+
+dbt v1.13 requires Python 3.11 or later. Python 3.10 is no longer supported. Refer to [What version of Python can I use?](../../../faqs/Core/install-python-compatibility.md) for the full compatibility matrix.
+
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt/issues/new).
 
 dbt provides the functionality from new versions of dbt v1 via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **v1 Latest** release track in dbt, you already have access to all the features, fixes, and other functionality included in the latest dbt v1 version! If you have selected the **v1 Compatible** release track, you will have access to the next monthly **v1 Compatible** release after the dbt v1.13 final release.
