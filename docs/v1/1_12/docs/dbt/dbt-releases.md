@@ -64,9 +64,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Latest
 
-[`v2.0.9`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this version in the dbt v2 changelog")
+[`v2.0.11`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this version in the dbt v2 changelog")
 
-2026-10-19
+2026-11-04
 
 ### All releases
 
@@ -148,11 +148,11 @@ Released by: **github-merge-queue**Nov 3, 2026, 09:06 AM
 
 Automated promotion
 
-[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
+[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatest
 
-Released by: **lottaquestions**Nov 4, 2026, 08:20 PM
+Released by: **fa-assistant**Nov 4, 2026, 10:17 PM
 
-Regulrar scheduled upgrade
+Auto-mirror: stable promoted to v2.0.11 by lottaquestions (https\://github.com/dbt-labs/fs/actions/runs/41923576535)
 
 [v2.0.10](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2010 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
 
