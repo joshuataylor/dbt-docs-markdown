@@ -52,9 +52,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Dev
 
-[`v2.0.11`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this version in the dbt v2 changelog")
+[`v2.1.0.dev20261105`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261105 "View this version in the dbt v2 changelog")
 
-2026-11-04
+2026-11-05
 
 #### Canary
 
@@ -145,6 +145,12 @@ FS alpha release 2.1.0a3
 [v2.1.0.dev20261103](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261103 "View this release in the dbt v2 changelog")GoodDevnightly
 
 Released by: **github-merge-queue**Nov 3, 2026, 09:06 AM
+
+Automated promotion
+
+[v2.1.0.dev20261105](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261105 "View this release in the dbt v2 changelog")GoodDevnightly
+
+Released by: **github-merge-queue**Nov 5, 2026, 09:10 AM
 
 Automated promotion
 
