@@ -1,4 +1,4 @@
-# 27 docs tagged with "dbt platform"
+# 26 docs tagged with "dbt platform"
 
 [View all tags](../tags.md)
 
@@ -75,10 +75,6 @@ Introduction
 Introduction
 
 ## [Quickstart for dbt and Teradata](../guides/teradata.md)
-
-Introduction
-
-## [Quickstart for dbt Canvas](../guides/canvas.md)
 
 Introduction
 

@@ -115,7 +115,6 @@ With [hybrid projects](../../deploy/hybrid-projects.md), dbt v1 users working in
 
 * Fostering collaboration between dbt + dbt v1 users by enabling them to visualize and perform [cross-project references](../../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to models defined in dbt v1 projects. This feature unifies dbt + dbt v1 workflows for a more connected dbt experience.
 * Giving dbt and dbt v1 users insights into their models and assets in [Catalog](../../explore/explore-projects.md). To view Catalog, you must have a [developer or read-only license](../../platform/manage-access/seats-and-users.md).
-* (Coming soon) Enabling users working in the [Canvas](../../platform/canvas.md) to build off of models already created by a central data team in dbt v1 rather than having to start from scratch.
 
 Hybrid projects are available as a private beta to [dbt Enterprise accounts](https://www.getdbt.com/pricing). Contact your account representative to register your interest in the beta.
 

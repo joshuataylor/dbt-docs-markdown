@@ -35,7 +35,6 @@ The dbt framework is composed of a *language* and an *engine*:
 The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted dbt installation.
 
 * [Develop in your browser using the Studio IDE](../platform/studio-ide/develop-in-studio.md)
-* [Seamless drag-and-drop development with Canvas](../platform/canvas.md)
 * [Run dbt commands from your local command line](#dbt-local-development) using dbt VS Code extension or dbt platform CLI (both which integrate seamlessly with the dbt platform project(s)).
 
 For more details, see [About dbt plans](https://www.getdbt.com/pricing).

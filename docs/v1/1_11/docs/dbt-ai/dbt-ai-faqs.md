@@ -14,7 +14,7 @@ dbt Wizard is the latest and recommended agentic experience for governed data de
 
 Use dbt Wizard to investigate lineage and downstream impact, generate or refactor SQL from natural-language prompts, create [documentation](../build/documentation.md), [data tests](../build/data-tests.md), [metrics](../build/metrics-overview.md), and [semantic models](../build/semantic-models.md), and validate changes with warehouse awareness.
 
-In the dbt platform, dbt Wizard is available in the [Studio IDE](../platform/studio-ide/develop-studio-ai.md) and the [dbt Wizard home tab](../platform/wizard-home.md). dbt Copilot is available in [Canvas](../platform/use-canvas.md) and [Insights](../explore/dbt-insights.md).
+In the dbt platform, dbt Wizard is available in the [Studio IDE](../platform/studio-ide/develop-studio-ai.md) and the [dbt Wizard home tab](../platform/wizard-home.md). dbt Copilot is available in [Insights](../explore/dbt-insights.md).
 
 In the CLI, you can use dbt Wizard from your terminal for local development workflows.
 
@@ -52,7 +52,7 @@ No, dbt Wizard and dbt Copilot are separate products.
 
 dbt Wizard is the latest and next generation of agentic product available in the dbt platform and as a CLI. It uses your project context to help you develop governed dbt changes faster. Think of it like a smart AI agent that has a map of your project. Instead of having to read through each file and understand the context, it can answer questions and help you develop *and* validate your changes faster.
 
-dbt Copilot features for those who have access to them, include quick-action buttons in Studio IDE, the Copilot pane in Insights and Canvas.
+dbt Copilot features for those who have access to them, include quick-action buttons in Studio IDE and the Copilot pane in Insights.
 
  Can I use my existing dbt Copilot action allotment with dbt Wizard?
 
@@ -174,9 +174,3 @@ We recommend the following URLs to be allowlisted:
 * `/api/ide/accounts/${accountId}/develop/${developId}/ai/generate_inline`
 * `/api/ide/accounts/${accountId}/develop/${developId}/ai/generate_metrics/...`
 * `/api/ide/accounts/${accountId}/develop/${developId}/ai/track_response`
-
-**For dbt Copilot in Canvas**:
-
-* `/api/private/visual-editor/v1/ai/llm-generate`
-* `/api/private/visual-editor/v1/ai/track-response`
-* `/api/private/visual-editor/v1/files/${fileId}/llm-generate-dag-through-chat`

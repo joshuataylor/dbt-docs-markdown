@@ -34,7 +34,7 @@ The Query console menu is located at the top right of the Query editor. It conta
   * Let dbt Copilot do the writing for you — use the AI assistant to automatically generate a helpful description for your bookmark.
   * Access the newly created bookmark from the **Bookmark** icon in the [Query console sidebar menu](#query-console-sidebar-menu).
 
-* **Develop**: Open the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [Canvas](../platform/canvas.md) to continue editing your SQL query.
+* **Develop**: Open the [Studio IDE](../platform/studio-ide/develop-in-studio.md) to continue editing your SQL query.
 
 * **Run** button — Run your SQL query and view the results in the **Data** tab.
 

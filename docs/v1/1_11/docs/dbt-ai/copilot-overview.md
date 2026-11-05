@@ -12,13 +12,6 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 *The earlier version of dbt Copilot in the Studio IDE is available only to a limited set of accounts. dbt Wizard is available to all accounts and is the recommended way to develop with AI in the Studio IDE — it covers everything dbt Copilot's quick actions did, plus multi-step changes with built-in validation.*
 
-## Where to access dbt Copilot
-
-dbt Copilot is available across the following experiences in the dbt platform. Refer to the links for more info on how to use each experience.
-
-* [dbt Copilot in Canvas](../platform/build-canvas-copilot.md): Build visual models using natural language prompts in Canvas
-* [dbt Copilot in Insights](./analyst-agent.md): Chat with your data and get answers powered by the dbt Semantic Layer in Insights
-
 ## Action limits by plan
 
 dbt Copilot usage is metered in actions — one completed AI request counts as one action. Each plan includes a monthly action allotment per license:
@@ -46,7 +39,7 @@ dbt Copilot supports fewer providers than dbt Wizard, including bring your own k
 
 Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported for dbt Copilot.
 
-dbt Copilot is available for inline assistance in Studio IDE, Canvas, and Insights. Configure it separately from dbt Wizard if your team uses these inline AI experiences.
+dbt Copilot is available for inline assistance in Studio IDE and Insights. Configure it separately from dbt Wizard if your team uses these inline AI experiences.
 
 **To configure a provider:**
 

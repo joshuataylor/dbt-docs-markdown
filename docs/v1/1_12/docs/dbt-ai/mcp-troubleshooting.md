@@ -25,9 +25,9 @@ No. `dbt show` runs through the dbt platform CLI tools and previews a model's ou
 
  Whose warehouse credentials does execute\_sql use?
 
-Your personal development credentials for the project's development environment. These are the same credentials you use in Studio IDE. It doesn't use your production deployment credentials.
+Your personal development credentials for the project's development environment take priority. If you haven't configured personal credentials, eligible read-only users can use a shared analytics credential. It doesn't use your production deployment credentials.
 
-If you don't have development credentials, the query fails with a message that no warehouse credentials are configured. Ask a project admin to set them up.
+If no suitable credentials are configured, the query fails. Refer to [Read-only users and warehouse credentials](./setup-remote-mcp.md#read-only-users-and-warehouse-credentials) for setup details.
 
  Is execute\_sql read-only?
 
@@ -70,6 +70,23 @@ Yes you can! Your AI tool can ask for results to show as a chart or table in the
 | Turn a question into SQL without running it          | `text_to_sql`                                                                                                               |
 
 ## Troubleshooting
+
+ Why can I connect to remote MCP but a tool call is denied?
+
+Remote MCP checks permissions for the resource each tool targets. A successful connection or a visible tool doesn't guarantee access to every project, environment, job, or run.
+
+1. Confirm that the requested resource belongs to the account you connected to.
+2. Ask your admin to check the user or service token's [required permissions](./setup-remote-mcp.md#permissions) on that resource. PATs inherit their user's permissions.
+3. For OAuth, also check the scopes and projects approved during consent. Reconnect and update your consent if the required access wasn't included.
+4. For `execute_sql`, plain SQL still needs a development environment and warehouse credentials. SQL containing dbt Jinja also needs develop access; production deferral needs metadata read access.
+
+ Why does remote MCP reject my project or environment selection?
+
+Use positive numeric IDs rather than URLs. Check that your development and production environment headers select the correct environment types and belong to the same project. Tool arguments must agree with the configured target, except that an explicit `project_id` for `list_jobs` overrides its configured environment filter.
+
+If a call reports invalid tool arguments, check the tool's input schema, supply its required arguments, and remove unsupported arguments.
+
+If environment discovery reports that a project has more than 1,000 environments, configure the exact environment header for the tool you're using instead of relying on project-based discovery.
 
 Can't find the uvx executable
 

@@ -19,7 +19,7 @@ The following surfaces are on by default:
 
 * dbt Wizard in Studio IDE
 * dbt Wizard home tab
-* dbt Copilot in dbt platform (includes Canvas and Insights).
+* dbt Copilot in dbt platform.
 * Any future dbt AI features will automatically become available as well.
 
  AI features aren't on for my account yet. How do I turn them on?

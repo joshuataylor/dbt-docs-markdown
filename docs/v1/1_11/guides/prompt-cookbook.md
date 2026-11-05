@@ -237,7 +237,7 @@ on customer_id. Filter to the last 30 days for preview only.
 
 Fast-track your semantic layer strategy with AI-generated YAML using dbt Wizard.
 
-dbt platform provides built-in generation buttons that automatically [generate code](../docs/dbt-ai/wizard-ide.md), [documentation](../docs/build/documentation.md), [data tests](../docs/build/data-tests.md), [metrics](../docs/build/metrics-overview.md), and [semantic models](../docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](../docs/platform/studio-ide/develop-studio-ai.md), [Canvas](../docs/platform/build-canvas-copilot.md), and [Insights](../docs/explore/dbt-insights.md).
+dbt platform provides built-in generation buttons that automatically [generate code](../docs/dbt-ai/wizard-ide.md), [documentation](../docs/build/documentation.md), [data tests](../docs/build/data-tests.md), [metrics](../docs/build/metrics-overview.md), and [semantic models](../docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](../docs/platform/studio-ide/develop-studio-ai.md) and [Insights](../docs/explore/dbt-insights.md).
 
 These features understand your model's structure and generate YAML in the correct location.
 

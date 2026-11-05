@@ -2,9 +2,9 @@
 
 Begin your dbt journey by choosing how you want to develop:
 
-* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt platform CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt v2](./introduction.md) and [dbt v1](./local/install-dbt.md) engines.
+* [**dbt platform** ](#the-dbt-platform)— Develop in your browser with Studio IDE or use local tools (VS Code extension, dbt platform CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, Insights, and more. Supports both the [dbt v2](./introduction.md) and [dbt v1](./local/install-dbt.md) engines.
 * [**Self-hosted only**](#self-hosted-dbt-installations) — Use local tools like the [dbt VS Code extension](./about-dbt-extension.md) or [install dbt](./local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
-* **Local + dbt platform** — Use the VS Code extension or dbt platform CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
+* **Local + dbt platform** — Use the VS Code extension or dbt platform CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, and more.
 * [**dbt Wizard**](./platform/wizard-overview.md) — The AI agent for analytics engineering, available in the dbt platform and from your terminal. Grounded in your project's lineage, model health, and semantic definitions.
 
 ## The dbt platform

@@ -36,6 +36,24 @@ Service tokens do not work for `execute_sql`
 
 If you connect with a token instead of OAuth, `execute_sql` only works with a [personal access token (PAT)](../dbt-apis/user-tokens.md). Service tokens won't work. To run SQL without creating a PAT, use [OAuth (remote MCP)](#oauth-remote-mcp) instead.
 
+## Permissions for remote MCP
+
+Remote MCP checks your access when you connect and authorizes each tool call against the project, environment, job, or run it targets. These checks apply to OAuth, personal access tokens (PATs), and service tokens. A successful connection or a tool appearing in your client doesn't mean you can use that tool on every resource.
+
+You don't need the `Developer` permission set just to connect. Ask your admin to grant the permissions needed for your workflow:
+
+| Workflow                                                       | Required access                                                                                                                                |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Explore models and lineage, or generate SQL with `text_to_sql` | Metadata read access on the selected project. `text_to_sql` also requires AI features to be enabled.                                           |
+| Use Semantic Layer tools                                       | Semantic Layer configuration read access on the selected project.                                                                              |
+| Run plain SQL with `execute_sql`                               | Semantic Layer configuration read access on the project, a development environment, and warehouse credentials. Connect with OAuth or a PAT.    |
+| Run SQL containing dbt Jinja, such as `ref()` or `source()`    | The requirements for plain SQL, plus develop access. Production deferral also requires metadata read access.                                   |
+| Read or manage jobs and runs                                   | The corresponding jobs or runs read or write permission for the target resource. Unfiltered account-wide listings require account-wide access. |
+
+For available permission sets, refer to [Enterprise permissions](../platform/manage-access/enterprise-permissions.md) and [Service tokens](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens). PATs inherit the permissions of the user who created them. OAuth also restricts access to the scopes and projects you consented to.
+
+Service tokens with metadata read access can use `text_to_sql` to generate SQL. They can't use `execute_sql` to run it.
+
 ## OAuth (remote MCP) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 OAuth lets you connect to the remote MCP server without copying API tokens into your MCP client, when your client supports OAuth for HTTP-based MCP servers.
@@ -104,13 +122,9 @@ For client-specific steps, refer to [Integrate Claude with MCP](./integrate-mcp-
 
 ## Token-based authentication
 
-Token-based authentication lets you connect to the remote MCP server without OAuth by passing a PAT or service token in your MCP client config. Use it when your client doesn't support OAuth for HTTP-based MCP servers, when you need a shared or CI setup, or when you need `execute_sql`, which requires a PAT.
+Token-based authentication lets you connect to the remote MCP server without OAuth by passing a PAT or service token in your MCP client config. Use it when your client doesn't support OAuth for HTTP-based MCP servers or when you need a shared or CI setup. To use `execute_sql` with token-based authentication, use a PAT.
 
-Currently, token-based access is all-or-nothing: a token that passes the permission check gets every tool. If you want individual tools filtered to a narrower set of permissions, use [OAuth](#oauth-remote-mcp) instead. This also differs from the [self-hosted server](./setup-local-mcp.md), which authorizes each toolset independently as tools are called.
-
-Required permission set
-
-Token-based connections currently require the `Developer` permission set, which can only be assigned to a service token on Enterprise and Enterprise+ plans. Starter and legacy Team plans don't support it and must use [OAuth](#oauth-remote-mcp) instead. For the permission sets available on each plan, refer to [Service tokens](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
+Each tool call must satisfy the [permissions for its target](#permissions). Token-based connections can show tools that your token can't use; those calls fail individually. OAuth can also filter the tool list based on its granted permissions.
 
 ### Setup instructions
 
@@ -120,17 +134,17 @@ AI features are enabled by default. Admins can [turn them off or back on anytime
 
 * **dbt platform host**: Use this to form the full URL. For example, replace `YOUR_DBT_HOST_URL` here: `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`. It may look like: `https://cloud.getdbt.com/api/ai/v1/mcp/`. If you have a multi-cell account, the host URL will be in the `ACCOUNT_PREFIX.us1.dbt.com` format. For more information, refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 * **Production environment ID**: From **Orchestration** → **Environments** in dbt platform. Use this to set an `x-dbt-prod-environment-id` header. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.
-* **Token**: Generate either a personal access token (PAT) or a service token. The token must have Developer access on the project that owns the environment you set in `x-dbt-prod-environment-id`. A token without it is rejected with a `401` when the MCP client connects, rather than connecting with reduced functionality. For a service token, assign the `Developer` permission set, scoped either to that project or to all projects — `Developer` on its own is sufficient. For a PAT, create the token as a user who has Developer access on that project; PATs don't take permission sets, they inherit the permissions of the user who created them.
+* **Token**: Generate either a personal access token (PAT) or a service token with the [permissions for the tools and resources you need](#permissions). For a service token, assign the appropriate permission sets. PATs inherit the permissions of the user who created them.
 * If you plan to use `execute_sql`, you must use a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md). Service tokens *do not* work for this tool. For other tools that require `x-dbt-user-id`, a PAT is also required.
 
 2. For the remote MCP, you will pass on headers through the JSON blob to configure required fields:
 
 #### Configuration for APIs and SQL tools
 
-| Header                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Authorization             | Required | Your [personal access token (PAT)](../dbt-apis/user-tokens.md) or [service token](../dbt-apis/service-tokens.md) from the dbt platform.<br />**Note**: The token must have Developer access on the project that owns the environment in `x-dbt-prod-environment-id`, or it's rejected with a `401` at connection. Service tokens need the `Developer` permission set, which is sufficient on its own; PATs inherit the permissions of the user who created them, so create the PAT as a user with Developer access on that project. When using the Semantic Layer, we recommend using a PAT.<br /><br />The value must be in the format `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`, replacing `YOUR_DBT_ACCESS_TOKEN` with your actual token. |
-| x-dbt-prod-environment-id | Required | Your dbt platform production environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Header                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Authorization             | Required | Your [personal access token (PAT)](../dbt-apis/user-tokens.md) or [service token](../dbt-apis/service-tokens.md) from the dbt platform with the [required permissions](#permissions). When using the Semantic Layer, we recommend using a PAT.<br /><br />The value must be in the format `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`, replacing `YOUR_DBT_ACCESS_TOKEN` with your actual token. |
+| x-dbt-prod-environment-id | Required | Your dbt platform production environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.                                                                                                                                                                                                                                                                                 |
 
 #### Additional configuration for SQL tools
 
@@ -138,6 +152,8 @@ AI features are enabled by default. Admins can [turn them off or back on anytime
 | ------------------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | x-dbt-dev-environment-id | Required for `execute_sql` | Your dbt platform development environment ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-dev-env-id) for step-by-step instructions. |
 | x-dbt-user-id            | Required for `execute_sql` | Your dbt platform user ID. Refer to [Where can I find my user ID?](../../faqs/Accounts/find-user-id.md) for details.                                                   |
+
+Use positive numeric IDs in project and environment headers. Development and production environment headers must identify environments of the corresponding type in the same project. If a tool accepts a project or environment argument, it must agree with the configured target. `list_jobs` preserves its existing behavior: an explicit `project_id` overrides the configured environment filter.
 
 #### Additional configuration for dbt v2 tools
 

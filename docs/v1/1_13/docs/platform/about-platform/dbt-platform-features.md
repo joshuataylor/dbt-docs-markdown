@@ -20,12 +20,6 @@ dbt's [flexible plans](https://www.getdbt.com/pricing/) and features make it wel
 
 [The IDE is the easiest and most efficient way to develop dbt models, allowing you to build, test, run, and version control your dbt projects directly from your browser.](../studio-ide/develop-in-studio.md)
 
-[![](/img/icons/dbt-bit.svg)](../canvas.md)
-
-#### [dbt Canvas](../canvas.md)
-
-[Develop with Canvas, a seamless drag-and-drop experience that helps analysts quickly create and visualize dbt models in dbt.](../canvas.md)
-
 [![](/img/icons/wizard.svg)](../wizard-overview.md)
 
 #### [dbt Wizard\*](../wizard-overview.md)

@@ -15,12 +15,8 @@ Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for
 ## Prerequisites
 
 * A [dbt platform account](https://www.getdbt.com/pricing) on Developer, Starter, Enterprise, or Enterprise+ plans
-
   * [Legacy team plans](./billing/plans-and-billing.md#legacy-plans) don't have access to dbt Wizard and we recommend moving to a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing) to use it and other features.
-  * Certain features like [natural prompts in Canvas](./build-canvas-copilot.md) are only available on Enterprise and Enterprise+ plans.
-
 * dbt admin permissions to change account settings and configure providers.
-
 * A development environment on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
 ## Manage account access to AI features

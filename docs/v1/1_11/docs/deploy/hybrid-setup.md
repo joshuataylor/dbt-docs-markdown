@@ -166,5 +166,4 @@ Now that you've uploaded dbt v1 artifacts into the dbt platform and executed a `
 Now that you've integrated dbt v1 artifacts with your dbt project, you can now:
 
 * Collaborate with dbt users by enabling them to visualize and perform [cross-project references](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in dbt v1 projects.
-* (Coming soon) New users interested in the [Canvas](../platform/canvas.md) can build off of dbt models already created by a central data team in dbt v1 rather than having to start from scratch.
 * dbt v1 users can navigate to [Catalog](../explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](../platform/manage-access/seats-and-users.md).
