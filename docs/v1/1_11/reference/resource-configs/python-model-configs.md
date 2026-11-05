@@ -36,19 +36,20 @@ For more details and a more comprehensive list, refer to [Snowflake configuratio
 
 ### Databricks
 
-| Parameter             | Type           | Default               | Description                                                                                             |
-| --------------------- | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------- |
-| `submission_method`   | `<string>`     | `all_purpose_cluster` | How dbt submits the job: `all_purpose_cluster`, `job_cluster`, `serverless_cluster`, or `workflow_job`. |
-| `create_notebook`     | `<boolean>`    | `false`               | With `all_purpose_cluster`, upload a notebook and run it as a job instead of using the Command API.     |
-| `cluster_id`          | `<string>`     | `None`                | ID of an existing all-purpose cluster to run on.                                                        |
-| `http_path`           | `<string>`     | `None`                | Path of an existing all-purpose cluster to run on.                                                      |
-| `job_cluster_config`  | `<dictionary>` | `{}`                  | Settings for the new cluster used by `job_cluster` and `workflow_job`.                                  |
-| `timeout`             | `<integer>`    | `0` (no timeout)      | Maximum time to wait for the command or job to run.                                                     |
-| `packages`            | `<list>`       | `[]`                  | Packages to install on the cluster.                                                                     |
-| `index_url`           | `<string>`     | `None` (uses PyPI)    | URL to install `packages` from.                                                                         |
-| `additional_libs`     | `<list>`       | `[]`                  | Libraries to attach to the job.                                                                         |
-| `access_control_list` | `<list>`       | none                  | Access control for the job.                                                                             |
-| `python_job_config`   | `<dictionary>` | `{}`                  | Extra job and workflow settings.                                                                        |
+| Parameter                      | Type           | Default               | Description                                                                                                                                                                                                               |
+| ------------------------------ | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `submission_method`            | `<string>`     | `all_purpose_cluster` | How dbt submits the job: `all_purpose_cluster`, `job_cluster`, `serverless_cluster`, or `workflow_job`.                                                                                                                   |
+| `create_notebook`              | `<boolean>`    | `false`               | With `all_purpose_cluster`, upload a notebook and run it as a job instead of using the Command API.                                                                                                                       |
+| `cluster_id`                   | `<string>`     | `None`                | ID of an existing all-purpose cluster to run on.                                                                                                                                                                          |
+| `http_path`                    | `<string>`     | `None`                | Path of an existing all-purpose cluster to run on.                                                                                                                                                                        |
+| `job_cluster_config`           | `<dictionary>` | `{}`                  | Settings for the new cluster used by `job_cluster` and `workflow_job`.                                                                                                                                                    |
+| `timeout`                      | `<integer>`    | `0` (no timeout)      | Maximum time to wait for the command or job to run.                                                                                                                                                                       |
+| `packages`                     | `<list>`       | `[]`                  | Packages to install on the cluster.                                                                                                                                                                                       |
+| `index_url`                    | `<string>`     | `None` (uses PyPI)    | URL to install `packages` from.                                                                                                                                                                                           |
+| `additional_libs`              | `<list>`       | `[]`                  | Libraries to attach to the job.                                                                                                                                                                                           |
+| `access_control_list`          | `<list>`       | `[]`                  | Who can view or manage the Databricks job that runs this Python model.                                                                                                                                                    |
+| `notebook_access_control_list` | `<list>`       | `[]`                  | Permissions on the Databricks notebook that dbt creates from this Python model on each run. Each entry grants a user, group, or service principal a permission level: `CAN_READ`, `CAN_RUN`, `CAN_EDIT`, or `CAN_MANAGE`. |
+| `python_job_config`            | `<dictionary>` | `{}`                  | Extra job and workflow settings.                                                                                                                                                                                          |
 
 Not every parameter works with every submission method. For more details and a more comprehensive list, refer to [Databricks configurations](./databricks-configs.md#python-submission-methods).
 
