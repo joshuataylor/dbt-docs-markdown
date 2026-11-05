@@ -26,4 +26,6 @@ dbt provides the functionality from new versions of dbt v1 via [release tracks](
 
 ## Adapter-specific features and functionalities
 
-**Coming soon**
+### Snowflake
+
+* When [`copy_grants`](../../../reference/resource-configs/snowflake-configs.md#copying-grants) is `false` or unset, `dbt-snowflake` adds `IGNORE GRANTS` on `CREATE OR REPLACE` for tables, views, and clones. That keeps the previous no-copy default after Snowflake's [CREATE OR REPLACE grant change](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_08/bcr-2433). Set `copy_grants: true` when you want `COPY GRANTS` instead. Dynamic tables are unchanged.
