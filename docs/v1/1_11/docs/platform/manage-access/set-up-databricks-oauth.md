@@ -45,7 +45,7 @@ Use the redirect URLs that correspond to your dbt account region when configurin
 
 info
 
-As part of the account-specific URL migration, some customers should update OAuth redirect URLs and other integration settings. Existing getdbt.com region URLs continue to support integrations until November 1st, 2026, unless otherwise specified. For more migration timing and account-specific URL guidance, refer to the [account URL migration documentation](../about-platform/account-url-migration.md).
+As part of the account-specific URL migration, some customers should update OAuth redirect URLs and other integration settings. Legacy region URLs continue to support integrations until the end-of-support date in the [migration timeline](../about-platform/account-url-migration.md#migration-timeline). For more migration timing and account-specific URL guidance, refer to the [account URL migration documentation](../about-platform/account-url-migration.md).
 
 | Region              | Redirect URLs                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------- |
