@@ -247,6 +247,50 @@ my-snowflake-db:
       token: [OAuth refresh token]
 ```
 
+(Applies to dbt v1.12 and later)
+
+### Workload Identity Federation
+
+Workload Identity Federation (WIF) lets you authenticate to Snowflake from a cloud workload using that platform's identity. Snowflake maps that identity to a service user, so you don't store a password or key. You can use an OpenID Connect (OIDC) token, such as one issued to a GitHub Actions workflow, or a native identity from AWS, Azure, or GCP.
+
+Before you configure dbt, create a Snowflake service user with workload identity. For that setup, refer to the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/workload-identity-federation).
+
+To authenticate with WIF, configure the following fields in your `profiles.yml` file:
+
+| Config                               | Required? | Description                                                                                                                                                                   |
+| ------------------------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `authenticator`                      | Yes       | Set to `workload_identity`.                                                                                                                                                   |
+| `workload_identity_provider`         | Yes       | The identity provider. Must be one of `OIDC`, `AWS`, `AZURE`, or `GCP`.                                                                                                       |
+| `token`                              | No        | Required for OIDC; pass it with `env_var()`. Omit this field for AWS, Azure, or GCP.                                                                                          |
+| `workload_identity_entra_resource`   | No        | Azure only. Leave this unset unless Snowflake expects a custom Entra app as the token audience. Set it to that app's application ID URI (for example `api://APPLICATION_ID`). |
+| `platform_detection_timeout_seconds` | No        | Set to a positive value when you use AWS, Azure, or GCP so the connector can detect the cloud environment. Defaults to `0.0`, which skips detection.                          |
+
+The `user` field is optional. Snowflake uses the service user mapped to this cloud identity.
+
+The following example uses OIDC:
+
+\~/.dbt/profiles.yml
+
+```yaml
+my-snowflake-db:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ACCOUNT_ID  # Snowflake account identifier
+      role: USER_ROLE  # Snowflake role to assume
+      database: DATABASE_NAME  # Snowflake database
+      warehouse: WAREHOUSE_NAME  # Snowflake warehouse
+      schema: SCHEMA_NAME  # dbt schema
+      threads: 1
+
+      authenticator: workload_identity
+      workload_identity_provider: OIDC  # Or AWS, AZURE, or GCP
+      token: "{{ env_var('SNOWFLAKE_TOKEN') }}"  # OIDC token
+```
+
+For AWS, Azure, or GCP, use the same configuration, but change the `workload_identity_provider` value and omit `token`.
+
 ## Configurations
 
 The "base" configs for Snowflake targets are shown below. Note that you should also specify auth-related configs specific to the authentication method you are using as described above.
@@ -256,7 +300,7 @@ The "base" configs for Snowflake targets are shown below. Note that you should a
 | Config                                | Required?            | Description                                                                                                                                                                                                                                                                  |
 | ------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account                               | Yes                  | The account to connect to as per [Snowflake's documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname). See notes [below](#account)                                                                |
-| user                                  | Yes                  | The user to log in as                                                                                                                                                                                                                                                        |
+| user                                  | Yes                  | The user to log in as. Optional for Workload Identity Federation.                                                                                                                                                                                                            |
 | database                              | Yes                  | The database that dbt should create models in                                                                                                                                                                                                                                |
 | warehouse                             | Yes                  | The warehouse to use when building models                                                                                                                                                                                                                                    |
 | schema                                | Yes                  | The schema to build models into by default. Can be overridden with [custom schemas](../../build/custom-schemas.md)                                                                                                                                    |
@@ -288,7 +332,7 @@ The `client_session_keep_alive` feature is intended to keep Snowflake sessions a
 The Snowflake connector uses the `platform_detection_timeout_seconds` parameter to determine how long it waits to detect the cloud platform for a connection. This parameter is available starting in dbt v1.10.
 
 * Set to `0.0` (default) to disable cloud platform detection for faster connections.
-* Set to a positive value only if you're using WIF authentication, which requires the connector to detect the cloud environment.
+* Set to a positive value if you're using WIF with AWS, Azure, or GCP, which requires the connector to detect the cloud environment.
 
 ### query\_tag
 

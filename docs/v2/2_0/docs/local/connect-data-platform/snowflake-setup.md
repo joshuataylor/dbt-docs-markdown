@@ -12,6 +12,7 @@ The Snowflake adapter for dbt v2 supports the following [authentication methods]
 * Key pair
 * Single sign-on (SSO)
 * Password with MFA
+* Workload Identity Federation
 
 note
 
@@ -231,6 +232,49 @@ default:
       warehouse: TRANSFORM
       schema: JANE_SMITH
 ```
+
+### Workload Identity Federation
+
+Workload Identity Federation (WIF) lets you authenticate to Snowflake from a cloud workload using that platform's identity. Snowflake maps that identity to a service user, so you don't store a password or key. You can use an OpenID Connect (OIDC) token, such as one issued to a GitHub Actions workflow, or a native identity from AWS, Azure, or GCP.
+
+Before you configure dbt, create a Snowflake service user with workload identity. For that setup, refer to the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/workload-identity-federation).
+
+To authenticate with WIF, configure the following fields in your `profiles.yml` file:
+
+| Config                             | Required? | Description                                                                                                                                                                   |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `method`                           | Yes       | Set to `workload_identity`.                                                                                                                                                   |
+| `workload_identity_provider`       | Yes       | The identity provider. Must be one of `OIDC`, `AWS`, `AZURE`, or `GCP`.                                                                                                       |
+| `token`                            | No        | Required for OIDC; pass it with `env_var()`. Omit this field for AWS, Azure, or GCP.                                                                                          |
+| `workload_identity_entra_resource` | No        | Azure only. Leave this unset unless Snowflake expects a custom Entra app as the token audience. Set it to that app's application ID URI (for example `api://APPLICATION_ID`). |
+
+Do not set the `authenticator` field. Setting both `method` and `authenticator` will prevent the profile from working.
+
+The `user` field is optional. Snowflake uses the service user mapped to this cloud identity.
+
+The following example uses OIDC:
+
+profiles.yml
+
+```yml
+default:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      threads: 16
+      account: ACCOUNT_ID  # Snowflake account identifier
+      role: USER_ROLE  # Snowflake role to assume
+      database: DATABASE_NAME  # Snowflake database
+      warehouse: WAREHOUSE_NAME  # Snowflake warehouse
+      schema: SCHEMA_NAME  # dbt schema
+
+      method: workload_identity
+      workload_identity_provider: OIDC  # Or AWS, AZURE, or GCP
+      token: "{{ env_var('SNOWFLAKE_TOKEN') }}"  # OIDC token
+```
+
+For AWS, Azure, or GCP, use the same configuration, but change the `workload_identity_provider` value and omit `token`. AWS, Azure, and GCP only work when dbt is running in that cloud environment.
 
 ## More information
 

@@ -23,11 +23,11 @@ These credentials are configured separately from dbt environment credentials and
 
 ## Configuration instructions
 
-### Enable external metadata ingestion
+Changes to external metadata ingestion toggle
 
-1. Click your account name at the bottom of the left-side menu and click **[Account settings](../platform/account-settings.md)**.
-2. Under Account information, go to **Settings** and click **Edit** at the top right corner of the page.
-3. Select the **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** option (if not already enabled).
+The **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** toggle has been removed from **Account settings**.
+
+External metadata ingestion is now set per connection, under the **Platform metadata credentials** section in the **Connections** configuration. The **External metadata ingestion** checkbox appears only on connections that already had ingestion turned on.
 
 ### Configure the warehouse connection
 
@@ -45,10 +45,10 @@ These credentials are configured separately from dbt environment credentials and
 
 5. Enter the necessary credentials. These should have warehouse-level visibility across relevant databases and schemas.
 
-6. Select the **External metadata ingestion** option.
+6. In the **Features** section, choose which features use these credentials:
 
-   * This allows metadata from this connection to populate the Catalog.
-   * *Optional*: Enable additional features such as **Cost insights** in the **Features** section under **Platform metadata credentials**.
+* External metadata ingestion: Brings non-dbt tables, views, and other metadta into Catalog. This option appears only if the connection already had ingestion turned on.
+* Cost insights (optional): Shows warehouse cost and performance data in dbt platform.
 
 7. Under **Catalog filters**, apply filters to restrict which metadata is ingested:
 

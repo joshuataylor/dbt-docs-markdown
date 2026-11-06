@@ -256,7 +256,7 @@ The "base" configs for Snowflake targets are shown below. Note that you should a
 | Config                                | Required?            | Description                                                                                                                                                                                                                                                                  |
 | ------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account                               | Yes                  | The account to connect to as per [Snowflake's documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname). See notes [below](#account)                                                                |
-| user                                  | Yes                  | The user to log in as                                                                                                                                                                                                                                                        |
+| user                                  | Yes                  | The user to log in as. Optional for Workload Identity Federation.                                                                                                                                                                                                            |
 | database                              | Yes                  | The database that dbt should create models in                                                                                                                                                                                                                                |
 | warehouse                             | Yes                  | The warehouse to use when building models                                                                                                                                                                                                                                    |
 | schema                                | Yes                  | The schema to build models into by default. Can be overridden with [custom schemas](../../build/custom-schemas.md)                                                                                                                                    |
@@ -288,7 +288,7 @@ The `client_session_keep_alive` feature is intended to keep Snowflake sessions a
 The Snowflake connector uses the `platform_detection_timeout_seconds` parameter to determine how long it waits to detect the cloud platform for a connection. This parameter is available starting in dbt v1.10.
 
 * Set to `0.0` (default) to disable cloud platform detection for faster connections.
-* Set to a positive value only if you're using WIF authentication, which requires the connector to detect the cloud environment.
+* Set to a positive value if you're using WIF with AWS, Azure, or GCP, which requires the connector to detect the cloud environment.
 
 ### query\_tag
 
