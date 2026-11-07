@@ -108,13 +108,13 @@ This section covers dbt Wizard in the dbt platform. For what the CLI collects an
 
 ![How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.](/img/docs/dbt-platform/wizard-architecture-platform.png?v=2 "How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.")How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.
 
-Your prompt, project metadata, and any query results you approve are sent to the AI provider over TLS. Warehouse credentials are never shared, queries run only after you approve them, and dbt Labs-managed providers can't retain your data or train on it.
+Your prompt, project metadata, and any query results you approve are sent to the AI provider over TLS. Warehouse credentials are not shared, queries run only after you approve them, and dbt Labs-managed providers can't persistently retain your data or train on it.
 
  Does dbt Wizard access my warehouse data?
 
 dbt Wizard can run dbt commands and queries on your behalf, and every query needs your explicit permission first. When a query runs, dbt Wizard sends those results — which may include row-level data — to the AI provider so it can respond in your session.
 
-For dbt-managed AI providers, we have zero data retention (ZDR) agreements in place that prevents the provider from retaining or using this data for training. If you bring your own AI provider (BYOK), that provider's terms will govern retention and training. Always review AI output for accuracy.
+For dbt-managed AI providers, we have agreements in place that prevent the provider from using this data for training, and have limited retention. If you bring your own AI provider (BYOK), that provider's terms will govern retention and training. Always review AI output for accuracy.
 
 Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
 
@@ -126,7 +126,7 @@ You control the information you submit to dbt Wizard. dbt Labs does not use your
 
  Is my data used by dbt Labs to train AI models?
 
-No. dbt Labs does not use customer content processed by dbt Wizard — including warehouse query results, prompts, or conversation history — for AI model training. A zero data retention (ZDR) policy is also in place with AI providers, which prevents training on the provider side as well.
+No. dbt Labs does not use customer content processed by dbt Wizard — including warehouse query results, prompts, or conversation history — for AI model training. Our terms with AI providers prevent training on the provider side as well.
 
  Does dbt Labs share my personal data with third parties?
 
