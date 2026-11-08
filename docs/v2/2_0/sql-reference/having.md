@@ -25,7 +25,7 @@ That example syntax looks a little gibberish without some real fields, so let’
 
 ### SQL HAVING example
 
-### HAVING example
+#### HAVING example
 
 ```sql
 select
@@ -36,7 +36,7 @@ group by 1
 having num_orders > 1 --if you replace this with `where`, this query would not successfully run
 ```
 
-### CTE example
+#### CTE example
 
 ```sql
 with counts as (

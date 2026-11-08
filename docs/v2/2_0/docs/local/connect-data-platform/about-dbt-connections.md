@@ -20,10 +20,6 @@ dbt v2 includes built-in support for:
 
 *Adapter lifecycle can differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-<br />
-
-<br />
-
 dbt v2 uses [ADBC (Arrow Database Connectivity)](https://arrow.apache.org/adbc/) drivers for high-performance connections to these platforms. No separate adapter installation is required.
 
 ## Connection profiles
@@ -34,4 +30,4 @@ For detailed configuration options, refer to [Connection profiles](../profiles.y
 
 ## Next steps
 
-For step-by-step setup instructions with demo project data, see our [Quickstart guides](../../../guides.md).
+For step-by-step setup instructions with demo project data, see our [Quickstart guides](https://docs.getdbt.com/guides).

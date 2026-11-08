@@ -166,7 +166,7 @@ Doing this ensures saved queries and exports are included in your dbt build job.
 
 If exports aren't needed, you can set the value(s) to `FALSE` ((Applies to dbt v1.11 and later) `DBT_ENGINE_EXPORT_SAVED_QUERIES=FALSE`).
 
-[![Add an environment variable to run exports in your production run.](/img/docs/dbt-platform/semantic-layer/env-var-dbt-exports.png?v=2 "Add an environment variable to run exports in your production run.")](#)Add an environment variable to run exports in your production run.
+![Add an environment variable to run exports in your production run.](/img/docs/dbt-platform/semantic-layer/env-var-dbt-exports.png?v=2 "Add an environment variable to run exports in your production run.")Add an environment variable to run exports in your production run.
 
 When you run a build job, any saved queries downstream of the dbt models in that job will also run. To make sure your export data is up-to-date, run the export as a downstream step (after the model).
 

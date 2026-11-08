@@ -129,4 +129,4 @@ To use model-level notifications, your dbt account must have access to the featu
 2. From **Email notifications**, enable the setting **Enable group/owner notifications on models** under the **Model notifications** section. Then, specify which statuses to receive notifications about (Success, Warning, and/or Fails).
 3. Click **Save**.
 
-[![Example of the setting Enable group/owner notifications on models](/img/docs/dbt-platform/example-enable-model-notifications.png?v=2 "Example of the setting Enable group/owner notifications on models")](#)Example of the setting Enable group/owner notifications on models
+![Example of the setting Enable group/owner notifications on models](/img/docs/dbt-platform/example-enable-model-notifications.png?v=2 "Example of the setting Enable group/owner notifications on models")Example of the setting Enable group/owner notifications on models

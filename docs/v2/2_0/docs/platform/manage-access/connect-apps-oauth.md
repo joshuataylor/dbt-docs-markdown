@@ -12,7 +12,7 @@ This feature is available to Account admins on Starter, Enterprise or Enterprise
 
 To access this section, go to **Account settings** → **Integrations** → **App integrations**.
 
-[![App integrations page showing manually and dynamically registered OAuth clients](/img/docs/dbt-cloud/app-integrations-oauth.png?v=2 "App integrations page showing manually and dynamically registered OAuth clients")](#)App integrations page showing manually and dynamically registered OAuth clients
+![App integrations page showing manually and dynamically registered OAuth clients](/img/docs/dbt-cloud/app-integrations-oauth.png?v=2 "App integrations page showing manually and dynamically registered OAuth clients")App integrations page showing manually and dynamically registered OAuth clients
 
 ## Registration methods
 
@@ -64,13 +64,13 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 1. In your AI tool, go to its connector settings and choose to add a custom connector (in Claude Desktop, go to **Chat → Customize → Connectors**, then click **Add custom connector**).
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
 
-   [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
+   ![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")Custom connector dialog showing the dbt MCP URL
 3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](./connect-apps-oauth.md#scopes-and-consent).
 
-   [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
+   ![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
 
-   [![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")](#)Adding a custom dbt connector in an AI tool's connector settings
+   ![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")Adding a custom dbt connector in an AI tool's connector settings
 5. That's it 🎉! Ask your tool a data question like *"What is the total revenue for the last 30 days?"* to confirm the connection.
 
 For more information on remote MCP OAuth setup, see [Use the remote dbt MCP server](../../dbt-ai/mcp-quickstart-remote.md).
@@ -85,7 +85,7 @@ From the consent screen, the user can:
 * Choose whether to grant access to **all projects** or only **selected projects**.
 * Toggle **Keep session alive** to control whether dbt automatically refreshes their session (see [Sessions and refresh tokens](#sessions-and-refresh-tokens)).
 
-[![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
+![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")OAuth consent screen showing requested scopes and project access
 
 The exact scopes shown depend on what the connecting tool requests. The full list of available scopes is:
 
@@ -118,7 +118,7 @@ Users can opt out of automatic refresh at consent time by turning off **Keep ses
 
 To revoke an OAuth grant, the user disconnects dbt from their MCP client — for example, by removing the dbt connector in the client's settings. We'll soon add the ability to revoke access in dbt platform.
 
-[![MCP client connectors page with the option to remove the dbt connector](/img/docs/dbt-cloud/oauth-disconnect-client.png?v=2 "MCP client connectors page with the option to remove the dbt connector")](#)MCP client connectors page with the option to remove the dbt connector
+![MCP client connectors page with the option to remove the dbt connector](/img/docs/dbt-cloud/oauth-disconnect-client.png?v=2 "MCP client connectors page with the option to remove the dbt connector")MCP client connectors page with the option to remove the dbt connector
 
 ## Audit logging
 
@@ -131,4 +131,4 @@ Audited OAuth events include:
 
 Actions a user performs through an OAuth-connected client — for example, creating a job or running a model — appear in the audit log with the **user as the actor**, the same as actions taken through the dbt UI or with a personal access token.
 
-[![Audit log entry for an action taken through an OAuth-connected client](/img/docs/dbt-cloud/oauth-audit-log.png?v=2 "Audit log entry for an action taken through an OAuth-connected client")](#)Audit log entry for an action taken through an OAuth-connected client
+![Audit log entry for an action taken through an OAuth-connected client](/img/docs/dbt-cloud/oauth-audit-log.png?v=2 "Audit log entry for an action taken through an OAuth-connected client")Audit log entry for an action taken through an OAuth-connected client

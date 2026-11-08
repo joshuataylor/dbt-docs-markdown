@@ -77,7 +77,7 @@ Suppose you have two semantic models, `VISITS` and `BUYS`:
 
 The underlying tables look like the following:
 
-`VISITS`<br />Contains user visits with `USER_ID` and `REFERRER_ID`.
+`VISITS` Contains user visits with `USER_ID` and `REFERRER_ID`.
 
 | DS         | USER\_ID | REFERRER\_ID |
 | ---------- | -------- | ------------ |
@@ -85,7 +85,7 @@ The underlying tables look like the following:
 | 2020-01-04 | bob      | google       |
 | 2020-01-07 | bob      | amazon       |
 
-`BUYS`<br />Records completed orders with `USER_ID` and `REFERRER_ID`.
+`BUYS` Records completed orders with `USER_ID` and `REFERRER_ID`.
 
 | DS         | USER\_ID | REFERRER\_ID |
 | ---------- | -------- | ------------ |
@@ -262,7 +262,7 @@ Use the following additional settings to customize your conversion metrics:
 * **Calculation type:** Choose between showing raw conversions or conversion rate.
 * **Constant property:** Add conditions for specific scenarios to join conversions on constant properties.
 
-### Set null conversion events to zero
+#### Set null conversion events to zero
 
 To return zero in the final data set, you can set the value of a null conversion event to zero instead of null. You can add the `fill_nulls_with` parameter to your conversion metric definition like this:
 
@@ -295,11 +295,11 @@ metrics:
 
 This will return the following results:
 
-[![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")](#)Conversion metric with fill nulls with parameter
+![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")Conversion metric with fill nulls with parameter
 
 Refer to [Fill null values for metrics](./fill-nulls-advanced.md) for more info.
 
-### Set calculation type parameter
+#### Set calculation type parameter
 
 Use the conversion calculation parameter to either show the raw number of conversions or the conversion rate. The default value is the conversion rate.
 
@@ -321,7 +321,7 @@ metrics:
     fill_nulls_with: 0
 ```
 
-### Set constant property
+#### Set constant property
 
 *Refer to [Amplitude's blog posts on constant properties](https://amplitude.com/blog/holding-constant) to learn about this concept.*
 
@@ -330,7 +330,6 @@ You can add a constant property to a conversion metric to count only those conve
 For example, if you're at an e-commerce company and want to answer the following question:
 
 * *How often did visitors convert from `View Item Details` to `Complete Purchase` with the same product in each step?*
-  <br />
   * This question is tricky to answer because users could have completed these two conversion milestones across many products. For example, they may have viewed a pair of shoes, then a T-shirt, and eventually checked out with a bow tie. This would still count as a conversion, even though the conversion event only happened for the bow tie.
 
 Back to the initial questions, you want to see how many customers viewed an item detail page and then completed a purchase for the *same* product.

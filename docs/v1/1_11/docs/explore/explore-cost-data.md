@@ -33,7 +33,7 @@ For accounts already using dbt State or state-aware orchestration before Cost In
 
 The Cost Insights section in your project dashboard gives you a high-level view of warehouse costs and the impact of optimization through dbt State or state-aware orchestration.
 
-[![Cost Insights in the project dashboard](/img/docs/dbt-platform/cost-insights/cost-insights-project.png?v=2 "Cost Insights in the project dashboard")](#)Cost Insights in the project dashboard
+![Cost Insights in the project dashboard](/img/docs/dbt-platform/cost-insights/cost-insights-project.png?v=2 "Cost Insights in the project dashboard")Cost Insights in the project dashboard
 
 ### Access
 
@@ -90,7 +90,7 @@ When viewing the table, you can export the data as a CSV file using the **Downlo
 
 The **Model performance** section in Catalog displays historical trends to help you identify optimization opportunities and understand model resource consumption.
 
-[![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")](#)Cost Insights in Catalog
+![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")Cost Insights in Catalog
 
 ### Access
 
@@ -160,7 +160,7 @@ For **Build time** and **Build count** tabs:
 
 The **Insights** section on the Job details page provides cost and performance data for individual jobs.
 
-[![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")](#)Cost Insights in job details
+![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")Cost Insights in job details
 
 ### Access
 

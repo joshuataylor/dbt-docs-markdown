@@ -106,7 +106,7 @@ This is the default option and use it if you want to use dbt managed AI provider
 1. Unless not selected, select the toggle for **dbt Labs** to use a dbt Labs' managed key.
 2. Click **Save**.
 
-[![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
+![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")Example of the dbt Labs integration page
 
 **Managed by you (BYOK)**
 
@@ -114,7 +114,7 @@ This is the default option and use it if you want to use dbt managed AI provider
 2. Enter your OpenAI API key.
 3. Click **Save**.
 
-[![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")](#)Example of the OpenAI integration page
+![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")Example of the OpenAI integration page
 
 Data residency limitation
 
@@ -147,7 +147,7 @@ Supported formats include:
 * `https://<resource>.openai.azure.com/openai/deployments/<deployment>/chat/completions?api-version=<version>`
 * `https://<resource>.openai.azure.com/openai/responses?api-version=<version>`
 
-[![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
+![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")Example of the Azure AI Foundry integration section
 
 To bring your own key instead of using dbt Labs' managed infrastructure, refer to [Configure BYOK for dbt Wizard in dbt platform](./wizard-byok-platform.md). BYOK is available on Starter, Enterprise, and Enterprise+ plans.
 

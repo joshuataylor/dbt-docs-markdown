@@ -8,7 +8,7 @@ dbt is powered by open source and source-available software, and has a generous 
 
 #### Search the existing documentation
 
-The docs site you're on is highly searchable, make sure to explore for the answer here as a first step. If you're new to dbt, try working through the [quickstart guide](../../guides.md) first to get a firm foundation on the essential concepts.
+The docs site you're on is highly searchable, make sure to explore for the answer here as a first step. If you're new to dbt, try working through the [quickstart guide](https://docs.getdbt.com/guides) first to get a firm foundation on the essential concepts.
 
 #### Try to debug the issue yourself
 

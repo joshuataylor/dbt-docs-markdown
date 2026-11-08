@@ -53,7 +53,7 @@ Before requesting a private endpoint, allowlist dbt Labs' AWS account in Snowfla
 
 2. Wait for Snowflake to confirm access has been granted before proceeding.
 
-   [![Open snowflake case](/img/docs/dbt-platform/snowflakeprivatelink1.png?v=2 "Open snowflake case")](#)Open snowflake case
+   ![Open snowflake case](/img/docs/dbt-platform/snowflakeprivatelink1.png?v=2 "Open snowflake case")Open snowflake case
 
 #### Request a new private endpoint
 
@@ -71,7 +71,7 @@ After Snowflake confirms they've allowlisted dbt Labs' AWS account in Snowflake,
 
    You can search by **Name** or **URL**. The table lists all private endpoints in your account, but self-serve create, edit, and delete is only available for Snowflake on AWS at this time.
 
-   [![Private endpoints table showing existing endpoints, connectivity status, and the Request new button](/img/docs/dbt-platform/private-endpoint-page.png?v=2 "Private endpoints table showing existing endpoints, connectivity status, and the Request new button")](#)Private endpoints table showing existing endpoints, connectivity status, and the Request new button
+   ![Private endpoints table showing existing endpoints, connectivity status, and the Request new button](/img/docs/dbt-platform/private-endpoint-page.png?v=2 "Private endpoints table showing existing endpoints, connectivity status, and the Request new button")Private endpoints table showing existing endpoints, connectivity status, and the Request new button
 
 3. To request a new endpoint, click **Request new**.
 
@@ -85,7 +85,7 @@ After Snowflake confirms they've allowlisted dbt Labs' AWS account in Snowflake,
 
 8. Click **Submit request**.
 
-   [![Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields](/img/docs/dbt-platform/private-endpoint-config.png?v=2 "Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields")](#)Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields
+   ![Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields](/img/docs/dbt-platform/private-endpoint-config.png?v=2 "Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields")Endpoint request form showing Provider type, SQL command snippet, and Snowflake output fields
 
 9. After submission, a confirmation popup appears (for example, **Endpoint request submitted**). From the popup, you can request another endpoint or return to **Private endpoints** to track request status.
 
@@ -107,7 +107,7 @@ If you don't see **Edit** or **Delete endpoint**, contact your account manager t
 4. Click **Save changes**.
 5. In the **Save changes?** modal, click **Save changes** to apply your updates.
 
-[![Private endpoint details page with the Edit button](/img/docs/dbt-platform/private-endpoint-details-edit.png?v=2 "Private endpoint details page with the Edit button")](#)Private endpoint details page with the Edit button
+![Private endpoint details page with the Edit button](/img/docs/dbt-platform/private-endpoint-details-edit.png?v=2 "Private endpoint details page with the Edit button")Private endpoint details page with the Edit button
 
 **Delete an endpoint**
 
@@ -118,7 +118,7 @@ An endpoint with associated connections can't be deleted. Remove those connectio
 3. Scroll to the bottom of the page and click **Delete endpoint**.
 4. In the **Delete endpoint** modal, type `DELETE` to confirm, then click **Delete endpoint**.
 
-[![Private endpoint details page in edit mode with the Delete endpoint button](/img/docs/dbt-platform/private-endpoint-details-delete.png?v=2 "Private endpoint details page in edit mode with the Delete endpoint button")](#)Private endpoint details page in edit mode with the Delete endpoint button
+![Private endpoint details page in edit mode with the Delete endpoint button](/img/docs/dbt-platform/private-endpoint-details-delete.png?v=2 "Private endpoint details page in edit mode with the Delete endpoint button")Private endpoint details page in edit mode with the Delete endpoint button
 
 #### Duplicate endpoint requests
 
@@ -129,7 +129,7 @@ If you submit a request using a VPCE ID that matches an existing endpoint, dbt p
 
 Select your preferred option and click **Confirm & Submit**.
 
-[![Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one](/img/docs/dbt-platform/endpoint-exists.png?v=2 "Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one")](#)Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one
+![Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one](/img/docs/dbt-platform/endpoint-exists.png?v=2 "Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one")Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one
 
 #### Troubleshooting and errors
 
@@ -150,7 +150,7 @@ To configure Snowflake instances hosted on AWS for [PrivateLink](https://aws.ama
      * **AWS account ID**: `346425330055` — *Note: This account ID only applies to AWS dbt multi-tenant environments. For AWS Virtual Private/Single-Tenant account IDs, contact [dbt Support](mailto:support@getdbt.com).*
    * You need [Snowflake's `ACCOUNTADMIN` permissions](https://docs.snowflake.com/en/user-guide/security-access-control-overview#system-defined-roles).
 
-[![Open snowflake case](/img/docs/dbt-platform/snowflakeprivatelink1.png?v=2 "Open snowflake case")](#)Open snowflake case
+![Open snowflake case](/img/docs/dbt-platform/snowflakeprivatelink1.png?v=2 "Open snowflake case")Open snowflake case
 
 2. After Snowflake has granted the requested access, run the Snowflake system function [SYSTEM$GET\_PRIVATELINK\_CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config.html) and copy the output.
 
@@ -201,7 +201,7 @@ s3_stage_vpce_dns_name: '*.vpce-012345678abcdefgh-4321dcba.s3.us-west-2.vpce.ama
 
 4. Save the changes.
 
-[![Internal Stage DNS](/img/docs/dbt-platform/snowflake-internal-stage-dns.png?v=2 "Internal Stage DNS")](#)Internal Stage DNS
+![Internal Stage DNS](/img/docs/dbt-platform/snowflake-internal-stage-dns.png?v=2 "Internal Stage DNS")Internal Stage DNS
 
 ## Configuring network policies
 
@@ -231,13 +231,13 @@ Open the Snowflake UI and take the following steps:
 7. Enter the VPCE ID from the endpoint details page in dbt platform (or from dbt Support if you used Support-led setup) into the identifier box.
 8. Click **Create Network Rule**.
 
-[![Create Network Rule](/img/docs/dbt-platform/snowflakeprivatelink2.png?v=2 "Create Network Rule")](#)Create Network Rule
+![Create Network Rule](/img/docs/dbt-platform/snowflakeprivatelink2.png?v=2 "Create Network Rule")Create Network Rule
 
 9. In the **Network Policy** tab, edit the policy you want to add the rule to. This could be your account-level policy or a policy specific to the users connecting from dbt.
 
 10. Add the new rule to the allowed list and click **Update Network Policy**.
 
-[![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")](#)Update Network Policy
+![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")Update Network Policy
 
 ### Using SQL
 

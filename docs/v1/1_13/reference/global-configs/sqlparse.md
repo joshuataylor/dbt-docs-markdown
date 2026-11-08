@@ -11,8 +11,6 @@ Supported keys:
 | `MAX_GROUPING_DEPTH`  | Sets the maximum nesting depth when grouping tokens           |
 | `MAX_GROUPING_TOKENS` | Sets the maximum number of tokens that can be grouped at once |
 
-<br />
-
 Each key accepts a single value: an integer or `null`. The default value for both keys is `null`, which means dbt does not apply a custom limit.
 
 `sqlparse` enforces built-in limits (`MAX_GROUPING_DEPTH = 100` and `MAX_GROUPING_TOKENS = 10000`) to prevent excessive resource usage. Setting a value to `null` disables the limit entirely.

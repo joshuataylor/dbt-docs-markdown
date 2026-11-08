@@ -1,8 +1,6 @@
 # Get started with Continuous Integration tests
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -18,7 +16,7 @@ In this guide, we're going to add a **CI environment**, where proposed changes c
 
 Your git flow will look like this:
 
-[![git flow diagram](/img/best-practices/environment-setup/one-branch-git.png?v=2 "git flow diagram")](#)git flow diagram
+![git flow diagram](/img/best-practices/environment-setup/one-branch-git.png?v=2 "git flow diagram")git flow diagram
 
 ### Prerequisites
 
@@ -129,7 +127,7 @@ You can run SQLFluff as part of your pipeline even if you don't have access to [
 
 The YAML files defined below are what tell your code hosting platform the steps to run. In this setup, you’re telling the platform to run a SQLFluff lint job every time a commit is pushed.
 
-### GitHub
+#### GitHub
 
 GitHub Actions are defined in the `.github/workflows` directory. To define the job for your action, add a new file named `lint_on_push.yml` under the `workflows` folder. Your final folder structure will look like this:
 
@@ -176,7 +174,7 @@ jobs:
         run: "sqlfluff lint models --dialect snowflake"
 ```
 
-### GitLab
+#### GitLab
 
 Create a `.gitlab-ci.yml` file in your **root directory** to define the triggers for when to execute the script below. You’ll put the code below into this file.
 
@@ -210,7 +208,7 @@ lint-project:
     - sqlfluff lint models --dialect snowflake
 ```
 
-### Bitbucket
+#### Bitbucket
 
 Create a `bitbucket-pipelines.yml` file in your **root directory** to define the triggers for when to execute the script below. You’ll put the code below into this file.
 
@@ -249,35 +247,35 @@ pipelines:
 
 After you finish creating the YAML files, commit and push your code to trigger your pipeline for the first time. If everything goes well, you should see the pipeline in your code platform. When you click into the job you’ll get a log showing that SQLFluff was run. If your code failed linting you’ll get an error in the job with a description of what needs to be fixed. If everything passed the lint check, you’ll see a successful job run.
 
-### GitHub
+#### GitHub
 
 In your repository, click the *Actions* tab
 
-[![Image showing the GitHub action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-github.png?v=2 "Image showing the GitHub action for lint on push")](#)Image showing the GitHub action for lint on push
+![Image showing the GitHub action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-github.png?v=2 "Image showing the GitHub action for lint on push")Image showing the GitHub action for lint on push
 
 Sample output from SQLFluff in the `Run SQLFluff linter` job:
 
-[![Image showing the logs in GitHub for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-github.png?v=2 "Image showing the logs in GitHub for the SQLFluff run")](#)Image showing the logs in GitHub for the SQLFluff run
+![Image showing the logs in GitHub for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-github.png?v=2 "Image showing the logs in GitHub for the SQLFluff run")Image showing the logs in GitHub for the SQLFluff run
 
-### GitLab
+#### GitLab
 
 In the menu option go to *CI/CD > Pipelines*
 
-[![Image showing the GitLab action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-gitlab.png?v=2 "Image showing the GitLab action for lint on push")](#)Image showing the GitLab action for lint on push
+![Image showing the GitLab action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-gitlab.png?v=2 "Image showing the GitLab action for lint on push")Image showing the GitLab action for lint on push
 
 Sample output from SQLFluff in the `Run SQLFluff linter` job:
 
-[![Image showing the logs in GitLab for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-gitlab.png?v=2 "Image showing the logs in GitLab for the SQLFluff run")](#)Image showing the logs in GitLab for the SQLFluff run
+![Image showing the logs in GitLab for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-gitlab.png?v=2 "Image showing the logs in GitLab for the SQLFluff run")Image showing the logs in GitLab for the SQLFluff run
 
-### Bitbucket
+#### Bitbucket
 
 In the left menu pane, click on *Pipelines*
 
-[![Image showing the Bitbucket action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-bitbucket.png?v=2 "Image showing the Bitbucket action for lint on push")](#)Image showing the Bitbucket action for lint on push
+![Image showing the Bitbucket action for lint on push](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-bitbucket.png?v=2 "Image showing the Bitbucket action for lint on push")Image showing the Bitbucket action for lint on push
 
 Sample output from SQLFluff in the `Run SQLFluff linter` job:
 
-[![Image showing the logs in Bitbucket for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-bitbucket.png?v=2 "Image showing the logs in Bitbucket for the SQLFluff run")](#)Image showing the logs in Bitbucket for the SQLFluff run
+![Image showing the logs in Bitbucket for the SQLFluff run](/img/guides/orchestration/custom-cicd-pipelines/lint-on-push-logs-bitbucket.png?v=2 "Image showing the logs in Bitbucket for the SQLFluff run")Image showing the logs in Bitbucket for the SQLFluff run
 
 ## Advanced: Create a release train with additional environments
 
@@ -295,7 +293,7 @@ In this section, we will add a new **QA** environment. New features will branch 
 
 The git flow will look like this:
 
-[![git flow diagram with an intermediary branch](/img/best-practices/environment-setup/many-branch-git.png?v=2 "git flow diagram with an intermediary branch")](#)git flow diagram with an intermediary branch
+![git flow diagram with an intermediary branch](/img/best-practices/environment-setup/many-branch-git.png?v=2 "git flow diagram with an intermediary branch")git flow diagram with an intermediary branch
 
 ### Advanced prerequisites
 
@@ -309,7 +307,7 @@ As noted above, this branch will outlive any individual feature, and will be the
 
 See [Custom branch behavior](../docs/dbt-platform-environments.md#custom-branch-behavior). Setting `qa` as your custom branch ensures that the IDE creates new branches and PRs with the correct target, instead of using `main`.
 
-[![A demonstration of configuring a custom branch for an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/dev-environment-custom-branch.png?v=2 "A demonstration of configuring a custom branch for an environment")](#)A demonstration of configuring a custom branch for an environment
+![A demonstration of configuring a custom branch for an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/dev-environment-custom-branch.png?v=2 "A demonstration of configuring a custom branch for an environment")A demonstration of configuring a custom branch for an environment
 
 ### 3. Create a new QA environment
 

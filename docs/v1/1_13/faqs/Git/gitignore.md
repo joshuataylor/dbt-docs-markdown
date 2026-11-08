@@ -30,7 +30,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 4. Save the changes but *don't commit*.
 5. Restart the IDE by clicking on the three dots next to the **IDE Status button** on the lower right corner of the IDE screen and select **Restart IDE**.
 
-[![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")](#)Restart the IDE by clicking the three dots on the lower right or click on the Status bar
+![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")Restart the IDE by clicking the three dots on the lower right or click on the Status bar
 
 6. Once the Studio IDE restarts, go to the **File Catalog** to delete the following files or folders (if they exist). No data will be lost:
 
@@ -52,7 +52,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 
 13. Verify the changes by making sure the files/folders in the `.gitignore` file are in italics.
 
-[![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")](#)A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
+![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
 
  Fix in the Git provider
 
@@ -60,7 +60,7 @@ Sometimes it's necessary to use the git providers web interface to fix a broken 
 
 There are two options for this approach: editing the main branch directly if allowed, or creating a pull request to implement the changes if required:
 
-### Edit in main branch
+## Edit in main branch
 
 When permissions allow it, it's possible to edit the `.gitignore` directly on the main branch of your repo. Here are the following steps:
 
@@ -88,7 +88,7 @@ dbt_modules/
 11. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.
 12. Great job 🎉! You've configured the `.gitignore` correctly and can continue with your development!
 
-### Unable to edit main branch
+## Unable to edit main branch
 
 If you can't edit the `.gitignore` directly on the main branch of your repo, follow these steps:
 

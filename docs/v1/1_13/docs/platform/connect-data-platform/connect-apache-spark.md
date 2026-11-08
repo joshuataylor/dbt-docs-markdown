@@ -30,4 +30,4 @@ The following fields are available when creating an Apache Spark connection usin
 | Auth                  | Optional, supply if using Kerberos                              | `KERBEROS`              |
 | Kerberos Service Name | Optional, supply if using Kerberos                              | `hive`                  |
 
-[![Configuring a Spark connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/spark-connection.png?v=2 "Configuring a Spark connection")](#)Configuring a Spark connection
+![Configuring a Spark connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/spark-connection.png?v=2 "Configuring a Spark connection")Configuring a Spark connection

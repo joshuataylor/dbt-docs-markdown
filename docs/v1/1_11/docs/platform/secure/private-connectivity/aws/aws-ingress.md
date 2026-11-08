@@ -50,7 +50,7 @@ Private DNS on the endpoint only works once dbt (the provider) has verified the 
 2. (Optional) Add a **Name tag** to identify the endpoint.
 3. Under **Type**, select **Endpoint services that use NLBs and GWLBs**.
 
-[![Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type](/img/docs/dbt-platform/aws-ingress-privatelink/create-endpoint-select-type.png?v=2 "Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type")](#)Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type
+![Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type](/img/docs/dbt-platform/aws-ingress-privatelink/create-endpoint-select-type.png?v=2 "Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type")Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type
 
 ### Step 2: Enter and verify the service name
 
@@ -58,14 +58,14 @@ Private DNS on the endpoint only works once dbt (the provider) has verified the 
 2. Leave **Enable Cross Region endpoint** unchecked — the endpoint is created in the same Region as the service.
 3. Select **Verify service** and confirm you see **Service name verified**.
 
-[![Service name entered and verified, with Cross Region endpoint left disabled](/img/docs/dbt-platform/aws-ingress-privatelink/verify-service-name.png?v=2 "Service name entered and verified, with Cross Region endpoint left disabled")](#)Service name entered and verified, with Cross Region endpoint left disabled
+![Service name entered and verified, with Cross Region endpoint left disabled](/img/docs/dbt-platform/aws-ingress-privatelink/verify-service-name.png?v=2 "Service name entered and verified, with Cross Region endpoint left disabled")Service name entered and verified, with Cross Region endpoint left disabled
 
 ### Step 3: Select your VPC and enable private DNS
 
 1. Under **Network settings**, select the **VPC** where your workloads run.
 2. Expand **Additional settings** and select **Enable private DNS name**.
 
-[![Enable private DNS name selected under Additional settings](/img/docs/dbt-platform/aws-ingress-privatelink/enable-private-dns-name.png?v=2 "Enable private DNS name selected under Additional settings")](#)Enable private DNS name selected under Additional settings
+![Enable private DNS name selected under Additional settings](/img/docs/dbt-platform/aws-ingress-privatelink/enable-private-dns-name.png?v=2 "Enable private DNS name selected under Additional settings")Enable private DNS name selected under Additional settings
 
 Always enable private DNS name
 
@@ -81,7 +81,7 @@ Selecting **Enable private DNS name** automatically provisions the private hoste
 
 The endpoint is created in a **Pending** state while dbt accepts the connection, then moves to **Available**. Once available, the **Private DNS names enabled** field shows **Yes** and the **Private DNS names** list includes your `*.<customer_name>.private.dbt.com` record.
 
-[![Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record](/img/docs/dbt-platform/aws-ingress-privatelink/endpoint-available.png?v=2 "Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record")](#)Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record
+![Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record](/img/docs/dbt-platform/aws-ingress-privatelink/endpoint-available.png?v=2 "Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record")Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record
 
 ### Step 6: (Optional) Configure DNS for on-premises access
 

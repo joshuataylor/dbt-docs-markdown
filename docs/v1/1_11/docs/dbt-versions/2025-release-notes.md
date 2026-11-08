@@ -43,7 +43,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
   * Copy the page as raw Markdown — This makes it easier to reference or reuse documentation content.
   * Open the page directly in ChatGPT or Claude — This redirects you to a chat with the LLM and automatically loads a message asking it to read the page, helping you start a conversation with context from the page.
 
-  [![LLM Context menu on documentation pages](/img/llm-menu.png?v=2 "LLM Context menu on documentation pages")](#)LLM Context menu on documentation pages
+  ![LLM Context menu on documentation pages](/img/llm-menu.png?v=2 "LLM Context menu on documentation pages")LLM Context menu on documentation pages
 
 * **Enhancement**: The CodeGenCodeLen feature has been re-introduced to the Studio IDE. This feature was [temporarily](#pre-coalesce) removed in the previous release due to compatibility issues.
 

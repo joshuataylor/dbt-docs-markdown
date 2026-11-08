@@ -19,7 +19,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 * **Definable and not enforced** — The platform supports specifying the type of constraint, but a model can still build even if building the model violates the constraint. This constraint exists for metadata purposes only. This approach is more typical in cloud data warehouses than in transactional databases, where strict rule enforcement is more common.
 * **Not definable and not enforced** — You can't specify the type of constraint for the platform.
 
-### Redshift
+#### Redshift
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -29,7 +29,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-### Snowflake
+#### Snowflake
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -39,7 +39,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-### BigQuery
+#### BigQuery
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -49,7 +49,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 | unique          | ❌        | ❌       |
 | check           | ❌        | ❌       |
 
-### Postgres
+#### Postgres
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -59,7 +59,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 | unique          | ✅        | ✅       |
 | check           | ✅        | ✅       |
 
-### Spark
+#### Spark
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -71,7 +71,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ✅        | ❌       |
 | check           | ✅        | ❌       |
 
-### Databricks
+#### Databricks
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -83,7 +83,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ❌        | ❌       |
 | check           | ✅        | ✅       |
 
-### Fabric
+#### Fabric
 
 Microsoft Fabric creates the table first, then adds some constraints in separate steps. Only `not_null` is checked when the model builds. Primary key, foreign key, and unique constraints are recorded on the table for reference, but Fabric does not check them when new data is added. Define `primary_key`, `foreign_key`, and `unique` at the model level. The adapter ignores those constraint types at the column level.
 
@@ -95,7 +95,7 @@ Microsoft Fabric creates the table first, then adds some constraints in separate
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-### Athena
+#### Athena
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |

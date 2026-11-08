@@ -4,7 +4,7 @@ Local development | dbt platform
 
 Column-level lineage (CLL) gives you insight into the provenance of your data products at a more granular level. For each column in a resource (model, source, or snapshot) in a dbt project, dbt provides end-to-end lineage for the data in that column given how it's used.
 
-[![Overview of column level lineage](/img/docs/collaborate/dbt-explorer/example-overview-cll.png?v=2 "Overview of column level lineage")](#)Overview of column level lineage
+![Overview of column level lineage](/img/docs/collaborate/dbt-explorer/example-overview-cll.png?v=2 "Overview of column level lineage")Overview of column level lineage
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ There is no additional setup required for CLL in Catalog if your account is an E
 
 dbt updates the lineage in Catalog after each run that's executed in the production or staging environment. (Applies to dbt v1.99 and earlier) At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
 
-[![Example of the Columns tab and where to open the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to open the CLL")](#)Example of the Columns tab and where to open the CLL
+![Example of the Columns tab and where to open the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to open the CLL")Example of the Columns tab and where to open the CLL
 
 ## Access column-level lineage locally
 
@@ -37,7 +37,7 @@ When you develop with dbt v2, you can see column-level lineage in these ways:
 
 You can use the column evolution lineage lens to determine when a column is transformed vs. reused (passthrough or rename). The lens helps you distinguish when and how a column is actually changed as it flows through your dbt lineage, informing debugging workflows in particular.
 
-[![Example of the Column evolution lens](/img/docs/collaborate/dbt-explorer/example-evolution-lens.png?v=2 "Example of the Column evolution lens")](#)Example of the Column evolution lens
+![Example of the Column evolution lens](/img/docs/collaborate/dbt-explorer/example-evolution-lens.png?v=2 "Example of the Column evolution lens")Example of the Column evolution lens
 
 The **Transformation** column previews the formula used to produce a column’s values. To view the full formula, select the column in the full lineage view.
 
@@ -51,7 +51,7 @@ Passthrough and rename columns are clearly labeled and color-coded in the lineag
 
 In the following `dim_salesforce_accounts` model example (located at the end of the lineage), the description for a column inherited from the `stg_salesforce__accounts` model (located second to the left) indicates its origin. This helps developers quickly identify the original source of the column, making it easier to know where to make documentation changes.
 
-[![Example of lineage with propagated and inherited column descriptions.](/img/docs/collaborate/dbt-explorer/example-prop-inherit.png?v=2 "Example of lineage with propagated and inherited column descriptions.")](#)Example of lineage with propagated and inherited column descriptions.
+![Example of lineage with propagated and inherited column descriptions.](/img/docs/collaborate/dbt-explorer/example-prop-inherit.png?v=2 "Example of lineage with propagated and inherited column descriptions.")Example of lineage with propagated and inherited column descriptions.
 
 ## Column-level lineage use cases
 
@@ -81,7 +81,7 @@ Column-level lineage reflects the lineage from `select` statements in your model
 
 Column-level lineage relies on SQL parsing. Errors can occur when parsing fails or a column's origin is unknown (like with JSON unpacking, lateral joins, and so on). In these cases, lineage may be incomplete and dbt will provide a warning about it in the column lineage.
 
-[![Example of warning in the full lineage graph](/img/docs/collaborate/dbt-explorer/example-parsing-error-pill.png?v=2 "Example of warning in the full lineage graph")](#)Example of warning in the full lineage graph
+![Example of warning in the full lineage graph](/img/docs/collaborate/dbt-explorer/example-parsing-error-pill.png?v=2 "Example of warning in the full lineage graph")Example of warning in the full lineage graph
 
 To review the error details:
 

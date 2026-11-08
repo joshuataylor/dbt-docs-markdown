@@ -180,7 +180,7 @@ sources:
 
 When running [`dbt source freshness`](../commands/source.md), the following query will be run against the `orders` table:
 
-### Compiled SQL
+##### Compiled SQL
 
 ```sql
 select
@@ -190,7 +190,7 @@ from raw.jaffle_shop.orders
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
 
-### Jinja SQL
+##### Jinja SQL
 
 ```sql
 select

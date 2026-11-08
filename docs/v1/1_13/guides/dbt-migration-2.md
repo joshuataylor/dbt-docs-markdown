@@ -1,8 +1,6 @@
 # Move to the dbt platform: What you need to know
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

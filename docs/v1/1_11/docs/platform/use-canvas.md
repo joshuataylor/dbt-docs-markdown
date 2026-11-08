@@ -66,7 +66,7 @@ To edit an existing model:
 
 This will allow you to select the model you'd like to edit.
 
-[![Edit a model using the 'Edit a model' button.](/img/docs/dbt-platform/canvas/edit-model.png?v=2 "Edit a model using the 'Edit a model' button.")](#)Edit a model using the 'Edit a model' button.
+![Edit a model using the 'Edit a model' button.](/img/docs/dbt-platform/canvas/edit-model.png?v=2 "Edit a model using the 'Edit a model' button.")Edit a model using the 'Edit a model' button.
 
 ## Upload data to Canvas
 

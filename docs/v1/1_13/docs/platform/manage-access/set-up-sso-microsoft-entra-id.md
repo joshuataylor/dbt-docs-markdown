@@ -25,7 +25,7 @@ Log into the Azure portal for your organization. Using the [**Microsoft Entra ID
 1. Under **Manage**, select **App registrations**.
 2. Click **+ New Registration** to begin creating a new application registration.
 
-[![Creating a new app registration](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-app-registration-empty.png?v=2 "Creating a new app registration")](#)Creating a new app registration
+![Creating a new app registration](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-app-registration-empty.png?v=2 "Creating a new app registration")Creating a new app registration
 
 3. Supply configurations for the **Name** and **Supported account types** fields. Choose the **Supported account types** value based on which tenants you want to allow, and note the matching **Microsoft Entra ID Domain** value you'll need later when [supplying credentials](#supplying-credentials) in dbt:
 
@@ -53,7 +53,7 @@ Log into the Azure portal for your organization. Using the [**Microsoft Entra ID
 | Single-tenant *(recommended)* | `https://YOUR_AUTH0_URI/login/callback` |
 | Multi-tenant                  | `https://YOUR_AUTH0_URI/login/callback` |
 
-[![Configuring a new app registration](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-new-application-alternative.png?v=2 "Configuring a new app registration")](#)Configuring a new app registration
+![Configuring a new app registration](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-new-application-alternative.png?v=2 "Configuring a new app registration")Configuring a new app registration
 
 6. Save the App registration to continue setting up Microsoft Entra ID SSO.
 
@@ -69,7 +69,7 @@ Depending on your Microsoft Entra ID settings, your App Registration page might 
 
    When selecting the platform type, choose **Web**, not **Single-page application (SPA)**. The dbt SSO integration redeems the authorization code from the server using a client secret. So, if you add the **Redirect URI** under **SPA**, Entra ID enforces PKCE and rejects the server-side token exchange, causing sign-in to fail with the error `AADSTS9002325: Proof Key for Code Exchange is required for cross-origin authorization code redemption.`
 
-[![Configuring a Redirect URI](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-redirect-uri.png?v=2 "Configuring a Redirect URI")](#)Configuring a Redirect URI
+![Configuring a Redirect URI](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-redirect-uri.png?v=2 "Configuring a Redirect URI")Configuring a Redirect URI
 
 ### Azure <-> dbt User and Group mapping
 
@@ -91,7 +91,7 @@ Once you've registered the application, the next step is to assign users to it. 
 11. Click **Add User/Group**.
 12. Assign additional users and groups as needed.
 
-[![Adding Users to an Enterprise Application a Redirect URI](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-enterprise-app-users.png?v=2 "Adding Users to an Enterprise Application a Redirect URI")](#)Adding Users to an Enterprise Application a Redirect URI
+![Adding Users to an Enterprise Application a Redirect URI](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-enterprise-app-users.png?v=2 "Adding Users to an Enterprise Application a Redirect URI")Adding Users to an Enterprise Application a Redirect URI
 
 User assignment required?
 
@@ -117,7 +117,7 @@ If you set up SSO before December 2025, your existing configuration may request 
 
 16. Save these permissions, then click **Grant admin consent** to grant admin consent for this directory on behalf of all of your users.
 
-[![Configuring application permissions](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-permissions-overview.png?v=2 "Configuring application permissions")](#)Configuring application permissions
+![Configuring application permissions](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-permissions-overview.png?v=2 "Configuring application permissions")Configuring application permissions
 
 ### Creating a client secret
 
@@ -128,16 +128,16 @@ If you set up SSO before December 2025, your existing configuration may request 
 21. Click **Add** to finish creating the client secret value (not the client secret ID).
 22. Record the generated client secret somewhere safe. Later in the setup process, we'll use this client secret in dbt to finish configuring the integration.
 
-[![Configuring certificates & secrets](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-secret-config.png?v=2 "Configuring certificates & secrets")](#)Configuring certificates & secrets
+![Configuring certificates & secrets](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-secret-config.png?v=2 "Configuring certificates & secrets")Configuring certificates & secrets
 
-[![Recording the client secret](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-secret-saved.png?v=2 "Recording the client secret")](#)Recording the client secret
+![Recording the client secret](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-secret-saved.png?v=2 "Recording the client secret")Recording the client secret
 
 ### Collect client credentials
 
 23. Navigate to the **Overview** page for the app registration.
 24. Note the **Application (client) ID** and **Directory (tenant) ID** shown in this form and record them along with your client secret. We'll use these keys in the steps below to finish configuring the integration in dbt.
 
-[![Collecting credentials. Store these somewhere safe](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-overview.png?v=2 "Collecting credentials. Store these somewhere safe")](#)Collecting credentials. Store these somewhere safe
+![Collecting credentials. Store these somewhere safe](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-overview.png?v=2 "Collecting credentials. Store these somewhere safe")Collecting credentials. Store these somewhere safe
 
 ## Configuring dbt
 
@@ -162,7 +162,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 | **Tenant ID**                 | Paste the **Directory (tenant) ID** recorded in the steps above. (This field only appears when you select **Microsoft Entra ID Single Tenant**; it is not needed for multi-tenant).                                                                                                                                                                         |
 | **Microsoft Entra ID Domain** | For single tenant, enter the domain name for your Azure directory (such as `fishtownanalytics.com`). Only use the primary domain; this won't block access for other domains. For multi-tenant, enter the matching authority string (`organizations`, `common`, or `consumers`) instead. Refer to [Supported account types table](#creating-an-application). |
 
-[![Configuring Entra ID AD SSO in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-cloud-sso.png?v=2 "Configuring Entra ID AD SSO in dbt")](#)Configuring Entra ID AD SSO in dbt
+![Configuring Entra ID AD SSO in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-cloud-sso.png?v=2 "Configuring Entra ID AD SSO in dbt")Configuring Entra ID AD SSO in dbt
 
 29. Click **Save** to complete setup for the Microsoft Entra ID SSO integration. From here, you can navigate to the login URL generated for your account's *slug* to test logging in with Entra ID.
 
@@ -202,7 +202,7 @@ If you set up SSO before December 2025, your existing configuration may request 
 
 Ensure that the domain name under which user accounts exist in Azure matches the domain you supplied in [Supplying credentials](#supplying-credentials) when you configured SSO.
 
-[![Obtaining the user domain from Azure](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-get-domain.png?v=2 "Obtaining the user domain from Azure")](#)Obtaining the user domain from Azure
+![Obtaining the user domain from Azure](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-get-domain.png?v=2 "Obtaining the user domain from Azure")Obtaining the user domain from Azure
 
  Receiving a 'Server error' message after signing in
 

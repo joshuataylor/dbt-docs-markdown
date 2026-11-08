@@ -32,7 +32,7 @@ The `@` operator is similar to `+`, but will also include *all ancestors of all 
 
 The selector `@snowplow_web_page_context` will build all three models shown in the diagram below.
 
-[![@snowplow\_web\_page\_context will select all of the models shown here](/img/docs/running-a-dbt-project/command-line-interface/1643e30-Screen_Shot_2019-03-11_at_7.18.20_PM.png?v=2 "@snowplow_web_page_context will select all of the models shown here")](#)@snowplow\_web\_page\_context will select all of the models shown here
+![@snowplow\_web\_page\_context will select all of the models shown here](/img/docs/running-a-dbt-project/command-line-interface/1643e30-Screen_Shot_2019-03-11_at_7.18.20_PM.png?v=2 "@snowplow_web_page_context will select all of the models shown here")@snowplow\_web\_page\_context will select all of the models shown here
 
 ```bash
 dbt run --select "@my_model"         # select my_model, its descendants, and the ancestors of its descendants

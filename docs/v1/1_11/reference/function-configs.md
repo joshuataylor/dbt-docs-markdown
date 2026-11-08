@@ -8,11 +8,11 @@ Available from dbt v1.11 or with the [dbt "v1 Latest" release track](../docs/dbt
 
 ### Function-specific configurations
 
-Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
+Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.
 
 The following resource-specific configurations are only available to Functions:
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -23,7 +23,7 @@ functions:
     # See functions/schema.yml examples below
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 functions/schema.yml
 
@@ -55,7 +55,7 @@ Database, schema, and alias configuration
 
 Functions support `database`, `schema`, and `alias` configurations just like models. These determine where the function is created in your warehouse. The function will use the standard dbt configuration precedence (specific config > project config > target profile defaults).
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -70,7 +70,7 @@ functions:
     +meta: {<dictionary>}
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 functions/schema.yml
 

@@ -81,9 +81,9 @@ dbt test -s +exposure:weekly_jaffle_report
 
 When we generate the [Catalog site](../explore/explore-projects.md), you'll see the exposure appear:
 
-[![Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.](/img/docs/building-a-dbt-project/dbt-explorer-exposures.png?v=2 "Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.")](#)Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.
+![Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.](/img/docs/building-a-dbt-project/dbt-explorer-exposures.png?v=2 "Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.")Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.
 
-[![Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ](/img/docs/building-a-dbt-project/dag-exposures.png?v=2 "Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ")](#)Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node.
+![Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ](/img/docs/building-a-dbt-project/dag-exposures.png?v=2 "Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ")Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node.
 
 ## Related docs
 

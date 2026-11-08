@@ -8,7 +8,7 @@ When you run a dbt command with [dbt State](../../docs/deploy/dbt-state-about.md
 
 Use the following configs to control how dbt State makes these decisions.
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -23,7 +23,7 @@ models:
     execute_hooks_on_any_reuse: true | false
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/schema.yml
 
@@ -40,7 +40,7 @@ models:
         execute_hooks_on_any_reuse: true | false
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 

@@ -71,7 +71,7 @@ Use the following fields when creating a connection:
 
 **Note**: When you set up a Redshift connection in dbt, SSL-related parameters aren't available as inputs.
 
-[![Configuring a Redshift connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Redshift connection")](#)Configuring a Redshift connection
+![Configuring a Redshift connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Redshift connection")Configuring a Redshift connection
 
 ### Authentication Parameters
 
@@ -98,8 +98,6 @@ You will need to create an IAM User, generate an [access key](https://docs.aws.a
 | `region`            | us-east-1           | Region of your Redshift instance                                                                                                 |
 | `access_key_id`     | ACCESS\_KEY\_ID     | IAM user [access key id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) |
 | `secret_access_key` | SECRET\_ACCESS\_KEY | IAM user secret access key                                                                                                       |
-
-<br />
 
 #### Example Extended Attributes for IAM User on Redshift Serverless
 
@@ -128,7 +126,7 @@ To configure a connection using an SSH tunnel:
 3. In **Connection settings**, ensure **SSH Tunnel Enabled** is checked.
 4. Enter the hostname, username, and port for the bastion server.
 
-[![A public key is generated after saving](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-ssh-tunnel.png?v=2 "A public key is generated after saving")](#)A public key is generated after saving
+![A public key is generated after saving](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-ssh-tunnel.png?v=2 "A public key is generated after saving")A public key is generated after saving
 
 5. Click **Save**. dbt platform generates and displays a public key.
 
@@ -144,9 +142,7 @@ What is a bastion server?
 
 A bastion server in [Amazon Web Services (AWS)](https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/) is a host that allows dbt to open an SSH connection.
 
-<br />
-
-dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.<br /><br />
+dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.
 
 Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the Redshift instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
 

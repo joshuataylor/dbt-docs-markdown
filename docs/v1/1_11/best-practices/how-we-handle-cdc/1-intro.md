@@ -25,8 +25,6 @@ Your approach depends on how your source exposes changes and what you need to ke
 | Current row plus old versions                                            | Overwrites rows, and is small enough to scan each run                                 | Snapshot                                                                                                       |
 | Current row plus old versions, without scanning the full source each run | Overwrites rows, or appends a row for each change (after cleanup)                     | An incremental staging model, then a snapshot, then a downstream model that keeps only the latest snapshot row |
 
-<br />
-
 For examples of each approach, refer to [Choosing incremental models or snapshots](./2-choosing-incremental-or-snapshots.md).
 
 ## Key recommendations

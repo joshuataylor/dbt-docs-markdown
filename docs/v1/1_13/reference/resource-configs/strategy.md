@@ -1,6 +1,6 @@
 # strategy
 
-### timestamp
+## timestamp
 
 (Applies to dbt v1.9 and later)
 
@@ -24,7 +24,7 @@ snapshots:
     +updated_at: column_name
 ```
 
-### check
+## check
 
 (Applies to dbt v1.9 and later)
 

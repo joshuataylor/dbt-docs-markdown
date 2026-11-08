@@ -32,7 +32,7 @@ Vars supplied to package_name.my_model = {
 
 To define a variable in your project, add the `vars:` config to a dedicated `vars.yml` file or to your `dbt_project.yml` file. `vars.yml` is parsed *before* `dbt_project.yml`, so you can reference variables from `vars.yml` in `dbt_project.yml` using `{{ var('...') }}`.
 
-### vars.yml
+## vars.yml
 
 vars.yml
 
@@ -41,7 +41,7 @@ vars:
   event_type: activation
 ```
 
-### dbt\_project.yml
+## dbt\_project.yml
 
 You can define variables in `dbt_project.yml`, or reference variables from `vars.yml` (for example, in your `models` config):
 

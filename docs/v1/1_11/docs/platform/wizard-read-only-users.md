@@ -114,7 +114,7 @@ The fields you see depend on the connection's warehouse and the auth method you 
 2. Add the **Private key passphrase** if your key is encrypted.
 3. Optionally add a **Role** and **Warehouse** to pin which ones queries run with.
 
-[![Analytics credentials with Key pair selected as the auth method](/img/docs/dbt-platform/analytics-credential-keypair.png?v=2 "Analytics credentials with Key pair selected as the auth method")](#)Analytics credentials with Key pair selected as the auth method
+![Analytics credentials with Key pair selected as the auth method](/img/docs/dbt-platform/analytics-credential-keypair.png?v=2 "Analytics credentials with Key pair selected as the auth method")Analytics credentials with Key pair selected as the auth method
 
 Give the credential the *least privilege* it needs to answer questions — read-only access to the data read-only users should see, and nothing more. It's a shared credential, so anyone querying through it sees whatever it can see, without a per-user trail. If you need per-user access control or auditing at the warehouse, have users configure personal credentials instead — that requires the [Analyst read](./manage-access/enterprise-permissions.md#analyst-read) permission set.
 

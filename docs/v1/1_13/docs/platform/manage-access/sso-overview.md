@@ -39,7 +39,7 @@ The URI used for SSO connections will vary based on your dbt hosted region. To f
 
    *Replace `YOUR_AUTH0_URI` and `ACCOUNT_NAME` with your account values.*
 
-[![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")](#)Example of the identity provider values for a SAML 2.0 provider
+![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")Example of the identity provider values for a SAML 2.0 provider
 
 Auth0 URI
 
@@ -49,7 +49,7 @@ The Auth0 URI always contains YOUR\_AUTH0\_URI (for example, auth.cloud.getdbt.c
 
 The diagram below explains the basic process by which users are provisioned in dbt upon logging in with SSO.
 
-[![SSO diagram](/img/sso_overview.png?v=2 "SSO diagram")](#)SSO diagram
+![SSO diagram](/img/sso_overview.png?v=2 "SSO diagram")SSO diagram
 
 #### Diagram Explanation
 

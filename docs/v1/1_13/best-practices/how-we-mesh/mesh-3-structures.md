@@ -31,7 +31,7 @@ Vertical splits separate out layers of transformation in DAG order. Let's look a
 * **Isolating earlier models for security and governance requirements** to separate out and mask PII data so that downstream consumers can't access it is a common use case for a vertical split.
 * **Protecting complex or expensive data** to isolate large or complex models that are expensive to run so that they are safe from accidental selection, independently deployable, and easier to debug when they have issues.
 
-[![A simplified dbt DAG with a dotted line representing a vertical split.](/img/best-practices/how-we-mesh/vertical_split.png?v=2 "A simplified dbt DAG with a dotted line representing a vertical split.")](#)A simplified dbt DAG with a dotted line representing a vertical split.
+![A simplified dbt DAG with a dotted line representing a vertical split.](/img/best-practices/how-we-mesh/vertical_split.png?v=2 "A simplified dbt DAG with a dotted line representing a vertical split.")A simplified dbt DAG with a dotted line representing a vertical split.
 
 ### Horizontal splits
 
@@ -41,7 +41,7 @@ Horizontal splits separate your DAG based on source or domain. These splits are 
 * **Data from different sources.** For example, clickstream event data and transactional ecommerce data may need to be modeled independently of each other.
 * **Team workflows.** For example, if two embedded groups operate at different paces, you may want to split the projects up so they can move independently.
 
-[![A simplified dbt DAG with a dotted line representing a horizontal split.](/img/best-practices/how-we-mesh/horizontal_split.png?v=2 "A simplified dbt DAG with a dotted line representing a horizontal split.")](#)A simplified dbt DAG with a dotted line representing a horizontal split.
+![A simplified dbt DAG with a dotted line representing a horizontal split.](/img/best-practices/how-we-mesh/horizontal_split.png?v=2 "A simplified dbt DAG with a dotted line representing a horizontal split.")A simplified dbt DAG with a dotted line representing a horizontal split.
 
 ### Combining these strategies
 
@@ -49,7 +49,7 @@ Horizontal splits separate your DAG based on source or domain. These splits are 
 * **Pick one type of split and focus on that first**. If you have a hub-and-spoke team topology for example, handle breaking out the central platform project before you split the remainder into domains. Then if you need to break those domains up horizontally you can focus on that after the fact.
 * **DRY applies to underlying data, not just code.** Regardless of your strategy, you should not be sourcing the same rows and columns into multiple nodes. When working within a mesh pattern it becomes increasingly important that we don't duplicate logic or data.
 
-[![A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.](/img/best-practices/how-we-mesh/combined_splits.png?v=2 "A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.")](#)A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.
+![A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.](/img/best-practices/how-we-mesh/combined_splits.png?v=2 "A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.")A simplified dbt DAG with two dotted lines representing both a vertical and horizontal split.
 
 ## Determine your git strategy
 

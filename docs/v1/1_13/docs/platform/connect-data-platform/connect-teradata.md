@@ -11,7 +11,7 @@ Your environment(s) must be on a supported [release track](../../dbt-versions/db
 | Retries         | Number of times to retry to connect to database upon error.                                      | Integer        | optional  | 10                                    |
 | Request timeout | The waiting period between connections attempts in seconds. Default is "1" second.               | Quoted integer | Optional  | 3                                     |
 
-[![Example of the Teradata connection fields.](/img/docs/dbt-platform/teradata-connection.png?v=2 "Example of the Teradata connection fields.")](#)Example of the Teradata connection fields.
+![Example of the Teradata connection fields.](/img/docs/dbt-platform/teradata-connection.png?v=2 "Example of the Teradata connection fields.")Example of the Teradata connection fields.
 
 ### Development and deployment credentials
 
@@ -21,4 +21,4 @@ Your environment(s) must be on a supported [release track](../../dbt-versions/db
 | Password | The database password. Equivalent to the Teradata JDBC Driver PASSWORD connection parameter. | String | Required  | DatabasePassword123 |
 | Schema   | Specifies the initial database to use after login, rather than the user's default database.  | String | Required  | dbtlabsdocstest     |
 
-[![Example of the user credential fields.](/img/docs/dbt-platform/teradata-deployment.png?v=2 "Example of the user credential fields.")](#)Example of the user credential fields.
+![Example of the user credential fields.](/img/docs/dbt-platform/teradata-deployment.png?v=2 "Example of the user credential fields.")Example of the user credential fields.

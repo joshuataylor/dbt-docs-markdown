@@ -95,7 +95,7 @@ Autocomplete SQL functions, model names, macros, and more.
 * Autocomplete `ref`s and `source` calls. For example, type `{{ ref(` or `{{ source(` and you will see a list of available resources and their type complete the function call. Autocomplete doesn't trigger when replacing existing model names inside parentheses.
 * Dialect-aware SQL function autocomplete
 
-[![Example of the VS Code extension IntelliSense](/img/docs/extension/vsce-intellisense.gif?v=2 "Example of the VS Code extension IntelliSense")](#)Example of the VS Code extension IntelliSense
+![Example of the VS Code extension IntelliSense](/img/docs/extension/vsce-intellisense.gif?v=2 "Example of the VS Code extension IntelliSense")Example of the VS Code extension IntelliSense
 
 ## Instant refactoring
 
@@ -205,7 +205,7 @@ For the current model, the catalog tab surfaces:
 * The model's **Columns**, including each column's type, description, and test results. Sort columns alphabetically or by test name.
 * A **View in dbt platform** link to open the resource in the dbt platform.
 
-[![Example of the Catalog tab in the dbt VS Code extension](/img/docs/extension/vsce-catalog-tab.png?v=2 "Example of the Catalog tab in the dbt VS Code extension")](#)Example of the Catalog tab in the dbt VS Code extension
+![Example of the Catalog tab in the dbt VS Code extension](/img/docs/extension/vsce-catalog-tab.png?v=2 "Example of the Catalog tab in the dbt VS Code extension")Example of the Catalog tab in the dbt VS Code extension
 
 ## Generate a system report
 
@@ -228,4 +228,4 @@ You can use compare changes, powered by dbt v2, in your local development enviro
 
 For more details on how to use this feature, refer to [Compare changes in local development](./dbt/vs-compare-changes.md).
 
-[![Example of the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
+![Example of the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Example of the Compare tab")Example of the Compare tab

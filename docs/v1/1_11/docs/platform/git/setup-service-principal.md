@@ -53,7 +53,7 @@ A Microsoft Entra ID admin needs to perform the following steps:
 
 Here's what your app should look like before registering it:
 
-[![Registering a Microsoft Entra ID app](</img/docs/dbt-platform/connecting-azure-devops/AD app.png?v=2> "Registering a Microsoft Entra ID app")](#)Registering a Microsoft Entra ID app
+![Registering a Microsoft Entra ID app](</img/docs/dbt-platform/connecting-azure-devops/AD app.png?v=2> "Registering a Microsoft Entra ID app")Registering a Microsoft Entra ID app
 
 ## Create a client secret
 
@@ -77,7 +77,7 @@ After you've created the app, you need to verify whether it has a service princi
 
 4. Locate the **Managed application in local directory** field and, if it has the option, click **Create Service Principal**. If the field is already populated, a service principal has already been assigned.
 
-   [![Example of the 'Create Service Principal' option highlighted .](/img/docs/platform-integrations/create-service-principal.png?v=2 "Example of the 'Create Service Principal' option highlighted .")](#)Example of the 'Create Service Principal' option highlighted .
+   ![Example of the 'Create Service Principal' option highlighted .](/img/docs/platform-integrations/create-service-principal.png?v=2 "Example of the 'Create Service Principal' option highlighted .")Example of the 'Create Service Principal' option highlighted .
 
 ## Add permissions to your service principal
 
@@ -106,7 +106,7 @@ You can only add a managed identity or service principal for the tenant to which
 4. In the **Add to projects** field, click the boxes for any projects you want to include (or select all).
 5. Set the **Azure DevOps Groups** to **Project Administrator**.
 
-[![Example setup with the service principal added as a user.](/img/docs/dbt-platform/connecting-azure-devops/add-service-principal.png?v=2 "Example setup with the service principal added as a user.")](#)Example setup with the service principal added as a user.
+![Example setup with the service principal added as a user.](/img/docs/dbt-platform/connecting-azure-devops/add-service-principal.png?v=2 "Example setup with the service principal added as a user.")Example setup with the service principal added as a user.
 
 ## Connect your Microsoft Entra ID app to dbt
 
@@ -131,7 +131,7 @@ To create the configuration:
    * **Client Secret**: Copy the **Value** field in the Microsoft Entra ID app client secrets and paste it into the **Client Secret** field in dbt. Entra ID admins are responsible for the expiration of the app secret, and dbt Admins should note the expiration date for rotation.
    * **Directory(tenant) ID:** Found in the Microsoft Entra ID app.
 
-     [![Fields for adding Entra ID app to dbt.](/img/docs/platform-integrations/service-principal-fields.png?v=2 "Fields for adding Entra ID app to dbt.")](#)Fields for adding Entra ID app to dbt.
+     ![Fields for adding Entra ID app to dbt.](/img/docs/platform-integrations/service-principal-fields.png?v=2 "Fields for adding Entra ID app to dbt.")Fields for adding Entra ID app to dbt.
 
 Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](./authenticate-azure.md).
 
@@ -183,7 +183,7 @@ If your dbt app does not have a service principal, take the following actions in
 
 4. Locate the **Managed application in local directory** field and click **Create Service Principal**.
 
-   [![Example of the 'Create Service Principal' option highlighted .](/img/docs/platform-integrations/create-service-principal.png?v=2 "Example of the 'Create Service Principal' option highlighted .")](#)Example of the 'Create Service Principal' option highlighted .
+   ![Example of the 'Create Service Principal' option highlighted .](/img/docs/platform-integrations/create-service-principal.png?v=2 "Example of the 'Create Service Principal' option highlighted .")Example of the 'Create Service Principal' option highlighted .
 
 5. Follow the instructions to [add permissions](#add-permissions-to-your-service-principal) to your service principal.
 

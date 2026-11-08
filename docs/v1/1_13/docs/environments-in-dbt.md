@@ -22,8 +22,6 @@ Configure environments to tell dbt or dbt v1 how to build and execute your proje
 
 [Setup and maintain separate deployment and development environments through the use of targets within a profile file](./local/dbt-environments.md)
 
-<br />
-
 ## Related docs
 
 * [dbt environment best practices](../guides/set-up-ci.md)

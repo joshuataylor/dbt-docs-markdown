@@ -7,9 +7,7 @@
 > * Never ask for passwords or keys in chat.
 > * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=teradata-qs>
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -25,7 +23,7 @@ In this quickstart guide, you'll learn how to use dbt with Teradata Vantage. It 
 * Document your models.
 * Schedule a job to run.
 
-### Prerequisites​
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have access to a Teradata Vantage instance. You can provision one for free at <https://clearscape.teradata.com>. See [the ClearScape Analytics Experience guide](https://developers.teradata.com/quickstarts/get-access-to-vantage/clearscape-analytics-experience/getting-started-with-csae/) for details.
@@ -114,9 +112,9 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
 4. In the **Type** section, select **Teradata**.
 5. Enter your Teradata settings and click **Save**.
 
-[![dbt - Choose Teradata Connection](/img/teradata/dbt_cloud_teradata_setup_connection_start.png?v=2 "dbt - Choose Teradata Connection")](#)dbt - Choose Teradata Connection
+![dbt - Choose Teradata Connection](/img/teradata/dbt_cloud_teradata_setup_connection_start.png?v=2 "dbt - Choose Teradata Connection")dbt - Choose Teradata Connection
 
-[![dbt - Teradata Account Settings](/img/teradata/dbt_cloud_teradata_account_settings.png?v=2 "dbt - Teradata Account Settings")](#)dbt - Teradata Account Settings
+![dbt - Teradata Account Settings](/img/teradata/dbt_cloud_teradata_account_settings.png?v=2 "dbt - Teradata Account Settings")dbt - Teradata Account Settings
 
 6. Set up your personal user credentials by navigating to **Your profile** > **Credentials**.
 
@@ -130,7 +128,7 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
    * **Password** — The password of Teradata database.
    * **Schema** — The default database to use.
 
-   [![dbt - Teradata User credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata User credentials")](#)dbt - Teradata User credentials
+   ![dbt - Teradata User credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata User credentials")dbt - Teradata User credentials
 
 10. Click **Test Connection** to verify that dbt can access your Teradata Vantage instance.
 
@@ -149,7 +147,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -291,7 +289,7 @@ Prefer not to write the SQL by hand? dbt Wizard can build the same model for you
 
 1. Open dbt Wizard from the Studio IDE.
 
-[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
 2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
 3. Review the SQL dbt Wizard generates, then accept it to save the model.
@@ -387,7 +385,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in your original query.
 
@@ -785,7 +783,7 @@ dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
-**If you edited directly in the protected primary branch:**<br />
+**If you edited directly in the protected primary branch:**
 
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
@@ -793,7 +791,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-**If you created a new branch before editing:**<br />
+**If you created a new branch before editing:**
 
 1. Since you already branched out of the primary protected branch, go to **Version Control** on the left.
 2. Click **Commit and sync** to add a message.

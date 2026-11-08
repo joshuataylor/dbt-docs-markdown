@@ -12,7 +12,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
 4. Click on the **Repository** link, then click **Edit** and **Disconnect**.
 
-   [![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")](#)Disconnect and reconnect your Git repository in your dbt Account settings page.
+   ![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")Disconnect and reconnect your Git repository in your dbt Account settings page.
 
 5. Click **Confirm Disconnect**.
 

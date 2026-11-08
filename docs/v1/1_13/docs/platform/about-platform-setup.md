@@ -13,7 +13,7 @@ This portion of our documentation will take you through the various settings in 
 
 For steps on installing dbt development tools, refer to the [dbt CLI](./dbt-cli-installation.md) or the [Studio IDE (browser-based)](./studio-ide/develop-in-studio.md).
 
-These settings are intended for dbt administrators. If you need a more detailed first-time setup guide for specific data platforms, read our [quickstart guides](../../guides.md) or follow the [dbt platform configuration checklist](../configuration-checklist.md). If you want a more in-depth learning experience, we recommend taking the dbt Fundamentals on our [dbt Learn site](https://learn.getdbt.com/).
+These settings are intended for dbt administrators. If you need a more detailed first-time setup guide for specific data platforms, read our [quickstart guides](https://docs.getdbt.com/guides) or follow the [dbt platform configuration checklist](../configuration-checklist.md). If you want a more in-depth learning experience, we recommend taking the dbt Fundamentals on our [dbt Learn site](https://learn.getdbt.com/).
 
 ## Prerequisites
 

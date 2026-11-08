@@ -1,8 +1,6 @@
 # Hybrid development with dbt platform and dbt v2
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -363,7 +361,7 @@ Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_c
 
 * **In the VS Code extension:** Disable auto-deferral in the extension settings. Search for `Dbt > Flag: Defer` and uncheck the option:
 
-  [![dbt VS Code extension deferral settings](/img/v2/vsce-defer-settings.png?v=2 "dbt VS Code extension deferral settings")](#)dbt VS Code extension deferral settings
+  ![dbt VS Code extension deferral settings](/img/v2/vsce-defer-settings.png?v=2 "dbt VS Code extension deferral settings")dbt VS Code extension deferral settings
 
 * **On the CLI:** Pass `--no-defer` to any command to skip both deferral and the publication artifact download:
 

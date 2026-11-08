@@ -133,7 +133,7 @@ Writes to external Iceberg catalogs are generally slower than writes to managed 
 
 Instead of having Snowflake write directly to Unity catalog through a catalog-linked database, you can have Snowflake write to its (managed) Horizon catalog, and use [Databricks catalog federation](https://docs.databricks.com/aws/en/query-federation/catalog-federation) to synchronize the Iceberg metadata for subsequent reads.
 
-[![Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh](/img/docs/building-a-dbt-project/snow-dbx-xplat-mesh.png?v=2 "Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh")](#)Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh
+![Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh](/img/docs/building-a-dbt-project/snow-dbx-xplat-mesh.png?v=2 "Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh")Multi-catalog pattern for Databricks + Snowflake cross-platform Mesh
 
 catalogs.yml
 

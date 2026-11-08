@@ -171,7 +171,7 @@ sources:
 
 When running [`dbt freshness`](../commands/freshness.md), the following query will be run against the `orders` table:
 
-### Compiled SQL
+##### Compiled SQL
 
 ```sql
 select
@@ -181,7 +181,7 @@ from raw.jaffle_shop.orders
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
 
-### Jinja SQL
+##### Jinja SQL
 
 ```sql
 select
@@ -317,7 +317,7 @@ State-aware orchestration is now dbt State
 
 If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 
-### Project file
+#### Project file
 
 dbt\_project.yml
 
@@ -331,7 +331,7 @@ models:
         updates_on: any | all # optional, default is `any`
 ```
 
-### Property file
+#### Property file
 
 models/\<filename>.yml
 
@@ -346,7 +346,7 @@ models:
           updates_on: any | all # optional, default is `any`
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<filename>.sql
 
@@ -471,7 +471,7 @@ In this example, because `updates_on: any` is set, even if only the `raw.wizards
 
 You can also use custom logic with `build_after` to set different frequencies for different days, or to skip builds during a specific period (for example, on a weekend).
 
-### Project file
+###### Project file
 
 dbt\_project.yml
 
@@ -485,7 +485,7 @@ dbt\_project.yml
     updates_on: any
 ```
 
-### SQL file config
+###### SQL file config
 
 models/\<filename>.sql
 

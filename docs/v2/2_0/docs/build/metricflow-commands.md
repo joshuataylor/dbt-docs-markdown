@@ -78,6 +78,8 @@ When you make changes to metrics, make sure to run `dbt parse` at a minimum to u
 
 Check out the following video for a short video demo of how to query or preview metrics with the dbt platform CLI:
 
+[Loom video](https://www.loom.com/embed/09e2b287f063497d888f4bed91469d79)
+
 ### Commands for local self-hosted dbt
 
 This section applies to local self-hosted users who aren't on dbt platform, whether you execute with v1 or v2. Commands and validations execute locally and use the `mf` prefix before the command name to execute them. For example, to list all metrics, run `mf list metrics`.
@@ -597,8 +599,6 @@ Details
 How to set up your terminal to escape curly braces?
 
 To configure your `.zshrc`profile to escape curly braces, you can use the `setopt` command to enable the `BRACECCL` option. This option will cause the shell to treat curly braces as literals and prevent brace expansion. Refer to the following steps to set it up:
-
-<br />
 
 1. Open your terminal.
 2. Open your `.zshrc` file using a text editor like `nano`, `vim`, or any other text editor you prefer. You can use the following command to open it with `nano`:

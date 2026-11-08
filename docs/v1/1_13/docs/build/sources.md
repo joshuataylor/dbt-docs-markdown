@@ -74,7 +74,7 @@ left join raw.jaffle_shop.customers using (customer_id)
 
 Using the `{{ source () }}` function also creates a dependency between the model and the source table.
 
-[![The source function tells dbt a model is dependent on a source ](/img/docs/building-a-dbt-project/sources-dag.png?v=2 "The source function tells dbt a model is dependent on a source ")](#)The source function tells dbt a model is dependent on a source
+![The source function tells dbt a model is dependent on a source ](/img/docs/building-a-dbt-project/sources-dag.png?v=2 "The source function tells dbt a model is dependent on a source ")The source function tells dbt a model is dependent on a source
 
 ### Testing and documenting sources
 
@@ -313,7 +313,7 @@ The results of this query are used to determine whether the source is fresh or n
 
 (Applies to dbt v1.99 and earlier)
 
-[![Uh oh! Not everything is as fresh as we'd like!](/img/docs/building-a-dbt-project/snapshot-freshness.png?v=2 "Uh oh! Not everything is as fresh as we'd like!")](#)Uh oh! Not everything is as fresh as we'd like!
+![Uh oh! Not everything is as fresh as we'd like!](/img/docs/building-a-dbt-project/snapshot-freshness.png?v=2 "Uh oh! Not everything is as fresh as we'd like!")Uh oh! Not everything is as fresh as we'd like!
 
 ### Build models based on source freshness
 

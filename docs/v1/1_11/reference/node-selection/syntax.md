@@ -50,7 +50,7 @@ Select resources to build (run, test, seed, snapshot) or check freshness: `--sel
 
 By default, `dbt run` will execute *all* of the models in the dependency graph. During development (and deployment), it is useful to specify only a subset of models to run. Use the `--select` flag with `dbt run` to select a subset of models to run. (Applies to dbt v1.11 and earlier) Note that the following arguments (`--select`, `--exclude`, and `--selector`) also apply to other dbt tasks, such as `test` and `build`.
 
-### Examples of select flag
+#### Examples of select flag
 
 The `--select` flag accepts one or more arguments. Each argument can be one of:
 
@@ -72,7 +72,7 @@ dbt run --select "path/to/my_model.sql"  # run a specific model by its path
 dbt run --select "selector:my_selector"  # run the node set defined by the named selector in selectors.yml; available starting v1.12
 ```
 
-### Examples of subsets of nodes
+#### Examples of subsets of nodes
 
 dbt supports a shorthand language for defining subsets of nodes. This language uses the following characters:
 

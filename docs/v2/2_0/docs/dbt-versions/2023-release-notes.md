@@ -30,7 +30,7 @@ Archived release notes for dbt from 2023
 
   The **Extended Attributes** text box is available from your environment's settings page:
 
-  [![Example of the Extended attributes text box](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Example of the Extended attributes text box")](#)Example of the Extended attributes text box
+  ![Example of the Extended attributes text box](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Example of the Extended attributes text box")Example of the Extended attributes text box
 
 *  Legacy semantic layer
 
@@ -105,7 +105,7 @@ Archived release notes for dbt from 2023
 
   To learn more, refer to [Repo caching](../platform/account-settings.md#git-repository-caching).
 
-  [![Example of the Repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Repository caching option")](#)Example of the Repository caching option
+  ![Example of the Repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Repository caching option")Example of the Repository caching option
 
 ## October 2023
 
@@ -168,7 +168,7 @@ Archived release notes for dbt from 2023
 
   You can view which job failed to complete successfully, which command failed in the run step, and choose how to rerun it. To learn more, refer to [Retry jobs](../deploy/retry-jobs.md).
 
-  [![Example of the Rerun options in dbt Cloud](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt Cloud")](#)Example of the Rerun options in dbt Cloud
+  ![Example of the Rerun options in dbt Cloud](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt Cloud")Example of the Rerun options in dbt Cloud
 
 *  Product docs updates
 
@@ -214,7 +214,7 @@ Archived release notes for dbt from 2023
   * dbt Cloud [multi-tenant regional](../platform/about-platform/access-regions-ip-addresses.md) support for North America, EMEA, and APAC. Single-tenant support coming soon.
   * Coming soon — Schedule exports (a way to build tables in your data platform) as part of your dbt Cloud job. Use the APIs to call an export, then access them in your preferred BI tool.
 
-  [![Use the universal dbt Semantic Layer to define and queried metrics in integration tools.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "Use the universal dbt Semantic Layer to define and queried metrics in integration tools.")](#)Use the universal dbt Semantic Layer to define and queried metrics in integration tools.
+  ![Use the universal dbt Semantic Layer to define and queried metrics in integration tools.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "Use the universal dbt Semantic Layer to define and queried metrics in integration tools.")Use the universal dbt Semantic Layer to define and queried metrics in integration tools.
 
   The dbt Semantic Layer is available to [dbt Cloud Team or Enterprise](https://www.getdbt.com/) multi-tenant plans on dbt v1.6 or higher.
 
@@ -476,11 +476,11 @@ Archived release notes for dbt from 2023
 
   The Scheduler takes care of preparing each dbt Cloud job to run in your cloud data platform. This [prep](../deploy/job-scheduler.md#scheduler-queue) involves readying a Kubernetes pod with the right version of dbt installed, setting environment variables, loading data platform credentials, and git provider authorization, amongst other environment-setting tasks. Only after the environment is set up, can dbt execution begin. We display this time to the user in dbt Cloud as “prep time”.
 
-  [![The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.](/img/run-start.jpg?v=2 "The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.")](#)The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.
+  ![The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.](/img/run-start.jpg?v=2 "The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.")The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.
 
   For all its strengths, Kubernetes has challenges, especially with pod management impacting run execution time. We’ve rebuilt our scheduler by ensuring faster job execution with a ready pool of pods to execute customers’ jobs. This means you won't experience long prep times at the top of the hour, and we’re determined to keep runs starting near instantaneously. Don’t just take our word, review the data yourself.
 
-  [![Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.](/img/prep-start.jpg?v=2 "Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.")](#)Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.
+  ![Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.](/img/prep-start.jpg?v=2 "Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.")Job prep time data has seen a 75% speed improvement from Jan 2023 to July 2023. Prep time took 106 secs in Jan and now takes 27 secs as of July.
 
   Jobs scheduled at the top of the hour used to take over 106 seconds to prepare because of the volume of runs the scheduler has to process. Now, even with increased runs, we have reduced prep time to 27 secs (at a maximum) — a 75% speed improvement for runs at peak traffic times!
 
@@ -511,17 +511,17 @@ Archived release notes for dbt from 2023
 
   For more info, read [Lint and format your code](../platform/studio-ide/lint-format.md).
 
-  [![Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.")](#)Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.
+  ![Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.")Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.
 
-  [![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
+  ![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")Use sqlfmt to format your SQL code.
 
-  [![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")](#)Format YAML, Markdown, and JSON files using Prettier.
+  ![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")Format YAML, Markdown, and JSON files using Prettier.
 
 *  CI updates
 
   dbt Cloud CI is a critical part of the analytics engineering workflow. Large teams rely on process to ensure code quality is high, and they look to dbt Cloud CI to automate testing code changes in an efficient way, enabling speed while keep the bar high. With status checks directly posted to their dbt PRs, developers gain the confidence that their code changes will work as expected in production, and once you’ve grown accustomed to seeing that green status check in your PR, you won’t be able to work any other way.
 
-  [![CI checks directly from within Git](/img/docs/release-notes/ci-checks.png?v=2 "CI checks directly from within Git")](#)CI checks directly from within Git
+  ![CI checks directly from within Git](/img/docs/release-notes/ci-checks.png?v=2 "CI checks directly from within Git")CI checks directly from within Git
 
   What separates dbt CI from other CI providers is its ability to keep track of state of what’s running in your production environment, so that when you run a CI job, only the modified data assets in your pull request and their downstream dependencies get built and tested in a staging schema. dbt aims to make each CI check as efficient as possible, so as to not waste any data warehouse resources. As soon as the CI run completes, its status posts directly back to the PR in GitHub, GitLab, or Azure DevOps, depending on which Git provider you’re using. Teams can set up guardrails to let only PRs with successful CI checks be approved for merging, and the peer review process is greatly streamlined because dbt does the first testing pass.
 
@@ -641,7 +641,7 @@ Archived release notes for dbt from 2023
 
   Specifically, all `GET` requests to the dbt Cloud [Runs endpoint](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/List%20Runs) will return information on runs, artifacts, logs, and run steps only for the past 365 days. Additionally, the run history displayed in the dbt Cloud UI will only show runs for the past 365 days.
 
-  [![The dbt Cloud UI displaying a Run History](/img/docs/dbt-platform/rn-run-history.jpg?v=2 "The dbt Cloud UI displaying a Run History")](#)The dbt Cloud UI displaying a Run History
+  ![The dbt Cloud UI displaying a Run History](/img/docs/dbt-platform/rn-run-history.jpg?v=2 "The dbt Cloud UI displaying a Run History")The dbt Cloud UI displaying a Run History
 
   We will retain older run history in cold storage and can make it available to customers who reach out to our Support team. To request older run history info, contact the Support team at <support@getdbt.com> or use the dbt Cloud application chat by clicking the `?` icon in the dbt Cloud UI.
 
@@ -668,7 +668,7 @@ Archived release notes for dbt from 2023
 
   * We made sure everyone knows that Cloud-users don’t need a [profiles.yml file](../local/profiles.yml.md) by adding a callout on several key pages.
   * Fleshed out the [model Jinja variable page](../../reference/dbt-jinja-functions/model.md), which originally lacked conceptual info and didn’t link to the schema page.
-  * Added a new [Quickstarts landing page](../../guides.md). This new format sets up for future iterations that will include filtering! But for now, we are excited you can step through quickstarts in a focused way.
+  * Added a new [Quickstarts landing page](https://docs.getdbt.com/guides). This new format sets up for future iterations that will include filtering! But for now, we are excited you can step through quickstarts in a focused way.
 
   ## Cloud projects
 

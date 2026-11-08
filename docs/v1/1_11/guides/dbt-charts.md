@@ -1,8 +1,6 @@
 # Quickstart for dbt Charts
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

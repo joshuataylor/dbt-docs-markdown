@@ -68,7 +68,7 @@ groups:
 
 Use the `group` configuration to add one or more models to a group.
 
-### Project-level
+#### Project-level
 
 dbt\_project.yml
 
@@ -79,7 +79,7 @@ models:
       +group: finance
 ```
 
-### Model-level
+#### Model-level
 
 models/schema.yml
 
@@ -90,7 +90,7 @@ models:
       group: finance
 ```
 
-### In-file
+#### In-file
 
 models/model\_name.sql
 

@@ -31,7 +31,7 @@ The URI used for SSO connections will vary based on your dbt hosted region. To f
 
    *Replace `YOUR_AUTH0_URI` and `ACCOUNT_NAME` with your account values.*
 
-[![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")](#)Example of the identity provider values for a SAML 2.0 provider
+![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")Example of the identity provider values for a SAML 2.0 provider
 
 Auth0 URI
 
@@ -133,7 +133,7 @@ You can use the instructions in this section to configure Okta as your identity 
 
 1. Log into your Okta account. Using the Admin dashboard, create a new app.
 
-[![Create a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app.png?v=2 "Create a new app")](#)Create a new app
+![Create a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app.png?v=2 "Create a new app")Create a new app
 
 2. Select the following configurations:
 
@@ -142,7 +142,7 @@ You can use the instructions in this section to configure Okta as your identity 
 
 3. Click **Create** to continue the setup process.
 
-[![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")](#)Configure a new app
+![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")Configure a new app
 
 ### Configure the Okta application
 
@@ -159,7 +159,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 2. Click **Next** to continue.
 
-[![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")](#)Configure the app's General Settings
+![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")Configure the app's General Settings
 
 ### Configure SAML Settings
 
@@ -172,7 +172,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
    * **Application username**: `Custom` / `user.getInternalProperty("id")`
    * **Update Application username on**: `Create and update`
 
-[![Configure the app's SAML Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-top.png?v=2 "Configure the app's SAML Settings")](#)Configure the app's SAML Settings
+![Configure the app's SAML Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-top.png?v=2 "Configure the app's SAML Settings")Configure the app's SAML Settings
 
 2. Map your organization's Okta User and Group Attributes to the format that dbt expects by using the Attribute Statements and Group Attribute Statements forms. [SCIM configuration](./scim.md) requires `email` to associate logins with the correct user. If you're using license mapping for groups, you need to additionally configure the `groups` attribute.
 
@@ -192,7 +192,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 You can instead use a more restrictive Group Attribute Statement than the example shown in the previous steps. For example, if all of your dbt groups start with `DBT_CLOUD_`, you may use a filter like `Starts With: DBT_CLOUD_`. **Okta only returns 100 groups for each user, so if your users belong to more than 100 IdP groups, you will need to use a more restrictive filter**. Please contact support if you have any questions.
 
-[![Configure the app's User and Group Attribute Statements](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-bottom.png?v=2 "Configure the app's User and Group Attribute Statements")](#)Configure the app's User and Group Attribute Statements
+![Configure the app's User and Group Attribute Statements](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-bottom.png?v=2 "Configure the app's User and Group Attribute Statements")Configure the app's User and Group Attribute Statements
 
 5. Click **Next** to continue.
 
@@ -202,16 +202,16 @@ You can instead use a more restrictive Group Attribute Statement than the exampl
 2. Select *This is an internal app that we have created*.
 3. Click **Finish** to finish setting up the app.
 
-[![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")](#)Finishing setup in Okta
+![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")Finishing setup in Okta
 
 ### View setup instructions
 
 1. On the next page, click **View Setup Instructions**.
 2. In the steps below, you'll supply these values in your dbt Account Settings to complete the integration between Okta and dbt.
 
-[![Viewing the configured application](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-view-instructions.png?v=2 "Viewing the configured application")](#)Viewing the configured application
+![Viewing the configured application](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-view-instructions.png?v=2 "Viewing the configured application")Viewing the configured application
 
-[![Application setup instructions](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-instructions.png?v=2 "Application setup instructions")](#)Application setup instructions
+![Application setup instructions](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-instructions.png?v=2 "Application setup instructions")Application setup instructions
 
 3. After creating the Okta application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration.
 
@@ -319,15 +319,15 @@ Follow these steps to set up single sign-on (SSO) with dbt:
 9. Select **Single sign-on** under Manage in the left navigation.
 10. Click **Set up single sign on** under Getting Started.
 
-[![In your Overview page, select 'Set up single sign on](/img/docs/dbt-platform/access-control/single-sign-on-overview.jpg?v=2 "In your Overview page, select 'Set up single sign on")](#)In your Overview page, select 'Set up single sign on
+![In your Overview page, select 'Set up single sign on](/img/docs/dbt-platform/access-control/single-sign-on-overview.jpg?v=2 "In your Overview page, select 'Set up single sign on")In your Overview page, select 'Set up single sign on
 
 11. Click **SAML** in "Select a single sign-on method" section.
 
-[![Select the 'SAML' card in the 'Seelct a single sign-on method' section. ](/img/docs/dbt-platform/access-control/saml.jpg?v=2 "Select the 'SAML' card in the 'Seelct a single sign-on method' section. ")](#)Select the 'SAML' card in the 'Seelct a single sign-on method' section.
+![Select the 'SAML' card in the 'Seelct a single sign-on method' section. ](/img/docs/dbt-platform/access-control/saml.jpg?v=2 "Select the 'SAML' card in the 'Seelct a single sign-on method' section. ")Select the 'SAML' card in the 'Seelct a single sign-on method' section.
 
 12. Click **Edit** in the Basic SAML Configuration section.
 
-[![In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card](/img/docs/dbt-platform/access-control/basic-saml.jpg?v=2 "In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card")](#)In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card
+![In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card](/img/docs/dbt-platform/access-control/basic-saml.jpg?v=2 "In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card")In the 'Set up Single Sign-On with SAML' page, click 'Edit' in the 'Basic SAML Configuration' card
 
 13. Use the following table to complete the required fields and connect to dbt:
 
@@ -483,7 +483,7 @@ To complete setup, follow the steps below in dbt:
    | Identity Provider Issuer  | Paste the **Identity Provider Issuer** shown in the IdP setup instructions                                                                                                                                                 |
    | X.509 Certificate         | Paste the **X.509 Certificate** shown in the IdP setup instructions;<br />**Note:** When the certificate expires, an Idp admin will have to generate a new one to be pasted into dbt for uninterrupted application access. |
 
-   [![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")](#)Configuring the application in dbt
+   ![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")Configuring the application in dbt
 
 4. Click **Save** to complete setup for the SAML 2.0 integration.
 

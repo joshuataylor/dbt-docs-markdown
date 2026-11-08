@@ -4,7 +4,7 @@ Use MetricFlow in dbt to centrally define your metrics. As a key component of th
 
 For a complete list of configuration options and property specs, see the [Semantic Layer reference](../../reference/semantic-layer-reference.md).
 
-[![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")](#)This diagram shows how the dbt Semantic Layer works with your data stack.
+![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")This diagram shows how the dbt Semantic Layer works with your data stack.
 
 MetricFlow allows you to:
 
@@ -66,8 +66,6 @@ MetricFlow allows you to:
 #### [Available integrations](../platform-integrations/avail-sl-integrations.md)
 
 [Discover the diverse range of partners that seamlessly integrate with the powerful dbt Semantic Layer, allowing you to query and unlock valuable insights from your data ecosystem.](../platform-integrations/avail-sl-integrations.md)
-
-<br />
 
 ## Related docs
 

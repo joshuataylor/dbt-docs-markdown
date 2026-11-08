@@ -1,6 +1,6 @@
 # lag\_tolerance
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -11,7 +11,7 @@ models:
       lag_tolerance: <duration_string>
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,7 +23,7 @@ models:
         lag_tolerance: <duration_string>
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 

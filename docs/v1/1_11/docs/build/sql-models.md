@@ -11,7 +11,7 @@
 
 Building your first models
 
-If you're new to dbt, we recommend that you read a [quickstart guide](../../guides.md) to build your first dbt project with models.
+If you're new to dbt, we recommend that you read a [quickstart guide](https://docs.getdbt.com/guides) to build your first dbt project with models.
 
 dbt's Python capabilities are an extension of its capabilities with SQL models. If you're new to dbt, we recommend that you read this page first, before reading: ["Python Models"](./python-models.md)
 
@@ -165,7 +165,7 @@ select 1 as my_column
 
 To replace an existing table, here's an *illustrative* example of the SQL dbt will run on different warehouses (the actual SQL can get much more complicated than this!)
 
-### Redshift
+#### Redshift
 
 ```sql
 -- you can't create or replace on redshift, so use a transaction to do this in an atomic way
@@ -189,7 +189,7 @@ drop table if exists "dbt_alice"."test_model__dbt_backup" cascade;
 commit;
 ```
 
-### BigQuery
+#### BigQuery
 
 ```sql
 
@@ -200,7 +200,7 @@ create or replace table `dbt-dev-87681`.`dbt_alice`.`test_model` as (
 );
 ```
 
-### Snowflake
+#### Snowflake
 
 ```sql
 create schema if not exists analytics.dbt_alice;
@@ -353,7 +353,7 @@ dbt uses the `ref` function to:
 
 * Determine the order to run the models by creating a dependent acyclic graph (DAG).
 
-[![The DAG for our dbt project](/img/dbt-dag.png?v=2 "The DAG for our dbt project")](#)The DAG for our dbt project
+![The DAG for our dbt project](/img/dbt-dag.png?v=2 "The DAG for our dbt project")The DAG for our dbt project
 
 * Manage separate environments — dbt will replace the model specified in the `ref` function with the database name for the table (or view). Importantly, this is environment-aware — if you're running dbt with a target schema named `dbt_alice`, it will select from an upstream table in the same schema. Check out the tabs above to see this in action.
 

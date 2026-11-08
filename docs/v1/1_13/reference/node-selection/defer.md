@@ -2,7 +2,7 @@
 
 Defer is a powerful feature that makes it possible to run a subset of (Applies to dbt v1.11 and later) models, tests, or functions in a [sandbox environment](../../docs/environments-in-dbt.md) without having to first build their upstream parents. This can save time and computational resources when you want to test a small number of models in a large project.
 
-[![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")](#)Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
+![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
 
 Defer requires a manifest from a previous dbt invocation. Provide the path using the `--state flag` or by setting the (Applies to dbt v1.11 and later) `DBT_ENGINE_STATE` environment variable. Together with the `state:` selection method, these features enable "Slim CI". Read more about [state](./state-selection.md).
 
@@ -72,7 +72,7 @@ group by 1
 
 I want to test my changes. Nothing exists in my development schema, `dev_alice`.
 
-### Standard run
+#### Standard run
 
 ```shell
 dbt run --select "model_b"
@@ -96,7 +96,7 @@ create or replace view dev_me.model_b as (
 
 Unless I had previously run `model_a` into this development environment, `dev_alice.model_a` will not exist, thereby causing a database error.
 
-### Deferred run
+#### Deferred run
 
 ```shell
 dbt run --select "model_b" --defer --state prod-run-artifacts
@@ -141,7 +141,7 @@ models:
 
 (This is a simplified example, since all the data in `model_b` already comes from `model_a`)
 
-### Without defer
+#### Without defer
 
 ```shell
 dbt test --select "model_b"
@@ -163,7 +163,7 @@ where child.id is not null
 
 The `relationships` test requires both `model_a` and `model_b`. Because I did not build `model_a` in my previous `dbt run`, `dev_alice.model_a` does not exist and this test query fails.
 
-### With defer
+#### With defer
 
 ```shell
 dbt test --select "model_b" --defer --state prod-run-artifacts

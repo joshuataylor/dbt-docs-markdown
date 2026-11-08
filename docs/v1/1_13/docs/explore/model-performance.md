@@ -10,7 +10,7 @@ To view model performance in Catalog:
 2. Select your project in the left sidebar.
 3. Click the **Performance** tab.
 
-[![Overview of Performance page navigation.](/img/docs/collaborate/dbt-explorer/explorer-model-performance.gif?v=2 "Overview of Performance page navigation.")](#)Overview of Performance page navigation.
+![Overview of Performance page navigation.](/img/docs/collaborate/dbt-explorer/explorer-model-performance.gif?v=2 "Overview of Performance page navigation.")Overview of Performance page navigation.
 
 On-demand learning
 
@@ -26,17 +26,17 @@ You can pinpoint areas for performance enhancement by using the Performance over
 
 Each data point links to individual models in Catalog.
 
-[![Example of Performance overview page](/img/docs/collaborate/dbt-explorer/example-performance-overview-page.png?v=2 "Example of Performance overview page")](#)Example of Performance overview page
+![Example of Performance overview page](/img/docs/collaborate/dbt-explorer/example-performance-overview-page.png?v=2 "Example of Performance overview page")Example of Performance overview page
 
 You can view historical metadata for up to the past three months. Select the time horizon using the filter, which defaults to a two-week lookback.
 
-[![Example of dropdown](/img/docs/collaborate/dbt-explorer/ex-2-week-default.png?v=2 "Example of dropdown")](#)Example of dropdown
+![Example of dropdown](/img/docs/collaborate/dbt-explorer/ex-2-week-default.png?v=2 "Example of dropdown")Example of dropdown
 
 ## The Model performance tab
 
 The **Model performance** section in Catalog displays historical trends to help you identify optimization opportunities and understand model resource consumption.
 
-[![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")](#)Cost Insights in Catalog
+![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")Cost Insights in Catalog
 
 ### Key metrics
 

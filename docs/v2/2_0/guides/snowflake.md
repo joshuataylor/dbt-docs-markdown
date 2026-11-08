@@ -8,9 +8,7 @@
 > * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=snowflake-qs>
 > * Ask rather than guess when something is unclear.
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -29,7 +27,7 @@ In this quickstart guide, you'll learn how to use dbt with Snowflake. It will sh
 
 Snowflake also provides a quickstart for you to learn how to use dbt. It makes use of a different public dataset (Knoema Economy Data Atlas) than what's shown in this guide. For more information, refer to [Accelerating Data Teams with dbt & Snowflake](https://quickstarts.snowflake.com/guide/accelerating_data_teams_with_snowflake_and_dbt_cloud_hands_on_lab/) in the Snowflake docs.
 
-### Prerequisites​
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have a [trial Snowflake account](https://signup.snowflake.com/). During trial account creation, make sure to choose the **Enterprise** Snowflake edition so you have `ACCOUNTADMIN` access. For a full implementation, you should consider organizational questions when choosing a cloud provider. For more information, see [Introduction to Cloud Platforms](https://docs.snowflake.com/en/user-guide/intro-cloud-platforms.html) in the Snowflake docs. For the purposes of this setup, all cloud providers and regions will work so choose whichever you’d like.
@@ -165,23 +163,23 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 1. On the left sidebar of the Snowflake UI, go to **Admin > Partner Connect**. Find the dbt tile under the **Data Integration** section or search for dbt in the search bar. Click the tile to connect to dbt.
 
-   [![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")](#)Snowflake Partner Connect Box
+   ![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")Snowflake Partner Connect Box
 
    If you’re using the classic version of the Snowflake UI, you can click the **Partner Connect** button in the top bar of your account. From there, click on the dbt tile to open up the connect box.
 
-   [![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")](#)Snowflake Classic UI - Partner Connect
+   ![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")Snowflake Classic UI - Partner Connect
 
 2. In the **Connect to dbt** popup, find the **Optional Grant** option and select the **RAW** and **ANALYTICS** databases. This will grant access for your new dbt user role to each database. Then, click **Connect**.
 
-   [![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")](#)Snowflake Classic UI - Connection Box
+   ![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")Snowflake Classic UI - Connection Box
 
-   [![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")](#)Snowflake New UI - Connection Box
+   ![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")Snowflake New UI - Connection Box
 
 3. Click **Activate** when a popup appears:
 
-[![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")](#)Snowflake Classic UI - Actviation Window
+![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")Snowflake Classic UI - Actviation Window
 
-[![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")](#)Snowflake New UI - Activation Window
+![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")Snowflake New UI - Activation Window
 
 4. After the new tab loads, you will see a form. If you already created a dbt account, you will be asked to provide an account name. If you haven't created account, you will be asked to provide an account name and password.
 
@@ -189,9 +187,9 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 6. Go to the left side menu and click your account name, then select **Account settings**, choose the "Partner Connect Trial" project, and select **snowflake** in the overview table. Select edit and update the fields **Database** and **Warehouse** to be `analytics` and `transforming`, respectively.
 
-[![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")](#)dbt - Snowflake Project Overview
+![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")dbt - Snowflake Project Overview
 
-[![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")](#)dbt - Update Database and Warehouse
+![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")dbt - Update Database and Warehouse
 
 You should now be logged into dbt with a project that has a Snowflake connection using the `analytics` database and `transforming` warehouse. Partner Connect also created a managed repository for you, so skip to [Initialize your dbt project and start developing](#initialize-your-dbt-project-and-start-developing).
 
@@ -205,13 +203,13 @@ You should now be logged into dbt with a project that has a Snowflake connection
 
 4. In the **Type** section, select **Snowflake**.
 
-   [![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")](#)dbt - Choose Snowflake Connection
+   ![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")dbt - Choose Snowflake Connection
 
 5. Enter your **Settings** for Snowflake with:
 
    * **Account** — Find your account by using the Snowflake trial account URL and removing `snowflakecomputing.com`. The order of your account information will vary by Snowflake version. For example, Snowflake's Classic console URL might look like: `oq65696.west-us-2.azure.snowflakecomputing.com`. The AppUI or Snowsight URL might look more like: `snowflakecomputing.com/west-us-2.azure/oq65696`. In both examples, your account will be: `oq65696.west-us-2.azure`. For more information, see [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html) in the Snowflake docs.
 
-       ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com`
+       ✅ `db5261993` or `db5261993.east-us-2.azure`   ❌ `db5261993.eu-central-1.snowflakecomputing.com`
 
    * **Role** — Leave blank for now. You can update this to a default Snowflake role later.
 
@@ -219,7 +217,7 @@ You should now be logged into dbt with a project that has a Snowflake connection
 
    * **Warehouse** — `transforming`. This tells dbt to use the transforming warehouse that was created earlier.
 
-   [![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")](#)dbt - Snowflake Account Settings
+   ![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")dbt - Snowflake Account Settings
 
 6. Click **Save**.
 
@@ -237,7 +235,7 @@ You should now be logged into dbt with a project that has a Snowflake connection
     * **Target name** — Leave as the default.
     * **Threads** — Leave as 4. This is the number of simultaneous connects that dbt will make to build models concurrently.
 
-    [![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")](#)dbt - Snowflake User credentials
+    ![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")dbt - Snowflake User credentials
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 
@@ -258,7 +256,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -382,7 +380,7 @@ Prefer not to write the SQL by hand? dbt Wizard can build the same model for you
 
 1. Open dbt Wizard from the Studio IDE.
 
-[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
 2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
 3. Review the SQL dbt Wizard generates, then accept it to save the model.
@@ -530,7 +528,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -893,13 +891,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
+![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
+![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -910,11 +908,11 @@ You can view docs directly from the IDE if you're on **v1 Latest** or another ve
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
+   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
+![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
 
 #### FAQs
 
@@ -960,7 +958,7 @@ dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
-**If you edited directly in the protected primary branch:**<br />
+**If you edited directly in the protected primary branch:**
 
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
@@ -968,7 +966,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-**If you created a new branch before editing:**<br />
+**If you created a new branch before editing:**
 
 1. Since you already branched out of the primary protected branch, go to **Version Control** on the left.
 2. Click **Commit and sync** to add a message.

@@ -2,9 +2,7 @@
 
 dbt platform | Starter, Enterprise, Enterprise+
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -161,35 +159,35 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
    select * from raw.stripe.payment;   
    ```
 
-[![The image displays Snowflake's confirmation output when data loaded correctly in the Editor.](/img/docs/dbt-platform/semantic-layer/sl-snowflake-confirm.jpg?v=2 "The image displays Snowflake's confirmation output when data loaded correctly in the Editor.")](#)The image displays Snowflake's confirmation output when data loaded correctly in the Editor.
+![The image displays Snowflake's confirmation output when data loaded correctly in the Editor.](/img/docs/dbt-platform/semantic-layer/sl-snowflake-confirm.jpg?v=2 "The image displays Snowflake's confirmation output when data loaded correctly in the Editor.")The image displays Snowflake's confirmation output when data loaded correctly in the Editor.
 
 ### Connect dbt to Snowflake
 
 There are two ways to connect dbt to Snowflake. The first option is Partner Connect, which provides a streamlined setup to create your dbt account from within your new Snowflake trial account. The second option is to create your dbt account separately and build the Snowflake connection yourself (connect manually). If you want to get started quickly, dbt Labs recommends using Partner Connect. If you want to customize your setup from the very beginning and gain familiarity with the dbt setup flow, dbt Labs recommends connecting manually.
 
-### Use Partner Connect
+#### Use Partner Connect
 
 Using Partner Connect allows you to create a complete dbt account with your [Snowflake connection](../docs/platform/connect-data-platform/connect-snowflake.md), [a managed repository](../docs/platform/git/managed-repository.md), [environments](../docs/build/custom-schemas.md#managing-environments), and credentials.
 
 1. On the left sidebar of the Snowflake UI, go to **Admin > Partner Connect**. Find the dbt tile under the **Data Integration** section or search for dbt in the search bar. Click the tile to connect to dbt.
 
-   [![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")](#)Snowflake Partner Connect Box
+   ![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")Snowflake Partner Connect Box
 
    If you’re using the classic version of the Snowflake UI, you can click the **Partner Connect** button in the top bar of your account. From there, click on the dbt tile to open up the connect box.
 
-   [![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")](#)Snowflake Classic UI - Partner Connect
+   ![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")Snowflake Classic UI - Partner Connect
 
 2. In the **Connect to dbt** popup, find the **Optional Grant** option and select the **RAW** and **ANALYTICS** databases. This will grant access for your new dbt user role to each selected database. Then, click **Connect**.
 
-   [![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")](#)Snowflake Classic UI - Connection Box
+   ![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")Snowflake Classic UI - Connection Box
 
-   [![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")](#)Snowflake New UI - Connection Box
+   ![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")Snowflake New UI - Connection Box
 
 3. Click **Activate** when a popup appears:
 
-[![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")](#)Snowflake Classic UI - Actviation Window
+![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")Snowflake Classic UI - Actviation Window
 
-[![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")](#)Snowflake New UI - Activation Window
+![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")Snowflake New UI - Activation Window
 
 4. After the new tab loads, you will see a form. If you already created a dbt account, you will be asked to provide an account name. If you haven't created an account, you will be asked to provide an account name and password.
 
@@ -197,11 +195,11 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 6. Click your account name in the left side menu and select **Account settings**, choose the "Partner Connect Trial" project, and select **snowflake** in the overview table. Select **Edit** and update the **Database** field to `analytics` and the **Warehouse** field to `transforming`.
 
-[![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")](#)dbt - Snowflake Project Overview
+![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")dbt - Snowflake Project Overview
 
-[![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")](#)dbt - Update Database and Warehouse
+![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")dbt - Update Database and Warehouse
 
-### Connect manually
+#### Connect manually
 
 1. Create a new project in dbt. Navigate to **Account settings** (by clicking on your account name in the left side menu), and click **+ New Project**.
 
@@ -211,13 +209,13 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 4. In the **Type** section, select **Snowflake**.
 
-   [![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")](#)dbt - Choose Snowflake Connection
+   ![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")dbt - Choose Snowflake Connection
 
 5. Enter your **Settings** for Snowflake with:
 
    * **Account:** Find your account by using the Snowflake trial account URL and removing `snowflakecomputing.com`. The order of your account information will vary by Snowflake version. For example, Snowflake's Classic console URL might look like: `oq65696.west-us-2.azure.snowflakecomputing.com`. The AppUI or Snowsight URL might look more like: `snowflakecomputing.com/west-us-2.azure/oq65696`. In both examples, your account will be: `oq65696.west-us-2.azure`. For more information, refer to [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html) in the Snowflake docs.
 
-       ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com`
+       ✅ `db5261993` or `db5261993.east-us-2.azure`   ❌ `db5261993.eu-central-1.snowflakecomputing.com`
 
    * **Role:** Leave blank for now. You can update this to a default Snowflake role later.
 
@@ -225,7 +223,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
    * **Warehouse:** `transforming`. This tells dbt to use the transforming warehouse that was created earlier.
 
-   [![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")](#)dbt - Snowflake Account Settings
+   ![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")dbt - Snowflake Account Settings
 
 6. Click **Save**.
 
@@ -243,7 +241,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
     * **Target name:** Leave as the default.
     * **Threads:** Leave as 4. This is the number of simultaneous connects that dbt will make to build models concurrently.
 
-    [![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")](#)dbt - Snowflake User credentials
+    ![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")dbt - Snowflake User credentials
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 
@@ -324,31 +322,31 @@ Now that you have a repository configured, you can initialize your project and s
    * Delete the models/examples folder in the **File Catalog**.
    * Click **+ Create new file**, add the query for your warehouse to the new file, and click **Save as** to save the new file:
 
-### Snowflake
+#### Snowflake
 
 ```sql
 select * from raw.jaffle_shop.customers
 ```
 
-### BigQuery
+#### BigQuery
 
 ```sql
 select * from `dbt-tutorial.jaffle_shop.customers`
 ```
 
-### Databricks
+#### Databricks
 
 ```sql
 select * from default.jaffle_shop_customers
 ```
 
-### Redshift
+#### Redshift
 
 ```sql
 select * from jaffle_shop.customers
 ```
 
-### Starburst Galaxy
+#### Starburst Galaxy
 
 ```sql
 select * from dbt_quickstart.jaffle_shop.jaffle_shop_customers
@@ -375,7 +373,7 @@ Name the new branch `build-project`.
 2. Name the file `staging/jaffle_shop/src_jaffle_shop.yml` , then click **Create**.
 3. Copy the following text into the file and click **Save**.
 
-### Snowflake
+#### Snowflake
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
 
@@ -389,7 +387,7 @@ sources:
       - name: orders
 ```
 
-### BigQuery
+#### BigQuery
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
 
@@ -403,7 +401,7 @@ sources:
       - name: orders
 ```
 
-### Redshift
+#### Redshift
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
 
@@ -416,7 +414,7 @@ sources:
       - name: orders
 ```
 
-### Databricks
+#### Databricks
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
 
@@ -431,7 +429,7 @@ sources:
         identifier: jaffle_shop_orders
 ```
 
-### Starburst Galaxy
+#### Starburst Galaxy
 
 models/staging/jaffle\_shop/src\_jaffle\_shop.yml
 
@@ -455,7 +453,7 @@ In your source file, you can also use the **Generate model** button to create a 
 5. Name the file `staging/stripe/src_stripe.yml` , then click **Create**.
 6. Copy the following text into the file and click **Save**.
 
-### Snowflake
+##### Snowflake
 
 models/staging/stripe/src\_stripe.yml
 
@@ -468,7 +466,7 @@ sources:
       - name: payment
 ```
 
-### BigQuery
+##### BigQuery
 
 models/staging/stripe/src\_stripe.yml
 
@@ -481,7 +479,7 @@ sources:
       - name: payment
 ```
 
-### Redshift
+##### Redshift
 
 models/staging/stripe/src\_stripe.yml
 
@@ -493,7 +491,7 @@ sources:
       - name: payment
 ```
 
-### Databricks
+##### Databricks
 
 models/staging/stripe/src\_stripe.yml
 
@@ -506,7 +504,7 @@ sources:
         identifier: stripe_payments
 ```
 
-### Starburst Galaxy
+##### Starburst Galaxy
 
 models/staging/stripe/src\_stripe.yml
 
@@ -558,7 +556,7 @@ models/staging/jaffle\_shop/stg\_orders.sql
 5. In the `stripe` sub-directory, create the file `stg_payments.sql`.
 6. Copy the following query into the file and click **Save**.
 
-### Snowflake
+#### Snowflake
 
 models/staging/stripe/stg\_payments.sql
 
@@ -574,7 +572,7 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
-### BigQuery
+#### BigQuery
 
 models/staging/stripe/stg\_payments.sql
 
@@ -590,7 +588,7 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
-### Redshift
+#### Redshift
 
 models/staging/stripe/stg\_payments.sql
 
@@ -606,7 +604,7 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
-### Databricks
+#### Databricks
 
 models/staging/stripe/stg\_payments.sql
 
@@ -622,7 +620,7 @@ select
 from {{ source('stripe', 'payment') }}
 ```
 
-### Starburst Galaxy
+#### Starburst Galaxy
 
 models/staging/stripe/stg\_payments.sql
 
@@ -1176,9 +1174,7 @@ This section explains how you can perform a job run in your deployment environme
 What’s happening internally?
 
 * Merging the code into your main branch allows dbt to pull those changes and build the definition in the manifest produced by the run.
-  <br />
 * Re-running the job in the deployment environment helps materialize the models, which the metrics depend on, in the data platform. It also makes sure that the manifest is up to date.
-  <br />
 * The Semantic Layer APIs pull in the most recent manifest and enables your integration to extract metadata from it.
 
 ## Administer the Semantic Layer
@@ -1210,11 +1206,11 @@ Select the environment where you want to enable the Semantic Layer:
 2. Under **Settings**, click **Projects** and select the specific project you want to enable the Semantic Layer for.
 3. In the **Project details** page, navigate to the **Semantic Layer** section. Select **Configure Semantic Layer**.
 
-[![Semantic Layer section in the 'Project details' page](/img/docs/dbt-platform/semantic-layer/new-sl-configure.png?v=2 "Semantic Layer section in the 'Project details' page")](#)Semantic Layer section in the 'Project details' page
+![Semantic Layer section in the 'Project details' page](/img/docs/dbt-platform/semantic-layer/new-sl-configure.png?v=2 "Semantic Layer section in the 'Project details' page")Semantic Layer section in the 'Project details' page
 
 4. In the **Set Up Semantic Layer Configuration** page, select the deployment environment you want for the Semantic Layer and click **Save**. This provides administrators with the flexibility to choose the environment where the Semantic Layer will be enabled.
 
-[![Select the deployment environment to run your Semantic Layer against.](/img/docs/dbt-platform/semantic-layer/sl-select-env.png?v=2 "Select the deployment environment to run your Semantic Layer against.")](#)Select the deployment environment to run your Semantic Layer against.
+![Select the deployment environment to run your Semantic Layer against.](/img/docs/dbt-platform/semantic-layer/sl-select-env.png?v=2 "Select the deployment environment to run your Semantic Layer against.")Select the deployment environment to run your Semantic Layer against.
 
 ### 2. Configure credentials and create tokens
 
@@ -1254,7 +1250,7 @@ This credential controls the physical access to underlying data accessed by the 
 
   Similarly, if you set the account value using `{{env_var('DBT_ACCOUNT')}}` in Extended Attributes, dbt will check both the Extended Attributes and the environment variable.
 
-[![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.
+![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")Add credentials and map them to a service token.
 
 ##### 3. Create or link service tokens
 
@@ -1262,7 +1258,7 @@ This credential controls the physical access to underlying data accessed by the 
 * Once the token is generated, you won't be able to view this token again, so make sure to record it somewhere safe.
 * If you don’t have access to create service tokens, you’ll see a message prompting you to contact your admin to create one for you. Admins can create and link tokens as needed.
 
-[![If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.](/img/docs/dbt-platform/semantic-layer/sl-credential-no-service-token.png?v=2 "If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.")](#)If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.
+![If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.](/img/docs/dbt-platform/semantic-layer/sl-credential-no-service-token.png?v=2 "If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.")If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you.
 
 info
 
@@ -1297,7 +1293,7 @@ You can use the generated PAT as the authentication method for Semantic Layer [A
 
    For info on how to connect to other integrations, refer to [Available integrations](../docs/platform-integrations/avail-sl-integrations.md).
 
-[![After configuring, you'll be provided with the connection details to connect to you downstream tools.](/img/docs/dbt-platform/semantic-layer/sl-configure-example.png?v=2 "After configuring, you'll be provided with the connection details to connect to you downstream tools.")](#)After configuring, you'll be provided with the connection details to connect to you downstream tools.
+![After configuring, you'll be provided with the connection details to connect to you downstream tools.](/img/docs/dbt-platform/semantic-layer/sl-configure-example.png?v=2 "After configuring, you'll be provided with the connection details to connect to you downstream tools.")After configuring, you'll be provided with the connection details to connect to you downstream tools.
 
 ### 4. Add more credentials [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -1320,10 +1316,9 @@ We recommend configuring credentials and service tokens to reflect your teams an
 #### 1. Add more credentials
 
 * After configuring your environment, on the **Credentials & service tokens** page, click the **Add Semantic Layer credential** button to create multiple credentials and map them to a service token.
-  <br />
 * In the **1. Add credentials** section, fill in the data platform's credential fields. We recommend using “read-only” credentials.
 
-  [![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.
+  ![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")Add credentials and map them to a service token.
 
 #### 2. Map service tokens to credentials
 
@@ -1332,7 +1327,7 @@ We recommend configuring credentials and service tokens to reflect your teams an
 * You can link more service tokens to the same credential later on in the **Semantic Layer Configuration Details** page. To add another service token to an existing Semantic Layer configuration, click **Add service token** under the **Linked service tokens** section.
 * Click **Save** to link the service token to the credential. Remember to copy and save the service token securely, as it won't be viewable again after generation.
 
-[![Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.](/img/docs/dbt-platform/semantic-layer/sl-credentials-service-token.png?v=2 "Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.")](#)Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.
+![Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.](/img/docs/dbt-platform/semantic-layer/sl-credentials-service-token.png?v=2 "Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.")Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.
 
 #### 3. Delete credentials
 
@@ -1354,7 +1349,7 @@ Follow these steps to delete the Semantic Layer configuration for a project:
 
 To re-enable the dbt Semantic Layer setup in the future, you will need to recreate your setup configurations by following the [previous steps](#set-up-dbt-semantic-layer). If your semantic models and metrics are still in your project, no changes are needed. If you've removed them, you'll need to set up the YAML configs again.
 
-[![Delete the Semantic Layer configuration for a project.](/img/docs/dbt-platform/semantic-layer/sl-delete-config.png?v=2 "Delete the Semantic Layer configuration for a project.")](#)Delete the Semantic Layer configuration for a project.
+![Delete the Semantic Layer configuration for a project.](/img/docs/dbt-platform/semantic-layer/sl-delete-config.png?v=2 "Delete the Semantic Layer configuration for a project.")Delete the Semantic Layer configuration for a project.
 
 ## Additional configuration
 
@@ -1368,7 +1363,7 @@ The following are the additional flexible configurations for Semantic Layer cred
 * Click **Save** to link the service token to the credential.
 * Remember to copy and save the service token securely, as it won't be viewable again after generation.
 
-[![Map additional service tokens to a credential.](/img/docs/dbt-platform/semantic-layer/sl-add-service-token.gif?v=2 "Map additional service tokens to a credential.")](#)Map additional service tokens to a credential.
+![Map additional service tokens to a credential.](/img/docs/dbt-platform/semantic-layer/sl-add-service-token.gif?v=2 "Map additional service tokens to a credential.")Map additional service tokens to a credential.
 
 ### Unlink service tokens
 
@@ -1386,7 +1381,7 @@ The following are the additional flexible configurations for Semantic Layer cred
 * From the **Service tokens** page, create a new service token and map it to the credential(s) (assuming the semantic layer permission exists). This is useful if you want to create a new service token and directly map it to a credential in your project.
 * Make sure to select the correct permission set for the service token (Semantic Layer Only and Metadata Only).
 
-[![Create a new service token and map credentials directly on the separate 'Service tokens page'.](/img/docs/dbt-platform/semantic-layer/sl-create-service-token-page.png?v=2 "Create a new service token and map credentials directly on the separate 'Service tokens page'.")](#)Create a new service token and map credentials directly on the separate 'Service tokens page'.
+![Create a new service token and map credentials directly on the separate 'Service tokens page'.](/img/docs/dbt-platform/semantic-layer/sl-create-service-token-page.png?v=2 "Create a new service token and map credentials directly on the separate 'Service tokens page'.")Create a new service token and map credentials directly on the separate 'Service tokens page'.
 
 ## Query the Semantic Layer
 
@@ -1415,13 +1410,13 @@ To query your metrics using Google Sheets:
    * Query a metric, like `order_total`, and filter it with a dimension, like `order_date`.
    * You can also use the `group_by` parameter to group your metrics by a specific dimension.
 
-[![Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.](/img/docs/dbt-platform/semantic-layer/sl-gsheets.jpg?v=2 "Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.")](#)Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.
+![Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.](/img/docs/dbt-platform/semantic-layer/sl-gsheets.jpg?v=2 "Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.")Use the dbt Semantic Layer's Google Sheet integration to query metrics with a Query Builder menu.
 
 ### Connect and query with Hex
 
 This section will guide you on how to use the Hex integration to query your metrics using Hex. Select the appropriate tab based on your connection method:
 
-### Query Semantic Layer with Hex
+#### Query Semantic Layer with Hex
 
 1. Navigate to the [Hex login page](https://app.hex.tech/login).
 2. Sign in or make an account (if you don’t already have one).
@@ -1431,16 +1426,16 @@ This section will guide you on how to use the Hex integration to query your metr
 3. In the top left corner of your page, click on the **HEX** icon to go to the home page.
 4. Then, click the **+ New project** button on the top right.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/hex_new.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/hex_new.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 5. Go to the menu on the left side and select **Data browser**. Then select **Add a data connection**.
 6. Select the data platform that matches your dbt project (Snowflake, BigQuery, Redshift, or Databricks). Give the connection a name and description. You still turn on the dbt Semantic Layer for that connection. You query metrics through dbt, not with a database username and password. Hex currently supports the Semantic Layer on those four connection types. Refer to [Hex's dbt integration](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration).
 
-[![Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.](/img/docs/dbt-platform/semantic-layer/hex_new_data_connection.png?v=2 "Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.")](#)Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.
+![Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.](/img/docs/dbt-platform/semantic-layer/hex_new_data_connection.png?v=2 "Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.")Select 'Data browser' and then 'Add a data connection'. Choose the warehouse type that matches your dbt project.
 
 7. Under **Integrations**, toggle the dbt switch to the right to enable the dbt integration.
 
-[![Click on the dbt toggle to enable the integration. ](/img/docs/dbt-platform/semantic-layer/hex_dbt_toggle.png?v=2 "Click on the dbt toggle to enable the integration. ")](#)Click on the dbt toggle to enable the integration.
+![Click on the dbt toggle to enable the integration. ](/img/docs/dbt-platform/semantic-layer/hex_dbt_toggle.png?v=2 "Click on the dbt toggle to enable the integration. ")Click on the dbt toggle to enable the integration.
 
 8. Enter the following information:
 
@@ -1452,7 +1447,7 @@ This section will guide you on how to use the Hex integration to query your metr
 
 9. Hover over **More** on the menu shown in the following image and select **Semantic Layer**.
 
-[![Hover over 'More' on the menu and select 'dbt Semantic Layer'.](/img/docs/dbt-platform/semantic-layer/hex_make_sl_cell.png?v=2 "Hover over 'More' on the menu and select 'dbt Semantic Layer'.")](#)Hover over 'More' on the menu and select 'dbt Semantic Layer'.
+![Hover over 'More' on the menu and select 'dbt Semantic Layer'.](/img/docs/dbt-platform/semantic-layer/hex_make_sl_cell.png?v=2 "Hover over 'More' on the menu and select 'dbt Semantic Layer'.")Hover over 'More' on the menu and select 'dbt Semantic Layer'.
 
 10. Now, you should be able to query metrics using Hex! Try it yourself:
 
@@ -1460,28 +1455,28 @@ This section will guide you on how to use the Hex integration to query your metr
     * Filter it by one or more dimensions.
     * Create a visualization.
 
-### Getting started with the Semantic Layer workshop
+#### Getting started with the Semantic Layer workshop
 
 1. Click on the link provided to you in the workshop’s chat.
    * Look at the **Pinned message** section of the chat if you don’t see it right away.
 2. Enter your email address in the textbox provided. Then, select **SQL and Python** to be taken to Hex’s home screen.
 
-[![The 'Welcome to Hex' homepage.](/img/docs/dbt-platform/semantic-layer/welcome_to_hex.png?v=2 "The 'Welcome to Hex' homepage.")](#)The 'Welcome to Hex' homepage.
+![The 'Welcome to Hex' homepage.](/img/docs/dbt-platform/semantic-layer/welcome_to_hex.png?v=2 "The 'Welcome to Hex' homepage.")The 'Welcome to Hex' homepage.
 
 3. Then click the purple Hex button in the top left corner.
 4. Click the **Collections** button on the menu on the left.
 5. Select the **Semantic Layer Workshop** collection.
 6. Click the **Getting started with the Semantic Layer** project collection.
 
-[![Click 'Collections' to select the 'Semantic Layer Workshop' collection.](/img/docs/dbt-platform/semantic-layer/hex_collections.png?v=2 "Click 'Collections' to select the 'Semantic Layer Workshop' collection.")](#)Click 'Collections' to select the 'Semantic Layer Workshop' collection.
+![Click 'Collections' to select the 'Semantic Layer Workshop' collection.](/img/docs/dbt-platform/semantic-layer/hex_collections.png?v=2 "Click 'Collections' to select the 'Semantic Layer Workshop' collection.")Click 'Collections' to select the 'Semantic Layer Workshop' collection.
 
 7. To edit this Hex notebook, click the **Duplicate** button from the project dropdown menu (as displayed in the following image). This creates a new copy of the Hex notebook that you own.
 
-[![Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.](/img/docs/dbt-platform/semantic-layer/hex_duplicate.png?v=2 "Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.")](#)Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.
+![Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.](/img/docs/dbt-platform/semantic-layer/hex_duplicate.png?v=2 "Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.")Click the 'Duplicate' button from the project dropdown menu to create a Hex notebook copy.
 
 8. To make it easier to find, rename your copy of the Hex project to include your name.
 
-[![Rename your Hex project to include your name.](/img/docs/dbt-platform/semantic-layer/hex_rename.png?v=2 "Rename your Hex project to include your name.")](#)Rename your Hex project to include your name.
+![Rename your Hex project to include your name.](/img/docs/dbt-platform/semantic-layer/hex_rename.png?v=2 "Rename your Hex project to include your name.")Rename your Hex project to include your name.
 
 9. Now, you should be able to query metrics using Hex! Try it yourself with the following example queries:
 
@@ -1490,7 +1485,7 @@ This section will guide you on how to use the Hex integration to query your metr
    * The next table in the notebook, labeled “Example\_query\_2”, shows the number of customers who have made their first order on a given day. Create a new chart cell. Make a line graph of `first_ordered_at` vs `customers` to see how the number of new customers each day changes over time.
    * Create a new semantic layer cell and pick one or more metrics. Filter your metric(s) by one or more dimensions.
 
-[![Query metrics using Hex ](/img/docs/dbt-platform/semantic-layer/hex_make_sl_cell.png?v=2 "Query metrics using Hex ")](#)Query metrics using Hex
+![Query metrics using Hex ](/img/docs/dbt-platform/semantic-layer/hex_make_sl_cell.png?v=2 "Query metrics using Hex ")Query metrics using Hex
 
 ### Connect and query with Sigma
 
@@ -1500,19 +1495,19 @@ Use steps 1 through 5 only if you are on Snowflake. Databricks has a separate [S
 
 1. Go back to your Snowflake account. In the Snowflake UI, click on the home icon in the upper left corner. In the left sidebar, select **Data Products**. Then, select **Partner Connect**. Find the Sigma tile by scrolling or by searching for Sigma in the search bar. Click the tile to connect to Sigma.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-partner-connect.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-partner-connect.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 2. Select the Sigma tile from the list. Click the **Optional Grant** dropdown menu. Write **RAW** and **ANALYTICS** in the text box and then click **Connect**.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-optional-grant.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-optional-grant.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 3. Make up a company name and URL to use. It doesn’t matter what URL you use, as long as it’s unique.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-company-name.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-company-name.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 4. Enter your name and email address. Choose a password for your account.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-create-profile.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-create-profile.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 5. Great! You now have a Sigma account. Before we get started, go back to Snowflake and open a blank file. Run these lines.
 
@@ -1521,11 +1516,11 @@ Use steps 1 through 5 only if you are on Snowflake. Databricks has a separate [S
 
 6. Click on your bubble in the top right corner. Click the **Administration** button from the dropdown menu.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-admin.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-admin.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 7. Scroll down to the integrations section, then select **Add** next to the dbt integration.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-add-integration.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-add-integration.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 8. In the **dbt Integration** section, fill out the required fields, and then hit save:
 
@@ -1533,15 +1528,15 @@ Use steps 1 through 5 only if you are on Snowflake. Databricks has a separate [S
 * Your access URL of your existing Sigma dbt integration. Use `cloud.getdbt.com` as your access URL.
 * Your dbt Environment ID.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-add-info.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-add-info.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 9. Return to the Sigma home page. Create a new workbook.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-make-workbook.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-make-workbook.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 10. Click on **Table**, then click on **SQL**. Select the data connection that matches your dbt project (Snowflake, BigQuery, Redshift, or Databricks). If you created this Sigma account with Snowflake Partner Connect, that connection is named `PC_SIGMA_WH`.
 
-[![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-make-table.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
+![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-make-table.png?v=2 "Click the '+ New project' button on the top right")Click the '+ New project' button on the top right
 
 11. Go ahead and query a working metric in your project! For example, let's say you had a metric that measures various order-related values. Here’s how you would query it:
 

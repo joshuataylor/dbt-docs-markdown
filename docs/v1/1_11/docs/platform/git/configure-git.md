@@ -36,13 +36,7 @@ Whether you use a Git integration that natively connects with dbt or prefer to w
 
 #### [Connect to Azure DevOps](./connect-azure-devops.md)
 
-[Learn how to connect to Azure DevOps using dbt's native integration.](./connect-azure-devops.md)
-
-<br />
-
-<br />
-
-[Available on dbt Enterprise or Enterprise+ plans.](./connect-azure-devops.md)
+[Learn how to connect to Azure DevOps using dbt's native integration. Available on dbt Enterprise or Enterprise+ plans.](./connect-azure-devops.md)
 
 [![](/img/icons/dbt-bit.svg)](../../deploy/continuous-integration.md#git-providers-who-support-ci)
 

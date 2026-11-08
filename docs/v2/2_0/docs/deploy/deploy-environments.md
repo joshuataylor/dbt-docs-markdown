@@ -30,13 +30,13 @@ We highly recommend using the `Production` environment type for the final, sourc
 
 To create a new dbt deployment environment, navigate to **Orchestration** > **Environments** and then click **Create Environment**. Select **Deployment** as the environment type. The option will be greyed out if you already have a development environment.
 
-[![Navigate to Orchestration > Environments to create a deployment environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-deploy-env.png?v=2 "Navigate to Orchestration > Environments to create a deployment environment")](#)Navigate to Orchestration > Environments to create a deployment environment
+![Navigate to Orchestration > Environments to create a deployment environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-deploy-env.png?v=2 "Navigate to Orchestration > Environments to create a deployment environment")Navigate to Orchestration > Environments to create a deployment environment
 
 ### Set as production environment
 
 In dbt, each project can have one designated deployment environment, which serves as its production environment. This production environment is *essential* for using features like Catalog and cross-project references. It acts as the source of truth for the project's production state in dbt.
 
-[![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")](#)Set your production environment as the default environment in your Environment Settings
+![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")Set your production environment as the default environment in your Environment Settings
 
 ### Semantic Layer
 
@@ -90,7 +90,7 @@ Finally, the staging environment has its own view in [Catalog](../explore/explor
 
 ### Create a Staging environment
 
-[![Create a staging environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-staging-environment.png?v=2 "Create a staging environment")](#)Create a staging environment
+![Create a staging environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-staging-environment.png?v=2 "Create a staging environment")Create a staging environment
 
 Follow the steps outlined in [connection profiles](../platform/about-profiles.md) to complete the remainder of the environment setup.
 
@@ -127,7 +127,7 @@ This section will not appear if you are using Redshift, as all values are inferr
 
 ### Snowflake
 
-[![Snowflake Deployment Connection Settings](/img/docs/collaborate/snowflake-deploy-env-deploy-connection.png?v=2 "Snowflake Deployment Connection Settings")](#)Snowflake Deployment Connection Settings
+![Snowflake Deployment Connection Settings](/img/docs/collaborate/snowflake-deploy-env-deploy-connection.png?v=2 "Snowflake Deployment Connection Settings")Snowflake Deployment Connection Settings
 
 #### Editable fields
 
@@ -145,7 +145,7 @@ This section will not appear if you are using Spark, as all values are inferred 
 
 ### Databricks
 
-[![Databricks Deployment Connection Settings](/img/docs/collaborate/databricks-deploy-env-deploy-connection.png?v=2 "Databricks Deployment Connection Settings")](#)Databricks Deployment Connection Settings
+![Databricks Deployment Connection Settings](/img/docs/collaborate/databricks-deploy-env-deploy-connection.png?v=2 "Databricks Deployment Connection Settings")Databricks Deployment Connection Settings
 
 #### Editable fields
 
@@ -170,7 +170,7 @@ Follow these steps to delete an environment in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete** to delete the environment.
 
-[![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")](#)Delete an environment
+![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")Delete an environment
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the environment immediately. This action cannot be undone. However, you can create a new environment with the same information if the deletion was made in error.
 6. Refresh your page and the deleted environment should now be gone. To delete multiple environments, you'll need to perform these steps to delete each one.

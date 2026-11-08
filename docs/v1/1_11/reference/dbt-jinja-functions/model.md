@@ -15,7 +15,7 @@ For example:
 
 To view the contents of `model` for a given model:
 
-### Command line interface
+## Command line interface
 
 If you're using the command line interface (CLI), use [log()](./log.md) to print the full contents:
 
@@ -23,9 +23,9 @@ If you're using the command line interface (CLI), use [log()](./log.md) to print
 {{ log(model, info=True) }}
 ```
 
-### Studio IDE
+## Studio IDE
 
-If you're using the Studio IDE, compile the following to print the full contents:<br /><br />
+If you're using the Studio IDE, compile the following to print the full contents:
 
 ```jinja
 {{ model | tojson(indent = 4) }}

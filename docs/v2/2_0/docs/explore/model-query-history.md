@@ -58,7 +58,7 @@ If query history fails to retrieve data, dbt automatically disables it to preven
 
 To turn it back on, click **Test Permissions** in **Environment settings**. If the test succeeds, dbt re-enables the environment.
 
-[![Enable query history in your environment settings.](/img/docs/collaborate/dbt-explorer/enable-query-history.png?v=2 "Enable query history in your environment settings.")](#)Enable query history in your environment settings.
+![Enable query history in your environment settings.](/img/docs/collaborate/dbt-explorer/enable-query-history.png?v=2 "Enable query history in your environment settings.")Enable query history in your environment settings.
 
 ## Credential permissions
 
@@ -73,9 +73,9 @@ The model query history feature uses the credentials in your production environm
 5. Look at the information under **Deployment credentials**.
    * Note: Querying query history entails warehouse costs / uses credits.
 
-[![Click the sync icon in the Connection profiles section.](/img/docs/dbt-platform/sync-icon.png?v=2 "Click the sync icon in the Connection profiles section.")](#)Click the sync icon in the Connection profiles section.
+![Click the sync icon in the Connection profiles section.](/img/docs/dbt-platform/sync-icon.png?v=2 "Click the sync icon in the Connection profiles section.")Click the sync icon in the Connection profiles section.
 
-[![Confirm your deployment credentials in your environment settings page.](/img/docs/collaborate/dbt-explorer/model-query-credentials.png?v=2 "Confirm your deployment credentials in your environment settings page.")](#)Confirm your deployment credentials in your environment settings page.
+![Confirm your deployment credentials in your environment settings page.](/img/docs/collaborate/dbt-explorer/model-query-credentials.png?v=2 "Confirm your deployment credentials in your environment settings page.")Confirm your deployment credentials in your environment settings page.
 
 6. Copy or cross reference those credential permissions with the warehouse permissions and grant your user the right permissions.
 
@@ -176,20 +176,20 @@ To enhance your discovery, you can view your model query history in various loca
 2. In the main **Overview** page, click on **Performance** under the **Project details** section. Scroll down to view the **Most consumed models**.
 3. Use the dropdown menu on the right to select the desired time period, with options available for up to the past 3 months.
 
-[![View most consumed models on the 'Performance' page in dbt Catalog.](/img/docs/collaborate/dbt-explorer/most-consumed-models.png?v=2 "View most consumed models on the 'Performance' page in dbt Catalog.")](#)View most consumed models on the 'Performance' page in dbt Catalog.
+![View most consumed models on the 'Performance' page in dbt Catalog.](/img/docs/collaborate/dbt-explorer/most-consumed-models.png?v=2 "View most consumed models on the 'Performance' page in dbt Catalog.")View most consumed models on the 'Performance' page in dbt Catalog.
 
 4. Click on a model for more details and go to the **Performance** tab.
 5. On the **Performance** tab, scroll down to the **Model performance** section.
 6. Select the **Consumption queries** tab to view the consumption queries over a given time for that model.
 
-[![View consumption queries over time for a given model.](/img/docs/collaborate/dbt-explorer/model-consumption-queries.png?v=2 "View consumption queries over time for a given model.")](#)View consumption queries over time for a given model.
+![View consumption queries over time for a given model.](/img/docs/collaborate/dbt-explorer/model-consumption-queries.png?v=2 "View consumption queries over time for a given model.")View consumption queries over time for a given model.
 
 ### View from Project lineage
 
 1. To view your model in your project lineage, go to the main **Overview page** and click on **Project lineage.**
 2. In the lower left of your lineage, click on **Lenses** and select **Consumption queries**.
 
-[![View model consumption queries in your lineage using the 'Lenses' feature.](/img/docs/collaborate/dbt-explorer/model-consumption-lenses.png?v=2 "View model consumption queries in your lineage using the 'Lenses' feature.")](#)View model consumption queries in your lineage using the 'Lenses' feature.
+![View model consumption queries in your lineage using the 'Lenses' feature.](/img/docs/collaborate/dbt-explorer/model-consumption-lenses.png?v=2 "View model consumption queries in your lineage using the 'Lenses' feature.")View model consumption queries in your lineage using the 'Lenses' feature.
 
 3. Your lineage should display a small purple box above each model, indicating the consumption query number. The number for each model represents the model consumption over the last 30 days.
 
@@ -199,4 +199,4 @@ To enhance your discovery, you can view your model query history in various loca
 2. In the left navigation, go to the **Resources** tab and click on **Models** to view the models list.
 3. You can view the consumption query count for the models and sort by most or least consumed. The consumption query number for each model represents the consumption over the last 30 days.
 
-[![View models consumption in the 'Models' list page under the 'Consumption' column.](/img/docs/collaborate/dbt-explorer/model-consumption-list.jpg?v=2 "View models consumption in the 'Models' list page under the 'Consumption' column.")](#)View models consumption in the 'Models' list page under the 'Consumption' column.
+![View models consumption in the 'Models' list page under the 'Consumption' column.](/img/docs/collaborate/dbt-explorer/model-consumption-list.jpg?v=2 "View models consumption in the 'Models' list page under the 'Consumption' column.")View models consumption in the 'Models' list page under the 'Consumption' column.

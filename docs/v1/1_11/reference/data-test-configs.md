@@ -18,11 +18,11 @@ Click the link on each configuration option to read more about what it can do.
 
 ### Data test-specific configurations
 
-Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
+Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.
 
 The following resource-specific configurations are only available to Data tests:
 
-### Project file
+#### Project file
 
 dbt\_project.yml
 
@@ -38,7 +38,7 @@ data_tests:
     +where: <string>
 ```
 
-### SQL file config
+#### SQL file config
 
 ```jinja
 
@@ -53,7 +53,7 @@ data_tests:
 ) }}
 ```
 
-### Property file
+#### Property file
 
 ```yaml
 <resource_type>:
@@ -103,7 +103,7 @@ Starting in dbt v1.12, you can set [`sql_header`](./resource-configs/sql_header.
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-### Project file
+#### Project file
 
 dbt\_project.yml
 
@@ -119,7 +119,7 @@ data_tests:
     +alias: <string>
 ```
 
-### SQL file config
+#### SQL file config
 
 ```jinja
 
@@ -133,7 +133,7 @@ data_tests:
 ) }}
 ```
 
-### Property file
+#### Property file
 
 ```yaml
 

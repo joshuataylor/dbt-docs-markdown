@@ -30,8 +30,6 @@ Jinja expressions are how you write dynamic logic in a file. Custom macros are o
 | Unit test SQL fixtures                            | ❌                     | ❌                          | ❌                     | Refer to [data formats](./resource-properties/data-formats.md).                                                                                                                                                |
 | `.sql.j2` / `.md.j2` (optional)                   | Same as `.sql` / `.md` | Same as `.sql` / `.md`      | Same as `.sql` / `.md` | Requires [`allow_jinja_file_extensions`](./global-configs/behavior-flags/allow_jinja_file_extensions.md) (`false` by default).                                                                                 |
 
-<br />
-
 **Table key**
 
 * **Limited:** Only a subset of built-in dbt functions and variables is available (typically [`env_var()`](./dbt-jinja-functions/env_var.md), [`var()`](./dbt-jinja-functions/var.md), and [`target`](./dbt-jinja-functions/target.md)). The exact list depends on the file type.

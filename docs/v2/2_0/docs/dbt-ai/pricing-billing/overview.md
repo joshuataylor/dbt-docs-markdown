@@ -98,7 +98,7 @@ With dbt managed inference, you can switch between the supported managed models 
 * The picker lists the managed models available to you. Refer to the [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the available models and their token rates.
 * If you [bring your own key (BYOK)](../wizard-byok.md), dbt Wizard uses the provider and model you configured with your key rather than the managed model picker.
 
-[![The model picker dropdown next to the Agent mode control in the Wizard panel.](/img/docs/dbt-platform/wizard-model-picker.png?v=2 "The model picker dropdown next to the Agent mode control in the Wizard panel.")](#)The model picker dropdown next to the Agent mode control in the Wizard panel.
+![The model picker dropdown next to the Agent mode control in the Wizard panel.](/img/docs/dbt-platform/wizard-model-picker.png?v=2 "The model picker dropdown next to the Agent mode control in the Wizard panel.")The model picker dropdown next to the Agent mode control in the Wizard panel.
 
 ## Related docs
 

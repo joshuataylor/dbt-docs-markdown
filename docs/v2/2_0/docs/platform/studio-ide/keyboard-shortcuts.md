@@ -21,6 +21,6 @@ Use this Studio IDE page to help you quickly reference some common operations.
 
 ## Related docs
 
-* [Quickstart guide](../../../guides.md)
+* [Quickstart guide](https://docs.getdbt.com/guides)
 * [About dbt](../about-platform/dbt-platform-features.md)
 * [Develop in the Cloud](./develop-in-studio.md)

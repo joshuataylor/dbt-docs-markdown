@@ -25,7 +25,7 @@ Exasol supports the following performance optimization configurations:
 | `distribute_by_config` | `<string>`                 | no       | Distributes data across cluster nodes by specified column                  |
 | `primary_key_config`   | `[<string>]`               | no       | Defines primary key constraint(s)                                          |
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -38,7 +38,7 @@ models:
     +primary_key_config: [<column-name>]
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 models/properties.yml
 
@@ -52,7 +52,7 @@ models:
       primary_key_config: [<column-name>]
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<model\_name>.sql
 

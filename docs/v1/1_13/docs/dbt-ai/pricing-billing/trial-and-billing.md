@@ -50,7 +50,7 @@ Start from **Billing & Usage**, or from the dbt Wizard prompt in Studio IDE or t
 
 No credit card is required. Your 30-day trial with $100 in usage credits starts right away. The $100 is per account and shared by everyone on it, and you can track how much you've used anytime in **Billing & Usage**.
 
-[![The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart](/img/docs/dbt-platform/wizard-billing-overview.png?v=2 "The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart")](#)The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart
+![The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart](/img/docs/dbt-platform/wizard-billing-overview.png?v=2 "The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart")The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart
 
 ### Wizard CLI
 
@@ -82,11 +82,11 @@ What you do next depends on your plan.
 6. Click **Continue**.
 7. Review and confirm your spend limit. Click **Activate dbt Wizard** to start your billing. You won't be charged today and will be billed monthly for actual usage, up to the limit you set. Usage then pauses if you reach that limit.
 
-[![The Add billing page, showing a credit card form and a complete billing setup flow](/img/docs/dbt-platform/wizard-add-billing.png?v=2 "The Add billing page, showing a credit card form and a complete billing setup flow")](#)The Add billing page, showing a credit card form and a complete billing setup flow
+![The Add billing page, showing a credit card form and a complete billing setup flow](/img/docs/dbt-platform/wizard-add-billing.png?v=2 "The Add billing page, showing a credit card form and a complete billing setup flow")The Add billing page, showing a credit card form and a complete billing setup flow
 
-[![The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle](/img/docs/dbt-platform/wizard-manage-spend.png?v=2 "The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle")](#)The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle
+![The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle](/img/docs/dbt-platform/wizard-manage-spend.png?v=2 "The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle")The Set your dbt Wizard spend limit page, showing pre-set monthly options, a Custom option, and an auto-raise toggle
 
-[![The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard](/img/docs/dbt-platform/wizard-activate.png?v=2 "The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard")](#)The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard
+![The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard](/img/docs/dbt-platform/wizard-activate.png?v=2 "The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard")The Activate dbt Wizard page where you can review and confirm your spend limit and a button to activate dbt Wizard
 
 ### Enterprise and Enterprise+ plans
 
@@ -104,7 +104,7 @@ Your spend limit caps how much dbt managed dbt Wizard usage your account can con
 
 To view or update your limit, go to **Billing & Usage > Usage-based features > Wizard**. Enterprise-tiered plans can [contact their account team](https://www.getdbt.com/contact) to adjust their limit.
 
-[![The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.](/img/docs/dbt-platform/wizard-manage-spend.png?v=2 "The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.")](#)The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.
+![The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.](/img/docs/dbt-platform/wizard-manage-spend.png?v=2 "The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.")The Manage your dbt Wizard spend limit page, showing pre-set monthly options and a Custom option.
 
 ## View your usage and costs
 

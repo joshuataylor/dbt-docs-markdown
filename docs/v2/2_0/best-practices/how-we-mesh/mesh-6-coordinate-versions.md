@@ -139,7 +139,7 @@ Set a `deprecation_date` on the retiring version. Use a date in the past if you 
 
 Skipping this intermediate step may cause dbt to treat the removal as an unexpected breaking contract change and fail CI. For an optional walkthrough, refer to the [video walkthrough on removing a versioned model with an enforced contract](https://www.youtube.com/watch?v=FQ905Zj5C1o).
 
-### Hard delete (cleanest)
+##### Hard delete (cleanest)
 
 "Hard deleting" old versions is the cleanest approach. It removes version artifacts from your project and the warehouse.
 
@@ -150,7 +150,7 @@ If the model has an enforced contract, complete the workflow in the callout abov
 3. Delete all version specifications from your `.yml` file.
 4. Drop or delete deprecated version objects from your warehouse with a manual script or a cleanup macro.
 
-### Soft delete (retains continuity)
+##### Soft delete (retains continuity)
 
 "Soft deleting" old versions retains all old version artifacts to avoid confusion if more model versions get introduced in the future, and for continuity. Bear in mind that your version control platform will also have the history of all of these changes.
 

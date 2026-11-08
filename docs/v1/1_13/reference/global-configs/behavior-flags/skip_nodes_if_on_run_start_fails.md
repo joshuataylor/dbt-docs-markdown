@@ -10,8 +10,6 @@ This flag was removed in v2. The new behavior is always enabled. If you're upgra
 | Matured (default → `true`)             | 2026.09           | 1.12.0 |
 | Removed                                | —                 | v2.0   |
 
-<br />
-
 Starting in dbt v1.12, `skip_nodes_if_on_run_start_fails` defaults to `true`, skipping all selected resources if there is a failure on an `on-run-start` hook.
 
 For more information, refer to [`on-run-start` / `on-run-end`](../../project-configs/on-run-start-on-run-end.md).

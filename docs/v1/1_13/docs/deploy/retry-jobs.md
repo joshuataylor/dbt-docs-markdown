@@ -26,7 +26,7 @@ If your dbt job run completed with a status of **Error**, you can rerun it from 
 
    If you chose to rerun from the failure point, a **Rerun failed steps** modal opens. The modal lists the run steps that will be invoked: the failed step and any skipped steps. To confirm these run steps, click **Rerun from failure**. The job reruns from the failed command in the previously failed run. A banner at the top of the **Run Summary** tab captures this with the message, "This run resumed execution from last failed step".
 
-[![Example of the Rerun options in dbt](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt")](#)Example of the Rerun options in dbt
+![Example of the Rerun options in dbt](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt")Example of the Rerun options in dbt
 
 ## Related content
 

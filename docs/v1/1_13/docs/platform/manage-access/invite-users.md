@@ -18,7 +18,7 @@ You must have proper permissions to invite new users:
 2. Under **Settings**, select **Users**.
 3. Click on **Invite users**.
 
-[![The invite users pane](/img/docs/dbt-platform/access-control/invite-users.png?v=2 "The invite users pane")](#)The invite users pane
+![The invite users pane](/img/docs/dbt-platform/access-control/invite-users.png?v=2 "The invite users pane")The invite users pane
 
 4. In the **Email Addresses** field, enter the email addresses of the users you want to invite separated by a comma, semicolon, or a new line.
 5. Select the license type for the batch of users from the **License** dropdown.
@@ -36,13 +36,13 @@ dbt generates and sends emails from `support@getdbt.com` to the specified addres
 
 The email contains a link to create an account. When the user clicks on this link, they will be brought to one of two screens depending on whether SSO is configured or not.
 
-[![Example or an email invitation](/img/docs/dbt-platform/access-control/email-invite.png?v=2 "Example or an email invitation")](#)Example or an email invitation
+![Example or an email invitation](/img/docs/dbt-platform/access-control/email-invite.png?v=2 "Example or an email invitation")Example or an email invitation
 
 ### Local user
 
 The default settings send the email, the user clicks the link, and is prompted to create their account:
 
-[![Default user invitation](/img/docs/dbt-platform/access-control/default-user-invite.png?v=2 "Default user invitation")](#)Default user invitation
+![Default user invitation](/img/docs/dbt-platform/access-control/default-user-invite.png?v=2 "Default user invitation")Default user invitation
 
 ### SSO user
 
@@ -56,7 +56,7 @@ Complete the SSO flow
 
 Accepting the invite doesn't fully complete the process. The user *must* log in using SSO to redeem the invite and access the account.
 
-[![User invitation with SSO configured](/img/docs/dbt-platform/access-control/sso-user-invite.png?v=2 "User invitation with SSO configured")](#)User invitation with SSO configured
+![User invitation with SSO configured](/img/docs/dbt-platform/access-control/sso-user-invite.png?v=2 "User invitation with SSO configured")User invitation with SSO configured
 
 Once the user completes this process, their email and user information will populate in the **Users** screen in dbt.
 
@@ -88,4 +88,4 @@ From the **Users** page, click on the invite record, and you will be presented w
 
 From the **Users** page, click on the invite record, and you will be presented with the option to revoke it. Once revoked, generate a new invitation to the correct email address.
 
-[![Resend or revoke the users invitation](/img/docs/dbt-platform/access-control/resend-invite.png?v=2 "Resend or revoke the users invitation")](#)Resend or revoke the users invitation
+![Resend or revoke the users invitation](/img/docs/dbt-platform/access-control/resend-invite.png?v=2 "Resend or revoke the users invitation")Resend or revoke the users invitation

@@ -26,7 +26,7 @@ Each of these strategies has its pros and cons, which we'll discuss below. As wi
 
 Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
-### Source code
+#### Source code
 
 glue\_incremental.sql
 
@@ -44,7 +44,7 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-### Run code
+#### Run code
 
 glue\_incremental.sql
 
@@ -71,7 +71,7 @@ This strategy is most effective when specified alongside a `partition_by` clause
 
 If no `partition_by` is specified, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` + `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
-### Source code
+#### Source code
 
 spark\_incremental.sql
 
@@ -105,7 +105,7 @@ from events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 spark\_incremental.sql
 
@@ -157,7 +157,7 @@ extra_jars: "s3://dbt-glue-hudi/Dependencies/hudi-spark.jar,s3://dbt-glue-hudi/D
 
 dbt will run an [atomic `merge` statement](https://hudi.apache.org/docs/writing_data#spark-datasource-writer) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
-### Source code
+#### Source code
 
 hudi\_incremental.sql
 

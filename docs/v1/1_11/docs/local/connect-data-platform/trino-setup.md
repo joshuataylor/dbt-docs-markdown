@@ -99,8 +99,6 @@ For more information, refer to [LDAP authentication](https://trino.io/docs/curre
 | `password`                      | `abc123`                                                                                                                                                            | Password for authentication.                                                                                                                                              |
 | `impersonation_user` (optional) | `impersonated_tom`                                                                                                                                                  | Override the provided username. This lets you impersonate another user.                                                                                                   |
 
-<br />
-
 #### Example profiles.yml for LDAP
 
 \~/.dbt/profiles.yml
@@ -141,8 +139,6 @@ For more information, refer to [Kerberos authentication](https://trino.io/docs/c
 | `sanitize_mutual_error_response` (optional) | `true`              | Boolean flag to strip content and headers from error responses  |
 | `delegate` (optional)                       | `false`             | Boolean flag for credential delegation (`GSS_C_DELEG_FLAG`)     |
 
-<br />
-
 #### Example profiles.yml for Kerberos
 
 \~/.dbt/profiles.yml
@@ -175,8 +171,6 @@ For more information, refer to [JWT authentication](https://trino.io/docs/curren
 | `method`      | `jwt`               | Set JWT as the authentication method. |
 | `jwt_token`   | `aaaaa.bbbbb.ccccc` | The JWT string.                       |
 
-<br />
-
 #### Example profiles.yml for JWT
 
 \~/.dbt/profiles.yml
@@ -208,8 +202,6 @@ For more information, refer to [Certificate authentication](https://trino.io/doc
 | `client_certificate` | `/tmp/tls.crt` | Path to client certificate                         |
 | `client_private_key` | `/tmp/tls.key` | Path to client private key                         |
 | `cert`               |                | The full path to a certificate file                |
-
-<br />
 
 #### Example profiles.yml for certificate
 

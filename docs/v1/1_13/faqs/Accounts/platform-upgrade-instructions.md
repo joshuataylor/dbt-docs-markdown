@@ -26,7 +26,7 @@ To unlock your account and select a plan, review the following guidance per plan
 2. Confirm your plan selection on the pop up message.
 3. This automatically unlocks your dbt account, and you can now enjoy the benefits of the Developer plan. 🎉
 
-[![](/img/docs/dbt-platform/downgrade-dev-flow.gif?v=2)](#)
+![](/img/docs/dbt-platform/downgrade-dev-flow.gif?v=2)
 
 #### Plan allocation
 
@@ -39,9 +39,9 @@ If you select a plan but have too many seats or projects for that plan (for exam
 3. Enter your payment information and seat purchases. Then click **Save**.
 4. This automatically unlocks your dbt account, and you can now enjoy the benefits of the Starter plan. 🎉
 
-[![](/img/docs/dbt-platform/trial-team-flow.png?v=2)](#)
+![](/img/docs/dbt-platform/trial-team-flow.png?v=2)
 
-[![](/img/docs/dbt-platform/trial-team-payments-flow.png?v=2)](#)
+![](/img/docs/dbt-platform/trial-team-payments-flow.png?v=2)
 
 ### Enterprise plan
 
@@ -49,7 +49,7 @@ If you select a plan but have too many seats or projects for that plan (for exam
 2. Click **Contact Sales** on the right. This opens a chat window for you to contact the dbt Support team, who will connect you to our Sales team.
 3. Once you submit your request, our Sales team will contact you with more information.
 
-[![](/img/docs/dbt-platform/enterprise-upgrade.gif?v=2)](#)
+![](/img/docs/dbt-platform/enterprise-upgrade.gif?v=2)
 
 4. Alternatively, you can [contact](https://www.getdbt.com/contact/) our Sales team directly to chat about how dbt can help you and your team.
 

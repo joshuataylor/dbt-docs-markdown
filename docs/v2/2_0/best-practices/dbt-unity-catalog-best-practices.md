@@ -14,11 +14,11 @@ If you use multiple Databricks workspaces to isolate development from production
 
 To do so, use dbt's [environment variable syntax](../docs/build/environment-variables.md#special-environment-variables) for Server Hostname of your Databricks workspace URL and HTTP Path for the SQL warehouse in your connection settings. Note that Server Hostname still needs to appear to be a valid domain name to pass validation checks, so you will need to hard-code the domain suffix on the URL, eg `{{env_var('DBT_HOSTNAME')}}.cloud.databricks.com` and the path prefix for your warehouses, eg `/sql/1.0/warehouses/{{env_var('DBT_HTTP_PATH')}}`.
 
-[![Using environment variable syntax in connection configs](/img/guides/databricks-guides/databricks-connection-env-vars.png?v=2 "Using environment variable syntax in connection configs")](#)Using environment variable syntax in connection configs
+![Using environment variable syntax in connection configs](/img/guides/databricks-guides/databricks-connection-env-vars.png?v=2 "Using environment variable syntax in connection configs")Using environment variable syntax in connection configs
 
 When you create environments in dbt, you can assign environment variables to populate the connection information dynamically. Don’t forget to make sure the tokens you use in the credentials for those environments were generated from the associated workspace.
 
-[![Defining default environment variable values](/img/guides/databricks-guides/databricks-env-variables.png?v=2 "Defining default environment variable values")](#)Defining default environment variable values
+![Defining default environment variable values](/img/guides/databricks-guides/databricks-env-variables.png?v=2 "Defining default environment variable values")Defining default environment variable values
 
 ## Access Control
 

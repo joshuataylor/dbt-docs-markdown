@@ -33,5 +33,3 @@ Choose the option that best fits your needs:
 #### [dbt Canvas](./canvas.md)
 
 [Develop with Canvas, a seamless drag-and-drop experience that helps analysts quickly create and visualize dbt models in dbt.](./canvas.md)
-
-<br />

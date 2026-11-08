@@ -2,9 +2,7 @@
 
 Learn how to upgrade your packages to be compatible with dbt v2.
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

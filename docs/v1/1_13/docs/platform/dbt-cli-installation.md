@@ -15,7 +15,7 @@ dbt commands run against the platform's infrastructure and benefit from:
 * Speedier, lower-cost builds
 * Support for dbt Mesh ([cross-project `ref`](../mesh/govern/project-dependencies.md))
 
-[![Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.](/img/docs/dbt-platform/dbt-cli-overview.png?v=2 "Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.")](#)Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.
+![Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.](/img/docs/dbt-platform/dbt-cli-overview.png?v=2 "Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.")Diagram of how the dbt platform CLI works with dbt's infrastructure to run dbt commands from your local command line.
 
 ## Prerequisites
 
@@ -205,22 +205,20 @@ You can always uninstall the dbt platform CLI to return to using dbt.
 
  How to create an alias?
 
-To create an alias for the dbt platform CLI:<br />
+To create an alias for the dbt platform CLI:
 
-1. Open your shell's profile configuration file. Depending on your shell and system, this could be `~/.bashrc`, `~/.bash_profile`, `~/.zshrc`, or another file.<br />
+1. Open your shell's profile configuration file. Depending on your shell and system, this could be `~/.bashrc`, `~/.bash_profile`, `~/.zshrc`, or another file.
 
 2. Add an alias that points to the dbt platform CLI binary. For example: `alias dbt-cli="path_to_dbt_cli_binary"`
 
-   Replace `path_to_dbt_cli_binary` with the actual path to the dbt platform CLI binary, which is `/opt/homebrew/bin/dbt`. With this alias, you can use the command `dbt-cli` to invoke the dbt platform CLI.<br />
+   Replace `path_to_dbt_cli_binary` with the actual path to the dbt platform CLI binary, which is `/opt/homebrew/bin/dbt`. With this alias, you can use the command `dbt-cli` to invoke the dbt platform CLI.
 
-3. Save the file and then either restart your shell or run `source` on the profile file to apply the changes. For example, in bash you would run: `source ~/.bashrc`<br />
+3. Save the file and then either restart your shell or run `source` on the profile file to apply the changes. For example, in bash you would run: `source ~/.bashrc`
 
-4. Test and use the alias to run commands:<br />
+4. Test and use the alias to run commands:
 
    * To run the dbt platform CLI, use the `dbt-cli` command: `dbt-cli command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
-     <br />
    * To run dbt, use the `dbt` command: `dbt command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
-     <br />
 
 You can then use the `dbt-cli` command to invoke the dbt platform CLI while you keep dbt installed natively.
 

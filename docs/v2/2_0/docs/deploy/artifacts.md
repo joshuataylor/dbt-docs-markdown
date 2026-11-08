@@ -22,7 +22,7 @@ While running any job can produce artifacts, you should only associate one produ
 2. Select your project, and click **Edit** in the lower right.
 3. Under **Artifacts**, select the jobs you want to produce documentation and source freshness artifacts for.
 
-[![Configuring Artifacts](/img/docs/dbt-platform/using-dbt-platform/project-level-artifact-updated.png?v=2 "Configuring Artifacts")](#)Configuring Artifacts
+![Configuring Artifacts](/img/docs/dbt-platform/using-dbt-platform/project-level-artifact-updated.png?v=2 "Configuring Artifacts")Configuring Artifacts
 
 If you don't see your job listed, you might need to edit the job and select **Run source freshness**
 

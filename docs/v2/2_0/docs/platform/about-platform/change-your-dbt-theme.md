@@ -17,7 +17,7 @@ To switch to dark mode in the dbt UI, follow these steps:
 1. Navigate to your account name at the bottom left of your account.
 2. Under **Theme**, select **Dark**.
 
-[![Enable dark mode](/img/docs/dbt-platform/using-dbt-platform/dark-mode.png?v=2 "Enable dark mode")](#)Enable dark mode
+![Enable dark mode](/img/docs/dbt-platform/using-dbt-platform/dark-mode.png?v=2 "Enable dark mode")Enable dark mode
 
 And that’s it! 🎉 Your chosen selected theme will follow you across all devices.
 

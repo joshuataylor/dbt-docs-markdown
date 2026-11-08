@@ -20,7 +20,7 @@ This section explains how to set and override environment variables in dbt.
 
 Environment variable values can be set in multiple places within dbt. As a result, dbt will interpret environment variables according to the following order of precedence (lowest to highest):
 
-[![Environment variables order of precedence](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/env-var-precdence.png?v=2> "Environment variables order of precedence")](#)Environment variables order of precedence
+![Environment variables order of precedence](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/env-var-precdence.png?v=2> "Environment variables order of precedence")Environment variables order of precedence
 
 There are four levels of environment variables:
 
@@ -33,13 +33,13 @@ There are four levels of environment variables:
 
 To set environment variables at the project and environment level, click **Orchestration** in the left-side menu, then select **Environments**. Click **Environment variables** to add and update your environment variables.
 
-[![Environment variables tab](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/navigate-to-env-vars.png?v=2> "Environment variables tab")](#)Environment variables tab
+![Environment variables tab](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/navigate-to-env-vars.png?v=2> "Environment variables tab")Environment variables tab
 
 You'll notice there is a **Project default** column. This is a great place to set a value that will persist across your whole project, independent of where the code is run. We recommend setting this value when you want to supply a catch-all default or add a project-wide token or secret.
 
 To the right of the **Project default** column, you can see all your environments. Values set at the environment level take priority over the project-level default value. This is where you can tell dbt to interpret an environment value differently in your staging versus production environment, as an example.
 
-[![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")](#)Setting project level and environment level values
+![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")Setting project level and environment level values
 
 #### Overriding environment variables at the job level
 
@@ -47,11 +47,11 @@ You may have multiple jobs that run in the same environment, and you'd like the 
 
 When setting up or editing a job, you will see a section where you can override environment variable values defined at the environment or project level.
 
-[![Navigating to environment variables job override settings](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/job-override.gif?v=2> "Navigating to environment variables job override settings")](#)Navigating to environment variables job override settings
+![Navigating to environment variables job override settings](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/job-override.gif?v=2> "Navigating to environment variables job override settings")Navigating to environment variables job override settings
 
 Every job runs in a specific deployment environment, and by default, a job will inherit the values set at the environment level (or the highest precedence level set) for the environment in which it runs. If you'd like to set a different value at the job level, edit the value to override it.
 
-[![Setting a job override value](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/job-override.png?v=2> "Setting a job override value")](#)Setting a job override value
+![Setting a job override value](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/job-override.png?v=2> "Setting a job override value")Setting a job override value
 
 #### Overriding environment variables at the personal level
 
@@ -63,7 +63,7 @@ You can also set a personal value override for an environment variable when you 
 
 To supply an override, developers can edit and specify a different value to use. These values will be respected in the Studio IDE both for the Results and Compiled SQL tabs.
 
-[![Setting a personal override value](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/personal-override.png?v=2> "Setting a personal override value")](#)Setting a personal override value
+![Setting a personal override value](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/personal-override.png?v=2> "Setting a personal override value")Setting a personal override value
 
 Appropriate coverage
 
@@ -75,7 +75,7 @@ If you change the value of an environment variable mid-session while using the S
 
 To refresh the Studio IDE mid-development, click on either the green 'ready' signal or the red 'compilation error' message at the bottom right corner of the Studio IDE. A new modal will pop up, and you should select the **Restart IDE** button. This loads your environment variable values into your development environment.
 
-[![Refreshing IDE mid-session](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/refresh-ide.png?v=2> "Refreshing IDE mid-session")](#)Refreshing IDE mid-session
+![Refreshing IDE mid-session](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/refresh-ide.png?v=2> "Refreshing IDE mid-session")Refreshing IDE mid-session
 
 There are some known issues with partial parsing of a project and changing environment variables mid-session in the IDE. If you find that your dbt project is not compiling to the values you've set, try deleting the `target/partial_parse.msgpack` file in your dbt project which will force dbt to re-compile your whole project.
 
@@ -91,7 +91,7 @@ While all environment variables are encrypted at rest in dbt, dbt has additional
 
 Environment variables prefixed with `DBT_ENV_SECRET_` are protected with additional security controls. They are encrypted at rest using an encryption key (for example, AWS KMS when your deployment is hosted on AWS) and can only be accessed by decrypting them with that key. Decryption is restricted to specific flows where the value is required, such as when a job runs. Secret keys are never written to logs or error messages and are obfuscated in dbt, so they are not exposed in the UI or artifacts, and are only available to dbt at runtime as needed.
 
-[![DBT\_ENV\_SECRET prefix obfuscation](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/DBT_ENV_SECRET.png?v=2> "DBT_ENV_SECRET prefix obfuscation")](#)DBT\_ENV\_SECRET prefix obfuscation
+![DBT\_ENV\_SECRET prefix obfuscation](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/DBT_ENV_SECRET.png?v=2> "DBT_ENV_SECRET prefix obfuscation")DBT\_ENV\_SECRET prefix obfuscation
 
 **Note**: An environment variable can be used to store a [git token for repo cloning](./environment-variables.md#clone-private-packages). We recommend you make the git token's permissions read only and consider using a machine account or service user's PAT with limited repo access in order to practice good security hygiene.
 
@@ -156,7 +156,7 @@ Currently, it's not possible to dynamically set environment variables across mod
 
 **Note** — You can also use this method with Databricks SQL Warehouse.
 
-[![Adding environment variables to your connection credentials](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/warehouse-override.png?v=2> "Adding environment variables to your connection credentials")](#)Adding environment variables to your connection credentials
+![Adding environment variables to your connection credentials](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/warehouse-override.png?v=2> "Adding environment variables to your connection credentials")Adding environment variables to your connection credentials
 
 Environment variables and Snowflake OAuth limitations
 

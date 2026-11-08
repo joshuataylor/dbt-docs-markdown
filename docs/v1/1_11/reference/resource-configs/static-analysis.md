@@ -10,7 +10,7 @@ The `static_analysis` config sets how dbt v2 validates SQL before execution—us
 
 To check out which Snowflake functions are supported in dbt v2 in `strict` mode, refer to [Snowflake function support](./snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](./bigquery-function-support.md).
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -35,7 +35,7 @@ models/model\_name.sql
 {{ config(static_analysis='strict' | 'baseline' | 'off') }}
 ```
 
-### Tests
+## Tests
 
 dbt\_project.yml
 
@@ -57,7 +57,7 @@ models:
             static_analysis: strict | baseline | off
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -76,7 +76,7 @@ seeds:
       static_analysis: strict | baseline | off
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -95,7 +95,7 @@ snapshots:
       static_analysis: strict | baseline | off
 ```
 
-### Unit tests
+## Unit tests
 
 dbt\_project.yml
 
@@ -146,7 +146,7 @@ Two rules determine how `static_analysis` modes apply in a lineage:
 
 The static analysis configuration cascades from most strict to least strict. Here's the strictness hierarchy: `strict` → `baseline` → `off`
 
-**Allowed downstream by parent mode**<br />When going downstream in your lineage, you can keep the same mode or relax it; but you cannot make a child stricter than its parent. The following table shows the allowed downstream modes by parent mode:
+**Allowed downstream by parent mode** When going downstream in your lineage, you can keep the same mode or relax it; but you cannot make a child stricter than its parent. The following table shows the allowed downstream modes by parent mode:
 
 | Parent mode | Child can be                       |
 | ----------- | ---------------------------------- |

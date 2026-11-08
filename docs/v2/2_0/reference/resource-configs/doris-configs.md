@@ -12,7 +12,7 @@
 
 A dbt model can be created as a Doris view and configured using the following syntax:
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -22,7 +22,7 @@ models:
     +materialized: view
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<model\_name>.sql
 
@@ -34,7 +34,7 @@ models/\<model\_name>.sql
 
 A dbt model can be created as a [Doris table](https://doris.apache.org/docs/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE/) and configured using the following syntax:
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -51,7 +51,7 @@ models:
     +properties: {<key>:<value>,...}
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<model\_name>.sql
 
@@ -87,7 +87,7 @@ models/\<model\_name>.sql
 
 An incremental Doris table, item table model must be 'unique' and is configured using the following syntax:
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -104,7 +104,7 @@ models:
     +properties: {<key>:<value>,...}
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<model\_name>.sql
 

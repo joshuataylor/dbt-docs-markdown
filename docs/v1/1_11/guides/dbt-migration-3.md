@@ -1,8 +1,6 @@
 # Move to the dbt platform: Optimization tips
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

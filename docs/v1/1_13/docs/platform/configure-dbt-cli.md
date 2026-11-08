@@ -65,7 +65,6 @@ Use the `--help` flag
 As a tip, most command-line tools have a `--help` flag to show available commands and arguments. Use the `--help` flag with dbt in two ways:
 
 * `dbt --help`: Lists the commands available for dbt
-  <br />
 * `dbt run --help`: Lists the flags available for the `run` command
 
 ## Lint SQL files

@@ -147,7 +147,7 @@ Large DAGs can take a long time (10 or more seconds, if not minutes) to render a
 
 The new button prevents large DAGs from rendering automatically. Instead, you can select **Render Lineage** to load the visualization. This should affect about 15% of the DAGs.
 
-[![Render Lineage](</img/docs/dbt-platform/dag v1.1.56 release.png?v=2> "Render Lineage")](#)Render Lineage
+![Render Lineage](</img/docs/dbt-platform/dag v1.1.56 release.png?v=2> "Render Lineage")Render Lineage
 
 ## May 2022
 
@@ -185,13 +185,13 @@ We fixed an issue where a spotty internet connection could cause the “Studio I
 
 We updated the health check logic so it now excludes client-side connectivity issues from the Studio IDE session check. If you lose your internet connection, we no longer update the health-check state. Now, losing internet connectivity will no longer cause this unexpected message.
 
-[![Fix Session Timeout](</img/docs/dbt-platform/Fix Session Timeout.png?v=2> "Fix Session Timeout")](#)Fix Session Timeout
+![Fix Session Timeout](</img/docs/dbt-platform/Fix Session Timeout.png?v=2> "Fix Session Timeout")Fix Session Timeout
 
 ### Dividing queue time into waiting and prep time
 
 dbt now shows "waiting time" and "prep time" for a run, which used to be expressed in aggregate as "queue time". Waiting time captures the time dbt waits to run your job if there isn't an available run slot or if a previous run of the same job is still running. Prep time represents the time it takes dbt to ready your job to run in your cloud data warehouse.
 
-[![New prep time and waiting time](/img/docs/dbt-platform/v1.1.46releasenotes_img1.png?v=2 "New prep time and waiting time")](#)New prep time and waiting time
+![New prep time and waiting time](/img/docs/dbt-platform/v1.1.46releasenotes_img1.png?v=2 "New prep time and waiting time")New prep time and waiting time
 
 ## February 2022
 

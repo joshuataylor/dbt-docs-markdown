@@ -49,7 +49,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 * **Integration**: The BI tool that the exposure is integrated with.
 * **Exposure mode**: The type of exposure defined: **Auto** or **Manual**. Auto exposures from Tableau appear alongside manual exposures
 
-[![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")](#)View the Exposures table from the Catalog sidebar.
+![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")View the Exposures table from the Catalog sidebar.
 
 ### Exposure detail page
 
@@ -57,7 +57,7 @@ After you open the **Exposures** table ([previous section](#exposures-menu)), se
 
 On the exposure detail page, you can review metadata, [data health signals](./data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
 
-[![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
+![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")View an exposure detail page in Catalog.
 
 ### Project lineage
 
@@ -69,6 +69,6 @@ You can also view exposures from the **Project lineage** view, separate from the
 
 This view visualizes the dependencies and relationships in your project. For Tableau auto exposures, use **View in Tableau** or **Modify integration** from the side panel.
 
-[![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
+![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
-[![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
+![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.

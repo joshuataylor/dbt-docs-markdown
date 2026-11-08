@@ -63,7 +63,7 @@ dbt automatically archives a webhook after 1,000 consecutive failed deliveries o
 * Archived subscriptions show an **Archived** badge in the status column instead of an HTTP status.
 * Hover over the badge for details on why dbt archived it and how to reactivate it.
 
-[![Webhooks page showing the archived subscription warning banner with the 'Archived; status badge](/img/docs/deploy/webhooks-archived.png?v=2 "Webhooks page showing the archived subscription warning banner with the 'Archived; status badge")](#)Webhooks page showing the archived subscription warning banner with the 'Archived; status badge
+![Webhooks page showing the archived subscription warning banner with the 'Archived; status badge](/img/docs/deploy/webhooks-archived.png?v=2 "Webhooks page showing the archived subscription warning banner with the 'Archived; status badge")Webhooks page showing the archived subscription warning banner with the 'Archived; status badge
 
 To reactivate a webhook, use one of the following methods:
 
@@ -611,7 +611,7 @@ DELETE https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscript
 ## Related docs
 
 * [dbt CI](./continuous-integration.md)
-* [Use dbt's webhooks with other SaaS apps](../../guides.md?tags=Webhooks)
+* [Use dbt's webhooks with other SaaS apps](https://docs.getdbt.com/guides?tags=Webhooks)
 
 ## Troubleshooting
 

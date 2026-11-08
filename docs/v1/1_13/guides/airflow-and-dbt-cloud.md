@@ -1,8 +1,6 @@
 # Airflow and dbt
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -46,11 +44,15 @@ In this example, we’re using Homebrew to install Astro CLI. Follow the instruc
 brew install astro
 ```
 
+[Wistia video](https://fast.wistia.net/embed/iframe/uosszw1qul?seo=false\&videoFoam=true)
+
 ## Install and start Docker Desktop
 
 Docker allows us to spin up an environment with all the apps and dependencies we need for this guide.
 
 Follow the instructions [here](https://docs.docker.com/desktop/) to install Docker desktop for your own operating system. Once Docker is installed, ensure you have it up and running for the next steps.
+
+[Wistia video](https://fast.wistia.net/embed/iframe/qr84pa8k9f?seo=false\&videoFoam=true)
 
 ## Clone the airflow-dbt-cloud repository
 
@@ -91,13 +93,17 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
    * Username: admin
    * Password: admin
 
-   [![Airflow login screen](/img/guides/orchestration/airflow-and-dbt-platform/airflow-login.png?v=2 "Airflow login screen")](#)Airflow login screen
+   ![Airflow login screen](/img/guides/orchestration/airflow-and-dbt-platform/airflow-login.png?v=2 "Airflow login screen")Airflow login screen
+
+[Wistia video](https://fast.wistia.net/embed/iframe/2rzsjo0uml?seo=false\&videoFoam=true)
 
 ## Create a dbt service token
 
 [Create a service token](../docs/dbt-apis/service-tokens.md) with `Job Admin` privileges from within dbt. Ensure that you save a copy of the token, as you won’t be able to access this later.
 
 As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create-a-personal-access-token) if you have a Developer, IT, or Read-only license.
+
+[Wistia video](https://fast.wistia.net/embed/iframe/amubh6qmwq?seo=false\&videoFoam=true)
 
 ## Create a dbt job
 
@@ -111,21 +117,23 @@ As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create
 https://YOUR_ACCESS_URL/#/accounts/{account_id}/projects/{project_id}/jobs/{job_id}/
 ```
 
+[Wistia video](https://fast.wistia.net/embed/iframe/qiife5rzlp?seo=false\&videoFoam=true)
+
 ## Connect dbt to Airflow
 
 Now you have all the working pieces to get up and running with Airflow + dbt. It's time to **set up a connection** and **run a DAG in Airflow** that kicks off a dbt job.
 
 1. From the Airflow interface, navigate to Admin and click on **Connections**
 
-   [![Airflow connections menu](/img/guides/orchestration/airflow-and-dbt-platform/airflow-connections-menu.png?v=2 "Airflow connections menu")](#)Airflow connections menu
+   ![Airflow connections menu](/img/guides/orchestration/airflow-and-dbt-platform/airflow-connections-menu.png?v=2 "Airflow connections menu")Airflow connections menu
 
 2. Click on the `+` sign to add a new connection, then click on the drop down to search for the dbt Connection Type.
 
-   [![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type.png?v=2 "Connection type")](#)Connection type
+   ![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type.png?v=2 "Connection type")Connection type
 
 3. Add in your connection details and your default dbt account id. This is found in your dbt URL after the accounts route section (`/accounts/{YOUR_ACCOUNT_ID}`), for example the account with id 16173 would see this in their URL: `https://YOUR_ACCESS_URL/#/accounts/16173/projects/36467/jobs/65767/`
 
-   [![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type-configured.png?v=2 "Connection type")](#)Connection type
+   ![Connection type](/img/guides/orchestration/airflow-and-dbt-platform/connection-type-configured.png?v=2 "Connection type")Connection type
 
 ## Update the placeholders in the sample code
 
@@ -141,15 +149,17 @@ ACCOUNT_ID = "16173"
 JOB_ID = "65767"
 ```
 
+[Wistia video](https://fast.wistia.net/embed/iframe/wgy7wvgqof?seo=false\&videoFoam=true)
+
 ## Run the Airflow DAG
 
 Turn on the DAG and trigger it to run. Verify the job succeeded after running.
 
-[![Airflow DAG](/img/guides/orchestration/airflow-and-dbt-platform/airflow-dag.png?v=2 "Airflow DAG")](#)Airflow DAG
+![Airflow DAG](/img/guides/orchestration/airflow-and-dbt-platform/airflow-dag.png?v=2 "Airflow DAG")Airflow DAG
 
 Click **Monitor Job Run** to open the run details in dbt.
 
-[![Task run instance](/img/guides/orchestration/airflow-and-dbt-platform/task-run-instance.png?v=2 "Task run instance")](#)Task run instance
+![Task run instance](/img/guides/orchestration/airflow-and-dbt-platform/task-run-instance.png?v=2 "Task run instance")Task run instance
 
 ## Cleaning up
 
@@ -178,6 +188,8 @@ airflow-dbt-cloud_e3fe3c-webserver-1    exited
 airflow-dbt-cloud_e3fe3c-scheduler-1    exited
 airflow-dbt-cloud_e3fe3c-postgres-1     exited
 ```
+
+[Wistia video](https://fast.wistia.net/embed/iframe/u83nuqegn9?seo=false\&videoFoam=true)
 
 ## Frequently asked questions
 

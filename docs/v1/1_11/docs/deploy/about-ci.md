@@ -17,5 +17,3 @@ Refer to the guide [Get started with continuous integration tests](../../guides/
 #### [Advanced CI](./advanced-ci.md)
 
 [Compare the differences between what's in the production environment and the pull request before merging those changes, ensuring that you're always shipping trusted data products.](./advanced-ci.md)
-
-<br />

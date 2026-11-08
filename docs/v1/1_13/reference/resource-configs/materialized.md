@@ -1,6 +1,6 @@
 # materialized
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -12,7 +12,7 @@ models:
     +materialized: <materialization_name>
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/properties.yml
 
@@ -24,7 +24,7 @@ models:
       materialized: <materialization_name>
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<model\_name>.sql
 

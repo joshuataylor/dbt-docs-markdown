@@ -66,7 +66,7 @@ Now that you have an OAuth app set up in Databricks, you'll need to add the clie
 5. Click **Edit**.
 6. Under the **Optional settings** section, add the **OAuth Client ID** and **OAuth Client Secret** from the Databricks OAuth app.
 
-[![Add Databricks OAuth credentials to the connection](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth.png?v=2 "Add Databricks OAuth credentials to the connection")](#)Add Databricks OAuth credentials to the connection
+![Add Databricks OAuth credentials to the connection](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth.png?v=2 "Add Databricks OAuth credentials to the connection")Add Databricks OAuth credentials to the connection
 
 ### Authenticating to Databricks (Studio IDE developer)
 
@@ -78,7 +78,7 @@ Once the Databricks OAuth connection is set up for a dbt project, each dbt user 
 4. Select **OAuth** as the authentication method, and click **Save**.
 5. Finalize by clicking the **Connect Databricks Account** button.
 
-[![Connect your Databricks account from development credentials](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth-user.png?v=2 "Connect your Databricks account from development credentials")](#)Connect your Databricks account from development credentials
+![Connect your Databricks account from development credentials](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth-user.png?v=2 "Connect your Databricks account from development credentials")Connect your Databricks account from development credentials
 
 You will then be redirected to Databricks and asked to approve the connection. This redirects you back to dbt. You should now be an authenticated Databricks user, ready to use the Studio IDE.
 

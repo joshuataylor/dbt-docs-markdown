@@ -13,12 +13,10 @@ This section covers common `dbt seed` results (artifacts and CLI output) and opt
 Use artifacts when you want to inspect or troubleshoot what happened during execution:
 
 * Artifacts: Running `dbt seed` produces dbt execution artifacts, including `run_results.json` for executed seeds. For details on what’s included and how to interpret it, refer to [Run results JSON file](../artifacts/run-results-json.md).
-  <br />
 
 Use resource selection when you want to run only a subset of seeds:
 
 * Selecting resources: For advanced selection patterns (tags, paths, graph operators, and more), read [Syntax overview](../node-selection/syntax.md).
-  <br />
 
 Use global flags when you want to control command behavior, logging, and runtime settings:
 

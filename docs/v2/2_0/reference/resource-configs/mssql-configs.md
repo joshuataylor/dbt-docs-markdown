@@ -10,7 +10,7 @@ Tables will, by default, be materialized as a columnstore tables. This requires 
 
 This behaviour can be disabled by setting the `as_columnstore` configuration option to `False`.
 
-### Model config
+#### Model config
 
 models/example.sql
 
@@ -25,7 +25,7 @@ select *
 from ...
 ```
 
-### Project config
+#### Project config
 
 dbt\_project.yml
 

@@ -1,8 +1,6 @@
 # Quickstart with dbt Mesh
 
-[Back to guides](../guides.md)
-
-[Menu ]()
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -32,7 +30,7 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 * [Mesh best practices guide](../best-practices/how-we-mesh/mesh-4-implementation.md)
 * [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md)
 
-## Prerequisites​
+## Prerequisites
 
 To leverage Mesh, you need the following:
 
@@ -88,15 +86,15 @@ To [create](../docs/platform/about-platform-setup.md) a new project in dbt:
    * New git repo
    * One or more [environments](../docs/deploy/deploy-environments.md) (such as development, deployment)
 
-[![Navigate to Account settings.](/img/guides/dbt-ecosystem/dbt-python-snowpark/5-development-schema-name/1-settings-gear-icon.png?v=2 "Navigate to Account settings.")](#)Navigate to Account settings.
+![Navigate to Account settings.](/img/guides/dbt-ecosystem/dbt-python-snowpark/5-development-schema-name/1-settings-gear-icon.png?v=2 "Navigate to Account settings.")Navigate to Account settings.
 
-[![Select projects from the menu.](/img/guides/dbt-mesh/select_projects.png?v=2 "Select projects from the menu.")](#)Select projects from the menu.
+![Select projects from the menu.](/img/guides/dbt-mesh/select_projects.png?v=2 "Select projects from the menu.")Select projects from the menu.
 
-[![Create a new project in the Studio IDE.](/img/guides/dbt-mesh/create_a_new_project.png?v=2 "Create a new project in the Studio IDE.")](#)Create a new project in the Studio IDE.
+![Create a new project in the Studio IDE.](/img/guides/dbt-mesh/create_a_new_project.png?v=2 "Create a new project in the Studio IDE.")Create a new project in the Studio IDE.
 
-[![Name your project.](/img/guides/dbt-mesh/enter_project_name.png?v=2 "Name your project.")](#)Name your project.
+![Name your project.](/img/guides/dbt-mesh/enter_project_name.png?v=2 "Name your project.")Name your project.
 
-[![Select the relevant connection for your projects.](/img/guides/dbt-mesh/select_a_connection.png?v=2 "Select the relevant connection for your projects.")](#)Select the relevant connection for your projects.
+![Select the relevant connection for your projects.](/img/guides/dbt-mesh/select_a_connection.png?v=2 "Select the relevant connection for your projects.")Select the relevant connection for your projects.
 
 ### Create a production environment
 
@@ -112,7 +110,7 @@ To set a production environment:
 6. Click **Test Connection** to confirm the deployment connection.
 7. Click **Save** to create a production environment.
 
-[![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")](#)Set your production environment as the default environment in your Environment Settings
+![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")Set your production environment as the default environment in your Environment Settings
 
 ## Set up a foundational project
 
@@ -287,7 +285,7 @@ Note: By default, model access is set to "protected", which means they can only 
 
 2. Navigate to the Studio IDE **Lineage** tab to see the model noted as **Public**, below the model name.
 
-[![Jaffle | Data Analytics lineage](/img/guides/dbt-mesh/da_lineage.png?v=2 "Jaffle | Data Analytics lineage")](#)Jaffle | Data Analytics lineage
+![Jaffle | Data Analytics lineage](/img/guides/dbt-mesh/da_lineage.png?v=2 "Jaffle | Data Analytics lineage")Jaffle | Data Analytics lineage
 
 3. Go to **Version control** and click the **Commit and Sync** button to commit your changes.
 4. Merge your changes to the main or production branch.
@@ -414,15 +412,15 @@ You're now set to add a model that explores how payment types vary throughout a 
 
 2. Notice the cross-project ref at work! When you add the `ref`, the Studio IDE's auto-complete feature recognizes the public model as available.
 
-[![Cross-project ref autocomplete in the Studio IDE](/img/guides/dbt-mesh/cross_proj_ref_autocomplete.png?v=2 "Cross-project ref autocomplete in the Studio IDE")](#)Cross-project ref autocomplete in the Studio IDE
+![Cross-project ref autocomplete in the Studio IDE](/img/guides/dbt-mesh/cross_proj_ref_autocomplete.png?v=2 "Cross-project ref autocomplete in the Studio IDE")Cross-project ref autocomplete in the Studio IDE
 
 3. This automatically resolves (or links) to the correct database, schema, and table/view set by the upstream project.
 
-[![Cross-project ref compile](/img/guides/dbt-mesh/cross_proj_ref_compile.png?v=2 "Cross-project ref compile")](#)Cross-project ref compile
+![Cross-project ref compile](/img/guides/dbt-mesh/cross_proj_ref_compile.png?v=2 "Cross-project ref compile")Cross-project ref compile
 
 4. You can also see this connection displayed in the live **Lineage** tab.
 
-[![Cross-project ref lineage](/img/guides/dbt-mesh/cross_proj_ref_lineage.png?v=2 "Cross-project ref lineage")](#)Cross-project ref lineage
+![Cross-project ref lineage](/img/guides/dbt-mesh/cross_proj_ref_lineage.png?v=2 "Cross-project ref lineage")Cross-project ref lineage
 
 ## Add model versions and contracts
 
@@ -454,7 +452,7 @@ models:
 
    * If the contract is breached, the build fails, as seen in the command bar history.
 
-   [![The data contract was breached and the dbt build run failed.](/img/guides/dbt-mesh/break_contract.png?v=2 "The data contract was breached and the dbt build run failed.")](#)The data contract was breached and the dbt build run failed.
+   ![The data contract was breached and the dbt build run failed.](/img/guides/dbt-mesh/break_contract.png?v=2 "The data contract was breached and the dbt build run failed.")The data contract was breached and the dbt build run failed.
 
 ### Set up model versions
 
@@ -562,7 +560,7 @@ A member of the Finance team would like to schedule a dbt job for their customer
 3. Add a name for the job, then scroll to the bottom of the **Job completion** section.
 4. In the **Triggers** section, configure the job to **Run when another job finishes** and select the upstream job from the “Jaffle | Data Analytics” project.
 
-[![Trigger job on completion](/img/guides/dbt-mesh/trigger_on_completion.png?v=2 "Trigger job on completion")](#)Trigger job on completion
+![Trigger job on completion](/img/guides/dbt-mesh/trigger_on_completion.png?v=2 "Trigger job on completion")Trigger job on completion
 
 5. Click **Save** and verify the job is set up correctly.
 6. Go to the “Jaffle | Data Analytics” jobs page. Select the **Daily job** and click **Run now**.
@@ -614,13 +612,13 @@ select * from final
 4. Go to the **Deploy** and then **Jobs** page.
 5. Click **Run now** to run the Finance job. The `agg_customer_payment_journey` model will build and display a deprecation date warning.
 
-[![The model will display a deprecation date warning.](/img/guides/dbt-mesh/deprecation_date_warning.png?v=2 "The model will display a deprecation date warning.")](#)The model will display a deprecation date warning.
+![The model will display a deprecation date warning.](/img/guides/dbt-mesh/deprecation_date_warning.png?v=2 "The model will display a deprecation date warning.")The model will display a deprecation date warning.
 
 ## View lineage with dbt Catalog
 
 Use [Catalog](../docs/explore/explore-projects.md) to view the lineage across projects in dbt. Navigate to the **Explore** page for each of your projects — you should now view the [lineage seamlessly across projects](../docs/explore/explore-multiple-projects.md).
 
-[![View 'Jaffle | Data Analytics' lineage with dbt Catalog ](/img/guides/dbt-mesh/jaffle_da_final_lineage.png?v=2 "View 'Jaffle | Data Analytics' lineage with dbt Catalog ")](#)View 'Jaffle | Data Analytics' lineage with dbt Catalog
+![View 'Jaffle | Data Analytics' lineage with dbt Catalog ](/img/guides/dbt-mesh/jaffle_da_final_lineage.png?v=2 "View 'Jaffle | Data Analytics' lineage with dbt Catalog ")View 'Jaffle | Data Analytics' lineage with dbt Catalog
 
 ## What's next
 

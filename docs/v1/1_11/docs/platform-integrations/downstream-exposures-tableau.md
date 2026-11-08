@@ -82,9 +82,9 @@ Configuring automatic downstream exposures with Tableau have the following consi
 
   3. Compare database FQNs between `manifest.json` and the GraphiQL response. Make sure that `{database}.{schema}.{name}` matches in both. The following images are examples of FQNs that *match* in both `manifest.json` and the GraphiQL response and aren't case-sensitive:
 
-  [![manifest.json example with lowercase FQNs.](/img/docs/platform-integrations/auto-exposures/manifest-json-example.png?v=2 "manifest.json example with lowercase FQNs.")](#)manifest.json example with lowercase FQNs.
+  ![manifest.json example with lowercase FQNs.](/img/docs/platform-integrations/auto-exposures/manifest-json-example.png?v=2 "manifest.json example with lowercase FQNs.")manifest.json example with lowercase FQNs.
 
-  [![GraphiQl response example with uppercase FQNs.](/img/docs/platform-integrations/auto-exposures/graphiql-example.png?v=2 "GraphiQl response example with uppercase FQNs.")](#)GraphiQl response example with uppercase FQNs.
+  ![GraphiQl response example with uppercase FQNs.](/img/docs/platform-integrations/auto-exposures/graphiql-example.png?v=2 "GraphiQl response example with uppercase FQNs.")GraphiQl response example with uppercase FQNs.
 
   4. If the FQNs don't match, update your Tableau FQNs to match the dbt FQNs.
   5. If you're still experiencing issues, please contact [dbt Support](mailto:support@getdbt.com) and share the results with them.
@@ -101,19 +101,19 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
 
 1. Enable [personal access tokens (PATs)](https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm) for your Tableau account.
 
-   [![Enable PATs for the account in Tableau](/img/docs/platform-integrations/auto-exposures/tableau-enable-pat.jpg?v=2 "Enable PATs for the account in Tableau")](#)Enable PATs for the account in Tableau
+   ![Enable PATs for the account in Tableau](/img/docs/platform-integrations/auto-exposures/tableau-enable-pat.jpg?v=2 "Enable PATs for the account in Tableau")Enable PATs for the account in Tableau
 
 2. Create a PAT to add to dbt to pull in Tableau metadata for the downstream exposures. When creating the token, you must have permission to access collections/folders, as the PAT only grants access matching the creator's existing privileges.
 
-   [![Create PATs for the account in Tableau](/img/docs/platform-integrations/auto-exposures/tableau-create-pat.jpg?v=2 "Create PATs for the account in Tableau")](#)Create PATs for the account in Tableau
+   ![Create PATs for the account in Tableau](/img/docs/platform-integrations/auto-exposures/tableau-create-pat.jpg?v=2 "Create PATs for the account in Tableau")Create PATs for the account in Tableau
 
 3. Copy the **Secret** and the **Token name** for use in a later step in dbt. The secret is only displayed once, so store it in a safe location (like a password manager).
 
-   [![Copy the secret and token name to enter them in dbt](/img/docs/platform-integrations/auto-exposures/tableau-copy-token.jpg?v=2 "Copy the secret and token name to enter them in dbt")](#)Copy the secret and token name to enter them in dbt
+   ![Copy the secret and token name to enter them in dbt](/img/docs/platform-integrations/auto-exposures/tableau-copy-token.jpg?v=2 "Copy the secret and token name to enter them in dbt")Copy the secret and token name to enter them in dbt
 
 4. Copy the **Server URL** and **Sitename**. You can find these in the URL while logged into Tableau.
 
-   [![Locate the Server URL and Sitename in Tableau](/img/docs/platform-integrations/auto-exposures/tablueau-serverurl.jpg?v=2 "Locate the Server URL and Sitename in Tableau")](#)Locate the Server URL and Sitename in Tableau
+   ![Locate the Server URL and Sitename in Tableau](/img/docs/platform-integrations/auto-exposures/tablueau-serverurl.jpg?v=2 "Locate the Server URL and Sitename in Tableau")Locate the Server URL and Sitename in Tableau
 
    For example, if the full URL is: `10az.online.tableau.com/#/site/dbtlabspartner/explore`:
 
@@ -133,15 +133,15 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
 
 2. Under the **Exposures** section, select **Add lineage integration** to add the Tableau connection.
 
-   [![Select Add lineage integration to add the Tableau connection.](/img/docs/platform-integrations/auto-exposures/cloud-add-integration.png?v=2 "Select Add lineage integration to add the Tableau connection.")](#)Select Add lineage integration to add the Tableau connection.
+   ![Select Add lineage integration to add the Tableau connection.](/img/docs/platform-integrations/auto-exposures/cloud-add-integration.png?v=2 "Select Add lineage integration to add the Tableau connection.")Select Add lineage integration to add the Tableau connection.
 
 3. Enter the details for the exposure connection you collected from Tableau in the [previous step](#set-up-in-tableau) and click **Continue**. Note that all fields are case-sensitive.
 
-   [![Enter the details for the exposure connection.](/img/docs/platform-integrations/auto-exposures/cloud-integration-details.png?v=2 "Enter the details for the exposure connection.")](#)Enter the details for the exposure connection.
+   ![Enter the details for the exposure connection.](/img/docs/platform-integrations/auto-exposures/cloud-integration-details.png?v=2 "Enter the details for the exposure connection.")Enter the details for the exposure connection.
 
 4. Select the collections you want to include for the downstream exposures and click **Save**.
 
-   [![Select the collections you want to include for the downstream exposures.](/img/docs/platform-integrations/auto-exposures/cloud-select-collections.png?v=2 "Select the collections you want to include for the downstream exposures.")](#)Select the collections you want to include for the downstream exposures.
+   ![Select the collections you want to include for the downstream exposures.](/img/docs/platform-integrations/auto-exposures/cloud-select-collections.png?v=2 "Select the collections you want to include for the downstream exposures.")Select the collections you want to include for the downstream exposures.
 
    info
 
@@ -151,7 +151,7 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
 
 5. dbt imports everything in the collection(s) and you can continue to [view them](#view-downstream-exposures) in Catalog.
 
-   [![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
+   ![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
 ## View downstream exposures
 
@@ -180,7 +180,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 * **Integration**: The BI tool that the exposure is integrated with.
 * **Exposure mode**: The type of exposure defined: **Auto** or **Manual**. Auto exposures from Tableau appear alongside manual exposures
 
-[![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")](#)View the Exposures table from the Catalog sidebar.
+![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")View the Exposures table from the Catalog sidebar.
 
 ### Exposure detail page
 
@@ -188,7 +188,7 @@ After you open the **Exposures** table ([previous section](#exposures-menu)), se
 
 On the exposure detail page, you can review metadata, [data health signals](../explore/data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
 
-[![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
+![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")View an exposure detail page in Catalog.
 
 ### Project lineage
 
@@ -200,9 +200,9 @@ You can also view exposures from the **Project lineage** view, separate from the
 
 This view visualizes the dependencies and relationships in your project. For Tableau auto exposures, use **View in Tableau** or **Modify integration** from the side panel.
 
-[![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
+![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
-[![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
+![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
 ## Orchestrate exposures [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 

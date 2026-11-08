@@ -69,13 +69,13 @@ On the provisioned VPC endpoint service, click the **Allow principals** tab. Cli
 
 * Principal: `arn:aws:iam::346425330055:role/MTPL_Admin`
 
-[![Enter ARN](/img/docs/dbt-platform/privatelink-allow-principals.png?v=2 "Enter ARN")](#)Enter ARN
+![Enter ARN](/img/docs/dbt-platform/privatelink-allow-principals.png?v=2 "Enter ARN")Enter ARN
 
 ### 3. Obtain VPC endpoint service name
 
 Once the VPC Endpoint Service is provisioned, you can find the service name in the AWS console by navigating to **VPC** → **Endpoint Services** and selecting the appropriate endpoint service. You can copy the service name field value and include it in your communication to dbt support.
 
-[![Get service name field value](/img/docs/dbt-platform/privatelink-endpoint-service-name.png?v=2 "Get service name field value")](#)Get service name field value
+![Get service name field value](/img/docs/dbt-platform/privatelink-endpoint-service-name.png?v=2 "Get service name field value")Get service name field value
 
 ### 4. Submit your request to dbt Support
 
@@ -99,7 +99,7 @@ dbt Labs will work on your behalf to complete the private connection setup. Plea
 
 When you receive notification that the resources are provisioned within the dbt environment, you must accept the endpoint connection (unless the VPC endpoint service is set to auto-accept connection requests). You can accept requests through the AWS console, as shown below, or through the AWS CLI.
 
-[![Accept the connection request](/img/docs/dbt-platform/platform-configuring-dbt-platform/accept-request.png?v=2 "Accept the connection request")](#)Accept the connection request
+![Accept the connection request](/img/docs/dbt-platform/platform-configuring-dbt-platform/accept-request.png?v=2 "Accept the connection request")Accept the connection request
 
 ## Create connection in dbt
 

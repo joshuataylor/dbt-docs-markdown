@@ -106,7 +106,7 @@ dbt Wizard CLI supports BYOK locally for OpenAI, Anthropic, Azure AI Foundry, AW
 
 This section covers dbt Wizard in the dbt platform. For what the CLI collects and how to opt out, refer to [dbt Wizard CLI data use and telemetry](./wizard-telemetry.md).
 
-[![How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.](/img/docs/dbt-platform/wizard-architecture-platform.png?v=2 "How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.")](#)How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.
+![How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.](/img/docs/dbt-platform/wizard-architecture-platform.png?v=2 "How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.")How data flows when dbt Wizard runs in the dbt platform, and what is and isn't shared with the AI provider.
 
 Your prompt, project metadata, and any query results you approve are sent to the AI provider over TLS. Warehouse credentials are not shared, queries run only after you approve them, and dbt Labs-managed providers can't persistently retain your data or train on it.
 

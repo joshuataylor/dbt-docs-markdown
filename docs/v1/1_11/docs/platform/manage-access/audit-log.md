@@ -229,7 +229,7 @@ These events cover the lifecycle of OAuth clients registered in **Account settin
 
 You can search the audit log to find a specific event or actor, which is limited to the ones listed in [Events in audit log](#audit-log-events). The audit log lists historical events from the last 90 days. You can search for an actor or event using the search bar, and then narrow your results using the time window.
 
-[![Use search bar to find content in the audit log](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-search.png?v=2 "Use search bar to find content in the audit log")](#)Use search bar to find content in the audit log
+![Use search bar to find content in the audit log](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-search.png?v=2 "Use search bar to find content in the audit log")Use search bar to find content in the audit log
 
 ## Exporting logs
 
@@ -239,7 +239,7 @@ You can use the audit log to export all historical audit results for security, c
 
 * **For events beyond 90 days:** Select **Export All**. An **Account admin**, **Account viewer**, or **Security admin** receives an email link to download a CSV file of all the events that occurred in your account.
 
-[![View audit log export options](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-section.png?v=2 "View audit log export options")](#)View audit log export options
+![View audit log export options](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-section.png?v=2 "View audit log export options")View audit log export options
 
 ## Using the API
 

@@ -108,7 +108,7 @@ When you `dbt run` your model, *before* dbt has materialized it as a table in th
 20:53:45    > in macro assert_columns_equivalent (macros/materializations/models/table/columns_spec_ddl.sql)
 ```
 
-### Project YAML
+#### Project YAML
 
 Use a contract enforcement in your `dbt_project.yml` to enforce contracts consistently across multiple models:
 
@@ -120,7 +120,7 @@ models:
       enforced: true
 ```
 
-### Properties YAML
+#### Properties YAML
 
 Define a model’s contract in a `properties.yml` by specifying the expected columns and data types:
 
@@ -140,7 +140,7 @@ models:
         data_type: string
 ```
 
-### SQL file config
+#### SQL file config
 
 Enforce a contract in a model SQL file when you want to apply it to a single model and maintain fine-grained control:
 

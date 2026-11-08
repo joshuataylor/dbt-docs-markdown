@@ -103,19 +103,19 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 
    - **Run source freshness** — Enable this option to invoke the `dbt source freshness` command before running this CI job. Refer to [Source freshness](./source-freshness.md) for more details.
 
-   [![Example of CI Job page in the dbt UI](/img/docs/dbt-platform/using-dbt-platform/create-ci-job.png?v=2 "Example of CI Job page in the dbt UI")](#)Example of CI Job page in the dbt UI
+   ![Example of CI Job page in the dbt UI](/img/docs/dbt-platform/using-dbt-platform/create-ci-job.png?v=2 "Example of CI Job page in the dbt UI")Example of CI Job page in the dbt UI
 
 ### Example of CI check in pull request
 
 The following is an example of a CI check in a GitHub pull request. The green checkmark means the dbt build and tests were successful. Clicking on the dbt section takes you to the relevant CI run in dbt.
 
-[![Example of CI check in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-pr.png?v=2 "Example of CI check in GitHub pull request")](#)Example of CI check in GitHub pull request
+![Example of CI check in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-pr.png?v=2 "Example of CI check in GitHub pull request")Example of CI check in GitHub pull request
 
 ### Example of CI report in pull request [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 The following is an example of a CI report in a GitHub pull request, which is shown when the **dbt compare** option is enabled for the CI job. It displays a high-level summary of the models that changed from the pull request.
 
-[![Example of CI report comment in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-ci-report.png?v=2 "Example of CI report comment in GitHub pull request")](#)Example of CI report comment in GitHub pull request
+![Example of CI report comment in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-ci-report.png?v=2 "Example of CI report comment in GitHub pull request")Example of CI report comment in GitHub pull request
 
 ## Trigger a CI job with the API [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -148,7 +148,7 @@ Automatically test your semantic nodes (metrics, semantic models, and saved quer
 
 To do this, add the command `dbt sl validate --select state:modified+` in the CI job. This ensures the validation of modified semantic nodes and their downstream dependencies.
 
-[![Semantic validations in CI workflow](/img/docs/dbt-platform/deployment/sl-ci-job.png?v=2 "Semantic validations in CI workflow")](#)Semantic validations in CI workflow
+![Semantic validations in CI workflow](/img/docs/dbt-platform/deployment/sl-ci-job.png?v=2 "Semantic validations in CI workflow")Semantic validations in CI workflow
 
 #### Benefits
 
@@ -171,7 +171,7 @@ To learn how to set this up, refer to the following steps:
 
 There are additional commands and use cases described in the [next section](#use-cases), such as validating all semantic nodes, validating specific semantic nodes, and so on.
 
-[![Validate semantic nodes downstream of model changes in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-downstream.png?v=2 "Validate semantic nodes downstream of model changes in your CI job.")](#)Validate semantic nodes downstream of model changes in your CI job.
+![Validate semantic nodes downstream of model changes in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-downstream.png?v=2 "Validate semantic nodes downstream of model changes in your CI job.")Validate semantic nodes downstream of model changes in your CI job.
 
 ### Use cases
 
@@ -193,7 +193,7 @@ Before running semantic validations, dbt must build the modified models. This pr
 
 For semantic nodes and models that aren't downstream of modified models, dbt defers to the production models.
 
-[![Validate semantic nodes downstream of model changes in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-downstream.png?v=2 "Validate semantic nodes downstream of model changes in your CI job.")](#)Validate semantic nodes downstream of model changes in your CI job.
+![Validate semantic nodes downstream of model changes in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-downstream.png?v=2 "Validate semantic nodes downstream of model changes in your CI job.")Validate semantic nodes downstream of model changes in your CI job.
 
  Semantic nodes that are modified or affected by downstream modified nodes.
 
@@ -203,7 +203,7 @@ To only validate modified semantic nodes, use the following command (with [state
 dbt sl validate --select state:modified+
 ```
 
-[![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-modified.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")](#)Use state selection to validate modified metric definition models in your CI job.
+![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-modified.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")Use state selection to validate modified metric definition models in your CI job.
 
 This will only validate semantic nodes. It will use the defer state set configured in your orchestration job, deferring to your production models.
 
@@ -215,7 +215,7 @@ Use the selector syntax to select the *specific* semantic node(s) you want to va
 dbt sl validate --select metric:revenue
 ```
 
-[![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-select.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")](#)Use state selection to validate modified metric definition models in your CI job.
+![Use state selection to validate modified metric definition models in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-select.png?v=2 "Use state selection to validate modified metric definition models in your CI job.")Use state selection to validate modified metric definition models in your CI job.
 
 In this example, the CI job will validate the selected `metric:revenue` semantic node. To select multiple semantic nodes, use the selector syntax: `dbt sl validate --select metric:revenue metric:customers`.
 
@@ -229,7 +229,7 @@ To validate *all* semantic nodes in your project, add the following command to d
 dbt sl validate
 ```
 
-[![Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-all.png?v=2 "Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.")](#)Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.
+![Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-all.png?v=2 "Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.")Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.
 
 ## Troubleshooting
 

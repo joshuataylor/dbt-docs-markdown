@@ -2,7 +2,7 @@
 
 Limit the number of failures that will be returned by a test query. We recommend using this config when working with large datasets and [storing failures in the database](./store_failures.md).
 
-### Specific test
+## Specific test
 
 Configure a specific instance of a generic (schema) test:
 
@@ -22,7 +22,7 @@ models:
                 limit: 1000  # will only include the first 1000 failures
 ```
 
-### One-off test
+## One-off test
 
 Configure a one-off (data) test:
 
@@ -34,7 +34,7 @@ tests/\<filename>.sql
 select ...
 ```
 
-### Generic test block
+## Generic test block
 
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
@@ -50,7 +50,7 @@ select ...
 {% endtest %}
 ```
 
-### Project level
+## Project level
 
 Set the default for all tests in a package or project:
 

@@ -59,9 +59,9 @@ To use the dbt Wizard, follow these steps:
 
 The following images show how dbt Wizard displays its work and outcome:
 
-[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
-[![Wizard final refactor result displayed as a diff](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard final refactor result displayed as a diff")](#)Wizard final refactor result displayed as a diff
+![Wizard final refactor result displayed as a diff](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard final refactor result displayed as a diff")Wizard final refactor result displayed as a diff
 
 For more details on the dbt Wizard and how it works, expand the following sections to open additional information.
 
@@ -77,11 +77,9 @@ The dbt Wizard panel contains:
 6. **Start new dbt Wizard chat** (top right): Starts a new chat session.
 7. **Stop** or **Enter** (bottom right): Press **Enter** to submit your prompt. Press **Stop** to stop the current session and agent processing. You cannot undo this action.
 
-[![The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.](/img/docs/dbt-platform/wizard-panel.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.")](#)The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.
+![The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.](/img/docs/dbt-platform/wizard-panel.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.")The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.
 
 dbt Wizard also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
-
-[]()
 
  Agent modes
 
@@ -95,7 +93,7 @@ The dbt Wizard operates in three modes:
 
 Switch between modes anytime with the **Agent mode** button (bottom-left). The authoring modes keep the analytical tools available, so switching out of **Explore only** doesn't cost you anything.
 
-[![dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.](/img/docs/dbt-platform/wizard-modes.png?v=2 "dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.")](#)dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.
+![dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.](/img/docs/dbt-platform/wizard-modes.png?v=2 "dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.")dbt Wizard in Explore only, Ask for approval, and Edit files automatically modes.
 
  Reviewing agent suggestions
 
@@ -177,7 +175,7 @@ The dbt v2 migration workflow is accessible through the dbt Wizard in the Studio
 
 8. After you merge the changes, wait for the job to run again or run it manually on dbt v2.
 
-[![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/v2-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")](#)The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
+![The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.](/img/docs/dbt-platform/v2-migration-workflow.gif?v=2 "The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.")The Developer Agent's v2 migration workflow triaging and fixing v2 compatibility errors in the Studio IDE.
 
 For more on how to prepare your project for dbt v2 and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../../dbt/dbt-readiness.md) and the [Upgrade to dbt v2 guides](../../../guides/prepare-v2-upgrade.md).
 

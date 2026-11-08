@@ -85,9 +85,6 @@ catalogs:
 ```
 
 2. Add the `catalog_name` config parameter in either a config block (inside the .sql model file), properties YAML file (model folder), or your project YAML file (`dbt_project.yml`).
-   <br />
-
-<br />
 
 An example of `iceberg_model.sql`:
 
