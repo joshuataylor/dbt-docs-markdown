@@ -6,7 +6,7 @@ These examples use the Jaffle Shop project to show side-by-side comparisons of C
 
 The following examples use this [Jaffle Shop project](https://github.com/dbt-labs/jaffle-shop) DAG as a reference. You can refer to it to understand the model lineage for each scenario.
 
-![The Jaffle Shop DAG](/img/docs/dbt-state/dbt_state_dag.png?v=2 "The Jaffle Shop DAG")The Jaffle Shop DAG
+[![The Jaffle Shop DAG](/img/docs/dbt-state/dbt_state_dag.png?v=2 "The Jaffle Shop DAG")](#)The Jaffle Shop DAG
 
 Each of the following scenarios shows how a run differs between dbt alone and dbt with dbt State, using the same command and project.
 
@@ -16,6 +16,8 @@ Each of the following scenarios shows how a run differs between dbt alone and db
 | [Second run](#second-run)                                                                                                                                           | `dbt run --target prod`                     | Reuses unchanged table models and most views; may rebuild views with `select *` directly on a `ref()` or `source()` |
 | [Selecting a model in a fresh dev environment after changing the customers model](#selecting-a-model-in-a-fresh-dev-environment-after-changing-the-customers-model) | `dbt run --target dev --select "customers"` | Defers to prod for upstream models                                                                                  |
 | [Selecting a model in a new dev schema with no model changes](#selecting-a-model-in-a-new-dev-schema-with-no-model-changes)                                         | `dbt run --target dev --select "customers"` | Defers and clones unchanged models                                                                                  |
+
+<br />
 
 Every skipped model is a model you didn't pay to rebuild. dbt State tracks what's changed and skips the rest — reducing run time and warehouse costs.
 

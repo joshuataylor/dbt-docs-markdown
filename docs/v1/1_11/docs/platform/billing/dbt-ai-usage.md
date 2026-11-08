@@ -72,7 +72,7 @@ dbt Copilot usage is measured by the number of completed AI requests, known as d
 2. Select **Billing** under the Settings header.
 3. On the billing page, click the **Copilot Actions** tab to view your usage.
 
-![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")View usage in dbt Copilot
+[![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")](#)View usage in dbt Copilot
 
 ## FAQs
 

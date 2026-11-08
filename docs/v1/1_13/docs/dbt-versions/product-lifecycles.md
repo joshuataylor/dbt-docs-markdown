@@ -4,7 +4,7 @@ dbt Labs manages the lifecycle of features across the cloud-hosted dbt platform 
 
 Service level objective (SLO) support varies between products and lifecycles.
 
-## dbt platform
+### dbt platform
 
 dbt platform features adhere to the following lifecycle path:
 
@@ -28,7 +28,7 @@ No longer being actively developed or enhanced. Features continue to function as
 
 No longer available on the platform in any capacity.
 
-## dbt v1 and v2
+### dbt v1 and v2
 
 Self-hosted dbt releases follow semantic versioning. Read more in [About dbt versions](../dbt-versions.md). Both v1 and v2 releases adhere to the following lifecycle path:
 

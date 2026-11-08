@@ -1,6 +1,6 @@
 # pre\_clone
 
-## Project YAML file
+### Project YAML file
 
 dbt\_project.yml
 
@@ -16,7 +16,7 @@ snapshots:
       pre_clone: never | if_missing | always
 ```
 
-## Properties YAML file
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -39,7 +39,7 @@ snapshots:
         pre_clone: never | if_missing | always
 ```
 
-## SQL file config
+### SQL file config
 
 models/\<filename>.sql
 

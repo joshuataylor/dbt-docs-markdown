@@ -1,6 +1,8 @@
 # Run dbt MCP locally
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

@@ -12,6 +12,8 @@ Start with this table if you already know what you need to keep. Use it to match
 | [Snapshot only](#snapshot-only)                                                               | The source overwrites rows in place, you need history, and scanning it each run is acceptable           | The source only adds rows and never updates them, or the table is so large that a full snapshot run is too expensive |
 | [Incremental models and snapshots together](#using-incremental-models-and-snapshots-together) | You want incremental staging so runs stay cheap, and a snapshot for history                             | You only need one of those jobs, or you would snapshot the final table people query                                  |
 
+<br />
+
 ## Incremental only
 
 Choose this approach when you only need each row's current values. Your source must let you identify new or updated rows from:
@@ -27,12 +29,16 @@ These examples follow two customers, Alice and Bob. After the first run, both ha
 | 1  | Alice | trial  | 2026-01-01 00:00:00 |
 | 2  | Bob   | trial  | 2026-01-01 00:00:00 |
 
+<br />
+
 Alice then becomes an `active` customer the next day. With a `merge` strategy and `id` as the `unique_key`, the next run updates her existing row:
 
 | id | name  | status | updated\_at         |
 | -- | ----- | ------ | ------------------- |
 | 1  | Alice | active | 2026-01-02 00:00:00 |
 | 2  | Bob   | trial  | 2026-01-01 00:00:00 |
+
+<br />
 
 Alice's current status is `active`. Her earlier `trial` status is no longer stored in this table.
 
@@ -55,6 +61,8 @@ Using the same example, run a snapshot before and after Alice's status changes. 
 | 1  | Alice | trial  | 2026-01-01 00:00:00 | 2026-01-01 00:00:00 | 2026-01-02 00:00:00 |
 | 1  | Alice | active | 2026-01-02 00:00:00 | 2026-01-02 00:00:00 | `null`              |
 | 2  | Bob   | trial  | 2026-01-01 00:00:00 | 2026-01-01 00:00:00 | `null`              |
+
+<br />
 
 The `dbt_valid_from` and `dbt_valid_to` columns show you when each version was valid. By default, `dbt_valid_to` is `null` for the current version.
 

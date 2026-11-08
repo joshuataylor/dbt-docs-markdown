@@ -69,7 +69,7 @@ Configure the following fields when you create a ClickHouse connection.
 | Port            | The port to connect to. The dbt ClickHouse adapter connects over HTTPS. Use port `8443`. Port `9440` (native protocol) is not supported by the adapter.                                                                                                        | String | Optional  | `8443`                                  |
 | Database        | The name of the database to connect to.                                                                                                                                                                                                                        | String | Optional  | `default`                               |
 
-![Example of the ClickHouse connection fields.](/img/docs/dbt-platform/clickhouse-connection.png?v=2 "Example of the ClickHouse connection fields.")Example of the ClickHouse connection fields.
+[![Example of the ClickHouse connection fields.](/img/docs/dbt-platform/clickhouse-connection.png?v=2 "Example of the ClickHouse connection fields.")](#)Example of the ClickHouse connection fields.
 
 After you save the connection, set up your development environment:
 
@@ -78,7 +78,7 @@ After you save the connection, set up your development environment:
 3. Under **Connection**, select the ClickHouse connection you just created.
 4. Save the environment.
 
-![Select the ClickHouse connection for the development environment.](/img/docs/dbt-platform/clickhouse-environment.png?v=2 "Select the ClickHouse connection for the development environment.")Select the ClickHouse connection for the development environment.
+[![Select the ClickHouse connection for the development environment.](/img/docs/dbt-platform/clickhouse-environment.png?v=2 "Select the ClickHouse connection for the development environment.")](#)Select the ClickHouse connection for the development environment.
 
 ## Development and deployment credentials
 
@@ -92,7 +92,7 @@ Each developer enters personal development credentials in **Your profile** → *
 | Target name | The target name for this credential.                                                                                               | String  | Optional  | `default`           |
 | Threads     | The number of threads to use for dbt operations.                                                                                   | Integer | Optional  | `4`                 |
 
-![Example of the ClickHouse user credential fields.](/img/docs/dbt-platform/clickhouse-credentials.png?v=2 "Example of the ClickHouse user credential fields.")Example of the ClickHouse user credential fields.
+[![Example of the ClickHouse user credential fields.](/img/docs/dbt-platform/clickhouse-credentials.png?v=2 "Example of the ClickHouse user credential fields.")](#)Example of the ClickHouse user credential fields.
 
 ## Configuration
 

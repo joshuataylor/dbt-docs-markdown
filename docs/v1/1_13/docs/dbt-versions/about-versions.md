@@ -43,3 +43,5 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 #### [dbt version upgrade guides](./dbt-upgrade.md)
 
 [All the information you need to prepare your projects for the next version of dbt, including dbt v2. Includes guidance on new features, behavior changes, deprecations, and much more.](./dbt-upgrade.md)
+
+<br />

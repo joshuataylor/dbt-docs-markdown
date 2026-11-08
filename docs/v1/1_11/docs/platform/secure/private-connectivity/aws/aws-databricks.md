@@ -47,7 +47,7 @@ With self-serve, you request a Databricks PrivateLink endpoint in dbt platform w
 
    You can search by **Name** or **URL**.
 
-   ![Private endpoints table showing existing endpoints, connectivity status, and the Request new button](/img/docs/dbt-platform/private-endpoint-page.png?v=2 "Private endpoints table showing existing endpoints, connectivity status, and the Request new button")Private endpoints table showing existing endpoints, connectivity status, and the Request new button
+   [![Private endpoints table showing existing endpoints, connectivity status, and the Request new button](/img/docs/dbt-platform/private-endpoint-page.png?v=2 "Private endpoints table showing existing endpoints, connectivity status, and the Request new button")](#)Private endpoints table showing existing endpoints, connectivity status, and the Request new button
 
 3. To request a new endpoint, click **Request new**.
 
@@ -59,7 +59,7 @@ With self-serve, you request a Databricks PrivateLink endpoint in dbt platform w
 
 7. Click **Submit request**.
 
-   ![Databricks endpoint request form showing Provider type, workspace name, and AWS region fields](/img/docs/dbt-platform/databricks-private-endpoint-request.png?v=2 "Databricks endpoint request form showing Provider type, workspace name, and AWS region fields")Databricks endpoint request form showing Provider type, workspace name, and AWS region fields
+   [![Databricks endpoint request form showing Provider type, workspace name, and AWS region fields](/img/docs/dbt-platform/databricks-private-endpoint-request.png?v=2 "Databricks endpoint request form showing Provider type, workspace name, and AWS region fields")](#)Databricks endpoint request form showing Provider type, workspace name, and AWS region fields
 
    Workspace name and region can't be changed
 
@@ -82,7 +82,7 @@ Databricks exposes one predefined endpoint service per AWS region. If you submit
 
 Select your preferred option and click **Confirm & Submit**.
 
-![Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one](/img/docs/dbt-platform/endpoint-exists.png?v=2 "Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one")Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one
+[![Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one](/img/docs/dbt-platform/endpoint-exists.png?v=2 "Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one")](#)Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one
 
 #### Edit or delete a private endpoint
 

@@ -21,9 +21,9 @@ Wizard Desktop is powered by the same technology as the [dbt Wizard CLI](./wizar
 * **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
 * **Lineage, file, and metrics browsing:** browse your project right alongside the chat.
 
-![The dbt Wizard home screen](/img/wizard/desktop/wizard-desktop-intro.png?v=2 "The dbt Wizard home screen")The dbt Wizard home screen
+[![The dbt Wizard home screen](/img/wizard/desktop/wizard-desktop-intro.png?v=2 "The dbt Wizard home screen")](#)The dbt Wizard home screen
 
-![A session in progress, with a chart in the chat and validation results in the side pane](/img/wizard/desktop/wizard-desktop-validation.png?v=2 "A session in progress, with a chart in the chat and validation results in the side pane")A session in progress, with a chart in the chat and validation results in the side pane
+[![A session in progress, with a chart in the chat and validation results in the side pane](/img/wizard/desktop/wizard-desktop-validation.png?v=2 "A session in progress, with a chart in the chat and validation results in the side pane")](#)A session in progress, with a chart in the chat and validation results in the side pane
 
 ## Prerequisites
 

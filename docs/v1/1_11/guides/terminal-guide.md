@@ -1,6 +1,8 @@
 # Getting started with the terminal
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

@@ -53,7 +53,7 @@ dbt Copilot is available for inline assistance in Studio IDE and Insights. Confi
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed OpenAI key.
 2. Click **Save**.
 
-![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")Example of the dbt Labs integration page
+[![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
 
 ### OpenAI
 
@@ -61,7 +61,7 @@ dbt Copilot is available for inline assistance in Studio IDE and Insights. Confi
 2. Enter the API key.
 3. Click **Save**.
 
-![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")Example of the OpenAI integration page
+[![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")](#)Example of the OpenAI integration page
 
 Data residency limitation
 
@@ -89,7 +89,7 @@ Supported formats include:
 * `https://<resource>.openai.azure.com/openai/deployments/<deployment>/chat/completions?api-version=<version>`
 * `https://<resource>.openai.azure.com/openai/responses?api-version=<version>`
 
-![Example of Azure OpenAI integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of Azure OpenAI integration section")Example of Azure OpenAI integration section
+[![Example of Azure OpenAI integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of Azure OpenAI integration section")](#)Example of Azure OpenAI integration section
 
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled.

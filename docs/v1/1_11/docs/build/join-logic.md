@@ -95,7 +95,7 @@ mf query --metrics average_purchase_price --group-by metric_time,user_id__type #
 
 These SQL examples show how MetricFlow handles both left join and full outer join scenarios in practice:
 
-##### SQL example for left join
+### SQL example for left join
 
 Using the previous example for `transactions` and `user_signup` semantic models, this shows a left join between those two semantic models.
 
@@ -113,7 +113,7 @@ group by
   user_signup.type;
 ```
 
-##### SQL example for outer joins
+### SQL example for outer joins
 
 If you have multiple `fct` models, let's say `sales` and `returns`, MetricFlow uses full outer joins to ensure all data points are captured.
 
@@ -143,7 +143,7 @@ While direct three-hop paths are limited to prevent confusion from multiple rout
 
 For example, if you have two models, `country` and `region`, where customers are linked to countries, which in turn are linked to regions, you can join all of them in a single SQL query and can dissect `orders` by `customer__country_country_name` but not by `customer__country__region_name`.
 
-![Multi-Hop-Join](/img/docs/building-a-dbt-project/multihop-diagram.png?v=2 "Multi-Hop-Join")Multi-Hop-Join
+[![Multi-Hop-Join](/img/docs/building-a-dbt-project/multihop-diagram.png?v=2 "Multi-Hop-Join")](#)Multi-Hop-Join
 
 (Applies to dbt v1.11 and earlier)
 

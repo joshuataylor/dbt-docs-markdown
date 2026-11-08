@@ -88,9 +88,9 @@ You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 4. ..and that's it 🎉!
 
-![dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.
+[![dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard in the Studio IDE refactoring a model and displaying the lineage inside the chat interface.
 
-![Wizard's final refactor result displayed as a diff in the Studio IDE](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard's final refactor result displayed as a diff in the Studio IDE")Wizard's final refactor result displayed as a diff in the Studio IDE
+[![Wizard's final refactor result displayed as a diff in the Studio IDE](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard's final refactor result displayed as a diff in the Studio IDE")](#)Wizard's final refactor result displayed as a diff in the Studio IDE
 
 For more prompt ideas, refer to the [prompt cookbook](../../guides/prompt-cookbook.md).
 

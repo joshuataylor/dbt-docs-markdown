@@ -16,6 +16,8 @@ For example, using `analytics_prod` and `alice_dev` as target schemas, dbt build
 | `models/intermediate/` | `+schema: intermediate` | `analytics_prod_intermediate` | `alice_dev_intermediate`  |
 | `models/marts/`        | `+schema: marts`        | `analytics_prod_marts`        | `alice_dev_marts`         |
 
+<br />
+
 Sources point at tables that already exist, typically in `raw`. dbt reads those tables; it does not build them. For more information, refer to [Staging](./2-staging.md) and [Sources](../../docs/build/sources.md).
 
 note
@@ -61,6 +63,8 @@ The following table maps those names to the folders in this guide:
 | Bronze         | Sources in `raw` (read-only) |
 | Silver         | Staging and intermediate     |
 | Gold           | Marts                        |
+
+<br />
 
 Keep `staging`, `intermediate`, and `marts` as the custom schema names in this guide so they match the folders. If your warehouse requires `silver` and `gold` as schema names, set `+schema` to those names instead.
 

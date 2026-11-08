@@ -92,14 +92,14 @@ Note that this shouldn't be confused with [dbt Python models](../build/python-mo
 
 ### Create a virtual environment
 
-#### Unix/macOS
+### Unix/macOS
 
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-#### Windows
+### Windows
 
 ```shell
 py -m venv .venv
@@ -215,7 +215,7 @@ For more details, read the [contributing guidelines](https://github.com/dbt-labs
 
 Pro tip: Using the --help flag
 
-Most command-line tools, including dbt, support a `--help` flag that shows available commands and arguments. With dbt, you can use `--help` in two ways: — `dbt --help`: Shows available dbt commands — `dbt run --help`: Shows available flags for the `run` command
+Most command-line tools, including dbt, support a `--help` flag that shows available commands and arguments. With dbt, you can use `--help` in two ways:<br /><br />— `dbt --help`: Shows available dbt commands<br />— `dbt run --help`: Shows available flags for the `run` command
 
 ## FAQs
 

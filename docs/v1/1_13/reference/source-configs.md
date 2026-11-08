@@ -10,7 +10,7 @@ Sources configurations support [`enabled`](./resource-configs/enabled.md), [`eve
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-#### Project YAML file
+### Project YAML file
 
 dbt\_project.yml
 
@@ -29,7 +29,7 @@ sources:
       key: value
 ```
 
-#### Properties YAML file
+### Properties YAML file
 
 models/properties.yml
 
@@ -64,7 +64,7 @@ Sources can be configured via a `config:` block within their `.yml` definitions,
 
 You can disable sources imported from a package to prevent them from rendering in the documentation, or to prevent [source freshness checks](../docs/build/sources.md#source-data-freshness) from running on source tables imported from packages.
 
-* **Note**: To disable a source table nested in a properties YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that properties YAML file, as well as the source name and the table name in the project YAML file (`dbt_project.yml`). The following example shows how to disable a source table nested in a properties YAML file in a subfolder:
+* **Note**: To disable a source table nested in a properties YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that properties YAML file, as well as the source name and the table name in the project YAML file (`dbt_project.yml`).<br /><br />The following example shows how to disable a source table nested in a properties YAML file in a subfolder:
 
   dbt\_project.yml
 
@@ -84,7 +84,7 @@ You can disable sources imported from a package to prevent them from rendering i
 
 The following examples show how to configure sources in your dbt project.
 
-— [Disable all sources imported from a package](#disable-all-sources-imported-from-a-package) — [Conditionally enable a single source](#conditionally-enable-a-single-source) — [Disable a single source from a package](#disable-a-single-source-from-a-package) — [Configure a source with an `event_time`](#configure-a-source-with-an-event_time) — [Configure meta to a source](#configure-meta-to-a-source) — [Configure source freshness](#configure-source-freshness)
+— [Disable all sources imported from a package](#disable-all-sources-imported-from-a-package)<br />— [Conditionally enable a single source](#conditionally-enable-a-single-source)<br />— [Disable a single source from a package](#disable-a-single-source-from-a-package)<br />— [Configure a source with an `event_time`](#configure-a-source-with-an-event_time)<br />— [Configure meta to a source](#configure-meta-to-a-source)<br />— [Configure source freshness](#configure-source-freshness)<br />
 
 #### Disable all sources imported from a package
 

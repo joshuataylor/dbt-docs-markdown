@@ -41,7 +41,7 @@ To refresh Catalog metadata without building models, add `dbt compile --write-ca
 
 To open it, click **Catalog** in the navigation. To explore a model in the lineage graph, select your project in the left sidebar, click **View lineage**, and then click a model to view its description.
 
-![Example of the full lineage graph in Catalog](/img/docs/collaborate/dbt-explorer/example-project-lineage-graph.png?v=2 "Example of the full lineage graph in Catalog")Example of the full lineage graph in Catalog
+[![Example of the full lineage graph in Catalog](/img/docs/collaborate/dbt-explorer/example-project-lineage-graph.png?v=2 "Example of the full lineage graph in Catalog")](#)Example of the full lineage graph in Catalog
 
 Catalog is available to Developer and read-only users. To share your project with stakeholders who don't develop in dbt, give all your applicable users [read-only access](../platform/manage-access/seats-and-users.md) to Catalog without restrictions.
 

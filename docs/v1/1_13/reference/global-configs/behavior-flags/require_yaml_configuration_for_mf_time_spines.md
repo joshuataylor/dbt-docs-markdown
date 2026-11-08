@@ -10,6 +10,8 @@ This flag was removed in v2. The new behavior is always enabled. If you're upgra
 | Matured (default → `true`)                          | 2026.09           | 1.12.0 |
 | Removed                                             | —                 | v2.0   |
 
+<br />
+
 In previous versions (dbt 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
 Starting in dbt v1.12, this flag defaults to `true`, suppressing the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.

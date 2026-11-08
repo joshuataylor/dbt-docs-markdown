@@ -40,7 +40,7 @@ Supply and nest these additional configurations, unique to BigQuery, under `conf
 
 1. Create a `catalogs.yml` at the top level of your dbt project.
 
-#### (Applies to dbt v2.0 and later) New spec
+### (Applies to dbt v2.0 and later) New spec
 
 catalogs.yml
 
@@ -55,7 +55,7 @@ catalogs:
         file_format: parquet
 ```
 
-#### Old spec
+### Old spec
 
 catalogs.yml
 
@@ -128,7 +128,7 @@ iceberg\_model.sql
 select * from {{ ref('jaffle_shop_customers') }}
 ```
 
-#### (Applies to dbt v2.0 and later) New spec
+### (Applies to dbt v2.0 and later) New spec
 
 catalogs.yml
 
@@ -144,7 +144,7 @@ catalogs:
         base_location_root: foo
 ```
 
-#### Old spec
+### Old spec
 
 catalogs.yml
 

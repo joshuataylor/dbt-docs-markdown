@@ -4,7 +4,7 @@ Available from dbt v1.12 or with the [dbt "v1 Latest" release track](../../docs/
 
 # on\_error
 
-## Project file
+### Project file
 
 dbt\_project.yml
 
@@ -14,7 +14,7 @@ models:
     +on_error: skip_children | continue
 ```
 
-## Property file
+### Property file
 
 models/properties.yml
 
@@ -25,7 +25,7 @@ models:
       on_error: skip_children | continue
 ```
 
-## SQL config
+### SQL config
 
 models/\<model\_name>.sql
 
@@ -80,5 +80,7 @@ The following table shows how `model_c` behaves based on the outcome of its upst
 | Error                              | Success                       | Skipped            |
 | Success                            | Error                         | Runs               |
 | Error                              | Error                         | Skipped            |
+
+<br />
 
 When `model_a` errors, `model_c` is always skipped because `model_a` uses `skip_children`. When only `model_b` errors, `model_c` still runs because `model_b` uses `continue`, which does not block downstream models.

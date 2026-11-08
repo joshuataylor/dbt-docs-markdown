@@ -76,6 +76,8 @@ The following code represents the default macro's logic:
 {%- endmacro %}
 ```
 
+<br />
+
 💡 Use Jinja's whitespace control to tidy your macros!
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.

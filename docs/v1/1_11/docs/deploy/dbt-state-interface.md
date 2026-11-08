@@ -53,7 +53,7 @@ For each eligible model, dbt State:
 
 A model doesn’t appear in the table if it’s a view or its current `lag_tolerance` value is already equal to or greater than the recommended value. Each account displays 20 models with the highest projected savings.
 
-![Lag tolerance recommendations](/img/docs/dbt-platform/using-dbt-platform/lag-tolerance-recommendations.png?v=2 "Lag tolerance recommendations")Lag tolerance recommendations
+[![Lag tolerance recommendations](/img/docs/dbt-platform/using-dbt-platform/lag-tolerance-recommendations.png?v=2 "Lag tolerance recommendations")](#)Lag tolerance recommendations
 
 ## Models built and reused chart
 
@@ -63,7 +63,7 @@ When you go to your **Account home**, you'll see a chart showing the number of m
 
 When you run a job, or when you run `dbt run` or `dbt build` locally, a structured logs view shows which resources were built, skipped, or reused.
 
-![Logs view of built resources](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built resources")Logs view of built resources
+[![Logs view of built resources](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built resources")](#)Logs view of built resources
 
 1. Each resource has an icon indicating its status.
 2. The **Reused** tab indicates the total number of reused resources.
@@ -76,7 +76,7 @@ Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explor
 
 The **Latest status** lens shows the status from the latest execution of the resource in the current environment. When you use this lens to view your lineage, dbt State tags reused models with **Reused**.
 
-![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")Latest status lens showing reused models
+[![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")](#)Latest status lens showing reused models
 
 To view your lineage with the **Latest status** lens:
 
@@ -105,7 +105,7 @@ Expand a row to see the full decision details. Not all analyses apply to every r
 | **Query analysis**          | Whether the resource query or its upstream queries have changed.                                                                                |
 | **Data freshness analysis** | Whether upstream data is fresh or within the configured [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md). |
 
-![Explain tab showing the decision breakdown](/img/docs/dbt-platform/deployment/explain-tab.png?v=2 "Explain tab showing the decision breakdown")Explain tab showing the decision breakdown
+[![Explain tab showing the decision breakdown](/img/docs/dbt-platform/deployment/explain-tab.png?v=2 "Explain tab showing the decision breakdown")](#)Explain tab showing the decision breakdown
 
 ## Related docs
 

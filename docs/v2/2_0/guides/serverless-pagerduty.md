@@ -1,6 +1,8 @@
 # Trigger PagerDuty alarms when dbt jobs fail
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 
@@ -11,7 +13,7 @@ This guide will teach you how to build and host a basic Python app which will mo
 * Check for any failed nodes (e.g. non-passing tests or errored models), and
 * create a PagerDuty alarm based on those nodes by calling the PagerDuty Events API. Events are deduplicated per run ID.
 
-![Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model](/img/guides/orchestration/webhooks/serverless-pagerduty/pagerduty-example-alarm.png?v=2 "Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model")Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model
+[![Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model](/img/guides/orchestration/webhooks/serverless-pagerduty/pagerduty-example-alarm.png?v=2 "Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model")](#)Screenshot of the PagerDuty UI, showing an alarm created by invalid SQL in a dbt model
 
 In this example, we will use fly.io for hosting/running the service. fly.io is a platform for running full stack apps without provisioning servers etc. This level of usage should comfortably fit inside of the Free tier. You can also use an alternative tool such as [AWS Lambda](https://ademoverflow.com/en/posts/tutorial-fastapi-aws-lambda-serverless/) or [Google Cloud Run](https://github.com/sekR4/FastAPI-on-Google-Cloud-Run).
 
@@ -72,7 +74,25 @@ Sample output from the setup wizard:
 
 ``
 
-`joel@Joel-Labes dbt-cloud-webhooks-pagerduty % flyctl launch An existing fly.toml file was found for app dbt-cloud-webhooks-pagerduty ? Would you like to copy its configuration to the new app? Yes Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-pagerduty Scanning source code Detected a Dockerfile app ? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-pagerduty automatically selected personal organization: Joel Labes Some regions require a paid plan (fra, maa). See https://fly.io/plans to set up a plan. ? Choose a region for deployment: [Use arrows to move, type to filter] ? Choose a region for deployment: Sydney, Australia (syd) Created app dbtlabs-dbt-cloud-webhook-pagerduty in organization personal Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-pagerduty Hostname: demo-dbt-cloud-webhook-pagerduty.fly.dev ? Would you like to set up a Postgresql database now? No ? Would you like to set up an Upstash Redis database now? No Wrote config file fly.toml ? Would you like to deploy now? Yes`
+`joel@Joel-Labes dbt-cloud-webhooks-pagerduty % flyctl launch
+An existing fly.toml file was found for app dbt-cloud-webhooks-pagerduty
+? Would you like to copy its configuration to the new app? Yes
+Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-pagerduty
+Scanning source code
+Detected a Dockerfile app
+? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-pagerduty
+automatically selected personal organization: Joel Labes
+Some regions require a paid plan (fra, maa).
+See https://fly.io/plans to set up a plan.
+? Choose a region for deployment: [Use arrows to move, type to filter]
+? Choose a region for deployment: Sydney, Australia (syd)
+Created app dbtlabs-dbt-cloud-webhook-pagerduty in organization personal
+Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-pagerduty
+Hostname: demo-dbt-cloud-webhook-pagerduty.fly.dev
+? Would you like to set up a Postgresql database now? No
+? Would you like to set up an Upstash Redis database now? No
+Wrote config file fly.toml
+? Would you like to deploy now? Yes`
 
 ## Create a PagerDuty integration application
 

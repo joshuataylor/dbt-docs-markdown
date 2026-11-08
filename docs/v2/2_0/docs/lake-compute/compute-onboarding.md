@@ -28,11 +28,11 @@ Before you enable Lake Compute, click **Save & Test** on your MDLS destination a
 
 On the destination page for your MDLS instance, go to the **Compute** tab and turn on **Enable Lake Compute**.
 
-![Enable Lake Compute](/img/docs/lake-compute/enable-lake-compute.png?v=2 "Enable Lake Compute")Enable Lake Compute
+[![Enable Lake Compute](/img/docs/lake-compute/enable-lake-compute.png?v=2 "Enable Lake Compute")](#)Enable Lake Compute
 
 Then generate a token (user-scoped or service account). Save this token in a password manager, because you need it for your dbt connection profile.
 
-![Generate a Lake Compute token](/img/docs/lake-compute/generate-token.png?v=2 "Generate a Lake Compute token")Generate a Lake Compute token
+[![Generate a Lake Compute token](/img/docs/lake-compute/generate-token.png?v=2 "Generate a Lake Compute token")](#)Generate a Lake Compute token
 
 ## Configure Snowflake
 

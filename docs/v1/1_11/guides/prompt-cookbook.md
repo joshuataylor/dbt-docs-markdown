@@ -1,6 +1,8 @@
 # How to use prompts for dbt Wizard
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

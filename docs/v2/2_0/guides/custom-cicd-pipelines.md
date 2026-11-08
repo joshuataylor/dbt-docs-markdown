@@ -1,6 +1,8 @@
 # Customizing CI/CD with custom pipelines
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 
@@ -16,7 +18,7 @@ Pipelines (which are known by many names, such as workflows, actions, or build s
 
 Jobs are executed on [runners](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#runners), which are virtual servers. The runners come pre-configured with Ubuntu Linux, macOS, or Windows. That means the commands you execute are determined by the operating system of your runner. You’ll see how this comes into play later in the setup, but for now just remember that your code is executed on virtual servers that are, typically, hosted by the code hosting platform.
 
-![Diagram of how pipelines work](/img/guides/orchestration/custom-cicd-pipelines/pipeline-diagram.png?v=2 "Diagram of how pipelines work")Diagram of how pipelines work
+[![Diagram of how pipelines work](/img/guides/orchestration/custom-cicd-pipelines/pipeline-diagram.png?v=2 "Diagram of how pipelines work")](#)Diagram of how pipelines work
 
 Please note, runners hosted by your code hosting platform provide a certain amount of free time. After that, billing charges may apply depending on how your account is setup. You also have the ability to host your own runners. That is beyond the scope of this article, but checkout the links below for more information if you’re interested in setting that up:
 
@@ -34,7 +36,7 @@ Please note, runners hosted by your code hosting platform provide a certain amou
 
 Additionally, if you’re using the free tier of GitLab you can still follow this guide, but it may ask you to provide a credit card to verify your account. You’ll see something like this the first time you try to run a pipeline:
 
-![Warning from GitLab showing payment information is required](/img/guides/orchestration/custom-cicd-pipelines/gitlab-cicd-payment-warning.png?v=2 "Warning from GitLab showing payment information is required")Warning from GitLab showing payment information is required
+[![Warning from GitLab showing payment information is required](/img/guides/orchestration/custom-cicd-pipelines/gitlab-cicd-payment-warning.png?v=2 "Warning from GitLab showing payment information is required")](#)Warning from GitLab showing payment information is required
 
 ### How to setup pipelines
 
@@ -44,7 +46,7 @@ Pipelines can be triggered by various events. The [dbt webhook](../docs/deploy/c
 
 Here’s a quick look at what this pipeline will accomplish:
 
-![Diagram showing the pipelines to be created and the programs involved](/img/guides/orchestration/custom-cicd-pipelines/pipeline-programs-diagram.png?v=2 "Diagram showing the pipelines to be created and the programs involved")Diagram showing the pipelines to be created and the programs involved
+[![Diagram showing the pipelines to be created and the programs involved](/img/guides/orchestration/custom-cicd-pipelines/pipeline-programs-diagram.png?v=2 "Diagram showing the pipelines to be created and the programs involved")](#)Diagram showing the pipelines to be created and the programs involved
 
 ## Run a dbt job on merge
 
@@ -68,15 +70,15 @@ When running a CI/CD pipeline you’ll want to use a service token instead of an
 6. Click the **+Add permission** button under **Access**, and grant this token the **Job Admin** permission.
 7. Click **Save** and you’ll see a grey box appear with your token. Copy that and save it somewhere safe (this is a password, and should be treated as such).
 
-![View of the dbt page where service tokens are created](/img/guides/orchestration/custom-cicd-pipelines/dbt-service-token-page.png?v=2 "View of the dbt page where service tokens are created")View of the dbt page where service tokens are created
+[![View of the dbt page where service tokens are created](/img/guides/orchestration/custom-cicd-pipelines/dbt-service-token-page.png?v=2 "View of the dbt page where service tokens are created")](#)View of the dbt page where service tokens are created
 
-![Creating a new service token](/img/guides/orchestration/custom-cicd-pipelines/dbt-new-service-token-page.png?v=2 "Creating a new service token")Creating a new service token
+[![Creating a new service token](/img/guides/orchestration/custom-cicd-pipelines/dbt-new-service-token-page.png?v=2 "Creating a new service token")](#)Creating a new service token
 
 ### 2. Put your dbt API key into your repo
 
 Adding you dbt API key to your repo happens in your code hosting platform. You need to save your API key from the previous section as a repository secret so the job we create can access it. Never save passwords or API keys in your code. The following steps ensure that your key stays secure, but is still usable for your pipelines.
 
-#### GitHub
+### GitHub
 
 * Open up your repository where you want to run the pipeline (the same one that houses your dbt project).
 * Click *Settings* to open up the repository options.
@@ -92,9 +94,7 @@ Adding you dbt API key to your repo happens in your code hosting platform. You n
 
 Here’s a video showing these steps:
 
-[Wistia video](https://fast.wistia.net/embed/iframe/u7mo30puql?seo=false\&videoFoam=true)
-
-#### GitLab
+### GitLab
 
 * Open up your repository where you want to run the pipeline (the same one that houses your dbt project).
 
@@ -112,13 +112,11 @@ Here’s a video showing these steps:
 
   * “Protected” means that the variable is only available in pipelines that run on protected branches or protected tags - that won’t work for us because we want to run this pipeline on multiple branches. “Masked” means that it will be available to your pipeline runner, but will be masked in the logs.
 
-  ![\[View of the GitLab window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-gitlab.png?v=2 "\[View of the GitLab window for entering DBT_API_KEY")\[View of the GitLab window for entering DBT\_API\_KEY
+  [![\[View of the GitLab window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-gitlab.png?v=2 "\[View of the GitLab window for entering DBT_API_KEY")](#)\[View of the GitLab window for entering DBT\_API\_KEY
 
   Here’s a video showing these steps:
 
-  [Wistia video](https://fast.wistia.net/embed/iframe/rgqs14f816?seo=false\&videoFoam=true)
-
-#### Azure DevOps
+### Azure DevOps
 
 In Azure:
 
@@ -135,9 +133,9 @@ In Azure:
 * Click *OK* and then *Save* to save the variable.
 * Save your new Azure pipeline.
 
-![View of the Azure pipelines window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-azure.png?v=2 "View of the Azure pipelines window for entering DBT_API_KEY")View of the Azure pipelines window for entering DBT\_API\_KEY
+[![View of the Azure pipelines window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-azure.png?v=2 "View of the Azure pipelines window for entering DBT_API_KEY")](#)View of the Azure pipelines window for entering DBT\_API\_KEY
 
-#### Bitbucket
+### Bitbucket
 
 In Bitbucket:
 
@@ -157,13 +155,11 @@ In Bitbucket:
 
 * Click **Add** to save the variable
 
-  ![View of the Bitbucket window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-bitbucket.png?v=2 "View of the Bitbucket window for entering DBT_API_KEY")View of the Bitbucket window for entering DBT\_API\_KEY
+  [![View of the Bitbucket window for entering DBT\_API\_KEY](/img/guides/orchestration/custom-cicd-pipelines/dbt-api-key-bitbucket.png?v=2 "View of the Bitbucket window for entering DBT_API_KEY")](#)View of the Bitbucket window for entering DBT\_API\_KEY
 
   Here’s a video showing these steps:
 
-  [Wistia video](https://fast.wistia.net/embed/iframe/1fddpsqpfv?seo=false\&videoFoam=true)
-
-#### CodeCommit
+### CodeCommit
 
 In AWS, store your API key in Systems Manager (SSM) Parameter Store instead of a repository secret:
 
@@ -209,11 +205,11 @@ In order to call the dbt API, there are a few pieces of info the script needs. T
 * `DBT_PROJECT_ID` - this is the number just after `projects/` in the URL
 * `DBT_PR_JOB_ID` - this is the number just after `jobs/` in the URL
 
-![Image of a dbt job URL with the pieces for account, project, and job highlighted](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-url.png?v=2 "Image of a dbt job URL with the pieces for account, project, and job highlighted")Image of a dbt job URL with the pieces for account, project, and job highlighted
+[![Image of a dbt job URL with the pieces for account, project, and job highlighted](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-url.png?v=2 "Image of a dbt job URL with the pieces for account, project, and job highlighted")](#)Image of a dbt job URL with the pieces for account, project, and job highlighted
 
 ### 4. Update your project to include the new API call
 
-#### GitHub
+### GitHub
 
 For this new job, we'll add a file for the dbt API call named `dbt_run_on_merge.yml`.
 
@@ -270,13 +266,13 @@ jobs:
         run: "python python/run_and_monitor_dbt_job.py"
 ```
 
-#### GitLab
+### GitLab
 
 For this job, we'll set it up using the `gitlab-ci.yml` file as in the prior step (see Step 1 of the linting setup for more info). The YAML file will look pretty similar to our earlier job, but there is a new section called `variables` that we’ll use to pass in the required variables to the Python script. Update this section to match your setup based on the comments in the file.
 
 Please note that the `rules:` section now says to run **only** when there are pushes to a branch named `main`, such as a PR being merged. Have a look through [GitLab’s docs](https://docs.gitlab.com/ee/ci/yaml/#rules) on these filters for additional use cases.
 
-##### Only dbt job
+### Only dbt job
 
 ```yaml
 image: python:3.9
@@ -302,7 +298,7 @@ run-dbt-cloud-job:
     - python python/run_and_monitor_dbt_job.py
 ```
 
-##### Lint and dbt job
+### Lint and dbt job
 
 ```yaml
 image: python:3.9
@@ -340,7 +336,7 @@ run-dbt-cloud-job:
     - python python/run_and_monitor_dbt_job.py
 ```
 
-#### Azure DevOps
+### Azure DevOps
 
 For this new job, open the existing Azure pipeline you created above and select the *Edit* button. We'll want to edit the corresponding Azure pipeline YAML file with the appropriate configuration, instead of the starter code, along with including a `variables` section to pass in the required variables.
 
@@ -377,11 +373,11 @@ steps:
       DBT_API_KEY: $(DBT_API_KEY) # Set these values as secrets in the Azure pipelines Web UI
 ```
 
-#### Bitbucket
+### Bitbucket
 
 For this job, we'll set it up using the `bitbucket-pipelines.yml` file as in the prior step (see Step 1 of the linting setup for more info). The YAML file will look pretty similar to our earlier job, but we’ll pass in the required variables to the Python script using `export` statements. Update this section to match your setup based on the comments in the file.
 
-##### Only job
+### Only job
 
 ```yaml
 image: python:3.11.1
@@ -401,7 +397,7 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-##### Lint and dbt job
+### Lint and dbt job
 
 ```yaml
 image: python:3.11.1
@@ -428,7 +424,7 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-#### CodeCommit
+### CodeCommit
 
 For CodeCommit, you'll configure a CodeBuild project and an EventBridge rule to trigger a dbt job every time code is pushed to your default branch (for example, when a pull request is merged to `main`).
 
@@ -614,39 +610,39 @@ Now that you have a shiny new action, it’s time to test it out! Since this cha
 
 Additionally, you’ll see the job in the run history of dbt. It should be fairly easy to spot because it will say it was triggered by the API, and the *INFO* section will have the branch you used for this guide.
 
-#### GitHub
+### GitHub
 
-![dbt run on merge job in GitHub](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-github.png?v=2 "dbt run on merge job in GitHub")dbt run on merge job in GitHub
+[![dbt run on merge job in GitHub](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-github.png?v=2 "dbt run on merge job in GitHub")](#)dbt run on merge job in GitHub
 
-![dbt job showing it was triggered by GitHub](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-github-triggered.png?v=2 "dbt job showing it was triggered by GitHub")dbt job showing it was triggered by GitHub
+[![dbt job showing it was triggered by GitHub](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-github-triggered.png?v=2 "dbt job showing it was triggered by GitHub")](#)dbt job showing it was triggered by GitHub
 
-#### GitLab
+### GitLab
 
-![dbt run on merge job in GitLab](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-gitlab.png?v=2 "dbt run on merge job in GitLab")dbt run on merge job in GitLab
+[![dbt run on merge job in GitLab](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-gitlab.png?v=2 "dbt run on merge job in GitLab")](#)dbt run on merge job in GitLab
 
-![dbt job showing it was triggered by GitLab](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-gitlab-triggered.png?v=2 "dbt job showing it was triggered by GitLab")dbt job showing it was triggered by GitLab
+[![dbt job showing it was triggered by GitLab](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-gitlab-triggered.png?v=2 "dbt job showing it was triggered by GitLab")](#)dbt job showing it was triggered by GitLab
 
-#### Azure DevOps
+### Azure DevOps
 
-![dbt run on merge job in ADO](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-azure.png?v=2 "dbt run on merge job in ADO")dbt run on merge job in ADO
+[![dbt run on merge job in ADO](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-azure.png?v=2 "dbt run on merge job in ADO")](#)dbt run on merge job in ADO
 
-![ADO-triggered job in dbt](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-azure-triggered.png?v=2 "ADO-triggered job in dbt")ADO-triggered job in dbt
+[![ADO-triggered job in dbt](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-azure-triggered.png?v=2 "ADO-triggered job in dbt")](#)ADO-triggered job in dbt
 
-#### Bitbucket
+### Bitbucket
 
-![dbt run on merge job in Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-bitbucket.png?v=2 "dbt run on merge job in Bitbucket")dbt run on merge job in Bitbucket
+[![dbt run on merge job in Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/dbt-run-on-merge-bitbucket.png?v=2 "dbt run on merge job in Bitbucket")](#)dbt run on merge job in Bitbucket
 
-![dbt job showing it was triggered by Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-bitbucket-triggered.png?v=2 "dbt job showing it was triggered by Bitbucket")dbt job showing it was triggered by Bitbucket
+[![dbt job showing it was triggered by Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/dbt-cloud-job-bitbucket-triggered.png?v=2 "dbt job showing it was triggered by Bitbucket")](#)dbt job showing it was triggered by Bitbucket
 
-#### CodeCommit
+### CodeCommit
 
 To test the pipeline, merge a pull request (or push a commit directly) to your main branch. You should see a new build start in your CodeBuild project within a few seconds. You can monitor the run in the CodeBuild console under **Build history**.
 
-![Find new build under build history of CodeBuild console](/img/guides/orchestration/custom-cicd-pipelines/codecommit-run-on-pr.png?v=2 "Find new build under build history of CodeBuild console")Find new build under build history of CodeBuild console
+[![Find new build under build history of CodeBuild console](/img/guides/orchestration/custom-cicd-pipelines/codecommit-run-on-pr.png?v=2 "Find new build under build history of CodeBuild console")](#)Find new build under build history of CodeBuild console
 
 In dbt, the job will appear in your run history with a cause of "CodeCommit Merge CI Job".
 
-![Check dbt run history for CodeCommit build triggered](/img/guides/orchestration/custom-cicd-pipelines/codecommit-dbt-cloud-pr.png?v=2 "Check dbt run history for CodeCommit build triggered")Check dbt run history for CodeCommit build triggered
+[![Check dbt run history for CodeCommit build triggered](/img/guides/orchestration/custom-cicd-pipelines/codecommit-dbt-cloud-pr.png?v=2 "Check dbt run history for CodeCommit build triggered")](#)Check dbt run history for CodeCommit build triggered
 
 ## Run a dbt job on pull request
 
@@ -660,11 +656,11 @@ The setup for this pipeline will use the same steps as the prior page. Before mo
 
 ### 1. Create a pipeline job that runs when PRs are created
 
-#### Bitbucket
+### Bitbucket
 
 For this job, we’ll set it up using the `bitbucket-pipelines.yml` file as in the prior step. The YAML file will look pretty similar to our earlier job, but we’ll pass in the required variables to the Python script using `export` statements. Update this section to match your setup based on the comments in the file.
 
-**What is this pipeline going to do?** The setup below will trigger a dbt job to run every time a PR is opened in this repository. It will also run a fresh version of the pipeline for every commit that is made on the PR until it is merged.
+**What is this pipeline going to do?**<br />The setup below will trigger a dbt job to run every time a PR is opened in this repository. It will also run a fresh version of the pipeline for every commit that is made on the PR until it is merged.
 
 For example, if you open a PR, it will run the pipeline. If you then decide additional changes are needed, and commit/push to the PR branch, a new pipeline will run with the updated code.
 
@@ -698,7 +694,7 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-#### CodeCommit
+### CodeCommit
 
 The setup for CodeCommit follows the same steps as the prior page. Before moving on, follow steps 1–5 from the [prior page](./custom-cicd-pipelines.md?step=2) to store your API key, add the Python script to your repository, and configure the merge pipeline.
 
@@ -857,27 +853,27 @@ Replace `YOUR_CODEBUILD_PROJECT_NAME` with the name of the CodeBuild project you
 
 Now that you have a new pipeline, it's time to run it and make sure it works. Since this only triggers when a PR is created, you'll need to create a new PR on a branch that contains the code above. Once you do that, you should see a pipeline that looks like this:
 
-#### Bitbucket
+### Bitbucket
 
 Bitbucket pipeline:
 
-![dbt run on PR job in Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/bitbucket-run-on-pr.png?v=2 "dbt run on PR job in Bitbucket")dbt run on PR job in Bitbucket
+[![dbt run on PR job in Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/bitbucket-run-on-pr.png?v=2 "dbt run on PR job in Bitbucket")](#)dbt run on PR job in Bitbucket
 
 dbt job:
 
-![dbt job showing it was triggered by Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/bitbucket-dbt-cloud-pr.png?v=2 "dbt job showing it was triggered by Bitbucket")dbt job showing it was triggered by Bitbucket
+[![dbt job showing it was triggered by Bitbucket](/img/guides/orchestration/custom-cicd-pipelines/bitbucket-dbt-cloud-pr.png?v=2 "dbt job showing it was triggered by Bitbucket")](#)dbt job showing it was triggered by Bitbucket
 
-#### CodeCommit
+### CodeCommit
 
 To test the pipeline, create a new pull request in your CodeCommit repository on a branch that contains the files you added above. Once you open the pull request, the EventBridge rule fires, Lambda extracts the branch and PR ID, and CodeBuild starts automatically.
 
 CodeBuild run:
 
-![CodeBuild run triggered by a CodeCommit pull request](/img/guides/orchestration/custom-cicd-pipelines/codecommit-run-on-pr.png?v=2 "CodeBuild run triggered by a CodeCommit pull request")CodeBuild run triggered by a CodeCommit pull request
+[![CodeBuild run triggered by a CodeCommit pull request](/img/guides/orchestration/custom-cicd-pipelines/codecommit-run-on-pr.png?v=2 "CodeBuild run triggered by a CodeCommit pull request")](#)CodeBuild run triggered by a CodeCommit pull request
 
 In dbt, the job run appears in your run history. It will show the PR branch and a schema override in the format `DBT_CLOUD_PR_{REPO_NAME}_{PR_NUMBER}`:
 
-![dbt job showing it was triggered by a CodeCommit pull request](/img/guides/orchestration/custom-cicd-pipelines/codecommit-dbt-cloud-pr.png?v=2 "dbt job showing it was triggered by a CodeCommit pull request")dbt job showing it was triggered by a CodeCommit pull request
+[![dbt job showing it was triggered by a CodeCommit pull request](/img/guides/orchestration/custom-cicd-pipelines/codecommit-dbt-cloud-pr.png?v=2 "dbt job showing it was triggered by a CodeCommit pull request")](#)dbt job showing it was triggered by a CodeCommit pull request
 
 ### 3. Handle those extra schemas in your database
 
@@ -925,7 +921,7 @@ Add this as a macro to your project. It takes 2 arguments that lets you control 
 
 This macro goes into a dbt job that is run on a schedule. The command will look like this (text below for copy/paste):
 
-![dbt job showing the run operation command for the cleanup macro](/img/guides/orchestration/custom-cicd-pipelines/dbt-macro-cleanup-pr.png?v=2 "dbt job showing the run operation command for the cleanup macro")dbt job showing the run operation command for the cleanup macro
+[![dbt job showing the run operation command for the cleanup macro](/img/guides/orchestration/custom-cicd-pipelines/dbt-macro-cleanup-pr.png?v=2 "dbt job showing the run operation command for the cleanup macro")](#)dbt job showing the run operation command for the cleanup macro
 
 `dbt run-operation pr_schema_cleanup --args "{ 'database_to_clean': 'development','age_in_days':15}"`
 

@@ -1,6 +1,8 @@
 # Get hands-on with Snowflake Horizon and Apache Iceberg
 
-[Back to guides](https://docs.getdbt.com/guides) 60 minutes
+[Back to guides](../guides.md) 60 minutes
+
+[Menu ]()
 
 
 

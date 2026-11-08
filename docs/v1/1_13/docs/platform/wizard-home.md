@@ -10,9 +10,9 @@ AI features are being enabled by default. They're already on for new accounts an
 
 The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio IDE](../dbt-ai/wizard-ide.md). Where the Studio IDE supports users working directly within a traditional IDE environment, the home tab is purpose-built for agent-native development and keeps you focused on supervising and validating agent-generated work.
 
-![dbt Wizard home tab — empty state with quick-start prompts](/img/docs/dbt-platform/wizard-home-empty.png?v=2 "dbt Wizard home tab — empty state with quick-start prompts")dbt Wizard home tab — empty state with quick-start prompts
+[![dbt Wizard home tab — empty state with quick-start prompts](/img/docs/dbt-platform/wizard-home-empty.png?v=2 "dbt Wizard home tab — empty state with quick-start prompts")](#)dbt Wizard home tab — empty state with quick-start prompts
 
-![dbt Wizard agent refactoring a docs github model for tech writers :) ](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard agent refactoring a docs github model for tech writers :) ")dbt Wizard agent refactoring a docs github model for tech writers :)
+[![dbt Wizard agent refactoring a docs github model for tech writers :) ](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard agent refactoring a docs github model for tech writers :) ")](#)dbt Wizard agent refactoring a docs github model for tech writers :)
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ Explore mode uses dbt-managed inference, so questions draw from your account's d
 
 In the home tab, click **Open** on a result to view the visualization in the right-hand context sidebar, and download the data from there.
 
-![Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.](/img/docs/dbt-platform/wizard-home-explore-viz.png?v=2 "Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.")Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.
+[![Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.](/img/docs/dbt-platform/wizard-home-explore-viz.png?v=2 "Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.")](#)Explore mode in the dbt Wizard home tab, with a plain-language summary, a chart, and Chart/Table/SQL toggles.
 
 ## Inline preview mode
 
@@ -113,7 +113,7 @@ With dbt managed inference, you can switch between the supported managed models 
 * The picker lists the managed models available to you. Refer to the [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the available models and their token rates.
 * If you [bring your own key (BYOK)](../dbt-ai/wizard-byok.md), dbt Wizard uses the provider and model you configured with your key rather than the managed model picker.
 
-![The model picker dropdown next to the Agent mode control in the Wizard panel.](/img/docs/dbt-platform/wizard-model-picker.png?v=2 "The model picker dropdown next to the Agent mode control in the Wizard panel.")The model picker dropdown next to the Agent mode control in the Wizard panel.
+[![The model picker dropdown next to the Agent mode control in the Wizard panel.](/img/docs/dbt-platform/wizard-model-picker.png?v=2 "The model picker dropdown next to the Agent mode control in the Wizard panel.")](#)The model picker dropdown next to the Agent mode control in the Wizard panel.
 
 ## Related docs
 

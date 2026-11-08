@@ -80,9 +80,9 @@ The **v2 Fallback** release track provides an emergency rollback option for acco
 
 Switching to **v2 Fallback** alerts the dbt Support team, who may reach out to help resolve the issue. This track is meant only as a temporary safety option to unblock you and not for ongoing use. Return to "v2 Extended" or "v2 Stable" (dbt v2) / "v1 Compatible" (dbt v1) once the issue is resolved.
 
-![v2 Fallback release track button in dbt platform](/img/docs/dbt-versions/rollback.png?v=2 "v2 Fallback release track button in dbt platform")v2 Fallback release track button in dbt platform
+[![v2 Fallback release track button in dbt platform](/img/docs/dbt-versions/rollback.png?v=2 "v2 Fallback release track button in dbt platform")](#)v2 Fallback release track button in dbt platform
 
-![v2 Fallback release track popup in dbt platform](/img/docs/dbt-versions/rollback-popup.png?v=2 "v2 Fallback release track popup in dbt platform")v2 Fallback release track popup in dbt platform
+[![v2 Fallback release track popup in dbt platform](/img/docs/dbt-versions/rollback-popup.png?v=2 "v2 Fallback release track popup in dbt platform")](#)v2 Fallback release track popup in dbt platform
 
 ### Common architectures
 

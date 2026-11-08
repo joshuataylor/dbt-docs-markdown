@@ -12,9 +12,9 @@ This page is your map of the app: where everything lives, how a session works, w
 
 When you open Wizard Desktop, everything you need is in one window — you'll have your projects and sessions on the left, the chat in the middle, and panes on the right that show your project, your lineage, your changes, and your results as rendered charts and tables.
 
-![A new session, with the sidebar, chat composer, and Explorer pane](/img/wizard/desktop/wizard-desktop-ui.png?v=2 "A new session, with the sidebar, chat composer, and Explorer pane")A new session, with the sidebar, chat composer, and Explorer pane
+[![A new session, with the sidebar, chat composer, and Explorer pane](/img/wizard/desktop/wizard-desktop-ui.png?v=2 "A new session, with the sidebar, chat composer, and Explorer pane")](#)A new session, with the sidebar, chat composer, and Explorer pane
 
-![The same layout mid-task, with a chart in the chat and validation results in the side pane](/img/wizard/desktop/wizard-desktop-validation.png?v=2 "The same layout mid-task, with a chart in the chat and validation results in the side pane")The same layout mid-task, with a chart in the chat and validation results in the side pane
+[![The same layout mid-task, with a chart in the chat and validation results in the side pane](/img/wizard/desktop/wizard-desktop-validation.png?v=2 "The same layout mid-task, with a chart in the chat and validation results in the side pane")](#)The same layout mid-task, with a chart in the chat and validation results in the side pane
 
 | What you see          | What it's for                                                                                                                                                                                                                                                                         |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,7 +28,7 @@ When you open Wizard Desktop, everything you need is in one window — you'll ha
 
 To change or remove a project, hover its name in the sidebar and select the ellipsis (**⋮**) → **Project settings** or **Remove project**.
 
-![The project row ellipsis menu with Project settings and Remove project](/img/wizard/desktop/wizard-desktop-project-settings.png?v=2 "The project row ellipsis menu with Project settings and Remove project")The project row ellipsis menu with Project settings and Remove project
+[![The project row ellipsis menu with Project settings and Remove project](/img/wizard/desktop/wizard-desktop-project-settings.png?v=2 "The project row ellipsis menu with Project settings and Remove project")](#)The project row ellipsis menu with Project settings and Remove project
 
 ### Use the panes
 
@@ -48,7 +48,7 @@ Select an icon in the right hand pane rail to open a pane in the side panel:
 | Metrics    | The metrics in your project                                                                                                                                                                                                                                                                   |
 | Terminal   | Run commands without leaving the app. Sits underneath whichever pane you've opened                                                                                                                                                                                                            |
 
-![Select an icon in the right hand pane rail to open a pane in the side panel](/img/wizard/desktop/wizard-desktop-right-pane.png?v=2 "Select an icon in the right hand pane rail to open a pane in the side panel")Select an icon in the right hand pane rail to open a pane in the side panel
+[![Select an icon in the right hand pane rail to open a pane in the side panel](/img/wizard/desktop/wizard-desktop-right-pane.png?v=2 "Select an icon in the right hand pane rail to open a pane in the side panel")](#)Select an icon in the right hand pane rail to open a pane in the side panel
 
 Prefer your own editor? Select **Open in** to open dbt Wizard and your branch in Finder, VS Code, Cursor, iTerm, or Terminal, or copy the file path.
 
@@ -103,7 +103,7 @@ This section goes over what you can do when you're working in a chat session.
   * **Open code** to read the SQL in the Explorer
   * **Open lineage** to see what it's connected to
 
-![Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage](/img/wizard/desktop/wizard-desktop-model-menu.png?v=2 "Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage")Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage
+[![Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage](/img/wizard/desktop/wizard-desktop-model-menu.png?v=2 "Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage")](#)Selecting a dbt model name in a Wizard response opens Copy name, Add to chat, Open code, and Open lineage
 
 ### Review and validate changes
 
@@ -130,6 +130,8 @@ Validation is broader than previewing or compiling:
   * **Small** compiles and lints the modified dbt models, runs their schema and data tests, and reviews them for dbt anti-patterns, with no warehouse writes
   * **Medium** also materializes those dbt models and builds their downstream dependents
   * **Large** adds a comparison of prod against dev row counts, schema, and sample records.
+    <br />
+    <br />
 
   Each level lists its checks and its warehouse impact before you select **Run validation**.
 
@@ -181,7 +183,7 @@ dbt Wizard names each chat's worktree for you by pairing a random adjective with
 | Target in the worktree's `profiles.yml`    | `docs-fox`    | The worktree name, with hyphens swapped for underscores                  |
 | Schema                                     | `dbt_oz_a1b2` | Your project's schema plus a random four-character suffix                |
 
-![You can find the dbt project, git worktree name, branch, target, and schema above the chat composer](/img/wizard/desktop/wizard-desktop-git-worktree.png?v=2 "You can find the dbt project, git worktree name, branch, target, and schema above the chat composer")You can find the dbt project, git worktree name, branch, target, and schema above the chat composer
+[![You can find the dbt project, git worktree name, branch, target, and schema above the chat composer](/img/wizard/desktop/wizard-desktop-git-worktree.png?v=2 "You can find the dbt project, git worktree name, branch, target, and schema above the chat composer")](#)You can find the dbt project, git worktree name, branch, target, and schema above the chat composer
 
 The suffix on the schema is what keeps each chat in its own schema, so two chats never write to the same tables.
 

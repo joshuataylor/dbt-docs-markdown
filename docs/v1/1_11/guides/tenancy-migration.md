@@ -1,6 +1,8 @@
 # Migrate between dbt platform tenancy types
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

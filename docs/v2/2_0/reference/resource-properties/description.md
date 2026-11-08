@@ -1,6 +1,6 @@
 # description
 
-## Models
+### Models
 
 models/schema.yml
 
@@ -15,7 +15,7 @@ models:
         description: markdown_string
 ```
 
-## Sources
+### Sources
 
 models/schema.yml
 
@@ -34,7 +34,7 @@ sources:
             description: markdown_string
 ```
 
-## Seeds
+### Seeds
 
 seeds/schema.yml
 
@@ -49,7 +49,7 @@ seeds:
         description: markdown_string
 ```
 
-## Snapshots
+### Snapshots
 
 snapshots/schema.yml
 
@@ -64,7 +64,7 @@ snapshots:
         description: markdown_string
 ```
 
-## Analyses
+### Analyses
 
 analysis/schema.yml
 
@@ -79,7 +79,7 @@ analyses:
         description: markdown_string
 ```
 
-## Macros
+### Macros
 
 macros/schema.yml
 
@@ -94,7 +94,7 @@ macros:
         description: markdown_string
 ```
 
-## Data tests
+### Data tests
 
 (Applies to dbt v1.9 and later)
 
@@ -128,7 +128,7 @@ models:
               description: markdown_string
 ```
 
-## Unit tests
+### Unit tests
 
 models/schema.yml
 
@@ -152,7 +152,7 @@ unit_tests:
       fixture: fixture_name
 ```
 
-## Groups
+### Groups
 
 models/schema.yml
 
@@ -192,14 +192,22 @@ Be mindful of YAML semantics when providing a description. If your description c
 This section contains examples of how to add descriptions to various resources:
 
 * [Add a simple description to a model and column](#add-a-simple-description-to-a-model-and-column)
+  <br />
 * [Add a multiline description to a model](#add-a-multiline-description-to-a-model)
+  <br />
 * [Use some markdown in a description](#use-some-markdown-in-a-description)
+  <br />
 * [Use a docs block in a description](#use-a-docs-block-in-a-description)
+  <br />
 * [Link to another model in a description](#link-to-another-model-in-a-description)
 * [Include an image from your repo in your descriptions](#include-an-image-from-your-repo-in-your-descriptions)
+  <br />
 * [Include an image from the web in your descriptions](#include-an-image-from-the-web-in-your-descriptions)
+  <br />
 * [Add a description to a data test](#add-a-description-to-a-data-test)
+  <br />
 * [Add a description to a unit test](#add-a-description-to-a-unit-test)
+  <br />
 
 ### Add a simple description to a model and column
 

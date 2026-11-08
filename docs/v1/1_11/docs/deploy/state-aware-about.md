@@ -22,7 +22,7 @@ Join the conversation in our dbt Community Slack channel [`#dbt-v2`](https://get
 
 State-aware orchestration saves you compute costs and reduces runtime because when a job runs, it checks for new records and only builds the models that will change.
 
-![dbt v2 powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "dbt v2 powered state-aware orchestration")dbt v2 powered state-aware orchestration
+[![dbt v2 powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "dbt v2 powered state-aware orchestration")](#)dbt v2 powered state-aware orchestration
 
 We built dbt's state-aware orchestration on these four core principles:
 

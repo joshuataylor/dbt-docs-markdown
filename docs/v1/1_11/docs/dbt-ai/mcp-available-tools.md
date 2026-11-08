@@ -177,7 +177,7 @@ Here's what happens when your assistant calls it:
 3. dbt platform compiles the SQL (including any Jinja, such as `ref()`) and runs it in your warehouse using your development credentials.
 4. The results come back to your assistant as a table.
 
-![The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.](/img/docs/dbt-ai/mcp-execute-sql-flow.svg?v=2 "The AI assistant calls execute_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.")The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.
+[![The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.](/img/docs/dbt-ai/mcp-execute-sql-flow.svg?v=2 "The AI assistant calls execute_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.")](#)The AI assistant calls execute\_sql. The dbt MCP server forwards the request to dbt platform, which compiles the SQL, runs it in the warehouse with your development credentials, and returns the results to the assistant.
 
  Is execute\_sql read-only?
 

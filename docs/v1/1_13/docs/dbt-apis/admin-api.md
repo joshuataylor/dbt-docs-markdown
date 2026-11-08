@@ -32,3 +32,5 @@ For request quotas and throttling behavior, refer to [API rate limits](./rate-li
 #### [dbt Terraform provider](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest)
 
 [The Terraform provider maintained by dbt Labs which can be used to manage a dbt account.](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest)
+
+[](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest)

@@ -93,6 +93,8 @@ These fields apply to both local and remote profiles:
 | database      | Logical label used internally by dbt. Never rendered in SQL. Defaults to the file base name                                  | Optional                  | `mydb`             |
 | schema        | Logical label used internally by dbt. Firebird has no schemas, so this is never rendered in SQL. Defaults to `main`          | Optional                  | `main`             |
 
+<br />
+
 `dbt init` also works: it lists `firebird`, asks for every field above, writes the profile, and runs `dbt debug` at the end.
 
 ## Character sets
@@ -103,6 +105,8 @@ Pick the `charset` value that matches how your Firebird database stores text:
 | -------------------------------------------------------------------------------------------- | ---------------- |
 | Database created with `UTF8`, or plain ASCII data                                            | `UTF8` (default) |
 | Legacy/restored databases with character set `NONE` and accented data (for example, WIN1252) | `WIN1252`        |
+
+<br />
 
 If reads fail with `UnicodeDecodeError: 'utf-8' codec can't decode byte ...`, set `charset: WIN1252`. This is the most common case for legacy Brazilian Firebird databases.
 
@@ -154,5 +158,7 @@ The profile user needs read and write access to the objects dbt manages, plus pe
 | `CREATE`  | Create tables and views                                                                                                                                                |
 | `ALTER`   | Change tables and views                                                                                                                                                |
 | `DROP`    | Replace objects dbt rebuilds                                                                                                                                           |
+
+<br />
 
 For SYSDBA or the database owner, no extra grants are needed.

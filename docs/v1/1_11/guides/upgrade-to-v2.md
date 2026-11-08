@@ -2,7 +2,9 @@
 
 This guide helps you implement an in-place upgrade from the latest version of dbt v1 to dbt v2 in the dbt platform.
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 
@@ -109,7 +111,7 @@ Launch the dbt v2 upgrade workflow from your project:
 1. Log into dbt platform and navigate to your project.
 2. From the project homepage or sidebar, click **Start dbt v2 upgrade** or **Get started**.
 
-![Start the dbt v2 upgrade from the project homepage](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the dbt v2 upgrade from the project homepage")Start the dbt v2 upgrade from the project homepage
+[![Start the dbt v2 upgrade from the project homepage](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the dbt v2 upgrade from the project homepage")](#)Start the dbt v2 upgrade from the project homepage
 
 You'll be redirected to the Studio IDE with the upgrade assistant visible at the top.
 
@@ -119,7 +121,7 @@ Even if you resolved deprecations in Part 1, run a final check to ensure nothing
 
 1. At the top of the Studio IDE, click **Check deprecation warnings**.
 
-![Check for deprecation warnings in your project](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Check for deprecation warnings in your project")Check for deprecation warnings in your project
+[![Check for deprecation warnings in your project](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Check for deprecation warnings in your project")](#)Check for deprecation warnings in your project
 
 2. Wait for the parse to complete (this may take a few moments depending on project size).
 
@@ -143,7 +145,7 @@ If you find deprecation warnings, use the autofix tool to resolve them:
 5. Review the modified files in the **Version control** panel.
 6. If all warnings are resolved, you'll see a success message.
 
-![Success message when deprecations are resolved](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "Success message when deprecations are resolved")Success message when deprecations are resolved
+[![Success message when deprecations are resolved](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "Success message when deprecations are resolved")](#)Success message when deprecations are resolved
 
 For detailed information about the autofix process, see [Fix deprecation warnings](../docs/platform/studio-ide/autofix-deprecations.md).
 
@@ -242,7 +244,7 @@ Access the settings for your staging or intermediate environment:
 4. Click on your staging environment name to open its settings.
 5. Click the **Edit** button in the top right.
 
-![Navigate to environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Navigate to environment settings")Navigate to environment settings
+[![Navigate to environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Navigate to environment settings")](#)Navigate to environment settings
 
 ### Step 2: Update the dbt version
 
@@ -253,7 +255,7 @@ Change your staging environment to use the dbt v2 release track:
 3. Select **v2 Stable** from the list.
 4. Scroll to the top and click **Save**.
 
-![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable from the dbt version dropdown")Select v2 Stable from the dbt version dropdown
+[![Select v2 Stable from the dbt version dropdown](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable from the dbt version dropdown")](#)Select v2 Stable from the dbt version dropdown
 
 Your staging environment is now configured to use dbt v2! Any jobs associated with this environment will use dbt v2 on their next run.
 
@@ -341,7 +343,7 @@ Access your production environment configuration:
 4. Click on your production environment (typically marked with a **Production** badge).
 5. Click the **Edit** button in the top right.
 
-![Access production environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Access production environment settings")Access production environment settings
+[![Access production environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Access production environment settings")](#)Access production environment settings
 
 ### Step 3: Upgrade to v2 Stable
 
@@ -353,7 +355,7 @@ Update your production environment to use dbt v2:
 4. Review your settings one final time to ensure everything is correct.
 5. Scroll to the top and click **Save**.
 
-![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable for production")Select v2 Stable for production
+[![Select v2 Stable for production](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-v2.png?v=2 "Select v2 Stable for production")](#)Select v2 Stable for production
 
 Your production environment is now running on dbt v2!
 

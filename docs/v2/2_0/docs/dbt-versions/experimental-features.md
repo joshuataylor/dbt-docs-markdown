@@ -18,7 +18,7 @@ To enable or disable experimental features:
 2. Under **User profile**, find **Experimental features**.
 3. Click **Beta** to toggle the features on or off as shown in the following image.
 
-   ![Experimental features](/img/docs/dbt-versions/experimental-feats.png?v=2 "Experimental features")Experimental features
+   [![Experimental features](/img/docs/dbt-versions/experimental-feats.png?v=2 "Experimental features")](#)Experimental features
 
 ## Beta terms and conditions
 

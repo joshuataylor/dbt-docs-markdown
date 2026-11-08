@@ -55,7 +55,7 @@ models:
       - custom_generic_test
 ```
 
-![SQL + Python, together at last](/img/docs/building-a-dbt-project/building-models/python-models/python-model-dag.png?v=2 "SQL + Python, together at last")SQL + Python, together at last
+[![SQL + Python, together at last](/img/docs/building-a-dbt-project/building-models/python-models/python-model-dag.png?v=2 "SQL + Python, together at last")](#)SQL + Python, together at last
 
 The prerequisites for dbt Python models include using an adapter for a data platform that supports a fully featured Python runtime when using dbt v1 or dbt v2 engine. In a dbt Python model, all Python code is executed remotely on the platform. None of it is run by dbt locally. We believe in clearly separating *model definition* from *model execution*. In this and many other ways, you'll find that dbt's approach to Python models mirrors its longstanding approach to modeling data in SQL.
 
@@ -281,7 +281,7 @@ Python models can't be materialized as `view` or `ephemeral`. Python isn't suppo
 
 For incremental models, like SQL models, you need to filter incoming tables to only new rows of data:
 
-#### Snowpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -306,7 +306,7 @@ def model(dbt, session):
     return df
 ```
 
-#### BigQuery DataFrames
+### BigQuery DataFrames
 
 models/my\_python\_model.py
 
@@ -331,7 +331,7 @@ def model(dbt, session):
   return bdf
 ```
 
-#### PySpark
+### PySpark
 
 models/my\_python\_model.py
 
@@ -385,7 +385,7 @@ You can also define functions that depend on third-party packages so long as tho
 
 In this example, we use the `holidays` package to determine if a given date is a holiday in France. The code below uses the pandas API for simplicity and consistency across platforms. The exact syntax, and the need to refactor for multi-node processing, still vary.
 
-#### Snowpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -417,7 +417,7 @@ def model(dbt, session):
     return df
 ```
 
-#### BigQuery DataFrames
+### BigQuery DataFrames
 
 models/my\_python\_model.py
 
@@ -441,7 +441,7 @@ def model(dbt, session):
     return bdf[bdf['birthday'].isin(us_holidays)]
 ```
 
-#### PySpark
+### PySpark
 
 models/my\_python\_model.py
 
@@ -513,7 +513,7 @@ tip
 
 You can also define [SQL or Python UDFs](./udfs.md) as first-class resources under `/functions` with a matching `YAML` file. dbt builds them as part of the DAG, and you reference them from SQL using `{{ function('my_udf') }}`. These UDFs are reusable across tools (BI, notebooks, SQL clients) because they live in your warehouse.
 
-##### Snowpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -552,7 +552,7 @@ def model(dbt, session):
 * Writing [`create function`](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-batch.html) inside a SQL macro, to run as a hook or run-operation
 * [Registering from a staged file](https://docs.snowflake.com/en/developer-guide/snowpark/python/creating-udfs#creating-a-udf-from-a-python-source-file) within your Python model code
 
-##### BigQuery DataFrames
+### BigQuery DataFrames
 
 models/my\_python\_model.py
 
@@ -572,7 +572,7 @@ def model(dbt, session):
     return bdf
 ```
 
-##### PySpark
+### PySpark
 
 models/my\_python\_model.py
 

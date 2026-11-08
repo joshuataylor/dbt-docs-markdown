@@ -1,6 +1,8 @@
 # Migrate from DDL, DML, and stored procedures
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

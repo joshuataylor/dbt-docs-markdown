@@ -28,7 +28,7 @@ dbt Wizard supports [managed models](./pricing-billing/overview.md#dbt-managed-p
 
 Here are the following AI providers supported depending on where you work. Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the full list of available models.
 
-#### dbt platform
+### dbt platform
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |
@@ -37,7 +37,7 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-#### Locally (CLI)
+### Locally (CLI)
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |

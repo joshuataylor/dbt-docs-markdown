@@ -16,7 +16,7 @@ To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azu
 * **Authors**: Microsoft
 * **GitHub repo**: [Microsoft/dbt-fabric](https://github.com/Microsoft/dbt-fabric) [![](https://img.shields.io/github/stars/Microsoft/dbt-fabric?style=for-the-badge)](https://github.com/Microsoft/dbt-fabric)
 * **PyPI package**: `dbt-fabric` [![](https://badge.fury.io/py/dbt-fabric.svg)](https://badge.fury.io/py/dbt-fabric)
-* **Slack channel**:
+* **Slack channel**:[]()
 * **Supported dbt version**: 1.4.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**:
@@ -109,7 +109,7 @@ The following additional methods are available to authenticate to Azure SQL prod
 
 The automatic authentication setting is in most cases the easiest choice and works for all of the above.
 
-#### Microsoft Entra ID username & password
+### Microsoft Entra ID username & password
 
 profiles.yml
 
@@ -129,7 +129,7 @@ your_profile_name:
       password: iheartopensource
 ```
 
-#### Service principal
+### Service principal
 
 Client ID is often also referred to as Application ID.
 
@@ -152,7 +152,7 @@ your_profile_name:
       client_secret: S3cret!
 ```
 
-#### Managed Identity
+### Managed Identity
 
 This authentication option allows you to dynamically select an authentication method depending on the available environment variables.
 
@@ -174,7 +174,7 @@ your_profile_name:
       authentication: environment
 ```
 
-#### Environment-based
+### Environment-based
 
 First, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), then, log in:
 
@@ -196,7 +196,7 @@ your_profile_name:
       authentication: CLI
 ```
 
-#### Azure CLI
+### Azure CLI
 
 This authentication option will automatically try to use all available authentication methods.
 
@@ -233,7 +233,7 @@ On Windows systems, the following additional authentication methods are also ava
 * Microsoft Entra ID integrated
 * Visual Studio authentication (available through the automatic option above)
 
-##### Microsoft Entra ID interactive
+### Microsoft Entra ID interactive
 
 This setting can optionally show Multi-Factor Authentication prompts.
 
@@ -254,7 +254,7 @@ your_profile_name:
       user: bill.gates@microsoft.com
 ```
 
-##### Microsoft Entra ID integrated
+### Microsoft Entra ID integrated
 
 This uses the credentials you're logged in with on the current machine.
 

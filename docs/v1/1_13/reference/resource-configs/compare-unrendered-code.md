@@ -1,6 +1,6 @@
 # compare\_unrendered\_code
 
-## Project YAML file
+### Project YAML file
 
 dbt\_project.yml
 
@@ -11,7 +11,7 @@ models:
       compare_unrendered_code: true | false
 ```
 
-## Properties YAML file
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,7 +23,7 @@ models:
         compare_unrendered_code: true | false
 ```
 
-## SQL file config
+### SQL file config
 
 models/\<filename>.sql
 

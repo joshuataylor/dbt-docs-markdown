@@ -35,7 +35,7 @@ Use these steps to install the dbt MCP sever from the Databricks marketplace:
 
 7. Open the MCP service page and authorize access to dbt platform. The install requests these OAuth scopes: `offline_access account:read projects:query catalog:read projects:develop jobs:run`.
 
-![The Install dbt MCP dialog filled in for tenant vu491 in the us1 region](/img/mcp/databricks-install-dbt-mcp.png?v=2 "The Install dbt MCP dialog filled in for tenant vu491 in the us1 region")The Install dbt MCP dialog filled in for tenant vu491 in the us1 region
+[![The Install dbt MCP dialog filled in for tenant vu491 in the us1 region](/img/mcp/databricks-install-dbt-mcp.png?v=2 "The Install dbt MCP dialog filled in for tenant vu491 in the us1 region")](#)The Install dbt MCP dialog filled in for tenant vu491 in the us1 region
 
 ## Use the dbt MCP server in Databricks
 

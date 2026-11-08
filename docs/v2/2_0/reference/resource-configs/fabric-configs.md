@@ -10,7 +10,7 @@ Ephemeral materialization is not supported due to T-SQL not supporting nested CT
 
 Tables are the default materialization in dbt-fabric. When you configure a model as a table, dbt will create or replace the table in Fabric Data Warehouse on each run.
 
-#### Model config
+### Model config
 
 models/example.sql
 
@@ -25,7 +25,7 @@ select *
 from ...
 ```
 
-#### Project config
+### Project config
 
 dbt\_project.yml
 
@@ -97,6 +97,8 @@ The `dbt-fabric` adapter supports [model contracts](../../docs/mesh/govern/model
 | `foreign_key`   | ✅        | ❌                            |
 | `unique`        | ✅        | ❌                            |
 | `check`         | ❌        | ❌                            |
+
+<br />
 
 Only `not_null` is checked when the model builds. Other supported constraint types are recorded on the table for reference, but Microsoft Fabric does not check them when new data is added. Use [data tests](../../docs/build/data-tests.md) if you need to verify those rules. Define `primary_key`, `foreign_key`, and `unique` at the model level. The adapter ignores those constraint types at the column level.
 

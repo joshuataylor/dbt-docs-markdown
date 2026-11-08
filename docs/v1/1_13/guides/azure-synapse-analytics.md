@@ -1,6 +1,8 @@
 # Quickstart for dbt and Azure Synapse Analytics
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 
@@ -87,7 +89,7 @@ In this quickstart guide, you'll learn how to use dbt with [Azure Synapse Analyt
    );
    ```
 
-   ![Example of loading data](/img/quickstarts/dbt-platform/example-load-data-azure-syn-analytics.png?v=2 "Example of loading data")Example of loading data
+   [![Example of loading data](/img/quickstarts/dbt-platform/example-load-data-azure-syn-analytics.png?v=2 "Example of loading data")](#)Example of loading data
 
 ## Connect dbt to Azure Synapse Analytics
 
@@ -127,7 +129,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project and start developing
+## Initialize your dbt project​ and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -280,7 +282,7 @@ Prefer not to write the SQL by hand? dbt Wizard can build the same model for you
 
 1. Open dbt Wizard from the Studio IDE.
 
-![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
 2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
 3. Review the SQL dbt Wizard generates, then accept it to save the model.
@@ -428,7 +430,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
+[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -732,13 +734,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
+[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
+[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -749,11 +751,11 @@ You can view docs directly from the IDE if you're on **v1 Latest** or another ve
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
+   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
+[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
 
 #### FAQs
 
@@ -799,7 +801,7 @@ dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
-**If you edited directly in the protected primary branch:**
+**If you edited directly in the protected primary branch:**<br />
 
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
@@ -807,7 +809,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-**If you created a new branch before editing:**
+**If you created a new branch before editing:**<br />
 
 1. Since you already branched out of the primary protected branch, go to **Version Control** on the left.
 2. Click **Commit and sync** to add a message.

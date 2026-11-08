@@ -105,7 +105,7 @@ Follow these steps to define UDFs in dbt:
 
 2. Specify the function name and define the config, properties, return type, and optional arguments in a corresponding properties YAML file.
 
-   #### SQL
+   ### SQL
 
    functions/is\_positive\_int.yml
 
@@ -128,7 +128,7 @@ Follow these steps to define UDFs in dbt:
 
    For Starburst/Trino, set the argument's `data_type` to a valid engine [data type](https://trino.io/docs/current/language/types.html) (such as `varchar` instead of `string`) and omit `default_value`. On Starburst Galaxy, set the database and schema values as `database: galaxy` and `schema: functions`.
 
-   #### Python
+   ### Python
 
    The following configs are required when defining a Python UDF on Snowflake and BigQuery:
 
@@ -138,6 +138,8 @@ Follow these steps to define UDFs in dbt:
      * [BigQuery](https://cloud.google.com/bigquery/docs/user-defined-functions-python): `3.11`
 
    * [`entry_point`](../../reference/resource-configs/entry-point.md) — Specify the Python function to be called.
+
+   <br />
 
    On Databricks, `runtime_version` and `entry_point` are accepted for cross-adapter compatibility but have no effect. Databricks manages the Python runtime internally and uses the function body directly, so dbt displays a warning if you set them.
 
@@ -169,7 +171,7 @@ Follow these steps to define UDFs in dbt:
            data_type: integer         # required
    ```
 
-   #### JavaScript
+   ### JavaScript
 
    You can optionally set [`snowflake.quote_args`](../../reference/resource-configs/quote_args.md) to control whether argument names are quoted when creating a JavaScript UDF on Snowflake.
 
@@ -212,9 +214,9 @@ Follow these steps to define UDFs in dbt:
 
    The rendered `CREATE FUNCTION` statement depends on which adapter you're using. For example:
 
-   ##### SQL
+   ### SQL
 
-   ###### Snowflake
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING DEFAULT '1')
@@ -226,7 +228,7 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
-   ###### Redshift
+   ### Redshift
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string VARCHAR)
@@ -237,7 +239,7 @@ Follow these steps to define UDFs in dbt:
    $$ LANGUAGE SQL;
    ```
 
-   ###### BigQuery
+   ### BigQuery
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -247,7 +249,7 @@ Follow these steps to define UDFs in dbt:
    );
    ```
 
-   ###### Databricks
+   ### Databricks
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -256,7 +258,7 @@ Follow these steps to define UDFs in dbt:
    RETURN REGEXP_INSTR(a_string, '^[0-9]+$');
    ```
 
-   ###### Postgres
+   ### Postgres
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_schema.is_positive_int(a_string text DEFAULT '1')
@@ -268,7 +270,7 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
-   ###### Starburst/Trino
+   ### Starburst/Trino
 
    ```sql
    CREATE OR REPLACE FUNCTION galaxy.functions.is_positive_int(a_string VARCHAR)
@@ -280,9 +282,9 @@ Follow these steps to define UDFs in dbt:
 
    For more information, refer to [Starburst/Trino configurations](../../reference/resource-configs/trino-configs.md#user-defined-functions).
 
-   ##### Python
+   ### Python
 
-   ###### Snowflake
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING DEFAULT '1')
@@ -298,7 +300,7 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
-   ###### BigQuery
+   ### BigQuery
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -316,7 +318,7 @@ Follow these steps to define UDFs in dbt:
    ''';
    ```
 
-   ###### Databricks
+   ### Databricks
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -332,9 +334,9 @@ Follow these steps to define UDFs in dbt:
 
    Databricks omits the `RUNTIME_VERSION` and `HANDLER` clauses. The runtime is managed internally, and the contents of your `.py` file become the function body verbatim — including the trailing `return main(a_string)` that produces the result.
 
-   ##### JavaScript
+   ### JavaScript
 
-   ###### Snowflake
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int("a_string" STRING)
@@ -345,7 +347,7 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
-   ###### BigQuery
+   ### BigQuery
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -382,7 +384,7 @@ Follow these steps to define UDFs in dbt:
 
    In your DAG, a UDF node is created from the SQL/Python and YAML definitions, and there will be a dependency between `is_positive_int` → `my_model`.
 
-   ![The DAG for the UDF node](/img/docs/building-a-dbt-project/UDF-DAG.png?v=2 "The DAG for the UDF node")The DAG for the UDF node
+   [![The DAG for the UDF node](/img/docs/building-a-dbt-project/UDF-DAG.png?v=2 "The DAG for the UDF node")](#)The DAG for the UDF node
 
 After defining a UDF, your changes are applied to the UDF in the warehouse the next time you run `dbt build` when you update any of the following:
 
@@ -522,7 +524,7 @@ Jinja influences the function when it’s created, whereas arguments influence i
 
  You need Python logic that runs in your warehouse
 
-A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL. This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
+A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br />This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
 
 Python UDFs support conditionals and looping within the function logic itself (using Python syntax), and execute at runtime, not at compile time like macros. Python UDFs are currently supported in Snowflake and BigQuery.
 

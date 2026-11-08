@@ -15,7 +15,7 @@ Controls what appears alongside a chat while you work.
 | Replay onboarding   | Walks you through first-run setup again. Your existing theme and project settings are kept unless you change them during setup. |
 | Application updates | Shows the version you're on, checks for new versions, and installs them.                                                        |
 
-![General settings in Wizard Desktop](/img/wizard/desktop/wizard-desktop-settings-general.png?v=2 "General settings in Wizard Desktop")General settings in Wizard Desktop
+[![General settings in Wizard Desktop](/img/wizard/desktop/wizard-desktop-settings-general.png?v=2 "General settings in Wizard Desktop")](#)General settings in Wizard Desktop
 
 ## Account
 
@@ -30,7 +30,7 @@ Shows the dbt accounts dbt Wizard uses for hosted models and platform access, an
   3. (Optional) Enter your **dbt account ID**. To find it, go to **Account settings** → **Account** in dbt platform.
   4. Click **Save**.
 
-  ![Sign-in options in Wizard Desktop](/img/wizard/desktop/wizard-desktop-sign-in-options.png?v=2 "Sign-in options in Wizard Desktop")Sign-in options in Wizard Desktop
+  [![Sign-in options in Wizard Desktop](/img/wizard/desktop/wizard-desktop-sign-in-options.png?v=2 "Sign-in options in Wizard Desktop")](#)Sign-in options in Wizard Desktop
 
   You can also set the account host from the dbt Wizard CLI with the `DBT_CLOUD_LOGIN_HOST` environment variable. For example:
 

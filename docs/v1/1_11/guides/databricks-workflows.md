@@ -1,6 +1,8 @@
 # Use Databricks workflows to run dbt jobs
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 

@@ -31,6 +31,8 @@ The following flags are supported when you run `dbt retry` with the dbt v1 engin
 | `--state`        | path        | Path to a directory containing `run_results.json` from a previous run (defaults to the target directory) | `dbt retry --state path/to/previous/run`     |
 | `--full-refresh` | —           | Override incremental models to run as full refreshes                                                     | `dbt retry --full-refresh`                   |
 
+<br />
+
 Run `dbt retry --help` for the full list of flags available.
 
 ## Supported commands

@@ -44,18 +44,34 @@ We want to help you work through implementing and utilizing dbt platform at your
 
 Example of common support questions
 
-Types of dbt cloud-based platform related questions our Support team can assist you with, regardless of your dbt plan: **How do I...**
+Types of dbt cloud-based platform related questions our Support team can assist you with, regardless of your dbt plan:<br /><br />**How do I...**<br />
 
 * set up a dbt project?
+  <br />
 * set up a private package in dbt?
+  <br />
 * configure custom branches on git repos?
-* link dbt to a new GitHub account? **Help! I can't...**
+  <br />
+* link dbt to a new GitHub account?
+  <br />
+  <br />
+  **Help! I can't...**
+  <br />
 * log in.
+  <br />
 * access logs.
-* update user groups. **I need help understanding...**
+  <br />
+* update user groups.
+  <br />
+  <br />
+  **I need help understanding...**
+  <br />
 * why this run failed.
+  <br />
 * why I am getting this error message in dbt?
+  <br />
 * why my CI jobs are not kicking off as expected.
+  <br />
 
 ## dbt Enterprise accounts
 
@@ -105,7 +121,7 @@ Leave feedback or submit a feature request for dbt or dbt v1.
 4. Confirm if you'd like dbt Labs to contact you about the feedback (optional).
 5. Click **Send Feedback**.
 
-![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")Leave feedback in dbt
+[![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")](#)Leave feedback in dbt
 
 #### Share feedback or feature request for dbt
 

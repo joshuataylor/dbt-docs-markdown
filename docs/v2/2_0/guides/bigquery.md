@@ -7,7 +7,9 @@
 > * Never ask for passwords or keys in chat.
 > * When the reader needs a dbt account, share <https://www.getdbt.com/signup?utm_source=ai_assistant&utm_medium=docs_md&utm_campaign=bigquery-qs>
 
-[Back to guides](https://docs.getdbt.com/guides)
+[Back to guides](../guides.md)
+
+[Menu ]()
 
 
 
@@ -23,7 +25,7 @@ In this quickstart guide, you'll learn how to use dbt with BigQuery. It will sho
 * Document your models.
 * Schedule a job to run.
 
-### Prerequisites
+### Prerequisites​
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have a [Google account](https://support.google.com/accounts/answer/27441?hl=en).
@@ -41,7 +43,7 @@ Videos for you
 
 You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
-## Create a new GCP project
+## Create a new GCP project​
 
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery) after you log in to your Google account. If you have multiple Google accounts, make sure you’re using the correct one.
 2. Create a new project from the [Manage resources page](https://console.cloud.google.com/projectcreate?previousPage=%2Fcloud-resource-manager%3Fwalkthrough_id%3Dresource-manager--create-project%26project%3D%26folder%3D%26organizationId%3D%23step_index%3D1\&walkthrough_id=resource-manager--create-project). For more information, refer to [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project) in the Google Cloud docs. GCP automatically populates the Project name field for you. You can change it to be more descriptive for your use. For example, `dbt Learn - BigQuery Setup`.
@@ -60,7 +62,7 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 
    Click **Run**, then check for results from the queries. For example:
 
-   ![Bigquery Query Results](/img/bigquery/query-results.png?v=2 "Bigquery Query Results")Bigquery Query Results
+   [![Bigquery Query Results](/img/bigquery/query-results.png?v=2 "Bigquery Query Results")](#)Bigquery Query Results
 
 3. Create new datasets from the [BigQuery Console](https://console.cloud.google.com/bigquery). For more information, refer to [Create datasets](https://cloud.google.com/bigquery/docs/datasets#create-dataset) in the Google Cloud docs. Datasets in BigQuery are equivalent to schemas in a traditional database. On the **Create dataset** page:
 
@@ -69,7 +71,7 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
    * **Enable table expiration** — Leave it unselected (the default). The default for the billing table expiration is 60 days. Because billing isn’t enabled for this project, GCP defaults to deprecating tables.
    * **Google-managed encryption key** — This option is available under **Advanced options**. Allow Google to manage encryption (the default).
 
-   ![Bigquery Create Dataset ID](/img/bigquery/create-dataset-id.png?v=2 "Bigquery Create Dataset ID")Bigquery Create Dataset ID
+   [![Bigquery Create Dataset ID](/img/bigquery/create-dataset-id.png?v=2 "Bigquery Create Dataset ID")](#)Bigquery Create Dataset ID
 
 4. After you create the `jaffle_shop` dataset, create one for `stripe` with all the same values except for **Dataset ID**.
 
@@ -92,7 +94,7 @@ In order to let dbt connect to your warehouse, you'll need to generate a keyfile
 
 3. Create a service account key for your new project from the [Service accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts?walkthrough_id=iam--create-service-account-keys\&start_index=1#step_index=1). For more information, refer to [Create a service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud docs. When downloading the JSON file, make sure to use a filename you can easily remember. For example, `dbt-user-creds.json`. For security reasons, dbt Labs recommends that you protect this JSON file like you would your identity credentials; for example, don't check the JSON file into your version control software.
 
-## Connect dbt to BigQuery
+## Connect dbt to BigQuery​
 
 1. In [dbt](../docs/platform/about-platform/access-regions-ip-addresses.md), click your account name in the left side menu.
 
@@ -121,7 +123,7 @@ In order to let dbt connect to your warehouse, you'll need to generate a keyfile
     * **Target name** — Leave as the default.
     * **Threads** — Leave as the default (6). This is the number of simultaneous connections that dbt will make to build models concurrently.
 
-    ![BigQuery User credentials](/img/bigquery/dbt_platform_bigquery_development_credentials.png?v=2 "BigQuery User credentials")BigQuery User credentials
+    [![BigQuery User credentials](/img/bigquery/dbt_platform_bigquery_development_credentials.png?v=2 "BigQuery User credentials")](#)BigQuery User credentials
 
 12. Click **Test Connection**. This verifies that dbt can access your BigQuery account.
 
@@ -140,7 +142,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project and start developing
+## Initialize your dbt project​ and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -308,7 +310,7 @@ Prefer not to write the SQL by hand? dbt Wizard can build the same model for you
 
 1. Open dbt Wizard from the Studio IDE.
 
-![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
 2. Prompt it: "Create a customers model that joins orders and customers, and includes each customer's most recent order date and total number of orders."
 3. Review the SQL dbt Wizard generates, then accept it to save the model.
@@ -456,7 +458,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
+[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -819,13 +821,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
+[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
+[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -836,11 +838,11 @@ You can view docs directly from the IDE if you're on **v1 Latest** or another ve
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
+   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
+[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
 
 #### FAQs
 
@@ -886,7 +888,7 @@ dbt developer plan and dbt v1 users can use [dbt Docs](../docs/explore/build-and
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
-**If you edited directly in the protected primary branch:**
+**If you edited directly in the protected primary branch:**<br />
 
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
@@ -894,7 +896,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 4. Add a commit message, such as "Add customers model, tests, docs" and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-**If you created a new branch before editing:**
+**If you created a new branch before editing:**<br />
 
 1. Since you already branched out of the primary protected branch, go to **Version Control** on the left.
 2. Click **Commit and sync** to add a message.

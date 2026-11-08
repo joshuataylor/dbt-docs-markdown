@@ -25,6 +25,8 @@ The dbt State web app has four tabs under **Organization**:
 | **Billing** | View daily active target tables (DATTs) for the current billing period.           |
 | **Clients** | Create and manage OAuth clients for CI/CD and other non-interactive environments. |
 
+<br />
+
 Your role determines which tabs you can access.
 
 | Role          | Access                         | Notes                                                                                                                                                       |
