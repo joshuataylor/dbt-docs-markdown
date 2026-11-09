@@ -154,11 +154,11 @@ Released by: **github-merge-queue**Nov 5, 2026, 09:10 AM
 
 Automated promotion
 
-[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatest
+[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
 
-Released by: **fa-assistant**Nov 4, 2026, 10:17 PM
+Released by: **johnchappelledbt**Nov 9, 2026, 09:19 PM
 
-Auto-mirror: stable promoted to v2.0.11 by lottaquestions (https\://github.com/dbt-labs/fs/actions/runs/41923576535)
+Automated ST snapshot
 
 [v2.0.10](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2010 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
 
@@ -184,11 +184,11 @@ Released by: **kczimm**Sep 25, 2026, 10:51 PM
 
 Automated promotion
 
-[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stableextended
+[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stableextendedst-monday-extended
 
-Released by: **agelber-dbt**Nov 3, 2026, 12:09 AM
+Released by: **johnchappelledbt**Nov 9, 2026, 09:19 PM
 
-Automated monthly cadence: extended ← newest stable ≥30 days old
+Automated ST snapshot
 
 [v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#205 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
 
@@ -276,7 +276,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **ddk-dbt**Nov 5, 2026, 09:59 PM
+Released by: **johnchappelledbt**Nov 9, 2026, 09:19 PM
 
 Automated ST snapshot
 
