@@ -292,6 +292,7 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [SEARCH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#search)                                                         | Built-in | ✓               |
 | [SEC](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#sec)                                                         | Built-in | ✓               |
 | [SECH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#sech)                                                       | Built-in | ✓               |
+| [SECURE\_CONTEXT](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/security_functions#secure_context)                                      | Built-in | —               |
 | [SESSION\_USER](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/security_functions#session_user)                                          | Built-in | ✓               |
 | [SHA1](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/hash_functions#sha1)                                                               | Built-in | ✓               |
 | [SHA256](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/hash_functions#sha256)                                                           | Built-in | ✓               |

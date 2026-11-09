@@ -25,7 +25,7 @@ A SQL model is a `select` statement. Models are defined in `.sql` files (typical
 
 Refer to [How we style our dbt models](../../best-practices/how-we-style/1-how-we-style-our-dbt-models.md) for details on how we recommend you name your models.
 
-When you execute the [`dbt run` command](../../reference/commands/run.md), dbt will build this model data warehouse by wrapping it in a `create view as` or `create table as` statement.
+When you execute the [`dbt run` command](../../reference/commands/run.md), dbt will build this model in your data warehouse by wrapping it in a `create view as` or `create table as` statement.
 
 For example, consider this `customers` model:
 
@@ -237,12 +237,12 @@ config-version: 2
 ...
 
 models:
-  jaffle_shop: # this matches the `name:`` config
+  jaffle_shop: # this matches the `name:` config
     +materialized: view # this applies to all models in the current project
     marts:
       +materialized: table # this applies to all models in the `marts/` directory
       marketing:
-        +schema: marketing # this applies to all models in the `marts/marketing/`` directory
+        +schema: marketing # this applies to all models in the `marts/marketing/` directory
 ```
 
 models/customers.sql

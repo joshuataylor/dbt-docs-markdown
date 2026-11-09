@@ -58,7 +58,7 @@ dbt State requires a dbt account, even when running dbt locally, to authenticate
 
       Once started, you cannot pause the trial. After the trial ends, your account receives a free monthly DATT allowance, which varies by plan. For details, refer to [dbt State trial and billing](./dbt-state-trial.md).
 
-   The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt v1 versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
+   The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt v1 versions. Use the environment variable (`DBT_ENGINE_MANAGE_STATE`) to enable or disable dbt State.
 
 2. Run `dbt run` or `dbt build`.
 
