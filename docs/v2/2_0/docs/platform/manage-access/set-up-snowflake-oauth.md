@@ -6,7 +6,7 @@ Subdomain migration
 
 We're migrating dbt platform [multi-tenant accounts worldwide](../about-platform/access-regions-ip-addresses.md) to static subdomains. After the migration, you’ll be automatically redirected from your original URL (for example, `cloud.getdbt.com`) to the new URL static subdomain (for example, `abc123.us1.dbt.com`), which you can find in your account settings. If your organization has network allow listing, add the `us1.dbt.com` domain to your allow list.
 
-The migration may require additional actions in your Snowflake account. See [subdomain migration](#subdomain-migration) for more information.
+The migration may require additional actions in your Snowflake account. Refer to [subdomain migration](#subdomain-migration) for more information.
 
 dbt Enterprise and Enterprise+ supports [OAuth authentication](https://docs.snowflake.net/manuals/user-guide/oauth-intro.html) with Snowflake. When Snowflake OAuth is enabled, users can authorize their user credentials using Single Sign On (SSO) via Snowflake rather than submitting a username and password to dbt. If Snowflake is set up with SSO through a third-party identity provider, developers can use this method to log into Snowflake and authorize the dbt user credentials without any additional setup.
 
@@ -22,7 +22,7 @@ To set up Snowflake OAuth in dbt, admins from both are required for the followin
 
 1. [Locate the redirect URI value](#locate-the-redirect-uri-value) in dbt.
 2. [Create a security integration](#create-a-security-integration) in Snowflake.
-3. [Configure a connection](#configure-a-connection-in-dbt-cloud) in dbt.
+3. [Configure a connection](#configure-a-connection-in-dbt) in dbt.
 
 To use Snowflake in the Studio IDE, all developers must [authenticate with Snowflake](#authorize-developer-credentials) in their profile credentials.
 
@@ -45,6 +45,12 @@ In the following `CREATE OR REPLACE SECURITY INTEGRATION` example query, replace
 
 Important: If you’re using secondary roles, you must include `OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';` in the statement.
 
+Single-use refresh tokens
+
+Leave `OAUTH_SINGLE_USE_REFRESH_TOKENS_REQUIRED` set as `FALSE` (the Snowflake default). Setting it to `TRUE` causes authorization to succeed once, but subsequent commands will fail, because dbt doesn't currently store the replacement token.
+
+Snowflake uses a refresh token to keep users signed in. With this setting on, each refresh token works only once and Snowflake issues a replacement. Some security baselines recommend enabling it. If that's already happening, refer to [Authentication has expired after authorizing](#authentication-has-expired-after-authorizing).
+
 ```sql
 CREATE OR REPLACE SECURITY INTEGRATION DBT_CLOUD
   TYPE = OAUTH
@@ -54,6 +60,7 @@ CREATE OR REPLACE SECURITY INTEGRATION DBT_CLOUD
   OAUTH_REDIRECT_URI = '<REDIRECT_URI>'
   OAUTH_ISSUE_REFRESH_TOKENS = TRUE
   OAUTH_REFRESH_TOKEN_VALIDITY = 7776000
+  OAUTH_SINGLE_USE_REFRESH_TOKENS_REQUIRED = FALSE
   OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';  -- Required for secondary roles
 ```
 
@@ -61,21 +68,22 @@ Permissions
 
 Note: Only Snowflake account administrators (users with the `ACCOUNTADMIN` role) or a role with the global `CREATE INTEGRATION` privilege can execute this SQL command.
 
-| Field                           | Description                                                                                                                                                                          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| TYPE                            | Required                                                                                                                                                                             |
-| ENABLED                         | Required                                                                                                                                                                             |
-| OAUTH\_CLIENT                   | Required                                                                                                                                                                             |
-| OAUTH\_CLIENT\_TYPE             | Required                                                                                                                                                                             |
-| OAUTH\_REDIRECT\_URI            | Required. Use the value in the [dbt account settings](#locate-the-redirect-uri-value).                                                                                               |
-| OAUTH\_ISSUE\_REFRESH\_TOKENS   | Required                                                                                                                                                                             |
-| OAUTH\_REFRESH\_TOKEN\_VALIDITY | Required. This configuration dictates the number of seconds that a refresh token is valid for. Use a smaller value to force users to re-authenticate with Snowflake more frequently. |
+| Field                                         | Description                                                                                                                                                                          |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| TYPE                                          | Required                                                                                                                                                                             |
+| ENABLED                                       | Required                                                                                                                                                                             |
+| OAUTH\_CLIENT                                 | Required                                                                                                                                                                             |
+| OAUTH\_CLIENT\_TYPE                           | Required                                                                                                                                                                             |
+| OAUTH\_REDIRECT\_URI                          | Required. Use the value in the [dbt account settings](#locate-the-redirect-uri-value).                                                                                               |
+| OAUTH\_ISSUE\_REFRESH\_TOKENS                 | Required                                                                                                                                                                             |
+| OAUTH\_REFRESH\_TOKEN\_VALIDITY               | Required. This configuration dictates the number of seconds that a refresh token is valid for. Use a smaller value to force users to re-authenticate with Snowflake more frequently. |
+| OAUTH\_SINGLE\_USE\_REFRESH\_TOKENS\_REQUIRED | Leave at `FALSE` (the Snowflake default). dbt doesn't currently store the replacement token Snowflake issues when this is `TRUE`.                                                    |
 
 Additional configuration options may be specified for the security integration as needed.
 
-### Configure a Connection in dbt
+### Configure a connection in dbt
 
-The Database Admin is responsible for creating a Snowflake Connection in dbt. This Connection is configured using a Snowflake Client ID and Client Secret. These values can be determined by running the following query in Snowflake:
+The Database Admin is responsible for creating a Snowflake connection in dbt. This Connection is configured using a Snowflake Client ID and Client Secret. These values can be determined by running the following query in Snowflake:
 
 ```sql
 with
@@ -169,6 +177,23 @@ OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';
 ```
 
 For the full query example, see [Create a security integration](#create-a-security-integration).
+
+ Authentication has expired after authorizing
+
+If you can authorize Snowflake in dbt but subsequent commands fail with `This error occurs when authentication has expired` or `http status: 400` on `/oauth/token-request`, check the security integration in Snowflake:
+
+```sql
+DESCRIBE SECURITY INTEGRATION <INTEGRATION_NAME>;
+```
+
+If `OAUTH_SINGLE_USE_REFRESH_TOKENS_REQUIRED` is `true`, set it to `FALSE` (the Snowflake default) and have users re-authorize:
+
+```sql
+ALTER SECURITY INTEGRATION <INTEGRATION_NAME>
+  SET OAUTH_SINGLE_USE_REFRESH_TOKENS_REQUIRED = FALSE;
+```
+
+dbt doesn't currently store the replacement token Snowflake issues, so this setting breaks development in the Studio IDE.
 
 ## Learn more
 

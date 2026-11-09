@@ -74,7 +74,7 @@
 
 ## [Reconnecting to Snowflake OAuth after authentication expires](../faqs/Troubleshooting/refresh-snowflake-oauth-credentials.md)
 
-[The \`authentication has expired\` error happens because Snowflake requires tools to renew their OAuth connection at least every 90 days.](../faqs/Troubleshooting/refresh-snowflake-oauth-credentials.md)
+[Reconnect Snowflake OAuth when you get the authentication has expired error, and check your security integration if it keeps coming back.](../faqs/Troubleshooting/refresh-snowflake-oauth-credentials.md)
 
 ## [Could not find profile named user"error in the IDE](../faqs/Troubleshooting/runtime-error-could-not-find-profile.md)
 
