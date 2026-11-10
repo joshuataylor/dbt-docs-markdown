@@ -109,6 +109,10 @@ Platform-specific configs are used to configure the dbt project for a specific d
 
 [Postgres Configurations - Read this in-depth guide to learn about configurations in dbt.](./resource-configs/postgres-configs.md)
 
+## [Redis configurations](./resource-configs/redis-configs.md)
+
+[Configure Redis materializations, incremental models, contracts, and persisted documentation with dbt-redis-adbc.](./resource-configs/redis-configs.md)
+
 ## [Redshift configurations](./resource-configs/redshift-configs.md)
 
 [Redshift Configurations - Read this in-depth guide to learn about configurations in dbt.](./resource-configs/redshift-configs.md)
