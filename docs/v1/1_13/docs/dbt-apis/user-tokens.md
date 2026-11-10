@@ -17,14 +17,30 @@ You can't use a PAT to create a [service token](./service-tokens.md). Requests t
 Creating an account-scoped PAT requires only a few steps.
 
 1. Navigate to your **Account Settings**, expand **API tokens** and click **Personal tokens**.
-
 2. Click **Create personal access token**.
+3. Give the token a descriptive name.
+4. Choose an **Expiry**. The default is **No expiry**. Refer to [Set a token expiration](#set-a-token-expiration).
+5. Click **Save**.
+6. Copy the token before closing the window. *It will not be available after, and you will have to create a new token if you lose it.*
 
-3. Give the token a descriptive name and click **Save**.
+As a security best practice, rotate your PATs regularly. To rotate a PAT, create a new token, replace the old one wherever it's used, and then delete the old token.
 
-4. Copy the token before closing the window. *It will not be available after, and you will have to create a new token if you lose it.*
+## Set a token expiration
 
-To maintain best security practices, it's recommended that you regularly rotate your PATs. To do so, create a new token and delete the old one once it's in place.
+Set an expiration when you create the token so a token stops working on its own, even if you forget about it. You can't change it later, so if you need a different expiry, create a new token. The expiration options are:
+
+* **No expiry** (default)
+* **7 days**
+* **14 days**
+* **30 days**
+* **90 days**
+* **365 days**
+
+The **Expires** column on the **Personal tokens** page shows the date and time each token stops working, in GMT. Existing tokens without an expiration don’t expire. You can’t add an expiration to an existing token, so to set one, create a new token and replace the old one in your system.
+
+![The Expires column shows when each token stops working](/img/docs/dbt-platform/api-tokens/token-list-expires-column.png?v=2 "The Expires column shows when each token stops working")The Expires column shows when each token stops working
+
+After the expiration date, requests that use the token will fail. Create a new token and update your systems before then.
 
 ## Delete a personal access token
 

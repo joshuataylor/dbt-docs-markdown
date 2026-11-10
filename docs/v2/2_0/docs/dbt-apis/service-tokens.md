@@ -23,9 +23,29 @@ You can generate service tokens if you have a Developer [license](../platform/ma
 3. Click the **+ Create service token** button to generate a new token.
 
    1. Enter a name for your token.
-   2. Add the necessary [permissions](./service-tokens.md#permissions-for-service-account-tokens).
+   2. Choose an **Expiry**. The default is **No expiry**. Refer to [Set a token expiration](#set-a-token-expiration).
+   3. Add the necessary [permissions](./service-tokens.md#permissions-for-service-account-tokens).
 
-4. Once the token is generated, you won't be able to view this token again so make sure to save it somewhere safe.
+4. Click **Save**.
+
+5. Once the token is generated, you won't be able to view this token again so make sure to save it somewhere safe.
+
+## Set a token expiration
+
+Set an expiration when you create the token so a token stops working on its own, even if you forget about it. You can't change it later, so if you need a different expiry, create a new token. The expiration options are:
+
+* **No expiry** (default)
+* **7 days**
+* **14 days**
+* **30 days**
+* **90 days**
+* **365 days**
+
+The **Expires** column on the **Service tokens** page shows the date and time each token stops working, in GMT. Existing tokens without an expiration don’t expire. You can’t add an expiration to an existing token, so to set one, create a new token and replace the old one in your system.
+
+![The Expires column shows when each token stops working](/img/docs/dbt-platform/api-tokens/token-list-expires-column.png?v=2 "The Expires column shows when each token stops working")The Expires column shows when each token stops working
+
+After the expiration date, requests that use the token will fail. Create a new token with the same permissions and update your systems before then.
 
 ## Permissions for service account tokens
 

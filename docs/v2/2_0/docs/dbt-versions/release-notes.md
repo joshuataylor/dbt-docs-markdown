@@ -15,6 +15,7 @@ For dbt v2 updates, refer to the [v2 changelog](https://github.com/dbt-labs/dbt/
 
 ## November 2026
 
+* **New:** Set an expiration date when you create a [personal access token](../dbt-apis/user-tokens.md#set-a-token-expiration) or [service token](../dbt-apis/service-tokens.md#set-a-token-expiration). Choose 7, 14, 30, 90, or 365 days, or keep the default of no expiry. Existing tokens that don't have an expiration set won't expire.
 * **New:** The remote dbt MCP server is now available on [Databricks Marketplace](https://marketplace.databricks.com/details/6d83d4e0-5279-47b7-831c-3cb90a82ecb3/dbt-Labs_dbt-MCP). Install it in a few steps to use your dbt project from Databricks. Refer to [Integrate Databricks with dbt MCP](../dbt-ai/integrate-mcp-databricks.md).
 * **New:** In dbt Wizard Desktop, you can edit existing text files in the [Explorer](../dbt-ai/wizard-desktop-use.md). Select **Save** or press `Cmd`/`Ctrl` + `S`. Edits save to a separate copy of your project, not your original files, and unsaved drafts persist after you navigate away or restart.
 * **New:** In dbt Wizard Desktop, switch between local dbt profiles and the dbt platform CLI from the connection menu. dbt Wizard remembers your choice, even for projects linked to dbt platform.
