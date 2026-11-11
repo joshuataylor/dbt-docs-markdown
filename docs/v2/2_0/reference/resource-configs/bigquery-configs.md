@@ -244,7 +244,21 @@ The `reservation` config routes dbt-submitted BigQuery jobs to a specific [reser
 
 You can set `reservation` at three levels, from lowest to highest precedence:
 
-1. **Target level** (`profiles.yml`) — applies to all jobs for the target. See [Connect BigQuery](../../docs/local/connect-data-platform/bigquery-setup.md?version=1.12#reservation).
+1. **Target level** (`profiles.yml`) — applies to all jobs for the target.
+
+profiles.yml
+
+```yaml
+my_profile:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: abc-123
+      dataset: my_dataset
+      reservation: 'projects/abc-123/locations/US/reservations/my-reservation'
+```
 
 2. **Project level** (`dbt_project.yml`) — applies to all matching models.
 
@@ -411,7 +425,7 @@ select * from {{ ref('another_model') }}
 
 You can create a new label with no value or remove a value from an existing label key.
 
-A label with a key that has an empty value can also be referred to as a [tag](https://cloud.google.com/bigquery/docs/adding-labels#adding_a_label_without_a_value) in BigQuery. However, this is different from a [BigQuery tag](https://cloud.google.com/bigquery/docs/tags), which conditionally applies IAM policies to BigQuery tables and datasets. For more information, see the [Tags documentation](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
+A label with a key that has an empty value can also be referred to as a [tag](https://cloud.google.com/bigquery/docs/adding-labels#adding_a_label_without_a_value) in BigQuery. However, this is different from a [BigQuery tag](https://cloud.google.com/bigquery/docs/tags), which conditionally applies IAM policies to BigQuery tables and datasets. For more information, refer to the [Tags documentation](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
 
 ### Resource tags
 
@@ -523,7 +537,7 @@ The `incremental_strategy` config can be set to one of the following values:
 
 ### Performance and cost
 
-The operations performed by dbt while building a BigQuery incremental model can be made cheaper and faster by using a [clustering clause](#clustering-clause) in your model configuration. See [this guide](https://discourse.getdbt.com/t/benchmarking-incremental-strategies-on-bigquery/981) for more information on performance tuning for BigQuery incremental models.
+The operations performed by dbt while building a BigQuery incremental model can be made cheaper and faster by using a [clustering clause](#clustering-clause) in your model configuration. Refer to [Benchmarking incremental strategies on BigQuery](https://discourse.getdbt.com/t/benchmarking-incremental-strategies-on-bigquery/981) for more information on performance tuning for BigQuery incremental models.
 
 **Note:** These performance and cost benefits are applicable to incremental models built with either the `merge` or the `insert_overwrite` incremental strategy.
 
@@ -755,7 +769,7 @@ models:
 
 ## Authorized views
 
-If the `grant_access_to` config is specified for a model materialized as a view, dbt will grant the view model access to select from the list of datasets provided. See [BQ docs on authorized views](https://cloud.google.com/bigquery/docs/share-access-views) for more details.
+If the `grant_access_to` config is specified for a model materialized as a view, dbt will grant the view model access to select from the list of datasets provided. Refer to [Authorized views](https://cloud.google.com/bigquery/docs/share-access-views) for more details.
 
 Note
 
@@ -886,7 +900,7 @@ models/\<model\_name>.sql
         "data_type": "timestamp" | "date" | "datetime" | "int64",
 
         # only if `data_type` is not 'int64'
-        "granularity": "hour" | "day" | "month" | "year,
+        "granularity": "hour" | "day" | "month" | "year",
 
         # only if `data_type` is 'int64'
         "range": {

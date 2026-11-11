@@ -4,7 +4,7 @@
 
 ## [BigQuery configurations](../reference/resource-configs/bigquery-configs.md)
 
-Reference guide for Big Query configurations in dbt.
+Reference guide for BigQuery configurations in dbt.
 
 ## [Databricks configurations](../reference/resource-configs/databricks-configs.md)
 

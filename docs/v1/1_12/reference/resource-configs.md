@@ -23,7 +23,7 @@ Platform-specific configs are used to configure the dbt project for a specific d
 
 ## [BigQuery configurations](./resource-configs/bigquery-configs.md)
 
-[Reference guide for Big Query configurations in dbt.](./resource-configs/bigquery-configs.md)
+[Reference guide for BigQuery configurations in dbt.](./resource-configs/bigquery-configs.md)
 
 ## [BigQuery functions in dbt v2](./resource-configs/bigquery-function-support.md)
 

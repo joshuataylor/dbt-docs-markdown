@@ -4,7 +4,7 @@
 
 ## [BigQuery configurations](../reference/resource-configs/bigquery-configs.md)
 
-Reference guide for Big Query configurations in dbt.
+Reference guide for BigQuery configurations in dbt.
 
 ## [Build a data lakehouse with dbt v1 and Dremio Cloud](../guides/build-dremio-lakehouse.md)
 
