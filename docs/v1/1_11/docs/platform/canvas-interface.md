@@ -1,6 +1,10 @@
-# Navigate the interface
+# Navigate the interface [No longer sold](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Enterprise, Enterprise+
+
+dbt Canvas is no longer sold
+
+Starting November 12, 2026, Canvas is no longer being sold or enabled for new dbt platform accounts and this documentation is archived. Existing customers can continue to use Canvas. To develop in the dbt platform, try the [Studio IDE](./studio-ide/develop-in-studio.md) and [dbt Wizard](../dbt-ai/wizard-ide.md). Both are powered by user and agent-friendly tools built for data practitioners.
 
 The Canvas interface contains an operator toolbar, operators, canvas, and more to help you access and transform data through a seamless drag-and-drop dbt model creation experience in dbt.
 
