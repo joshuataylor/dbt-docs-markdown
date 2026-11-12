@@ -36,7 +36,9 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-### Locally (CLI)
+### Locally (Desktop and CLI)
+
+Wizard Desktop and the Wizard CLI share the same providers and config.
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |
@@ -111,7 +113,6 @@ If you want to re-run onboarding — re-authenticate, reset project config, or r
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
 * [Use skills locally](./wizard-skills.md) for giving Wizard reusable instructions for your project
 * [Use MCP servers](./wizard-mcp.md) to connect dbt Wizard CLI to more tools and context
-* [Migrate from Claude Code](./wizard-migrate.md) for bringing existing Claude Code project context into dbt Wizard
 
 See it in action and share your feedback
 

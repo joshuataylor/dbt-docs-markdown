@@ -4,7 +4,7 @@ Local development
 
 You can use the dbt Wizard CLI with bring-your-own-key (BYOK), which means you supply your own credentials from a supported AI provider instead of using dbt Labs' infrastructure.
 
-The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](../platform/wizard-byok-platform.md).
+The following BYOK instructions on this page apply to the CLI only. For dbt Wizard Desktop, refer to [Configure BYOK in Wizard Desktop](./wizard-desktop-byok.md). For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](../platform/wizard-byok-platform.md).
 
 If you'd rather skip that upkeep, the [dbt Labs-managed option](../platform/manage-dbt-ai.md#configure-ai-provider) is ready to use with no setup, and comes with [trial and monthly usage credits](./pricing-billing/trial-and-billing.md).
 
@@ -26,7 +26,9 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-## Locally (CLI)
+## Locally (Desktop and CLI)
+
+Wizard Desktop and the Wizard CLI share the same providers and config.
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |

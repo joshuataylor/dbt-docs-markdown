@@ -1,6 +1,10 @@
-# 5 docs tagged with "Agents"
+# 6 docs tagged with "Agents"
 
 [View all tags](../tags.md)
+
+## [Configure BYOK in Wizard Desktop](../docs/dbt-ai/wizard-desktop-byok.md)
+
+Bring your own API key to use Wizard Desktop. Set up Amazon Bedrock, Anthropic, Azure OpenAI, Databricks, Google Gemini, OpenAI, and more from Settings.
 
 ## [dbt Copilot in Insights](../docs/dbt-ai/analyst-agent.md)
 

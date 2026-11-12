@@ -37,7 +37,9 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-#### Locally (CLI)
+#### Locally (Desktop and CLI)
+
+Wizard Desktop and the Wizard CLI share the same providers and config.
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |
@@ -132,6 +134,5 @@ Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../b
 * [Configure BYOK](./wizard-byok.md): Manage your API key and choose an AI model
 * [Command reference](./wizard-cli-reference.md): Full reference for all `wizard` subcommands and global flags
 * [Use cases and examples](./wizard-use-cases.md): Realistic analytics engineering scenarios
-* [Migrate from another AI agent](./wizard-migrate.md): Migrate from another AI agent to dbt Wizard
 * [CLI data use and telemetry](./wizard-telemetry.md): What dbt Wizard CLI collects and how to opt out
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows

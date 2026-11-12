@@ -57,9 +57,9 @@ Choose how dbt Wizard reaches a model. Come here if you selected **Skip for now*
 | Option              | What it means                                                                                                                                                                                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Managed by dbt Labs | No setup. dbt Labs [manages](./pricing-billing/overview.md#dbt-managed-providers) the keys and keeps you on the latest models, and usage is metered against your dbt usage credits. The `dbt` provider shows as **Active** when it's in use |
-| Managed by you      | Bring your own key for Amazon Bedrock, Anthropic, Azure OpenAI, Databricks, Google Gemini, OpenAI, or an OpenAI subscription, and more. That provider's API charges apply. Refer to [BYOK](./wizard-byok.md)                                |
+| Managed by you      | Bring your own key for Amazon Bedrock, Anthropic, Azure OpenAI, Databricks, Google Gemini, OpenAI, or an OpenAI subscription, and more. That provider's API charges apply. Refer to [BYOK in Wizard Desktop](./wizard-desktop-byok.md)      |
 
-Each provider lists how many of its models are enabled, such as `6/6 models enabled`. Select **Manage** to add credentials and turn individual models on or off. You then pick the model and reasoning effort per chat from the chat composer, not here.
+Each provider lists how many of its models are enabled, such as `6/6 models enabled`. Select **Configure** to add credentials and turn individual models on or off. You then pick the model and reasoning effort per chat from the chat composer, not here.
 
 ## Connectors
 
@@ -69,11 +69,7 @@ If your project is connected to dbt platform, dbt Wizard connects to the [remote
 
 The remote dbt MCP server is available to dbt platform users only. dbt Wizard still uses its local [dbt Information Schema](../build/dbt-information-schema.md) for project metadata.
 
-Browsing and enabling other connectors from this pane is planned for future releases. Until then, add [MCP servers](./wizard-mcp.md) from the terminal:
-
-1. Start a project chat and send your first message, which starts the terminal.
-2. Run `wizard` from the terminal.
-3. Run `/mcp` to add a connector or manage the ones you've already added.
+Browsing and enabling other connectors on the **Connectors** page is coming soon. Until then, you can add [MCP servers](./wizard-mcp.md) through the CLI. Refer to [Connect MCP servers](./wizard-desktop-use.md#connect-mcp-servers).
 
 ## Appearance
 
@@ -118,7 +114,7 @@ Set how dbt Wizard authenticates with GitHub to read repos and open pull request
 * [Get started with Wizard Desktop](./wizard-desktop.md)
 * [Use Wizard Desktop](./wizard-desktop-use.md)
 * [dbt Wizard config reference](./wizard-config.md)
-* [Configure BYOK](./wizard-byok.md)
+* [Configure BYOK in Wizard Desktop](./wizard-desktop-byok.md)
 * [Use MCP servers](./wizard-mcp.md)
 
 See it in action and share your feedback

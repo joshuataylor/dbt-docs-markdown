@@ -8,7 +8,7 @@ dbt Wizard also includes built-in skills from [dbt Agent skills](https://github.
 
 When you initialize dbt Wizard in a project, it can also detect existing Claude Code skills in the current directory.
 
-For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](./wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
+You don't need a skill for general project context. dbt Wizard reads instruction files like `AGENTS.md` and `CLAUDE.md` out of the box. Refer to [Project context files](#project-context-files) for which file it uses.
 
 ## Locations and precedence
 
@@ -43,6 +43,25 @@ The following table summarizes where dbt Wizard looks for skills. Use the intend
 | Built-in [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) | Built-in | No. Shipped with dbt Wizard.                                 | Lowest.                                                                                               |
 
 Avoid duplicate skill names across locations. If you need to replace a built-in or imported skill, create the replacement in an intended project or user location and remove or rename the older copy.
+
+## Project context files
+
+Use skills for reusable workflows, and an instruction file for general project context, like conventions that apply to every session. dbt Wizard reads common instruction files automatically, so if you already use Claude Code, you don't need to move anything over.
+
+In each directory, dbt Wizard uses the first file in the following table that has content, and skips the rest:
+
+| Order | File                 | What Wizard does                                              |
+| ----- | -------------------- | ------------------------------------------------------------- |
+| 1     | `AGENTS.override.md` | Checks this first for local override instructions             |
+| 2     | `AGENTS.md`          | Uses this as the primary project instruction file             |
+| 3     | `CLAUDE.md`          | Uses this as a fallback when the directory has no `AGENTS.md` |
+| 4     | `.claude/CLAUDE.md`  | Uses this as another fallback instruction file                |
+
+A few things to know:
+
+* If a directory has both `AGENTS.md` and `CLAUDE.md`, dbt Wizard uses only `AGENTS.md`. An empty `AGENTS.md` doesn't count, so dbt Wizard falls back to `CLAUDE.md`.
+* dbt Wizard checks every directory from your project root (the directory that contains `.git`) down to your current working directory, and combines the files it finds for the session.
+* To create a starter `AGENTS.md`, run `/init` in a dbt Wizard session.
 
 ## Skills from dbt packages
 

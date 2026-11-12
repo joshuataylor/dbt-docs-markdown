@@ -29,12 +29,11 @@ dbt Wizard is also for people who don’t develop data models. In dbt platform, 
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
-| Where                                                                                 | Status         | AI access options                         |
-| ------------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
-| [dbt platform: Studio IDE](../dbt-ai/wizard-ide.md)         | Public preview | dbt managed or BYOK                       |
-| [dbt platform: Wizard home tab](./wizard-home.md) | Public preview | dbt managed or BYOK                       |
-| [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)      | Public beta    | dbt managed or BYOK                       |
-| [Locally: Wizard terminal (CLI)](../dbt-ai/wizard-cli.md)   | Public beta    | dbt managed, BYOK, or OpenAI subscription |
+| Where                                                                               | Status         | AI access options                         |
+| ----------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
+| [dbt platform](./wizard-platform.md)            | Public preview | dbt managed or BYOK                       |
+| [Locally: Wizard Desktop](../dbt-ai/wizard-desktop.md)    | Public beta    | dbt managed, BYOK, or OpenAI subscription |
+| [Locally: Wizard terminal (CLI)](../dbt-ai/wizard-cli.md) | Public beta    | dbt managed, BYOK, or OpenAI subscription |
 
 Prefer to learn by video?
 
@@ -55,7 +54,9 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-### Locally (CLI)
+### Locally (Desktop and CLI)
+
+Wizard Desktop and the Wizard CLI share the same providers and config.
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |
@@ -78,34 +79,15 @@ If AI model provider (OpenAI, Anthropic, or Fireworks) has an outage, dbt manage
 
 ## Get started
 
-You can get started with Wizard wherever you work, whether it's the terminal or dbt platform:
+You can get started with Wizard wherever you work, whether it's the Desktop app, dbt platform, or the terminal:
 
-* [Wizard Desktop](#wizard-desktop)
 * [Wizard in dbt platform](#wizard-in-dbt-platform)
+* [Wizard Desktop](#wizard-desktop)
 * [Wizard in the CLI](#wizard-in-the-cli)
 
 (Be warned, the wizard has been known to cast spells
 
 .)
-
-### Wizard Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-Wizard Desktop is Wizard as a native app. Wizard Desktop runs the same engine as the dbt Wizard CLI, but you get the full view: charts, tables, diffs, and lineage render right in the app, so you can see the work, steer it, and keep several chats moving at once, each on its own branch.
-
-What you get with Desktop:
-
-* **Parallel chats:** each chat gets its own Git worktree, so several pieces of work run at once without conflicts.
-* **Visible validation:** see structured results, including a `dbt-compare` view of what your changes did to the data.
-* **Contextual comments:** hover almost anything to comment on that exact spot, then send several together.
-* **Charts and tables:** ask a question about your data and see the answer inline.
-* **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
-* **Lineage, file, and metrics browsing:** browse your project right alongside the chat.
-
-[Download for macOSFor Apple silicon Macs · .dmg](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-apple-darwin.dmg)[Download for WindowsFor x64 processors · .exe](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-pc-windows-msvc.exe)[Download for LinuxFor x86\_64, Debian-based distributions · .deb](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-unknown-linux-gnu.deb)
-
-Need a different build? [Intel Mac (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-apple-darwin.dmg) · [Linux ARM64 (Debian-based) (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-unknown-linux-gnu.deb)
-
-To learn more, refer to [Get started with Wizard Desktop](../dbt-ai/wizard-desktop.md).
 
 ### Wizard in dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -128,6 +110,25 @@ To get started:
    * `add not_null and unique tests to the primary key of stg_customers`
 
 Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompts.
+
+### Wizard Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Wizard Desktop is Wizard as a native app. Wizard Desktop runs the same engine as the dbt Wizard CLI, but you get the full view: charts, tables, diffs, and lineage render right in the app, so you can see the work, steer it, and keep several chats moving at once, each on its own branch.
+
+What you get with Desktop:
+
+* **Parallel chats:** each chat gets its own Git worktree, so several pieces of work run at once without conflicts.
+* **Visible validation:** see structured results, including a `dbt-compare` view of what your changes did to the data.
+* **Contextual comments:** hover almost anything to comment on that exact spot, then send several together.
+* **Charts and tables:** ask a question about your data and see the answer inline.
+* **Inline impact:** see which models dbt Wizard's changes touch, with diffs you open inline.
+* **Lineage, file, and metrics browsing:** browse your project right alongside the chat.
+
+[Download for macOSFor Apple silicon Macs · .dmg](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-apple-darwin.dmg)[Download for WindowsFor x64 processors · .exe](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-pc-windows-msvc.exe)[Download for LinuxFor x86\_64, Debian-based distributions · .deb](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-unknown-linux-gnu.deb)
+
+Need a different build? [Intel Mac (.dmg)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-x86_64-apple-darwin.dmg) · [Linux ARM64 (Debian-based) (.deb)](https://public.cdn.getdbt.com/dbt-wizard/latest/dbt-wizard-app-aarch64-unknown-linux-gnu.deb)
+
+To learn more, refer to [Get started with Wizard Desktop](../dbt-ai/wizard-desktop.md).
 
 ### Wizard in the CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -168,8 +169,7 @@ If you've never used the terminal before, check out the [terminal guide](../../g
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md) — generate docs, tests, semantic models, SQL, and delegate end-to-end model work
 * [Invite read-only users to dbt Wizard](./wizard-read-only-users.md) — let business users ask questions of production data in Explore mode, without development access
 * [Use skills in dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
-* [Use MCP servers with dbt Wizard CLI](../dbt-ai/wizard-mcp.md) — connect the dbt Wizard CLI to more tools and context
-* [Migrate to dbt Wizard](../dbt-ai/wizard-migrate.md) — switch from Claude Code, Cursor, or another AI agent to dbt Wizard
+* [Use MCP servers with dbt Wizard CLI and Desktop](../dbt-ai/wizard-mcp.md) — set up MCP servers in the dbt Wizard CLI and use them in Wizard Desktop for more tools and context
 * [Privacy and data FAQs](../dbt-ai/dbt-ai-faqs.md#privacy-and-data) — understand how dbt Wizard handles privacy and data
 
 See it in action and share your feedback

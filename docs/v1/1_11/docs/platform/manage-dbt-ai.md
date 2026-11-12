@@ -46,7 +46,9 @@ Here are the following AI providers supported depending on where you work. Refer
 | Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
 | [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-### Locally (CLI)
+### Locally (Desktop and CLI)
+
+Wizard Desktop and the Wizard CLI share the same providers and config.
 
 | Provider                                                                     | Access              |
 | ---------------------------------------------------------------------------- | ------------------- |

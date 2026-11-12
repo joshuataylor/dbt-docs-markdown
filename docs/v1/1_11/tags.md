@@ -3,7 +3,7 @@
 ## A
 
 * [Adapter creation2](./tags/adapter-creation.md)
-* [Agents5](./tags/agents.md)
+* [Agents6](./tags/agents.md)
 * [AI39](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst1](./tags/analyst.md)
@@ -50,7 +50,7 @@
 * [dbt State20](./tags/dbt-state.md)
 * [dbt v16](./tags/dbt-v-1.md)
 * [dbt v213](./tags/dbt-v-2.md)
-* [dbt Wizard4](./tags/dbt-wizard.md)
+* [dbt Wizard5](./tags/dbt-wizard.md)
 * [Dremio1](./tags/dremio.md)
 * [DuckDB2](./tags/duck-db.md)
 
@@ -196,6 +196,6 @@
 ## W
 
 * [Webhooks6](./tags/webhooks.md)
-* [Wizard28](./tags/wizard.md)
+* [Wizard27](./tags/wizard.md)
 
 ***

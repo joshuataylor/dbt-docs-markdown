@@ -16,12 +16,6 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 [Purpose-built AI for governed data development in dbt platform, Desktop, and CLI.](../platform/wizard-overview.md)
 
-[![](/img/icons/wizard.svg)](../platform/wizard-overview.md#get-started)
-
-#### [Use dbt Wizard locally](../platform/wizard-overview.md#get-started)
-
-[Install dbt Wizard locally and start a terminal session.](../platform/wizard-overview.md#get-started)
-
 [![](/img/icons/wizard.svg)](../platform/wizard-platform.md)
 
 #### [dbt Wizard in dbt platform](../platform/wizard-platform.md)
@@ -34,11 +28,11 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 [A native app for data authors and analysts. View rich data visualizations, data diffs, lineage, and more to get to your results faster than ever before.](./wizard-desktop.md)
 
-[![](/img/icons/wizard.svg)](./wizard-migrate.md)
+[![](/img/icons/wizard.svg)](./wizard-cli.md)
 
-#### [Move to dbt Wizard](./wizard-migrate.md)
+#### [dbt Wizard CLI](./wizard-cli.md)
 
-[Move from Claude Code, Cursor, or another AI agent to dbt Wizard CLI with native project context.](./wizard-migrate.md)
+[Install the dbt Wizard CLI and start a terminal session.](./wizard-cli.md)
 
 ## Explore dbt Copilot
 

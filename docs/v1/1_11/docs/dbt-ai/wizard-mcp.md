@@ -1,8 +1,10 @@
-# Use MCP servers with the dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Use MCP servers with the dbt Wizard CLI and Desktop [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 The Model Context Protocol (MCP) connects dbt Wizard to external tools and context. Add an MCP server and dbt Wizard can call its tools mid-session — query the dbt MCP server for governed project metadata, open a pull request through the GitHub MCP server, or pull in any other MCP-compatible service.
+
+Set servers up in the dbt Wizard CLI, then use them in dbt Wizard Desktop.
 
 See it in action and share your feedback
 
@@ -40,9 +42,11 @@ dbt Wizard natively understands your dbt project. An MCP server extends that rea
 
 The dbt Wizard CLI lets you add, remove, authenticate, and customize MCP servers, including per-tool approvals, through the `config.toml` file.
 
-MCP servers are a CLI feature
+Add MCP servers from the CLI
 
-You can configure MCP servers only in the dbt Wizard CLI. You can't add your own MCP servers in dbt platform (Studio IDE and the home app), but dbt Wizard includes built-in dbt tools, such as [dbt Agent skills](https://github.com/dbt-labs/dbt-agent-skills) and product documentation fetching through the dbt MCP server.
+You add MCP servers through the dbt Wizard CLI, which dbt Wizard Desktop shares. Adding servers from the **Connectors** page in Desktop **Settings** is coming soon. Until then, refer to [Connect MCP servers](./wizard-desktop-use.md#connect-mcp-servers) for the Desktop steps.
+
+You can't add your own MCP servers in dbt platform (Studio IDE and the home app), but dbt Wizard includes built-in dbt tools, such as [dbt Agent skills](https://github.com/dbt-labs/dbt-agent-skills) and product documentation fetching through the dbt MCP server.
 
 ## Supported MCP server types
 
@@ -264,3 +268,4 @@ new columns and confirm downstream refs still resolve.
 * [dbt Wizard CLI config](./wizard-config.md): `config.toml` keys and precedence
 * [dbt Wizard CLI command reference](./wizard-cli-reference.md): `wizard mcp` flags and subcommands
 * [How dbt Wizard works](./wizard-how-it-works.md): Approvals and sandboxing
+* [Connect MCP servers in Wizard Desktop](./wizard-desktop-use.md#connect-mcp-servers): Use your servers in Desktop

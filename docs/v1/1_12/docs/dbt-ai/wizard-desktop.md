@@ -30,7 +30,7 @@ Wizard Desktop is powered by the same technology as the [dbt Wizard CLI](./wizar
 To use Wizard Desktop, you'll need:
 
 * A computer using macOS, Linux, or Windows.
-* A dbt account, if you want to use dbt-managed keys. You can create a free account when you sign in, or use an existing one. If you you use [BYOK](./wizard-byok.md), you can use Wizard Desktop without a dbt account.
+* A dbt account, if you want to use dbt-managed keys. You can create a free account when you sign in, or use an existing one. If you use [BYOK](./wizard-desktop-byok.md), you can use Wizard Desktop without a dbt account.
 * A local copy of your dbt project on your machine if you want dbt Wizard to work on project files. The app scans for existing projects, and you can also select a project folder yourself.
 * Warehouse credentials if you want dbt Wizard to run your project or query data. You don't need to configure them before opening the app.
 
@@ -46,7 +46,7 @@ To use Wizard Desktop, you'll need:
 
 2. Open Wizard Desktop and select **Get started** on the welcome screen.
 
-3. Follow the onboarding prompts. When prompted, create a free dbt account or sign in to an existing account. When you use your own AI provider credentials ([BYOK](./wizard-byok.md), you can skip signing in.
+3. Follow the onboarding prompts. When prompted, create a free dbt account or sign in to an existing account. When you use your own AI provider credentials ([BYOK](./wizard-desktop-byok.md)), you can skip signing in.
 
 ## Add your dbt projects
 
@@ -63,7 +63,7 @@ On the **Scan for your dbt projects** screen, choose how dbt Wizard finds projec
 On the **Connect an AI model provider** screen, choose how dbt Wizard accesses an AI model:
 
 * **Start free trial with dbt-managed keys**: dbt Labs manages the keys and keeps you on current models from OpenAI, Anthropic, and open source. Usage is metered against your dbt usage credits.
-* **Use my own API key**: bring your own provider credentials with [BYOK](./wizard-byok.md) for OpenAI, Anthropic, AWS Bedrock, Azure, Snowflake Cortex, Google Gemini, Databricks, and more. Your provider bills you directly, and this option works without a dbt platform plan.
+* **Use my own API key**: bring your own provider credentials with [BYOK](./wizard-desktop-byok.md) for OpenAI, Anthropic, AWS Bedrock, Azure, Snowflake Cortex, Google Gemini, Databricks, and more. Your provider bills you directly, and this option works without a dbt platform plan.
 * **Skip, I'll do this later**: continue without choosing a provider. To configure one later, go to **Settings** → **AI providers**.
 
 Wizard usage and billing
@@ -149,7 +149,7 @@ Refer to [the config reference](./wizard-config.md) for the configuration files 
 * [Wizard Desktop settings](./wizard-desktop-settings.md): providers, connectors, appearance, shortcuts, and GitHub
 * [Use cases and examples](./wizard-use-cases.md)
 * [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md)
-* [Configure BYOK](./wizard-byok.md)
+* [Configure BYOK in Wizard Desktop](./wizard-desktop-byok.md)
 
 See it in action and share your feedback
 

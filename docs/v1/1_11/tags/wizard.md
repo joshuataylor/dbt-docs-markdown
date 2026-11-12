@@ -1,4 +1,4 @@
-# 28 docs tagged with "Wizard"
+# 27 docs tagged with "Wizard"
 
 [View all tags](../tags.md)
 
@@ -66,10 +66,6 @@ Understand the dbt Wizard agent loop, tools, project context, and approval workf
 
 Invite business users to dbt Wizard with read-only licenses so they can ask questions of governed production data in Explore mode, without a developer license.
 
-## [Migrate to dbt Wizard](../docs/dbt-ai/wizard-migrate.md)
-
-Move project context and skills from Claude Code to dbt Wizard.
-
 ## [Models and pricing](../docs/dbt-ai/pricing-billing/overview.md)
 
 The AI models dbt Wizard supports in the dbt platform and CLI, plus how model pricing works.
@@ -86,9 +82,9 @@ Use dbt Wizard CLI to map an unfamiliar dbt project, investigate model behavior,
 
 Understand MCP server support for dbt Wizard in dbt platform.
 
-## [Use MCP servers with the dbt Wizard CLI](../docs/dbt-ai/wizard-mcp.md)
+## [Use MCP servers with the dbt Wizard CLI and Desktop](../docs/dbt-ai/wizard-mcp.md)
 
-Connect the dbt Wizard CLI to MCP servers to give it more tools and context.
+Set up MCP servers in the dbt Wizard CLI, then use them in Wizard Desktop to give it more tools and context.
 
 ## [Use skills with dbt Wizard CLI](../docs/dbt-ai/wizard-skills.md)
 

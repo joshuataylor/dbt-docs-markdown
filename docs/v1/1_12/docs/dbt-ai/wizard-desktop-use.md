@@ -155,8 +155,27 @@ The app uses the same config as the CLI, so the skills, subagents, and MCP serve
 
 * [Skills](./wizard-skills.md)
 * [Subagents](./wizard-subagents.md)
-* [MCP servers](./wizard-mcp.md)
+* [MCP servers](#connect-mcp-servers)
 * [Config files](./wizard-config.md)
+
+## Connect MCP servers
+
+MCP servers give dbt Wizard more tools and context, such as your orchestrator, BI tool, or GitHub. Adding them directly from the **Connectors** page in **Settings** is coming soon. Until then, set them up through the dbt Wizard CLI and use them in Desktop right away, because both share the same config.
+
+To add a server:
+
+1. [Install the dbt Wizard CLI](./wizard-cli.md?version=2#install-and-set-up-dbt-wizard-cli).
+2. Add a server with `wizard mcp add`. Refer to [Add an MCP server](./wizard-mcp.md#add-an-mcp-server).
+3. If the server uses OAuth, run `wizard mcp login SERVER_NAME`. Refer to [Authenticate a server](./wizard-mcp.md#authenticate-a-server).
+4. Open dbt Wizard Desktop and start a new chat. dbt Wizard loads MCP servers at the start of a session.
+
+You can also run the same commands directly in Desktop's built-in terminal:
+
+1. Start a new project-scoped chat and send your first message to start the terminal.
+2. To add a server, run `wizard mcp add`. Refer to [Add an MCP server](./wizard-mcp.md#add-an-mcp-server).
+3. To see servers you already added, run `wizard`, then run `/mcp`.
+
+For server types, config keys, and examples, refer to [Use MCP servers](./wizard-mcp.md).
 
 ## Chats and worktrees
 

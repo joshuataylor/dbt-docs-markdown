@@ -1,6 +1,10 @@
-# 4 docs tagged with "dbt Wizard"
+# 5 docs tagged with "dbt Wizard"
 
 [View all tags](../tags.md)
+
+## [Configure BYOK in Wizard Desktop](../docs/dbt-ai/wizard-desktop-byok.md)
+
+Bring your own API key to use Wizard Desktop. Set up Amazon Bedrock, Anthropic, Azure OpenAI, Databricks, Google Gemini, OpenAI, and more from Settings.
 
 ## [Get started with Wizard Desktop](../docs/dbt-ai/wizard-desktop.md)
 
