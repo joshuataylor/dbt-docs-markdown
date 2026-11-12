@@ -166,6 +166,10 @@ Expand a row to see the full decision details. Not all analyses apply to every r
 | **Query analysis**          | Whether the resource query or its upstream queries have changed.                                                                                |
 | **Data freshness analysis** | Whether upstream data is fresh or within the configured [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md). |
 
+Data retention
+
+State explanations are retained for seven days. After that, the **Explain** tab still loads, but detailed explanations are no longer available.
+
 ![Explain tab showing the decision breakdown](/img/docs/dbt-platform/deployment/explain-tab.png?v=2 "Explain tab showing the decision breakdown")Explain tab showing the decision breakdown
 
 ### Compare tab [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
