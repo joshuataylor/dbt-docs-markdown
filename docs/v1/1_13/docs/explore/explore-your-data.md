@@ -16,12 +16,6 @@ dbt provides a variety of tools for you to explore your data, models, and other 
 
 [Interact with dbt Catalog to understand, improve, and leverage your dbt projects.](./explore-projects.md)
 
-[![](/img/icons/dbt-bit.svg)](./dbt-insights.md)
-
-#### [dbt Insights](./dbt-insights.md)
-
-[Query data and perform exploratory data analysis using dbt Insights.](./dbt-insights.md)
-
 [![](/img/icons/dbt-bit.svg)](./build-and-view-your-docs.md)
 
 #### [Documentation](./build-and-view-your-docs.md)

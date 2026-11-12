@@ -51,7 +51,7 @@ Enable access to features in your account by selecting the appropriate option fr
 
 ### Enabling AI features
 
-Admins can enable access to both dbt Wizard (dbt Labs’ AI agent layer, available on the dbt platform and CLI) and dbt Copilot for authorized users across the dbt platform.
+Admins can enable access to dbt Wizard (dbt Labs’ AI agent layer, available on the dbt platform and CLI) for authorized users across the dbt platform.
 
 ### Enabling Advanced CI features [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 

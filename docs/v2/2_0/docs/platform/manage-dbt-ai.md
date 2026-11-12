@@ -29,7 +29,7 @@ Eligible accounts, including new ones, have AI features on by default, so most u
 4. Turn **Enable account access to AI features** off to disable access or on to enable it.
 5. Click **Save**.
 
-Turning AI features off applies to the whole account, including dbt Wizard and dbt Copilot. The [dbt Support Assistant](../dbt-support.md?version=2#ask-dbt-support-assistant) is managed separately by dbt Labs (contact the [dbt Support team](mailto:support@dbtlabs.com) for more info).
+Turning AI features off applies to the whole account, including dbt Wizard. The [dbt Support Assistant](../dbt-support.md?version=2#ask-dbt-support-assistant) is managed separately by dbt Labs (contact the [dbt Support team](mailto:support@dbtlabs.com) for more info).
 
 ## Supported AI providers
 
@@ -64,8 +64,6 @@ Wizard Desktop and the Wizard CLI share the same providers and config.
 You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 †Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms).
-
-dbt Copilot supports a smaller set of providers. Refer to [dbt Copilot](../dbt-ai/copilot-overview.md#configure-ai-provider-for-dbt-copilot) for its providers and setup steps.
 
 ## Configure AI provider
 

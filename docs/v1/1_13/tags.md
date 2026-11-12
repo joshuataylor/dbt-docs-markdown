@@ -6,7 +6,6 @@
 * [Agents6](./tags/agents.md)
 * [AI39](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
-* [Analyst1](./tags/analyst.md)
 * [API2](./tags/api.md)
 * [APIs3](./tags/ap-is.md)
 * [Athena1](./tags/athena.md)
@@ -46,7 +45,7 @@
 * [dbt Charts1](./tags/dbt-charts.md)
 * [dbt Insights2](./tags/dbt-insights.md)
 * [dbt MCP2](./tags/dbt-mcp.md)
-* [dbt platform26](./tags/dbt-platform.md)
+* [dbt platform25](./tags/dbt-platform.md)
 * [dbt State20](./tags/dbt-state.md)
 * [dbt v16](./tags/dbt-v-1.md)
 * [dbt v213](./tags/dbt-v-2.md)
@@ -111,7 +110,7 @@
 
 ## Q
 
-* [Quickstart20](./tags/quickstart.md)
+* [Quickstart19](./tags/quickstart.md)
 
 ***
 

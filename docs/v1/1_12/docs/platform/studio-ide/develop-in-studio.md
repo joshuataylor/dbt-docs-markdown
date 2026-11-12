@@ -7,7 +7,6 @@ The dbt integrated development environment (Studio IDE) is a single web-based in
 The Studio IDE offers several [keyboard shortcuts](./keyboard-shortcuts.md) and [editing features](./ide-user-interface.md#editing-features) for faster and efficient development and governance:
 
 * Agentic development: [dbt Wizard](../../dbt-ai/wizard-ide.md) is the new and recommended AI agent for governed data development in dbt. It uses your project context to help you develop governed dbt changes faster.
-  * [dbt Copilot](./develop-studio-ai.md#dbt-copilot-in-studio-ide) is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 * Auto-completion: Suggests tables, arguments, and columns as you type.
 * Code [formatting and linting](./lint-format.md): Standardizes and fixes SQL code.
 * Navigation tools: Jump to lines, find and replace text, and navigate project files.
@@ -83,12 +82,6 @@ For data practitioners, this means less time context-switching between files, le
 
 To get started, refer to [dbt Wizard in the Studio IDE](../../dbt-ai/wizard-ide.md).
 
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](../../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
-
 ## Get started with the Studio IDE
 
 In order to start experiencing the great features of the Studio IDE, you need to first set up a [dbt development environment](../../dbt-platform-environments.md). In the following steps, we outline how to set up user credentials and access the Studio IDE. If you're creating a new project, you will automatically configure this during the project setup.
@@ -151,8 +144,6 @@ Nice job, you're ready to start developing and building models 🎉!
   * Run [MetricFlow commands](../../build/metricflow-commands.md) to create and manage metrics in your project with the [Semantic Layer](../../use-dbt-semantic-layer/dbt-sl.md).
 
 * **Develop with dbt Wizard:** [dbt Wizard](../wizard-platform.md) is the new and recommended AI agent for governed data development in dbt. It uses your project context to help you develop governed dbt changes faster.
-
-  [dbt Copilot](./develop-studio-ai.md#dbt-copilot-in-studio-ide) is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
 * **Build and view your project's docs** — The Studio IDE makes it possible to [build and view](../../explore/build-and-view-your-docs.md) documentation for your dbt project while your code is still in development. With this workflow, you can inspect and verify what your project's generated documentation will look like before your changes are released to production.
 

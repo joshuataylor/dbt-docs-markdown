@@ -19,7 +19,6 @@ The following surfaces are on by default:
 
 * dbt Wizard in Studio IDE
 * dbt Wizard home tab
-* dbt Copilot in dbt platform.
 * Any future dbt AI features will automatically become available as well.
 
  AI features aren't on for my account yet. How do I turn them on?
@@ -32,7 +31,7 @@ No. If your organization already opted out of AI features contractually or had t
 
  Can I opt out of AI features?
 
-Yes. An account admin can turn AI off at any time in **Account settings**. Refer to [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) for the steps — the same toggle controls both dbt Wizard and dbt Copilot.
+Yes. An account admin can turn AI off at any time in **Account settings**. Refer to [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) for the steps.
 
  If AI is enabled by default, will I be charged automatically?
 
@@ -46,7 +45,7 @@ If you keep AI disabled, you incur no AI charges after September 1, 2026.
 
  Which AI features use consumption-based billing?
 
-Only dbt Wizard with dbt-managed inference, across dbt Wizard in dbt platform and the dbt Wizard CLI. dbt Copilot stays on its existing actions-based model and isn't moving to consumption-based billing.
+Only dbt Wizard with dbt-managed inference, across dbt Wizard in dbt platform and the dbt Wizard CLI.
 
  How do I check whether AI is enabled and what my account has used?
 

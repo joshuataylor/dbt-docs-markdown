@@ -20,7 +20,7 @@ The query console is the main component of Insights. It allows you to write, run
 
 * Has three tabs: **Data**, **Chart**, and **Details**, which allow you to analyze query execution and visualize results.
 
-4. [Query console sidebar menu](#query-console-sidebar-menu), which contains the **Catalog**, **Bookmark**, **Query history**, and **dbt Copilot** icons.
+4. [Query console sidebar menu](#query-console-sidebar-menu), which contains the **Catalog**, **Bookmark**, and **Query history** icons.
 
 ![dbt Insights main interface with blank query editor](/img/docs/dbt-insights/insights-main.png?v=2 "dbt Insights main interface with blank query editor")dbt Insights main interface with blank query editor
 
@@ -31,7 +31,6 @@ The Query console menu is located at the top right of the Query editor. It conta
 * **Bookmark** button — Save your frequently used SQL queries as favorites for easier access.
 
   * When you click **Bookmark**, a **Bookmark Query Details** modal (pop up box) will appear where you can add a **Title** and **Description**.
-  * Let dbt Copilot do the writing for you — use the AI assistant to automatically generate a helpful description for your bookmark.
   * Access the newly created bookmark from the **Bookmark** icon in the [Query console sidebar menu](#query-console-sidebar-menu).
 
 * **Develop**: Open the [Studio IDE](../platform/studio-ide/develop-in-studio.md) to continue editing your SQL query.
@@ -78,7 +77,7 @@ The Query output panel is below the query editor and displays the results of a q
 
 * **Details** tab — Generates succinct details of executed SQL query:
 
-  * Query metadata — dbt Copilot's AI-generated title and description. Along with the supplied SQL and compiled SQL.
+  * Query metadata — The supplied SQL and compiled SQL.
   * Connection details — Relevant data platform connection information.
   * Query details — Query duration, status, column count, row count.
 
@@ -129,44 +128,6 @@ For sharing saved Insights and version history, check out [Save your Insights](.
 View past queries, their statuses (All, Success, Error, or Pending), start time, and duration. Search for past queries and filter by status. You can also re-run a query from the Query history.
 
 ![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")dbt Insights Query history icon
-
-### dbt Copilot
-
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
-
-Use dbt Copilot to modify or generate queries using natural language prompts or to chat with the Analyst agent to gather insights about your data.
-
-Use dbt Copilot in Insights in two ways:
-
-* **Generate SQL**: Build queries in Insights with natural language prompts to explore and query data with an intuitive, context-rich interface. For more information, see [Build queries in dbt Insights](./navigate-dbt-insights.md).
-
-* **dbt Copilot Analyst agent** [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles"): Ask questions to get intelligent data analysis with automated workflows, governed insights, and actionable recommendations. This is a conversational AI feature where you can ask natural language prompts and receive analysis in real-time.
-
-  Enable beta features under **Account settings** > **Personal profile** > **Experimental features** to use the Analyst agent. For steps on how to enable, see [Preview new dbt platform features](../dbt-versions/experimental-features.md).
-
-  Some sample questions you can ask the agent:
-
-  * *What region are my sales growing the fastest?*
-  * *What was the revenue last month?*
-  * *How should I optimize my marketing spend next quarter?*
-  * *How many customers do I have, broken down by customer type?*
-
-  dbt Copilot Analyst agent creates an analysis plan based on your question. dbt Copilot Analyst agent:
-
-  1. Gets context using your semantic models and metrics.
-  2. Generates SQL queries using your project's definitions.
-  3. Executes the SQL query and returns results with context.
-  4. Reviews and summarizes the generated insights and provides a comprehensive answer.
-
-  The agent can loop through these steps multiple times if it hasn't reached a complete answer, allowing for complex, multi-step analysis.⁠
-
-  For more information, see [dbt Copilot in Insights](../dbt-ai/analyst-agent.md).
-
-![dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-tabs.png?v=2 "dbt Copilot in Insights")dbt Copilot in Insights
 
 ## LSP features
 

@@ -13,14 +13,13 @@ As a data analyst, you play a key role in transforming complex data into trusted
 In this quickstart, you’ll learn how to:
 
 * Use Catalog to browse and understand data models across both dbt and Snowflake data assets
-* Use Insights to run queries for exploring and validating your data
-* Use Canvas to visually build your own data models
 * Build confidence using dbt as your workspace enhanced with AI
 
 Here's more about the tools you will use on your journey:
 
 * Catalog: View your project's resources (such as models, tests, and metrics), their lineage, and query patterns to gain a better understanding of its latest production state.
 * Insights: Explore, validate, and query data with an intuitive, context-rich interface that bridges technical and business users by combining metadata, documentation, AI-assisted tools, and powerful querying capabilities.
+* Studio IDE: Develop, test, and commit dbt models in your browser with built-in AI for custom code generation.
 * Canvas: Quickly access and transform data through a visual, drag-and-drop experience and with a built-in AI for custom code generation.
 
 ## Prerequisites
@@ -55,71 +54,13 @@ She notices these columns: `customer_ID`, `customer_names`, and `first_ordered_a
 
 The `first_ordered_at` column stands out to Kimiko, and she wonders if she might use it to see how many customers they've acquired based on when they placed their first order.
 
-But first, she decides to interact with the data to learn more.
-
-### Query data in Insights
-
-From the **Customer model page** in Catalog, Kimiko selects **Analyze data** from the **Open in...** dropdown. This enables her to query data for the Customer model. Once opened, Insights contains a query poised and ready to run.
-
-![Select Analyze data from Catalog](/img/guides/analyst-qs/catalog-analyze-data.png?v=2 "Select Analyze data from Catalog")Select Analyze data from Catalog
-
-![Open query in Insights](/img/guides/analyst-qs/query.png?v=2 "Open query in Insights")Open query in Insights
-
-When Kimiko runs the query, she can look at the data underlying it. The same context she saw in Catalog she now sees in her SQL editing experience.
-
-As she looks through the data, she sees information about each customer. She also notices the `first_ordered_at` column. Kimiko wants to code the query but her SQL is a little rusty so she uses natural language in dbt Wizard:
-
-*How many new customers did we get in each month last year? I'd like to use my customer model and the first ordered at field to do this analysis.*
-
-dbt Wizard writes SQL that Kimiko decides to use:
-
-```sql
-select 
-    date_trunc('month', first_ordered_at) as month,
-    count(customer_id) as new_customers
-from {{ ref('customers') }}
-where 
-    date_part('year', first_ordered_at) = date_part('year', current_date) - 1
-    and customer_type = 'new'
-group by 1
-order by 1;
-```
-
-Kimiko clicks **Replace** to move all of the SQL into her editor and replaces the original query. She runs the new query and reviews the data but decides to limit the dates using dbt Wizard once again:
-
-*Can we limit the dates to 2024?*
-
-She verifies the new filter for 2024 and reruns this query:
-
-```sql
-select 
-    date_trunc('month', first_ordered_at) as month,
-    count(customer_id) as new_customers
-from {{ ref('customers') }}
-where 
-    date_part('year', first_ordered_at) = 2024
-    and customer_type = 'new'
-group by 1
-order by 1;
-```
-
-She's happy with the results and clicks **Details** to see the AI-generated report, which includes a title and description, supplied SQL, and the compiled SQL.
-
-![Details report tab](/img/guides/analyst-qs/details.png?v=2 "Details report tab")Details report tab
-
-Once she's ready to get the insight to her stakeholder, she clicks **Chart** to view the chart prefilled with the data from the **Data** tab.
-
-She adds x- and y-axis labels, such as "Month of first order" and "Total new customers" to make it more comprehensible for the final report she'll share with her stakeholder. Next, she takes a screenshot to share with them.
-
-She often comes back to this data so Kimiko decides to bookmark the page by clicking **Bookmark** in the top right. She also exports it to a CSV file.
-
 ### Visualize results
 
-Kimiko has a few conversations with teammates and she finds out they're running pretty similar one-off queries, so she decides to take her long running query that she previously bookmarked and turn it into a full-fledged dbt model using Canvas. She does this so she can share it with others, which de-duplicates work and helps her team become more efficient.
+Kimiko has a few conversations with teammates and she finds out they're running pretty similar one-off queries, so she decides to take her long running query that she previously bookmarked and turn it into a full-fledged dbt model using Studio IDE. She does this so she can share it with others, which de-duplicates work and helps her team become more efficient.
 
-To do this, she opens the query in Insights and clicks **Develop** then \***Develop in** Canvas. This opens the SQL query in a visual form, represented in a DAG.
+To do this, she opens the query in Insights and clicks **Develop** then \***Develop in** Studio IDE. This opens the SQL query as a new model in the IDE. Kimiko wants to answer the stakeholder's question by building on the `customers` model, and she wants to share the result with her team so they don't repeat the same one-off work. To do this, she turns her analysis into a full-fledged dbt model using Canvas. From the **Customer model page** in Catalog, she selects **Develop** then **Develop in** Canvas. This opens the model in a visual form, represented in a DAG.
 
-When she examines the model, she notes it's selecting from customers as expected, filtering for 2024, showing dates by month, and aggregating over that month. She runs it in her development environment and clicks **Commit** to submit a pull request.
+She adds steps to filter for 2024, show dates by month, and aggregate new customers over that month. She runs it in her development environment and clicks **Commit** to submit a pull request.
 
 Now Kimiko's entire team, those who have the same access as her, can run this model and see the same results she does! What's more is they can help her improve the model as the stakeholder requests get more complicated, and she will benefit from their help.
 

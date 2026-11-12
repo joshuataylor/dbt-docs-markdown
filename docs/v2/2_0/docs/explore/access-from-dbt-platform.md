@@ -2,9 +2,9 @@
 
 dbt platform
 
-Access Catalog from jobs, Insights, and other areas of dbt to move quickly between run context, lineage, and resource metadata in your project.
+Access Catalog from jobs and other areas of dbt to move quickly between run context, lineage, and resource metadata in your project.
 
-This page describes how to open Catalog from orchestration and exploration workflows in dbt. The primary way to open Catalog is **Catalog** in the navigation; you can also open it from jobs and Insights as described in the sections below.
+This page describes how to open Catalog from orchestration and exploration workflows in dbt. The primary way to open Catalog is **Catalog** in the navigation; you can also open it from jobs as described in the sections below.
 
 ### Lineage tab in jobs
 
@@ -29,11 +29,3 @@ You can open Catalog from the **model timing tab** to investigate resources, dia
 * Hover over a resource and select **View in Catalog** to open its metadata in Catalog.
 
 ![Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.](/img/docs/collaborate/dbt-explorer/explorer-from-model-timing.png?v=2 "Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.")Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.
-
-### dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
-
-Open Catalog from [Insights](./access-dbt-insights.md) to view project lineage and resources such as tables, columns, metrics, dimensions, and more.
-
-To open Catalog from Insights, select the **Catalog** icon in the Query console sidebar menu, then search for the resource you want.
-
-![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")dbt Insights integrated with dbt Catalog

@@ -60,12 +60,6 @@ Documentation by product
 
 [Every time a job runs, state-aware orchestration automatically determines which models to build by detecting changes in code or data.](./docs/deploy/state-aware-about.md)
 
-[![](/img/icons/insights.svg)](./docs/explore/dbt-insights.md)
-
-### [dbt Insights](./docs/explore/dbt-insights.md)
-
-[dbt Insights in dbt empowers users to seamlessly explore and query data with an intuitive, context-rich interface.](./docs/explore/dbt-insights.md)
-
 [![](/img/icons/semantic.svg)](./docs/use-dbt-semantic-layer/dbt-sl.md)
 
 ### [dbt Semantic Layer](./docs/use-dbt-semantic-layer/dbt-sl.md)

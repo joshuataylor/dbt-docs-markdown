@@ -1,12 +1,8 @@
-# 26 docs tagged with "dbt platform"
+# 25 docs tagged with "dbt platform"
 
 [View all tags](../tags.md)
 
 ## [Airflow and dbt](../guides/airflow-and-dbt-cloud.md)
-
-Introduction
-
-## [Analyze your data in dbt](../guides/analyze-your-data.md)
 
 Introduction
 

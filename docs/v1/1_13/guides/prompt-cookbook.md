@@ -193,10 +193,6 @@ limit 10
 
 You don't need to write everything from scratch. Pull in documentation, definitions, and sample data you already have—it helps dbt Wizard understand your specific business context.
 
-dbt Insights integration
-
-When using dbt Wizard in [Insights](../docs/explore/dbt-insights.md), you can easily cross-reference between dbt Wizard's generated SQL and metadata from [dbt Catalog](../docs/explore/explore-projects.md). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
-
 ### Define your business rules
 
 Instead of just saying "active customer," explain the rule:
@@ -237,7 +233,7 @@ on customer_id. Filter to the last 30 days for preview only.
 
 Fast-track your semantic layer strategy with AI-generated YAML using dbt Wizard.
 
-dbt platform provides built-in generation buttons that automatically [generate code](../docs/dbt-ai/wizard-ide.md), [documentation](../docs/build/documentation.md), [data tests](../docs/build/data-tests.md), [metrics](../docs/build/metrics-overview.md), and [semantic models](../docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](../docs/platform/studio-ide/develop-studio-ai.md) and [Insights](../docs/explore/dbt-insights.md).
+dbt platform provides built-in generation buttons that automatically [generate code](../docs/dbt-ai/wizard-ide.md), [documentation](../docs/build/documentation.md), [data tests](../docs/build/data-tests.md), [metrics](../docs/build/metrics-overview.md), and [semantic models](../docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](../docs/platform/studio-ide/develop-studio-ai.md).
 
 These features understand your model's structure and generate YAML in the correct location.
 
@@ -412,5 +408,3 @@ Check out the following docs to learn more about how to use dbt Wizard:
 * [About dbt Wizard](../docs/platform/wizard-platform.md)
 * [dbt Wizard in Studio IDE](../docs/dbt-ai/wizard-ide.md)
 * [Generate resources](../docs/dbt-ai/wizard-ide.md#generate-resources)
-* [Build visual models with dbt Wizard](../docs/platform/build-canvas-copilot.md)
-* [Build queries in dbt Insights](../docs/explore/navigate-dbt-insights.md)

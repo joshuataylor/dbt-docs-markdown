@@ -1,28 +1,28 @@
 # About dbt LSP
 
-dbt v2 offers benefits beyond the speed and power of the framework. The dbt VS Code extension, Studio IDE, and Insights all contain a powerful set of features backed by our Language Server Protocol (LSP) that enable fast, efficient development workflows. The following features are supported across these tools:
+dbt v2 offers benefits beyond the speed and power of the framework. The dbt VS Code extension and Studio IDE both contain a powerful set of features backed by our Language Server Protocol (LSP) that enable fast, efficient development workflows. The following features are supported across these tools:
 
-|                              | VS Code extension | Studio IDE | Insights |
-| ---------------------------- | ----------------- | ---------- | -------- |
-| Autocomplete function names  | ✅                | ✅         | ❌       |
-| Autocomplete ref/source args | ✅                | ✅         | ✅       |
-| CTE Preview                  | ✅                | ✅         | ✅       |
-| Column-level lineage         | ✅                | ❌         | ❌       |
-| Compare changes locally      | ✅                | ❌         | ❌       |
-| Command palette              | ✅                | N/A        | ❌       |
-| Error detection              | ✅                | ✅         | ✅       |
-| Go-to definition             | ✅                | ✅         | ❌       |
-| Go-to reference              | ✅                | ✅         | ❌       |
-| Incremental compilation      | ✅                | ✅         | ❌       |
-| Lazy compilation             | ✅                | ✅         | ❌       |
-| Preview query results        | ✅                | N/A        | ❌       |
-| Problems tab                 | ✅                | ✅         | ❌       |
-| Propagate column renames     | ✅                | ❌         | ❌       |
-| Propagate model renames      | ✅                | ❌         | ❌       |
-| Show column type on hover    | ✅                | ✅         | ✅       |
-| Show compiled SQL            | ✅                | ✅         | ❌       |
-| View table lineage           | ✅                | N/A        | ❌       |
-| Warning detection            | ✅                | ✅         | ❌       |
+|                              | VS Code extension | Studio IDE |
+| ---------------------------- | ----------------- | ---------- |
+| Autocomplete function names  | ✅                | ✅         |
+| Autocomplete ref/source args | ✅                | ✅         |
+| CTE Preview                  | ✅                | ✅         |
+| Column-level lineage         | ✅                | ❌         |
+| Compare changes locally      | ✅                | ❌         |
+| Command palette              | ✅                | N/A        |
+| Error detection              | ✅                | ✅         |
+| Go-to definition             | ✅                | ✅         |
+| Go-to reference              | ✅                | ✅         |
+| Incremental compilation      | ✅                | ✅         |
+| Lazy compilation             | ✅                | ✅         |
+| Preview query results        | ✅                | N/A        |
+| Problems tab                 | ✅                | ✅         |
+| Propagate column renames     | ✅                | ❌         |
+| Propagate model renames      | ✅                | ❌         |
+| Show column type on hover    | ✅                | ✅         |
+| Show compiled SQL            | ✅                | ✅         |
+| View table lineage           | ✅                | N/A        |
+| Warning detection            | ✅                | ✅         |
 
 dbt v1 and v2 both support the dbt VS Code extension. Features that depend on built-in SQL parsing, such as column-level lineage, column go-to definition and find references, and `SELECT *` expansion, require [`static_analysis: strict`](../reference/resource-configs/static-analysis.md?version=2).
 

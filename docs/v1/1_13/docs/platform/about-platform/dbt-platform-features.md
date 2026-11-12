@@ -98,12 +98,6 @@ dbt's [flexible plans](https://www.getdbt.com/pricing/) and features make it wel
 
 [Learn about dbt Catalog and how to interact with it to understand, improve, and leverage your data pipelines.](../../explore/explore-projects.md)
 
-[![](/img/icons/dbt-bit.svg)](../../explore/dbt-insights.md)
-
-#### [dbt Insights\*](../../explore/dbt-insights.md)
-
-[Learn how to query data and perform exploratory data analysis using dbt Insights.](../../explore/dbt-insights.md)
-
 [![](/img/icons/dbt-bit.svg)](../../explore/cost-insights.md)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 #### Cost Insights\*

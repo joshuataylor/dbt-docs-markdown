@@ -6,8 +6,6 @@ Leverage AI to develop dbt projects in the Studio IDE.
 
 [dbt Wizard](../wizard-platform.md) in [Studio IDE](./develop-in-studio.md) is the new and recommended way to develop governed dbt projects with AI. It uses your project context to help you develop governed dbt changes faster. Think of it like a smart AI agent that has a map of your project: instead of reading through each file to understand context, it can answer questions and help you develop and validate changes faster.
 
-dbt also supports dbt Copilot, a separate inline AI assistance experience for single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
-
 ## Prerequisites
 
 * A [dbt account](https://www.getdbt.com/signup) on any plan and [Developer seat license](../manage-access/seats-and-users.md).
@@ -190,44 +188,3 @@ Good prompts include the *scope* (which models or area of the project), the *int
 | Generate tests and docs    | "Add `not_null` and `unique` tests to the primary key of `dim_customers`, and generate documentation for all columns."                          |
 
 For detailed guidance, patterns, and more examples across SQL, documentation, tests, and semantic models, see the [Prompt cookbook](../../../guides/prompt-cookbook.md).
-
-## dbt Copilot in Studio IDE
-
-*The earlier version of dbt Copilot in the Studio IDE is available only to a limited set of accounts. dbt Wizard is available to all accounts and is the recommended way to develop with AI in the Studio IDE — it covers everything dbt Copilot's quick actions did, plus multi-step changes with built-in validation.*
-
-[dbt Copilot](../../dbt-ai/copilot-overview.md) provides single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
-
-1. Navigate to the Studio IDE and select a SQL model file under the **File Explorer**.
-2. In the **Console** section, click the **dbt Copilot** button to view the available AI options.
-3. Select the available options to [generate resources](#generate-resources) such as using the quick-action buttons to generate documentation, tests, semantic models, or metrics.
-
-The following sections describe how to use dbt Copilot in the Studio IDE.
-
-### Generate resources
-
-To generate resources with dbt Copilot, follow these steps:
-
-Generate documentation, tests, metrics, and semantic models [resources](../../build/projects.md) with the click-of-a-button in the [Studio IDE](./develop-in-studio.md) using dbt Copilot, saving you time. To access and use this AI feature:
-
-1. Navigate to the Studio IDE and select a SQL model file under the **File Explorer**.
-
-2. In the **Console** section (under the **File Editor**), click the dbt Copilot button and choose what you want to generate, such as documentation, tests, metrics, SQL, or semantic models. To generate multiple YAML configs for the same model, select each option separately. dbt Copilot saves them to the same YAML file.
-
-   note
-
-   dbt Copilot doesn't yet support generating semantic models with the latest YAML spec.
-
-   * To generate metrics, you need to first have semantic models defined.
-   * Once defined, click **dbt Copilot** and select **Generate metrics**.
-   * Write a prompt describing the metrics you want to generate and press enter.
-   * **Accept** or **Reject** the generated code.
-
-3. Verify the AI-generated code. You can update or fix the code as needed.
-
-4. Click **Save As**. You should see the file changes under the **Version control** section.
-
-### Inline SQL editing
-
-dbt Copilot supports a quick inline prompt window for targeted SQL edits directly in the editor. Press **Cmd+B** (Mac) or **Ctrl+B** (Windows) to open the prompt window within a model file, describe what you want to generate or change, and dbt Copilot displays a diff of the proposed changes — click **Accept** to apply or **Reject** to discard.
-
-This is useful for scoped edits within a single SQL file. For larger or multi-step changes — like building a new model, refactoring across files, or generating YAML, review how [dbt Wizard](../../dbt-ai/wizard-ide.md) can help instead.

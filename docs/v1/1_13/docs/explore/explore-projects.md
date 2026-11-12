@@ -4,7 +4,7 @@ dbt platform | Starter, Enterprise, Enterprise+
 
 With Catalog, you can view your project's [resources](../build/projects.md) (such as models, tests, and metrics), their lineage, and [model consumption](./view-downstream-exposures.md) to gain a better understanding of its latest production state.
 
-Use Catalog to navigate and manage your projects within dbt to help you and other data developers, analysts, and consumers discover and leverage your dbt resources. Catalog integrates with the [Studio IDE](../platform/studio-ide/develop-in-studio.md), [dbt Insights](./dbt-insights.md), [Orchestrator](../deploy/deployments.md), and [Canvas](../platform/canvas.md) to help you develop or view your dbt resources.
+Use Catalog to navigate and manage your projects within dbt to help you and other data developers, analysts, and consumers discover and leverage your dbt resources. Catalog integrates with the [Studio IDE](../platform/studio-ide/develop-in-studio.md) and [Orchestrator](../deploy/deployments.md) to help you develop or view your dbt resources.
 
 ## Prerequisites
 
@@ -263,7 +263,7 @@ From the sidebar, you can browse your project's resources, its file tree, and th
 
 ## Integrated tool access
 
-Users with a [developer license](../platform/manage-access/about-user-access.md#license-based-access-control) or an analyst seat\* can open a resource directly from the Catalog in the Studio IDE to view its model files, in Insights to query it, or in Canvas for visual editing.
+Users with a [developer license](../platform/manage-access/about-user-access.md#license-based-access-control) or an analyst seat\* can open a resource directly from the Catalog in the Studio IDE to view its model files.
 
 \* The [Analyst license type](../platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
 

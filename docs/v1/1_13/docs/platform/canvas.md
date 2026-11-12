@@ -8,7 +8,7 @@ Starting November 12, 2026, Canvas is no longer being sold or enabled for new db
 
 Canvas helps you quickly access and transform data through a visual, drag-and-drop experience.
 
-Canvas allows organizations to enjoy the many benefits of code-driven development, such as increased precision, ease of debugging, and ease of validation, while retaining the flexibility to have different contributors develop wherever they are most comfortable. For natural language and AI-assisted workflows, use [dbt Copilot in Canvas](./build-canvas-copilot.md).
+Canvas allows organizations to enjoy the many benefits of code-driven development, such as increased precision, ease of debugging, and ease of validation, while retaining the flexibility to have different contributors develop wherever they are most comfortable.
 
 These models compile directly to SQL and are indistinguishable from other dbt models in your projects:
 
@@ -46,12 +46,6 @@ Before using Canvas, you should:
 * Verify your Development environment is on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
 * Have read-only access to the [Staging environment](../deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](./manage-access/environment-permissions-setup.md) for more information.
-
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 ## Feedback
 

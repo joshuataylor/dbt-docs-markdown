@@ -20,7 +20,7 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 
 #### [dbt Wizard in dbt platform](../platform/wizard-platform.md)
 
-[AI is on by default in your dbt platform account. Use dbt Wizard for governed dbt data development and dbt Copilot for inline AI assistance.](../platform/wizard-platform.md)
+[AI is on by default in your dbt platform account. Use dbt Wizard for governed dbt data development.](../platform/wizard-platform.md)
 
 [![](/img/icons/wizard.svg)](./wizard-desktop.md)
 
@@ -33,20 +33,6 @@ Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), 
 #### [dbt Wizard CLI](./wizard-cli.md)
 
 [Install the dbt Wizard CLI and start a terminal session.](./wizard-cli.md)
-
-## Explore dbt Copilot
-
-[![](/img/icons/dbt-copilot.svg)](./copilot-overview.md)
-
-#### [dbt Copilot](./copilot-overview.md)
-
-[dbt's inline AI assistance for single-click generation of SQL, docs, tests, and semantic models.](./copilot-overview.md)
-
-[![](/img/icons/dbt-copilot.svg)](./analyst-agent.md)
-
-#### [dbt Copilot in Insights](./analyst-agent.md)
-
-[Chat with your data using dbt Copilot in Insights, powered by the Semantic Layer.](./analyst-agent.md)
 
 ## Explore the dbt MCP server
 

@@ -12,8 +12,6 @@ Insights provides a rich console experience with editor navigation. You can expe
 * View the results of the query and its details using the **Data** or **Details** tabs
 * Create a visualization of your query results using the **Chart** tab
 * View the history of queries and their statuses (like Success, Error, Pending) using the **Query history** tab
-* Use dbt Copilot in Insights to generate or edit SQL queries using natural language prompts
-* Integrate with [Catalog](./explore-projects.md), [Studio IDE](../platform/studio-ide/develop-in-studio.md), and [Canvas](../platform/canvas.md) to provide a seamless experience for data exploration, AI-assisted writing, and collaboration
 
 ## Access the dbt Insights interface
 
@@ -65,51 +63,6 @@ Let's use an example to illustrate how to run queries in Insights:
   order by 1
   ```
 
-### Use dbt Copilot
-
-To make things easier, [use dbt Copilot in Insights](./navigate-dbt-insights.md) to save time and explore other ways to analyze the data. dbt Copilot can help you quickly update the query or generate a new one based on your prompt.
-
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
-
-1. Click the **dbt Copilot** icon in the Query console sidebar.
-
-2. In the dropdown menu above the dbt Copilot prompt box, select **Generate SQL**.
-
-3. Enter your prompt in natural language and ask for a yearly breakdown of unique customers and total revenue.
-
-4. Click **↑** to submit your prompt.
-
-5. dbt Copilot responds with:
-
-   * A summary of the query
-   * An explanation of the logic
-   * The SQL it generated
-   * Options to **Add** or **Replace** the existing query with the generated SQL
-
-6. Review the output and click **Replace** to use the dbt Copilot-generated SQL in your editor.
-
-7. Click **Run** to preview the results.
-
-![dbt Insights with dbt Copilot](/img/docs/dbt-insights/insights-copilot.png?v=2 "dbt Insights with dbt Copilot")dbt Insights with dbt Copilot
-
-From here, you can:
-
-* Continue building or modifying the query using dbt Copilot.
-* Explore the [results](#view-results) in the **Data** tab.
-* [View metadata and query details](#view-details) in the **Details** tab.
-* [Visualize results](#chart-results) in the **Chart** tab.
-* Check the [**Query history**](#query-history) for status and past runs.
-* Use [**Catalog**](#use-dbt-explorer) to explore model lineage and context.
-* If you want to save the query, you can click **Save Insight** in the [query console menu](./navigate-dbt-insights.md#query-console-menu) to save it for future reference.
-
-Want to turn a query into a model?
-
-You can access the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [Canvas](../platform/canvas.md) from the [Query console menu](./navigate-dbt-insights.md#query-console-menu) to promote your SQL into a reusable dbt model — all within dbt!
-
 ### View results
 
 Using the same example, you can perform some exploratory data analysis by running the query and:
@@ -124,7 +77,7 @@ Using the same example, you can perform some exploratory data analysis by runnin
 
 View the details of the query by clicking on the **Details** tab:
 
-* **Query metadata** — dbt Copilot-generated title and description, the supplied SQL, and corresponding compiled SQL.
+* **Query metadata** — The title and description, the supplied SQL, and corresponding compiled SQL.
 * **Connection details** — Relevant data platform connection information.
 * **Query details** — Query duration, status, column count, row count.
 
@@ -161,7 +114,7 @@ This integrated view allows you and your users to maintain your query workflow, 
 * Same search capabilities as Catalog
 * Allows users to narrow down displayed objects by type
 * Hyperlink from SQL code `ref` to the corresponding Catalog page
-* View assets in more detail by opening with the full Catalog experience or open them in dbt Copilot.
+* View assets in more detail by opening with the full Catalog experience.
 
 To access Catalog, click on the **Catalog** icon in the [Query console sidebar menu](./navigate-dbt-insights.md#query-console-sidebar-menu).
 
@@ -174,7 +127,7 @@ Set the compilation environment to control how Jinja functions are rendered. Thi
 * Supports "typed" environments marked as `Production`, `Staging`, and/or `Development`.
 * Enables you to run Semantic Layer. queries against staging environments (development environments not supported).
 * Still uses the individual user credentials, so users must have appropriate access to query `PROD` and `STG`.
-* Changing the environment changes context for the Catalog view in Insights, as well as the environment context during the handoff to Catalog and Canvas. For example, switching to `Staging` in Insights and selecting **View in Catalog** will open the `Staging` view in Catalog.
+* Changing the environment changes context for the Catalog view in Insights, as well as the environment context during the handoff to Catalog. For example, switching to `Staging` in Insights and selecting **View in Catalog** will open the `Staging` view in Catalog.
 
 ![Set the environment for your Jinja context](/img/docs/dbt-insights/insights-jinja-environment.png?v=2 "Set the environment for your Jinja context")Set the environment for your Jinja context
 

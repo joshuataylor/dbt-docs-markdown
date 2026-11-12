@@ -1,10 +1,6 @@
-# 20 docs tagged with "Quickstart"
+# 19 docs tagged with "Quickstart"
 
 [View all tags](../tags.md)
-
-## [Analyze your data in dbt](../guides/analyze-your-data.md)
-
-Introduction
 
 ## [Connect dbt MCP to dbt platform](../guides/qs-mcp-oauth.md)
 

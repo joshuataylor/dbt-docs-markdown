@@ -116,16 +116,7 @@ To choose a provider or bring your own key, refer to [Manage AI features](./mana
 
 dbt platform also has AI features that work separately from dbt Wizard:
 
-* [dbt Copilot](../dbt-ai/copilot-overview.md) generates SQL, documentation, tests, and semantic models in one click in Studio IDE or Insights.
-* The [dbt Support Assistant](../dbt-support.md?version=2#ask-dbt-support-assistant) answers product questions and helps you open a ticket. Contact the [dbt Support team](mailto:support@getdbt.com) for more info.
-
- What's the difference between dbt Wizard and dbt Copilot?
-
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+The [dbt Support Assistant](../dbt-support.md?version=2#ask-dbt-support-assistant) answers product questions and helps you open a ticket. Contact the [dbt Support team](mailto:support@getdbt.com) for more info.
 
 ## Related docs
 

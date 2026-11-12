@@ -2,7 +2,7 @@
 
 dbt platform | Starter, Enterprise, Enterprise+
 
-Use bring-your-own-key (BYOK) to connect dbt Wizard or dbt Copilot in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
+Use bring-your-own-key (BYOK) to connect dbt Wizard in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
 
 The following BYOK instructions apply to dbt platform only. For CLI BYOK setup, refer to [Configure BYOK for dbt Wizard](../dbt-ai/wizard-byok.md).
 
@@ -49,16 +49,6 @@ Wizard Desktop and the Wizard CLI share the same providers and config.
 You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
 †Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms).
-
-#### dbt Copilot
-
-dbt Copilot supports different AI providers, including bring your own key (BYOK) on Starter, Enterprise, and Enterprise+ plans:
-
-* dbt Labs-managed OpenAI API key
-* BYOK OpenAI API key
-* BYOK Azure OpenAI API key
-
-Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported for dbt Copilot.
 
 ## Configure AI provider
 

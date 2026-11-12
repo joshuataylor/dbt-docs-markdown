@@ -39,7 +39,7 @@ dbt Copilot supports fewer providers than dbt Wizard, including bring your own k
 
 Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported for dbt Copilot.
 
-dbt Copilot is available for inline assistance in Studio IDE and Insights. Configure it separately from dbt Wizard if your team uses these inline AI experiences.
+dbt Copilot is available for inline assistance in Studio IDE. Configure it separately from dbt Wizard if your team uses this inline AI experience.
 
 **To configure a provider:**
 

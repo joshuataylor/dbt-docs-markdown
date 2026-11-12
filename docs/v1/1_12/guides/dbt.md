@@ -214,7 +214,7 @@ Now that your project works, open it in VS Code or Cursor and see dbt v2 in acti
 
 2. Select your `jaffle_shop` folder. If you don't add the root folder of the dbt project to the workspace, the [dbt language server](https://docs.getdbt.com/blog/dbt-fusion-engine-components#the-dbt-vs-code-extension-and-language-server) (LSP) will not run. The LSP enables features like autocomplete, hover info, and inline error highlights.
 
-3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the dbt v2 binary, confirming your project is open, checking dbt v2 compatibility, and registering. If you haven't already upgraded your project to dbt v2, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
+3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the dbt v2 binary, confirming your project is open, checking dbt v2 compatibility, and registering. If you haven't already upgraded your project to dbt v2, you can choose **Start with an agent** (for example, Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
 
 4. Open a model file to see the definition for the `orders` model. This is the model we'll use in all of the examples below.
 

@@ -10,8 +10,8 @@ If you are already running dbt v2, you must be on version `2.0.0-beta.66` or hig
 
 The dbt extension provides two ways to upgrade your project to dbt v2 from the **Get started** panel:
 
-* [**Agentic migration**:](#agentic-migration) Runs the dbt v1-to-dbt v2 migration with or AI agents. Select this option in the **Check dbt v2 compatibility** step. Requires or AI agents.
-* [**Manual CLI onboarding**:](#manual-cli-onboarding) Walks you through the upgrade in your terminal. Use this if you prefer the CLI or don't use or AI agents.
+* [**Agentic migration**:](#agentic-migration) Runs the dbt v1-to-dbt v2 migration with AI agents. Select this option in the **Check dbt v2 compatibility** step. Requires AI agents.
+* [**Manual CLI onboarding**:](#manual-cli-onboarding) Walks you through the upgrade in your terminal. Use this if you prefer the CLI or don't use AI agents.
 
 ## Agentic migration
 
