@@ -4,7 +4,7 @@ dbt v2 is here and is now generally available for the dbt platform.
 
 Enable the dbt v2 readiness panel
 
-The dbt v2 readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable dbt v2 readiness features](../../guides/prepare-v2-upgrade.md?step=2) for setup steps.
+The dbt v2 readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable dbt v2 readiness features](../../guides/prepare-v2-upgrade.md?step=3) for setup steps.
 
 If you have access to dbt Wizard, use the [dbt Wizard's dbt v2 migration workflow](../dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
