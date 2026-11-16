@@ -184,11 +184,11 @@ Released by: **github-merge-queue**Nov 14, 2026, 09:02 AM
 
 Automated promotion
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatest
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stable
 
-Released by: **fa-assistant**Nov 16, 2026, 04:14 PM
+Released by: **johnchappelledbt**Nov 16, 2026, 06:22 PM
 
-Auto-mirror: stable promoted to v2.0.12 by mishamsk (https\://github.com/dbt-labs/fs/actions/runs/43904304397)
+Automated ST snapshot
 
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
@@ -222,7 +222,7 @@ Automated promotion
 
 [v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stableextendedst-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **ddk-dbt**Nov 12, 2026, 10:37 PM
+Released by: **johnchappelledbt**Nov 16, 2026, 06:22 PM
 
 Automated ST snapshot
 
@@ -312,7 +312,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **ddk-dbt**Nov 12, 2026, 10:37 PM
+Released by: **johnchappelledbt**Nov 16, 2026, 06:22 PM
 
 Automated ST snapshot
 
