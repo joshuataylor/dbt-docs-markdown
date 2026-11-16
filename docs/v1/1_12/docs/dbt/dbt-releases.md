@@ -184,11 +184,11 @@ Released by: **github-merge-queue**Nov 14, 2026, 09:02 AM
 
 Automated promotion
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanary
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystable
 
-Released by: **mishamsk**Nov 13, 2026, 05:04 AM
+Released by: **mishamsk**Nov 16, 2026, 04:12 PM
 
-2.0.12 security patch (rustls-webpki)
+2.0.12 security patch (rustls-webpki 0.101 removal); on canary since 2026-11-13
 
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
