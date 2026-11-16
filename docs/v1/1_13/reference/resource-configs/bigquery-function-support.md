@@ -424,3 +424,6 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [VARIANCE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/statistical_aggregate_functions#variance)                                      | Built-in | ✓               |
 | [VECTOR\_INDEX.STATISTICS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/vectorindex_functions#vector_indexstatistics)                  | Built-in | —               |
 | [VECTOR\_SEARCH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#vector_search)                                          | Built-in | —               |
+| [ZSTD\_COMPRESS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/compression-functions#zstd_compress)                                     | Built-in | —               |
+| [ZSTD\_DECOMPRESS\_TO\_BYTES](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/compression-functions#zstd_decompress_to_bytes)             | Built-in | —               |
+| [ZSTD\_DECOMPRESS\_TO\_STRING](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/compression-functions#zstd_decompress_to_string)           | Built-in | —               |
