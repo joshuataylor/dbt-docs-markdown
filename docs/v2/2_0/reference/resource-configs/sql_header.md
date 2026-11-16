@@ -7,7 +7,7 @@ Unlike [pre-hooks and post-hooks](./pre-hook-post-hook.md), macros like [`ref`](
 The primary function of `set_sql_header` is fairly limited. It's intended to:
 
 * [Create UDFs](./sql_header.md#create-a-bigquery-temporary-udf)
-* [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery)
+* [Set script variables](./sql_header.md#declare-a-bigquery-script-variable) (BigQuery)
 * [Set temporary session parameters](./sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
 
 ## Models
@@ -164,4 +164,20 @@ models/my\_model.sql
 
 
 select yes_no_to_boolean(yes_no) from {{ ref('other_model') }}
+```
+
+### Declare a BigQuery script variable
+
+Use `set_sql_header` to declare a variable before the model query, then reference it in the query. `DECLARE`, in BigQuery's [procedural language](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language), takes a name, a type, and an optional `DEFAULT` value:
+
+models/my\_model.sql
+
+```sql
+{% call set_sql_header(config) %}
+DECLARE cutoff_date DATE DEFAULT DATE '2024-01-01';
+{% endcall %}
+
+select order_id, order_date
+from {{ ref('orders') }}
+where order_date >= cutoff_date
 ```
