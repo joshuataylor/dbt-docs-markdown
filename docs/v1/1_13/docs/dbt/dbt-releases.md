@@ -64,9 +64,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Latest
 
-[`v2.0.11`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this version in the dbt v2 changelog")
+[`v2.0.12`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this version in the dbt v2 changelog")
 
-2026-11-04
+2026-11-16
 
 ### All releases
 
@@ -184,11 +184,11 @@ Released by: **github-merge-queue**Nov 14, 2026, 09:02 AM
 
 Automated promotion
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystable
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatest
 
-Released by: **mishamsk**Nov 16, 2026, 04:12 PM
+Released by: **fa-assistant**Nov 16, 2026, 04:14 PM
 
-2.0.12 security patch (rustls-webpki 0.101 removal); on canary since 2026-11-13
+Auto-mirror: stable promoted to v2.0.12 by mishamsk (https\://github.com/dbt-labs/fs/actions/runs/43904304397)
 
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
