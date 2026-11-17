@@ -184,11 +184,11 @@ Released by: **github-merge-queue**Nov 14, 2026, 09:02 AM
 
 Automated promotion
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stable
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stableextended
 
-Released by: **johnchappelledbt**Nov 16, 2026, 06:22 PM
+Released by: **kczimm**Nov 17, 2026, 08:59 PM
 
-Automated ST snapshot
+catch up before customer freeze
 
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
