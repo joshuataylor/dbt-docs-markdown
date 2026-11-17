@@ -36,6 +36,15 @@ The `json` format outputs fully structured logs in the JSON format:
 
 (Applies to dbt v2.0 and later)
 
+In v2, timestamps are always UTC:
+
+| Log format          | Example                       | Precision   |
+| ------------------- | ----------------------------- | ----------- |
+| `default` or `text` | `13:09:50.561472`             | Microsecond |
+| `json`              | `2026-11-17T13:09:52.182227Z` | Microsecond |
+
+Only `json` shows the time zone, with the `Z` at the end (it means UTC).
+
 When the `LOG_FORMAT` is set explicitly to `text`, `json`, or `default`, it takes effect in both the console and log files. The `otel` value applies to console output only. Use `LOG_FORMAT_FILE` to set a different format for the log file (`text`, `json`, or `default`).
 
 Usage
