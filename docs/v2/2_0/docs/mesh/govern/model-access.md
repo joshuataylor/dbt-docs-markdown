@@ -51,6 +51,8 @@ There are some considerations to keep in mind when using model governance featur
 
 Some models are implementation details, meant for reference only within their group of related models. Other models should be accessible through the [ref](../../../reference/dbt-jinja-functions/ref.md) function across groups and projects. Models can set an [access modifier](https://en.wikipedia.org/wiki/Access_modifiers) to indicate their intended level of accessibility.
 
+![Nested boxes for group, project and other projects, showing which models each access level can be referenced from.](/img/docs/mesh/model-access-diagram.png?v=2 "Who can `ref` a model, based on its access level.")Who can \`ref\` a model, based on its access level.
+
 | Access    | Referenceable by                                                                         |
 | --------- | ---------------------------------------------------------------------------------------- |
 | private   | Same group                                                                               |

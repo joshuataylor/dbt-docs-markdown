@@ -232,6 +232,8 @@ select * from {{ ref("some_model") }}
 
 #### About built-in incremental strategies
 
+![Three before-and-after tables showing how append, merge and delete+insert handle an updated row and a new row.](/img/docs/building-a-dbt-project/incremental-strategies-diagram.png?v=2 "How `append`, `merge` and `delete+insert` alter existing and new rows.")How \`append\`, \`merge\` and \`delete+insert\` alter existing and new rows.
+
 ##### `append`
 
 The `append` strategy is simple to implement and has low processing costs. It inserts selected records into the destination table without updating or deleting existing data. This strategy doesn’t align directly with type 1 or type 2 [slowly changing dimensions](https://www.thoughtspot.com/data-trends/data-modeling/slowly-changing-dimensions-in-data-warehouse) (SCD). It differs from SCD1, which overwrites existing records, and only loosely resembles SCD2. While it adds new rows (like SCD2), it doesn’t manage versioning or track historical changes explicitly.

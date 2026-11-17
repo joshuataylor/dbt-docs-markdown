@@ -43,6 +43,8 @@ Hooks are snippets of SQL that are executed at different times:
 
   `dbt build`, `dbt compile`, `dbt docs generate`, `dbt run`, `dbt seed`, `dbt snapshot`, or `dbt test`.
 
+![A timeline showing on-run-start first, then pre-hook, build and post-hook for each model, then on-run-end.](/img/docs/building-a-dbt-project/hook-order-diagram.png?v=2 "The order dbt runs hooks during a single `dbt run`.")The order dbt runs hooks during a single \`dbt run\`.
+
 Hooks are a more-advanced capability that enable you to run custom SQL, and leverage database-specific actions, beyond what dbt makes available out-of-the-box with standard materializations and configurations.
 
 If (and only if) you can't leverage the [`grants` resource-config](../../reference/resource-configs/grants.md), you can use `post-hook` to perform more advanced workflows:

@@ -210,6 +210,8 @@ When you run the [`dbt snapshot` command](../../reference/commands/snapshot.md):
   * The `dbt_valid_to` column will be updated for any existing records that have changed.
   * The updated record and any new records will be inserted into the snapshot table. These records will now have `dbt_valid_to = null` or the value configured in `dbt_valid_to_current` (available in dbt v1.9+).
 
+![Three snapshot tables over time showing one order, with the previous row getting a valid-to date each time the status changes.](/img/docs/building-a-dbt-project/snapshot-row-history-diagram.png?v=2 "Each snapshot run closes the old row with a `dbt_valid_to` timestamp and adds a new current row.")Each snapshot run closes the old row with a \`dbt\_valid\_to\` timestamp and adds a new current row.
+
 Snapshots ignore full refresh
 
 Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A command such as `dbt build --full-refresh` or `dbt snapshot --full-refresh` that includes a snapshot node runs the snapshot as normal — it won't drop or recreate the snapshot table, so existing snapshot history is preserved.

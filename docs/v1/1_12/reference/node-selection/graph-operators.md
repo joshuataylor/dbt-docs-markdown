@@ -1,5 +1,7 @@
 # Graph operators
 
+![Four copies of the same project graph, each with a different set of models highlighted around one model.](/img/docs/reference/graph-operators-diagram.png?v=2 "The models each graph operator selects, starting from `my_model`.")The models each graph operator selects, starting from \`my\_model\`.
+
 ### The "plus" operator
 
 The `+` operator expands your selection to include ancestors (upstream dependencies) or descendants (downstream dependencies) of a resource. This operator works for individual models, tags, and other resources.
