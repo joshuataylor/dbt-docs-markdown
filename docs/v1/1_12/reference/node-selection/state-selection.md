@@ -20,6 +20,8 @@ dbt can leverage artifacts from a prior invocation as long as their file path is
 
 Together, the [`state`](./methods.md#state) selector and deferral enable ["slim CI"](../../best-practices/best-practice-workflows.md#run-only-modified-models-to-test-changes-slim-ci). We expect to add more features in future releases that can leverage artifacts passed to the `--state` flag.
 
+![A project graph where one edited model and its downstream models are highlighted, and all other models are greyed out.](/img/docs/reference/state-modified-diagram.png?v=2 "dbt compares your project to a production manifest, then builds only the changed models and everything downstream.")dbt compares your project to a production manifest, then builds only the changed models and everything downstream.
+
 ## Related docs
 
 * [Configure state selection](./configure-state.md)

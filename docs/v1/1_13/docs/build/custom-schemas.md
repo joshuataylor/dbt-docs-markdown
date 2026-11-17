@@ -168,6 +168,8 @@ Development/CI Environment (`target.name != 'prod'`)
 
 Similar to the regular macro, this approach guarantees that schemas from different environments will not collide.
 
+![A flowchart showing how dbt chooses a schema name based on whether a custom schema is set and which environment is running.](/img/docs/building-a-dbt-project/custom-schemas-diagram.png?v=2 "How dbt picks a schema in dev, CI, and production.")How dbt picks a schema in dev, CI, and production.
+
 dbt ships with a macro for this use case — called `generate_schema_name_for_env` — which is disabled by default. To enable it, add a custom `generate_schema_name` macro to your project that contains the following code:
 
 macros/generate\_schema\_name.sql
