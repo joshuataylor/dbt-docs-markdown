@@ -1,4 +1,4 @@
-# Connect Salesforce Data 360 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
+# Connect Salesforce Data 360 [Community-maintained](https://docs.getdbt.com/docs/community-adapters?version=2#adapter-designations "Go to https://docs.getdbt.com/docs/community-adapters?version=2#adapter-designations") dbt v2 compatible
 
 dbt platform
 

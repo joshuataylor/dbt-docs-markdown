@@ -20,7 +20,7 @@ dbt v1 connects to data platforms through adapters. Popular platforms include:
 * [Microsoft Fabric](./fabric-setup.md)
 * [Azure Synapse](./azuresynapse-setup.md)
 
-When you install dbt v1, you also need to install the specific adapter for your data platform. Adapters are maintained by dbt Labs, partners, and community members. Refer to [community adapters](../../community-adapters.md).
+When you install dbt v1, you also need to install the specific adapter for your data platform. Adapters are maintained by dbt Labs, partners, and community members. Refer to [available adapters](../../community-adapters.md).
 
 For the full list of supported platforms, refer to [Supported data platforms](../../supported-data-platforms.md).
 

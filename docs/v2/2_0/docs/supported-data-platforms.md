@@ -2,7 +2,7 @@
 
 dbt connects to and runs SQL against your database, warehouse, lake, or query engine. These SQL-speaking platforms are collectively referred to as *data platforms*. dbt connects with data platforms by using a dedicated adapter plugin for each. Plugins are built as Python modules that dbt v1 discovers if they are installed on your system. Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for details.
 
-Adapters are maintained by dbt Labs, partners, and community members. Refer to [community adapters](./community-adapters.md) for the combined list.
+Adapters are maintained by dbt Labs, partners, and community members. Refer to [available adapters](./community-adapters.md) for the combined list.
 
 ### Install an adapter
 

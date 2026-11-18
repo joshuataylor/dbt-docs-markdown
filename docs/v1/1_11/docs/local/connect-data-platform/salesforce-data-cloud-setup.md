@@ -1,4 +1,4 @@
-# Salesforce Data 360 setup [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Salesforce Data 360 setup [Community-maintained](https://docs.getdbt.com/docs/community-adapters?version=2#adapter-designations "Go to https://docs.getdbt.com/docs/community-adapters?version=2#adapter-designations")
 
 Local development
 

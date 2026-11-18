@@ -1,4 +1,4 @@
-# Community adapters
+# Available adapters
 
 (Applies to dbt v1.99 and earlier)
 
@@ -73,12 +73,11 @@ dbt platformdbt v1
 
 #### ClickHouse
 
-* [Set up in the dbt platform](./platform/connect-data-platform/connect-clickhouse.md)
 * [Install with dbt v1](./local/connect-data-platform/clickhouse-setup.md)
 
 [![](https://badge.fury.io/py/dbt-clickhouse.svg)](https://badge.fury.io/py/dbt-clickhouse)
 
-dbt platformdbt v1
+dbt v1
 
 ![](/img/icons/databricks.svg)
 
