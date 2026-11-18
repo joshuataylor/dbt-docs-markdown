@@ -34,7 +34,7 @@ For more detailed information on our security practices, read our [Security page
 
 dbt's primary role is as a data processor, not a data store. The dbt application enables users to dispatch SQL to the warehouse for transformation. However, users can post SQL that returns customer data into the dbt application. This data never persists and will only exist in memory on the instance for the duration of the session. To lock down customer data correctly, proper data warehouse permissions must be applied to prevent improper access or storage of sensitive data.
 
-Some data warehouse providers offer advanced security features that can be leveraged in dbt. [Private connections](../secure/private-connectivity/private-connectivity.md) allows supported data platforms on AWS to communicate with dbt without the traffic traversing the public internet. [Snowflake](../manage-access/set-up-snowflake-oauth.md) and [BigQuery](../manage-access/set-up-bigquery-oauth.md) offer Oauth integration which adds a layer of security for the data platforms (Enterprise-tier plan only).
+Some data warehouse providers offer advanced security features that can be leveraged in dbt. [Private connections](../secure/private-connectivity/private-connectivity.md) allows supported data platforms to communicate with dbt without the traffic traversing the public internet. [Snowflake](../manage-access/set-up-snowflake-oauth.md) and [BigQuery](../manage-access/set-up-bigquery-oauth.md) offer Oauth integration which adds a layer of security for the data platforms (Enterprise-tier plan only).
 
 ### Git sync
 
