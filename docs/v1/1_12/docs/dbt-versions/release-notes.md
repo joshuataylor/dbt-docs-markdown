@@ -34,6 +34,11 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 * **New:** Use Claude Haiku 5.5 and Claude Sonnet 5.5 through Databricks in dbt Wizard.
 * **New:** dbt Wizard now automatically switches to AWS Bedrock if an AI model provider (OpenAI, Anthropic, or Fireworks) has an outage, so you can keep working. Available for dbt platform accounts hosted on AWS that use dbt managed models. Learn more about [automatic backup during outages](../dbt-ai/pricing-billing/overview.md#automatic-backup-during-outages).
+* **Enhancement:** In the full-screen dbt Wizard, you can resize the conversation sidebar, collapse it with **Hide conversations**, and reopen it with **Show conversations**. Hover over a truncated chat title to see the full title. Older chats now load as you scroll, without reloading the whole list.
+* **Enhancement:** dbt Wizard now uses the built-in [dbt information schema](../build/dbt-information-schema.md) skill to answer questions about your project, instead of reading product docs. Refer to [Built-in dbt skills](../dbt-ai/wizard-platform-skills.md#built-in-dbt-skills).
+* **Fix:** Conversations that switched to AWS Bedrock during a provider outage no longer fail on later messages. Conversations already affected work again on your next message. Learn more about [automatic backup during outages](../dbt-ai/pricing-billing/overview.md#automatic-backup-during-outages).
+* **Fix:** You can now [bring your own Azure OpenAI key](../platform/wizard-byok-platform.md) with the endpoint the Azure portal gives you, even when it includes `api-version=v1`. Previously, setup failed with "Could not complete the AI request."
+* **Fix:** When dbt Wizard can't compare results, for example because no compare results exist yet, the chat now shows the actual reason, instead of "Could not parse compare results."
 * **Fix:** dbt Wizard validation now works with Azure, Snowflake, Gemini, and Databricks models.
 * **Fix:** dbt Wizard no longer adds a stray file to new environments or your commits. Creating and restoring environments also works in repositories that already track that file.
 * **Fix:** When dbt Wizard prepares validation, fatal dbt platform CLI errors now show as readable messages instead of raw JSON.
