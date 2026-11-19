@@ -88,9 +88,14 @@ Then each developer on the account needs to [relink their GitHub profile](#relin
 
 ### Register a GitHub application
 
-Repo availability
+Use the same GitHub app for all repos
 
-dbt platform doesn’t support concurrent integrations with public and private GitHub repositories. To register a GitHub App, you need a private repository. Disconnect your configured public repository before you follow the steps in this section.
+All repos that use the GitHub app clone strategy must use the same GitHub app, on the same GitHub server. Each dbt account supports only one, so you can't:
+
+* Use both the shared dbt app and your own custom app
+* Connect repos from more than one GitHub server
+
+Repo visibility (public, internal, or private) doesn't affect this. To connect a repo that the app can't reach, use a [git URL and deploy key](./import-a-project-by-git-url.md) instead.
 
 We recommend creating the app in your GitHub organization instead of a personal account to ensure the connection doesn't break should a person leave. For the full walkthrough on the GitHub side, check out GitHub's guide to [registering a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 

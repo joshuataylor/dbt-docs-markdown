@@ -8,23 +8,38 @@ For the Databricks version of this page, refer to [Databricks setup](#databricks
 
 note
 
-See [Databricks configuration](#databricks-configs) for the Databricks version of this page.
+For the Databricks version of this page, refer to [Databricks configuration](./databricks-configs.md).
 
 ## Configuring tables
 
 When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](../model-configs.md).
 
-| Option                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Required?                               | Example                                                                                            |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| file\_format                           | The file format to use when creating tables (`parquet`, `delta`, `iceberg`, `hudi`, `csv`, `json`, `text`, `jdbc`, `orc`, `hive` or `libsvm`).                                                                                                                                                                                                                                                                                                                     | Optional                                | `parquet`                                                                                          |
-| location\_root [1](#user-content-fn-1) | The created table uses the specified directory to store its data. The table alias is appended to it.                                                                                                                                                                                                                                                                                                                                                               | Optional                                | `/mnt/root`                                                                                        |
-| partition\_by                          | Partition the created table by the specified columns. A directory is created for each partition.                                                                                                                                                                                                                                                                                                                                                                   | Optional                                | `date_day`                                                                                         |
-| clustered\_by                          | Each partition in the created table will be split into a fixed number of buckets by the specified columns.                                                                                                                                                                                                                                                                                                                                                         | Optional                                | `country_code`                                                                                     |
-| buckets                                | The number of buckets to create while clustering                                                                                                                                                                                                                                                                                                                                                                                                                   | Required if `clustered_by` is specified | `8`                                                                                                |
-| tblproperties                          | The table properties configure table behavior. Properties differ depending on the file format, see reference docs ([Iceberg](https://iceberg.apache.org/docs/latest/configuration/#table-properties), [Parquet](https://spark.apache.org/docs/3.5.4/sql-data-sources-parquet.html#data-source-option), [Delta](https://docs.databricks.com/aws/en/delta/table-properties#delta-table-properties), [Hudi](https://hudi.apache.org/docs/sql_ddl/#table-properties)). | Optional                                | `# Iceberg Example
-tblproperties:
-  read.split.target-size: 268435456
-  commit.retry.num-retries: 10` |
+| Option                                 | Description                                                                                                                                                                                                                                                                                                                                   | Required?                               | Example                                                               |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------- |
+| file\_format                           | The file format to use when creating tables (`parquet`, `delta`, `iceberg`, `hudi`, `csv`, `json`, `text`, `jdbc`, `orc`, `hive` or `libsvm`).                                                                                                                                                                                                | Optional                                | `parquet`                                                             |
+| location\_root [1](#user-content-fn-1) | The created table uses the specified directory to store its data. The table alias is appended to it.                                                                                                                                                                                                                                          | Optional                                | `/mnt/root`                                                           |
+| partition\_by                          | Partition the created table by the specified columns. A directory is created for each partition.                                                                                                                                                                                                                                              | Optional                                | `date_day`                                                            |
+| clustered\_by                          | Each partition in the created table will be split into a fixed number of buckets by the specified columns.                                                                                                                                                                                                                                    | Optional                                | `country_code`                                                        |
+| buckets                                | The number of buckets to create while clustering                                                                                                                                                                                                                                                                                              | Required if `clustered_by` is specified | `8`                                                                   |
+| tblproperties                          | The table properties configure table behavior or store your own metadata. Properties differ by file format. Refer to [Iceberg](https://iceberg.apache.org/docs/latest/configuration/#table-properties), [Delta Lake](https://docs.delta.io/latest/table-properties.html), and [Hudi](https://hudi.apache.org/docs/sql_ddl/#table-properties). | Optional                                | `tblproperties:
+team: analytics_engineering
+review_interval_days: "90"` |
+
+## Setting table properties
+
+Set [table properties](https://spark.apache.org/docs/latest/sql-ref-syntax-ddl-create-table-datasource.html) for tables using `tblproperties`:
+
+with\_table\_properties.sql
+
+```sql
+{{ config(
+    tblproperties={
+      "write.metadata.metrics.default": "counts",
+      "write.metadata.metrics.column.amount": "full",
+      "write.metadata.metrics.column.status": "full"      
+    }
+ ) }}
+```
 
 ## Incremental models
 
@@ -237,9 +252,9 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
 
 ## Persisting model descriptions
 
-Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](./persist_docs.md).
+Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, refer to [persist\_docs](./persist_docs.md).
 
-When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
+When the `persist_docs` option is configured appropriately, model descriptions appear in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
 
 ## Always `schema`, never `database`
 
