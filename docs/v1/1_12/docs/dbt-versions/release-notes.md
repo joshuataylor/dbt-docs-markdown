@@ -32,6 +32,7 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 ##### Wizard
 
+* **New:** In the Studio IDE, dbt Wizard Desktop, and the Wizard CLI, dbt Wizard uses [MetricFlow](../build/about-metricflow.md) to build the SQL for a metric from the metric definition, including its filters. In the dbt Wizard CLI and Wizard Desktop, it runs that SQL in your warehouse. The SQL is written in that warehouse's syntax on Snowflake, BigQuery, Redshift, Databricks, and DuckDB. On other warehouses, such as Postgres, the SQL is written for DuckDB and may not run unchanged. Refer to [How dbt Wizard queries metrics](../dbt-ai/wizard-how-it-works.md#how-dbt-wizard-queries-metrics).
 * **New:** Use Claude Haiku 5.5 and Claude Sonnet 5.5 through Databricks in dbt Wizard.
 * **New:** dbt Wizard now automatically switches to AWS Bedrock if an AI model provider (OpenAI, Anthropic, or Fireworks) has an outage, so you can keep working. Available for dbt platform accounts hosted on AWS that use dbt managed models. Learn more about [automatic backup during outages](../dbt-ai/pricing-billing/overview.md#automatic-backup-during-outages).
 * **Enhancement:** In the full-screen dbt Wizard, you can resize the conversation sidebar, collapse it with **Hide conversations**, and reopen it with **Show conversations**. Hover over a truncated chat title to see the full title. Older chats now load as you scroll, without reloading the whole list.
@@ -86,7 +87,6 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 * **New:** You can now configure BigQuery query reservations at the model and connection levels.
 * **New:** Two new environment variables, `DBT_CLOUD_LOGIN_HOST` and `DBT_CLOUD_LOGIN_ACCOUNT_ID`, let `dbt login` authenticate through an account host's `/oauth/authorize` endpoint instead of the registration page, enabling single sign-on (SSO) accounts that cannot route through the registration page.
-* **New:** The metrics tool can show the SQL for a metric without running it. The SQL matches your warehouse instead of always using DuckDB.
 * **Fix:** Snowflake seeds now honor the `transient` config instead of silently creating a permanent table.
 * **Fix:** Comparing changes in [Advanced CI](../deploy/advanced-ci.md) no longer fails when a Snowflake table has a vector column.
 * **Fix:** Snowflake private keys saved with Windows line endings now decode correctly.
