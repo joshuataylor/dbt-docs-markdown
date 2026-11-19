@@ -1,4 +1,4 @@
-# About state-aware orchestration [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About state-aware orchestration [Private Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Enterprise, Enterprise+
 
@@ -73,7 +73,7 @@ When a table is deleted in the warehouse:
 
 This behavior ensures consistency between the dbt state and the actual warehouse state. It also reduces the need to manually clear cache or disable state-aware orchestration when models are modified outside of dbt.
 
-## Efficient testing in state-aware orchestration [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Efficient testing in state-aware orchestration [Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Private beta feature
 

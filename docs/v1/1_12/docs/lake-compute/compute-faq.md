@@ -1,16 +1,16 @@
-# Lake Compute FAQs [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Lake Compute FAQs [Public Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Lake Compute is in private beta
+Lake Compute follows Fivetran release phases
 
-To request access, fill out the [Lake Compute signup form](https://docs.google.com/forms/d/e/1FAIpQLSdWXHU3VFqq1t8GVAA2BMfY_AfeVJH26OXJFlNwXiVv4pcuXQ/viewform). Lake Compute is in active development and likely to change. Breaking changes may occur, documentation may be incomplete, technical support may be limited, and no service-level agreement covers it during beta. Refer to [Private beta limitations](../lake-compute.md#private-beta-limitations) before you plan real work around it.
+Lake Compute is in Public Preview under the [Fivetran release phases](https://fivetran.com/docs/core-concepts#releasephases).
 
-These questions cover how Lake Compute fits into an existing dbt project during private beta. For an introduction to the product and its requirements, refer to [About Lake Compute](../lake-compute.md).
+These questions cover how Lake Compute fits into an existing dbt project during public preview. For an introduction to the product and its requirements, refer to [About Lake Compute](../lake-compute.md).
 
 ## Setup and requirements
 
  Do I need to migrate my ingestion pipelines to Fivetran or MDLS?
 
-No. You don't need to migrate your existing ingestion pipelines or configure Fivetran connectors to load into an MDLS destination. During private beta, Lake Compute uses a Fivetran account and an MDLS destination to provision and authenticate access. Your existing ingestion pipelines stay in place.
+No. You don't need to migrate your existing ingestion pipelines or configure Fivetran connectors to load into an MDLS destination. During public preview, Lake Compute uses a Fivetran account and an MDLS destination to provision and authenticate access. Your existing ingestion pipelines stay in place.
 
  Do I need to set an environment variable to use Lake Compute?
 
@@ -72,23 +72,23 @@ Reconfigure the model to run on your primary data warehouse. All the data remain
 
 ## Pricing
 
- Does Lake Compute cost anything during private beta?
+ Does Lake Compute cost anything during public preview?
 
-No. Lake Compute is free during private beta.
+No. Lake Compute is free during public preview.
 
 ## Support
 
- Is Lake Compute covered by a service-level agreement during private beta?
+ Is Lake Compute covered by a service-level agreement during public preview?
 
-No. No service-level agreement (SLA) covers Lake Compute during private beta. Use Lake Compute for evaluation and feedback only, and expect limited technical support. Don't treat beta workloads as production-critical unless your team has evaluated the risks and has a fallback plan.
+No. No service-level agreement (SLA) covers Lake Compute during public preview. Use Lake Compute for evaluation and feedback only, and expect limited technical support. Don't treat non GA workloads as production-critical unless your team has evaluated the risks and has a fallback plan.
 
-For the full list of what Lake Compute doesn't support during private beta, refer to [Private beta limitations](../lake-compute.md#private-beta-limitations).
+For the full list of what Lake Compute doesn't support during public preview, refer to [Public preview limitations](../lake-compute.md?version=2#limitations).
 
  What should I include in a support ticket?
 
 Include enough detail for the support team to reproduce and route the issue:
 
-* State that the issue involves **Lake Compute private beta**.
+* State that the issue involves **Lake Compute public preview**.
 * Your MDLS destination name and cloud region. Don't include secrets, private keys, or access tokens.
 * Whether the same model succeeds when you run it on your warehouse.
 * Minimal SQL or a reproducible example, with sensitive values removed.
@@ -97,11 +97,11 @@ Include enough detail for the support team to reproduce and route the issue:
 
 Start with the team that owns the component where the failure occurs:
 
-| Contact                                  | Examples                                                                                                                                                                                                                                                                                                     |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **dbt Support**                          | dbt project parsing or compilation; dbt v2 or Fusion behavior; model selection; DAG or `ref` behavior; job orchestration; dbt-side connection or model configuration; a model runs on the warehouse, but dbt doesn't route it to Lake Compute as expected.                                                   |
-| **Fivetran Support**                     | Fivetran account or MDLS setup; MDLS destination health; write credentials; the MDLS-managed catalog; storage or catalog provisioning performed through Fivetran; a Fivetran service error.                                                                                                                  |
-| **Either team, if ownership is unclear** | Lake Compute execution, authentication, networking, or a failure at the boundary between dbt, Lake Compute, MDLS, and the warehouse. Identify the ticket as a Lake Compute private beta issue and include both account IDs so support can route it. Don't open duplicate tickets unless support asks you to. |
+| Contact                                  | Examples                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **dbt Support**                          | dbt project parsing or compilation; dbt v2 or Fusion behavior; model selection; DAG or `ref` behavior; job orchestration; dbt-side connection or model configuration; a model runs on the warehouse, but dbt doesn't route it to Lake Compute as expected.                                                     |
+| **Fivetran Support**                     | Fivetran account or MDLS setup; MDLS destination health; write credentials; the MDLS-managed catalog; storage or catalog provisioning performed through Fivetran; a Fivetran service error.                                                                                                                    |
+| **Either team, if ownership is unclear** | Lake Compute execution, authentication, networking, or a failure at the boundary between dbt, Lake Compute, MDLS, and the warehouse. Identify the ticket as a Lake Compute public preview issue and include both account IDs so support can route it. Don't open duplicate tickets unless support asks you to. |
 
 ## Related docs
 

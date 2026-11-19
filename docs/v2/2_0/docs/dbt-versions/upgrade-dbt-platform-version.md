@@ -67,7 +67,7 @@ dbt Labs has introduced the new [dbt v2](../introduction.md), a ground-up rebuil
   * Key pair using a modern PKCS#8 method
   * MFA
 
-   ClickHouse[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   ClickHouse[Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Username / Password
 

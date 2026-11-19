@@ -31,7 +31,7 @@ When specifying a GitHub repository in the dbt platform using the UI, API, or Te
 dbt connects to GitHub through a GitHub App. You have two options:
 
 * [Shared dbt application (default)](#installing-dbt-in-your-github-account), available to any org connecting to `github.com`.
-* Your own [custom GitHub application](#custom-github-application), available in private beta to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server or GitHub with EU data residency. Reach out to your account manager to join the beta. [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* Your own [custom GitHub application](#custom-github-application), available in private beta to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server or GitHub with EU data residency. Reach out to your account manager to join the beta. [Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 You can use one GitHub application per dbt account, not one per project.
 
@@ -71,7 +71,7 @@ If you are your GitHub organization owner, you can also configure the dbt GitHub
 
 ![Configuring the dbt app](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/configure-github.png?v=2 "Configuring the dbt app")Configuring the dbt app
 
-## Custom GitHub application [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Custom GitHub application [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Available in private beta
 

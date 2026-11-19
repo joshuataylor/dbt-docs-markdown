@@ -1,4 +1,4 @@
-# Connect Snowflake [Generally available (GA)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
+# Connect Snowflake [Generally Available (GA)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
 
 dbt platform
 

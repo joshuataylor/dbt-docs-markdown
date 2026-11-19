@@ -150,7 +150,7 @@ To change the default value:
 
 These custom values will apply to all future cost calculations for this connection. If you clear these values, they will reset to the default warehouse pricing.
 
-## Configure custom relation overrides (optional) [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Configure custom relation overrides (optional) [Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Private beta feature
 

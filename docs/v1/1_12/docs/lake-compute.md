@@ -1,11 +1,10 @@
-# About Lake Compute [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About Lake Compute [Public Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Lake Compute is in private beta
+Lake Compute uses Fivetran release phases
 
-Lake Compute is in active development and likely to change.
+These docs use the [Fivetran release phases](https://fivetran.com/docs/core-concepts#releasephases). Lake Compute is in Public Preview.
 
-* Are you ready to get started? Fill out the [Lake Compute signup form](https://docs.google.com/forms/d/e/1FAIpQLSdWXHU3VFqq1t8GVAA2BMfY_AfeVJH26OXJFlNwXiVv4pcuXQ/viewform) to request access or ask for support in a specific region.
-* Want to chat to see if Lake Compute is right for your team before signing up? Book a meeting with us to talk through how Lake Compute fits your use case. [Book a meeting](https://calendly.com/data-lakes-team/lake-compute-meeting?utm_source=docs\&utm_medium=lake-compute)
+Want to chat to see if Lake Compute is right for your team? Book a meeting with us to talk through how Lake Compute fits your use case. [Book a meeting](https://calendly.com/data-lakes-team/lake-compute-meeting?utm_source=docs\&utm_medium=lake-compute)
 
 Lake Compute is a hosted, serverless compute engine for running dbt models, powered by DuckDB and Apache Iceberg. It's designed to cut the cost of your dbt transformations while keeping one dbt project, one DAG, and one `ref` graph.
 
@@ -14,7 +13,7 @@ Lake Compute supports two execution models:
 * **As a "sidecar" alongside your existing data warehouse, such as Snowflake or Databricks:** Start small by moving some models to Lake Compute and keeping the rest in your primary warehouse. You choose the execution engine model by model, and you can move more models over time.
 * **As the primary compute adapter, along with an Iceberg catalog, such as Fivetran MDLS:** Adopt completely by running all of your models on Lake Compute.
 
-Some workloads, such as those that use warehouse-native AI functions, may still belong on your primary warehouse. Refer to [Private beta limitations](#private-beta-limitations) for what Lake Compute doesn't support yet.
+Some workloads, such as those that use warehouse-native AI functions, may still belong on your primary warehouse. Refer to [Public preview limitations](#limitations) for what Lake Compute doesn't support yet.
 
 ## Why use Lake Compute
 
@@ -24,16 +23,19 @@ Lower transformation costs, with flexibility. Move as many or as few models as y
 
 To set up Lake Compute, you need:
 
-* Enrollment in the Lake Compute private beta. Request access with the [Lake Compute signup form](https://docs.google.com/forms/d/e/1FAIpQLSdWXHU3VFqq1t8GVAA2BMfY_AfeVJH26OXJFlNwXiVv4pcuXQ/viewform). The **Compute** tab doesn't appear on your MDLS destination until your account is enrolled.
 * A Fivetran account. You can create a new Fivetran account, and use it indefinitely, since there is not yet billing for MDLS or Lake Compute; or trial full features (including connectors) for 14 days.
-* An existing Fivetran Managed Data Lake Service (MDLS) destination — which includes an MDLS Iceberg catalog (Polaris) and an Amazon S3 storage bucket — already in a supported AWS region, or create a new one with a storage bucket in a supported AWS region. Lake Compute, your storage bucket, and (if using Lake Compute as "sidecar") your primary data must all be in the same region. Lake Compute currently supports AWS regions `us-east-1` and `us-west-2`. If you need a region that isn’t listed, complete the [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSdWXHU3VFqq1t8GVAA2BMfY_AfeVJH26OXJFlNwXiVv4pcuXQ/viewform) to request it.
+* An existing Fivetran Managed Data Lake Service (MDLS) destination — which includes an MDLS Iceberg catalog (Polaris) and an Amazon S3 storage bucket — already in a supported AWS region, or create a new one with a storage bucket in a supported AWS region. Lake Compute, your storage bucket, and (if using Lake Compute as "sidecar") your primary data must all be in the same region. Lake Compute currently supports all Fivetran AWS and GCP regions.
 * Permission to configure the required cloud storage, catalog integration, warehouse access, authentication, and—where applicable—network policy allowlisting.
 
 After you complete setup, you need a dbt project running on **dbt v2**. You also need time to identify suitable models, adapt SQL where necessary, and validate results.
 
 ### Supported warehouses
 
-Snowflake is the only warehouse supported during private beta. Early Databricks support is available to a limited number of design partners. To evaluate Lake Compute with Databricks, fill out the [Lake Compute signup form](https://docs.google.com/forms/d/e/1FAIpQLSdWXHU3VFqq1t8GVAA2BMfY_AfeVJH26OXJFlNwXiVv4pcuXQ/viewform) and name Databricks as your platform.
+The currently supported data warehouses are:
+
+* Snowflake
+* BigQuery
+* Databricks
 
 In "sidecar" execution, Lake Compute runs alongside your warehouse, reading from and writing/propagating back to the warehouse’s managed Iceberg catalog (Snowflake Horizon or Databricks Unity).
 
@@ -70,9 +72,9 @@ One variable gates every surface that selects an adapter:
 
 For the dbt platform, set this as an environment variable on the environment. Refer to [Onboarding to Lake Compute](./lake-compute/compute-onboarding.md#dbt-platform).
 
-## Private beta limitations
+## Public preview limitations
 
-The following are not supported or are intentionally limited during private beta:
+The following are not supported or are intentionally limited during public preview:
 
 * Projects running on dbt v1
 * JDBC or ODBC access and direct BI tool connections.
@@ -81,13 +83,11 @@ The following are not supported or are intentionally limited during private beta
 * Automatic SQL dialect translation.
 * Distributed or multi-node execution.
 * Large two-sided joins and other workloads that require distributed processing.
-* GCP and Azure storage.
-* BigQuery integration.
-* AWS regions other than the currently supported beta regions.
+* Azure regions and storage.
 
 Additional capabilities and regions may be introduced over time, but roadmap items and dates are not commitments.
 
-### Which dbt framework features does Lake Compute support during private beta?
+### Which dbt framework features does Lake Compute support during public preview?
 
 You can:
 

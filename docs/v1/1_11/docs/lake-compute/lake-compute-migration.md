@@ -1,4 +1,8 @@
-# Migrate models to Lake Compute [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Migrate models to Lake Compute [Public Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Lake Compute uses Fivetran release phases
+
+These docs use the [Fivetran release phases](https://fivetran.com/docs/core-concepts#releasephases). Lake Compute is in Public Preview.
 
 dbt offers a native tool to help you move your dbt models to Lake Compute. Take advantage of the costs savings by moving as few or as many supported models as you want. It's currently supported only for Snowflake, but support for more data warehouses will be enabled soon.
 
@@ -83,4 +87,4 @@ Take a baseline with `dbt init lakecompute --baseline` *before* you switch, then
 These considerations apply whether you migrate with an agent or manually.
 
 * `--history-days` sets how much query history the Size step reads. In our testing, reading 30 days of history took about 15 minutes on a large account, so start with a smaller value, such as `--history-days 1`.
-* The tool works on the models it can move. It doesn't change models that use features Lake Compute doesn't support yet. Refer to [Private beta limitations](../lake-compute.md#private-beta-limitations).
+* The tool works on the models it can move. It doesn't change models that use features Lake Compute doesn't support yet. Refer to [Public preview limitations](../lake-compute.md#limitations).
