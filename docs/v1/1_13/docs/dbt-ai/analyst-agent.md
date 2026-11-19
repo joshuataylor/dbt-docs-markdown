@@ -1,14 +1,12 @@
-# dbt Copilot in Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# dbt Copilot in Insights [No longer sold](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Enterprise, Enterprise+
 
+dbt Copilot is no longer sold
+
+Starting November 19, 2026, Copilot is no longer being sold or enabled for new dbt platform accounts and this documentation is archived. Existing customers can continue to use Copilot. For a powerful and robust AI agent purpose-built for dbt, check out [dbt Wizard](../platform/wizard-overview.md).
+
 dbt Copilot in Insights lets you chat with your data and get accurate answers powered by the [dbt Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md). Unlike generic AI chat interfaces, dbt Wizard in Insights provides consistent, explainable results with transparent SQL, lineage, and data policies.
-
-dbt Wizard is the recommended agent for dbt work
-
-dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
-
-Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](./wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 ## Prerequisites
 

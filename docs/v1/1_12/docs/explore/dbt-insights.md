@@ -1,6 +1,10 @@
-# About dbt Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About dbt Insights [No longer sold](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt platform | Enterprise, Enterprise+
+
+dbt Insights is no longer sold
+
+Starting November 19, 2026, Insights is no longer being sold or enabled for new dbt platform accounts and this documentation is archived. Existing customers can continue to use Insights. For AI-assisted data exploration, we recommend [getting started with Wizard Desktop](../dbt-ai/wizard-desktop.md). Ask questions in plain language and get charts and tables informed by your dbt project.
 
 Learn how to query data with Insights and view documentation in Catalog.
 
