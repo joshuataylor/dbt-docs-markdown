@@ -43,7 +43,7 @@ You don't need the `Developer` permission set just to connect. Ask your admin to
 | Explore models and lineage, or generate SQL with `text_to_sql` | Metadata read access on the selected project. `text_to_sql` also requires AI features to be enabled.                                           |
 | Use Semantic Layer tools                                       | Semantic Layer configuration read access on the selected project.                                                                              |
 | Run plain SQL with `execute_sql`                               | Semantic Layer configuration read access on the project, a development environment, and warehouse credentials. Connect with OAuth or a PAT.    |
-| Run SQL containing dbt Jinja, such as `ref()` or `source()`    | The requirements for plain SQL, plus develop access. Production deferral also requires metadata read access.                                   |
+| Run SQL containing `ref()` calls with `execute_sql`            | The requirements for plain SQL, plus develop access. Production deferral also requires metadata read access.                                   |
 | Read or manage jobs and runs                                   | The corresponding jobs or runs read or write permission for the target resource. Unfiltered account-wide listings require account-wide access. |
 
 For available permission sets, refer to [Enterprise permissions](../platform/manage-access/enterprise-permissions.md) and [Service tokens](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens). PATs inherit the permissions of the user who created them. OAuth also restricts access to the scopes and projects you consented to.
