@@ -1,4 +1,4 @@
-# Data health signals [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Data health signals
 
 dbt platform | Starter, Enterprise, Enterprise+
 

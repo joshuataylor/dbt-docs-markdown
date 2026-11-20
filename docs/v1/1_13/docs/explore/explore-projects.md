@@ -60,7 +60,7 @@ If your organization works in both dbt v1 and Cloud, you can unify these workflo
 
 ## Catalog overview
 
-[Global navigation](./global-navigation.md) [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+[Global navigation](./global-navigation.md)
 
 Catalog introduces the ability to widen your search by including dbt resources (models, seeds, snapshots, sources, exposures, and more) across your entire account. This broadens the results returned and gives you greater insight into all the assets across your dbt projects. Learn more in [Global navigation](./global-navigation.md) or in our [video overview](https://www.loom.com/share/ae93b3d241cd439fbe5f98f5e6872113?).
 
