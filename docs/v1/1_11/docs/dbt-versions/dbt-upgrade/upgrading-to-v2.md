@@ -673,7 +673,7 @@ For more information, see [config.meta\_get()](../../../reference/dbt-jinja-func
 
 * v2 supports exporting traces and logs in JSONL, Parquet, and OTLP formats. For details, refer to [dbt v2 telemetry and observability](../../../reference/telemetry-observability.md).
 * The v2 compiler parses and type-checks [Snowflake model function](https://docs.snowflake.com/en/guides-overview-ml-functions) calls (`model!method(...)`), accepting any arguments and treating results as `VARIANT`. Cast the result to the type you need (for example, `model!predict(col)::float`).
-* In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) opens your browser to sign in to dbt platform or create a free account. Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
+* In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) opens your browser to sign in to dbt platform or create an account. [All dbt plans](https://www.getdbt.com/pricing) support v2. Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
 
 ## Package support
 

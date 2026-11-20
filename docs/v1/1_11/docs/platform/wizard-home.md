@@ -105,6 +105,14 @@ The home tab and Studio IDE support different parts of the development workflow:
 
 For most development workflows, you can move between the two surfaces freely. Use the home tab to investigate and generate, and drop into Studio IDE when you need direct control.
 
+## Background chats
+
+dbt Wizard chats keep running in the background. If you start a chat, then switch tabs, open another page, or close your laptop, dbt Wizard keeps working, and your results are ready when you're back.
+
+* Pick up where you left off: Open any chat from your chat history to see its full conversation and current state. If it's still running, you see it live.
+* Check status at a glance: Each active chat displays a color badge telling you if a chat is running, unread, idle, done, waiting for input, or failed.
+* Run multiple chats at once: Start more than one chat across tabs and windows. Chats using any mode keep running in the background while you work in another.
+
 ## Choose a model
 
 With dbt managed inference, you can switch between the supported managed models at any using the model picker dropdown next to the **Agent mode** control (where you choose **Ask for approval** or **Edit files automatically**).

@@ -10,7 +10,7 @@ Billing and spend controls are shared across the dbt platform and local CLI. Bot
 
 * Account admin or billing admin permissions to start a trial or change a spend limit.
 * A dbt account to manage usage, billing, spend limits, and more.
-  * If you don't have one, you can create one during setup. No paid dbt platform plan required. This is generally useful for users on self-hosted dbt running the CLI.
+  * If you don't have one, you can create one during setup. Features are available across [all dbt plans](https://www.getdbt.com/pricing). This is generally useful for users on self-hosted dbt running the CLI.
 * A business email address. Personal domains such as Gmail aren't eligible for a trial.
 
 ## What you get by plan
@@ -32,7 +32,7 @@ Every new account gets free dbt Wizard usage credits to start. What you get, and
 
 Using dbt Wizard with a self-hosted dbt project?
 
-The trial is opt-in here too. In the CLI, running `dbt login` (or `wizard login`) is how you opt in. In Wizard Desktop, signing in to a dbt acount during onboarding does the same. Either way, you get a free dbt account and the same 30-day trial, and that account is where you manage usage and spend limits.
+The trial is opt-in here too. In the CLI, running `dbt login` (or `wizard login`) is how you opt in. In Wizard Desktop, signing in to a dbt account during onboarding does the same. Either way, you get a free dbt account and the same 30-day trial, and that account is where you manage usage and spend limits.
 
 Everything on this page describes dbt managed billing — usage that dbt Labs bills through your dbt account. If you bring your own key, your AI provider bills you directly and none of this applies. Refer to [BYOK for dbt platform](../../platform/wizard-byok-platform.md) or [BYOK for the CLI](../wizard-byok.md) instead.
 

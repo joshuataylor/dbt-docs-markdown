@@ -97,7 +97,9 @@ In the platform, a session is a saved conversation in the dbt Wizard panel or ho
 * Continue an earlier investigation, refactor, or validation task
 * Review prior prompts, responses, and proposed changes in the conversation list
 
-Start a new session with **Start new dbt Wizard chat** in the panel. Chat history is retained for 90 days. Refreshing the same browser tab keeps your active session; opening a new tab starts empty.
+Start a new session by clicking **New chat** in the panel. Chat history is retained for 90 days. Chats keep running in the background, so you can refresh, switch tabs, or close the page and pick the chat back up from your chat history.
+
+Each chat in your history shows a status badge: running, waiting for input, idle, unread, done, or failed. Refer to [Background chats](../platform/wizard-home.md#background-chats).
 
 Start a new chat for each task
 

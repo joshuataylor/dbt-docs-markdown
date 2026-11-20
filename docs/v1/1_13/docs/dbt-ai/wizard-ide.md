@@ -37,7 +37,7 @@ If dbt Wizard stops responding, your account may have used up its usage credits.
 * **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt platform CLI.
 * **Engines:** Works with dbt v2 and dbt v1.
 * **Conversations:** In the conversation list, open **More actions** menu (three dots) of the conversation you want to delete, then click **Delete** to remove one thread. Deleting the open thread clears the panel.
-* **Sessions:** Refreshing the same browser tab keeps your active session. A new tab, or returning after closing the tab, starts empty.
+* **Sessions:** Chats keep running in the background. You can refresh, switch tabs, or close the tab, then reopen the chat from your conversation list. Refer to [Background chats](./wizard-ide.md#background-chats).
 * **Chat history:** Retained for 90 days only. Chat history isn't supported yet on single-tenant deployments, so save anything important before closing.
 * **Plan mode:** Not supported yet. The agent doesn't show a separate plan before applying changes, however you can use the **Ask for approval** mode to approve each file.
 * **New chat:** Click **Start new dbt Wizard chat** (top right of the dbt Wizard panel) to begin a new session.
@@ -231,6 +231,14 @@ Explore mode uses dbt-managed inference, so questions draw from your account's d
 In the Studio IDE, the answer and its visualization appear inline in the dbt Wizard panel alongside your project.
 
 ![Explore mode in the Studio IDE, showing a chart and Chart/Table/SQL toggles in the dbt Wizard panel.](/img/docs/dbt-platform/wizard-ide-explore-viz.png?v=2 "Explore mode in the Studio IDE, showing a chart and Chart/Table/SQL toggles in the dbt Wizard panel.")Explore mode in the Studio IDE, showing a chart and Chart/Table/SQL toggles in the dbt Wizard panel.
+
+## Background chats
+
+dbt Wizard chats keep running in the background. If you start a chat, then switch tabs, open another page, or close your laptop, dbt Wizard keeps working, and your results are ready when you're back.
+
+* Pick up where you left off: Open any chat from your chat history to see its full conversation and current state. If it's still running, you see it live.
+* Check status at a glance: Each active chat displays a color badge telling you if a chat is running, unread, idle, done, waiting for input, or failed.
+* Run multiple chats at once: Start more than one chat across tabs and windows. Chats using any mode keep running in the background while you work in another.
 
 ## Choose a model
 

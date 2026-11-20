@@ -32,6 +32,7 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 ##### Wizard
 
+* **New:** dbt Wizard chats in the home tab and Studio IDE now run in the background. Switch tabs or close the page and dbt Wizard keeps working. Reopen the chat from your chat history to see the result. Each chat shows a status indicator (running, unread, idle, done, waiting for input, or failed), so you can run several chats at once in any mode. Refer to [Background chats](../platform/wizard-home.md#background-chats).
 * **New:** In the Studio IDE, dbt Wizard Desktop, and the Wizard CLI, dbt Wizard uses [MetricFlow](../build/about-metricflow.md) to build the SQL for a metric from the metric definition, including its filters. In the dbt Wizard CLI and Wizard Desktop, it runs that SQL in your warehouse. The SQL is written in that warehouse's syntax on Snowflake, BigQuery, Redshift, Databricks, and DuckDB. On other warehouses, such as Postgres, the SQL is written for DuckDB and may not run unchanged. Refer to [How dbt Wizard queries metrics](../dbt-ai/wizard-how-it-works.md#how-dbt-wizard-queries-metrics).
 * **New:** Use the **Legacy dbt versions** dashboard in **Account settings** to find every project, environment, and job still on a legacy dbt version, upgrade a project's code with **Upgrade with dbt Wizard** when dbt Wizard is available to you, and move environments and jobs to the **v1 Latest** release track. You can also export the environment list as a CSV file and see when each environment and job last ran. Refer to [Migrate off legacy dbt versions](../../guides/migrate-off-legacy-dbt-versions.md).
 * **New:** Use Claude Haiku 5.5 and Claude Sonnet 5.5 through Databricks in dbt Wizard.
@@ -183,7 +184,7 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 * **New:** dbt State trial and DATT allowance updates:
 
-  * **New:** Self-hosted dbt users using dbt State now get a free plan after their trial ends, with 1,000 daily active target tables (DATT) per month at no cost. Developer and paid dbt platform accounts also receive a monthly DATT allowance, with amounts and availability varying by plan. For more information, refer to [dbt State usage](../platform/billing/dbt-state-usage.md).
+  * **New:** Self-hosted dbt users using dbt State now get a free plan after their trial ends, with 1,000 daily active target tables (DATT) per month at no cost. [All dbt plans](https://www.getdbt.com/pricing) also receive a monthly DATT allowance, with amounts and availability varying by plan. For more information, refer to [dbt State usage](../platform/billing/dbt-state-usage.md).
   * **New:** When your dbt State trial ends, you’ll receive an email confirming your plan, monthly DATT allowance, and allowance end date if your plan has one.
   * **New:** If your dbt State trial has ended, dbt State is now active again on your account with your plan’s free monthly DATT allowance. No action is required.
 

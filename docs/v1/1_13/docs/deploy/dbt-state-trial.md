@@ -7,7 +7,7 @@ Start a dbt State trial, continue on your plan's free monthly DATT allowance, or
 ## How the trial works
 
 * Eligible new organizations receive 30 days of free use with no usage limit.
-* To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally. To start your trial, refer to the instructions in [Setting up dbt State](./dbt-state-setup.md).
+* To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. dbt State can be used locally across [all dbt plans](https://www.getdbt.com/pricing). To start your trial, refer to the instructions in [Setting up dbt State](./dbt-state-setup.md).
 * Once started, you cannot pause the trial.
 * Seven days before your trial ends, your admin gets an email with what's coming: the trial end date, the monthly DATT allowance your account will receive, and how to upgrade if needed.
 * The [free monthly DATT allowance](#free-monthly-datt-allowance) includes a set amount of daily active target tables for your account. The allowance amount and what happens when you reach the limit depend on your plan.
@@ -45,7 +45,7 @@ When your trial ends, you move to your plan's monthly allowance:
 
 * Self-hosted dbt users move to the free plan, which includes 1,000 DATT each month indefinitely.
 * Developer plan users also get 1,000 DATT each month indefinitely.
-* Paid dbt platform plans get a temporary monthly allowance. Check out [paid plans with a temporary allowance](#paid-plans-with-a-temporary-allowance) for more details.
+* Starter, Enterprise, and Enterprise+ dbt platform plans get a temporary monthly allowance. Check out [plans with a temporary allowance](#plans-with-a-temporary-allowance) for more details.
 
 The allowance works the same way on every plan:
 
@@ -55,14 +55,14 @@ The allowance works the same way on every plan:
 
 #### Plans with a permanent allowance
 
-| Plan                        | Monthly allowance | When you reach the limit                                                                                                                                                                                                                   |
-| --------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Self-hosted dbt (free plan) | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing) to resume.                                                         |
-| Developer                   | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing) to resume, which moves your account to the Developer (Usage) plan. |
+| Plan            | Monthly allowance | When you reach the limit                                                                                                                                                                                                                   |
+| --------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Self-hosted dbt | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing) to resume.                                                         |
+| Developer       | 1,000 DATT        | dbt State stops reusing nodes until the next reset. [Set up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing) to resume, which moves your account to the Developer (Usage) plan. |
 
-#### Paid plans with a temporary allowance
+#### Plans with a temporary allowance
 
-Paid dbt platform plans also get a monthly allowance for a limited time.
+Starter, Enterprise, and Enterprise+ dbt platform plans also get a monthly allowance for a limited time.
 
 | Plan                                       | Monthly allowance | Available until   | When you reach the limit                                                                                                                                              |
 | ------------------------------------------ | ----------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

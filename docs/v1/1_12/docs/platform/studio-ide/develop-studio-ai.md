@@ -24,7 +24,7 @@ dbt Wizard is accessible from the sidebar panel or in the Console section of the
 * **Where it runs:** Supported in the [Studio IDE](./develop-in-studio.md) only, all [deployment types](../about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt platform CLI.
 * **Engines:** Works with dbt v2 and dbt v1.
 * **Conversations:** In the conversation list, open **More actions** menu (three dots) of the conversation you want to delete, then click **Delete** to remove one thread. Deleting the open thread clears the panel.
-* **Sessions:** Refreshing the same browser tab keeps your active session. A new tab, or returning after closing the tab, starts empty.
+* **Sessions:** Chats keep running in the background. You can refresh, switch tabs, or close the tab, then reopen the chat from your conversation list. Refer to [Background chats](../../dbt-ai/wizard-ide.md#background-chats).
 * **Chat history:** Retained for 90 days only. Chat history isn't supported yet on single-tenant deployments, so save anything important before closing.
 * **Plan mode:** Not supported yet. The agent doesn't show a separate plan before applying changes, however you can use the **Ask for approval** mode to approve each file.
 * **New chat:** Click **Start new dbt Wizard chat** (top right of the dbt Wizard panel) to begin a new session.

@@ -37,7 +37,7 @@ To check which distribution you're using, run `dbt --version` in the command lin
 **Unchanged:**
 
 * dbt v1 is still fully available and still Apache 2.0.
-* dbt v2 is still completely free to use, with some features unlocked by a free login or a paid dbt platform account — not required for any distribution.
+* dbt v2 is still completely free to use, with some features unlocked when you sign in to a dbt platform account on [any plan](https://www.getdbt.com/pricing). A dbt platform account isn't required for any distribution.
 * Contributing to dbt is still open to everyone.
 
 ## Licensing details
