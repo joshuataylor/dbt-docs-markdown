@@ -9,4 +9,4 @@ dbt validates your GitHub application against GitHub before saving it, so an inv
 * **Client secret**: GitHub only shows this once. If you didn't copy it, generate a new one.
 * **Network access**: Your GitHub instance must be reachable from dbt. If you use [IP restrictions](../../docs/platform/secure/ip-restrictions.md), confirm the relevant CIDRs are allowed.
 
-For setup steps, refer to [Custom GitHub application](../../docs/platform/git/connect-github.md#custom-github-application), available in private beta.
+For setup steps, refer to [Custom GitHub application](../../docs/platform/git/connect-github.md#custom-github-application), available in beta.

@@ -106,7 +106,12 @@ This is a first version and we're still shaping it. Tell us what works and what 
 * **Fix:** When an account had more than 1,000 groups, some of a user's assigned [groups](../platform/manage-access/about-user-access.md#groups) were missing from the user details view. All assigned groups now appear checked. Saving with `POST /api/v3/accounts/{id}/assign-groups/` also keeps the full list of groups.
 * **Fix:** Creating or updating an [IP restriction](../platform/secure/ip-restrictions.md) with a missing or invalid `type` now returns a 400 error (the request was invalid) and a message that describes the problem, instead of a 500 server error. A missing `name` is rejected with a 400 error too. Before this fix, dbt saved that missing name as the word None.
 * **Fix:** Accounts on the usage plan can now complete the upgrade to [Starter](../platform/billing/plans-and-billing.md#starter-plan-billing) without the checkout spinning indefinitely. The purchase button stays available when a card is already on file.
+* **Behavior change:** When creating a personal access token (PAT) using the [Create Account Scoped PAT](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Account%20Scoped%20PAT) endpoint, you can now choose between two token types in the optional `type` field: `1` for a CLI token or `2` for a general token. Values other than `1` or `2` will return a `400` error, and no token will be created. Validation error messages now appear in `data` instead of `status.user_message`.
 * **Behavior change:** On [Admin API v2](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/List%20Repositories) and [Admin API v3](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/List%20Repositories) of the repositories API, `full_name` and `web_url` are now taken from the repository's web address. `full_name` is deprecated. The API no longer returns a custom `full_name` you set earlier.
+
+#### Integrations
+
+* **Beta:** Bringing your own [custom GitHub application](../platform/git/connect-github.md#custom-github-application) is now in beta and available to all Enterprise and Enterprise+ accounts. You no longer need to contact your account manager for access. Use it to natively connect GitHub Enterprise Server or GitHub with EU data residency, instead of a git URL and SSH.
 
 #### dbt v2
 

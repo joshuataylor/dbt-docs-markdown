@@ -31,7 +31,7 @@ When specifying a GitHub repository in the dbt platform using the UI, API, or Te
 dbt connects to GitHub through a GitHub App. You have two options:
 
 * [Shared dbt application (default)](#installing-dbt-in-your-github-account), available to any org connecting to `github.com`.
-* Your own [custom GitHub application](#custom-github-application), available in private beta to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server or GitHub with EU data residency. Reach out to your account manager to join the beta. [Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* Your own [custom GitHub application](#custom-github-application), available to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server or GitHub with EU data residency. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 You can use one GitHub application per dbt account, not one per project.
 
@@ -71,11 +71,11 @@ If you are your GitHub organization owner, you can also configure the dbt GitHub
 
 ![Configuring the dbt app](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/configure-github.png?v=2 "Configuring the dbt app")Configuring the dbt app
 
-## Custom GitHub application [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+## Custom GitHub application [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in private beta
+Custom GitHub applications use Fivetran release phases
 
-Configuring a custom GitHub app is available in private beta. To join, reach out to your account manager.
+Custom GitHub application is in beta and uses the [Fivetran release phases](https://fivetran.com/docs/core-concepts#releasephases).
 
 The shared dbt GitHub App is hosted per [region](../about-platform/access-regions-ip-addresses.md), so it can only reach repositories on `github.com`. If your organization runs [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.14/admin/overview/about-github-enterprise-server) or [GitHub with EU data residency](https://github.com/enterprise/data-residency), register your own GitHub application and point dbt at it.
 
@@ -373,4 +373,4 @@ dbt validates your GitHub application against GitHub before saving it, so an inv
 * **Client secret**: GitHub only shows this once. If you didn't copy it, generate a new one.
 * **Network access**: Your GitHub instance must be reachable from dbt. If you use [IP restrictions](../secure/ip-restrictions.md), confirm the relevant CIDRs are allowed.
 
-For setup steps, refer to [Custom GitHub application](./connect-github.md#custom-github-application), available in private beta.
+For setup steps, refer to [Custom GitHub application](./connect-github.md#custom-github-application), available in beta.
