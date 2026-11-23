@@ -99,7 +99,7 @@ Some things worth asking on a first run:
 
 A chat is one conversation about your project. Each project chat works in its own copy of your repo on its own branch, called a Git worktree, so you can keep a few pieces of work going at once without them stepping on each other.
 
-Each chat gets a name like `docs-fox`, and its branch and schema are named after it. Refer to [Worktree and schema names](./wizard-desktop-use.md#worktree-and-schema-names) for what those names mean.
+dbt Wizard names each chat after its task, like `fix-orders-test`, and builds the chat’s branch and schema names from it. Refer to [Worktree and schema names](./wizard-desktop-use.md#worktree-and-schema-names) for what those names mean.
 
 ## Review and accept changes
 
