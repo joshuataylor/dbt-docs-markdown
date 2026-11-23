@@ -42,6 +42,10 @@ The list of commands available in dbt.
 
 [The provides the dbt environment command for environment and connection details. If you're using or , use dbt debug to inspect profile, target, and connection \&mdash; or use dbtf debug if you have both / and platform CLIs and want to inspect .](../reference/commands/dbt-environment.md)
 
+## [format](../reference/commands/format.md)
+
+[Use dbt format (or dbt fmt) to format your SQL files in place according to the layout rules in your .sqlfluff config.](../reference/commands/format.md)
+
 ## [freshness](../reference/commands/freshness.md)
 
 [The dbt freshness command evaluates whether sources and models with freshness configured meet your warnafter and errorafter thresholds, reporting warnings and errors accordingly.](../reference/commands/freshness.md)
