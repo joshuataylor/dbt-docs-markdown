@@ -10,9 +10,9 @@ Connecting your GitHub account to dbt provides convenience and another layer of 
 
 GitHub Enterprise Cloud (`ghe.com`) domains
 
-If your organization uses GitHub Enterprise Cloud, hosted on a `ghe.com` domain, the shared dbt GitHub App can't reach it. Note that `ghe.com` accounts are cloud-managed (not on-premises), but this limitation still applies.
+If your organization uses GitHub Enterprise Cloud, hosted on a `ghe.com` domain, you can connect by registering your own [custom GitHub application](#custom-github-application), available in beta. Although `ghe.com` accounts are cloud-managed (not on-premises), the shared dbt GitHub App can't reach `ghe.com` domains.
 
-Enterprise and Enterprise+ accounts can connect by registering a [custom GitHub application](#custom-github-application) instead. On other plans, use [importing a project by git URL](./import-a-project-by-git-url.md) with SSH/deploy keys. Your organization's SSH URL configuration may require additional steps, and some native integration features are unavailable with the git URL method.
+The custom GitHub application is available in beta on Enterprise and Enterprise+ plans. On other plans, use [importing a project by git URL](./import-a-project-by-git-url.md) with SSH/deploy keys. Your organization's SSH URL configuration may require additional steps, and some native integration features aren't available with the git URL method.
 
 For additional help with your specific setup, contact [dbt Support](mailto:support@getdbt.com) or your dbt account team.
 
@@ -21,6 +21,7 @@ For additional help with your specific setup, contact [dbt Support](mailto:suppo
 * **GitHub permissions**: You must be a GitHub organization owner to [install the application](./connect-github.md#installing-dbt-in-your-github-account). Learn more about [GitHub organization](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) roles.
 * **dbt permissions**: Your GitHub organization owner also needs [*Owner*](../manage-access/self-service-permissions.md) or [*Account Admin*](../manage-access/enterprise-permissions.md) permissions in dbt platform. If needed, create a temporary account with these [permissions](../manage-access/enterprise-permissions.md) for the installation.
 * **On-premises GitHub or EU-hosted GitHub**: On Enterprise and Enterprise+ plans, you can use the native integration by registering a [custom GitHub application](#custom-github-application). On other plans, [connect using a Git URL](./import-a-project-by-git-url.md), which supports [fewer](./import-a-project-by-git-url.md#limited-integration) Git features.
+* Your own [custom GitHub application](#custom-github-application), available to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server, GitHub Enterprise Cloud with a `ghe.com` domain, or GitHub with EU data residency. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Case-sensitive repository names
 
@@ -31,7 +32,7 @@ When specifying a GitHub repository in the dbt platform using the UI, API, or Te
 dbt connects to GitHub through a GitHub App. You have two options:
 
 * [Shared dbt application (default)](#installing-dbt-in-your-github-account), available to any org connecting to `github.com`.
-* Your own [custom GitHub application](#custom-github-application), available to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server or GitHub with EU data residency. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* Your own [custom GitHub application](#custom-github-application), available to Enterprise and Enterprise+ accounts on MT or ST using GitHub Enterprise Server, GitHub Enterprise Cloud with a `ghe.com` domain, or GitHub with EU data residency. [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 You can use one GitHub application per dbt account, not one per project.
 
@@ -77,7 +78,7 @@ Custom GitHub applications use Fivetran release phases
 
 Custom GitHub application is in beta and uses the [Fivetran release phases](https://fivetran.com/docs/core-concepts#releasephases).
 
-The shared dbt GitHub App is hosted per [region](../about-platform/access-regions-ip-addresses.md), so it can only reach repositories on `github.com`. If your organization runs [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.14/admin/overview/about-github-enterprise-server) or [GitHub with EU data residency](https://github.com/enterprise/data-residency), register your own GitHub application and point dbt at it.
+The shared dbt GitHub App is hosted per [region](../about-platform/access-regions-ip-addresses.md), so it can only reach repositories on `github.com`. If your organization runs [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.14/admin/overview/about-github-enterprise-server), GitHub Enterprise Cloud with a `ghe.com` domain, or [GitHub with EU data residency](https://github.com/enterprise/data-residency) — register your own GitHub application and point dbt at it.
 
 An account admin (or security admin) can set this up once:
 
