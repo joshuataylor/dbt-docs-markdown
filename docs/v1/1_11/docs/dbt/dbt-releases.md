@@ -58,9 +58,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Canary
 
-[`v2.0.12`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this version in the dbt v2 changelog")
+[`v2.0.13`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this version in the dbt v2 changelog")
 
-2026-11-13
+2026-11-24
 
 #### Latest
 
@@ -190,11 +190,11 @@ Released by: **akbog**Nov 24, 2026, 07:03 AM
 
 Automated promotion
 
-[v2.0.13](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this release in the dbt v2 changelog")GoodDev
+[v2.0.13](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this release in the dbt v2 changelog")GoodDevCanary
 
-Released by: **aiguofer**Nov 24, 2026, 10:15 AM
+Released by: **aiguofer**Nov 24, 2026, 04:22 PM
 
-Automated promotion
+fix for INC-8705
 
 [v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extended
 
