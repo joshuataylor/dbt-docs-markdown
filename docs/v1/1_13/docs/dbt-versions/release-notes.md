@@ -88,6 +88,7 @@ This is a first version and we're still shaping it. Tell us what works and what 
 #### Catalog
 
 * **Enhancement:** The [**Marts**](../explore/explore-projects.md#catalog-overview) table on the Catalog project landing page now shows 20 rows per page by default, up from 5. The page size dropdown includes a **20 Rows** option, so you move through the list with fewer page turns.
+* **Fix:** Catalog no longer crashes when an [`accepted_values` data test](../../reference/resource-properties/data-tests.md#accepted_values) uses a Jinja expression, such as `{{ var('x') }}`. The test [details page](../explore/explore-projects.md#view-resource-details), lineage drawer, and **Columns** tab tooltip now display the raw Jinja text instead.
 * **Fix:** In the [Discovery API](../dbt-apis/discovery-api.md), a model's parents used to leave out models that live in another project ([Mesh](../mesh/about-mesh.md)). Those parent models are included now. Lineage already listed these parents.
 
 #### Orchestration and run status

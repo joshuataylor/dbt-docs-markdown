@@ -125,7 +125,7 @@
 
 * [SAO3](./tags/sao.md)
 * [scheduler7](./tags/scheduler.md)
-* [Semantic Layer42](./tags/semantic-layer.md)
+* [Semantic Layer43](./tags/semantic-layer.md)
 * [Snowflake5](./tags/snowflake.md)
 * [SQL1](./tags/sql.md)
 * [static\_analysis2](./tags/static-analysis.md)

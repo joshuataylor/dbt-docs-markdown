@@ -97,7 +97,7 @@ Environment variables prefixed with `DBT_ENV_SECRET_` are protected with additio
 
 ### Special environment variables
 
-dbt has a number of pre-defined variables built in. Variables are set automatically and cannot be changed. This means that the order of precedence for overriding environment variables doesn't apply to these pre-defined variables at the project, environment, or job level.
+dbt includes built-in environment variables that dbt platform sets for you. You can't change them in dbt platform, and the order of precedence on this page doesn't apply to them at the project, environment, or job level.
 
 #### Studio IDE details
 

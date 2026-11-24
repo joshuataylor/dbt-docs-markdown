@@ -53,8 +53,10 @@ When the same environment variable is defined in multiple places, dbt v2 uses th
 
 This means environment variables set in your shell always override values from the `.env` file.
 
-tip
+Committing `.env` to your `.gitignore` file
 
-Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to version control. The `dbtf init` command automatically includes `.env` in the generated `.gitignore` file.
+Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to version control. The `dbt init` command automatically includes `.env` in the generated `.gitignore` file.
+
+`.gitignore` only applies to files that Git isn't tracking yet. If `.env` is already committed, Git keeps tracking it and dbt still reads it. To stop that, delete `.env` from your repo and commit the deletion.
 
 For more details on managing environment variables locally, refer to [Configure your local environment](../configure-dbt-extension.md#set-environment-variables-locally).

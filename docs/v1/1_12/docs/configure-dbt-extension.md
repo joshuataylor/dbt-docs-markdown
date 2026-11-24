@@ -154,8 +154,9 @@ Here are some considerations when defining environment variables in the `.env` f
 
 * The `.env` file provides a convenient way to set environment variables that work across both the CLI and the VS Code extension.
 * We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
-* Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to your repository.
+* Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to your repository. `.gitignore` only applies to files that Git isn't tracking yet. If `.env` is already committed, Git keeps tracking it and dbt still reads it. To stop that, delete `.env` from your repo and commit the deletion.
 * Environment variables set directly in your shell (such as `export DBT_ENV_VAR=value`) take precedence over values defined in the `.env` file.
+* dbt platform job runs also load a `.env` file that's already committed to your repo. If dbt platform sets a variable, its value wins over `.env`. If it leaves the variable empty, dbt platform uses the value from the `.env` file. Refer to [special environment variables](./build/environment-variables.md#special-environment-variables).
 
 ### Configure in the VS Code extension settings
 

@@ -55,12 +55,6 @@ MetricFlow allows you to:
 
 [Learn about advanced topics for dbt Semantic Layer and MetricFlow, such as data modeling workflows, and more.](./advanced-topics.md)
 
-[![](/img/icons/dbt-bit.svg)](../use-dbt-semantic-layer/dbt-sl.md)
-
-#### [About the dbt Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md)
-
-[Introducing the dbt Semantic Layer, the universal process that allows data teams to centrally define and query metrics](../use-dbt-semantic-layer/dbt-sl.md)
-
 [![](/img/icons/dbt-bit.svg)](../platform-integrations/avail-sl-integrations.md)
 
 #### [Available integrations](../platform-integrations/avail-sl-integrations.md)

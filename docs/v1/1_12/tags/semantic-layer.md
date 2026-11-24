@@ -1,4 +1,4 @@
-# 42 docs tagged with "Semantic Layer"
+# 43 docs tagged with "Semantic Layer"
 
 [View all tags](../tags.md)
 
@@ -165,6 +165,10 @@ Use simple metrics to aggregate data directly from columns in your semantic mode
 ## [Tableau](../docs/platform-integrations/semantic-layer/tableau.md)
 
 Use Tableau worksheets to query the dbt Semantic Layer and produce dashboards with trusted date.
+
+## [Use the dbt Semantic Layer](../docs/use-dbt-semantic-layer/use-sl-intro.md)
+
+Configure the dbt Semantic Layer, run a dbt job to deploy it, and query your metrics in downstream tools.
 
 ## [Validations](../docs/build/validation.md)
 
