@@ -204,9 +204,9 @@ Auto-mirror: stable promoted to v2.0.13 by aiguofer (https\://github.com/dbt-lab
 
 [v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extended
 
-Released by: **johnchappelledbt**Nov 23, 2026, 06:19 PM
+Released by: **ddk-dbt**Nov 25, 2026, 10:12 PM
 
-Automated ST snapshot
+Automated ST promotion
 
 [v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
