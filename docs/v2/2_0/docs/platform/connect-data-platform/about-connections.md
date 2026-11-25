@@ -14,7 +14,7 @@ For most supported data platforms, we recommend the v2 experience, which support
 | [Amazon Redshift](./connect-redshift.md) | ✅              |
 | [Databricks](./connect-databricks.md)    | ✅              |
 | [Google BigQuery](./connect-bigquery.md) | ✅              |
-| [ClickHouse](./connect-clickhouse.md)    | Private beta    |
+| [ClickHouse](./connect-clickhouse.md)    | Beta            |
 
 *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 

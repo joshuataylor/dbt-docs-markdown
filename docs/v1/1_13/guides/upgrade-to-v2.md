@@ -51,7 +51,7 @@ Before upgrading your development environment, confirm:
   * Key pair using a modern PKCS#8 method
   * MFA
 
-   ClickHouse[Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   ClickHouse[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Username / Password
 

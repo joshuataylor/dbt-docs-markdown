@@ -21,6 +21,17 @@ models/\<modelname>.sql
 select ...
 ```
 
+(Applies to dbt v1.9 and later)
+
+models/properties.yml
+
+```yaml
+models:
+  - name: <model_name>
+    config:
+      enabled: true | false
+```
+
 ## Seeds
 
 dbt\_project.yml
@@ -29,6 +40,17 @@ dbt\_project.yml
 seeds:
   <resource-path>:
     +enabled: true | false
+```
+
+(Applies to dbt v1.9 and later)
+
+seeds/properties.yml
+
+```yaml
+seeds:
+  - name: <seed_name>
+    config:
+      enabled: true | false
 ```
 
 ## Snapshots
@@ -43,7 +65,7 @@ snapshots:
 
 (Applies to dbt v1.9 and later)
 
-snapshots/snapshot\_name.yml
+snapshots/properties.yml
 
 ```yaml
 
@@ -101,6 +123,19 @@ tests/\<filename>.sql
 ) }}
 ```
 
+models/properties.yml
+
+```yaml
+models:
+  - name: <model_name>
+    columns:
+      - name: <column_name>
+        data_tests:
+          - <test_name>:
+              config:
+                enabled: true | false
+```
+
 ## Unit tests
 
 Did you know\...
@@ -115,7 +150,7 @@ unit_tests:
     +enabled: true | false
 ```
 
-models/\<filename>.yml
+models/properties.yml
 
 ```yaml
 unit_tests:
@@ -150,7 +185,7 @@ sources:
 
 ## Analyses
 
-analyses/\<filename>.yml
+analyses/properties.yml
 
 ```yaml
 analyses:
@@ -181,7 +216,7 @@ metrics:
     +enabled: true | false
 ```
 
-models/metrics.yml
+models/properties.yml
 
 ```yaml
 
@@ -201,7 +236,7 @@ exposures:
     +enabled: true | false
 ```
 
-models/exposures.yml
+models/properties.yml
 
 ```yaml
 
@@ -223,7 +258,7 @@ semantic-models:
 
 (Applies to dbt v1.12 and later)
 
-models/file\_name.yml
+models/properties.yml
 
 ```yaml
 models:
@@ -242,7 +277,7 @@ saved-queries:
     +enabled: true | false
 ```
 
-models/semantic\_models.yml
+models/properties.yml
 
 ```yaml
 saved_queries:

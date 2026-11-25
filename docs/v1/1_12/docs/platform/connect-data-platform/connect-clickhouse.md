@@ -1,12 +1,12 @@
-# Connect ClickHouse [Private Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
+# Connect ClickHouse [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") dbt v2 compatible
 
 Available in v2 | dbt platform
 
-The dbt v2 in dbt platform supports connecting to [ClickHouse Cloud](https://clickhouse.com/cloud) and to self-managed single-node ClickHouse. Use a dbt v2 release track for the environment that uses this connection.
+The dbt v2 in dbt platform supports connecting to [ClickHouse Cloud](https://clickhouse.com/cloud). Use a dbt v2 release track for the environment that uses this connection.
 
-ClickHouse private beta
+ClickHouse beta
 
-ClickHouse connections on v2 are in private beta and not production-ready. To request access, contact your account representative. Expect some minor bugs, and avoid using them in production environments for now. Refer to [Limitations](#limitations) before you connect.
+ClickHouse connections on v2 are in beta. Make sure you read the [Limitations](#limitations) section before you connect.
 
 ## Warehouse permissions for dbt v2
 
@@ -16,11 +16,11 @@ The ClickHouse user that the dbt v2 connects as must be able to run dbt workload
 
 Before connecting, these objects must exist or be accessible:
 
-| Object                                                           | Purpose                                                                                          |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Service (ClickHouse Cloud) or server (self-managed, single node) | Compute resource                                                                                 |
-| Database                                                         | Target database. ClickHouse has no separate schema level, so the dbt `schema` maps to a database |
-| User                                                             | Database user for authentication                                                                 |
+| Object                                              | Purpose                                                                                          |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Service (ClickHouse Cloud) or server (self-managed) | Compute resource                                                                                 |
+| Database                                            | Target database. ClickHouse has no separate schema level, so the dbt `schema` maps to a database |
+| User                                                | Database user for authentication                                                                 |
 
 ### Core permissions
 
@@ -102,9 +102,9 @@ For a description of the ClickHouse profile fields that the connection maps to, 
 
 ## Limitations
 
-The ClickHouse connection is in private beta. On the dbt platform specifically:
+The ClickHouse connection is in beta. On the dbt platform specifically:
 
 * The dbt Semantic Layer isn't supported for ClickHouse connections yet.
 * Only username and password authentication is available. OAuth, key pair authentication, SSH tunneling, and private connectivity aren't supported for ClickHouse yet.
 
-The dbt v2 ClickHouse adapter limitations apply here too, including the gaps in clusters, grants, `dbt clone`, `dbt source freshness`, and SQL comprehension. For the complete picture, refer to [ClickHouse limitations](../../local/connect-data-platform/clickhouse-setup.md#limitations).
+The dbt v2 ClickHouse adapter limitations apply here too. For the full feature-by-feature status, refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/connectors/data-ingestion/etl-tools/dbt/dbt-core-v2-fusion-and-platform).

@@ -123,6 +123,7 @@ This is a first version and we're still shaping it. Tell us what works and what 
 #### Integrations
 
 * **Beta:** Bringing your own [custom GitHub application](../platform/git/connect-github.md#custom-github-application) is now in beta and available to all Enterprise and Enterprise+ accounts. You no longer need to contact your account manager for access. Use it to natively connect GitHub Enterprise Server or GitHub with EU data residency, instead of a git URL and SSH.
+* **Beta:** [ClickHouse](../platform/connect-data-platform/connect-clickhouse.md?version=2.0) connections for dbt v2 on dbt platform are now in beta. Select **ClickHouse** as a warehouse connection option when managing a project in dbt platform.
 
 #### dbt v2
 

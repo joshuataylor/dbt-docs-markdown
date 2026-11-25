@@ -4,7 +4,7 @@
 
 Local development
 
-The ClickHouse adapter for the dbt v2 connects to [ClickHouse](https://clickhouse.com) over HTTP or HTTPS. It supports self-managed single-node ClickHouse and [ClickHouse Cloud](https://clickhouse.com/cloud).
+The ClickHouse adapter for the dbt v2 connects to [ClickHouse](https://clickhouse.com) over HTTP or HTTPS. It supports [ClickHouse Cloud](https://clickhouse.com/cloud) and self-managed ClickHouse.
 
 ## Installing dbt
 
@@ -24,11 +24,11 @@ The ClickHouse user that the dbt v2 connects as must be able to run dbt workload
 
 Before connecting, these objects must exist or be accessible:
 
-| Object                                                           | Purpose                                                                                          |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Service (ClickHouse Cloud) or server (self-managed, single node) | Compute resource                                                                                 |
-| Database                                                         | Target database. ClickHouse has no separate schema level, so the dbt `schema` maps to a database |
-| User                                                             | Database user for authentication                                                                 |
+| Object                                              | Purpose                                                                                          |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Service (ClickHouse Cloud) or server (self-managed) | Compute resource                                                                                 |
+| Database                                            | Target database. ClickHouse has no separate schema level, so the dbt `schema` maps to a database |
+| User                                                | Database user for authentication                                                                 |
 
 ### Core permissions
 
@@ -67,25 +67,15 @@ Conditional permissions for database management:
 
 ## Limitations
 
-The ClickHouse adapter for dbt v2 is in beta. Expect some minor bugs, and avoid using it in production environments for now. Some features available in the `dbt-clickhouse` adapter for dbt v1 are not yet supported.
+The ClickHouse adapter for dbt v2 is in beta. It's at feature parity with version 1.10.3 of the `dbt-clickhouse` adapter for dbt v1, on ClickHouse Cloud and on self-managed ClickHouse, with a few exceptions:
 
-The ClickHouse adapter is under active development. If you encounter an issue, please [open it in dbt-core](https://github.com/dbt-labs/dbt-core/issues/new) and add the `adapter:clickhouse` label.
+* The new SQL comprehension features (static analysis and the rest of dbt's SQL intelligence) aren't available yet.
+* Some dbt platform functionality, like the Semantic Layer, isn't supported yet.
+* Small gaps remain in general ClickHouse functionality.
 
-### What works today
+For the full feature-by-feature status, refer to the [ClickHouse documentation](https://clickhouse.com/docs/integrations/connectors/data-ingestion/etl-tools/dbt/dbt-core-v2-fusion-and-platform).
 
-On single-node ClickHouse and on ClickHouse Cloud (compatible with multi-node clusters):
-
-* All materializations: table, view, incremental (all strategies and `on_schema_change`), materialized view (including refreshable), dictionary, snapshot, seed, and ephemeral
-* Contracts and constraints, model and query `settings`, projections and indexes
-* Data tests, unit tests, catalog generation, and the `s3` table function
-
-### Not yet supported
-
-* Self-managed clusters that set `cluster:` in the profile aren't supported yet. `ON CLUSTER` isn't emitted in the data definition language (DDL) instructions, so Replicated engines and the `distributed_table` and `distributed_incremental` materializations don't work.
-* The `grants` config, and the `dbt clone` and `dbt source freshness` commands, aren't supported yet.
-* Smaller gaps remain: `query-comment: null` isn't honored, run results don't include the ClickHouse `query_id`, and `persist_docs` descriptions that contain `;` fail.
-* SQL comprehension features (static analysis and the rest of dbt's SQL intelligence) aren't available yet. Support is coming soon.
-* Minor issues may still be present in general ClickHouse functionality.
+The ClickHouse adapter is under active development. If you encounter an issue, open it in the [`dbt-labs/dbt` repository](https://github.com/dbt-labs/dbt/issues/new) and add the `adapter:clickhouse` label.
 
 ## Connecting to ClickHouse
 
