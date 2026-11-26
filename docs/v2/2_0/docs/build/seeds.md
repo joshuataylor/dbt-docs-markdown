@@ -73,6 +73,25 @@ select * from {{ ref('country_codes') }}
 
 Seeds are configured in your `dbt_project.yml`, check out the [seed configurations](../../reference/seed-configs.md) docs for a full list of available configurations.
 
+(Applies to dbt v2.0 and later)
+
+## Column type inference
+
+dbt infers each column's type from your CSV data when you don't set [`column_types`](../../reference/resource-configs/column_types.md).
+
+Inference for dates and timestamps differs between versions:
+
+| Version | A value like `2022-10-01 00:00:00.00` loads as |
+| ------- | ---------------------------------------------- |
+| dbt v1  | Text (`varchar`)                               |
+| v2      | A date or timestamp type                       |
+
+If a model parses a seed's date column as text, for example with `to_date(col, 'format')`, it can fail on v2. Remove the text parsing, or set `column_types` to keep the column as text and run `dbt seed --full-refresh`. Refer to [Upgrading to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md#seeds-infer-date-and-timestamp-columns) for an example.
+
+tip
+
+If you need a seed column to stay text after you upgrade to v2, set `column_types` for that column and run `dbt seed --full-refresh`.
+
 ## Documenting and testing seeds
 
 You can document and test seeds in YAML by declaring properties — check out the docs on [seed properties](../../reference/seed-properties.md) for more information.
@@ -188,6 +207,10 @@ seeds:
 How do I set a datatype for a column in my seed?
 
 dbt will infer the datatype for each column based on the data in your CSV.
+
+(Applies to dbt v2.0 and later)
+
+Inference for dates and timestamps differs between v1 and v2. Refer to [Column type inference](./seeds.md#column-type-inference).
 
 You can also explicitly set a datatype using the `column_types` [configuration](../../reference/resource-configs/column_types.md) like so:
 

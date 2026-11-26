@@ -66,7 +66,7 @@ seeds:
 
 ## Recommendation
 
-Use this configuration only when required, i.e. when the type inference is not working as expected. Otherwise you can omit this configuration.
+Use this configuration when type inference doesn't give you the type you want. Otherwise, you can omit it.
 
 ## Troubleshooting
 
