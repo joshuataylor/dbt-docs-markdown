@@ -69,13 +69,13 @@ For example, suppose a fix is first released in a prerelease of a minor version.
 
 dbt v2 is distributed through release channels:
 
-| Channel  | Description                            | Stability                                                           |
-| -------- | -------------------------------------- | ------------------------------------------------------------------- |
-| `latest` | The stable, "known good" version       | ✅ Recommended for most users                                       |
-| `canary` | The latest officially released version | ⚠️ Most recent stable version but still undergoing thorough testing |
-| `dev`    | The latest development build           | ❌ May not have passed all tests                                    |
+| Channel   | Description                                                                         | Stability                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stable`  | The latest generally available (GA) release                                         | ✅ Recommended for most users.                                                                                                                                    |
+| `preview` | The latest prerelease (alpha, beta, or release candidate) of the next minor version | ⚠️ Passed release testing, but behavior can still change before GA. Refer to [Prerelease stages](./dbt-versions.md#prerelease-stages). |
+| `nightly` | The latest nightly build from the main branch                                       | ❌ For testing upcoming changes only. Not covered by prerelease or regression testing.                                                                            |
 
-Run `dbt system update` to get the latest stable release, or specify a channel with `dbt system update --version canary`.
+Run `dbt system update` to get the latest stable release, or specify a channel with `dbt system update --version preview`.
 
 For current versions and release history, see [dbt v2 releases](./dbt/dbt-releases.md).
 

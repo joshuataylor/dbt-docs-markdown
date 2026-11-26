@@ -30,18 +30,18 @@ dbt system update [flags]
 
 ### Options
 
-| Flag                | Description                                                                                                                      |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `--version VERSION` | Update to a specific version (for example, `2.0.1`) or a named channel (`canary`, `dev`). Defaults to the latest stable release. |
-| `--package PACKAGE` | Which package to update. Accepts `dbt` or `all`. Defaults to `dbt`.                                                              |
+| Flag                | Description                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--version VERSION` | Update to a specific version (for example, `2.0.1`) or a named channel (`stable`, `preview`, `nightly`). Defaults to the `stable` release. |
+| `--package PACKAGE` | Which package to update. Accepts `dbt` or `all`. Defaults to `dbt`.                                                                        |
 
 ### Version channels
 
-| Channel  | Description                                                             |
-| -------- | ----------------------------------------------------------------------- |
-| *(none)* | Latest stable release                                                   |
-| `canary` | Most recent preview build (under active testing and may be pulled back) |
-| `dev`    | Development build (may be unstable)                                     |
+| Channel   | Description                                                                         | Stability                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stable`  | The latest generally available (GA) release                                         | ✅ Recommended for most users.                                                                                                                                    |
+| `preview` | The latest prerelease (alpha, beta, or release candidate) of the next minor version | ⚠️ Passed release testing, but behavior can still change before GA. Refer to [Prerelease stages](../../docs/dbt-versions.md#prerelease-stages). |
+| `nightly` | The latest nightly build from the main branch                                       | ❌ For testing upcoming changes only. Not covered by prerelease or regression testing.                                                                            |
 
 ### Examples
 
@@ -57,10 +57,10 @@ Update to a specific version:
 dbt system update --version 2.0.1
 ```
 
-Update to the canary channel:
+Update to the preview channel:
 
 ```shell
-dbt system update --version canary
+dbt system update --version preview
 ```
 
 ## dbt system uninstall

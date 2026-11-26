@@ -10,11 +10,11 @@ Each of the versions on this page links to the matching section in the [v2 chang
 
 dbt v2 is distributed through three release channels:
 
-| Channel  | Description                                  | Stability                                                           |
-| -------- | -------------------------------------------- | ------------------------------------------------------------------- |
-| `latest` | The known `good` stable version              | ✅ Recommended for production                                       |
-| `canary` | The latest version to be officially released | ⚠️ Most recent stable version but still undergoing thorough testing |
-| `dev`    | The latest development build                 | ❌ May be unstable; may not have passed all internal tests          |
+| Channel   | Description                                                                         | Stability                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stable`  | The latest generally available (GA) release                                         | ✅ Recommended for most users.                                                                                                                                    |
+| `preview` | The latest prerelease (alpha, beta, or release candidate) of the next minor version | ⚠️ Passed release testing, but behavior can still change before GA. Refer to [Prerelease stages](../dbt-versions.md#prerelease-stages). |
+| `nightly` | The latest nightly build from the main branch                                       | ❌ For testing upcoming changes only. Not covered by prerelease or regression testing.                                                                            |
 
 ### Version formats
 
@@ -28,13 +28,13 @@ For cadence, plan availability, and API values, refer to [release tracks](../dbt
 
 Live data below is for local CLI channels
 
-The **Current versions** cards and full release list below pull the public v2 manifest used for *local* installs (`dev`, `canary`, `latest`). You should use [release tracks](../dbt-versions/dbt-release-tracks.md) for dbt platform planning.
+The **Current versions** cards and full release list below pull the public v2 manifest used for *local* installs (`nightly`, `preview`, `stable`). You should use [release tracks](../dbt-versions/dbt-release-tracks.md) for dbt platform planning.
 
 Updating your self-hosted installation
 
 The following commands apply only to *local* installations of dbt. They don't affect which v2 build your dbt platform environments use. Instead, you can set a [release track](https://github.com/docs/dbt-versions/dbt-release-tracks#dbt-v2-release-tracks) per environment in dbt platform.
 
-Running the system update command without a version flag installs the `latest` stable release:
+Running the system update command without a version flag installs the `stable` release:
 
 ```shell
 dbt system update
@@ -43,370 +43,370 @@ dbt system update
 To install a specific channel or version, pass the `--version` flag:
 
 ```shell
-dbt system update --version canary    # Install the canary release
-dbt system update --version dev       # Install the dev release
+dbt system update --version preview    # Install the preview release
+dbt system update --version nightly   # Install the nightly release
 dbt system update --version 2.0.0     # Install a specific version
 ```
 
 ### Current versions
 
-#### Dev
+#### Nightly
 
 [`v2.1.0.dev20261126`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261126 "View this version in the dbt v2 changelog")
 
 2026-11-26
 
-#### Canary
+#### Stable
 
 [`v2.0.13`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this version in the dbt v2 changelog")
 
 2026-11-24
 
-#### Latest
+#### Preview
 
-[`v2.0.13`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this version in the dbt v2 changelog")
+[`v2.1.0a3`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a3 "View this version in the dbt v2 changelog")
 
-2026-11-24
+2026-11-03
 
 ### All releases
 
-[v2.1.0.dev20261017](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261017 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261017](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261017 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 17, 2026, 09:05 AM
 
 Automated promotion
 
-[v2.1.0.dev20261019](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261019](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261019 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **chayac**Oct 19, 2026, 07:08 PM
 
 Automated promotion
 
-[v2.1.0.dev20261020](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261020 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261020](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261020 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 20, 2026, 09:10 AM
 
 Automated promotion
 
-[v2.1.0.dev20261021](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261021 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261021](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261021 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 21, 2026, 09:11 AM
 
 Automated promotion
 
-[v2.1.0.dev20261022](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261022 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261022](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261022 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 22, 2026, 09:13 AM
 
 Automated promotion
 
-[v2.1.0.dev20261023](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261023 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261023](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261023 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 23, 2026, 09:11 AM
 
 Automated promotion
 
-[v2.1.0.dev20261024](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261024 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261024](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261024 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **kczimm**Oct 29, 2026, 04:02 PM
 
 Revert nightly track that the v2.0.10 patch rollout moved
 
-[v2.1.0a1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a1 "View this release in the dbt v2 changelog")Goodpreview
+[v2.1.0a1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a1 "View this release in the dbt v2 changelog")GoodPreview
 
 Released by: **kczimm**Oct 27, 2026, 05:56 PM
 
 first promotion
 
-[v2.1.0a2](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a2 "View this release in the dbt v2 changelog")Goodpreview
+[v2.1.0a2](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a2 "View this release in the dbt v2 changelog")GoodPreview
 
 Released by: **kczimm**Oct 27, 2026, 10:41 PM
 
 FS alpha release 2.1.0a2
 
-[v2.1.0.dev20261030](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261030 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261030](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261030 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 30, 2026, 09:08 AM
 
 Automated promotion
 
-[v2.1.0.dev20261031](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261031 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261031](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261031 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Oct 31, 2026, 09:06 AM
 
 Automated promotion
 
-[v2.1.0a3](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a3 "View this release in the dbt v2 changelog")Goodpreview
+[v2.1.0a3](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210a3 "View this release in the dbt v2 changelog")GoodPreview
 
 Released by: **github-merge-queue**Nov 3, 2026, 05:32 AM
 
 FS alpha release 2.1.0a3
 
-[v2.1.0.dev20261103](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261103 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261103](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261103 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 3, 2026, 09:06 AM
 
 Automated promotion
 
-[v2.1.0.dev20261105](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261105 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261105](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261105 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 5, 2026, 09:10 AM
 
 Automated promotion
 
-[v2.1.0.dev20261110](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261110 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261110](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261110 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **kczimm**Nov 11, 2026, 12:53 AM
 
 Automated promotion
 
-[v2.1.0.dev20261111](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261111 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261111](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261111 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 11, 2026, 09:04 AM
 
 Automated promotion
 
-[v2.1.0.dev20261112](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261112 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261112](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261112 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 12, 2026, 09:04 AM
 
 Automated promotion
 
-[v2.1.0.dev20261113](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261113 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261113](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261113 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 13, 2026, 09:07 AM
 
 Automated promotion
 
-[v2.1.0.dev20261114](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261114 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261114](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261114 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 14, 2026, 09:02 AM
 
 Automated promotion
 
-[v2.1.0.dev20261124](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261124 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261124](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261124 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **akbog**Nov 24, 2026, 07:03 AM
 
 Automated promotion
 
-[v2.1.0.dev20261125](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261125 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261125](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261125 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 25, 2026, 09:04 AM
 
 Automated promotion
 
-[v2.1.0.dev20261126](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261126 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.1.0.dev20261126](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261126 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 26, 2026, 09:05 AM
 
 Automated promotion
 
-[v2.0.13](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this release in the dbt v2 changelog")GoodDevCanarystableextendedLatest
+[v2.0.13](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2013 "View this release in the dbt v2 changelog")GoodDevCanaryStableextendedLatest
 
 Released by: **fa-assistant**Nov 24, 2026, 07:24 PM
 
 Auto-mirror: stable promoted to v2.0.13 by aiguofer (https\://github.com/dbt-labs/fs/actions/runs/45469067367)
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extended
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extended
 
 Released by: **ddk-dbt**Nov 25, 2026, 10:12 PM
 
 Automated ST snapshot
 
-[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.11](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2011 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **ddk-dbt**Nov 12, 2026, 10:37 PM
 
 Automated ST snapshot
 
-[v2.0.10](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2010 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.10](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2010 "View this release in the dbt v2 changelog")GoodDevNightlyCanary
 
 Released by: **chayac**Oct 28, 2026, 11:39 PM
 
 Planned orchestration promotion
 
-[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.9](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#209 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **ddk-dbt**Nov 5, 2026, 09:59 PM
 
 Automated ST snapshot
 
-[v2.0.8](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.8](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#208 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **johnchappelledbt**Oct 22, 2026, 09:05 PM
 
 Automated ST snapshot
 
-[v2.0.7](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#207 "View this release in the dbt v2 changelog")Known BadDevnightly
+[v2.0.7](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#207 "View this release in the dbt v2 changelog")Known BadDevNightly
 
 Released by: **kczimm**Sep 25, 2026, 10:51 PM
 
 Automated promotion
 
-[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stableextendedst-monday-extendedst-wednesday-extendedst-thursday-extended
+[v2.0.6](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#206 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestStableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stableextendedst-monday-extendedst-wednesday-extendedst-thursday-extended
 
 Released by: **ddk-dbt**Nov 19, 2026, 10:07 PM
 
 Automated ST snapshot
 
-[v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#205 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
+[v2.0.5](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#205 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestStable
 
 Released by: **xuliangs**Sep 17, 2026, 10:36 PM
 
 Bug fix for INC-8093
 
-[v2.0.4](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#204 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststable
+[v2.0.4](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#204 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestStable
 
 Released by: **tauhid621**Sep 16, 2026, 07:40 AM
 
 planned
 
-[v2.0.3](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#203 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.3](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#203 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **tauhid621**Sep 16, 2026, 02:03 AM
 
 Automated promotion
 
-[v2.0.2](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#202 "View this release in the dbt v2 changelog")GoodDevnightlyLatest
+[v2.0.2](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#202 "View this release in the dbt v2 changelog")GoodDevNightlyLatest
 
 Released by: **mishamsk**Sep 15, 2026, 11:42 PM
 
 planned
 
-[v2.0.1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#201 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
+[v2.0.1](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#201 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStable
 
 Released by: **itsnamangoyal**Sep 14, 2026, 05:28 PM
 
 planned promotion of v2.0.1 to stable
 
-[v2.0.0-preview.221](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview221 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.0-preview.221](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview221 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **jasonlin45**Sep 9, 2026, 03:12 AM
 
 Automated promotion
 
-[v2.0.0-preview.220](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview220 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.0-preview.220](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview220 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **jasonlin45**Sep 3, 2026, 11:23 PM
 
 Automated promotion
 
-[v2.0.0-preview.219](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview219 "View this release in the dbt v2 changelog")GoodDevnightlyCanary
+[v2.0.0-preview.219](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview219 "View this release in the dbt v2 changelog")GoodDevNightlyCanary
 
 Released by: **aiguofer**Sep 3, 2026, 07:56 PM
 
 planned promotion
 
-[v2.0.0-preview.218](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview218 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLatestST MondayST WednesdaystableST Thursdayst-monday-stablest-wednesday-stablest-thursday-stable
+[v2.0.0-preview.218](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview218 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestST MondayST WednesdayStableST Thursdayst-monday-stablest-wednesday-stablest-thursday-stable
 
 Released by: **mishamsk**Sep 14, 2026, 04:22 PM
 
 2.0.0 was accidentally promoted early
 
-[v2.0.0-preview.217](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview217 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.0-preview.217](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview217 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **TIHan**Aug 27, 2026, 08:53 AM
 
 Automated promotion
 
-[v2.0.0-preview.216](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview216 "View this release in the dbt v2 changelog")Known BadDevnightly
+[v2.0.0-preview.216](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview216 "View this release in the dbt v2 changelog")Known BadDevNightly
 
 Released by: **github-merge-queue**Aug 26, 2026, 08:59 AM
 
 Automated promotion
 
-[v2.0.0-preview.215](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview215 "View this release in the dbt v2 changelog")Known BadDevnightlyCanary
+[v2.0.0-preview.215](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview215 "View this release in the dbt v2 changelog")Known BadDevNightlyCanary
 
 Released by: **mishamsk**Aug 25, 2026, 11:15 PM
 
 Planned canary promotion
 
-[v2.0.0-preview.214](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview214 "View this release in the dbt v2 changelog")Known BadDevnightly
+[v2.0.0-preview.214](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview214 "View this release in the dbt v2 changelog")Known BadDevNightly
 
 Released by: **mach-kernel**Aug 25, 2026, 03:50 PM
 
 Automated promotion
 
-[v2.0.0-preview.213](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview213 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLatest
+[v2.0.0-preview.213](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview213 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatest
 
 Released by: **mishamsk**Aug 26, 2026, 10:25 PM
 
 planned
 
-[v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
+[v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
 Released by: **ddk-dbt**Nov 25, 2026, 10:12 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.210](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview210 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST MondayST Wednesday
+[v2.0.0-preview.210](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview210 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestStableST MondayST Wednesday
 
 Released by: **jeremyhutt11**Aug 26, 2026, 11:46 PM
 
 Automated ST promotion
 
-[v2.0.0-preview.209](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview209 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.209](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview209 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Aug 20, 2026, 09:09 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.208](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview208 "View this release in the dbt v2 changelog")Known BadDevnightly
+[v2.0.0-preview.208](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview208 "View this release in the dbt v2 changelog")Known BadDevNightly
 
 Released by: **github-merge-queue**Aug 8, 2026, 08:59 AM
 
 Automated promotion
 
-[v2.0.0-preview.207](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview207 "View this release in the dbt v2 changelog")Known BadDevnightly
+[v2.0.0-preview.207](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview207 "View this release in the dbt v2 changelog")Known BadDevNightly
 
 Released by: **akbog**Aug 6, 2026, 12:33 AM
 
 Automated promotion
 
-[v2.0.0-preview.206](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview206 "View this release in the dbt v2 changelog")Known BadDevnightlyCanary
+[v2.0.0-preview.206](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview206 "View this release in the dbt v2 changelog")Known BadDevNightlyCanary
 
 Released by: **akbog**Aug 5, 2026, 01:11 AM
 
 Planned Promotion
 
-[v2.0.0-preview.205](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview205 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.205](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview205 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **akbog**Aug 14, 2026, 02:44 AM
 
 Incident Investigation
 
-[v2.0.0-preview.204](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview204 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatest
+[v2.0.0-preview.204](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview204 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatest
 
 Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview203 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview203 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
 Released by: **johnchappelledbt**Oct 7, 2026, 09:13 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.202](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview202 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.202](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview202 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Jul 30, 2026, 09:26 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.201](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview201 "View this release in the dbt v2 changelog")GoodDevnightly
+[v2.0.0-preview.201](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview201 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **mishamsk**Jul 20, 2026, 05:42 PM
 
 Automated promotion
 
-[v2.0.0-preview.200](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview200 "View this release in the dbt v2 changelog")GoodDevnightlyCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.200](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview200 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryLatestStableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Jul 23, 2026, 09:25 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.199](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview199 "View this release in the dbt v2 changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.199](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview199 "View this release in the dbt v2 changelog")GoodDevCanaryNightlyStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **jeremyhutt11**Jul 16, 2026, 10:12 PM
 
@@ -418,13 +418,13 @@ Released by: **kczimm**Jul 9, 2026, 09:36 PM
 
 Automated promotion
 
-[v2.0.0-preview.197](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview197 "View this release in the dbt v2 changelog")GoodDevCanarynightly
+[v2.0.0-preview.197](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview197 "View this release in the dbt v2 changelog")GoodDevCanaryNightly
 
 Released by: **akbog**Jul 2, 2026, 07:20 PM
 
 Planned promotion
 
-[v2.0.0-preview.196](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview196 "View this release in the dbt v2 changelog")GoodDevCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.196](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview196 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Jul 9, 2026, 09:31 PM
 
@@ -436,43 +436,43 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview194 "View this release in the dbt v2 changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview194 "View this release in the dbt v2 changelog")GoodDevCanaryStableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
 Released by: **TimKlense**Sep 3, 2026, 09:03 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.193](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview193 "View this release in the dbt v2 changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.193](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview193 "View this release in the dbt v2 changelog")GoodDevCanaryLatestNightlyStableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Jul 2, 2026, 09:26 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.192](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview192 "View this release in the dbt v2 changelog")Known BadDevCanaryLatestnightlystable
+[v2.0.0-preview.192](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview192 "View this release in the dbt v2 changelog")Known BadDevCanaryLatestNightlyStable
 
 Released by: **akbog**Jun 18, 2026, 06:22 PM
 
 Planned promotion
 
-[v2.0.0-preview.191](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview191 "View this release in the dbt v2 changelog")Known BadDevCanarynightly
+[v2.0.0-preview.191](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview191 "View this release in the dbt v2 changelog")Known BadDevCanaryNightly
 
 Released by: **akbog**Jun 12, 2026, 09:14 PM
 
 Planned Promotion
 
-[v2.0.0-preview.190](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview190 "View this release in the dbt v2 changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.190](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview190 "View this release in the dbt v2 changelog")GoodDevCanaryNightlyStableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
 Released by: **TimKlense**Jun 25, 2026, 09:33 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.189](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview189 "View this release in the dbt v2 changelog")GoodDevCanaryLateststable
+[v2.0.0-preview.189](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview189 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStable
 
 Released by: **akbog**Jun 11, 2026, 03:15 AM
 
 Planned Promotion
 
-[v2.0.0-preview.188](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview188 "View this release in the dbt v2 changelog")Known BadDevCanarystablenightlyst-monday-stable
+[v2.0.0-preview.188](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview188 "View this release in the dbt v2 changelog")Known BadDevCanaryStableNightlyst-monday-stable
 
 Released by: **fa-assistant**Jun 8, 2026, 07:05 PM
 
@@ -484,7 +484,7 @@ Released by: **akbog**Jun 6, 2026, 02:06 AM
 
 Automated promotion
 
-[v2.0.0-preview.186](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview186 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
+[v2.0.0-preview.186](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview186 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
 Released by: **laconc**Aug 6, 2026, 10:00 PM
 
@@ -496,31 +496,31 @@ Released by: **akbog**Jun 3, 2026, 07:49 AM
 
 Automated promotion
 
-[v2.0.0-preview.184](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview184 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestst-thursday-stable
+[v2.0.0-preview.184](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview184 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestst-thursday-stable
 
 Released by: **fa-assistant**Jun 4, 2026, 09:34 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.183](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview183 "View this release in the dbt v2 changelog")GoodDevCanaryLateststablenightlyst-wednesday-stable
+[v2.0.0-preview.183](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview183 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStableNightlyst-wednesday-stable
 
 Released by: **fa-assistant**Jun 3, 2026, 10:03 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.182](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview182 "View this release in the dbt v2 changelog")GoodDevCanaryLateststablenightlyST Mondayst-monday-stableST WednesdayST Thursday
+[v2.0.0-preview.182](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview182 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStableNightlyST Mondayst-monday-stableST WednesdayST Thursday
 
 Released by: **fa-assistant**Jun 4, 2026, 09:32 PM
 
 Automated ST promotion
 
-[v2.0.0-preview.181](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview181 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestnightly
+[v2.0.0-preview.181](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview181 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestNightly
 
 Released by: **akbog**Jun 1, 2026, 06:55 AM
 
 Planned Promotion
 
-[v2.0.0-preview.180](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview180 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestnightly
+[v2.0.0-preview.180](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview180 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestNightly
 
 Released by: **akbog**May 30, 2026, 06:35 AM
 
@@ -532,25 +532,25 @@ Released by: **kczimm**May 29, 2026, 05:01 PM
 
 Automated promotion
 
-[v2.0.0-preview.178](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview178 "View this release in the dbt v2 changelog")GoodDevCanaryLateststablenightlyst-wednesday-stablest-thursday-stable
+[v2.0.0-preview.178](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview178 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStableNightlyst-wednesday-stablest-thursday-stable
 
 Released by: **fa-assistant**May 29, 2026, 01:12 PM
 
 Automated ST snapshot
 
-[v2.0.0-preview.177](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview177 "View this release in the dbt v2 changelog")GoodDevCanarystableLatestnightlyst-thursday-stableST Mondayst-monday-stableST WednesdayST Thursday
+[v2.0.0-preview.177](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview177 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestNightlyst-thursday-stableST Mondayst-monday-stableST WednesdayST Thursday
 
 Released by: **fa-assistant**May 29, 2026, 01:10 PM
 
 Automated ST promotion
 
-[v2.0.0-preview.176](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview176 "View this release in the dbt v2 changelog")GoodDevCanarynightlystableLatestst-wednesday-stablest-thursday-stableST MondayST WednesdayST Thursday
+[v2.0.0-preview.176](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview176 "View this release in the dbt v2 changelog")GoodDevCanaryNightlyStableLatestst-wednesday-stablest-thursday-stableST MondayST WednesdayST Thursday
 
 Released by: **fa-assistant**May 21, 2026, 09:31 PM
 
 Automated ST promotion
 
-[v2.0.0-preview.175](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview175 "View this release in the dbt v2 changelog")GoodDevCanaryLateststablest-thursday-stablest-monday-stablest-wednesday-stableST MondayextendedfallbacknightlyST WednesdayST Thursdayst-monday-extendedst-monday-fallbackst-wednesday-extendedst-wednesday-fallbackst-thursday-extendedst-thursday-fallback
+[v2.0.0-preview.175](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview175 "View this release in the dbt v2 changelog")GoodDevCanaryLatestStablest-thursday-stablest-monday-stablest-wednesday-stableST MondayextendedfallbackNightlyST WednesdayST Thursdayst-monday-extendedst-monday-fallbackst-wednesday-extendedst-wednesday-fallbackst-thursday-extendedst-thursday-fallback
 
 Released by: **TimKlense**Jul 9, 2026, 09:31 PM
 
@@ -562,7 +562,7 @@ Released by: **ayshukla**Apr 29, 2026, 03:25 PM
 
 Planned orchestration promotion
 
-[v2.0.0-preview.173](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview173 "View this release in the dbt v2 changelog")release candidateGoodDevCanaryLatestST MondaynightlystableST WednesdayST Thursday
+[v2.0.0-preview.173](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview173 "View this release in the dbt v2 changelog")release candidateGoodDevCanaryLatestST MondayNightlyStableST WednesdayST Thursday
 
 Released by: **TimKlense**Apr 30, 2026, 11:02 PM
 
@@ -1336,7 +1336,7 @@ Released by: **akbog**May 12, 2026, 08:21 PM
 
 Rollback incorrect release of 2.0.0
 
-[v2.0.0](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200 "View this release in the dbt v2 changelog")GoodDevnightlyCanarystable
+[v2.0.0](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStable
 
 Released by: **itsnamangoyal**Sep 14, 2026, 12:48 PM
 
