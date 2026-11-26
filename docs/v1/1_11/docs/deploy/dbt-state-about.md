@@ -6,10 +6,10 @@ dbt State makes dbt smarter about what to build. Instead of rebuilding every nod
 
 With dbt State, dbt first compares the logic and data of each node to previous builds across multiple environments on every run — whether orchestrated in the dbt platform, through your own orchestrator, or in development. If the logic is the same and the data is still fresh, dbt reuses an existing object. It will either clone an existing node from elsewhere, or skip executing a model that already exists, rather than building it anew. Additionally, it will automatically defer to production state without the need to manually set the `--defer` or `--state` flags.
 
-dbt State can reuse all node types that create relations in the database (such as SQL models, snapshots, seeds) and data tests. Note that the following models are not eligible for reuse:
+dbt State can reuse all node types that create relations in the database (such as SQL models, snapshots, seeds) and data tests. Note the following exceptions:
 
 * **Python models**: dbt State builds Python models on every run, even if their code and upstream data have not changed.
-* **Models with custom materializations**: dbt State builds these models on every run because custom materializations may have side effects (for example, modifying table properties or writing to other schemas), and dbt State cannot safely determine whether skipping the run would produce the same result.
+* **Models with custom materializations**: dbt State can skip these models when it detects no upstream changes, but doesn't clone them. Custom materializations can have side effects that cloning wouldn't replicate.
 
 dbt State works with dbt (v1 and v2) and the dbt platform, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication through a dbt platform account. For pricing details, refer to [dbt State usage and pricing](../platform/billing/dbt-state-usage.md).
 
@@ -101,9 +101,9 @@ When dbt State is enabled in a self-managed deployment, all [`state:*` selectors
 
 Does dbt State support incremental models?
 
-dbt State works with incremental models. When you make a change to an incremental model and run it in development, dbt State automatically clones the model from production if it exists, then runs the new model logic on top of the clone.
+dbt State works with incremental models. When you make a change to an incremental model and run it in development, dbt State automatically clones the existing model from production if it exists, then runs the new model logic on top of the clone. Use the [`pre_clone` config](../../reference/resource-configs/pre-clone.md) to change if and how incremental models and snapshots are populated before a run.
 
-If you want to revert to the original dbt behavior and fully refresh the incremental model, pass the [`--full-refresh` flag](../../reference/commands/run.md#refresh-incremental-models).
+If you use the [`--full-refresh` flag](../../reference/commands/run.md#refresh-incremental-models), dbt State ignores any `always` and `if_missing` `pre_clone` configurations. However, if another schema already contains an equivalent version of the requested table, dbt State still clones that instead of building from scratch.
 
 Does dbt State support Python models?
 
@@ -137,13 +137,6 @@ Why is my model being rebuilt instead of reused?
 dbt State decides whether to reuse a model by parsing the rendered SQL into a syntax tree and comparing the hash. If the hash has changed (implying the model's logic has changed), dbt State rebuilds the model.
 
 dbt State prioritizes safety and precision; if it can't guarantee skipping a node is safe, then it rebuilds the node to be sure. A few patterns that commonly cause overeager rebuilds are listed on this page, along with recommendations to increase reuse rate.
-
-The following patterns commonly cause unexpected rebuilds:
-
-* [Views with `select *`](#views-with-select)
-* [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
-* [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
-* [Models with custom materializations](#models-with-custom-materializations)
 
 ## Views with `select *`
 
@@ -216,7 +209,11 @@ To prevent external sources from always being considered stale, configure [`load
 
 ## Models with custom materializations
 
-Models using custom materializations are always built and are never reused. Custom materializations may have side effects (for example, modifying table properties or writing to other schemas), and dbt State cannot safely determine whether skipping the run would produce the same result.
+Models using custom materializations can be skipped as unchanged, but are ineligible to be cloned from another location. Custom materializations may have side effects (for example, modifying table properties or writing to other schemas), and dbt State cannot safely determine whether cloning the object would produce the same result.
+
+## Python models
+
+Python models are always rebuilt because dbt State only analyzes SQL models. The rebuild moves that model's last updated date forward, which triggers a rebuild in any downstream SQL models after their `lag_tolerance` is exceeded. To minimize the effects of this, reduce the number of models that depend on a Python table or set a higher `lag_tolerance` on its immediate children.
 
 ## How to diagnose
 

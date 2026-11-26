@@ -160,6 +160,14 @@ From the team
 
 Deep dives, changelogs, best practices, and new feature highlights from dbt Labs.
 
+### [A checklist for getting the most out of dbt State](https://docs.getdbt.com/blog/checklist-get-the-most-from-dbt-state)
+
+A step-by-step checklist for teams adopting dbt State on a large dbt project, from baselining performance to consolidating jobs.
+
+[analytics craft](https://docs.getdbt.com/blog/tags/analytics-craft)
+
+[Read more](https://docs.getdbt.com/blog/checklist-get-the-most-from-dbt-state)
+
 ### [Have dbt skills been bitter lesson’d?](https://docs.getdbt.com/blog/do-coding-agents-still-need-dbt-skills)
 
 Models have improved a lot since we shipped dbt agent skills, so I ran Claude Opus, Sonnet, and Haiku 5.5, and then Sonnet 4.5, through a...
@@ -175,11 +183,3 @@ Wizard works like an analytics engineer: it thinks in DAGs, tests and fixes its 
 [ai](https://docs.getdbt.com/blog/tags/ai)
 
 [Read more](https://docs.getdbt.com/blog/wizard-agent-harness)
-
-### [dbt\_context\_engineering: modeling the context your AI agents read](https://docs.getdbt.com/blog/dbt-context-engineering)
-
-dbt-context-engineering is a new package, published by dbt, that helps you create AI ready data when you need it.
-
-[ai](https://docs.getdbt.com/blog/tags/ai)[context engineering](https://docs.getdbt.com/blog/tags/context-engineering)[data ecosystem](https://docs.getdbt.com/blog/tags/data-ecosystem)
-
-[Read more](https://docs.getdbt.com/blog/dbt-context-engineering)

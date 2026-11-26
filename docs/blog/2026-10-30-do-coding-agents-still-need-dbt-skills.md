@@ -196,6 +196,10 @@ Framework knowledge isn't worthless, and the dbt agent skills will keep covering
 
 * [ai](./tags/ai.md)
 
+[Newer post](./2026-11-15-checklist-get-the-most-from-dbt-state.md)
+
+[A checklist for getting the most out of dbt State](./2026-11-15-checklist-get-the-most-from-dbt-state.md)
+
 [Older post](./2026-10-14-wizard-agent-harness.md)
 
 [Inside the dbt Wizard harness: building an agent that thinks in DAGs](./2026-10-14-wizard-agent-harness.md)
