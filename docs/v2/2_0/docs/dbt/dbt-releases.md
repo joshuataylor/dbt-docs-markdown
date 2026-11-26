@@ -208,9 +208,9 @@ Released by: **fa-assistant**Nov 24, 2026, 07:24 PM
 
 Auto-mirror: stable promoted to v2.0.13 by aiguofer (https\://github.com/dbt-labs/fs/actions/runs/45469067367)
 
-[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extended
+[v2.0.12](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#2012 "View this release in the dbt v2 changelog")GoodDevCanaryStableLatestST Mondayst-monday-stableextendedST Wednesdayst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **ddk-dbt**Nov 25, 2026, 10:12 PM
+Released by: **ddk-dbt**Nov 26, 2026, 10:05 PM
 
 Automated ST snapshot
 
@@ -336,7 +336,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#200-preview212 "View this release in the dbt v2 changelog")GoodDevNightlyCanaryStablest-monday-stableLatestst-wednesday-stableextendedst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **ddk-dbt**Nov 25, 2026, 10:12 PM
+Released by: **ddk-dbt**Nov 26, 2026, 10:05 PM
 
 Automated ST snapshot
 
