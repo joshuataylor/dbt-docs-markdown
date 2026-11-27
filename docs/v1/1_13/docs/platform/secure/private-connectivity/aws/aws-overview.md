@@ -32,7 +32,7 @@ These tables indicate whether private connectivity can be established to specifi
 
 ***
 
-### Connecting to the dbt platform (Ingress) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Connecting to the dbt platform (Ingress)
 
 Your services can connect to dbt over private connectivity using the dbt-provisioned model. In this case, dbt is the service producer and you are the consumer.
 
