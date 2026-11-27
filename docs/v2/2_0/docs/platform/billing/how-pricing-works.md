@@ -69,9 +69,9 @@ Viewing usage in the product is restricted to specific roles:
 * Starter plan — Owner group
 * Enterprise and Enterprise+ plans — Account and billing admin roles
 
-If you have access to the **Billing** and **Usage** pages in **Account settings**, you can see an estimate of the month's usage, how your account tracks against it, and which projects are building the most models.
+If you have access to **Billing & Usage** (labeled **Billing** on some accounts) in **Account settings**, you can see an estimate of the month's usage, how your account tracks against it, and which projects are building the most models. Go to **Account settings** > **Billing & Usage**, then open **Overview** if it appears.
 
-![To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.](/img/docs/building-a-dbt-project/billing-usage-page.jpg?v=2 "To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.")To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.
+![Account-level estimated usage on Billing & Usage Overview](/img/docs/building-a-dbt-project/billing-usage-overview.png?v=2 "Account-level estimated usage on Billing & Usage Overview")Account-level estimated usage on Billing & Usage Overview
 
 As a Starter and Developer plan user, you can see how the account is tracking against the included models built. As an Enterprise plan user, you can see how much you have drawn down from your annual commit and how much remains.
 

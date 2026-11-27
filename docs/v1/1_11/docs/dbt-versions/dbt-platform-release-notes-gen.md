@@ -19,6 +19,14 @@ This is a first version and we're still shaping it. Tell us what works and what 
 
 ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/feeds/release-notes-st-rss.xml), [Atom](https://docs.getdbt.com/feeds/release-notes-st-atom.xml), or [JSON Feed](https://docs.getdbt.com/feeds/release-notes-st-rss.json).
 
+## November 27, 2026
+
+### New
+
+#### Catalog
+
+* **`columnCount` on applied-state nodes in the Discovery API**: The [Discovery API](../dbt-apis/discovery-api.md) now exposes a `columnCount` field on applied-state models, sources, seeds, and snapshots. It returns the number of catalog columns: `null` if the node has no catalog entry, and `0` if there are no columns. Refer to the [models object schema](../dbt-apis/discovery-schema-environment-applied-models.md) for the full field list.
+
 ## November 25, 2026
 
 ### New

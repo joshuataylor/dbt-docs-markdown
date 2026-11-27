@@ -12,21 +12,25 @@ Before you begin:
 
 ## Select a plan
 
-When your [14 day trial](https://www.getdbt.com/signup/) ends or if your subscription payment is past due , you'll need to select a plan in order to continue using your account:
+When your [14-day trial](https://www.getdbt.com/signup/) ends, you need to select a plan to continue using your account:
 
-* Upon logging in, you should see an "Account locked" pop up message with instructions to unlock your account and update your payment details
-* Click **Go to Billing** to go to the billing page
-* Under **Billing**, you can review the available dbt [plans](https://www.getdbt.com/pricing/) and their features
+1. When you log in, a **Welcome back to dbt** message appears explaining that you've reached the end of your trial and need to select a plan to continue.
+2. Click **Choose a plan**. This opens the **Plans & Pricing** page, where you can review the available dbt [plans](https://www.getdbt.com/pricing/) and their features.
 
-To unlock your account and select a plan, review the following guidance per plan type:
+If your account is past due after a failed payment, refer to [How can I update my billing information?](./change-billing.md) instead.
+
+To select a plan, review the following guidance per plan type:
 
 ### Developer plan
 
-1. To select a Developer plan, click Select plan on the right.
-2. Confirm your plan selection on the pop up message.
-3. This automatically unlocks your dbt account, and you can now enjoy the benefits of the Developer plan. 🎉
+1. On the **Plans & Pricing** page, click **Downgrade** under the Developer plan.
+2. A confirmation message asks if you're sure you want to downgrade. It notes that you'll lose features such as API access, and that switching to the Developer plan removes read-only seats.
+3. Click **Switch to Developer** to confirm.
+4. After you confirm, your account continues on the Developer plan.
 
-![](/img/docs/dbt-platform/downgrade-dev-flow.gif?v=2)
+![Plans and Pricing page with Downgrade under the Developer plan](/img/docs/dbt-platform/developer-downgrade-plans-pricing.png?v=2 "Plans and Pricing page with Downgrade under the Developer plan")Plans and Pricing page with Downgrade under the Developer plan
+
+![Confirmation to switch to the Developer plan](/img/docs/dbt-platform/developer-downgrade-confirm.png?v=2 "Confirmation to switch to the Developer plan")Confirmation to switch to the Developer plan
 
 #### Plan allocation
 
@@ -36,22 +40,20 @@ If you select a plan but have too many seats or projects for that plan (for exam
 
 1. When your trial expires, your account's default plan enrollment will be a Starter plan.
 2. To unlock your account and continue using the Starter plan, click on **Select plan** under the Starter column.
-3. Enter your payment information and seat purchases. Then click **Save**.
+3. Enter your payment information and seat purchases. Then click **Complete purchase**.
 4. This automatically unlocks your dbt account, and you can now enjoy the benefits of the Starter plan. 🎉
 
-![](/img/docs/dbt-platform/trial-team-flow.png?v=2)
+![Plans and Pricing page with Starter marked as Current trial](/img/docs/dbt-platform/starter-plans-pricing.png?v=2 "Plans and Pricing page with Starter marked as Current trial")Plans and Pricing page with Starter marked as Current trial
 
 ![](/img/docs/dbt-platform/trial-team-payments-flow.png?v=2)
 
-### Enterprise plan
+### Enterprise-tier plans
 
-1. If you're interested in one of our Enterprise-tier plans, select the Enterprise tab under **Billing**.
-2. Click **Contact Sales** on the right. This opens a chat window for you to contact the dbt Support team, who will connect you to our Sales team.
-3. Once you submit your request, our Sales team will contact you with more information.
+1. On the **Plans & Pricing** page, find the **Enterprise** or **Enterprise+** plan.
+2. Click **Contact sales**. This opens a form where you can [talk to a dbt expert](https://www.getdbt.com/contact/) and request a conversation with the Sales team.
+3. Submit the form. The Sales team will follow up with more information.
 
-![](/img/docs/dbt-platform/enterprise-upgrade.gif?v=2)
-
-4. Alternatively, you can [contact](https://www.getdbt.com/contact/) our Sales team directly to chat about how dbt can help you and your team.
+![Click Contact sales on an Enterprise-tier plan to open the Talk to a dbt expert form](/img/docs/dbt-platform/enterprise-contact-sales.gif?v=2 "Click Contact sales on an Enterprise-tier plan to open the Talk to a dbt expert form")Click Contact sales on an Enterprise-tier plan to open the Talk to a dbt expert form
 
 ## Related questions
 
@@ -59,9 +61,17 @@ For commonly asked billings questions, refer to the dbt [pricing page](https://w
 
 How does billing work?
 
-Starter plans are billed monthly on the credit card used to sign up, based on [developer seat count and usage](../../docs/platform/billing.md). You’ll also be sent a monthly receipt to the billing email of your choice. You can change any billing information in your **Account Settings** > **Billing page**.
+* Developer plans are free and include one developer seat and a monthly models-built allotment.
+* Starter plans are billed monthly on the credit card used to sign up, based on [developer seat count and usage](../../docs/platform/billing.md). You'll also receive a monthly receipt at the billing email on file.
+* Enterprise-tier plan customers are billed annually based on the number of developer seats, as well as any additional services and features in your chosen plan.
 
-Enterprise-tier plan customers are billed annually based on the number of developer seats, as well as any additional services + features in your chosen plan.
+On Starter plans, account owners can view and manage payment details in **Account settings**:
+
+1. Click your account name in the left sidebar and select **Account settings**.
+2. Under **Settings**, select **Billing & Usage** (labeled **Billing** on some accounts).
+3. Open **Overview** if it appears, then open the **Billing details** tab.
+
+On Enterprise-tier plans, billing is managed by your account team. Contact them for billing questions.
 
 Can I upgrade or downgrade my plan?
 
@@ -85,4 +95,11 @@ Why did I receive a **Failed payment** error email?
 
 This means we were unable to charge the credit card you have on file, or you have not provided an updated card for payment. If you're a current account owner with a card on file, contact your credit card issuer to inquire as to why your card was declined or update the credit card on your account.
 
-Your Account Owner can update payment details in the **Account Settings** -> **Billing** page. Click **Edit** next to your card details, double check your information is up-to-date, and we'll give it another go at the next billing run.
+On Starter plans, your Account Owner can update payment details:
+
+1. Click your account name in the left sidebar and select **Account settings**.
+2. Under **Settings**, select **Billing & Usage** (labeled **Billing** on some accounts).
+3. Open **Overview** if it appears, then open the **Billing details** tab.
+4. Under **Payment information**, click **Edit** next to your card details, update your information, and save. We'll try again at the next billing run.
+
+On Enterprise-tier plans, billing is managed by your account team. Contact them for help with payment issues.

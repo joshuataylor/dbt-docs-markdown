@@ -72,9 +72,9 @@ If you're on an Enterprise-tier plan and have the correct [permissions](./enterp
   * Select the user you want to remove, click **Edit**, and then **Delete**.
   * This action cannot be undone. However, you can re-invite the user with the same info if you deleted the user in error.
 
-* To add a user, go to **Account Settings** and select **Users**.
+* To add a user, go to **Account settings** and select **Users**.
 
-  * Click the [**Invite Users**](./invite-users.md) button.
+  * Click [**Invite Users**](./invite-users.md).
   * For fine-grained permission configuration, refer to [Role based access control](./about-user-access.md#role-based-access-control-).
 
 ### Starter plans
@@ -85,50 +85,67 @@ Refer to [Self-service Starter account permissions](./self-service-permissions.m
 
 You'll need to make two changes:
 
-* Adjust your developer user seat count, which manages the users invited to your dbt project.
-* Adjust your developer billing seat count, which manages the number of billable seats.
+* Adjust your developer billing seat count on **Billing details**, which controls how many billable seats you pay for.
+* Invite or delete users under **Users**, which controls who has access to your dbt account.
 
-You can add or remove developers by increasing or decreasing the number of users and billable seats in your account settings:
+Inviting a user does not purchase a seat. If you don't have a free seat, buy one on **Billing details** before you send the invite.
 
 #### Adding users
 
-To add a user in dbt, you must be an account owner or have admin privileges.
+To add a user in dbt, you must be an account owner or have admin privileges. Purchase enough developer seats first, then invite the user. Inviting a user does not buy a seat.
 
-1. From dbt, click on your account name in the left side menu and select **Account settings**.
+**Purchasing developer seats**
 
-![Navigate to Account settings](/img/docs/dbt-platform/Navigate-to-account-settings.png?v=2 "Navigate to Account settings")Navigate to Account settings
+1. From dbt, click your account name in the left side menu and select **Account settings**.
 
-2. In **Account Settings**, select **Billing**.
-3. Under **Billing details**, enter the number of developer seats you want and make sure you fill in all the payment details, including the **Billing address** section. Leaving these blank won't allow you to save your changes.
-4. Press **Update Payment Information** to save your changes.
+![Open Account settings from the account menu in the left sidebar](/img/docs/dbt-platform/account-settings-menu.png?v=2 "Open Account settings from the account menu in the left sidebar")Open Account settings from the account menu in the left sidebar
 
-![Navigate to Account settings -> Billing to modify billing seat count](/img/docs/dbt-platform/faq-account-settings-billing.png?v=2 "Navigate to Account settings -> Billing to modify billing seat count")Navigate to Account settings -> Billing to modify billing seat count
+2. Under **Settings**, select **Billing & Usage** (labeled **Billing** on some accounts).
+3. Open **Overview** if it appears, then open the **Billing details** tab.
+4. Under **Payment information**, go to the **Seat purchases** section.
+5. From the **Number of developer seats** dropdown, select how many seats you want (up to five on Starter). Options below the number of seats already in use are unavailable.
+6. Fill in your payment details, including the billing address, if prompted. You can't save changes if required fields are blank.
+7. Click **Update payment information** (or **Complete purchase** if you're finishing a trial or first purchase).
+8. If a **Confirm additional seats** modal appears, review the change and click **Add seats**.
 
-Now that you've updated your billing, you can now [invite users](./invite-users.md) to join your dbt account:
+**Inviting users**
 
-Great work! After completing those these steps, your dbt user count and billing count should now be the same.
+1. In **Account settings**, select **Users**.
+2. Click **Invite users**.
+3. Enter one or more email addresses, choose a license type, and select at least one group.
+4. Click **Send invitations**.
+
+If you don't have enough seats, the invite fails and shows a **Purchase seats** link that takes you back to **Billing details**. You can also follow the full [invite users](./invite-users.md) guide.
+
+Great work! After completing these steps, your dbt user count and billing count should now be the same.
 
 #### Deleting users
 
 To delete a user in dbt, you must be an account owner or have admin privileges. If the user has a `developer` license type, this will open up their seat for another user or allow the admins to lower the total number of seats.
 
-1. From dbt, click on your account name in the left side menu and select **Account settings**.
+1. From dbt, click your account name in the left side menu and select **Account settings**.
 
-![Navigate to Account settings](/img/docs/dbt-platform/Navigate-to-account-settings.png?v=2 "Navigate to Account settings")Navigate to Account settings
+![Open Account settings from the account menu in the left sidebar](/img/docs/dbt-platform/account-settings-menu.png?v=2 "Open Account settings from the account menu in the left sidebar")Open Account settings from the account menu in the left sidebar
 
 2. In **Account settings**, select **Users**.
 3. Select the user you want to delete, then click **Edit**.
-4. Click **Delete** in the bottom left. Click **Confirm Delete** to immediately delete the user without additional password prompts. This action cannot be undone. However, you can re-invite the user with the same information if the deletion was made in error.
+4. Click **Delete** in the upper right. Click **Confirm Delete** to immediately delete the user without additional password prompts. This action cannot be undone. However, you can re-invite the user with the same information if the deletion was made in error.
 
-![Deleting a user](/img/docs/dbt-platform/delete_user_20221023.gif?v=2 "Deleting a user")Deleting a user
+![Deleting a user](/img/docs/dbt-platform/delete_user.png?v=2 "Deleting a user")Deleting a user
 
-If you are on a **Starter** plan and you're deleting users to reduce the number of billable seats, follow these steps to lower the license count to avoid being overcharged:
+If you are on a **Starter** plan and you're deleting users to reduce the number of billable seats, lower the seat count so you aren't billed for unused seats.
 
-1. In **Account Settings**, select **Billing**.
-2. Under **Billing details**, enter the number of developer seats you want and make sure you fill in all the payment details, including the **Billing address** section. If you leave any field blank, you won't be able to save your changes.
-3. Click **Update Payment Information** to save your changes.
+After you delete a developer user (or switch them to Read-Only), you may see a **Change developer seats?** prompt that offers to match your seat count to the developers you still have. Click **Confirm** to accept, or **No thanks** to leave the seat count unchanged.
 
-![The Billing\*\* page in your \*\*Account settings](/img/docs/dbt-platform/faq-account-settings-billing.png?v=2 "The Billing** page in your **Account settings")The Billing\*\* page in your \*\*Account settings
+To change the seat count yourself from billing:
+
+1. Click your account name in the left sidebar and select **Account settings**.
+2. Under **Settings**, select **Billing & Usage** (labeled **Billing** on some accounts).
+3. Open **Overview** if it appears, then open the **Billing details** tab.
+4. Under **Payment information**, go to the **Seat purchases** section.
+5. From the **Number of developer seats** dropdown, select the lower seat count. Options below the number of seats in use are unavailable, so delete or reassign users first if needed.
+6. Click **Update payment information**.
+7. In the **Confirm removed seats** modal, click **Remove seats**.
 
 Great work! After completing these steps, your dbt user count and billing count should now be the same.
 
@@ -151,7 +168,7 @@ To manually assign a specific type of license to a user on your team:
 
 **Note:** You will need to have an available license ready to allocate for the user. If your account does not have an available license to allocate, you will need to add more licenses to your plan to complete the license change.
 
-![Manually assigning licenses](/img/docs/dbt-platform/access-control/license-manual.png?v=2 "Manually assigning licenses")Manually assigning licenses
+![Manually assigning a license on the User details page](/img/docs/dbt-platform/access-control/license-manual-user-details-v2.png?v=2 "Manually assigning a license on the User details page")Manually assigning a license on the User details page
 
 ### Default license for new users [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
