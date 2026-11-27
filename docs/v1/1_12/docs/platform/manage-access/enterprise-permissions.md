@@ -52,6 +52,7 @@ Notable features:
 * Account Viewer is an account-level set.
 * Read-only access to all settings, projects, environments, and runs.
 * Read-only access to audit logs, including sensitive account-level information.
+* Read-only access to [webhook](../../deploy/webhooks.md) subscriptions. Can't test webhooks or view their deliveries.
 * No access to the IDE.
 * Can access Catalog
 
@@ -266,6 +267,7 @@ Notable features:
 * Read-only access to members (to populate the recipient picker).
 * Read-only access to Slack and Microsoft Teams OAuth configuration status (for viewing the Slack and Microsoft Teams integration connection).
 * Connecting or disconnecting the Slack or Microsoft Teams integration remains Account Admin-only.
+* Can create, edit, delete, and test [webhooks](../../deploy/webhooks.md), and view their deliveries.
 * No access to other account settings, jobs, runs, or environments.
 
  Project creator
@@ -280,16 +282,17 @@ Notable features:
 * Unrestricted access to project configurations.
 * Can access Catalog
 
- Security admin
+ Security Admin
 
-Security admins have limited access to the security settings and policies for the dbt account. This is intended for members of a security team who need to ensure compliance with security standards and oversee the implementation of best security practices across the account. The [IT license-type](./seats-and-users.md#licenses) includes this permission set by default.
+Security Admins have limited access to the security settings and policies for the dbt account. This is intended for members of a security team who need to ensure compliance with security standards and oversee the implementation of best security practices across the account. The [IT license-type](./seats-and-users.md#licenses) includes this permission set by default, except read access to webhooks.
 
 Notable features:
 
-* Security admin is an account-level set.
+* Security Admin is an account-level set.
 * Can create and edit users and groups and assign licenses.
 * Can create and edit authentication and SSO settings.
 * Can create and edit IP restrictions, view service tokens, and manage user access controls.
+* Read-only access to [webhook](../../deploy/webhooks.md) subscriptions. Can't test webhooks or view their deliveries.
 * No access to jobs, runs, environments, or the IDE.
 
  Semantic Layer
@@ -371,11 +374,13 @@ Key:
 | Project (create)         | W             | -             | -                   | -                    | -                       | -                    | W               | -              | -              |
 | Public models            | R             | R             | -                   | -                    | -                       | -                    | R               | R              | R              |
 | Service tokens           | W             | -             | -                   | -                    | -                       | -                    | -               | R              | R              |
-| Webhooks                 | W             | -             | -                   | -                    | -                       | -                    | -               | -              | -              |
+| Webhooks\*\*\*           | W             | -             | -                   | -                    | -                       | W                    | -               | R              | R              |
 
 \*Permission sets with write (**W**) access to Account settings can modify account-level settings. The **Notification Manager** permission set has dedicated write access to **Job notifications** (Slack, Microsoft Teams, and email) without requiring full Account settings access.
 
 \*\***Cost Insights Admin** can edit [platform metadata credentials](../../explore/set-up-cost-insights.md#configure-platform-metadata-credentials) and [Cost Insights](../../explore/set-up-cost-insights.md) settings in **Connection settings**, even though **Connections** is read-only (**R**) for this permission set.
+
+\*\*\*Read (**R**) access to **Webhooks** lets you view webhook subscriptions. Testing a webhook and viewing its deliveries require write (**W**) access.
 
 Credentials access
 

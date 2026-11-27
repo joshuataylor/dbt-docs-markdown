@@ -30,7 +30,7 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
 * For `write` access to webhooks:
 
-  * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, or Developer [permission set](../platform/manage-access/enterprise-permissions.md).
+  * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, Developer, or Notification Manager [permission set](../platform/manage-access/enterprise-permissions.md). The Account Viewer and Security Admin permission sets can view webhook subscriptions but can't create, edit, delete, or test them, or view their deliveries.
   * **Starter plan accounts** — For the dbt user interface (UI), you need to have a [Developer license](../platform/manage-access/self-service-permissions.md).
 
 * You have a multi-tenant or an AWS single-tenant deployment model in dbt. For more information, refer to [Tenancy](../platform/about-platform/tenancy.md).

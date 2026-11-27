@@ -16,6 +16,7 @@ There are four license types in dbt:
 * **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](./enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
 
   * Can manage users, groups, connections, and licenses, among other permissions.
+  * No access to [webhooks](../../deploy/webhooks.md), even though the Security Admin permission set can view them.
   * *IT licensed users do not inherit rights from any permission sets*.
   * Every IT licensed user has the same access across the account, regardless of the group permissions assigned.
 
