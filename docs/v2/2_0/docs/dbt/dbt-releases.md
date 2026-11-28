@@ -52,9 +52,9 @@ dbt system update --version 2.0.0     # Install a specific version
 
 #### Nightly
 
-[`v2.1.0.dev20261127`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261127 "View this version in the dbt v2 changelog")
+[`v2.1.0.dev20261128`](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261128 "View this version in the dbt v2 changelog")
 
-2026-11-27
+2026-11-28
 
 #### Stable
 
@@ -205,6 +205,12 @@ Automated promotion
 [v2.1.0.dev20261127](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261127 "View this release in the dbt v2 changelog")GoodDevNightly
 
 Released by: **github-merge-queue**Nov 27, 2026, 09:02 AM
+
+Automated promotion
+
+[v2.1.0.dev20261128](https://github.com/dbt-labs/dbt/blob/main/CHANGELOG-dbt.md#210dev20261128 "View this release in the dbt v2 changelog")GoodDevNightly
+
+Released by: **github-merge-queue**Nov 28, 2026, 09:01 AM
 
 Automated promotion
 
